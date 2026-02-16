@@ -1,0 +1,26 @@
+Unsloth: KwargsForCausalLM cannot be inherited from TransformersKwargs since it's of type = <class 'type'>
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:36<02:27, 36.85s/it]Loading checkpoint shards:  40%|████      | 2/5 [01:14<01:52, 37.40s/it]Loading checkpoint shards:  60%|██████    | 3/5 [01:52<01:15, 37.60s/it]Loading checkpoint shards:  80%|████████  | 4/5 [02:30<00:37, 37.76s/it]Loading checkpoint shards: 100%|██████████| 5/5 [02:40<00:00, 27.62s/it]Loading checkpoint shards: 100%|██████████| 5/5 [02:40<00:00, 32.03s/it]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/stair_finetune2.py", line 645, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/stair_finetune2.py", line 603, in main
+    trainer = finetuner.train_model(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/stair_finetune2.py", line 326, in train_model
+    self._build_bad_words()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/stair_finetune2.py", line 313, in _build_bad_words
+    ids = self.tokenizer(w, add_special_tokens=False).input_ids
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/models/qwen2_5_vl/processing_qwen2_5_vl.py", line 132, in __call__
+    image_inputs = self.image_processor(images=images, videos=None, **output_kwargs["images_kwargs"])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/image_processing_utils.py", line 42, in __call__
+    return self.preprocess(images, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/models/qwen2_vl/image_processing_qwen2_vl.py", line 409, in preprocess
+    images = make_flat_list_of_images(images)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/image_utils.py", line 262, in make_flat_list_of_images
+    raise ValueError(f"Could not make a flat list of images from {images}")
+ValueError: Could not make a flat list of images from ```

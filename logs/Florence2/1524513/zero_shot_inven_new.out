@@ -1,0 +1,333 @@
+### Starting TaskPrologue of job 1524513 on tg074 at Wed Feb  4 03:34:15 PM CET 2026
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Wed Feb  4 15:34:15 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   32C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting Florence 2 inference...
+Job ID: 1524513
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/Florence2/1524513
+Job started at: Wed Feb  4 03:34:17 PM CET 2026
+============================================================
+FLORENCE-2-LARGE ZERO-SHOT OCR EVALUATION
+============================================================
+Output directory: /home/vault/iwi5/iwi5298h/models_image_text/florence2/few_zero_inven/run_zeroshot_20260204_153519
+
+Using device: cuda:0
+
+Loading Florence-2-large model...
+Model loaded successfully!
+
+Loading test data...
+Loaded 47 test samples
+
+📝 Evaluation Method:
+Ground truth JSON → Extract all text → Concatenate
+Florence-2 <OCR> task → Extract text
+Compare both texts → Calculate CER
+
+Processing 47 images...
+------------------------------------------------------------
+
+[1/47] Processing: inventarbuch-036.jpg
+  GT length: 736 chars
+  Pred length: 752 chars
+  ✓ CER: 0.4361 (43.61%)
+
+[2/47] Processing: inventarbuch-100.jpg
+  GT length: 806 chars
+  Pred length: 800 chars
+  ✓ CER: 0.3983 (39.83%)
+
+[3/47] Processing: inventarbuch-190.jpg
+  GT length: 594 chars
+  Pred length: 618 chars
+  ✓ CER: 0.4040 (40.40%)
+
+[4/47] Processing: inventarbuch-153.jpg
+  GT length: 241 chars
+  Pred length: 245 chars
+  ✓ CER: 0.3195 (31.95%)
+
+[5/47] Processing: inventarbuch-041.jpg
+  GT length: 171 chars
+  Pred length: 171 chars
+  ✓ CER: 0.3567 (35.67%)
+
+[6/47] Processing: inventarbuch-198.jpg
+  GT length: 657 chars
+  Pred length: 647 chars
+  ✓ CER: 0.4399 (43.99%)
+
+[7/47] Processing: inventarbuch-065.jpg
+  GT length: 869 chars
+  Pred length: 873 chars
+  ✓ CER: 0.4891 (48.91%)
+
+[8/47] Processing: inventarbuch-242.jpg
+  GT length: 629 chars
+  Pred length: 584 chars
+  ✓ CER: 0.4706 (47.06%)
+
+[9/47] Processing: inventarbuch-023.jpg
+  GT length: 809 chars
+  Pred length: 817 chars
+  ✓ CER: 0.4994 (49.94%)
+
+[10/47] Processing: inventarbuch-137.jpg
+  GT length: 953 chars
+  Pred length: 966 chars
+  ✓ CER: 0.3872 (38.72%)
+
+[11/47] Processing: inventarbuch-180.jpg
+  GT length: 496 chars
+  Pred length: 523 chars
+  ✓ CER: 0.4577 (45.77%)
+
+[12/47] Processing: inventarbuch-188.jpg
+  GT length: 480 chars
+  Pred length: 516 chars
+  ✓ CER: 0.4375 (43.75%)
+
+[13/47] Processing: inventarbuch-051.jpg
+  GT length: 147 chars
+  Pred length: 140 chars
+  ✓ CER: 0.3265 (32.65%)
+
+[14/47] Processing: inventarbuch-199.jpg
+  GT length: 0 chars
+  Pred length: 2 chars
+  ✓ CER: 1.0000 (100.00%)
+
+[15/47] Processing: inventarbuch-296.jpg
+  GT length: 843 chars
+  Pred length: 787 chars
+  ✓ CER: 0.5575 (55.75%)
+
+[16/47] Processing: inventarbuch-302.jpg
+  GT length: 106 chars
+  Pred length: 139 chars
+  ✓ CER: 0.5660 (56.60%)
+
+[17/47] Processing: inventarbuch-176.jpg
+  GT length: 525 chars
+  Pred length: 546 chars
+  ✓ CER: 0.4152 (41.52%)
+
+[18/47] Processing: inventarbuch-112.jpg
+  GT length: 487 chars
+  Pred length: 553 chars
+  ✓ CER: 0.4209 (42.09%)
+
+[19/47] Processing: inventarbuch-081.jpg
+  GT length: 473 chars
+  Pred length: 491 chars
+  ✓ CER: 0.4989 (49.89%)
+
+[20/47] Processing: inventarbuch-290.jpg
+  GT length: 689 chars
+  Pred length: 712 chars
+  ✓ CER: 0.5791 (57.91%)
+
+[21/47] Processing: inventarbuch-178.jpg
+  GT length: 298 chars
+  Pred length: 320 chars
+  ✓ CER: 0.5034 (50.34%)
+
+[22/47] Processing: inventarbuch-299.jpg
+  GT length: 356 chars
+  Pred length: 371 chars
+  ✓ CER: 0.4045 (40.45%)
+
+[23/47] Processing: inventarbuch-083.jpg
+  GT length: 779 chars
+  Pred length: 809 chars
+  ✓ CER: 0.4994 (49.94%)
+
+[24/47] Processing: inventarbuch-004.jpg
+  GT length: 518 chars
+  Pred length: 560 chars
+  ✓ CER: 0.4575 (45.75%)
+
+[25/47] Processing: inventarbuch-145.jpg
+  GT length: 963 chars
+  Pred length: 996 chars
+  ✓ CER: 0.4382 (43.82%)
+
+[26/47] Processing: inventarbuch-236.jpg
+  GT length: 601 chars
+  Pred length: 537 chars
+  ✓ CER: 0.4809 (48.09%)
+
+[27/47] Processing: inventarbuch-114.jpg
+  GT length: 782 chars
+  Pred length: 856 chars
+  ✓ CER: 0.4642 (46.42%)
+
+[28/47] Processing: inventarbuch-220.jpg
+  GT length: 611 chars
+  Pred length: 570 chars
+  ✓ CER: 0.5041 (50.41%)
+
+[29/47] Processing: inventarbuch-301.jpg
+  GT length: 0 chars
+  Pred length: 2 chars
+  ✓ CER: 1.0000 (100.00%)
+
+[30/47] Processing: inventarbuch-103.jpg
+  GT length: 581 chars
+  Pred length: 591 chars
+  ✓ CER: 0.4475 (44.75%)
+
+[31/47] Processing: inventarbuch-014.jpg
+  GT length: 752 chars
+  Pred length: 768 chars
+  ✓ CER: 0.4774 (47.74%)
+
+[32/47] Processing: inventarbuch-265.jpg
+  GT length: 682 chars
+  Pred length: 701 chars
+  ✓ CER: 0.4003 (40.03%)
+
+[33/47] Processing: inventarbuch-121.jpg
+  GT length: 726 chars
+  Pred length: 732 chars
+  ✓ CER: 0.4174 (41.74%)
+
+[34/47] Processing: inventarbuch-113.jpg
+  GT length: 580 chars
+  Pred length: 623 chars
+  ✓ CER: 0.4397 (43.97%)
+
+[35/47] Processing: inventarbuch-049.jpg
+  GT length: 35 chars
+  Pred length: 35 chars
+  ✓ CER: 0.4571 (45.71%)
+
+[36/47] Processing: inventarbuch-016.jpg
+  GT length: 773 chars
+  Pred length: 814 chars
+  ✓ CER: 0.5045 (50.45%)
+
+[37/47] Processing: inventarbuch-017.jpg
+  GT length: 70 chars
+  Pred length: 68 chars
+  ✓ CER: 0.3286 (32.86%)
+
+[38/47] Processing: inventarbuch-223.jpg
+  GT length: 495 chars
+  Pred length: 570 chars
+  ✓ CER: 0.4626 (46.26%)
+
+[39/47] Processing: inventarbuch-046.jpg
+  GT length: 789 chars
+  Pred length: 805 chars
+  ✓ CER: 0.4804 (48.04%)
+
+[40/47] Processing: inventarbuch-286.jpg
+  GT length: 803 chars
+  Pred length: 700 chars
+  ✓ CER: 0.5056 (50.56%)
+
+[41/47] Processing: inventarbuch-054.jpg
+  GT length: 842 chars
+  Pred length: 833 chars
+  ✓ CER: 0.4632 (46.32%)
+
+[42/47] Processing: inventarbuch-073.jpg
+  GT length: 785 chars
+  Pred length: 809 chars
+  ✓ CER: 0.4994 (49.94%)
+
+[43/47] Processing: inventarbuch-116.jpg
+  GT length: 137 chars
+  Pred length: 149 chars
+  ✓ CER: 0.3577 (35.77%)
+
+[44/47] Processing: inventarbuch-127.jpg
+  GT length: 616 chars
+  Pred length: 604 chars
+  ✓ CER: 0.4237 (42.37%)
+
+[45/47] Processing: inventarbuch-143.jpg
+  GT length: 550 chars
+  Pred length: 585 chars
+  ✓ CER: 0.3764 (37.64%)
+
+[46/47] Processing: inventarbuch-013.jpg
+  GT length: 392 chars
+  Pred length: 375 chars
+  ✓ CER: 0.4719 (47.19%)
+
+[47/47] Processing: inventarbuch-059.jpg
+  GT length: 529 chars
+  Pred length: 522 chars
+  ✓ CER: 0.3667 (36.67%)
+
+============================================================
+SAVING RESULTS
+============================================================
+Output directory: /home/vault/iwi5/iwi5298h/models_image_text/florence2/few_zero_inven/run_zeroshot_20260204_153519
+✓ Predictions saved: /home/vault/iwi5/iwi5298h/models_image_text/florence2/few_zero_inven/run_zeroshot_20260204_153519/predictions_zeroshot.jsonl
+
+============================================================
+EVALUATION RESULTS - ZERO-SHOT
+============================================================
+Total images: 47
+Macro CER (avg per-sample): 0.4700 (47.00%)
+Micro CER (char-weighted):  0.4561 (45.61%)
+Minimum CER: 0.3195 (31.95%)
+Maximum CER: 1.0000 (100.00%)
+Perfect matches: 0/47
+Total characters: 25756
+Total errors: 11747
+
+✓ Summary saved: /home/vault/iwi5/iwi5298h/models_image_text/florence2/few_zero_inven/run_zeroshot_20260204_153519/evaluation_summary_zeroshot.json
+
+============================================================
+COMPLETE!
+============================================================
+Results directory: /home/vault/iwi5/iwi5298h/models_image_text/florence2/few_zero_inven/run_zeroshot_20260204_153519
+
+Job completed at: Wed Feb  4 03:38:41 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Wed Feb  4 03:38:41 PM CET 2026
+= Job-ID             : 1524513 on tinygpu
+= Job-Name           : Florence2_zero_shot_inven_new
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_florence_inference.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 02:00:00
+= Elapsed runtime    : 00:04:28
+= Total RAM usage    : 4.6 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2026-02-04T15:34:06 / 2026-02-04T15:34:06 / 2026-02-04T15:34:13 / 2026-02-04T15:38:41
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.4G   104.9G   209.7G        N/A  29,706      500K   1,000K        N/A    
+    /home/vault           855.7G  1048.6G  2097.2G        N/A   8,947      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 1435810, 24 %, 6 %, 5224 MiB, 201766 ms

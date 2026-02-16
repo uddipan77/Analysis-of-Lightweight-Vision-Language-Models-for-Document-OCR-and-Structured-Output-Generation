@@ -1,0 +1,321 @@
+### Starting TaskPrologue of job 1526221 on tg074 at Sat Feb  7 02:04:21 PM CET 2026
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Sat Feb  7 14:04:21 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   45C    P0             28W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Sat Feb  7 02:04:24 PM CET 2026
+================================================================================
+🚀 Phi-3.5-Vision few-shot (Code-1 style) Inference — RAW CER
+================================================================================
+✅ Train samples: 215
+✅ Test samples:  47
+✅ Using 1 example: ['inventarbuch-156.jpg']
+📍 Device: cuda
+✅ Model and processor loaded
+
+================================================================================
+RUNNING 1-SHOT INFERENCE (CODE-1 STYLE) — RAW OUTPUT COMPARISON
+================================================================================
+
+[1/47] inventarbuch-036.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6720 (67.20%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[2/47] inventarbuch-100.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6032 (60.32%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 8,08; b: 5,95; c: ...
+
+[3/47] inventarbuch-190.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6154 (61.54%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 3,54; b: 4,50; c: ...
+
+[4/47] inventarbuch-153.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.9686 (96.86%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[5/47] inventarbuch-041.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 2.9199 (291.99%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[6/47] inventarbuch-198.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.5777 (57.77%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[7/47] inventarbuch-065.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6936 (69.36%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[8/47] inventarbuch-242.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.5033 (50.33%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[9/47] inventarbuch-023.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6730 (67.30%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[10/47] inventarbuch-137.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 1.6661 (166.61%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[11/47] inventarbuch-180.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6000 (60.00%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[12/47] inventarbuch-188.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6091 (60.91%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,30; b: 5,80; c: ...
+
+[13/47] inventarbuch-051.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 1.2361 (123.61%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[14/47] inventarbuch-199.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 7.3262 (732.62%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[15/47] inventarbuch-296.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6342 (63.42%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[16/47] inventarbuch-302.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 1.3636 (136.36%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[17/47] inventarbuch-176.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 2.7572 (275.72%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[18/47] inventarbuch-112.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6023 (60.23%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[19/47] inventarbuch-081.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.5931 (59.31%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[20/47] inventarbuch-290.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.5565 (55.65%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[21/47] inventarbuch-178.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.5833 (58.33%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[22/47] inventarbuch-299.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6069 (60.69%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[23/47] inventarbuch-083.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 2.0976 (209.76%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 9,7; b: 2,95; c: 1...
+
+[24/47] inventarbuch-004.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6120 (61.20%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[25/47] inventarbuch-145.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6217 (62.17%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 5,57; b: 3,44; c: ...
+
+[26/47] inventarbuch-236.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.5048 (50.48%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 5,20; b: 4,36; c: ...
+
+[27/47] inventarbuch-114.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6594 (65.94%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[28/47] inventarbuch-220.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.4899 (48.99%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[29/47] inventarbuch-301.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 2.9220 (292.20%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[30/47] inventarbuch-103.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6909 (69.09%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[31/47] inventarbuch-014.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6761 (67.61%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[32/47] inventarbuch-265.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6458 (64.58%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[33/47] inventarbuch-121.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.5965 (59.65%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[34/47] inventarbuch-113.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6345 (63.45%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[35/47] inventarbuch-049.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.4716 (47.16%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Nach Brutot den Freigießen zugegangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"","B":"","D":""},"Objektbezeichnung":"","Fundort":"...
+
+[36/47] inventarbuch-016.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.4851 (48.51%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[37/47] inventarbuch-017.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 1.7867 (178.67%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[38/47] inventarbuch-223.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.5803 (58.03%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[39/47] inventarbuch-046.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6822 (68.22%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 10,5; b: 6,92; c: ...
+
+[40/47] inventarbuch-286.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.5806 (58.06%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[41/47] inventarbuch-054.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.6598 (65.98%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[42/47] inventarbuch-073.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 2.3856 (238.56%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[43/47] inventarbuch-116.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 1.2806 (128.06%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[44/47] inventarbuch-127.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 3.3040 (330.40%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[45/47] inventarbuch-143.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.5482 (54.82%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 100","Maße":{"L":"a: 5,74; b: 4,07; c: 4,58"...
+
+[46/47] inventarbuch-013.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.8499 (84.99%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+[47/47] inventarbuch-059.jpg
+  🧠 seq_len=4811, model_max=131072, max_new_tokens=1024
+  📊 CER: 0.7687 (76.87%)
+  📝 Raw pred (first 150 chars): {"Überschrift":"Anthropologisch=prähistorische Sammlung der K. Universität Erlangen","Inventarnummer":"Mo 112 a-c)","Maße":{"L":"a: 7,20; b: 5,36; c: ...
+
+================================================================================
+📊 FINAL RESULTS — RAW CER
+================================================================================
+{
+  "timestamp": "20260207_140447",
+  "method": "few-shot-code1-style-raw",
+  "model": "Phi-3.5-Vision",
+  "total_samples": 47,
+  "macro_cer": 1.1254442559008746,
+  "micro_cer": 0.9430572851805729,
+  "perfect_matches": 0,
+  "perfect_match_rate": 0.0,
+  "total_characters": 32120,
+  "total_errors": 30291,
+  "few_shot_examples": [
+    "inventarbuch-156.jpg"
+  ]
+}
+================================================================================
+
+💾 Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20260207_140447/predictions.jsonl
+💾 Metrics saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20260207_140447/metrics.json
+📂 Output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20260207_140447
+Finished at: Sat Feb  7 02:24:15 PM CET 2026
+Exit status: 0
+=== JOB_STATISTICS ===
+=== current date     : Sat Feb  7 02:24:15 PM CET 2026
+= Job-ID             : 1526221 on tinygpu
+= Job-Name           : few_inven_new
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 02:00:00
+= Elapsed runtime    : 00:19:56
+= Total RAM usage    : 9.6 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2026-02-07T14:00:54 / 2026-02-07T14:00:54 / 2026-02-07T14:04:19 / 2026-02-07T14:24:15
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.3G   104.9G   209.7G        N/A  29,971      500K   1,000K        N/A    
+    /home/vault           910.0G  1048.6G  2097.2G        N/A   9,295      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 2508131, 67 %, 37 %, 19240 MiB, 1168301 ms

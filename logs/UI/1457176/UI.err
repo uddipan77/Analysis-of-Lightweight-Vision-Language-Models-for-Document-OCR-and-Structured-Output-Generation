@@ -1,0 +1,52 @@
+INFO:     Started server process [3760014]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/transformers/models/auto/image_processing_auto.py:520: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:51<00:51, 51.27s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:22<00:00, 39.27s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:22<00:00, 41.07s/it]
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+`get_max_cache()` is deprecated for all Cache classes. Use `get_max_cache_shape()` instead. Calling `get_max_cache()` will raise error from v4.48
+You are not running the flash-attention implementation, expect numerical differences.
+Traceback (most recent call last):
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 1034, in from_pretrained
+    config_class = CONFIG_MAPPING[config_dict["model_type"]]
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 736, in __getitem__
+    raise KeyError(key)
+KeyError: 'qwen2_5_vl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/queueing.py", line 759, in process_events
+    response = await route_utils.call_process_api(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/route_utils.py", line 354, in call_process_api
+    output = await app.get_blocks().process_api(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/blocks.py", line 2116, in process_api
+    result = await self.call_function(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/blocks.py", line 1623, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/utils.py", line 915, in wrapper
+    response = f(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 829, in gradio_predict
+    result = run_single_ocr_pil(image, model_id=model_id)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 670, in run_single_ocr_pil
+    results = run_model_on_images([image], model_id=model_id)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 638, in run_model_on_images
+    bundle = get_model_bundle(model_id)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 393, in get_model_bundle
+    base_model = AutoModelForCausalLM.from_pretrained(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 526, in from_pretrained
+    config, kwargs = AutoConfig.from_pretrained(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 1036, in from_pretrained
+    raise ValueError(
+ValueError: The checkpoint you are trying to load has model type `qwen2_5_vl` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.
+slurmstepd: error: *** JOB 1457176 ON tg071 CANCELLED AT 2025-12-05T19:22:43 ***

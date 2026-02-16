@@ -1,0 +1,17 @@
+A new version of the following files was downloaded from https://huggingface.co/microsoft/Florence-2-large:
+- configuration_florence2.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+`torch_dtype` is deprecated! Use `dtype` instead!
+A new version of the following files was downloaded from https://huggingface.co/microsoft/Florence-2-large:
+- modeling_florence2.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/microsoft/Florence-2-large:
+- processing_florence2.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_stair.py", line 429, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_stair.py", line 228, in main
+    print(f"[{i+1}/{len(test_data)}] {test_item['file_name']}")
+                                      ~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'file_name'

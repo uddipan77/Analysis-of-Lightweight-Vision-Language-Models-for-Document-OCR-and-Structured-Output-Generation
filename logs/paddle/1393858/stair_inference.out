@@ -1,0 +1,102 @@
+### Starting TaskPrologue of job 1393858 on tg085 at Tue Nov 18 12:47:27 PM CET 2025
+Running on cores 8-9,24-25,40-41,56-57 with governor powersave
+Tue Nov 18 12:47:27 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3080        On  |   00000000:B2:00.0 Off |                  N/A |
+| 30%   37C    P8             16W /  300W |       1MiB /  10240MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Using device: cuda
+✅ Found local model at /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL, loading from disk...
+Evaluating split: test (/home/woody/iwi5/iwi5298h/json_staircase/test.jsonl)
+Loaded 24 samples from /home/woody/iwi5/iwi5298h/json_staircase/test.jsonl
+
+----------- SAMPLE [20] -----------
+Image: FMIS_FormblätterMielke_gefüllt (132).jpg
+PRED: Assistant: Name des Hauses Adresse
+
+Bauherr
+Baumeister
+Bauzeit
+
+MATERIAL
+TREPPENTYP (Laufform)
+
+LAUFE:
+EG Stufen
+Steig.
+Breite
+
+1.OG Stufen
+Steig.
+Breite
+
+2.OG Stufen
+Steig.
+Breite
+
+3.OG Stufen
+Steig.
+Breite
+
+L= Längspodest
+E= Eckpodest
+W= Wendepodest
+Z= Zwischenwendelung
+
+STUFENPROFIL
+
+Untertritt
+
+
+GT  : {"stair_type":"INNENTREPPE","Name des Hauses":"","Adresse":"Schulstr 27","Bauherr":"","Baumeister":"","Bauzeit":"","MATERIAL":"Eiche","TREPPENTYP (Laufform)":"","LÄUFE":{"EG":{"Stufen":["8","7","",""],"Steig.":["18/24-25","","",""],"Breite":["107,8","108","",""],"Plateaus":["","",""]},"1.OG":{"Stufe
+---------------------------------
+
+
+===== FINAL METRICS =====
+CER (editdistance): 0.7813 (78.13%)
+CER (jiwer)       : 0.7813 (78.13%)
+=========================
+
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/stair/inference_runs/test/predictions.jsonl
+Metrics saved to    : /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/stair/inference_runs/test/metrics.json
+Paddle training completed at: Tue Nov 18 12:51:22 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Nov 18 12:51:22 PM CET 2025
+= Job-ID             : 1393858 on tinygpu
+= Job-Name           : stair_inference
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_paddle.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : rtx3080
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:03:56
+= Total RAM usage    : 6.5 GiB of requested  GiB (%)   
+= Node list          : tg085
+= Subm/Elig/Start/End: 2025-11-18T12:47:25 / 2025-11-18T12:47:25 / 2025-11-18T12:47:26 / 2025-11-18T12:51:22
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+!!! /home/hpc             108.9G   104.9G   209.7G  -29293days  31,555      500K   1,000K        N/A !!!
+    /home/woody           188.8G  1000.0G  1500.0G        N/A     872K   5,000K   7,500K        N/A    
+    /home/vault           613.4G  1048.6G  2097.2G        N/A   6,132      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA GeForce RTX 3080, 00000000:B2:00.0, 1210879, 25 %, 7 %, 2996 MiB, 223740 ms

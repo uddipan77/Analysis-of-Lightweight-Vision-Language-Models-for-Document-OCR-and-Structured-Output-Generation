@@ -1,0 +1,81 @@
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/pydantic/_internal/_fields.py:198: UserWarning: Field name "json" in "PredictionResponse" shadows an attribute in parent "BaseModel"
+  warnings.warn(
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/pydantic/_internal/_fields.py:198: UserWarning: Field name "json" in "BatchPredictionItem" shadows an attribute in parent "BaseModel"
+  warnings.warn(
+INFO:     Started server process [3931376]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/transformers/models/auto/image_processing_auto.py:520: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:49<00:49, 49.02s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:19<00:00, 38.34s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:19<00:00, 39.94s/it]
+Traceback (most recent call last):
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/queueing.py", line 759, in process_events
+    response = await route_utils.call_process_api(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/route_utils.py", line 354, in call_process_api
+    output = await app.get_blocks().process_api(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/blocks.py", line 2116, in process_api
+    result = await self.call_function(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/blocks.py", line 1623, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/utils.py", line 915, in wrapper
+    response = f(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 757, in gradio_predict
+    result = run_single_ocr_pil(image, model_id=model_id)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 611, in run_single_ocr_pil
+    results = run_model_on_images([image], model_id=model_id)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 589, in run_model_on_images
+    return run_phi_on_images(images, bundle)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 461, in run_phi_on_images
+    inputs = processor(
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/phi_3_5_vision/processing_phi3_v.py", line 377, in __call__
+    inputs = self._convert_images_texts_to_inputs(image_inputs, text, padding=padding, truncation=truncation, max_length=max_length, return_tensors=return_tensors)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/phi_3_5_vision/processing_phi3_v.py", line 414, in _convert_images_texts_to_inputs
+    prompt_chunks = [self.tokenizer(chunk).input_ids for chunk in re.split(pattern, texts)]
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/re.py", line 230, in split
+    return _compile(pattern, flags).split(string, maxsplit)
+TypeError: expected string or bytes-like object
+Traceback (most recent call last):
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 1034, in from_pretrained
+    config_class = CONFIG_MAPPING[config_dict["model_type"]]
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 736, in __getitem__
+    raise KeyError(key)
+KeyError: 'qwen2_5_vl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/queueing.py", line 759, in process_events
+    response = await route_utils.call_process_api(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/route_utils.py", line 354, in call_process_api
+    output = await app.get_blocks().process_api(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/blocks.py", line 2116, in process_api
+    result = await self.call_function(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/blocks.py", line 1623, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/gradio/utils.py", line 915, in wrapper
+    response = f(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 757, in gradio_predict
+    result = run_single_ocr_pil(image, model_id=model_id)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 611, in run_single_ocr_pil
+    results = run_model_on_images([image], model_id=model_id)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 585, in run_model_on_images
+    bundle = get_model_bundle(model_id)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 377, in get_model_bundle
+    qwen_config = AutoConfig.from_pretrained(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 1036, in from_pretrained
+    raise ValueError(
+ValueError: The checkpoint you are trying to load has model type `qwen2_5_vl` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.
+slurmstepd: error: *** JOB 1457217 ON tg071 CANCELLED AT 2025-12-05T20:15:31 ***

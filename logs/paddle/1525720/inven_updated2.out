@@ -1,0 +1,184 @@
+### Starting TaskPrologue of job 1525720 on tg073 at Fri Feb  6 11:20:37 PM CET 2026
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Fri Feb  6 23:20:37 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   48C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+
+============================================================
+PADDLEOCR-VL FINETUNING - INVENTORY DATASET
+BEST MODEL SELECTION: CER(GT JSON string vs prediction_stripped_for_cer)
+============================================================
+Model: PaddlePaddle/PaddleOCR-VL
+Local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Output run dir: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_20260206_232106_cer
+Prompt task: ocr -> 'OCR:'
+============================================================
+
+Using device: cuda
+Loading PaddleOCR-VL from local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Enabled gradient checkpointing on model.
+Disabled use_cache for training.
+Loaded 215 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/train.jsonl
+Loaded 46 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/val.jsonl
+Loaded 47 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/test.jsonl
+TensorBoard logging to: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_20260206_232106_cer/tensorboard
+
+============================================================
+Epoch 1/10
+============================================================
+Epoch 1 - train loss: 5.5165
+
+Running validation (CER-based model selection)...
+Validation CER (PRIMARY, stripped vs GT): 0.4596 (45.96%)
+Validation structured CER (DEBUG, canonical extraction): 42.1665%
+🎯 New BEST validation CER (primary): 0.4596 (45.96%), improvement 0.0000
+
+============================================================
+Epoch 2/10
+============================================================
+Epoch 2 - train loss: 0.1397
+
+Running validation (CER-based model selection)...
+Validation CER (PRIMARY, stripped vs GT): 0.5188 (51.88%)
+Validation structured CER (DEBUG, canonical extraction): 44.4483%
+No improvement. Best CER remains 0.4596 (45.96%) from epoch 1
+
+============================================================
+Epoch 3/10
+============================================================
+Epoch 3 - train loss: 0.0387
+
+Running validation (CER-based model selection)...
+Validation CER (PRIMARY, stripped vs GT): 0.7873 (78.73%)
+Validation structured CER (DEBUG, canonical extraction): 72.0913%
+No improvement. Best CER remains 0.4596 (45.96%) from epoch 1
+
+============================================================
+Epoch 4/10
+============================================================
+Epoch 4 - train loss: 0.0131
+
+Running validation (CER-based model selection)...
+Validation CER (PRIMARY, stripped vs GT): 0.0815 (8.15%)
+Validation structured CER (DEBUG, canonical extraction): 9.2177%
+🎯 New BEST validation CER (primary): 0.0815 (8.15%), improvement 0.3781
+
+============================================================
+Epoch 5/10
+============================================================
+Epoch 5 - train loss: 0.0040
+
+Running validation (CER-based model selection)...
+Validation CER (PRIMARY, stripped vs GT): 0.1192 (11.92%)
+Validation structured CER (DEBUG, canonical extraction): 13.3049%
+No improvement. Best CER remains 0.0815 (8.15%) from epoch 4
+
+============================================================
+Epoch 6/10
+============================================================
+Epoch 6 - train loss: 0.0018
+
+Running validation (CER-based model selection)...
+Validation CER (PRIMARY, stripped vs GT): 0.0688 (6.88%)
+Validation structured CER (DEBUG, canonical extraction): 7.5827%
+🎯 New BEST validation CER (primary): 0.0688 (6.88%), improvement 0.0128
+
+============================================================
+Epoch 7/10
+============================================================
+Epoch 7 - train loss: 0.0009
+
+Running validation (CER-based model selection)...
+Validation CER (PRIMARY, stripped vs GT): 0.0619 (6.19%)
+Validation structured CER (DEBUG, canonical extraction): 6.7051%
+🎯 New BEST validation CER (primary): 0.0619 (6.19%), improvement 0.0068
+
+============================================================
+Epoch 8/10
+============================================================
+Epoch 8 - train loss: 0.0008
+
+Running validation (CER-based model selection)...
+Validation CER (PRIMARY, stripped vs GT): 0.0600 (6.00%)
+Validation structured CER (DEBUG, canonical extraction): 6.4694%
+🎯 New BEST validation CER (primary): 0.0600 (6.00%), improvement 0.0019
+
+============================================================
+Epoch 9/10
+============================================================
+Epoch 9 - train loss: 0.0007
+
+Running validation (CER-based model selection)...
+Validation CER (PRIMARY, stripped vs GT): 0.0559 (5.59%)
+Validation structured CER (DEBUG, canonical extraction): 5.8726%
+🎯 New BEST validation CER (primary): 0.0559 (5.59%), improvement 0.0041
+
+============================================================
+Epoch 10/10
+============================================================
+Epoch 10 - train loss: 0.0007
+
+Running validation (CER-based model selection)...
+Validation CER (PRIMARY, stripped vs GT): 0.0552 (5.52%)
+Validation structured CER (DEBUG, canonical extraction): 5.7974%
+🎯 New BEST validation CER (primary): 0.0552 (5.52%), improvement 0.0007
+
+Training finished.
+Best epoch: 10, best val CER: 0.0552 (5.52%)
+
+Loading best model from /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_20260206_232106_cer/best_model for test evaluation...
+Saved 47 test predictions to /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_20260206_232106_cer/test_predictions.jsonl
+
+============================================================
+FINAL RESULTS - INVENTORY
+============================================================
+Best validation CER: 0.0552 (5.52%)
+Test average CER:    0.1367 (13.67%)
+Test median CER:     0.0422 (4.22%)
+
+Run directory: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_20260206_232106_cer
+============================================================
+
+Paddle training completed at: Sat Feb  7 01:21:17 AM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Sat Feb  7 01:21:17 AM CET 2026
+= Job-ID             : 1525720 on tinygpu
+= Job-Name           : inven_updated2
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_paddle.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 02:00:42
+= Total RAM usage    : 11.5 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2026-02-06T14:48:05 / 2026-02-06T14:48:05 / 2026-02-06T23:20:35 / 2026-02-07T01:21:17
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.6G   104.9G   209.7G        N/A  29,934      500K   1,000K        N/A    
+    /home/vault           897.8G  1048.6G  2097.2G        N/A   9,249      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 2885195, 54 %, 15 %, 11052 MiB, 7211329 ms

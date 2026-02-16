@@ -1,0 +1,4 @@
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/nanonets/multi/inven_ms_pre.py", line 30
+    import numpy as np as _np  # to avoid shadowing np above? but we already imported np above
+                       ^^
+SyntaxError: invalid syntax

@@ -1,0 +1,1695 @@
+### Starting TaskPrologue of job 1488693 on tg072 at Wed Jan 14 12:19:23 PM CET 2026
+Running on cores 6-7,14-15,22-23,30-31 with governor ondemand
+Wed Jan 14 12:19:23 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:AF:00.0 Off |                    0 |
+| N/A   33C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+================================================================================
+[HPO] Starting / Resuming Optuna HPO for Qwen Staircase OCR (ENHANCED MODE)
+================================================================================
+[HPO]   Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+[HPO]   Study name: qwen_stair_enhanced_v2
+[HPO]   Target total trials (COMPLETE): 30
+[HPO]   Completed trials so far: 0
+[HPO]   Remaining trials to run: 30
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_0
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 1.9906996673933362e-05
+[HPO]   • weight_decay: 0.1426071459614874
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.04246782213565523
+[HPO]   • warmup_ratio: 0.03636499344142013
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=32, alpha=64, dropout=0.04246782213565523
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_ow14k93q
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 1.8646, 'grad_norm': 1.4050593376159668, 'learning_rate': 1.957783222598127e-05, 'epoch': 0.7}
+{'loss': 0.9475, 'grad_norm': 1.5028759241104126, 'learning_rate': 1.7391883306383583e-05, 'epoch': 1.38}
+{'loss': 0.3749, 'grad_norm': 2.579296350479126, 'learning_rate': 1.3600261437572109e-05, 'epoch': 2.07}
+{'loss': 0.1836, 'grad_norm': 0.47556793689727783, 'learning_rate': 9.02143792661544e-06, 'epoch': 2.77}
+{'loss': 0.1407, 'grad_norm': 1.2879267930984497, 'learning_rate': 4.643811879098392e-06, 'epoch': 3.45}
+{'loss': 0.1199, 'grad_norm': 0.5592753887176514, 'learning_rate': 1.4123512894407003e-06, 'epoch': 4.14}
+{'loss': 0.1166, 'grad_norm': 0.7010548114776611, 'learning_rate': 2.4609306154725494e-08, 'epoch': 4.83}
+{'train_runtime': 1757.1755, 'train_samples_per_second': 0.327, 'train_steps_per_second': 0.08, 'train_loss': 0.535394845690046, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.7034 (70.34%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.7034 (70.34%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_ow14k93q
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_1
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 3.464665317471056e-05
+[HPO]   • weight_decay: 0.06479175279631737
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.12150897038028768
+[HPO]   • warmup_ratio: 0.03410482473745831
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=64, dropout=0.12150897038028768
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_3np_009u
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.4862, 'grad_norm': 1.0139254331588745, 'learning_rate': 2.9995882817011907e-05, 'epoch': 1.35}
+{'loss': 0.4734, 'grad_norm': 1.048003077507019, 'learning_rate': 1.5297271348703607e-05, 'epoch': 2.7}
+{'loss': 0.1903, 'grad_norm': 0.31743475794792175, 'learning_rate': 2.253654397696301e-06, 'epoch': 4.0}
+{'train_runtime': 1691.3411, 'train_samples_per_second': 0.34, 'train_steps_per_second': 0.041, 'train_loss': 0.6404969998768397, 'epoch': 4.7}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.5364 (53.64%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.5364 (53.64%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_3np_009u
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_2
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00017618561667189287
+[HPO]   • weight_decay: 0.12125960221746916
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.10401360423556216
+[HPO]   • warmup_ratio: 0.10934205586865593
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=32, alpha=16, dropout=0.10401360423556216
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_hsbn_i7v
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.295, 'grad_norm': 0.46483299136161804, 'learning_rate': 9.255463585883014e-05, 'epoch': 2.56}
+{'train_runtime': 1551.2579, 'train_samples_per_second': 0.371, 'train_steps_per_second': 0.023, 'train_loss': 0.8841784340994698, 'epoch': 4.42}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.6380 (63.80%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.6380 (63.80%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_hsbn_i7v
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_3
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 8.725278311502207e-05
+[HPO]   • weight_decay: 0.14092484123462837
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.05618690193747616
+[HPO]   • warmup_ratio: 0.1085392166316497
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=64, dropout=0.05618690193747616
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_a_u2fn6o
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.1053, 'grad_norm': nan, 'learning_rate': 4.5836032029331206e-05, 'epoch': 2.56}
+{'train_runtime': 1796.6926, 'train_samples_per_second': 0.32, 'train_steps_per_second': 0.019, 'train_loss': 0.7152489389692034, 'epoch': 4.42}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.5117 (51.17%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.5117 (51.17%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_a_u2fn6o
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_4
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 6.582708259159303e-06
+[HPO]   • weight_decay: 0.1480330404900776
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.12465962536551159
+[HPO]   • warmup_ratio: 0.06617960497052984
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=128, dropout=0.12465962536551159
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_n8_zhjwr
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.3197, 'grad_norm': 7.063195705413818, 'learning_rate': 6.56734301580885e-06, 'epoch': 0.7}
+{'loss': 1.3122, 'grad_norm': 8.575464248657227, 'learning_rate': 6.044473572589672e-06, 'epoch': 1.38}
+{'loss': 0.964, 'grad_norm': 4.118463039398193, 'learning_rate': 4.959938537960109e-06, 'epoch': 2.07}
+{'loss': 0.6309, 'grad_norm': 3.334944248199463, 'learning_rate': 3.4503705707948784e-06, 'epoch': 2.77}
+{'loss': 0.3894, 'grad_norm': 5.72296142578125, 'learning_rate': 1.9043738533030987e-06, 'epoch': 3.45}
+{'loss': 0.2943, 'grad_norm': 5.254637718200684, 'learning_rate': 6.761176021819691e-07, 'epoch': 4.14}
+{'loss': 0.2744, 'grad_norm': 4.587834358215332, 'learning_rate': 4.698052247089682e-08, 'epoch': 4.83}
+{'train_runtime': 1811.678, 'train_samples_per_second': 0.317, 'train_steps_per_second': 0.077, 'train_loss': 0.8835509811128889, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.6480 (64.80%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.6480 (64.80%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_n8_zhjwr
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_5
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.6593316401633197e-05
+[HPO]   • weight_decay: 0.10944092675070961
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.005083825348819038
+[HPO]   • warmup_ratio: 0.02157828539866089
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=32, alpha=16, dropout=0.005083825348819038
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_t1nf1api
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.1971, 'grad_norm': 0.5946866273880005, 'learning_rate': 1.4427962594351975e-05, 'epoch': 1.35}
+{'loss': 1.4471, 'grad_norm': 0.730744481086731, 'learning_rate': 7.531139159599501e-06, 'epoch': 2.7}
+{'loss': 1.2763, 'grad_norm': 0.12692537903785706, 'learning_rate': 1.2426972291906976e-06, 'epoch': 4.0}
+{'train_runtime': 1647.1876, 'train_samples_per_second': 0.349, 'train_steps_per_second': 0.042, 'train_loss': 1.596778951372419, 'epoch': 4.7}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.6712 (67.12%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.6712 (67.12%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_t1nf1api
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_6
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 1.5943627702282987e-05
+[HPO]   • weight_decay: 0.07628560367470541
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.17429211803754355
+[HPO]   • warmup_ratio: 0.16073441537982291
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=32, dropout=0.17429211803754355
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_g6hai55u
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.6011, 'grad_norm': 5.960716247558594, 'learning_rate': 1.1091219271153381e-05, 'epoch': 0.7}
+{'loss': 1.531, 'grad_norm': 1.394527792930603, 'learning_rate': 1.5533369797368215e-05, 'epoch': 1.38}
+{'loss': 1.1122, 'grad_norm': 1.9919302463531494, 'learning_rate': 1.317751978162274e-05, 'epoch': 2.07}
+{'loss': 0.7969, 'grad_norm': 1.4291316270828247, 'learning_rate': 9.35610479909221e-06, 'epoch': 2.77}
+{'loss': 0.4978, 'grad_norm': 2.577038049697876, 'learning_rate': 5.144969700933343e-06, 'epoch': 3.45}
+{'loss': 0.3513, 'grad_norm': 1.1412854194641113, 'learning_rate': 1.7296774353186796e-06, 'epoch': 4.14}
+{'loss': 0.3181, 'grad_norm': 0.8376569747924805, 'learning_rate': 7.17369239314064e-08, 'epoch': 4.83}
+{'train_runtime': 1694.8089, 'train_samples_per_second': 0.339, 'train_steps_per_second': 0.083, 'train_loss': 1.0297727176121303, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.6109 (61.09%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.6109 (61.09%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_g6hai55u
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_7
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 3.656188949838099e-05
+[HPO]   • weight_decay: 0.12111602327460938
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.023973073466736564
+[HPO]   • warmup_ratio: 0.06752303428072559
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=32, dropout=0.023973073466736564
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_4npxe6vo
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.3843, 'grad_norm': 0.8187289834022522, 'learning_rate': 3.622131780365122e-05, 'epoch': 0.7}
+{'loss': 1.0287, 'grad_norm': 2.5575685501098633, 'learning_rate': 3.2534128538181046e-05, 'epoch': 1.38}
+{'loss': 0.3339, 'grad_norm': 0.3075186014175415, 'learning_rate': 2.5984555117627772e-05, 'epoch': 2.07}
+{'loss': 0.161, 'grad_norm': 0.1955595314502716, 'learning_rate': 1.739773052743803e-05, 'epoch': 2.77}
+{'loss': 0.1267, 'grad_norm': 0.3368311822414398, 'learning_rate': 9.013239671566564e-06, 'epoch': 3.45}
+{'loss': 0.112, 'grad_norm': 0.5321415066719055, 'learning_rate': 2.7518683610250364e-06, 'epoch': 4.14}
+{'loss': 0.1062, 'grad_norm': 0.710055410861969, 'learning_rate': 4.8021305354246204e-08, 'epoch': 4.83}
+{'train_runtime': 1594.5128, 'train_samples_per_second': 0.361, 'train_steps_per_second': 0.088, 'train_loss': 0.6075547831399101, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.5168 (51.68%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.5168 (51.68%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_4npxe6vo
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_8
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 3.389250769355741e-05
+[HPO]   • weight_decay: 0.10545284383427668
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.05572929284732229
+[HPO]   • warmup_ratio: 0.18165317719333074
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=16, alpha=32, dropout=0.05572929284732229
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_crs3w1rf
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.5444, 'grad_norm': 1.1872849464416504, 'learning_rate': 3.348234704955163e-05, 'epoch': 1.35}
+{'loss': 1.1307, 'grad_norm': 1.1316214799880981, 'learning_rate': 2.1106313227566816e-05, 'epoch': 2.7}
+{'loss': 0.487, 'grad_norm': 0.31077542901039124, 'learning_rate': 4.166971809965731e-06, 'epoch': 4.0}
+{'train_runtime': 1526.7071, 'train_samples_per_second': 0.377, 'train_steps_per_second': 0.046, 'train_loss': 1.2397947243281773, 'epoch': 4.7}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.7040 (70.40%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.7040 (70.40%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_crs3w1rf
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_9
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 3.041604129994598e-05
+[HPO]   • weight_decay: 0.1478475681165901
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.06415601299434717
+[HPO]   • warmup_ratio: 0.03730370207997085
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=16, alpha=128, dropout=0.06415601299434717
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_r6emfsth
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.3124, 'grad_norm': 2.198690176010132, 'learning_rate': 1.8793447409616013e-05, 'epoch': 2.56}
+{'train_runtime': 1536.8197, 'train_samples_per_second': 0.374, 'train_steps_per_second': 0.023, 'train_loss': 0.937098217010498, 'epoch': 4.42}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.6042 (60.42%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.6042 (60.42%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_r6emfsth
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_10
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.0001709437495305968
+[HPO]   • weight_decay: 0.06327450730522029
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.0369001791495189
+[HPO]   • warmup_ratio: 0.17762047128497954
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=64, dropout=0.0369001791495189
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_icpxaryn
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 0.9384, 'grad_norm': 0.5604923367500305, 'learning_rate': 0.00010449115616506974, 'epoch': 2.56}
+{'train_runtime': 1550.3468, 'train_samples_per_second': 0.371, 'train_steps_per_second': 0.023, 'train_loss': 0.5725565944399152, 'epoch': 4.42}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.5631 (56.31%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.5631 (56.31%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_icpxaryn
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_11
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 4.744031407070615e-05
+[HPO]   • weight_decay: 0.13213653548660886
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.06308585177003054
+[HPO]   • warmup_ratio: 0.06473441446113942
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=32, dropout=0.06308585177003054
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_vu4p5q_9
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.2497, 'grad_norm': 0.822624683380127, 'learning_rate': 4.688149276095298e-05, 'epoch': 0.7}
+{'loss': 0.8195, 'grad_norm': 0.4791548550128937, 'learning_rate': 4.221415515017018e-05, 'epoch': 1.38}
+{'loss': 0.2053, 'grad_norm': 0.5475085973739624, 'learning_rate': 3.319314767188976e-05, 'epoch': 2.07}
+{'loss': 0.1191, 'grad_norm': 0.29843446612358093, 'learning_rate': 2.2574156086099437e-05, 'epoch': 2.77}
+{'loss': 0.0964, 'grad_norm': 0.20418871939182281, 'learning_rate': 1.1694989692275078e-05, 'epoch': 3.45}
+{'loss': 0.0841, 'grad_norm': 0.2625689208507538, 'learning_rate': 3.878954006367038e-06, 'epoch': 4.14}
+{'loss': 0.0814, 'grad_norm': 0.17322763800621033, 'learning_rate': 1.1073435759576494e-07, 'epoch': 4.83}
+{'train_runtime': 1586.2258, 'train_samples_per_second': 0.362, 'train_steps_per_second': 0.088, 'train_loss': 0.5222157044070107, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.4546 (45.46%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.4546 (45.46%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_vu4p5q_9
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_12
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 0.00014744728009898503
+[HPO]   • weight_decay: 0.11856916452779478
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.06341054703946283
+[HPO]   • warmup_ratio: 0.06340963887199638
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=64, dropout=0.06341054703946283
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_v5epfezs
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.2018, 'grad_norm': 1.224760890007019, 'learning_rate': 0.00014573674362069927, 'epoch': 0.7}
+{'loss': 0.1072, 'grad_norm': 0.26978421211242676, 'learning_rate': 0.00013032529714417242, 'epoch': 1.38}
+{'loss': 0.0678, 'grad_norm': 0.16430190205574036, 'learning_rate': 0.00010214050742877182, 'epoch': 2.07}
+{'loss': 0.0438, 'grad_norm': 0.43109211325645447, 'learning_rate': 6.754285951379732e-05, 'epoch': 2.77}
+{'loss': 0.0312, 'grad_norm': 0.19730228185653687, 'learning_rate': 3.43400335054416e-05, 'epoch': 3.45}
+{'loss': 0.0238, 'grad_norm': 0.11139567196369171, 'learning_rate': 1.0024938885063227e-05, 'epoch': 4.14}
+{'loss': 0.0192, 'grad_norm': 0.1013646274805069, 'learning_rate': 8.478336731013551e-08, 'epoch': 4.83}
+{'train_runtime': 1697.5559, 'train_samples_per_second': 0.339, 'train_steps_per_second': 0.082, 'train_loss': 0.2135460525751114, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.6131 (61.31%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.6131 (61.31%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_v5epfezs
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_13
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00010219655264320375
+[HPO]   • weight_decay: 0.14724705698935156
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.12250765254044614
+[HPO]   • warmup_ratio: 0.051939411873217496
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=32, dropout=0.12250765254044614
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_o8_1ie3d
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.4815, 'grad_norm': 0.5330337285995483, 'learning_rate': 5.352963020427467e-05, 'epoch': 2.56}
+{'train_runtime': 1445.6207, 'train_samples_per_second': 0.398, 'train_steps_per_second': 0.024, 'train_loss': 0.9964382989065987, 'epoch': 4.42}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.6001 (60.01%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.6001 (60.01%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_o8_1ie3d
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_14
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 6.196460618542665e-05
+[HPO]   • weight_decay: 0.12885529207079302
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.16793615248621982
+[HPO]   • warmup_ratio: 0.1315588663681852
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=64, dropout=0.16793615248621982
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_i0lsu8qg
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.3173, 'grad_norm': 1.1751036643981934, 'learning_rate': 3.742388611414764e-05, 'epoch': 2.56}
+{'train_runtime': 1548.1824, 'train_samples_per_second': 0.371, 'train_steps_per_second': 0.023, 'train_loss': 0.9100503512791225, 'epoch': 4.42}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.5967 (59.67%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.5967 (59.67%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_i0lsu8qg
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_15
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00019838951945425466
+[HPO]   • weight_decay: 0.13320236459150092
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.005961851975045389
+[HPO]   • warmup_ratio: 0.10636385220536629
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=64, dropout=0.005961851975045389
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_6jcd3y_i
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 0.8305, 'grad_norm': 1.0149118900299072, 'learning_rate': 0.00012405817743952715, 'epoch': 2.56}
+{'train_runtime': 1535.3937, 'train_samples_per_second': 0.374, 'train_steps_per_second': 0.023, 'train_loss': 0.5033567701067243, 'epoch': 4.42}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.5365 (53.65%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.5365 (53.65%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_6jcd3y_i
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_16
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.793699456909907e-05
+[HPO]   • weight_decay: 0.12804140615874346
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.11540032948887899
+[HPO]   • warmup_ratio: 0.10028907378377439
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=32, dropout=0.11540032948887899
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_0u64v6qv
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.5431, 'grad_norm': 1.469426155090332, 'learning_rate': 1.6579561003439767e-05, 'epoch': 1.35}
+{'loss': 1.4347, 'grad_norm': 0.7988083362579346, 'learning_rate': 8.968497284549535e-06, 'epoch': 2.7}
+{'loss': 1.1535, 'grad_norm': 0.190232515335083, 'learning_rate': 1.357433565659304e-06, 'epoch': 4.0}
+{'train_runtime': 1548.9303, 'train_samples_per_second': 0.371, 'train_steps_per_second': 0.045, 'train_loss': 1.6339953695024763, 'epoch': 4.7}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.6502 (65.02%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.6502 (65.02%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_0u64v6qv
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_17
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 5.684069818270679e-05
+[HPO]   • weight_decay: 0.06628614150966677
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.11033301597473964
+[HPO]   • warmup_ratio: 0.07034747225268871
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=32, dropout=0.11033301597473964
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_zstglfo7
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.1969, 'grad_norm': 1.0078184604644775, 'learning_rate': 5.631123066406104e-05, 'epoch': 0.7}
+{'loss': 0.6652, 'grad_norm': 0.4694351553916931, 'learning_rate': 5.0578966411405636e-05, 'epoch': 1.38}
+{'loss': 0.163, 'grad_norm': 0.29861733317375183, 'learning_rate': 3.977042997101343e-05, 'epoch': 2.07}
+{'loss': 0.1031, 'grad_norm': 0.20412272214889526, 'learning_rate': 2.636172678439369e-05, 'epoch': 2.77}
+{'loss': 0.081, 'grad_norm': 0.2111593782901764, 'learning_rate': 1.3424629159210179e-05, 'epoch': 3.45}
+{'loss': 0.072, 'grad_norm': 0.3561387360095978, 'learning_rate': 4.278173833288635e-06, 'epoch': 4.14}
+{'loss': 0.0703, 'grad_norm': 0.2116837352514267, 'learning_rate': 7.465600277855385e-08, 'epoch': 4.83}
+{'train_runtime': 1593.8353, 'train_samples_per_second': 0.361, 'train_steps_per_second': 0.088, 'train_loss': 0.4787807072911944, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.4267 (42.67%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.4267 (42.67%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_zstglfo7
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_18
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 8.458842553961115e-05
+[HPO]   • weight_decay: 0.07301572412585763
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.14198356662156864
+[HPO]   • warmup_ratio: 0.059814841848834996
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=32, dropout=0.14198356662156864
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_te8w0jlr
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.9668, 'grad_norm': 0.6452163457870483, 'learning_rate': 8.337803454642586e-05, 'epoch': 0.7}
+{'loss': 0.3469, 'grad_norm': 0.26677921414375305, 'learning_rate': 7.410661416663611e-05, 'epoch': 1.38}
+{'loss': 0.1067, 'grad_norm': 0.3974218964576721, 'learning_rate': 5.8596568898501095e-05, 'epoch': 2.07}
+{'loss': 0.0739, 'grad_norm': 0.26647964119911194, 'learning_rate': 3.8748386127433144e-05, 'epoch': 2.77}
+{'loss': 0.0607, 'grad_norm': 0.17317642271518707, 'learning_rate': 1.9700393016763378e-05, 'epoch': 3.45}
+{'loss': 0.0532, 'grad_norm': 0.5493378639221191, 'learning_rate': 5.751166083559112e-06, 'epoch': 4.14}
+{'loss': 0.0508, 'grad_norm': 0.18733862042427063, 'learning_rate': 4.8639022353592173e-08, 'epoch': 4.83}
+{'train_runtime': 1619.8309, 'train_samples_per_second': 0.355, 'train_steps_per_second': 0.086, 'train_loss': 0.37987056033951894, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.6139 (61.39%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.6139 (61.39%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_te8w0jlr
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_19
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 5.607988107124753e-05
+[HPO]   • weight_decay: 0.030982497065900214
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.08069826834977187
+[HPO]   • warmup_ratio: 0.08200658279052925
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=128, dropout=0.08069826834977187
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_e8u2547m
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.2004, 'grad_norm': 4.787703514099121, 'learning_rate': 5.604610573486801e-05, 'epoch': 0.7}
+{'loss': 0.2791, 'grad_norm': 4.0551652908325195, 'learning_rate': 5.209059975573462e-05, 'epoch': 1.38}
+{'loss': 0.0805, 'grad_norm': 1.9954301118850708, 'learning_rate': 4.2455350912002695e-05, 'epoch': 2.07}
+{'loss': 0.0527, 'grad_norm': 1.7690829038619995, 'learning_rate': 3.010268652448756e-05, 'epoch': 2.77}
+{'loss': 0.0368, 'grad_norm': 1.5888171195983887, 'learning_rate': 1.6676998188345813e-05, 'epoch': 3.45}
+{'loss': 0.028, 'grad_norm': 0.935083270072937, 'learning_rate': 5.934753583502303e-06, 'epoch': 4.14}
+{'loss': 0.0211, 'grad_norm': 3.977735757827759, 'learning_rate': 4.1281403195827613e-07, 'epoch': 4.83}
+{'train_runtime': 1591.6871, 'train_samples_per_second': 0.361, 'train_steps_per_second': 0.088, 'train_loss': 0.38552059424774987, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.3120 (31.20%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.3120 (31.20%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_e8u2547m
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_20
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 1.0900551362654691e-05
+[HPO]   • weight_decay: 0.060444802009681414
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.11031474140610552
+[HPO]   • warmup_ratio: 0.10527900413002267
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=128, dropout=0.11031474140610552
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_xd013fdm
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.9333, 'grad_norm': 13.515325546264648, 'learning_rate': 1.0173847938477712e-05, 'epoch': 0.7}
+{'loss': 1.3358, 'grad_norm': 4.513373851776123, 'learning_rate': 1.0290864169996236e-05, 'epoch': 1.38}
+{'loss': 0.6033, 'grad_norm': 3.5286426544189453, 'learning_rate': 8.48540131139709e-06, 'epoch': 2.07}
+{'loss': 0.2112, 'grad_norm': 9.365428924560547, 'learning_rate': 5.929088921463371e-06, 'epoch': 2.77}
+{'loss': 0.147, 'grad_norm': 4.051305770874023, 'learning_rate': 3.507732686240324e-06, 'epoch': 3.45}
+{'loss': 0.1285, 'grad_norm': 7.509786128997803, 'learning_rate': 1.2947538051514937e-06, 'epoch': 4.14}
+{'loss': 0.1166, 'grad_norm': 2.0014491081237793, 'learning_rate': 1.0979551809175263e-07, 'epoch': 4.83}
+{'train_runtime': 1589.9622, 'train_samples_per_second': 0.362, 'train_steps_per_second': 0.088, 'train_loss': 0.7822467156818935, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.5177 (51.77%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.5177 (51.77%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_xd013fdm
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_21
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 0.00010750790717255101
+[HPO]   • weight_decay: 0.011239112027091044
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.0608180354427533
+[HPO]   • warmup_ratio: 0.08515590060093438
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=64, alpha=128, dropout=0.0608180354427533
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_ndc003mq
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.4418, 'grad_norm': 3.66843318939209, 'learning_rate': 0.00010710365242442288, 'epoch': 0.7}
+{'loss': 0.0917, 'grad_norm': 1.022511601448059, 'learning_rate': 9.770236968526946e-05, 'epoch': 1.38}
+{'loss': 0.0664, 'grad_norm': 1.2904554605484009, 'learning_rate': 7.792234013239285e-05, 'epoch': 2.07}
+{'loss': 0.0375, 'grad_norm': 0.8689156770706177, 'learning_rate': 5.243476552730471e-05, 'epoch': 2.77}
+{'loss': 0.0233, 'grad_norm': 0.3474009931087494, 'learning_rate': 2.7258727038396597e-05, 'epoch': 3.45}
+{'loss': 0.0162, 'grad_norm': 0.2438964992761612, 'learning_rate': 8.339734252643366e-06, 'epoch': 4.14}
+{'loss': 0.0111, 'grad_norm': 0.2359357327222824, 'learning_rate': 1.456486659336894e-07, 'epoch': 4.83}
+{'train_runtime': 1597.1701, 'train_samples_per_second': 0.36, 'train_steps_per_second': 0.088, 'train_loss': 0.24114288826073918, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.9226 (92.26%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.9226 (92.26%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_ndc003mq
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_22
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 3.303104560997934e-05
+[HPO]   • weight_decay: 0.058887253825357616
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.05686996300334035
+[HPO]   • warmup_ratio: 0.020842217405455728
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=128, dropout=0.05686996300334035
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_ojv3excy
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.0216, 'grad_norm': 7.039616107940674, 'learning_rate': 3.250840597946604e-05, 'epoch': 0.7}
+{'loss': 0.3278, 'grad_norm': 9.076943397521973, 'learning_rate': 2.903088071036313e-05, 'epoch': 1.38}
+{'loss': 0.0966, 'grad_norm': 1.4481253623962402, 'learning_rate': 2.2966714858478595e-05, 'epoch': 2.07}
+{'loss': 0.0657, 'grad_norm': 1.8519861698150635, 'learning_rate': 1.5569233946885847e-05, 'epoch': 2.77}
+{'loss': 0.0506, 'grad_norm': 1.2866371870040894, 'learning_rate': 8.367329476806963e-06, 'epoch': 3.45}
+{'loss': 0.0409, 'grad_norm': 1.291490077972412, 'learning_rate': 2.849471735426002e-06, 'epoch': 4.14}
+{'loss': 0.0384, 'grad_norm': 2.001915693283081, 'learning_rate': 1.560767517359239e-07, 'epoch': 4.83}
+{'train_runtime': 1577.8718, 'train_samples_per_second': 0.364, 'train_steps_per_second': 0.089, 'train_loss': 0.37736322581768034, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.3559 (35.59%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.3559 (35.59%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_ojv3excy
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_23
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 3.3812514219802624e-05
+[HPO]   • weight_decay: 0.01892228172298681
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.04966142240671983
+[HPO]   • warmup_ratio: 0.01000380474106703
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=128, dropout=0.04966142240671983
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_vbrv8v46
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.8589, 'grad_norm': 5.707517623901367, 'learning_rate': 3.307753740718547e-05, 'epoch': 0.7}
+{'loss': 0.2708, 'grad_norm': 4.796187400817871, 'learning_rate': 2.926195782714993e-05, 'epoch': 1.38}
+{'loss': 0.0928, 'grad_norm': 2.608362913131714, 'learning_rate': 2.2928971079303305e-05, 'epoch': 2.07}
+{'loss': 0.062, 'grad_norm': 2.565109968185425, 'learning_rate': 1.536888894745447e-05, 'epoch': 2.77}
+{'loss': 0.0489, 'grad_norm': 1.6763287782669067, 'learning_rate': 8.12203726042416e-06, 'epoch': 3.45}
+{'loss': 0.0417, 'grad_norm': 1.381265640258789, 'learning_rate': 2.664922838705853e-06, 'epoch': 4.14}
+{'loss': 0.0375, 'grad_norm': 6.422873020172119, 'learning_rate': 1.0940321876617885e-07, 'epoch': 4.83}
+{'train_runtime': 1579.0274, 'train_samples_per_second': 0.364, 'train_steps_per_second': 0.089, 'train_loss': 0.34466884902545386, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.3519 (35.19%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.3519 (35.19%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_vbrv8v46
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_24
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 4.6092417614001694e-05
+[HPO]   • weight_decay: 0.04450148444751451
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.033110475982980114
+[HPO]   • warmup_ratio: 0.031441561343338295
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=128, dropout=0.033110475982980114
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_bdecn0y6
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.9228, 'grad_norm': 9.116652488708496, 'learning_rate': 4.534146195781256e-05, 'epoch': 0.7}
+{'loss': 0.1765, 'grad_norm': 4.965167045593262, 'learning_rate': 4.0700628998563494e-05, 'epoch': 1.38}
+{'loss': 0.0817, 'grad_norm': 1.9223475456237793, 'learning_rate': 3.21743457993673e-05, 'epoch': 2.07}
+{'loss': 0.0546, 'grad_norm': 2.7718734741210938, 'learning_rate': 2.2241907718735778e-05, 'epoch': 2.77}
+{'loss': 0.0401, 'grad_norm': 1.1073921918869019, 'learning_rate': 1.1990640231579236e-05, 'epoch': 3.45}
+{'loss': 0.0317, 'grad_norm': 1.4989681243896484, 'learning_rate': 4.091276022604786e-06, 'epoch': 4.14}
+{'loss': 0.0266, 'grad_norm': 1.367716908454895, 'learning_rate': 2.2428411987714797e-07, 'epoch': 4.83}
+{'train_runtime': 1580.016, 'train_samples_per_second': 0.364, 'train_steps_per_second': 0.089, 'train_loss': 0.33343348460538047, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.2888 (28.88%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.2888 (28.88%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_bdecn0y6
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_25
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 0.00012821865153291942
+[HPO]   • weight_decay: 0.027196173426486364
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.004202647192838013
+[HPO]   • warmup_ratio: 0.0023475456595377676
+[HPO]   • max_seq_length: 2048
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=128, dropout=0.004202647192838013
+[HPO]   max_seq_length=2048
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_4t4dpeuz
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.0286, 'grad_norm': 2.826495885848999, 'learning_rate': 0.000125035986787174, 'epoch': 0.7}
+{'loss': 0.0842, 'grad_norm': 1.8927263021469116, 'learning_rate': 0.00011020334217132201, 'epoch': 1.38}
+{'loss': 0.0605, 'grad_norm': 1.3224296569824219, 'learning_rate': 8.746685046215839e-05, 'epoch': 2.07}
+{'loss': 0.0375, 'grad_norm': 0.9804160594940186, 'learning_rate': 5.904325451999785e-05, 'epoch': 2.77}
+{'loss': 0.0222, 'grad_norm': 0.8756675720214844, 'learning_rate': 3.1637297903481006e-05, 'epoch': 3.45}
+{'loss': 0.0149, 'grad_norm': 1.4090158939361572, 'learning_rate': 1.0754110298521883e-05, 'epoch': 4.14}
+{'loss': 0.0098, 'grad_norm': 0.3154153525829315, 'learning_rate': 8.006659738622617e-07, 'epoch': 4.83}
+{'train_runtime': 1686.9116, 'train_samples_per_second': 0.341, 'train_steps_per_second': 0.083, 'train_loss': 0.17967285162636212, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.4009 (40.09%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.4009 (40.09%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_4t4dpeuz
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_26
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 3.4950373869332305e-05
+[HPO]   • weight_decay: 0.005596056542913355
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.07654613627430784
+[HPO]   • warmup_ratio: 0.06570737549988584
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=64, dropout=0.07654613627430784
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_czrlsxtc
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.4729, 'grad_norm': 5.06529426574707, 'learning_rate': 3.482296008123161e-05, 'epoch': 0.7}
+{'loss': 0.7671, 'grad_norm': 1.6350212097167969, 'learning_rate': 3.185698383537202e-05, 'epoch': 1.38}
+{'loss': 0.1588, 'grad_norm': 1.3329142332077026, 'learning_rate': 2.559631123900203e-05, 'epoch': 2.07}
+{'loss': 0.0951, 'grad_norm': 1.7556579113006592, 'learning_rate': 1.7475186934666153e-05, 'epoch': 2.77}
+{'loss': 0.0726, 'grad_norm': 0.7365296483039856, 'learning_rate': 9.354062630330278e-06, 'epoch': 3.45}
+{'loss': 0.0633, 'grad_norm': 1.4108279943466187, 'learning_rate': 3.093390033960288e-06, 'epoch': 4.14}
+{'loss': 0.0581, 'grad_norm': 0.9338018298149109, 'learning_rate': 1.274137881006932e-07, 'epoch': 4.83}
+{'train_runtime': 1577.3274, 'train_samples_per_second': 0.365, 'train_steps_per_second': 0.089, 'train_loss': 0.5268600302083152, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.5327 (53.27%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.5327 (53.27%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_czrlsxtc
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_27
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 2.533772737843963e-05
+[HPO]   • weight_decay: 0.013964882973156019
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.08765078547655644
+[HPO]   • warmup_ratio: 0.004698514733494637
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=32, alpha=128, dropout=0.08765078547655644
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_na640gz0
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.5416, 'grad_norm': 2.5894997119903564, 'learning_rate': 2.2122163092343764e-05, 'epoch': 1.35}
+{'loss': 0.336, 'grad_norm': 1.3423234224319458, 'learning_rate': 1.1804309856479407e-05, 'epoch': 2.7}
+{'loss': 0.1142, 'grad_norm': 0.484413743019104, 'learning_rate': 2.4877706311050245e-06, 'epoch': 4.0}
+{'train_runtime': 1529.8549, 'train_samples_per_second': 0.376, 'train_steps_per_second': 0.046, 'train_loss': 0.5851062638419015, 'epoch': 4.7}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.5646 (56.46%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.5646 (56.46%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_na640gz0
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_28
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 2.16089401418642e-05
+[HPO]   • weight_decay: 0.010747796368822216
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.00299351726668539
+[HPO]   • warmup_ratio: 0.013692337548499224
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=16, dropout=0.00299351726668539
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_t8iwn_c8
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 2.5446, 'grad_norm': 1.0965029001235962, 'learning_rate': 2.090010031899797e-05, 'epoch': 0.7}
+{'loss': 1.5634, 'grad_norm': 0.948567271232605, 'learning_rate': 1.853084927576029e-05, 'epoch': 1.38}
+{'loss': 1.2168, 'grad_norm': 1.1199527978897095, 'learning_rate': 1.4422666817998867e-05, 'epoch': 2.07}
+{'loss': 0.8679, 'grad_norm': 1.0811299085617065, 'learning_rate': 9.577296350098842e-06, 'epoch': 2.77}
+{'loss': 0.5642, 'grad_norm': 0.7866147756576538, 'learning_rate': 4.98195588791613e-06, 'epoch': 3.45}
+{'loss': 0.4233, 'grad_norm': 0.674025297164917, 'learning_rate': 1.572921186485938e-06, 'epoch': 4.14}
+{'loss': 0.377, 'grad_norm': 0.7355101108551025, 'learning_rate': 4.4764620867229054e-08, 'epoch': 4.83}
+{'train_runtime': 1581.5, 'train_samples_per_second': 0.364, 'train_steps_per_second': 0.089, 'train_loss': 1.0796058348246984, 'epoch': 4.83}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.7100 (71.00%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.7100 (71.00%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_t8iwn_c8
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials/trial_29
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 0.00012566873764981192
+[HPO]   • weight_decay: 0.007138104746943479
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.09994319128414204
+[HPO]   • warmup_ratio: 0.08984535679259553
+[HPO]   • max_seq_length: 1024
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+[HPO]   LoRA config: r=8, alpha=128, dropout=0.09994319128414204
+[HPO]   max_seq_length=1024
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_zx6rkuvq
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (no augmentation for HPO)
+[HPO] Total training samples: 115 (original: 115, augmented: 0)
+[HPO] Training samples: 115, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (NO eval during training)...
+
+{'loss': 1.6755, 'grad_norm': 5.191274166107178, 'learning_rate': 0.00012073474498494834, 'epoch': 1.35}
+{'loss': 0.0768, 'grad_norm': 3.621161699295044, 'learning_rate': 7.374544246620267e-05, 'epoch': 2.7}
+{'loss': 0.0357, 'grad_norm': 0.8761561512947083, 'learning_rate': 1.6773517142562975e-05, 'epoch': 4.0}
+{'train_runtime': 1548.7041, 'train_samples_per_second': 0.371, 'train_steps_per_second': 0.045, 'train_loss': 0.5143691661102431, 'epoch': 4.7}
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+[HPO]   Using 10 validation samples for CER
+[HPO]   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (90).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.3836 (38.36%)
+================================================================================
+
+[HPO]   Best Validation CER in this trial: 0.3836 (38.36%)
+[HPO] Cleaned temp dir: /tmp/1488693.tinygpu/qwen_hpo_tmp_zx6rkuvq
+
+================================================================================
+[HPO] Qwen Staircase HPO finished / resumed (ENHANCED MODE)
+================================================================================
+[HPO]   Best trial number: 24
+[HPO]   Best Validation CER: 0.2888 (28.88%)
+[HPO]   Best params:
+[HPO]      learning_rate: 4.6092417614001694e-05
+[HPO]      weight_decay: 0.04450148444751451
+[HPO]      gradient_accumulation_steps: 4
+[HPO]      lora_r: 8
+[HPO]      lora_alpha: 128
+[HPO]      lora_dropout: 0.033110475982980114
+[HPO]      warmup_ratio: 0.031441561343338295
+[HPO]      max_seq_length: 1024
+
+[HPO] ✅ Best hyperparameters saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/best_hyperparameters.json
+[HPO] ✅ Best config saved to:          /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/best_config.json
+[HPO] ✅ HPO summary saved to:         /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/hpo_summary.txt
+
+[HPO] 🎉 HPO done. You can now copy these values into your main Qwen finetune .py file.
+
+=== JOB_STATISTICS ===
+=== current date     : Thu Jan 15 10:13:15 AM CET 2026
+= Job-ID             : 1488693 on tinygpu
+= Job-Name           : stair_hpo2
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 21:54:02
+= Total RAM usage    : 19.7 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2026-01-14T12:18:54 / 2026-01-14T12:18:54 / 2026-01-14T12:19:13 / 2026-01-15T10:13:15
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           219.6G  1000.0G  1500.0G        N/A   1,017K   5,000K   7,500K        N/A    
+    /home/hpc              88.4G   104.9G   209.7G        N/A  29,362      500K   1,000K        N/A    
+!!! /home/vault          1054.2G  1048.6G  2097.2G  -29236days   8,154      200K     400K        N/A !!!
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:AF:00.0, 1296242, 53 %, 26 %, 19986 MiB, 78676110 ms

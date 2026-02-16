@@ -1,0 +1,75 @@
+### Starting TaskPrologue of job 1472433 on tg094 at Tue Dec 23 05:34:47 AM CET 2025
+Running on cores 64-95 with governor ondemand
+Tue Dec 23 05:34:47 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:81:00.0 Off |                    0 |
+| N/A   36C    P0             55W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+================================================================================
+[HPO] Starting / Resuming Optuna HPO for Gemma-3 SCHMUCK OCR
+================================================================================
+[HPO]   Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+[HPO]   Study name: gemma3_schmuck_data
+[HPO]   HPO run folder: /home/vault/iwi5/iwi5298h/models_image_text/gemma3/hpo/schmuck/hpo_run_20251223_053517
+[HPO]   Target COMPLETE trials: 30
+[HPO]   Completed trials so far: 0
+[HPO]   Remaining trials to run: 30
+
+================================================================================
+[HPO] Gemma-3 SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #0
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma3/hpo/schmuck/hpo_run_20251223_053517/trial_000
+[HPO]   • num_epochs: 6
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 0.00011844319751820385
+[HPO]   • weight_decay: 0.08927180304353628
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.1062
+[HPO] Loading Gemma-3 vision model from /home/vault/iwi5/iwi5298h/models/gemma3 with Unsloth...
+Gemma-3 training completed at: Tue Dec 23 05:35:22 AM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Dec 23 05:35:22 AM CET 2025
+= Job-ID             : 1472433 on tinygpu
+= Job-Name           : schmuck_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:00:45
+= Total RAM usage    : 2.0 GiB of requested  GiB (%)   
+= Node list          : tg094
+= Subm/Elig/Start/End: 2025-12-22T20:46:28 / 2025-12-22T20:46:28 / 2025-12-23T05:34:37 / 2025-12-23T05:35:22
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.5G   104.9G   209.7G        N/A  29,031      500K   1,000K        N/A    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/vault           959.0G  1048.6G  2097.2G        N/A   7,380      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:81:00.0, 2296877, 0 %, 0 %, 416 MiB, 27606 ms

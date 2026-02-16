@@ -1,0 +1,193 @@
+### Starting TaskPrologue of job 1238688 on tg074 at Mon Oct 13 06:09:00 PM CEST 2025
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Mon Oct 13 18:09:00 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.172.08             Driver Version: 570.172.08     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   46C    P0             48W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+DONUT-BASE ZERO-SHOT INVENTORY OCR PROCESSING
+============================================================
+
+Loading test data...
+Loaded 48 test samples
+
+Note: Using ZERO-SHOT with task prompt <s_cord-v2>
+WARNING: Donut-base outputs receipt format, NOT inventory JSON!
+Model is pre-trained only, not fine-tuned
+Loading Donut-base model...
+Donut-base model loaded successfully!
+
+Processing 48 test images with Donut-base...
+------------------------------------------------------------
+Processing image 1/48: inventarbuch-022.jpg
+  Processed successfully. CER: 2.1925
+Processing image 2/48: inventarbuch-099.jpg
+  Processed successfully. CER: 2.5831
+Processing image 3/48: inventarbuch-245.jpg
+  Processed successfully. CER: 2.2361
+Processing image 4/48: inventarbuch-263.jpg
+  Processed successfully. CER: 3.0418
+Processing image 5/48: inventarbuch-033.jpg
+  Processed successfully. CER: 0.9596
+Processing image 6/48: inventarbuch-143.jpg
+  Processed successfully. CER: 0.9943
+Processing image 7/48: inventarbuch-244.jpg
+  Processed successfully. CER: 2.2526
+Processing image 8/48: inventarbuch-024.jpg
+  Processed successfully. CER: 0.9506
+Processing image 9/48: inventarbuch-141.jpg
+  Processed successfully. CER: 1.9414
+Processing image 10/48: inventarbuch-183.jpg
+  Processed successfully. CER: 2.1465
+Processing image 11/48: inventarbuch-191.jpg
+  Processed successfully. CER: 2.2780
+Processing image 12/48: inventarbuch-051.jpg
+  Processed successfully. CER: 5.0241
+Processing image 13/48: inventarbuch-203.jpg
+  Processed successfully. CER: 2.2731
+Processing image 14/48: inventarbuch-296.jpg
+  Processed successfully. CER: 1.9588
+Processing image 15/48: inventarbuch-302.jpg
+  Processed successfully. CER: 6.0887
+Processing image 16/48: inventarbuch-179.jpg
+  Processed successfully. CER: 2.2825
+Processing image 17/48: inventarbuch-114.jpg
+  Processed successfully. CER: 1.7333
+Processing image 18/48: inventarbuch-082.jpg
+  Processed successfully. CER: 1.6384
+Processing image 19/48: inventarbuch-287.jpg
+  Processed successfully. CER: 2.2248
+Processing image 20/48: inventarbuch-181.jpg
+  Processed successfully. CER: 2.4740
+Processing image 21/48: inventarbuch-299.jpg
+  Processed successfully. CER: 2.8593
+Processing image 22/48: inventarbuch-084.jpg
+  Processed successfully. CER: 1.9658
+Processing image 23/48: inventarbuch-004.jpg
+  Processed successfully. CER: 2.3338
+Processing image 24/48: inventarbuch-148.jpg
+  Processed successfully. CER: 2.0066
+Processing image 25/48: inventarbuch-238.jpg
+  Processed successfully. CER: 2.2596
+Processing image 26/48: inventarbuch-116.jpg
+  Processed successfully. CER: 5.4765
+Processing image 27/48: inventarbuch-223.jpg
+  Processed successfully. CER: 2.3850
+Processing image 28/48: inventarbuch-104.jpg
+  Processed successfully. CER: 1.3932
+Processing image 29/48: inventarbuch-015.jpg
+  Processed successfully. CER: 1.8002
+Processing image 30/48: inventarbuch-272.jpg
+  Processed successfully. CER: 1.8464
+Processing image 31/48: inventarbuch-124.jpg
+  Processed successfully. CER: 2.1006
+Processing image 32/48: inventarbuch-115.jpg
+  Processed successfully. CER: 1.3098
+Processing image 33/48: inventarbuch-049.jpg
+  Processed successfully. CER: 0.9613
+Processing image 34/48: inventarbuch-017.jpg
+  Processed successfully. CER: 0.9671
+Processing image 35/48: inventarbuch-018.jpg
+  Processed successfully. CER: 1.9110
+Processing image 36/48: inventarbuch-225.jpg
+  Processed successfully. CER: 1.9457
+Processing image 37/48: inventarbuch-046.jpg
+  Processed successfully. CER: 1.7372
+Processing image 38/48: inventarbuch-294.jpg
+  Processed successfully. CER: 2.2328
+Processing image 39/48: inventarbuch-054.jpg
+  Processed successfully. CER: 1.6275
+Processing image 40/48: inventarbuch-073.jpg
+  Processed successfully. CER: 1.6827
+Processing image 41/48: inventarbuch-118.jpg
+  Processed successfully. CER: 2.0442
+Processing image 42/48: inventarbuch-130.jpg
+  Processed successfully. CER: 2.0763
+Processing image 43/48: inventarbuch-146.jpg
+  Processed successfully. CER: 1.6562
+Processing image 44/48: inventarbuch-014.jpg
+  Processed successfully. CER: 0.9847
+Processing image 45/48: inventarbuch-059.jpg
+  Processed successfully. CER: 0.9649
+Processing image 46/48: inventarbuch-256.jpg
+  Processed successfully. CER: 0.9962
+Processing image 47/48: inventarbuch-260.jpg
+  Processed successfully. CER: 2.3121
+Processing image 48/48: inventarbuch-279.jpg
+  Processed successfully. CER: 1.6426
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/donut/inven_few_shot_zero_shot/donut_base_zeroshot_20251013_182008
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/inven_few_shot_zero_shot/donut_base_zeroshot_20251013_182008/predictions_zeroshot.jsonl
+
+============================================================
+DONUT-BASE ZERO-SHOT CER EVALUATION RESULTS
+============================================================
+
+CER Statistics across 48 images:
+--------------------------------------------------
+Average CER: 2.0990 (209.90%)
+Minimum CER: 0.9506 (95.06%)
+Maximum CER: 6.0887 (608.87%)
+
+Weighted CER: 1.9552 (195.52%)
+Total characters: 33277
+Total errors: 65064
+Perfect matches: 0/48 (0.0%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/inven_few_shot_zero_shot/donut_base_zeroshot_20251013_182008/evaluation_summary_zeroshot.json
+
+============================================================
+DONUT-BASE ZERO-SHOT PROCESSING COMPLETE!
+============================================================
+Model: Donut-base (pre-trained only)
+Method: Zero-Shot with task prompt <s_cord-v2>
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/inven_few_shot_zero_shot/donut_base_zeroshot_20251013_182008
+Total images processed: 48
+Average CER on test set: 2.0990 (209.90%)
+
+IMPORTANT: Donut-base outputs receipt format (menu items, prices)
+Not suitable for inventory extraction without fine-tuning!
+============================================================
+
+DONUT zero-shot inference completed at: Mon Oct 13 06:20:10 PM CEST 2025
+=== JOB_STATISTICS ===
+=== current date     : Mon Oct 13 06:20:10 PM CEST 2025
+= Job-ID             : 1238688 on tinygpu
+= Job-Name           : donutbase_zero_inven
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut_shots.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 01:30:00
+= Elapsed runtime    : 00:11:11
+= Total RAM usage    : 2.5 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2025-10-13T17:05:34 / 2025-10-13T17:05:34 / 2025-10-13T18:09:19 / 2025-10-13T18:20:30
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.4G   104.9G   209.7G        N/A  29,305      500K   1,000K        N/A    
+    /home/woody           103.5G  1000.0G  1500.0G        N/A     450K   5,000K   7,500K        N/A    
+    /home/vault          1007.6G  1048.6G  2097.2G        N/A   5,241      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 146644, 58 %, 11 %, 10996 MiB, 650398 ms

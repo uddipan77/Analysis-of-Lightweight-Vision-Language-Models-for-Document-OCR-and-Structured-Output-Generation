@@ -1,0 +1,159 @@
+### Starting TaskPrologue of job 1521792 on tg074 at Sun Feb  1 06:59:47 PM CET 2026
+Running on cores 6-7,14-15,22-23,30-31 with governor ondemand
+Sun Feb  1 18:59:47 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:AF:00.0 Off |                    0 |
+| N/A   38C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+============================================================
+NANONETS-OCR-S FINETUNING WITH UNSLOTH (MULTI-STAGE, FIXED)
+============================================================
+Model: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Output: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/schmuck/run_20260201_190328_unsloth_multistage_fixed
+============================================================
+
+============================================================
+LOADING NANONETS-OCR-S WITH UNSLOTH
+============================================================
+Model path: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+✓ Model directory verified
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.10.7: Fast Qwen2_5_Vl patching. Transformers: 4.56.2.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.8.0+cu128. CUDA: 7.0. CUDA Toolkit: 12.8. Triton: 3.4.0
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.32.post2. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to fast eager.
+
+✅ Model loaded successfully!
+Applying LoRA adaptors...
+Unsloth: Making `model.base_model.model.model` require gradients
+✅ LoRA applied successfully!
+============================================================
+
+
+============================================================
+PHASE 1+2: MULTI-STAGE TRAINING
+============================================================
+
+Preparing datasets...
+Found 413 valid samples out of 413 total
+Found 88 valid samples out of 88 total
+Training: 413 samples, Validation: 88 samples
+
+
+===== STAGE 1: Warm-up (lower LR, no eval) =====
+
+Unsloth: Model does not have a default image size - using 512
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 0.6056, 'grad_norm': 0.8043520450592041, 'learning_rate': 2.499718395218462e-05, 'epoch': 0.19}
+{'loss': 0.3437, 'grad_norm': 0.5219981670379639, 'learning_rate': 2.4660790791224683e-05, 'epoch': 0.39}
+{'loss': 0.205, 'grad_norm': 0.4753420948982239, 'learning_rate': 2.3778505543232315e-05, 'epoch': 0.58}
+{'loss': nan, 'grad_norm': 0.2720915377140045, 'learning_rate': 2.2549964129586758e-05, 'epoch': 0.77}
+{'loss': nan, 'grad_norm': 0.06558306515216827, 'learning_rate': 2.075843404237602e-05, 'epoch': 0.97}
+{'loss': nan, 'grad_norm': 0.05664006248116493, 'learning_rate': 1.8596186797670434e-05, 'epoch': 1.15}
+{'loss': nan, 'grad_norm': 0.0577123761177063, 'learning_rate': 1.616028464095688e-05, 'epoch': 1.35}
+{'loss': nan, 'grad_norm': 0.059659481048583984, 'learning_rate': 1.3824196721492701e-05, 'epoch': 1.54}
+{'loss': nan, 'grad_norm': 0.05416329950094223, 'learning_rate': 1.11758032785073e-05, 'epoch': 1.73}
+{'loss': nan, 'grad_norm': 0.05319296941161156, 'learning_rate': 8.586852393522223e-06, 'epoch': 1.93}
+{'loss': nan, 'grad_norm': 0.055041201412677765, 'learning_rate': 6.173560834516795e-06, 'epoch': 2.12}
+{'loss': nan, 'grad_norm': 0.061180487275123596, 'learning_rate': 4.0442601062739155e-06, 'epoch': 2.31}
+{'loss': nan, 'grad_norm': 0.0449991375207901, 'learning_rate': 2.29453350090143e-06, 'epoch': 2.5}
+{'loss': nan, 'grad_norm': 0.05388333275914192, 'learning_rate': 1.0029254095282658e-06, 'epoch': 2.7}
+{'loss': nan, 'grad_norm': 0.07198961079120636, 'learning_rate': 2.274155021226368e-07, 'epoch': 2.89}
+{'train_runtime': 1096.8462, 'train_samples_per_second': 1.13, 'train_steps_per_second': 0.142, 'train_loss': nan, 'epoch': 3.0}
+
+===== STAGE 2: Main training (baseline-like) =====
+
+Unsloth: Model does not have a default image size - using 512
+Starting Stage 2 training...
+{'loss': 0.0135, 'grad_norm': 0.06356845051050186, 'learning_rate': 4.9974340316719906e-05, 'epoch': 0.19}
+{'loss': 0.013, 'grad_norm': 0.047756798565387726, 'learning_rate': 4.9885707799754036e-05, 'epoch': 0.39}
+{'loss': 0.0095, 'grad_norm': 0.05117623135447502, 'learning_rate': 4.9734010220813144e-05, 'epoch': 0.58}
+{'loss': nan, 'grad_norm': 0.05295025557279587, 'learning_rate': 4.954387621557911e-05, 'epoch': 0.77}
+{'loss': nan, 'grad_norm': 0.04477275162935257, 'learning_rate': 4.92735454356513e-05, 'epoch': 0.97}
+{'eval_loss': 0.033751729875802994, 'eval_runtime': 41.3766, 'eval_samples_per_second': 2.127, 'eval_steps_per_second': 1.063, 'epoch': 1.0}
+{'loss': nan, 'grad_norm': 0.031432684510946274, 'learning_rate': 4.89417009282631e-05, 'epoch': 1.15}
+{'loss': nan, 'grad_norm': 0.04498351737856865, 'learning_rate': 4.8549183649781626e-05, 'epoch': 1.35}
+{'loss': nan, 'grad_norm': 0.05492323264479637, 'learning_rate': 4.814486187230768e-05, 'epoch': 1.54}
+{'loss': nan, 'grad_norm': 0.05006566643714905, 'learning_rate': 4.763993181625174e-05, 'epoch': 1.73}
+{'loss': nan, 'grad_norm': 0.04941664636135101, 'learning_rate': 4.707762791675958e-05, 'epoch': 1.93}
+{'eval_loss': 0.02905873768031597, 'eval_runtime': 54.0468, 'eval_samples_per_second': 1.628, 'eval_steps_per_second': 0.814, 'epoch': 2.0}
+{'loss': nan, 'grad_norm': 0.043094452470541, 'learning_rate': 4.645937515762334e-05, 'epoch': 2.12}
+{'loss': nan, 'grad_norm': 0.03582262247800827, 'learning_rate': 4.5786740307563636e-05, 'epoch': 2.31}
+{'loss': nan, 'grad_norm': 0.025160422548651695, 'learning_rate': 4.506142794974309e-05, 'epoch': 2.5}
+{'loss': nan, 'grad_norm': 0.04860494285821915, 'learning_rate': 4.428527616203216e-05, 'epoch': 2.7}
+{'loss': nan, 'grad_norm': 0.0448407344520092, 'learning_rate': 4.346025185897424e-05, 'epoch': 2.89}
+{'eval_loss': 0.029321247711777687, 'eval_runtime': 37.4357, 'eval_samples_per_second': 2.351, 'eval_steps_per_second': 1.175, 'epoch': 3.0}
+{'loss': nan, 'grad_norm': 0.03432825952768326, 'learning_rate': 4.267766952966369e-05, 'epoch': 3.08}
+{'loss': nan, 'grad_norm': 0.03229406476020813, 'learning_rate': 4.1765645608696404e-05, 'epoch': 3.27}
+{'loss': nan, 'grad_norm': 0.043168071657419205, 'learning_rate': 4.0811134389884433e-05, 'epoch': 3.46}
+{'loss': nan, 'grad_norm': 0.033835653215646744, 'learning_rate': 3.9917744756405605e-05, 'epoch': 3.66}
+{'loss': nan, 'grad_norm': 0.0448627844452858, 'learning_rate': 3.888925582549006e-05, 'epoch': 3.85}
+{'eval_loss': 0.033474866300821304, 'eval_runtime': 37.6302, 'eval_samples_per_second': 2.339, 'eval_steps_per_second': 1.169, 'epoch': 4.0}
+{'loss': nan, 'grad_norm': 0.020629940554499626, 'learning_rate': 3.782556890918989e-05, 'epoch': 4.04}
+{'loss': nan, 'grad_norm': 0.09141606837511063, 'learning_rate': 3.672937959011977e-05, 'epoch': 4.23}
+{'loss': nan, 'grad_norm': 0.019477376714348793, 'learning_rate': 3.560346581809328e-05, 'epoch': 4.43}
+{'loss': nan, 'grad_norm': 0.03258807584643364, 'learning_rate': 3.445068087027589e-05, 'epoch': 4.62}
+{'loss': nan, 'grad_norm': 0.016515757888555527, 'learning_rate': 3.327394612044418e-05, 'epoch': 4.81}
+{'loss': nan, 'grad_norm': 0.13501735031604767, 'learning_rate': 3.2196871310618655e-05, 'epoch': 5.0}
+{'eval_loss': 0.03853926062583923, 'eval_runtime': 37.5208, 'eval_samples_per_second': 2.345, 'eval_steps_per_second': 1.173, 'epoch': 5.0}
+{'train_runtime': 2026.6654, 'train_samples_per_second': 2.445, 'train_steps_per_second': 0.308, 'train_loss': nan, 'epoch': 5.0}
+
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/schmuck/run_20260201_190328_unsloth_multistage_fixed...
+✅ Model saved!
+
+============================================================
+PHASE 3: EVALUATION (CHUNKED)
+============================================================
+
+Starting evaluation with chunked loading...
+Dataset: 89 samples, 5 chunks of size 20
+
+Processing chunk 1/5
+Processing 1/20 in chunk 1Processing 2/20 in chunk 1Processing 3/20 in chunk 1Processing 4/20 in chunk 1Processing 5/20 in chunk 1Processing 6/20 in chunk 1Processing 7/20 in chunk 1Processing 8/20 in chunk 1Processing 9/20 in chunk 1Processing 10/20 in chunk 1Processing 11/20 in chunk 1Processing 12/20 in chunk 1Processing 13/20 in chunk 1Processing 14/20 in chunk 1Processing 15/20 in chunk 1Processing 16/20 in chunk 1Processing 17/20 in chunk 1Processing 18/20 in chunk 1Processing 19/20 in chunk 1Processing 20/20 in chunk 1Nano training completed at: Sun Feb  1 07:57:35 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Sun Feb  1 07:57:35 PM CET 2026
+= Job-ID             : 1521792 on tinygpu
+= Job-Name           : schmuck_ms
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nano.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:57:52
+= Total RAM usage    : 11.8 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2026-02-01T16:03:30 / 2026-02-01T16:03:30 / 2026-02-01T18:59:43 / 2026-02-01T19:57:35
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.0G  1000.0G  1500.0G        N/A   1,017K   5,000K   7,500K        N/A    
+    /home/hpc              88.3G   104.9G   209.7G        N/A  29,413      500K   1,000K        N/A    
+    /home/vault           761.5G  1048.6G  2097.2G        N/A   8,596      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:AF:00.0, 2713193, 34 %, 16 %, 7440 MiB, 3419572 ms

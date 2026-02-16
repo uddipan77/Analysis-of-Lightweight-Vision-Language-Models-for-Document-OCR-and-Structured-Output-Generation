@@ -1,0 +1,556 @@
+#!/usr/bin/env python3
+# staircase_phi35_zero_shot_schema.py
+# Zero-shot OCR on Staircase dataset with Phi-3.5-Vision-Instruct
+# - Single-stage, generic JSON schema prompt (same structure as Qwen zero-shot)
+# - Prompt in English, JSON keys in German (matching labels)
+# - No image resizing (Phi sees full-resolution scans, with internal multi-crop)
+# - CER computed against ground-truth JSON (excluding image_name)
+# - Results + summary saved in timestamped run folder
+
+import os
+import json
+import re
+import gc
+from datetime import datetime
+from typing import List, Dict, Optional
+
+import torch
+from PIL import Image
+from transformers import AutoModelForCausalLM, AutoProcessor
+import jiwer
+import unicodedata
+
+# --------------------------
+# Env / paths
+# --------------------------
+os.environ['TRANSFORMERS_VERBOSITY'] = 'error'
+os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
+
+LOCAL_MODEL_PATH = "/home/vault/iwi5/iwi5298h/models/phi_3_5_vision"
+TEST_JSONL       = "/home/woody/iwi5/iwi5298h/json_staircase/test.jsonl"
+IMAGES_DIR       = "/home/woody/iwi5/iwi5298h/staircase_images"
+OUT_DIR          = "/home/vault/iwi5/iwi5298h/models_image_text/phi/stair_shots"
+
+
+# --------------------------
+# Basic utilities
+# --------------------------
+def ensure_dir(p: str):
+    os.makedirs(p, exist_ok=True)
+
+
+def load_jsonl(file_path: str) -> List[Dict]:
+    data = []
+    with open(file_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            if line.strip():
+                data.append(json.loads(line.strip()))
+    return data
+
+
+def json_to_string(json_obj: Dict) -> str:
+    return json.dumps(json_obj, ensure_ascii=False, sort_keys=False, separators=(',', ':'))
+
+
+def normalize_unicode(text: str) -> str:
+    return unicodedata.normalize("NFC", text)
+
+
+def extract_json_from_response(response: str) -> Dict:
+    """
+    Extract JSON object from model response (robust to extra text / fences).
+    Returns a dict or {} on failure.
+    """
+    if not isinstance(response, str):
+        return {}
+    s = response.strip()
+
+    # Strip markdown code fences if present
+    if s.startswith("```"):
+        parts = s.split("```")
+        if len(parts) >= 3:
+            body = parts[1]
+            # handle ```json
+            if body.lstrip().lower().startswith("json"):
+                body = body[4:].strip()
+            s = body.strip()
+
+    # Try to find the largest JSON-looking block
+    matches = re.findall(r"\{.*\}", s, flags=re.DOTALL)
+    if matches:
+        for m in sorted(matches, key=len, reverse=True):
+            try:
+                return json.loads(m)
+            except Exception:
+                continue
+
+    # Final fallback: try whole string
+    try:
+        return json.loads(s)
+    except Exception:
+        return {}
+
+
+# --------------------------
+# Robust image path resolution
+# --------------------------
+def strip_accents(s: str) -> str:
+    return "".join(
+        ch for ch in unicodedata.normalize("NFKD", s) if not unicodedata.combining(ch)
+    )
+
+
+def norm_filename_for_match(p: str) -> str:
+    p = strip_accents(p)
+    p = p.replace("\\", "/").lower()
+    return p
+
+
+def iter_all_files(root: str):
+    for dirpath, _, filenames in os.walk(root):
+        for fn in filenames:
+            yield os.path.join(dirpath, fn)
+
+
+def find_image_path(images_root: str, image_name_from_json: str) -> Optional[str]:
+    """Try multiple strategies (exact, basename, pattern, substring) to find image."""
+    if not image_name_from_json:
+        return None
+
+    # 1) Direct join
+    direct = os.path.join(images_root, image_name_from_json)
+    if os.path.exists(direct):
+        return direct
+
+    target_norm = norm_filename_for_match(image_name_from_json)
+
+    # 2) Exact basename match
+    for path in iter_all_files(images_root):
+        if norm_filename_for_match(os.path.basename(path)) == target_norm:
+            return path
+
+    # 3) Pattern like "(123).jpg"
+    m = re.search(r"\(\s*\d+\s*\)\.(jpg|jpeg|png|tif|tiff)$",
+                  image_name_from_json,
+                  flags=re.IGNORECASE)
+    if m:
+        suffix = image_name_from_json[image_name_from_json.rfind("("):]
+        suffix_norm = norm_filename_for_match(suffix)
+        for path in iter_all_files(images_root):
+            base = norm_filename_for_match(os.path.basename(path))
+            if base.endswith(suffix_norm):
+                return path
+
+    # 4) Fallback: substring anywhere
+    for path in iter_all_files(images_root):
+        if target_norm in norm_filename_for_match(path):
+            return path
+
+    return None
+
+
+# --------------------------
+# Generic English instruction + JSON schema
+# (copied from your Qwen zero-shot, including key names)
+# --------------------------
+def generic_schema_prompt() -> str:
+    """
+    English prompt, but JSON keys remain German and match staircase label structure.
+    One generic schema that works for most staircase forms.
+    """
+    return (
+        "You are an OCR model for historical German staircase survey forms.\n\n"
+        "TASK:\n"
+        "Given ONE filled-in staircase form image, read all printed text, all handwritten text, "
+        "and all checked/unchecked boxes. Then output exactly ONE JSON object that represents "
+        "the complete form.\n\n"
+        "RULES:\n"
+        "- Use exactly the JSON keys shown in the schema below (including capitalization, spaces and umlauts).\n"
+        "- Do NOT add extra keys and do NOT omit any keys.\n"
+        "- If a field is empty or not filled on the form, still include it with an empty string \"\" "
+        "or false for an unchecked checkbox.\n"
+        "- For checkboxes: true = checked, false = unchecked.\n"
+        "- For numeric values (measurements, years, counts, etc.), return them as strings (e.g. \"4,7\", \"1738\").\n"
+        "- Return ONLY the JSON object, starting with '{' and ending with '}'. No explanations, no natural language.\n\n"
+        "JSON SCHEMA (structure and keys):\n"
+        "{\n"
+        "  \"stair_type\": \"\",\n"
+        "  \"Name des Hauses\": \"\",\n"
+        "  \"Adresse\": \"\",\n"
+        "  \"Bauherr\": \"\",\n"
+        "  \"Baumeister\": \"\",\n"
+        "  \"Bauzeit\": \"\",\n"
+        "  \"LAGE am/im Hause\": {\n"
+        "    \"im\": false,\n"
+        "    \"am\": false\n"
+        "  },\n"
+        "  \"Gesamt Durchmesser cm\": \"\",\n"
+        "  \"MATERIAL\": \"\",\n"
+        "  \"TREPPENTYP (Lauffform)\": \"\",\n"
+        "  \"LÄUFE\": {\n"
+        "    \"EG\": {\n"
+        "      \"Stufen\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Steig.\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Breite\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Plateaus\": [\"\", \"\", \"\"]\n"
+        "    },\n"
+        "    \"1.OG\": {\n"
+        "      \"Stufen\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Steig.\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Breite\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Plateaus\": [\"\", \"\", \"\"]\n"
+        "    },\n"
+        "    \"2.OG\": {\n"
+        "      \"Stufen\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Steig.\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Breite\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Plateaus\": [\"\", \"\", \"\"]\n"
+        "    },\n"
+        "    \"3.OG\": {\n"
+        "      \"Stufen\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Steig.\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Breite\": [\"\", \"\", \"\", \"\"],\n"
+        "      \"Plateaus\": [\"\", \"\", \"\"]\n"
+        "    }\n"
+        "  },\n"
+        "  \"STUFENPROFIL\": \"\",\n"
+        "  \"GEHLINIE\": \"\",\n"
+        "  \"Schweifung\": \"\",\n"
+        "  \"Untertritt\": \"\",\n"
+        "  \"WANGE\": false,\n"
+        "  \"HOLM\": false,\n"
+        "  \"eingespannte Stufen\": false,\n"
+        "  \"aufgesattelte Stufen\": false,\n"
+        "  \"GELÄNDER\": {\n"
+        "    \"Stabwerk\":  { \"Holz\": false, \"Stein\": false, \"Eisen\": false },\n"
+        "    \"Traljen\":   { \"Holz\": false, \"Stein\": false, \"Eisen\": false },\n"
+        "    \"Docken\":    { \"Holz\": false, \"Stein\": false, \"Eisen\": false },\n"
+        "    \"vollwandig\":{ \"Holz\": false, \"Stein\": false, \"Eisen\": false },\n"
+        "    \"Ornament\":  { \"Holz\": false, \"Stein\": false, \"Eisen\": false },\n"
+        "    \"Baluster\":  { \"Holz\": false, \"Stein\": false, \"Eisen\": false },\n"
+        "    \"Bal.-Brett\":{ \"Holz\": false, \"Stein\": false, \"Eisen\": false },\n"
+        "    \"Paneel\":    { \"Holz\": false, \"Stein\": false, \"Eisen\": false }\n"
+        "  },\n"
+        "  \"zur Lauflinie\": {\n"
+        "    \"parallel\": false,\n"
+        "    \"gekurvt\": false\n"
+        "  },\n"
+        "  \"Höhe\": \"\",\n"
+        "  \"ANFÄNGER\": \"\",\n"
+        "  \"DEKORATION\": \"\",\n"
+        "  \"HANDLAUFPROFIL\": {\n"
+        "    \"Hohe\": \"\",\n"
+        "    \"Breite\": \"\"\n"
+        "  },\n"
+        "  \"Notes\": \"\",\n"
+        "  \"Datum\": \"\",\n"
+        "  \"ORT\": \"\",\n"
+        "  \"Approved by\": \"\"\n"
+        "}\n"
+    )
+
+
+# --------------------------
+# Optional key normalization
+# (same idea as Qwen zero-shot; can unify minor variants)
+# --------------------------
+KEY_NORMALIZATION = {
+    "Gesamt Ø cm": "Gesamt Durchmesser cm",
+    "Gesamt Durchmesser cm": "Gesamt Durchmesser cm",
+    # you can add more mappings here if you see variants in predictions
+}
+
+
+def normalize_keys(obj):
+    if isinstance(obj, dict):
+        out = {}
+        for k, v in obj.items():
+            nk = KEY_NORMALIZATION.get(k, k)
+            out[nk] = normalize_keys(v)
+        return out
+    elif isinstance(obj, list):
+        return [normalize_keys(x) for x in obj]
+    else:
+        return obj
+
+
+# --------------------------
+# Phi-3.5 zero-shot runner
+# --------------------------
+class PhiStairZeroShot:
+    def __init__(self, model_path: str = LOCAL_MODEL_PATH):
+        print("Loading Phi-3.5-Vision-Instruct model for zero-shot Staircase OCR...")
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        print(f"  Device: {device}")
+
+        # Multi-crop but no explicit resizing
+        self.processor = AutoProcessor.from_pretrained(
+            model_path,
+            trust_remote_code=True,
+            num_crops=4,
+            local_files_only=True,  # assumes you already downloaded locally
+        )
+
+        self.model = AutoModelForCausalLM.from_pretrained(
+            model_path,
+            device_map="cuda" if device == "cuda" else None,
+            trust_remote_code=True,
+            torch_dtype=torch.bfloat16 if device == "cuda" else torch.float32,
+            _attn_implementation='eager',
+            local_files_only=True,
+        )
+
+        self.device = device
+        self.schema_prompt = generic_schema_prompt()
+
+        print("  Model and processor loaded.")
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            gc.collect()
+            allocated = torch.cuda.memory_allocated() / 1e9
+            reserved = torch.cuda.memory_reserved() / 1e9
+            print(f"  GPU Memory - Allocated: {allocated:.2f} GB, Reserved: {reserved:.2f} GB")
+
+    def extract_json(self, image_path: str, max_new_tokens: int = 1536) -> str:
+        """
+        Single-stage: one image + generic schema prompt.
+        Returns raw decoded string.
+        """
+        image = Image.open(image_path).convert("RGB")
+
+        messages = [
+            {
+                "role": "user",
+                "content": f"<|image_1|>\n{self.schema_prompt}"
+            }
+        ]
+
+        prompt = self.processor.tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True
+        )
+
+        inputs = self.processor(prompt, [image], return_tensors="pt").to(self.device)
+
+        generation_args = {
+            "max_new_tokens": max_new_tokens,
+            "temperature": 0.0,
+            "do_sample": False,
+            "eos_token_id": self.processor.tokenizer.eos_token_id,
+        }
+
+        with torch.no_grad():
+            # Greedy first
+            generate_ids = self.model.generate(
+                **inputs,
+                **generation_args
+            )
+
+        # Only keep newly generated tokens
+        generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
+
+        raw_output = self.processor.batch_decode(
+            generate_ids,
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=False
+        )[0].strip()
+
+        raw_output = normalize_unicode(raw_output)
+
+        del inputs, generate_ids, image
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            gc.collect()
+
+        return raw_output
+
+
+# --------------------------
+# Save + CER summary
+# --------------------------
+def save_predictions_with_timestamp(predictions, test_data, all_cer_scores, base_dir):
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_dir = os.path.join(base_dir, f"run_zeroshot_{timestamp}")
+    os.makedirs(output_dir, exist_ok=True)
+
+    print(f"\nSaving results to: {output_dir}")
+
+    predictions_file = os.path.join(output_dir, "predictions_zero_shot.jsonl")
+    with open(predictions_file, 'w', encoding='utf-8') as f:
+        for item in predictions:
+            f.write(json.dumps(item, ensure_ascii=False) + '\n')
+    print(f"Predictions saved to: {predictions_file}")
+
+    if all_cer_scores:
+        avg_cer = sum(all_cer_scores) / len(all_cer_scores)
+        min_cer = min(all_cer_scores)
+        max_cer = max(all_cer_scores)
+
+        total_chars = 0
+        total_errors = 0
+        for i, test_item in enumerate(test_data[:len(predictions)]):
+            gt_json = {k: v for k, v in test_item.items() if k != "image_name"}
+            gt_json_string = json_to_string(gt_json)
+            char_count = len(gt_json_string)
+            cer_score = all_cer_scores[i]
+            total_chars += char_count
+            total_errors += int(round(cer_score * char_count))
+
+        weighted_cer = total_errors / total_chars if total_chars > 0 else 0.0
+        perfect_matches = sum(1 for cer in all_cer_scores if cer == 0.0)
+
+        print("\n" + "="*60)
+        print("CER EVALUATION RESULTS (Zero-shot, Phi-3.5-Vision, single generic schema)")
+        print("="*60)
+        print(f"\nCER over {len(all_cer_scores)} images:")
+        print("-" * 50)
+        print(f"Average CER: {avg_cer:.4f} ({avg_cer*100:.2f}%)")
+        print(f"Minimum CER: {min_cer:.4f} ({min_cer*100:.2f}%)")
+        print(f"Maximum CER: {max_cer:.4f} ({max_cer*100:.2f}%)")
+        print(f"\nWeighted CER: {weighted_cer:.4f} ({weighted_cer*100:.2f}%)")
+        print(f"Total characters: {total_chars}")
+        print(f"Total errors: {total_errors}")
+        print(f"Perfect matches: {perfect_matches}/{len(all_cer_scores)} "
+              f"({perfect_matches/len(all_cer_scores)*100:.1f}%)")
+
+        summary_file = os.path.join(output_dir, "cer_evaluation_summary_zero_shot.json")
+        summary_data = {
+            "timestamp": timestamp,
+            "total_images": len(predictions),
+            "mode": "zero-shot single-schema",
+            "model": "microsoft/Phi-3.5-vision-instruct",
+            "average_cer": float(avg_cer),
+            "minimum_cer": float(min_cer),
+            "maximum_cer": float(max_cer),
+            "weighted_cer": float(weighted_cer),
+            "perfect_matches": int(perfect_matches),
+            "total_characters": int(total_chars),
+            "total_errors": int(total_errors),
+            "notes": [
+                "Single-stage zero-shot with Phi-3.5-Vision-Instruct",
+                "Generic English prompt, fixed German JSON schema (same as Qwen zero-shot)",
+                "No manual resizing (Phi sees full-resolution scan, internal multi-crop)",
+                "Generation: greedy decoding",
+                "Optional key normalization for minor label variants",
+            ],
+        }
+        with open(summary_file, 'w', encoding='utf-8') as f:
+            json.dump(summary_data, f, ensure_ascii=False, indent=2)
+        print(f"\nSummary saved to: {summary_file}")
+
+        return output_dir, avg_cer
+
+    return output_dir, None
+
+
+# --------------------------
+# Main
+# --------------------------
+def main():
+    ensure_dir(OUT_DIR)
+    print("="*60)
+    print("PHI-3.5-VISION ZERO-SHOT OCR (Staircase Forms) — single generic schema")
+    print("="*60)
+
+    print("Loading test data...")
+    test_data = load_jsonl(TEST_JSONL)
+    print(f"Loaded {len(test_data)} samples from {TEST_JSONL}")
+
+    ocr = PhiStairZeroShot()
+
+    predictions = []
+    all_cer_scores = []
+
+    print(f"\nProcessing {len(test_data)} images (zero-shot, single-schema)...")
+    for i, test_item in enumerate(test_data):
+        image_name = test_item.get("image_name", "")
+        print(f"\n[{i+1}/{len(test_data)}] Processing: {image_name}")
+
+        image_path = find_image_path(IMAGES_DIR, image_name)
+        print(f"  Resolved path: {image_path}")
+
+        if not image_path or not os.path.exists(image_path):
+            print("  WARNING: Image not found")
+            prediction_entry = {
+                "image_name": image_name,
+                "matched_image_path": image_path or "NOT_FOUND",
+                "predicted_json": {},
+                "ground_truth": {k: v for k, v in test_item.items() if k != "image_name"},
+                "raw_response": "Error: Image not found",
+                "cer_score": 1.0,
+            }
+            predictions.append(prediction_entry)
+            all_cer_scores.append(1.0)
+            continue
+
+        try:
+            response = ocr.extract_json(image_path, max_new_tokens=1536)
+
+            print(f"  raw output length: {len(response)}")
+            preview = (response[:160] or "").replace("\n", " ")
+            print(f"  raw preview: {preview}")
+
+            predicted_json = extract_json_from_response(response)
+            predicted_json = normalize_keys(predicted_json)
+
+            gt_json = {k: v for k, v in test_item.items() if k != "image_name"}
+            gt_json_string = json_to_string(gt_json)
+            pred_json_string = json_to_string(predicted_json) if predicted_json else ""
+
+            cer_score = jiwer.cer(gt_json_string, pred_json_string) if pred_json_string else 1.0
+            print(f"  CER: {cer_score:.4f} ({cer_score*100:.2f}%)")
+
+            prediction_entry = {
+                "image_name": image_name,
+                "matched_image_path": image_path,
+                "predicted_json": predicted_json,
+                "ground_truth": gt_json,
+                "raw_response": response,
+                "cer_score": cer_score,
+            }
+            predictions.append(prediction_entry)
+            all_cer_scores.append(cer_score)
+
+            if torch.cuda.is_available():
+                allocated = torch.cuda.memory_allocated() / 1e9
+                print(f"  GPU Memory: {allocated:.2f} GB")
+
+        except Exception as e:
+            print(f"  ERROR: {str(e)}")
+            prediction_entry = {
+                "image_name": image_name,
+                "matched_image_path": image_path,
+                "predicted_json": {},
+                "ground_truth": {k: v for k, v in test_item.items() if k != "image_name"},
+                "raw_response": f"Error: {str(e)}",
+                "cer_score": 1.0,
+            }
+            predictions.append(prediction_entry)
+            all_cer_scores.append(1.0)
+
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            gc.collect()
+
+    output_dir, avg_cer = save_predictions_with_timestamp(
+        predictions, test_data, all_cer_scores, OUT_DIR
+    )
+
+    print(f"\n{'='*60}")
+    print("Processing complete! (Zero-shot, single generic schema, Phi-3.5-Vision)")
+    print(f"Results saved to: {output_dir}")
+    print(f"Total images processed: {len(predictions)}")
+    if avg_cer is not None:
+        print(f"Average CER on test set: {avg_cer:.4f} ({avg_cer*100:.2f}%)")
+    print(f"{'='*60}\n")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:
+        print("\nFATAL ERROR:", e)
+        import traceback
+        traceback.print_exc()
+        exit(1)

@@ -1,0 +1,100 @@
+### Starting TaskPrologue of job 1471132 on tg073 at Fri Dec 19 08:14:59 PM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Fri Dec 19 20:14:59 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   34C    P0             25W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Fri Dec 19 08:15:06 PM CET 2025
+   ✅ Processor loaded
+
+📊 Loading INVENTORY datasets...
+   📁 Training dataset:
+   📊 Loaded 213 valid samples (out of 213 total)
+   📁 Validation dataset (for length info only):
+   📊 Loaded 47 valid samples (out of 47 total)
+   📊 Raw validation samples for CER computation: 47
+
+================================================================================
+🔎 Starting / Resuming Optuna HPO (Phi-3.5-Vision, INVENTORY, FAST MODE)
+================================================================================
+   • Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+   • Study name: phi_inventory
+   • Target total trials: 25
+   • Run directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_202550
+   • Completed trials so far: 0
+   • Remaining trials to run: 25
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - INVENTORY DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_202550/trials/trial_0
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00010894653829887865
+   • Weight decay: 0.09507143064099162
+   • LoRA r=8, alpha=32, dropout=0.052058449429580246
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.27 GB, Reserved: 2.37 GB
+
+📝 Preparing model for LoRA training (no gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 12,582,912 / 4,159,204,352 (0.30%)
+🚀 Starting QLoRA training on INVENTORY dataset (HPO trial)...
+
+================================================================================
+Finished at: Fri Dec 19 08:38:29 PM CET 2025
+Exit status: 1
+=== JOB_STATISTICS ===
+=== current date     : Fri Dec 19 08:38:29 PM CET 2025
+= Job-ID             : 1471132 on tinygpu
+= Job-Name           : phi_inven_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:23:34
+= Total RAM usage    : 10.3 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2025-12-19T20:14:54 / 2025-12-19T20:14:54 / 2025-12-19T20:14:55 / 2025-12-19T20:38:29
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.6G   104.9G   209.7G        N/A  29,019      500K   1,000K        N/A    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/vault           959.0G  1048.6G  2097.2G        N/A   7,106      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 2168539, 0 %, 0 %, 32482 MiB, 925478 ms

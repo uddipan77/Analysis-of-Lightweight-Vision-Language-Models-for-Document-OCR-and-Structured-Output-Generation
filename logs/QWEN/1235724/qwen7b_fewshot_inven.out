@@ -1,0 +1,183 @@
+### Starting TaskPrologue of job 1235724 on tg074 at Tue Oct  7 06:47:30 PM CEST 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Tue Oct  7 18:47:30 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.158.01             Driver Version: 570.158.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   34C    P0             25W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+===================================
+TrOCR Training Job Configuration:
+===================================
+Job ID: 1235724
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/QWEN/1235724
+CUDA Device: 0
+Job started at: Tue Oct  7 06:47:32 PM CEST 2025
+===================================
+Loading test data...
+Loaded 45 test samples
+Loading few-shot examples...
+Using 3 few-shot examples
+Loading Qwen2.5-VL model...
+Model loaded successfully!
+Creating few-shot messages with images...
+Created few-shot conversation with 6 messages
+
+Processing 45 test images...
+Processing image 1/45: inventarbuch-022.jpg
+  Processed successfully. CER: 0.3549
+Processing image 2/45: inventarbuch-099.jpg
+  Processed successfully. CER: 0.1695
+Processing image 3/45: inventarbuch-245.jpg
+  Processed successfully. CER: 0.3152
+Processing image 4/45: inventarbuch-263.jpg
+  Processed successfully. CER: 0.1534
+Processing image 5/45: inventarbuch-033.jpg
+  Processed successfully. CER: 0.5635
+Processing image 6/45: inventarbuch-143.jpg
+  Processed successfully. CER: 0.1748
+Processing image 7/45: inventarbuch-244.jpg
+  Processed successfully. CER: 0.3796
+Processing image 8/45: inventarbuch-024.jpg
+  Processed successfully. CER: 0.0700
+Processing image 9/45: inventarbuch-141.jpg
+  Processed successfully. CER: 0.1202
+Processing image 10/45: inventarbuch-183.jpg
+  Processed successfully. CER: 0.3620
+Processing image 11/45: inventarbuch-191.jpg
+  Processed successfully. CER: 0.2167
+Processing image 12/45: inventarbuch-051.jpg
+  Processed successfully. CER: 0.0550
+Processing image 13/45: inventarbuch-203.jpg
+  Processed successfully. CER: 0.1761
+Processing image 14/45: inventarbuch-296.jpg
+  Processed successfully. CER: 0.3861
+Processing image 15/45: inventarbuch-302.jpg
+  Processed successfully. CER: 0.1008
+Processing image 16/45: inventarbuch-179.jpg
+  Processed successfully. CER: 0.2451
+Processing image 17/45: inventarbuch-114.jpg
+  Processed successfully. CER: 0.2497
+Processing image 18/45: inventarbuch-082.jpg
+  Processed successfully. CER: 0.3208
+Processing image 19/45: inventarbuch-287.jpg
+  Processed successfully. CER: 0.7883
+Processing image 20/45: inventarbuch-181.jpg
+  Processed successfully. CER: 0.2711
+Processing image 21/45: inventarbuch-299.jpg
+  Processed successfully. CER: 0.2176
+Processing image 22/45: inventarbuch-084.jpg
+  Processed successfully. CER: 0.3975
+Processing image 23/45: inventarbuch-004.jpg
+  Processed successfully. CER: 0.2236
+Processing image 24/45: inventarbuch-148.jpg
+  Processed successfully. CER: 0.1143
+Processing image 25/45: inventarbuch-238.jpg
+  Processed successfully. CER: 0.2846
+Processing image 26/45: inventarbuch-116.jpg
+  Processed successfully. CER: 0.1805
+Processing image 27/45: inventarbuch-223.jpg
+  Processed successfully. CER: 0.2269
+Processing image 28/45: inventarbuch-104.jpg
+  Processed successfully. CER: 0.2792
+Processing image 29/45: inventarbuch-015.jpg
+  Processed successfully. CER: 0.2648
+Processing image 30/45: inventarbuch-272.jpg
+  Processed successfully. CER: 0.3761
+Processing image 31/45: inventarbuch-124.jpg
+  Processed successfully. CER: 0.1570
+Processing image 32/45: inventarbuch-115.jpg
+  Processed successfully. CER: 0.2130
+Processing image 33/45: inventarbuch-049.jpg
+  Processed successfully. CER: 0.0608
+Processing image 34/45: inventarbuch-017.jpg
+  Processed successfully. CER: 0.1737
+Processing image 35/45: inventarbuch-018.jpg
+  Processed successfully. CER: 0.2769
+Processing image 36/45: inventarbuch-225.jpg
+  Processed successfully. CER: 0.3106
+Processing image 37/45: inventarbuch-046.jpg
+  Processed successfully. CER: 0.2457
+Processing image 38/45: inventarbuch-294.jpg
+  Processed successfully. CER: 0.1303
+Processing image 39/45: inventarbuch-054.jpg
+  Processed successfully. CER: 0.3501
+Processing image 40/45: inventarbuch-073.jpg
+  Processed successfully. CER: 0.3413
+Processing image 41/45: inventarbuch-118.jpg
+  Processed successfully. CER: 0.2303
+Processing image 42/45: inventarbuch-130.jpg
+  Processed successfully. CER: 0.1935
+Processing image 43/45: inventarbuch-146.jpg
+  Processed successfully. CER: 0.2416
+Processing image 44/45: inventarbuch-014.jpg
+  Processed successfully. CER: 0.2170
+Processing image 45/45: inventarbuch-059.jpg
+  Processed successfully. CER: 0.1982
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/few_zero_inven/run_20251007_191246
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/few_zero_inven/run_20251007_191246/predictions.jsonl
+
+============================================================
+CER EVALUATION RESULTS
+============================================================
+
+CER Statistics across 45 images:
+--------------------------------------------------
+Average CER: 0.2528 (25.28%)
+Minimum CER: 0.0550 (5.50%)
+Maximum CER: 0.7883 (78.83%)
+
+Weighted CER: 0.2687 (26.87%)
+Total characters: 30885
+Total errors: 8299
+Perfect matches: 0/45 (0.0%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/few_zero_inven/run_20251007_191246/evaluation_summary.json
+
+============================================================
+Processing complete!
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/few_zero_inven/run_20251007_191246
+Total images processed: 45
+Average CER on test set: 0.2528 (25.28%)
+============================================================
+
+=== JOB_STATISTICS ===
+=== current date     : Tue Oct  7 07:12:50 PM CEST 2025
+= Job-ID             : 1235724 on tinygpu
+= Job-Name           : qwen7b_fewshot_inven
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen_shots.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 02:00:00
+= Elapsed runtime    : 00:25:20
+= Total RAM usage    : 20.7 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2025-10-07T18:47:28 / 2025-10-07T18:47:28 / 2025-10-07T18:47:29 / 2025-10-07T19:12:49
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+!!! /home/hpc             135.3G   104.9G   209.7G  -29335days  37,200      500K   1,000K        N/A !!!
+    /home/woody            77.8G  1000.0G  1500.0G        N/A     441K   5,000K   7,500K        N/A    
+    /home/vault           849.4G  1048.6G  2097.2G        N/A   4,598      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 1232832, 39 %, 23 %, 32192 MiB, 1505705 ms

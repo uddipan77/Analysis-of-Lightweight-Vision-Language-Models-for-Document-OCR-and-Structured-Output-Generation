@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen3/lib/python3.11/site-packages/unsloth_zoo/temporary_patches/utils.py", line 144, in <module>
+    type(TransformersKwargs) is t_TypedDictMeta, \
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Unsloth: TransformersKwargs type changed! Please file a bug report asap!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/hpo/stair_hpo2.py", line 42, in <module>
+    from unsloth import FastVisionModel
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen3/lib/python3.11/site-packages/unsloth/__init__.py", line 243, in <module>
+    from .models import *
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen3/lib/python3.11/site-packages/unsloth/models/__init__.py", line 15, in <module>
+    from .llama     import FastLlamaModel
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen3/lib/python3.11/site-packages/unsloth/models/llama.py", line 20, in <module>
+    from ._utils import *
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen3/lib/python3.11/site-packages/unsloth/models/_utils.py", line 106, in <module>
+    from unsloth_zoo.loss_utils import (
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen3/lib/python3.11/site-packages/unsloth_zoo/loss_utils.py", line 23, in <module>
+    from .temporary_patches.common import UNSLOTH_ENABLE_LOGGING, torch_compile_options, logger
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen3/lib/python3.11/site-packages/unsloth_zoo/temporary_patches/__init__.py", line 19, in <module>
+    from .gemma import *
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen3/lib/python3.11/site-packages/unsloth_zoo/temporary_patches/gemma.py", line 22, in <module>
+    from .utils import (
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen3/lib/python3.11/site-packages/unsloth_zoo/temporary_patches/utils.py", line 149, in <module>
+    raise RuntimeError(
+RuntimeError: Unsloth: TransformersKwargs has been moved! Other error = Unsloth: TransformersKwargs type changed! Please file a bug report asap!.
+Please file a bug report asap!

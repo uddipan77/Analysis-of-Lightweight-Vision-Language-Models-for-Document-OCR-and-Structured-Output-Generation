@@ -1,0 +1,68 @@
+### Starting TaskPrologue of job 1393857 on tg096 at Tue Nov 18 02:07:56 PM CET 2025
+Running on cores 96-127 with governor ondemand
+Tue Nov 18 14:07:56 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:C1:00.0 Off |                    0 |
+| N/A   35C    P0             55W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+
+============================================================
+PADDLEOCR-VL FINETUNING - STAIRCASE DATASET
+CER-BASED MODEL SELECTION (Phi-style JSON + deterministic decoding)
+============================================================
+Model: PaddlePaddle/PaddleOCR-VL
+Local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Output run dir: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/stair/run_20251118_140818_cer
+Prompt task: ocr -> 'OCR:'
+============================================================
+
+Using device: cuda
+Loading PaddleOCR-VL from local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Loaded 115 samples from /home/woody/iwi5/iwi5298h/json_staircase/train.jsonl
+Loaded 25 samples from /home/woody/iwi5/iwi5298h/json_staircase/val.jsonl
+Loaded 24 samples from /home/woody/iwi5/iwi5298h/json_staircase/test.jsonl
+
+============================================================
+Epoch 1/10
+============================================================
+Paddle training completed at: Tue Nov 18 02:08:44 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Nov 18 02:08:45 PM CET 2025
+= Job-ID             : 1393857 on tinygpu
+= Job-Name           : stair
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_paddle.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:00:53
+= Total RAM usage    : 5.6 GiB of requested  GiB (%)   
+= Node list          : tg096
+= Subm/Elig/Start/End: 2025-11-18T12:44:55 / 2025-11-18T12:44:55 / 2025-11-18T14:07:51 / 2025-11-18T14:08:44
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+!!! /home/hpc             109.0G   104.9G   209.7G  -29293days  31,580      500K   1,000K        N/A !!!
+    /home/woody           188.8G  1000.0G  1500.0G        N/A     872K   5,000K   7,500K        N/A    
+    /home/vault           620.1G  1048.6G  2097.2G        N/A   6,193      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:C1:00.0, 3635071, 9 %, 0 %, 40414 MiB, 26305 ms

@@ -1,0 +1,60 @@
+### Starting TaskPrologue of job 1525782 on tg073 at Fri Feb  6 11:51:49 PM CET 2026
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Fri Feb  6 23:51:49 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   39C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Job started at: Fri Feb  6 11:51:51 PM CET 2026
+Using device: cuda
+Output dir: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_20260206_235212
+TensorBoard logs: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_20260206_235212/tensorboard_logs
+Loading model from local cache: /home/vault/iwi5/iwi5298h/models/donut_base
+Loaded 215 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/train.jsonl
+Loaded 46 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/val.jsonl
+Loaded 47 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/test.jsonl
+
+Starting training...
+Best model selection based on: eval_gen_cer_string (AUTOREGRESSIVE, lower is better)
+
+Job completed at: Fri Feb  6 11:52:26 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Fri Feb  6 11:52:26 PM CET 2026
+= Job-ID             : 1525782 on tinygpu
+= Job-Name           : inven_new
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut_inven.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:00:40
+= Total RAM usage    : 2.2 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2026-02-06T16:36:42 / 2026-02-06T16:36:42 / 2026-02-06T23:51:46 / 2026-02-06T23:52:26
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.4G   104.9G   209.7G        N/A  29,919      500K   1,000K        N/A    
+    /home/vault           884.2G  1048.6G  2097.2G        N/A   9,192      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 2892095, 0 %, 0 %, 1212 MiB, 18192 ms

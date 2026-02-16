@@ -1,0 +1,458 @@
+### Starting TaskPrologue of job 1290468 on tg071 at Sun Oct 26 08:55:44 PM CET 2025
+Running on cores 2-3,10-11,16,19,26-27 with governor ondemand
+Sun Oct 26 20:55:44 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:3B:00.0 Off |                    0 |
+| N/A   36C    P0             43W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+NANONETS-OCR-S FEW-SHOT JEWELRY CATALOG OCR PROCESSING
+============================================================
+
+Loading training data for few-shot examples...
+Loaded 413 training samples
+
+Loading test data...
+Loaded 89 test samples
+
+Using 1 few-shot example(s):
+  1. SCH_3149.jpg
+Loading Nanonets-OCR-s model...
+Model found at /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Model loaded successfully!
+
+Processing 89 test images with 1-shot prompting...
+------------------------------------------------------------
+Processing image 1/89: SCH_2891_118.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 2/89: SCH_2891_225.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0029
+Processing image 3/89: SCH_3071.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0027
+Processing image 4/89: SCH_3213.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0068
+Processing image 5/89: SCH_3129.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0059
+Processing image 6/89: SCH_2984.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 7/89: SCH_2891_162.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0030
+Processing image 8/89: SCH_3043.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0030
+Processing image 9/89: SCH_3005.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0327
+Processing image 10/89: SCH_3192_41.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0095
+Processing image 11/89: SCH_2106.jpg
+  Resizing from 3508x2480 to 1024x723
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 12/89: SCH_2891_143.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0029
+Processing image 13/89: SCH_2892.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0082
+Processing image 14/89: SCH_2891_211.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.3275
+Processing image 15/89: SCH_3170.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0089
+Processing image 16/89: SCH_2891_73.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 17/89: SCH_2087.jpg
+  Resizing from 3508x2480 to 1024x723
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0028
+Processing image 18/89: SCH_2891_222.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0172
+Processing image 19/89: SCH_2891_63.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0051
+Processing image 20/89: SCH_2891_145.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0030
+Processing image 21/89: SCH_2891_292.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0205
+Processing image 22/89: SCH_3030.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0096
+Processing image 23/89: SCH_3220.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0093
+Processing image 24/89: SCH_3179.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0030
+Processing image 25/89: SCH_3239.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0147
+Processing image 26/89: SCH_3192_6.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 27/89: SCH_2891_142.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 28/89: SCH_2891_53.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0030
+Processing image 29/89: SCH_2891_262_263.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0220
+Processing image 30/89: SCH_2891_282.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0050
+Processing image 31/89: SCH_3218.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0489
+Processing image 32/89: SCH_2891_275.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0269
+Processing image 33/89: SCH_3002.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0032
+Processing image 34/89: SCH_3137_a.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0282
+Processing image 35/89: SCH_3131.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0129
+Processing image 36/89: SCH_3192_36.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0026
+Processing image 37/89: SCH_3165.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0030
+Processing image 38/89: SCH_3192_14.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0027
+Processing image 39/89: SCH_2891_173.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0609
+Processing image 40/89: SCH_2891_72.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0083
+Processing image 41/89: SCH_2067_recto.jpg
+  Resizing from 3508x2480 to 1024x723
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.1008
+Processing image 42/89: SCH_3192_4.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0099
+Processing image 43/89: SCH_2891_29_30.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0195
+Processing image 44/89: SCH_2891_272.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0233
+Processing image 45/89: SCH_2891_177.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0812
+Processing image 46/89: SCH_3192_13.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 47/89: SCH_2891_291.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0218
+Processing image 48/89: SCH_3192_60.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0056
+Processing image 49/89: SCH_3124.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0207
+Processing image 50/89: SCH_3026.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0121
+Processing image 51/89: SCH_2065.jpg
+  Resizing from 3508x2480 to 1024x723
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0073
+Processing image 52/89: SCH_2891_138.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0061
+Processing image 53/89: SCH_2891_245.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0054
+Processing image 54/89: SCH_2891_268.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0060
+Processing image 55/89: SCH_3192_32.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 56/89: SCH_2891_293.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0087
+Processing image 57/89: SCH_3192_27.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0296
+Processing image 58/89: SCH_3174.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0809
+Processing image 59/89: SCH_2891_235_236.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0187
+Processing image 60/89: SCH_2891_59.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0170
+Processing image 61/89: SCH_3211.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 62/89: SCH_3141.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0114
+Processing image 63/89: SCH_2891_241.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 64/89: SCH_3171.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0115
+Processing image 65/89: SCH_3215.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0313
+Processing image 66/89: SCH_1938.jpg
+  Resizing from 3508x2480 to 1024x723
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0125
+Processing image 67/89: SCH_2891_153_154.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0109
+Processing image 68/89: SCH_2997.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 69/89: SCH_2891_64.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0050
+Processing image 70/89: SCH_2944.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 71/89: SCH_3173_ab.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0089
+Processing image 72/89: SCH_2891_41.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0198
+Processing image 73/89: SCH_2032.jpg
+  Resizing from 3508x2480 to 1024x723
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0297
+Processing image 74/89: SCH_3078.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0029
+Processing image 75/89: SCH_2891_77_78.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0083
+Processing image 76/89: SCH_2891_62.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0000
+Processing image 77/89: SCH_3192_28.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0277
+Processing image 78/89: SCH_2043_recto.jpg
+  Resizing from 3508x2480 to 1024x723
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0166
+Processing image 79/89: SCH_2045.jpg
+  Resizing from 3508x2480 to 1024x723
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0162
+Processing image 80/89: SCH_2965.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0030
+Processing image 81/89: SCH_3192_22.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0197
+Processing image 82/89: SCH_3133_a.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0063
+Processing image 83/89: SCH_3192_37.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0156
+Processing image 84/89: SCH_3195_9.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0271
+Processing image 85/89: SCH_2891_67_recto.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0187
+Processing image 86/89: SCH_2891_99.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0202
+Processing image 87/89: SCH_2891_150.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0027
+Processing image 88/89: SCH_2025.jpg
+  Resizing from 3508x2480 to 1024x723
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0185
+Processing image 89/89: SCH_3192_48.jpg
+  Resizing from 2339x1654 to 1024x724
+  Resizing from 2339x1654 to 1024x724
+  Processed successfully. CER: 0.0051
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_schmuck/few_shots_20251026_211957
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_schmuck/few_shots_20251026_211957/predictions_fewshot.jsonl
+
+============================================================
+NANONETS-OCR-S FEW-SHOT CER EVALUATION RESULTS
+JEWELRY CATALOG DATASET
+============================================================
+
+Few-Shot Examples Used: 1
+  Example 1: SCH_3149.jpg
+
+CER Statistics across 89 images:
+--------------------------------------------------
+Average CER: 0.0174 (1.74%)
+Minimum CER: 0.0000 (0.00%)
+Maximum CER: 0.3275 (32.75%)
+
+Weighted CER: 0.0174 (1.74%)
+Total characters: 31651
+Total errors: 552
+Perfect matches: 13/89 (14.6%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_schmuck/few_shots_20251026_211957/evaluation_summary_fewshot.json
+
+============================================================
+FEW-SHOT PROCESSING COMPLETE!
+============================================================
+Model: Nanonets-OCR-s
+Dataset: Jewelry Catalog
+Method: Few-Shot Learning (1 example(s))
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_schmuck/few_shots_20251026_211957
+Total images processed: 89
+Average CER on test set: 0.0174 (1.74%)
+============================================================
+
+Nano training completed at: Sun Oct 26 09:20:01 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Sun Oct 26 09:20:01 PM CET 2025
+= Job-ID             : 1290468 on tinygpu
+= Job-Name           : few_schmuck
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nano.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 00:24:18
+= Total RAM usage    : 9.1 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2025-10-26T20:37:01 / 2025-10-26T20:37:01 / 2025-10-26T20:55:26 / 2025-10-26T21:19:44
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           183.6G  1000.0G  1500.0G        N/A     833K   5,000K   7,500K        N/A    
+    /home/hpc             101.8G   104.9G   209.7G        N/A  29,946      500K   1,000K        N/A    
+    /home/vault           849.3G  1048.6G  2097.2G        N/A   4,584      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 3676080, 36 %, 24 %, 8712 MiB, 1440071 ms

@@ -1,0 +1,47 @@
+### Starting TaskPrologue of job 1291522 on tg094 at Wed Oct 29 01:28:30 AM CET 2025
+Running on cores 32-63 with governor ondemand
+Wed Oct 29 01:28:30 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:41:00.0 Off |                    0 |
+| N/A   43C    P0             57W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Gemma-3 training completed at: Wed Oct 29 01:28:33 AM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Wed Oct 29 01:28:33 AM CET 2025
+= Job-ID             : 1291522 on tinygpu
+= Job-Name           : schmuck
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 15:00:00
+= Elapsed runtime    : 00:00:04
+= Total RAM usage    : 0.1 GiB of requested  GiB (%)   
+= Node list          : tg094
+= Subm/Elig/Start/End: 2025-10-28T11:46:19 / 2025-10-28T11:46:19 / 2025-10-29T01:28:29 / 2025-10-29T01:28:33
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc             101.9G   104.9G   209.7G        N/A  30,093      500K   1,000K        N/A    
+    /home/woody           183.8G  1000.0G  1500.0G        N/A     834K   5,000K   7,500K        N/A    
+    /home/vault           850.9G  1048.6G  2097.2G        N/A   4,676      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]

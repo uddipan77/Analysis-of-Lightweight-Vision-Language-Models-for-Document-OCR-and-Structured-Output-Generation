@@ -1,0 +1,73 @@
+Unsloth: KwargsForCausalLM cannot be inherited from TransformersKwargs since it's of type = <class 'type'>
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/_experimental.py:32: ExperimentalWarning: Argument ``multivariate`` is an experimental feature. The interface can change in the future.
+  warnings.warn(
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/_experimental.py:32: ExperimentalWarning: Argument ``group`` is an experimental feature. The interface can change in the future.
+  warnings.warn(
+[I 2025-12-24 05:22:41,573] Using an existing study with name 'gemma3_schmuck_data' instead of creating a new one.
+[W 2025-12-24 05:22:41,838] Trial 1 failed with parameters: {'learning_rate': 0.00011844319751820385} because of the following error: ValueError('Cannot set different log configuration to the same parameter name.').
+Traceback (most recent call last):
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/study/_optimize.py", line 201, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/hpo/schmuck_hpo.py", line 531, in objective
+    cfg["weight_decay"] = trial.suggest_float("weight_decay", 0.0, 0.1)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/trial/_trial.py", line 161, in suggest_float
+    suggested_value = self._suggest(name, distribution)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/trial/_trial.py", line 641, in _suggest
+    storage.set_trial_param(trial_id, name, param_value_in_internal_repr, distribution)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/storages/_cached_storage.py", line 169, in set_trial_param
+    self._backend.set_trial_param(trial_id, param_name, param_value_internal, distribution)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/storages/_rdb/storage.py", line 586, in set_trial_param
+    self._set_trial_param_without_commit(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/storages/_rdb/storage.py", line 608, in _set_trial_param_without_commit
+    trial_param.check_and_add(session, trial.study_id)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/storages/_rdb/models.py", line 373, in check_and_add
+    self._check_compatibility_with_previous_trial_param_distributions(session, study_id)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/storages/_rdb/models.py", line 387, in _check_compatibility_with_previous_trial_param_distributions
+    distributions.check_distribution_compatibility(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/distributions.py", line 665, in check_distribution_compatibility
+    raise ValueError("Cannot set different log configuration to the same parameter name.")
+ValueError: Cannot set different log configuration to the same parameter name.
+[W 2025-12-24 05:22:41,950] Trial 1 failed with value None.
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/hpo/schmuck_hpo.py", line 609, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/hpo/schmuck_hpo.py", line 606, in main
+    run_optuna_hpo_only()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/hpo/schmuck_hpo.py", line 548, in run_optuna_hpo_only
+    study.optimize(objective, n_trials=remaining, gc_after_trial=True)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/study/study.py", line 490, in optimize
+    _optimize(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/study/_optimize.py", line 63, in _optimize
+    _optimize_sequential(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/study/_optimize.py", line 160, in _optimize_sequential
+    frozen_trial_id = _run_trial(study, func, catch)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/study/_optimize.py", line 258, in _run_trial
+    raise func_err
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/study/_optimize.py", line 201, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/hpo/schmuck_hpo.py", line 531, in objective
+    cfg["weight_decay"] = trial.suggest_float("weight_decay", 0.0, 0.1)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/trial/_trial.py", line 161, in suggest_float
+    suggested_value = self._suggest(name, distribution)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/trial/_trial.py", line 641, in _suggest
+    storage.set_trial_param(trial_id, name, param_value_in_internal_repr, distribution)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/storages/_cached_storage.py", line 169, in set_trial_param
+    self._backend.set_trial_param(trial_id, param_name, param_value_internal, distribution)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/storages/_rdb/storage.py", line 586, in set_trial_param
+    self._set_trial_param_without_commit(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/storages/_rdb/storage.py", line 608, in _set_trial_param_without_commit
+    trial_param.check_and_add(session, trial.study_id)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/storages/_rdb/models.py", line 373, in check_and_add
+    self._check_compatibility_with_previous_trial_param_distributions(session, study_id)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/storages/_rdb/models.py", line 387, in _check_compatibility_with_previous_trial_param_distributions
+    distributions.check_distribution_compatibility(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/optuna/distributions.py", line 665, in check_distribution_compatibility
+    raise ValueError("Cannot set different log configuration to the same parameter name.")
+ValueError: Cannot set different log configuration to the same parameter name.

@@ -1,0 +1,523 @@
+### Starting TaskPrologue of job 1471142 on tg073 at Fri Dec 19 08:45:57 PM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Fri Dec 19 20:45:57 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   34C    P0             25W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Fri Dec 19 08:46:03 PM CET 2025
+   ✅ Processor loaded
+
+📊 Loading INVENTORY datasets...
+   📁 Training dataset:
+   📊 Loaded 213 valid samples (out of 213 total)
+   📁 Validation dataset (for length info only):
+   📊 Loaded 47 valid samples (out of 47 total)
+   📊 Raw validation samples for CER computation: 47
+
+================================================================================
+🔎 Starting / Resuming Optuna HPO (Phi-3.5-Vision, INVENTORY, FAST MODE)
+================================================================================
+   • Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+   • Study name: phi_inventory
+   • Target total trials: 25
+   • Run directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_205702
+   • Completed trials so far: 0
+   • Remaining trials to run: 25
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - INVENTORY DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_205702/trials/trial_1
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00010894653829887865
+   • Weight decay: 0.09507143064099162
+   • LoRA r=8, alpha=32, dropout=0.052058449429580246
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.27 GB, Reserved: 2.37 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 12,582,912 / 4,159,204,352 (0.30%)
+🚀 Starting QLoRA training on INVENTORY dataset (HPO trial)...
+
+================================================================================
+{'loss': 16.422, 'grad_norm': 4.7375874519348145, 'learning_rate': 0.00010375860790369395, 'epoch': 0.75}
+{'loss': 12.6579, 'grad_norm': 7.056746959686279, 'learning_rate': 0.00010619493015143094, 'epoch': 1.5}
+{'loss': 10.8138, 'grad_norm': 7.633912563323975, 'learning_rate': 9.76665957962839e-05, 'epoch': 2.25}
+{'loss': 9.6652, 'grad_norm': 10.197845458984375, 'learning_rate': 8.430763445618288e-05, 'epoch': 3.0}
+{'loss': 8.0796, 'grad_norm': 11.841835975646973, 'learning_rate': 6.761207690278094e-05, 'epoch': 3.76}
+{'loss': 7.5227, 'grad_norm': 11.920463562011719, 'learning_rate': 4.944710997041766e-05, 'epoch': 4.51}
+{'loss': 6.9092, 'grad_norm': 13.87624454498291, 'learning_rate': 3.184425533746974e-05, 'epoch': 5.26}
+{'loss': 6.0367, 'grad_norm': 12.969786643981934, 'learning_rate': 1.6772169535011573e-05, 'epoch': 6.01}
+{'loss': 5.2764, 'grad_norm': 14.997453689575195, 'learning_rate': 5.916474626659206e-06, 'epoch': 6.76}
+{'loss': 5.7525, 'grad_norm': 16.251649856567383, 'learning_rate': 4.912427118707539e-07, 'epoch': 7.51}
+{'train_runtime': 8782.3131, 'train_samples_per_second': 0.194, 'train_steps_per_second': 0.024, 'train_loss': 8.784593912271353, 'epoch': 7.81}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON INVENTORY VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: inventarbuch-166.jpg   Evaluating 2/20: inventarbuch-171.jpg   Evaluating 3/20: inventarbuch-194.jpg   Evaluating 4/20: inventarbuch-222.jpg   Evaluating 5/20: inventarbuch-043.jpg   Evaluating 6/20: inventarbuch-097.jpg   Evaluating 7/20: inventarbuch-283.jpg   Evaluating 8/20: inventarbuch-020.jpg   Evaluating 9/20: inventarbuch-274.jpg   Evaluating 10/20: inventarbuch-161.jpg   Evaluating 11/20: inventarbuch-076.jpg   Evaluating 12/20: inventarbuch-142.jpg   Evaluating 13/20: inventarbuch-248.jpg   Evaluating 14/20: inventarbuch-229.jpg   Evaluating 15/20: inventarbuch-093.jpg   Evaluating 16/20: inventarbuch-221.jpg   Evaluating 17/20: inventarbuch-096.jpg   Evaluating 18/20: inventarbuch-120.jpg   Evaluating 19/20: inventarbuch-064.jpg   Evaluating 20/20: inventarbuch-147.jpg
+   ✅ Validation CER (HPO objective): 0.3581 (35.81%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - INVENTORY DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_205702/trials/trial_2
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 7.775553771054393e-05
+   • Weight decay: 0.018182496720710064
+   • LoRA r=24, alpha=32, dropout=0.08663618432936918
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on INVENTORY dataset (HPO trial)...
+
+================================================================================
+{'loss': 32.0425, 'grad_norm': 4.973980903625488, 'learning_rate': 7.597257432133413e-05, 'epoch': 1.5}
+{'loss': 24.7739, 'grad_norm': 6.552925109863281, 'learning_rate': 6.054530050993459e-05, 'epoch': 3.0}
+{'loss': 21.2839, 'grad_norm': 5.96104097366333, 'learning_rate': 3.559838760695469e-05, 'epoch': 4.51}
+{'loss': 19.9653, 'grad_norm': 6.867545127868652, 'learning_rate': 1.2092272226518555e-05, 'epoch': 6.01}
+{'loss': 19.0915, 'grad_norm': 6.796267032623291, 'learning_rate': 3.543759888293198e-07, 'epoch': 7.51}
+{'train_runtime': 8815.9119, 'train_samples_per_second': 0.193, 'train_steps_per_second': 0.012, 'train_loss': 23.280744039095364, 'epoch': 7.81}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON INVENTORY VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: inventarbuch-166.jpg   Evaluating 2/20: inventarbuch-171.jpg   Evaluating 3/20: inventarbuch-194.jpg   Evaluating 4/20: inventarbuch-222.jpg   Evaluating 5/20: inventarbuch-043.jpg   Evaluating 6/20: inventarbuch-097.jpg   Evaluating 7/20: inventarbuch-283.jpg   Evaluating 8/20: inventarbuch-020.jpg   Evaluating 9/20: inventarbuch-274.jpg   Evaluating 10/20: inventarbuch-161.jpg   Evaluating 11/20: inventarbuch-076.jpg   Evaluating 12/20: inventarbuch-142.jpg   Evaluating 13/20: inventarbuch-248.jpg   Evaluating 14/20: inventarbuch-229.jpg   Evaluating 15/20: inventarbuch-093.jpg   Evaluating 16/20: inventarbuch-221.jpg   Evaluating 17/20: inventarbuch-096.jpg   Evaluating 18/20: inventarbuch-120.jpg   Evaluating 19/20: inventarbuch-064.jpg   Evaluating 20/20: inventarbuch-147.jpg
+   ✅ Validation CER (HPO objective): 0.3425 (34.25%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - INVENTORY DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_205702/trials/trial_3
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 7.57344363711383e-05
+   • Weight decay: 0.05142344384136116
+   • LoRA r=24, alpha=48, dropout=0.08046137691733707
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on INVENTORY dataset (HPO trial)...
+
+================================================================================
+{'loss': 31.3681, 'grad_norm': 7.173983097076416, 'learning_rate': 7.39978175870865e-05, 'epoch': 1.5}
+{'loss': 23.7281, 'grad_norm': 8.668947219848633, 'learning_rate': 5.8971545230781634e-05, 'epoch': 3.0}
+{'loss': 20.077, 'grad_norm': 7.964986324310303, 'learning_rate': 3.467307796353182e-05, 'epoch': 4.51}
+{'loss': 18.601, 'grad_norm': 9.073768615722656, 'learning_rate': 1.177795753829076e-05, 'epoch': 6.01}
+{'loss': 17.5844, 'grad_norm': 9.31839370727539, 'learning_rate': 3.451646862421986e-07, 'epoch': 7.51}
+{'train_runtime': 8796.3895, 'train_samples_per_second': 0.194, 'train_steps_per_second': 0.012, 'train_loss': 22.106721071096565, 'epoch': 7.81}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON INVENTORY VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: inventarbuch-166.jpg   Evaluating 2/20: inventarbuch-171.jpg   Evaluating 3/20: inventarbuch-194.jpg   Evaluating 4/20: inventarbuch-222.jpg   Evaluating 5/20: inventarbuch-043.jpg   Evaluating 6/20: inventarbuch-097.jpg   Evaluating 7/20: inventarbuch-283.jpg   Evaluating 8/20: inventarbuch-020.jpg   Evaluating 9/20: inventarbuch-274.jpg   Evaluating 10/20: inventarbuch-161.jpg   Evaluating 11/20: inventarbuch-076.jpg   Evaluating 12/20: inventarbuch-142.jpg   Evaluating 13/20: inventarbuch-248.jpg   Evaluating 14/20: inventarbuch-229.jpg   Evaluating 15/20: inventarbuch-093.jpg   Evaluating 16/20: inventarbuch-221.jpg   Evaluating 17/20: inventarbuch-096.jpg   Evaluating 18/20: inventarbuch-120.jpg   Evaluating 19/20: inventarbuch-064.jpg   Evaluating 20/20: inventarbuch-147.jpg
+   ✅ Validation CER (HPO objective): 0.3070 (30.70%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - INVENTORY DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_205702/trials/trial_4
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.0001248726459555529
+   • Weight decay: 0.012203823484477884
+   • LoRA r=24, alpha=16, dropout=0.0684854455525527
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on INVENTORY dataset (HPO trial)...
+
+================================================================================
+{'loss': 16.746, 'grad_norm': 1.6515511274337769, 'learning_rate': 0.00011892632948147894, 'epoch': 0.75}
+{'loss': 13.2201, 'grad_norm': 2.475642204284668, 'learning_rate': 0.00012171880008426844, 'epoch': 1.5}
+{'loss': 11.2896, 'grad_norm': 2.871652841567993, 'learning_rate': 0.00011194377011865992, 'epoch': 2.25}
+{'loss': 10.2182, 'grad_norm': 3.7874698638916016, 'learning_rate': 9.663195869441825e-05, 'epoch': 3.0}
+{'loss': 8.8068, 'grad_norm': 4.234974384307861, 'learning_rate': 7.749579815228952e-05, 'epoch': 3.76}
+{'loss': 8.3838, 'grad_norm': 4.3519768714904785, 'learning_rate': 5.667542588569616e-05, 'epoch': 4.51}
+{'loss': 7.9366, 'grad_norm': 4.847378253936768, 'learning_rate': 3.6499337056173476e-05, 'epoch': 5.26}
+{'loss': 7.1631, 'grad_norm': 4.629940032958984, 'learning_rate': 1.922397187606251e-05, 'epoch': 6.01}
+{'loss': 6.5163, 'grad_norm': 5.757445812225342, 'learning_rate': 6.781361325433057e-06, 'epoch': 6.76}
+{'loss': 7.0709, 'grad_norm': 5.498453617095947, 'learning_rate': 5.630539363205605e-07, 'epoch': 7.51}
+{'train_runtime': 8812.6088, 'train_samples_per_second': 0.193, 'train_steps_per_second': 0.024, 'train_loss': 9.626144922696627, 'epoch': 7.81}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON INVENTORY VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: inventarbuch-166.jpg   Evaluating 2/20: inventarbuch-171.jpg   Evaluating 3/20: inventarbuch-194.jpg   Evaluating 4/20: inventarbuch-222.jpg   Evaluating 5/20: inventarbuch-043.jpg   Evaluating 6/20: inventarbuch-097.jpg   Evaluating 7/20: inventarbuch-283.jpg   Evaluating 8/20: inventarbuch-020.jpg   Evaluating 9/20: inventarbuch-274.jpg   Evaluating 10/20: inventarbuch-161.jpg   Evaluating 11/20: inventarbuch-076.jpg   Evaluating 12/20: inventarbuch-142.jpg   Evaluating 13/20: inventarbuch-248.jpg   Evaluating 14/20: inventarbuch-229.jpg   Evaluating 15/20: inventarbuch-093.jpg   Evaluating 16/20: inventarbuch-221.jpg   Evaluating 17/20: inventarbuch-096.jpg   Evaluating 18/20: inventarbuch-120.jpg   Evaluating 19/20: inventarbuch-064.jpg   Evaluating 20/20: inventarbuch-147.jpg
+   ✅ Validation CER (HPO objective): 0.3223 (32.23%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - INVENTORY DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_205702/trials/trial_5
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00035271350713048864
+   • Weight decay: 0.08948273504276488
+   • LoRA r=16, alpha=48, dropout=0.13287375091519293
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on INVENTORY dataset (HPO trial)...
+
+================================================================================
+{'loss': 14.8902, 'grad_norm': 5.315642833709717, 'learning_rate': 0.0003359176258385606, 'epoch': 0.75}
+{'loss': 10.5487, 'grad_norm': 5.923178672790527, 'learning_rate': 0.00034380519875200116, 'epoch': 1.5}
+{'loss': 8.347, 'grad_norm': 7.441445827484131, 'learning_rate': 0.00031619478755992467, 'epoch': 2.25}
+{'loss': 6.5057, 'grad_norm': 8.653069496154785, 'learning_rate': 0.000272945261880079, 'epoch': 3.0}
+{'loss': 3.8995, 'grad_norm': 10.402661323547363, 'learning_rate': 0.00021889353384807478, 'epoch': 3.76}
+{'loss': 2.8304, 'grad_norm': 7.304225921630859, 'learning_rate': 0.0001600846052335054, 'epoch': 4.51}
+{'loss': 1.6255, 'grad_norm': 6.207951545715332, 'learning_rate': 0.00010309551048996789, 'epoch': 5.26}
+{'loss': 0.7478, 'grad_norm': 5.942102432250977, 'learning_rate': 5.429975868211645e-05, 'epoch': 6.01}
+{'loss': 0.2585, 'grad_norm': 3.0601608753204346, 'learning_rate': 1.915453715190688e-05, 'epoch': 6.76}
+{'loss': 0.2122, 'grad_norm': 2.2940521240234375, 'learning_rate': 1.5903941737083086e-06, 'epoch': 7.51}
+{'train_runtime': 8806.524, 'train_samples_per_second': 0.193, 'train_steps_per_second': 0.024, 'train_loss': 4.801501082686277, 'epoch': 7.81}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON INVENTORY VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: inventarbuch-166.jpg   Evaluating 2/20: inventarbuch-171.jpg   Evaluating 3/20: inventarbuch-194.jpg   Evaluating 4/20: inventarbuch-222.jpg   Evaluating 5/20: inventarbuch-043.jpg   Evaluating 6/20: inventarbuch-097.jpg   Evaluating 7/20: inventarbuch-283.jpg   Evaluating 8/20: inventarbuch-020.jpg   Evaluating 9/20: inventarbuch-274.jpg   Evaluating 10/20: inventarbuch-161.jpg   Evaluating 11/20: inventarbuch-076.jpg   Evaluating 12/20: inventarbuch-142.jpg   Evaluating 13/20: inventarbuch-248.jpg   Evaluating 14/20: inventarbuch-229.jpg   Evaluating 15/20: inventarbuch-093.jpg   Evaluating 16/20: inventarbuch-221.jpg   Evaluating 17/20: inventarbuch-096.jpg   Evaluating 18/20: inventarbuch-120.jpg   Evaluating 19/20: inventarbuch-064.jpg   Evaluating 20/20: inventarbuch-147.jpg
+   ✅ Validation CER (HPO objective): 0.4124 (41.24%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - INVENTORY DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_205702/trials/trial_6
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00015455156354021832
+   • Weight decay: 0.014092422497476265
+   • LoRA r=24, alpha=48, dropout=0.12290071680409873
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on INVENTORY dataset (HPO trial)...
+
+================================================================================
+{'loss': 15.7762, 'grad_norm': 4.713132858276367, 'learning_rate': 0.00014719196527639838, 'epoch': 0.75}
+{'loss': 11.6458, 'grad_norm': 5.548826694488525, 'learning_rate': 0.0001506481321134079, 'epoch': 1.5}
+{'loss': 9.6942, 'grad_norm': 6.439271926879883, 'learning_rate': 0.00013854983665985424, 'epoch': 2.25}
+{'loss': 8.2862, 'grad_norm': 8.717405319213867, 'learning_rate': 0.00011959881357436723, 'epoch': 3.0}
+{'loss': 6.2105, 'grad_norm': 10.119088172912598, 'learning_rate': 9.591449496871099e-05, 'epoch': 3.76}
+{'loss': 5.3793, 'grad_norm': 9.805801391601562, 'learning_rate': 7.014567215993706e-05, 'epoch': 4.51}
+{'loss': 4.3495, 'grad_norm': 10.545978546142578, 'learning_rate': 4.517426188134833e-05, 'epoch': 5.26}
+{'loss': 3.3054, 'grad_norm': 10.14196491241455, 'learning_rate': 2.3793000365798087e-05, 'epoch': 6.01}
+{'loss': 2.3814, 'grad_norm': 8.289824485778809, 'learning_rate': 8.39311113940755e-06, 'epoch': 6.76}
+{'loss': 2.5187, 'grad_norm': 12.047701835632324, 'learning_rate': 6.968769304911766e-07, 'epoch': 7.51}
+{'train_runtime': 8812.3561, 'train_samples_per_second': 0.193, 'train_steps_per_second': 0.024, 'train_loss': 6.778280872565049, 'epoch': 7.81}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON INVENTORY VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: inventarbuch-166.jpg   Evaluating 2/20: inventarbuch-171.jpg   Evaluating 3/20: inventarbuch-194.jpg   Evaluating 4/20: inventarbuch-222.jpg   Evaluating 5/20: inventarbuch-043.jpg   Evaluating 6/20: inventarbuch-097.jpg   Evaluating 7/20: inventarbuch-283.jpg   Evaluating 8/20: inventarbuch-020.jpg   Evaluating 9/20: inventarbuch-274.jpg   Evaluating 10/20: inventarbuch-161.jpg   Evaluating 11/20: inventarbuch-076.jpg   Evaluating 12/20: inventarbuch-142.jpg   Evaluating 13/20: inventarbuch-248.jpg   Evaluating 14/20: inventarbuch-229.jpg   Evaluating 15/20: inventarbuch-093.jpg   Evaluating 16/20: inventarbuch-221.jpg   Evaluating 17/20: inventarbuch-096.jpg   Evaluating 18/20: inventarbuch-120.jpg   Evaluating 19/20: inventarbuch-064.jpg   Evaluating 20/20: inventarbuch-147.jpg
+   ✅ Validation CER (HPO objective): 0.3490 (34.90%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - INVENTORY DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_205702/trials/trial_7
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00010536510747050651
+   • Weight decay: 0.011586905952512973
+   • LoRA r=8, alpha=48, dropout=0.13872127425763264
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 12,582,912 / 4,159,204,352 (0.30%)
+🚀 Starting QLoRA training on INVENTORY dataset (HPO trial)...
+
+================================================================================
+{'loss': 16.1576, 'grad_norm': 6.784364223480225, 'learning_rate': 0.00010034772140048238, 'epoch': 0.75}
+{'loss': 12.2721, 'grad_norm': 9.196267127990723, 'learning_rate': 0.00010270395372758365, 'epoch': 1.5}
+{'loss': 10.4218, 'grad_norm': 10.077017784118652, 'learning_rate': 9.445597375589024e-05, 'epoch': 2.25}
+{'loss': 9.1969, 'grad_norm': 13.777770042419434, 'learning_rate': 8.153616538682916e-05, 'epoch': 3.0}
+{'loss': 7.4623, 'grad_norm': 16.159652709960938, 'learning_rate': 6.538944568961112e-05, 'epoch': 3.76}
+{'loss': 6.7926, 'grad_norm': 16.155275344848633, 'learning_rate': 4.782162092976419e-05, 'epoch': 4.51}
+{'loss': 6.0382, 'grad_norm': 18.458473205566406, 'learning_rate': 3.079742999035045e-05, 'epoch': 5.26}
+{'loss': 5.0836, 'grad_norm': 17.498960494995117, 'learning_rate': 1.6220813191163492e-05, 'epoch': 6.01}
+{'loss': 4.2324, 'grad_norm': 17.710433959960938, 'learning_rate': 5.7219806578369135e-06, 'epoch': 6.76}
+{'loss': 4.6167, 'grad_norm': 22.529891967773438, 'learning_rate': 4.750939491842284e-07, 'epoch': 7.51}
+{'train_runtime': 8771.7028, 'train_samples_per_second': 0.194, 'train_steps_per_second': 0.024, 'train_loss': 8.080893479860746, 'epoch': 7.81}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON INVENTORY VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: inventarbuch-166.jpg   Evaluating 2/20: inventarbuch-171.jpg   Evaluating 3/20: inventarbuch-194.jpg   Evaluating 4/20: inventarbuch-222.jpg   Evaluating 5/20: inventarbuch-043.jpg   Evaluating 6/20: inventarbuch-097.jpg   Evaluating 7/20: inventarbuch-283.jpg   Evaluating 8/20: inventarbuch-020.jpg   Evaluating 9/20: inventarbuch-274.jpg   Evaluating 10/20: inventarbuch-161.jpg   Evaluating 11/20: inventarbuch-076.jpg   Evaluating 12/20: inventarbuch-142.jpg   Evaluating 13/20: inventarbuch-248.jpg   Evaluating 14/20: inventarbuch-229.jpg   Evaluating 15/20: inventarbuch-093.jpg   Evaluating 16/20: inventarbuch-221.jpg   Evaluating 17/20: inventarbuch-096.jpg   Evaluating 18/20: inventarbuch-120.jpg   Evaluating 19/20: inventarbuch-064.jpg   Evaluating 20/20: inventarbuch-147.jpg
+   ✅ Validation CER (HPO objective): 0.3190 (31.90%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - INVENTORY DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_205702/trials/trial_8
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 0.00022034044893314196
+   • Weight decay: 0.07607850486168975
+   • LoRA r=16, alpha=16, dropout=0.11364104112637803
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on INVENTORY dataset (HPO trial)...
+
+================================================================================
+{'loss': 30.7556, 'grad_norm': 4.978888988494873, 'learning_rate': 0.00021528796051653148, 'epoch': 1.5}
+{'loss': 22.4554, 'grad_norm': 5.896595001220703, 'learning_rate': 0.00017157078566948096, 'epoch': 3.0}
+{'loss': 18.1868, 'grad_norm': 5.6809844970703125, 'learning_rate': 0.0001008772485866142, 'epoch': 4.51}
+{'loss': 16.0335, 'grad_norm': 6.68319034576416, 'learning_rate': 3.426658434196074e-05, 'epoch': 6.01}
+{'loss': 14.5964, 'grad_norm': 7.20668363571167, 'learning_rate': 1.0042161210492156e-06, 'epoch': 7.51}
+{'train_runtime': 8801.2246, 'train_samples_per_second': 0.194, 'train_steps_per_second': 0.012, 'train_loss': 20.192726392012375, 'epoch': 7.81}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON INVENTORY VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: inventarbuch-166.jpg   Evaluating 2/20: inventarbuch-171.jpg   Evaluating 3/20: inventarbuch-194.jpg   Evaluating 4/20: inventarbuch-222.jpg   Evaluating 5/20: inventarbuch-043.jpg   Evaluating 6/20: inventarbuch-097.jpg   Evaluating 7/20: inventarbuch-283.jpg   Evaluating 8/20: inventarbuch-020.jpg   Evaluating 9/20: inventarbuch-274.jpg   Evaluating 10/20: inventarbuch-161.jpg   Evaluating 11/20: inventarbuch-076.jpg   Evaluating 12/20: inventarbuch-142.jpg   Evaluating 13/20: inventarbuch-248.jpg   Evaluating 14/20: inventarbuch-229.jpg   Evaluating 15/20: inventarbuch-093.jpg   Evaluating 16/20: inventarbuch-221.jpg   Evaluating 17/20: inventarbuch-096.jpg   Evaluating 18/20: inventarbuch-120.jpg   Evaluating 19/20: inventarbuch-064.jpg   Evaluating 20/20: inventarbuch-147.jpg
+   ✅ Validation CER (HPO objective): 0.3261 (32.61%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - INVENTORY DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_inven/run_20251219_205702/trials/trial_9
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.000330053391284861
+   • Weight decay: 0.024929222914887497
+   • LoRA r=16, alpha=48, dropout=0.11334037565104234
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on INVENTORY dataset (HPO trial)...
+
+================================================================================
+=== JOB_STATISTICS ===
+=== current date     : Sat Dec 20 08:45:46 PM CET 2025
+= Job-ID             : 1471142 on tinygpu
+= Job-Name           : inven_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:03
+= Total RAM usage    : 10.2 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2025-12-19T20:45:39 / 2025-12-19T20:45:39 / 2025-12-19T20:45:40 / 2025-12-20T20:45:43
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.6G   104.9G   209.7G        N/A  29,018      500K   1,000K        N/A    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/vault           959.0G  1048.6G  2097.2G        N/A   7,295      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 2169316, 92 %, 27 %, 6114 MiB, 85888833 ms

@@ -1,0 +1,47 @@
+Unsloth: KwargsForCausalLM cannot be inherited from TransformersKwargs since it's of type = <class 'type'>
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:50<03:23, 50.96s/it]Loading checkpoint shards:  40%|████      | 2/5 [01:42<02:33, 51.30s/it]Loading checkpoint shards:  60%|██████    | 3/5 [02:34<01:43, 51.62s/it]Loading checkpoint shards:  80%|████████  | 4/5 [03:26<00:51, 51.65s/it]Loading checkpoint shards: 100%|██████████| 5/5 [03:39<00:00, 37.73s/it]Loading checkpoint shards: 100%|██████████| 5/5 [03:39<00:00, 43.85s/it]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+  0%|          | 0/765 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/schmuck_preprocess.py", line 888, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/schmuck_preprocess.py", line 846, in main
+    trainer = finetuner.train_model(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/schmuck_preprocess.py", line 595, in train_model
+    trainer_stats = trainer.train()
+                    ^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 2514, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches, args.device)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/unsloth_zoo/loss_utils.py", line 285, in _unsloth_get_batch_samples
+    batch_samples += [next(epoch_iterator)]
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/accelerate/data_loader.py", line 567, in __iter__
+    current_batch = next(dataloader_iter)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/schmuck_preprocess.py", line 165, in __call__
+    return super().__call__(features)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/unsloth_zoo/vision_utils.py", line 430, in __call__
+    image, video = process_vision_info(messages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/unsloth_zoo/vision_utils.py", line 204, in process_vision_info
+    image_inputs.append(fetch_image(vision_info))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/unsloth_zoo/vision_utils.py", line 138, in fetch_image
+    elif image.startswith("http://") or image.startswith("https://"):
+         ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'startswith'
+  0%|          | 0/765 [00:02<?, ?it/s]

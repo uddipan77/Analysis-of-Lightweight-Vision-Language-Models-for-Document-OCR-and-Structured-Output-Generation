@@ -1,0 +1,200 @@
+### Starting TaskPrologue of job 1524648 on tg073 at Wed Feb  4 09:33:27 PM CET 2026
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Wed Feb  4 21:33:27 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   29C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting Nanonets-OCR-s inference...
+Job ID: 1524648
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/NANONETS/1524648
+Job started at: Wed Feb  4 09:33:31 PM CET 2026
+============================================================
+NANONETS-OCR-S FEW-SHOT INVENTORY OCR PROCESSING
+============================================================
+
+Loading training data for few-shot examples...
+Loaded 215 training samples
+
+Loading test data...
+Loaded 47 test samples
+
+Using 2 few-shot examples:
+  1. inventarbuch-043.jpg
+  2. inventarbuch-156.jpg
+Loading Nanonets-OCR-s model...
+Model found at /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Model loaded successfully!
+
+Processing 47 test images with 2-shot prompting...
+------------------------------------------------------------
+Processing image 1/47: inventarbuch-036.jpg
+  Processed successfully. CER: 0.2555
+Processing image 2/47: inventarbuch-100.jpg
+  Processed successfully. CER: 0.1638
+Processing image 3/47: inventarbuch-190.jpg
+  Processed successfully. CER: 0.1003
+Processing image 4/47: inventarbuch-153.jpg
+  Processed successfully. CER: 0.5942
+Processing image 5/47: inventarbuch-041.jpg
+  Processed successfully. CER: 2.6859
+Processing image 6/47: inventarbuch-198.jpg
+  Processed successfully. CER: 0.2162
+Processing image 7/47: inventarbuch-065.jpg
+  Processed successfully. CER: 0.2136
+Processing image 8/47: inventarbuch-242.jpg
+  Processed successfully. CER: 0.1809
+Processing image 9/47: inventarbuch-023.jpg
+  Processed successfully. CER: 0.4798
+Processing image 10/47: inventarbuch-137.jpg
+  Processed successfully. CER: 0.5041
+Processing image 11/47: inventarbuch-180.jpg
+  Processed successfully. CER: 0.1508
+Processing image 12/47: inventarbuch-188.jpg
+  Processed successfully. CER: 0.4039
+Processing image 13/47: inventarbuch-051.jpg
+  Processed successfully. CER: 0.1146
+Processing image 14/47: inventarbuch-199.jpg
+  Processed successfully. CER: 6.7376
+Processing image 15/47: inventarbuch-296.jpg
+  Processed successfully. CER: 0.3402
+Processing image 16/47: inventarbuch-302.jpg
+  Processed successfully. CER: 0.1281
+Processing image 17/47: inventarbuch-176.jpg
+  Processed successfully. CER: 0.1259
+Processing image 18/47: inventarbuch-112.jpg
+  Processed successfully. CER: 0.0580
+Processing image 19/47: inventarbuch-081.jpg
+  Processed successfully. CER: 0.3822
+Processing image 20/47: inventarbuch-290.jpg
+  Processed successfully. CER: 0.2503
+Processing image 21/47: inventarbuch-178.jpg
+  Processed successfully. CER: 0.1319
+Processing image 22/47: inventarbuch-299.jpg
+  Processed successfully. CER: 0.3686
+Processing image 23/47: inventarbuch-083.jpg
+  Processed successfully. CER: 0.1776
+Processing image 24/47: inventarbuch-004.jpg
+  Processed successfully. CER: 0.7837
+Processing image 25/47: inventarbuch-145.jpg
+  Processed successfully. CER: 0.1404
+Processing image 26/47: inventarbuch-236.jpg
+  Processed successfully. CER: 0.2218
+Processing image 27/47: inventarbuch-114.jpg
+  Processed successfully. CER: 0.1212
+Processing image 28/47: inventarbuch-220.jpg
+  Processed successfully. CER: 0.1584
+Processing image 29/47: inventarbuch-301.jpg
+  Processed successfully. CER: 7.3475
+Processing image 30/47: inventarbuch-103.jpg
+  Processed successfully. CER: 0.1259
+Processing image 31/47: inventarbuch-014.jpg
+  Processed successfully. CER: 0.7201
+Processing image 32/47: inventarbuch-265.jpg
+  Processed successfully. CER: 0.2157
+Processing image 33/47: inventarbuch-121.jpg
+  Processed successfully. CER: 0.1605
+Processing image 34/47: inventarbuch-113.jpg
+  Processed successfully. CER: 0.0812
+Processing image 35/47: inventarbuch-049.jpg
+  Processed successfully. CER: 0.8068
+Processing image 36/47: inventarbuch-016.jpg
+  Processed successfully. CER: 0.2646
+Processing image 37/47: inventarbuch-017.jpg
+  Processed successfully. CER: 0.5261
+Processing image 38/47: inventarbuch-223.jpg
+  Processed successfully. CER: 0.1129
+Processing image 39/47: inventarbuch-046.jpg
+  Processed successfully. CER: 0.2213
+Processing image 40/47: inventarbuch-286.jpg
+  Processed successfully. CER: 0.1889
+Processing image 41/47: inventarbuch-054.jpg
+  Processed successfully. CER: 0.3371
+Processing image 42/47: inventarbuch-073.jpg
+  Processed successfully. CER: 0.2582
+Processing image 43/47: inventarbuch-116.jpg
+  Processed successfully. CER: 0.1367
+Processing image 44/47: inventarbuch-127.jpg
+  Processed successfully. CER: 0.1573
+Processing image 45/47: inventarbuch-143.jpg
+  Processed successfully. CER: 0.1170
+Processing image 46/47: inventarbuch-013.jpg
+  Processed successfully. CER: 0.7617
+Processing image 47/47: inventarbuch-059.jpg
+  Processed successfully. CER: 0.3731
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_inven/few_shots_20260204_214926
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_inven/few_shots_20260204_214926/predictions_fewshot.jsonl
+
+============================================================
+NANONETS-OCR-S FEW-SHOT CER EVALUATION RESULTS
+============================================================
+
+Few-Shot Examples Used: 2
+  Example 1: inventarbuch-043.jpg
+  Example 2: inventarbuch-156.jpg
+
+CER Statistics across 47 images:
+--------------------------------------------------
+Average CER: 0.6192 (61.92%)
+Minimum CER: 0.0580 (5.80%)
+Maximum CER: 7.3475 (734.75%)
+
+Weighted CER: 0.3511 (35.11%)
+Total characters: 32120
+Total errors: 11277
+Perfect matches: 0/47 (0.0%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_inven/few_shots_20260204_214926/evaluation_summary_fewshot.json
+
+============================================================
+FEW-SHOT PROCESSING COMPLETE!
+============================================================
+Model: Nanonets-OCR-s
+Method: Few-Shot Learning (2 examples)
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_inven/few_shots_20260204_214926
+Total images processed: 47
+Average CER on test set: 0.6192 (61.92%)
+============================================================
+
+Job completed at: Wed Feb  4 09:49:31 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Wed Feb  4 09:49:32 PM CET 2026
+= Job-ID             : 1524648 on tinygpu
+= Job-Name           : new_few_inven
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nanonets_inference.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 03:00:00
+= Elapsed runtime    : 00:16:13
+= Total RAM usage    : 8.9 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2026-02-04T21:33:11 / 2026-02-04T21:33:11 / 2026-02-04T21:33:18 / 2026-02-04T21:49:31
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.3G   104.9G   209.7G        N/A  29,772      500K   1,000K        N/A    
+    /home/vault           855.9G  1048.6G  2097.2G        N/A   9,011      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 1924878, 49 %, 26 %, 9022 MiB, 911391 ms

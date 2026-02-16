@@ -1,0 +1,15 @@
+Unsloth: KwargsForCausalLM cannot be inherited from TransformersKwargs since it's of type = <class 'type'>
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:11<00:47, 11.94s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:24<00:37, 12.51s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:39<00:27, 13.52s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:51<00:12, 12.78s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:53<00:00,  8.96s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:53<00:00, 10.68s/it]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/staircase.py", line 799, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/staircase.py", line 744, in main
+    trainer = finetuner.train_model(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/staircase.py", line 370, in train_model
+    args=SFTConfig(
+         ^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/unsloth_compiled_cache/UnslothSFTTrainer.py", line 286, in __init__
+    super().__init__(
+TypeError: SFTConfig.__init__() got an unexpected keyword argument 'predict_with_generate'

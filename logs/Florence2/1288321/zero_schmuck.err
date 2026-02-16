@@ -1,0 +1,1781 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/inference/zero_schmuck.py", line 119, in process_image_zero_shot
+    generated_ids = self.model.generate(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2795, in generate
+    return self.language_model.generate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 2551, in generate
+    result = self._beam_search(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/generation/utils.py", line 3344, in _beam_search
+    model_inputs = self.prepare_inputs_for_generation(flat_running_sequences, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/modeling_florence2.py", line 2197, in prepare_inputs_for_generation
+    past_length = past_key_values[0][0].shape[2]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'

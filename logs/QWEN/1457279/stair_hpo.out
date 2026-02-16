@@ -1,0 +1,1068 @@
+### Starting TaskPrologue of job 1457279 on tg072 at Fri Dec  5 11:38:25 PM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Fri Dec  5 23:38:25 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   34C    P0             28W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+================================================================================
+[HPO] Starting / Resuming Optuna HPO for Qwen Staircase OCR
+================================================================================
+[HPO]   Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+[HPO]   Study name: qwen_staircase
+[HPO]   Target total trials (COMPLETE): 25
+[HPO]   Completed trials so far: 0
+[HPO]   Remaining trials to run: 25
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair/trials/trial_0
+[HPO]   • num_epochs: 18
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 2
+[HPO]   • learning_rate: 2.368863950364079e-05
+[HPO]   • weight_decay: 0.08927180304353628
+[HPO]   • augment_factor: 1
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2 patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2 does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir for augmented images: /tmp/1457279.tinygpu/augmented_images_4czv70up
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (augment_factor=1)
+[HPO] Aug 1/1 for image 1/115: FMIS_FormblätterMielke_gefüllt (10).jpg
+[HPO] Aug 1/1 for image 2/115: FMIS_FormblätterMielke_gefüllt (114).jpg
+[HPO] Aug 1/1 for image 3/115: FMIS_FormblätterMielke_gefüllt (12).jpg
+[HPO] Aug 1/1 for image 4/115: FMIS_FormblätterMielke_gefüllt (123).jpg
+[HPO] Aug 1/1 for image 5/115: FMIS_FormblätterMielke_gefüllt (125).jpg
+[HPO] Aug 1/1 for image 6/115: FMIS_FormblätterMielke_gefüllt (126).jpg
+[HPO] Aug 1/1 for image 7/115: FMIS_FormblätterMielke_gefüllt (134).jpg
+[HPO] Aug 1/1 for image 8/115: FMIS_FormblätterMielke_gefüllt (136).jpg
+[HPO] Aug 1/1 for image 9/115: FMIS_FormblätterMielke_gefüllt (138).jpg
+[HPO] Aug 1/1 for image 10/115: FMIS_FormblätterMielke_gefüllt (14).jpg
+[HPO] Aug 1/1 for image 11/115: FMIS_FormblätterMielke_gefüllt (149).jpg
+[HPO] Aug 1/1 for image 12/115: FMIS_FormblätterMielke_gefüllt (15).jpg
+[HPO] Aug 1/1 for image 13/115: FMIS_FormblätterMielke_gefüllt (152).jpg
+[HPO] Aug 1/1 for image 14/115: FMIS_FormblätterMielke_gefüllt (154).jpg
+[HPO] Aug 1/1 for image 15/115: FMIS_FormblätterMielke_gefüllt (159).jpg
+[HPO] Aug 1/1 for image 16/115: FMIS_FormblätterMielke_gefüllt (160).jpg
+[HPO] Aug 1/1 for image 17/115: FMIS_FormblätterMielke_gefüllt (163).jpg
+[HPO] Aug 1/1 for image 18/115: FMIS_FormblätterMielke_gefüllt (164).jpg
+[HPO] Aug 1/1 for image 19/115: FMIS_FormblätterMielke_gefüllt (18).jpg
+[HPO] Aug 1/1 for image 20/115: FMIS_FormblätterMielke_gefüllt (20).jpg
+[HPO] Aug 1/1 for image 21/115: FMIS_FormblätterMielke_gefüllt (28).jpg
+[HPO] Aug 1/1 for image 22/115: FMIS_FormblätterMielke_gefüllt (29).jpg
+[HPO] Aug 1/1 for image 23/115: FMIS_FormblätterMielke_gefüllt (30).jpg
+[HPO] Aug 1/1 for image 24/115: FMIS_FormblätterMielke_gefüllt (31).jpg
+[HPO] Aug 1/1 for image 25/115: FMIS_FormblätterMielke_gefüllt (33).jpg
+[HPO] Aug 1/1 for image 26/115: FMIS_FormblätterMielke_gefüllt (38).jpg
+[HPO] Aug 1/1 for image 27/115: FMIS_FormblätterMielke_gefüllt (51).jpg
+[HPO] Aug 1/1 for image 28/115: FMIS_FormblätterMielke_gefüllt (52).jpg
+[HPO] Aug 1/1 for image 29/115: FMIS_FormblätterMielke_gefüllt (53).jpg
+[HPO] Aug 1/1 for image 30/115: FMIS_FormblätterMielke_gefüllt (55).jpg
+[HPO] Aug 1/1 for image 31/115: FMIS_FormblätterMielke_gefüllt (56).jpg
+[HPO] Aug 1/1 for image 32/115: FMIS_FormblätterMielke_gefüllt (6).jpg
+[HPO] Aug 1/1 for image 33/115: FMIS_FormblätterMielke_gefüllt (81).jpg
+[HPO] Aug 1/1 for image 34/115: FMIS_FormblätterMielke_gefüllt (85).jpg
+[HPO] Aug 1/1 for image 35/115: FMIS_FormblätterMielke_gefüllt (89).jpg
+[HPO] Aug 1/1 for image 36/115: FMIS_FormblätterMielke_gefüllt (108).jpg
+[HPO] Aug 1/1 for image 37/115: FMIS_FormblätterMielke_gefüllt (65).jpg
+[HPO] Aug 1/1 for image 38/115: FMIS_FormblätterMielke_gefüllt (75).jpg
+[HPO] Aug 1/1 for image 39/115: FMIS_FormblätterMielke_gefüllt (46).jpg
+[HPO] Aug 1/1 for image 40/115: FMIS_FormblätterMielke_gefüllt (157).jpg
+[HPO] Aug 1/1 for image 41/115: FMIS_FormblätterMielke_gefüllt (115).jpg
+[HPO] Aug 1/1 for image 42/115: FMIS_FormblätterMielke_gefüllt (25).jpg
+[HPO] Aug 1/1 for image 43/115: FMIS_FormblätterMielke_gefüllt (4).jpg
+[HPO] Aug 1/1 for image 44/115: FMIS_FormblätterMielke_gefüllt (77).jpg
+[HPO] Aug 1/1 for image 45/115: FMIS_FormblätterMielke_gefüllt (73).jpg
+[HPO] Aug 1/1 for image 46/115: FMIS_FormblätterMielke_gefüllt (155).jpg
+[HPO] Aug 1/1 for image 47/115: FMIS_FormblätterMielke_gefüllt (120).jpg
+[HPO] Aug 1/1 for image 48/115: FMIS_FormblätterMielke_gefüllt (131).jpg
+[HPO] Aug 1/1 for image 49/115: FMIS_FormblätterMielke_gefüllt (59).jpg
+[HPO] Aug 1/1 for image 50/115: FMIS_FormblätterMielke_gefüllt (133).jpg
+[HPO] Aug 1/1 for image 51/115: FMIS_FormblätterMielke_gefüllt (158).jpg
+[HPO] Aug 1/1 for image 52/115: FMIS_FormblätterMielke_gefüllt (26).jpg
+[HPO] Aug 1/1 for image 53/115: FMIS_FormblätterMielke_gefüllt (97).jpg
+[HPO] Aug 1/1 for image 54/115: FMIS_FormblätterMielke_gefüllt (69).jpg
+[HPO] Aug 1/1 for image 55/115: FMIS_FormblätterMielke_gefüllt (117).jpg
+[HPO] Aug 1/1 for image 56/115: FMIS_FormblätterMielke_gefüllt (67).jpg
+[HPO] Aug 1/1 for image 57/115: FMIS_FormblätterMielke_gefüllt (101).jpg
+[HPO] Aug 1/1 for image 58/115: FMIS_FormblätterMielke_gefüllt (32).jpg
+[HPO] Aug 1/1 for image 59/115: FMIS_FormblätterMielke_gefüllt (49).jpg
+[HPO] Aug 1/1 for image 60/115: FMIS_FormblätterMielke_gefüllt (140).jpg
+[HPO] Aug 1/1 for image 61/115: FMIS_FormblätterMielke_gefüllt (92).jpg
+[HPO] Aug 1/1 for image 62/115: FMIS_FormblätterMielke_gefüllt (106).jpg
+[HPO] Aug 1/1 for image 63/115: FMIS_FormblätterMielke_gefüllt (100).jpg
+[HPO] Aug 1/1 for image 64/115: FMIS_FormblätterMielke_gefüllt (60).jpg
+[HPO] Aug 1/1 for image 65/115: FMIS_FormblätterMielke_gefüllt (48).jpg
+[HPO] Aug 1/1 for image 66/115: FMIS_FormblätterMielke_gefüllt (128).jpg
+[HPO] Aug 1/1 for image 67/115: FMIS_FormblätterMielke_gefüllt (64).jpg
+[HPO] Aug 1/1 for image 68/115: FMIS_FormblätterMielke_gefüllt (23).jpg
+[HPO] Aug 1/1 for image 69/115: FMIS_FormblätterMielke_gefüllt (41).jpg
+[HPO] Aug 1/1 for image 70/115: FMIS_FormblätterMielke_gefüllt (68).jpg
+[HPO] Aug 1/1 for image 71/115: FMIS_FormblätterMielke_gefüllt (22).jpg
+[HPO] Aug 1/1 for image 72/115: FMIS_FormblätterMielke_gefüllt (143).jpg
+[HPO] Aug 1/1 for image 73/115: FMIS_FormblätterMielke_gefüllt (40).jpg
+[HPO] Aug 1/1 for image 74/115: FMIS_FormblätterMielke_gefüllt (137).jpg
+[HPO] Aug 1/1 for image 75/115: FMIS_FormblätterMielke_gefüllt (16).jpg
+[HPO] Aug 1/1 for image 76/115: FMIS_FormblätterMielke_gefüllt (24).jpg
+[HPO] Aug 1/1 for image 77/115: FMIS_FormblätterMielke_gefüllt (142).jpg
+[HPO] Aug 1/1 for image 78/115: FMIS_FormblätterMielke_gefüllt (84).jpg
+[HPO] Aug 1/1 for image 79/115: FMIS_FormblätterMielke_gefüllt (145).jpg
+[HPO] Aug 1/1 for image 80/115: FMIS_FormblätterMielke_gefüllt (57).jpg
+[HPO] Aug 1/1 for image 81/115: FMIS_FormblätterMielke_gefüllt (47).jpg
+[HPO] Aug 1/1 for image 82/115: FMIS_FormblätterMielke_gefüllt (19).jpg
+[HPO] Aug 1/1 for image 83/115: FMIS_FormblätterMielke_gefüllt (146).jpg
+[HPO] Aug 1/1 for image 84/115: FMIS_FormblätterMielke_gefüllt (54).jpg
+[HPO] Aug 1/1 for image 85/115: FMIS_FormblätterMielke_gefüllt (121).jpg
+[HPO] Aug 1/1 for image 86/115: FMIS_FormblätterMielke_gefüllt (161).jpg
+[HPO] Aug 1/1 for image 87/115: FMIS_FormblätterMielke_gefüllt (76).jpg
+[HPO] Aug 1/1 for image 88/115: FMIS_FormblätterMielke_gefüllt (122).jpg
+[HPO] Aug 1/1 for image 89/115: FMIS_FormblätterMielke_gefüllt (7).jpg
+[HPO] Aug 1/1 for image 90/115: FMIS_FormblätterMielke_gefüllt (144).jpg
+[HPO] Aug 1/1 for image 91/115: FMIS_FormblätterMielke_gefüllt (79).jpg
+[HPO] Aug 1/1 for image 92/115: FMIS_FormblätterMielke_gefüllt (95).jpg
+[HPO] Aug 1/1 for image 93/115: FMIS_FormblätterMielke_gefüllt (34).jpg
+[HPO] Aug 1/1 for image 94/115: FMIS_FormblätterMielke_Vorlage2.jpg
+[HPO] Aug 1/1 for image 95/115: FMIS_FormblätterMielke_gefüllt (17).jpg
+[HPO] Aug 1/1 for image 96/115: FMIS_FormblätterMielke_gefüllt (112).jpg
+[HPO] Aug 1/1 for image 97/115: FMIS_FormblätterMielke_gefüllt (62).jpg
+[HPO] Aug 1/1 for image 98/115: FMIS_FormblätterMielke_gefüllt (3).jpg
+[HPO] Aug 1/1 for image 99/115: FMIS_FormblätterMielke_gefüllt (71).jpg
+[HPO] Aug 1/1 for image 100/115: FMIS_FormblätterMielke_gefüllt (8).jpg
+[HPO] Aug 1/1 for image 101/115: FMIS_FormblätterMielke_gefüllt (44).jpg
+[HPO] Aug 1/1 for image 102/115: FMIS_FormblätterMielke_gefüllt (107).jpg
+[HPO] Aug 1/1 for image 103/115: FMIS_FormblätterMielke_gefüllt (124).jpg
+[HPO] Aug 1/1 for image 104/115: FMIS_FormblätterMielke_gefüllt (153).jpg
+[HPO] Aug 1/1 for image 105/115: FMIS_FormblätterMielke_gefüllt (141).jpg
+[HPO] Aug 1/1 for image 106/115: FMIS_FormblätterMielke_gefüllt (37).jpg
+[HPO] Aug 1/1 for image 107/115: FMIS_FormblätterMielke_gefüllt (109).jpg
+[HPO] Aug 1/1 for image 108/115: FMIS_FormblätterMielke_gefüllt (5).jpg
+[HPO] Aug 1/1 for image 109/115: FMIS_FormblätterMielke_gefüllt (113).jpg
+[HPO] Aug 1/1 for image 110/115: FMIS_FormblätterMielke_gefüllt (35).jpg
+[HPO] Aug 1/1 for image 111/115: FMIS_FormblätterMielke_gefüllt (21).jpg
+[HPO] Aug 1/1 for image 112/115: FMIS_FormblätterMielke_gefüllt (104).jpg
+[HPO] Aug 1/1 for image 113/115: FMIS_FormblätterMielke_gefüllt (135).jpg
+[HPO] Aug 1/1 for image 114/115: FMIS_FormblätterMielke_gefüllt (78).jpg
+[HPO] Aug 1/1 for image 115/115: FMIS_FormblätterMielke_gefüllt (148).jpg
+[HPO] Augmented images created: 115
+[HPO] Total training samples: 230 (original: 115, augmented: 115)
+[HPO] Validation samples: 25
+[HPO] Training samples: 230, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial...
+
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 3.5787, 'grad_norm': 8.536211967468262, 'learning_rate': 8.010651039878527e-07, 'epoch': 0.09}
+{'loss': 3.4578, 'grad_norm': 8.832419395446777, 'learning_rate': 1.9454438239704997e-06, 'epoch': 0.17}
+{'loss': 3.2259, 'grad_norm': 8.176970481872559, 'learning_rate': 3.089822543953146e-06, 'epoch': 0.26}
+{'loss': 2.7162, 'grad_norm': 5.753933906555176, 'learning_rate': 4.234201263935793e-06, 'epoch': 0.35}
+{'loss': 2.1786, 'grad_norm': 2.793410539627075, 'learning_rate': 5.37857998391844e-06, 'epoch': 0.43}
+{'loss': 1.8713, 'grad_norm': 1.6703726053237915, 'learning_rate': 6.522958703901087e-06, 'epoch': 0.52}
+{'loss': 1.6772, 'grad_norm': 2.0313167572021484, 'learning_rate': 7.667337423883733e-06, 'epoch': 0.61}
+{'loss': 1.5147, 'grad_norm': 1.4209741353988647, 'learning_rate': 8.697278271868117e-06, 'epoch': 0.7}
+{'loss': 1.3765, 'grad_norm': 2.458822727203369, 'learning_rate': 9.841656991850762e-06, 'epoch': 0.78}
+{'loss': 1.21, 'grad_norm': 5.095338344573975, 'learning_rate': 1.098603571183341e-05, 'epoch': 0.87}
+{'loss': 1.024, 'grad_norm': 1.3459123373031616, 'learning_rate': 1.2130414431816056e-05, 'epoch': 0.96}
+{'eval_loss': 0.7368703484535217, 'eval_runtime': 28.1916, 'eval_samples_per_second': 0.887, 'eval_steps_per_second': 0.887, 'epoch': 1.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 1)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 1): 0.7263 (72.63%)
+[HPO]   🎯 NEW BEST CER: 0.7263 (improved by inf)
+================================================================================
+
+{'loss': 0.7693, 'grad_norm': 1.409462809562683, 'learning_rate': 1.3274793151798704e-05, 'epoch': 1.04}
+{'loss': 0.5169, 'grad_norm': 1.5535383224487305, 'learning_rate': 1.441917187178135e-05, 'epoch': 1.13}
+{'loss': 0.3195, 'grad_norm': 1.0153899192810059, 'learning_rate': 1.5563550591763998e-05, 'epoch': 1.22}
+{'loss': 0.2248, 'grad_norm': 0.7489778995513916, 'learning_rate': 1.6593491439748378e-05, 'epoch': 1.3}
+{'loss': 0.223, 'grad_norm': 4.535715579986572, 'learning_rate': 1.7737870159731027e-05, 'epoch': 1.39}
+{'loss': 0.2269, 'grad_norm': 0.7146030068397522, 'learning_rate': 1.8882248879713672e-05, 'epoch': 1.48}
+{'loss': 0.1951, 'grad_norm': 1.3351173400878906, 'learning_rate': 2.0026627599696318e-05, 'epoch': 1.57}
+{'loss': 0.145, 'grad_norm': 1.1670427322387695, 'learning_rate': 2.1171006319678966e-05, 'epoch': 1.65}
+{'loss': 0.1514, 'grad_norm': 1.7192789316177368, 'learning_rate': 2.2315385039661612e-05, 'epoch': 1.74}
+{'loss': 0.1459, 'grad_norm': 1.8749349117279053, 'learning_rate': 2.3459763759644257e-05, 'epoch': 1.83}
+{'loss': 0.1282, 'grad_norm': 0.7330666184425354, 'learning_rate': 2.368756173001801e-05, 'epoch': 1.91}
+{'loss': 0.1253, 'grad_norm': 1.0253742933273315, 'learning_rate': 2.3683183610838014e-05, 'epoch': 2.0}
+{'eval_loss': 0.09904292970895767, 'eval_runtime': 26.1042, 'eval_samples_per_second': 0.958, 'eval_steps_per_second': 0.958, 'epoch': 2.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 2)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 2): 0.3276 (32.76%)
+[HPO]   🎯 NEW BEST CER: 0.3276 (improved by 0.3987)
+================================================================================
+
+{'loss': 0.0871, 'grad_norm': 1.094541072845459, 'learning_rate': 2.3675439029239944e-05, 'epoch': 2.09}
+{'loss': 0.0926, 'grad_norm': 1.1850812435150146, 'learning_rate': 2.366433018744888e-05, 'epoch': 2.17}
+{'loss': 0.0885, 'grad_norm': 1.145354986190796, 'learning_rate': 2.3649860244340446e-05, 'epoch': 2.26}
+{'loss': 0.1166, 'grad_norm': 1.1458179950714111, 'learning_rate': 2.363203331454254e-05, 'epoch': 2.35}
+{'loss': 0.0799, 'grad_norm': 0.6826758980751038, 'learning_rate': 2.3610854467265355e-05, 'epoch': 2.43}
+{'loss': 0.0843, 'grad_norm': 0.6780940890312195, 'learning_rate': 2.3586329724859863e-05, 'epoch': 2.52}
+{'loss': 0.0839, 'grad_norm': 1.035429835319519, 'learning_rate': 2.3558466061105365e-05, 'epoch': 2.61}
+{'loss': 0.0918, 'grad_norm': 0.9457783102989197, 'learning_rate': 2.352727139922642e-05, 'epoch': 2.7}
+{'loss': 0.0639, 'grad_norm': 0.5818620324134827, 'learning_rate': 2.349275460963982e-05, 'epoch': 2.78}
+{'loss': 0.0609, 'grad_norm': 0.4334442913532257, 'learning_rate': 2.3454925507432248e-05, 'epoch': 2.87}
+{'loss': 0.0735, 'grad_norm': 0.9115362763404846, 'learning_rate': 2.3418056159373476e-05, 'epoch': 2.96}
+{'eval_loss': 0.08221595734357834, 'eval_runtime': 26.1679, 'eval_samples_per_second': 0.955, 'eval_steps_per_second': 0.955, 'epoch': 3.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 3)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 3): 0.3437 (34.37%)
+[HPO]   📊 No improvement. Best CER remains: 0.3276
+================================================================================
+
+{'loss': 0.0842, 'grad_norm': 0.7336265444755554, 'learning_rate': 2.337396407462849e-05, 'epoch': 3.04}
+{'loss': 0.0722, 'grad_norm': 0.8369662165641785, 'learning_rate': 2.332659345616872e-05, 'epoch': 3.13}
+{'loss': 0.059, 'grad_norm': 0.8960755467414856, 'learning_rate': 2.3275957774155555e-05, 'epoch': 3.22}
+{'loss': 0.0604, 'grad_norm': 0.5909139513969421, 'learning_rate': 2.3222071427193667e-05, 'epoch': 3.3}
+{'loss': 0.0685, 'grad_norm': 0.6101627349853516, 'learning_rate': 2.316494973823668e-05, 'epoch': 3.39}
+{'loss': 0.0525, 'grad_norm': 5.271400451660156, 'learning_rate': 2.3104608950229988e-05, 'epoch': 3.48}
+{'loss': 0.0614, 'grad_norm': 1.0056841373443604, 'learning_rate': 2.304106622149195e-05, 'epoch': 3.57}
+{'loss': 0.0628, 'grad_norm': 0.6151261925697327, 'learning_rate': 2.2974339620834802e-05, 'epoch': 3.65}
+{'loss': 0.0543, 'grad_norm': 0.9222815632820129, 'learning_rate': 2.2904448122426685e-05, 'epoch': 3.74}
+{'loss': 0.043, 'grad_norm': 0.9016826152801514, 'learning_rate': 2.283141160039619e-05, 'epoch': 3.83}
+{'loss': 0.0442, 'grad_norm': 0.33733776211738586, 'learning_rate': 2.2755250823181023e-05, 'epoch': 3.91}
+{'loss': 0.0455, 'grad_norm': 0.5191019177436829, 'learning_rate': 2.267598744762236e-05, 'epoch': 4.0}
+{'eval_loss': 0.07821495831012726, 'eval_runtime': 26.1525, 'eval_samples_per_second': 0.956, 'eval_steps_per_second': 0.956, 'epoch': 4.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 4)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 4): 0.3332 (33.32%)
+[HPO]   📊 No improvement. Best CER remains: 0.3276
+================================================================================
+
+{'loss': 0.0461, 'grad_norm': 0.49382439255714417, 'learning_rate': 2.2593644012806556e-05, 'epoch': 4.09}
+{'loss': 0.044, 'grad_norm': 0.7661113142967224, 'learning_rate': 2.2508243933656022e-05, 'epoch': 4.17}
+{'loss': 0.0456, 'grad_norm': 1.079426884651184, 'learning_rate': 2.2419811494271025e-05, 'epoch': 4.26}
+{'loss': 0.036, 'grad_norm': 0.8116467595100403, 'learning_rate': 2.2328371841024328e-05, 'epoch': 4.35}
+{'loss': 0.0517, 'grad_norm': 0.7614537477493286, 'learning_rate': 2.2233950975410657e-05, 'epoch': 4.43}
+{'loss': 0.0318, 'grad_norm': 0.48053884506225586, 'learning_rate': 2.213657574665299e-05, 'epoch': 4.52}
+{'loss': 0.0361, 'grad_norm': 1.1032953262329102, 'learning_rate': 2.20362738440678e-05, 'epoch': 4.61}
+{'loss': 0.0399, 'grad_norm': 0.6230432987213135, 'learning_rate': 2.1933073789191406e-05, 'epoch': 4.7}
+{'loss': 0.0439, 'grad_norm': 0.659574568271637, 'learning_rate': 2.1827004927669678e-05, 'epoch': 4.78}
+{'loss': 0.0291, 'grad_norm': 0.4944835603237152, 'learning_rate': 2.171809742091339e-05, 'epoch': 4.87}
+{'loss': 0.0307, 'grad_norm': 0.7802799940109253, 'learning_rate': 2.160638223752164e-05, 'epoch': 4.96}
+{'eval_loss': 0.08049216866493225, 'eval_runtime': 26.1918, 'eval_samples_per_second': 0.954, 'eval_steps_per_second': 0.954, 'epoch': 5.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 5)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 5): 0.2611 (26.11%)
+[HPO]   🎯 NEW BEST CER: 0.2611 (improved by 0.0665)
+================================================================================
+
+{'loss': 0.0349, 'grad_norm': 0.6556239724159241, 'learning_rate': 2.1491891144475688e-05, 'epoch': 5.04}
+{'loss': 0.0227, 'grad_norm': 2.4431469440460205, 'learning_rate': 2.137465669810582e-05, 'epoch': 5.13}
+{'loss': 0.0269, 'grad_norm': 2.11087703704834, 'learning_rate': 2.1254712234833713e-05, 'epoch': 5.22}
+{'loss': 0.0341, 'grad_norm': 0.8924104571342468, 'learning_rate': 2.1132091861693003e-05, 'epoch': 5.3}
+{'loss': 0.021, 'grad_norm': 0.3415462374687195, 'learning_rate': 2.1006830446630718e-05, 'epoch': 5.39}
+{'loss': 0.0217, 'grad_norm': 0.5061341524124146, 'learning_rate': 2.0878963608592326e-05, 'epoch': 5.48}
+{'loss': 0.022, 'grad_norm': 0.8802522420883179, 'learning_rate': 2.074852770739325e-05, 'epoch': 5.57}
+{'loss': 0.0198, 'grad_norm': 0.6173713803291321, 'learning_rate': 2.061555983337972e-05, 'epoch': 5.65}
+{'loss': 0.0201, 'grad_norm': 0.7179282307624817, 'learning_rate': 2.0480097796881837e-05, 'epoch': 5.74}
+{'loss': 0.0239, 'grad_norm': 1.3878496885299683, 'learning_rate': 2.0342180117461987e-05, 'epoch': 5.83}
+{'loss': 0.0199, 'grad_norm': 0.7886551022529602, 'learning_rate': 2.020184601296152e-05, 'epoch': 5.91}
+{'loss': 0.0284, 'grad_norm': 0.8191825151443481, 'learning_rate': 2.0059135388348887e-05, 'epoch': 6.0}
+{'eval_loss': 0.09386715292930603, 'eval_runtime': 26.8079, 'eval_samples_per_second': 0.933, 'eval_steps_per_second': 0.933, 'epoch': 6.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 6)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 6): 0.2275 (22.75%)
+[HPO]   🎯 NEW BEST CER: 0.2275 (improved by 0.0336)
+================================================================================
+
+{'loss': 0.0164, 'grad_norm': 0.7127636075019836, 'learning_rate': 1.991408882437238e-05, 'epoch': 6.09}
+{'loss': 0.0128, 'grad_norm': 0.8520218729972839, 'learning_rate': 1.9766747566020734e-05, 'epoch': 6.17}
+{'loss': 0.0105, 'grad_norm': 4.375926971435547, 'learning_rate': 1.9617153510794834e-05, 'epoch': 6.26}
+{'loss': 0.01, 'grad_norm': 0.4210823178291321, 'learning_rate': 1.946534919679384e-05, 'epoch': 6.35}
+{'loss': 0.0171, 'grad_norm': 0.2964569926261902, 'learning_rate': 1.9311377790619218e-05, 'epoch': 6.43}
+{'loss': 0.0154, 'grad_norm': 0.8946711421012878, 'learning_rate': 1.9155283075100004e-05, 'epoch': 6.52}
+{'loss': 0.0114, 'grad_norm': 0.6271308660507202, 'learning_rate': 1.8997109436842863e-05, 'epoch': 6.61}
+{'loss': 0.0096, 'grad_norm': 1.3209437131881714, 'learning_rate': 1.8836901853610448e-05, 'epoch': 6.7}
+{'loss': 0.0115, 'grad_norm': 0.7545442581176758, 'learning_rate': 1.8674705881531664e-05, 'epoch': 6.78}
+{'loss': 0.0129, 'grad_norm': 0.2946581244468689, 'learning_rate': 1.8510567642147463e-05, 'epoch': 6.87}
+{'loss': 0.0103, 'grad_norm': 0.5669255256652832, 'learning_rate': 1.8344533809295885e-05, 'epoch': 6.96}
+{'eval_loss': 0.10425765812397003, 'eval_runtime': 26.4263, 'eval_samples_per_second': 0.946, 'eval_steps_per_second': 0.946, 'epoch': 7.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 7)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 7): 0.2900 (29.00%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'loss': 0.013, 'grad_norm': 0.2068118453025818, 'learning_rate': 1.8176651595840012e-05, 'epoch': 7.04}
+{'loss': 0.0067, 'grad_norm': 0.3947860896587372, 'learning_rate': 1.800696874024267e-05, 'epoch': 7.13}
+{'loss': 0.0119, 'grad_norm': 0.4824109971523285, 'learning_rate': 1.783553349299167e-05, 'epoch': 7.22}
+{'loss': 0.005, 'grad_norm': 0.19808952510356903, 'learning_rate': 1.766239460287946e-05, 'epoch': 7.3}
+{'loss': 0.0075, 'grad_norm': 0.12382864952087402, 'learning_rate': 1.7487601303141045e-05, 'epoch': 7.39}
+{'loss': 0.0051, 'grad_norm': 0.06710744649171829, 'learning_rate': 1.7311203297454213e-05, 'epoch': 7.48}
+{'loss': 0.0064, 'grad_norm': 0.06116727739572525, 'learning_rate': 1.7133250745805914e-05, 'epoch': 7.57}
+{'loss': 0.0067, 'grad_norm': 0.8508808016777039, 'learning_rate': 1.6953794250228956e-05, 'epoch': 7.65}
+{'loss': 0.0085, 'grad_norm': 0.3986036777496338, 'learning_rate': 1.677288484041294e-05, 'epoch': 7.74}
+{'loss': 0.0059, 'grad_norm': 0.923182487487793, 'learning_rate': 1.659057395919364e-05, 'epoch': 7.83}
+{'loss': 0.0052, 'grad_norm': 1.668717861175537, 'learning_rate': 1.640691344792487e-05, 'epoch': 7.91}
+{'loss': 0.0058, 'grad_norm': 0.3852102756500244, 'learning_rate': 1.622195553173703e-05, 'epoch': 8.0}
+{'eval_loss': 0.11681921035051346, 'eval_runtime': 26.5534, 'eval_samples_per_second': 0.942, 'eval_steps_per_second': 0.942, 'epoch': 8.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 8)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 8): 0.2471 (24.71%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'loss': 0.0047, 'grad_norm': 0.22498716413974762, 'learning_rate': 1.6035752804686543e-05, 'epoch': 8.09}
+{'loss': 0.0041, 'grad_norm': 0.22334009408950806, 'learning_rate': 1.584835821480037e-05, 'epoch': 8.17}
+{'loss': 0.0056, 'grad_norm': 0.9983010292053223, 'learning_rate': 1.5659825049019864e-05, 'epoch': 8.26}
+{'loss': 0.0061, 'grad_norm': 0.4264691174030304, 'learning_rate': 1.5470206918048277e-05, 'epoch': 8.35}
+{'loss': 0.0073, 'grad_norm': 0.8174759149551392, 'learning_rate': 1.527955774110618e-05, 'epoch': 8.43}
+{'loss': 0.0033, 'grad_norm': 0.4337448477745056, 'learning_rate': 1.5087931730599153e-05, 'epoch': 8.52}
+{'loss': 0.0028, 'grad_norm': 0.3032587766647339, 'learning_rate': 1.4895383376702138e-05, 'epoch': 8.61}
+{'loss': 0.0042, 'grad_norm': 0.1752280741930008, 'learning_rate': 1.470196743186476e-05, 'epoch': 8.7}
+{'loss': 0.0031, 'grad_norm': 0.36401671171188354, 'learning_rate': 1.4507738895242089e-05, 'epoch': 8.78}
+{'loss': 0.0069, 'grad_norm': 0.31261348724365234, 'learning_rate': 1.4312752997055283e-05, 'epoch': 8.87}
+{'loss': 0.0028, 'grad_norm': 0.05029322952032089, 'learning_rate': 1.4117065182886453e-05, 'epoch': 8.96}
+{'eval_loss': 0.12090036273002625, 'eval_runtime': 26.3464, 'eval_samples_per_second': 0.949, 'eval_steps_per_second': 0.949, 'epoch': 9.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 9)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 9): 0.3246 (32.46%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'loss': 0.0033, 'grad_norm': 0.2024320513010025, 'learning_rate': 1.3920731097912367e-05, 'epoch': 9.04}
+{'loss': 0.0022, 'grad_norm': 0.04498736560344696, 'learning_rate': 1.372380657108133e-05, 'epoch': 9.13}
+{'loss': 0.0011, 'grad_norm': 0.46164706349372864, 'learning_rate': 1.352634759923786e-05, 'epoch': 9.22}
+{'loss': 0.0026, 'grad_norm': 0.5063109397888184, 'learning_rate': 1.3328410331199598e-05, 'epoch': 9.3}
+{'loss': 0.0017, 'grad_norm': 0.024762222543358803, 'learning_rate': 1.3130051051790985e-05, 'epoch': 9.39}
+{'loss': 0.0026, 'grad_norm': 0.22479496896266937, 'learning_rate': 1.2931326165838315e-05, 'epoch': 9.48}
+{'loss': 0.0015, 'grad_norm': 0.1325642615556717, 'learning_rate': 1.2732292182130608e-05, 'epoch': 9.57}
+{'loss': 0.0024, 'grad_norm': 0.5822451114654541, 'learning_rate': 1.253300569735096e-05, 'epoch': 9.65}
+{'loss': 0.0032, 'grad_norm': 0.5263527035713196, 'learning_rate': 1.2333523379982894e-05, 'epoch': 9.74}
+{'loss': 0.0022, 'grad_norm': 0.2175639271736145, 'learning_rate': 1.2133901954196266e-05, 'epoch': 9.83}
+{'loss': 0.0026, 'grad_norm': 0.22712910175323486, 'learning_rate': 1.1934198183717373e-05, 'epoch': 9.91}
+{'loss': 0.0023, 'grad_norm': 0.6257847547531128, 'learning_rate': 1.1734468855687791e-05, 'epoch': 10.0}
+{'eval_loss': 0.13594788312911987, 'eval_runtime': 26.3424, 'eval_samples_per_second': 0.949, 'eval_steps_per_second': 0.949, 'epoch': 10.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 10)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 10): 0.3556 (35.56%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'loss': 0.0017, 'grad_norm': 0.1250816136598587, 'learning_rate': 1.1534770764516559e-05, 'epoch': 10.09}
+{'loss': 0.0011, 'grad_norm': 0.25402191281318665, 'learning_rate': 1.1335160695730313e-05, 'epoch': 10.17}
+{'loss': 0.001, 'grad_norm': 0.14264222979545593, 'learning_rate': 1.1135695409825894e-05, 'epoch': 10.26}
+{'loss': 0.0006, 'grad_norm': 0.07976648956537247, 'learning_rate': 1.0936431626130155e-05, 'epoch': 10.35}
+{'loss': 0.0011, 'grad_norm': 0.02285296656191349, 'learning_rate': 1.0737426006671405e-05, 'epoch': 10.43}
+{'loss': 0.0013, 'grad_norm': 0.13894490897655487, 'learning_rate': 1.0538735140067171e-05, 'epoch': 10.52}
+{'loss': 0.001, 'grad_norm': 0.06127222999930382, 'learning_rate': 1.0340415525432843e-05, 'epoch': 10.61}
+{'loss': 0.0016, 'grad_norm': 0.057262685149908066, 'learning_rate': 1.014252355631575e-05, 'epoch': 10.7}
+{'loss': 0.0015, 'grad_norm': 0.15048761665821075, 'learning_rate': 9.945115504659287e-06, 'epoch': 10.78}
+{'loss': 0.0011, 'grad_norm': 0.03812100738286972, 'learning_rate': 9.74824750480158e-06, 'epoch': 10.87}
+{'loss': 0.0007, 'grad_norm': 0.020521624013781548, 'learning_rate': 9.551975537513316e-06, 'epoch': 10.96}
+{'eval_loss': 0.13807207345962524, 'eval_runtime': 26.4463, 'eval_samples_per_second': 0.945, 'eval_steps_per_second': 0.945, 'epoch': 11.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 11)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 11): 0.2857 (28.57%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'loss': 0.0015, 'grad_norm': 0.033557407557964325, 'learning_rate': 9.356355414079216e-06, 'epoch': 11.04}
+{'loss': 0.0004, 'grad_norm': 0.02007821388542652, 'learning_rate': 9.161442760427708e-06, 'epoch': 11.13}
+{'loss': 0.0006, 'grad_norm': 0.04008170962333679, 'learning_rate': 8.967293001313329e-06, 'epoch': 11.22}
+{'loss': 0.0004, 'grad_norm': 0.01718037761747837, 'learning_rate': 8.773961344556292e-06, 'epoch': 11.3}
+{'loss': 0.0006, 'grad_norm': 0.02897370420396328, 'learning_rate': 8.581502765343795e-06, 'epoch': 11.39}
+{'loss': 0.0006, 'grad_norm': 0.022620003670454025, 'learning_rate': 8.389971990597397e-06, 'epoch': 11.48}
+{'loss': 0.0006, 'grad_norm': 0.016939761117100716, 'learning_rate': 8.199423483411096e-06, 'epoch': 11.57}
+{'loss': 0.0005, 'grad_norm': 0.10688955336809158, 'learning_rate': 8.009911427564344e-06, 'epoch': 11.65}
+{'loss': 0.0009, 'grad_norm': 0.23354530334472656, 'learning_rate': 7.821489712114513e-06, 'epoch': 11.74}
+{'loss': 0.0005, 'grad_norm': 0.03502572700381279, 'learning_rate': 7.634211916073187e-06, 'epoch': 11.83}
+{'loss': 0.0005, 'grad_norm': 0.02835816517472267, 'learning_rate': 7.448131293170589e-06, 'epoch': 11.91}
+{'loss': 0.001, 'grad_norm': 0.2414838969707489, 'learning_rate': 7.263300756712519e-06, 'epoch': 12.0}
+{'eval_loss': 0.14325402677059174, 'eval_runtime': 26.516, 'eval_samples_per_second': 0.943, 'eval_steps_per_second': 0.943, 'epoch': 12.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 12)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 12): 0.2922 (29.22%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'loss': 0.0004, 'grad_norm': 0.017553798854351044, 'learning_rate': 7.079772864534103e-06, 'epoch': 12.09}
+{'loss': 0.0004, 'grad_norm': 0.031865060329437256, 'learning_rate': 6.8975998040545866e-06, 'epoch': 12.17}
+{'loss': 0.0004, 'grad_norm': 0.010748685337603092, 'learning_rate': 6.716833377437517e-06, 'epoch': 12.26}
+{'loss': 0.0005, 'grad_norm': 0.014910824596881866, 'learning_rate': 6.537524986860392e-06, 'epoch': 12.35}
+{'loss': 0.0005, 'grad_norm': 0.02506967820227146, 'learning_rate': 6.3597256198981515e-06, 'epoch': 12.43}
+{'loss': 0.0005, 'grad_norm': 0.013463994488120079, 'learning_rate': 6.183485835024482e-06, 'epoch': 12.52}
+{'loss': 0.0004, 'grad_norm': 0.02348640188574791, 'learning_rate': 6.008855747235162e-06, 'epoch': 12.61}
+{'loss': 0.0005, 'grad_norm': 0.027658725157380104, 'learning_rate': 5.835885013797518e-06, 'epoch': 12.7}
+{'loss': 0.0003, 'grad_norm': 0.06015833839774132, 'learning_rate': 5.6646228201300654e-06, 'epoch': 12.78}
+{'loss': 0.0003, 'grad_norm': 0.051060181111097336, 'learning_rate': 5.495117865816271e-06, 'epoch': 12.87}
+{'loss': 0.0006, 'grad_norm': 0.03053773194551468, 'learning_rate': 5.327418350756487e-06, 'epoch': 12.96}
+{'eval_loss': 0.14512115716934204, 'eval_runtime': 26.481, 'eval_samples_per_second': 0.944, 'eval_steps_per_second': 0.944, 'epoch': 13.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 13)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 13): 0.3159 (31.59%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'loss': 0.0004, 'grad_norm': 0.020407769829034805, 'learning_rate': 5.1615719614620015e-06, 'epoch': 13.04}
+{'loss': 0.0003, 'grad_norm': 0.02552739903330803, 'learning_rate': 4.997625857495028e-06, 'epoch': 13.13}
+{'loss': 0.0005, 'grad_norm': 0.011627161875367165, 'learning_rate': 4.835626658058569e-06, 'epoch': 13.22}
+{'loss': 0.0002, 'grad_norm': 0.017672743648290634, 'learning_rate': 4.675620428739928e-06, 'epoch': 13.3}
+{'loss': 0.0003, 'grad_norm': 0.02779582515358925, 'learning_rate': 4.517652668411645e-06, 'epoch': 13.39}
+{'loss': 0.0003, 'grad_norm': 0.02038777992129326, 'learning_rate': 4.361768296293559e-06, 'epoch': 13.48}
+{'loss': 0.0003, 'grad_norm': 0.008098658174276352, 'learning_rate': 4.20801163917974e-06, 'epoch': 13.57}
+{'loss': 0.0005, 'grad_norm': 0.03101574257016182, 'learning_rate': 4.056426418833858e-06, 'epoch': 13.65}
+{'loss': 0.0004, 'grad_norm': 0.017891900613904, 'learning_rate': 3.907055739556581e-06, 'epoch': 13.74}
+{'loss': 0.0004, 'grad_norm': 0.016809718683362007, 'learning_rate': 3.7599420759285976e-06, 'epoch': 13.83}
+{'loss': 0.0003, 'grad_norm': 0.023875584825873375, 'learning_rate': 3.6151272607326463e-06, 'epoch': 13.91}
+{'loss': 0.0004, 'grad_norm': 0.02956763282418251, 'learning_rate': 3.4726524730581095e-06, 'epoch': 14.0}
+{'eval_loss': 0.14620624482631683, 'eval_runtime': 26.4894, 'eval_samples_per_second': 0.944, 'eval_steps_per_second': 0.944, 'epoch': 14.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 14)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 14): 0.3064 (30.64%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'loss': 0.0002, 'grad_norm': 0.03477847948670387, 'learning_rate': 3.332558226591423e-06, 'epoch': 14.09}
+{'loss': 0.0003, 'grad_norm': 0.012881774455308914, 'learning_rate': 3.1948843580957616e-06, 'epoch': 14.17}
+{'loss': 0.0003, 'grad_norm': 0.035433776676654816, 'learning_rate': 3.059670016083155e-06, 'epoch': 14.26}
+{'loss': 0.0003, 'grad_norm': 0.015281086787581444, 'learning_rate': 2.9269536496823486e-06, 'epoch': 14.35}
+{'loss': 0.0003, 'grad_norm': 0.02736937627196312, 'learning_rate': 2.7967729977055376e-06, 'epoch': 14.43}
+{'loss': 0.0003, 'grad_norm': 0.02044558897614479, 'learning_rate': 2.669165077917073e-06, 'epoch': 14.52}
+{'loss': 0.0003, 'grad_norm': 0.015472698025405407, 'learning_rate': 2.5441661765071866e-06, 'epoch': 14.61}
+{'loss': 0.0003, 'grad_norm': 0.01224103569984436, 'learning_rate': 2.4218118377737933e-06, 'epoch': 14.7}
+{'loss': 0.0005, 'grad_norm': 0.07152939587831497, 'learning_rate': 2.3021368540151983e-06, 'epoch': 14.78}
+{'loss': 0.0003, 'grad_norm': 0.009423545561730862, 'learning_rate': 2.1851752556366833e-06, 'epoch': 14.87}
+{'loss': 0.0003, 'grad_norm': 0.013220367021858692, 'learning_rate': 2.070960301473727e-06, 'epoch': 14.96}
+{'eval_loss': 0.14725930988788605, 'eval_runtime': 26.8044, 'eval_samples_per_second': 0.933, 'eval_steps_per_second': 0.933, 'epoch': 15.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 15)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 15): 0.3118 (31.18%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'loss': 0.0003, 'grad_norm': 0.012878866866230965, 'learning_rate': 1.959524469334618e-06, 'epoch': 15.04}
+{'loss': 0.0004, 'grad_norm': 0.025051651522517204, 'learning_rate': 1.85089944676517e-06, 'epoch': 15.13}
+{'loss': 0.0003, 'grad_norm': 0.01835809275507927, 'learning_rate': 1.745116122038147e-06, 'epoch': 15.22}
+{'loss': 0.0002, 'grad_norm': 0.017821891233325005, 'learning_rate': 1.6422045753699858e-06, 'epoch': 15.3}
+{'loss': 0.0002, 'grad_norm': 0.024263771250844002, 'learning_rate': 1.542194070367251e-06, 'epoch': 15.39}
+{'loss': 0.0004, 'grad_norm': 0.01225369144231081, 'learning_rate': 1.4451130457053605e-06, 'epoch': 15.48}
+{'loss': 0.0004, 'grad_norm': 0.03663219138979912, 'learning_rate': 1.3509891070418204e-06, 'epoch': 15.57}
+{'loss': 0.0003, 'grad_norm': 0.02400210127234459, 'learning_rate': 1.2598490191663935e-06, 'epoch': 15.65}
+{'loss': 0.0003, 'grad_norm': 0.011735736392438412, 'learning_rate': 1.1717186983903244e-06, 'epoch': 15.74}
+{'loss': 0.0002, 'grad_norm': 0.012469320558011532, 'learning_rate': 1.0866232051768777e-06, 'epoch': 15.83}
+{'loss': 0.0003, 'grad_norm': 0.009899626486003399, 'learning_rate': 1.004586737015208e-06, 'epoch': 15.91}
+{'loss': 0.0003, 'grad_norm': 0.09998669475317001, 'learning_rate': 9.256326215396411e-07, 'epoch': 16.0}
+{'eval_loss': 0.14789916574954987, 'eval_runtime': 26.2482, 'eval_samples_per_second': 0.952, 'eval_steps_per_second': 0.952, 'epoch': 16.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 16)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 16): 0.3345 (33.45%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'loss': 0.0003, 'grad_norm': 0.02852586656808853, 'learning_rate': 8.497833098963112e-07, 'epoch': 16.09}
+{'loss': 0.0004, 'grad_norm': 0.02423987351357937, 'learning_rate': 7.770603703590092e-07, 'epoch': 16.17}
+{'loss': 0.0002, 'grad_norm': 0.012391980737447739, 'learning_rate': 7.074844821960979e-07, 'epoch': 16.26}
+{'loss': 0.0003, 'grad_norm': 0.019418245181441307, 'learning_rate': 6.410754297902246e-07, 'epoch': 16.35}
+{'loss': 0.0003, 'grad_norm': 0.03989965468645096, 'learning_rate': 5.778520970124977e-07, 'epoch': 16.43}
+{'loss': 0.0003, 'grad_norm': 0.008404131047427654, 'learning_rate': 5.178324618527179e-07, 'epoch': 16.52}
+{'loss': 0.0002, 'grad_norm': 0.022796761244535446, 'learning_rate': 4.6103359130722287e-07, 'epoch': 16.61}
+{'loss': 0.0003, 'grad_norm': 0.04197574406862259, 'learning_rate': 4.0747163652576647e-07, 'epoch': 16.7}
+{'loss': 0.0003, 'grad_norm': 0.023815125226974487, 'learning_rate': 3.5716182821882267e-07, 'epoch': 16.78}
+{'loss': 0.0003, 'grad_norm': 0.012446808628737926, 'learning_rate': 3.101184723266357e-07, 'epoch': 16.87}
+{'loss': 0.0003, 'grad_norm': 0.012731601484119892, 'learning_rate': 2.663549459512258e-07, 'epoch': 16.96}
+{'eval_loss': 0.14787323772907257, 'eval_runtime': 26.4934, 'eval_samples_per_second': 0.944, 'eval_steps_per_second': 0.944, 'epoch': 17.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 17)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 17): 0.3417 (34.17%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'loss': 0.0003, 'grad_norm': 0.009742788970470428, 'learning_rate': 2.2588369355251672e-07, 'epoch': 17.04}
+{'loss': 0.0003, 'grad_norm': 0.025507790967822075, 'learning_rate': 1.8871622340966428e-07, 'epoch': 17.13}
+{'loss': 0.0003, 'grad_norm': 0.037450313568115234, 'learning_rate': 1.5486310434860552e-07, 'epoch': 17.22}
+{'loss': 0.0003, 'grad_norm': 0.01996787264943123, 'learning_rate': 1.2433396273673968e-07, 'epoch': 17.3}
+{'loss': 0.0003, 'grad_norm': 0.01442062109708786, 'learning_rate': 9.713747974559373e-08, 'epoch': 17.39}
+{'loss': 0.0003, 'grad_norm': 0.03055952861905098, 'learning_rate': 7.328138888228529e-08, 'epoch': 17.48}
+{'loss': 0.0002, 'grad_norm': 0.018271539360284805, 'learning_rate': 5.2772473790437177e-08, 'epoch': 17.57}
+{'loss': 0.0003, 'grad_norm': 0.01648661494255066, 'learning_rate': 3.56165663212069e-08, 'epoch': 17.65}
+{'loss': 0.0003, 'grad_norm': 0.016553206369280815, 'learning_rate': 2.1818544874956843e-08, 'epoch': 17.74}
+{'loss': 0.0004, 'grad_norm': 0.019665604457259178, 'learning_rate': 1.1382333014049068e-08, 'epoch': 17.83}
+{'loss': 0.0002, 'grad_norm': 0.012666949070990086, 'learning_rate': 4.310898347152714e-09, 'epoch': 17.91}
+{'loss': 0.0003, 'grad_norm': 0.023317907005548477, 'learning_rate': 6.062516853821509e-10, 'epoch': 18.0}
+{'eval_loss': 0.14778241515159607, 'eval_runtime': 26.521, 'eval_samples_per_second': 0.943, 'eval_steps_per_second': 0.943, 'epoch': 18.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 18)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 18): 0.3044 (30.44%)
+[HPO]   📊 No improvement. Best CER remains: 0.2275
+================================================================================
+
+{'train_runtime': 57540.5941, 'train_samples_per_second': 0.072, 'train_steps_per_second': 0.036, 'train_loss': 0.14353115555351142, 'epoch': 18.0}
+
+[HPO] Trial training completed.
+[HPO]   Best Validation CER in this trial: 0.2275 (22.75%)
+[HPO] Cleaned temp dir: /tmp/1457279.tinygpu/augmented_images_4czv70up
+
+================================================================================
+[HPO] Qwen Staircase OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair/trials/trial_1
+[HPO]   • num_epochs: 20
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 2
+[HPO]   • learning_rate: 5.105903209394759e-05
+[HPO]   • weight_decay: 0.010485387725194618
+[HPO]   • augment_factor: 2
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2 patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2 does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Created temporary dir for augmented images: /tmp/1457279.tinygpu/augmented_images_uf_6dyon
+[HPO] Model loaded with LoRA for HPO.
+[HPO] Preparing training data (augment_factor=2)
+[HPO] Aug 1/2 for image 1/115: FMIS_FormblätterMielke_gefüllt (10).jpg
+[HPO] Aug 2/2 for image 1/115: FMIS_FormblätterMielke_gefüllt (10).jpg
+[HPO] Aug 1/2 for image 2/115: FMIS_FormblätterMielke_gefüllt (114).jpg
+[HPO] Aug 2/2 for image 2/115: FMIS_FormblätterMielke_gefüllt (114).jpg
+[HPO] Aug 1/2 for image 3/115: FMIS_FormblätterMielke_gefüllt (12).jpg
+[HPO] Aug 2/2 for image 3/115: FMIS_FormblätterMielke_gefüllt (12).jpg
+[HPO] Aug 1/2 for image 4/115: FMIS_FormblätterMielke_gefüllt (123).jpg
+[HPO] Aug 2/2 for image 4/115: FMIS_FormblätterMielke_gefüllt (123).jpg
+[HPO] Aug 1/2 for image 5/115: FMIS_FormblätterMielke_gefüllt (125).jpg
+[HPO] Aug 2/2 for image 5/115: FMIS_FormblätterMielke_gefüllt (125).jpg
+[HPO] Aug 1/2 for image 6/115: FMIS_FormblätterMielke_gefüllt (126).jpg
+[HPO] Aug 2/2 for image 6/115: FMIS_FormblätterMielke_gefüllt (126).jpg
+[HPO] Aug 1/2 for image 7/115: FMIS_FormblätterMielke_gefüllt (134).jpg
+[HPO] Aug 2/2 for image 7/115: FMIS_FormblätterMielke_gefüllt (134).jpg
+[HPO] Aug 1/2 for image 8/115: FMIS_FormblätterMielke_gefüllt (136).jpg
+[HPO] Aug 2/2 for image 8/115: FMIS_FormblätterMielke_gefüllt (136).jpg
+[HPO] Aug 1/2 for image 9/115: FMIS_FormblätterMielke_gefüllt (138).jpg
+[HPO] Aug 2/2 for image 9/115: FMIS_FormblätterMielke_gefüllt (138).jpg
+[HPO] Aug 1/2 for image 10/115: FMIS_FormblätterMielke_gefüllt (14).jpg
+[HPO] Aug 2/2 for image 10/115: FMIS_FormblätterMielke_gefüllt (14).jpg
+[HPO] Aug 1/2 for image 11/115: FMIS_FormblätterMielke_gefüllt (149).jpg
+[HPO] Aug 2/2 for image 11/115: FMIS_FormblätterMielke_gefüllt (149).jpg
+[HPO] Aug 1/2 for image 12/115: FMIS_FormblätterMielke_gefüllt (15).jpg
+[HPO] Aug 2/2 for image 12/115: FMIS_FormblätterMielke_gefüllt (15).jpg
+[HPO] Aug 1/2 for image 13/115: FMIS_FormblätterMielke_gefüllt (152).jpg
+[HPO] Aug 2/2 for image 13/115: FMIS_FormblätterMielke_gefüllt (152).jpg
+[HPO] Aug 1/2 for image 14/115: FMIS_FormblätterMielke_gefüllt (154).jpg
+[HPO] Aug 2/2 for image 14/115: FMIS_FormblätterMielke_gefüllt (154).jpg
+[HPO] Aug 1/2 for image 15/115: FMIS_FormblätterMielke_gefüllt (159).jpg
+[HPO] Aug 2/2 for image 15/115: FMIS_FormblätterMielke_gefüllt (159).jpg
+[HPO] Aug 1/2 for image 16/115: FMIS_FormblätterMielke_gefüllt (160).jpg
+[HPO] Aug 2/2 for image 16/115: FMIS_FormblätterMielke_gefüllt (160).jpg
+[HPO] Aug 1/2 for image 17/115: FMIS_FormblätterMielke_gefüllt (163).jpg
+[HPO] Aug 2/2 for image 17/115: FMIS_FormblätterMielke_gefüllt (163).jpg
+[HPO] Aug 1/2 for image 18/115: FMIS_FormblätterMielke_gefüllt (164).jpg
+[HPO] Aug 2/2 for image 18/115: FMIS_FormblätterMielke_gefüllt (164).jpg
+[HPO] Aug 1/2 for image 19/115: FMIS_FormblätterMielke_gefüllt (18).jpg
+[HPO] Aug 2/2 for image 19/115: FMIS_FormblätterMielke_gefüllt (18).jpg
+[HPO] Aug 1/2 for image 20/115: FMIS_FormblätterMielke_gefüllt (20).jpg
+[HPO] Aug 2/2 for image 20/115: FMIS_FormblätterMielke_gefüllt (20).jpg
+[HPO] Aug 1/2 for image 21/115: FMIS_FormblätterMielke_gefüllt (28).jpg
+[HPO] Aug 2/2 for image 21/115: FMIS_FormblätterMielke_gefüllt (28).jpg
+[HPO] Aug 1/2 for image 22/115: FMIS_FormblätterMielke_gefüllt (29).jpg
+[HPO] Aug 2/2 for image 22/115: FMIS_FormblätterMielke_gefüllt (29).jpg
+[HPO] Aug 1/2 for image 23/115: FMIS_FormblätterMielke_gefüllt (30).jpg
+[HPO] Aug 2/2 for image 23/115: FMIS_FormblätterMielke_gefüllt (30).jpg
+[HPO] Aug 1/2 for image 24/115: FMIS_FormblätterMielke_gefüllt (31).jpg
+[HPO] Aug 2/2 for image 24/115: FMIS_FormblätterMielke_gefüllt (31).jpg
+[HPO] Aug 1/2 for image 25/115: FMIS_FormblätterMielke_gefüllt (33).jpg
+[HPO] Aug 2/2 for image 25/115: FMIS_FormblätterMielke_gefüllt (33).jpg
+[HPO] Aug 1/2 for image 26/115: FMIS_FormblätterMielke_gefüllt (38).jpg
+[HPO] Aug 2/2 for image 26/115: FMIS_FormblätterMielke_gefüllt (38).jpg
+[HPO] Aug 1/2 for image 27/115: FMIS_FormblätterMielke_gefüllt (51).jpg
+[HPO] Aug 2/2 for image 27/115: FMIS_FormblätterMielke_gefüllt (51).jpg
+[HPO] Aug 1/2 for image 28/115: FMIS_FormblätterMielke_gefüllt (52).jpg
+[HPO] Aug 2/2 for image 28/115: FMIS_FormblätterMielke_gefüllt (52).jpg
+[HPO] Aug 1/2 for image 29/115: FMIS_FormblätterMielke_gefüllt (53).jpg
+[HPO] Aug 2/2 for image 29/115: FMIS_FormblätterMielke_gefüllt (53).jpg
+[HPO] Aug 1/2 for image 30/115: FMIS_FormblätterMielke_gefüllt (55).jpg
+[HPO] Aug 2/2 for image 30/115: FMIS_FormblätterMielke_gefüllt (55).jpg
+[HPO] Aug 1/2 for image 31/115: FMIS_FormblätterMielke_gefüllt (56).jpg
+[HPO] Aug 2/2 for image 31/115: FMIS_FormblätterMielke_gefüllt (56).jpg
+[HPO] Aug 1/2 for image 32/115: FMIS_FormblätterMielke_gefüllt (6).jpg
+[HPO] Aug 2/2 for image 32/115: FMIS_FormblätterMielke_gefüllt (6).jpg
+[HPO] Aug 1/2 for image 33/115: FMIS_FormblätterMielke_gefüllt (81).jpg
+[HPO] Aug 2/2 for image 33/115: FMIS_FormblätterMielke_gefüllt (81).jpg
+[HPO] Aug 1/2 for image 34/115: FMIS_FormblätterMielke_gefüllt (85).jpg
+[HPO] Aug 2/2 for image 34/115: FMIS_FormblätterMielke_gefüllt (85).jpg
+[HPO] Aug 1/2 for image 35/115: FMIS_FormblätterMielke_gefüllt (89).jpg
+[HPO] Aug 2/2 for image 35/115: FMIS_FormblätterMielke_gefüllt (89).jpg
+[HPO] Aug 1/2 for image 36/115: FMIS_FormblätterMielke_gefüllt (108).jpg
+[HPO] Aug 2/2 for image 36/115: FMIS_FormblätterMielke_gefüllt (108).jpg
+[HPO] Aug 1/2 for image 37/115: FMIS_FormblätterMielke_gefüllt (65).jpg
+[HPO] Aug 2/2 for image 37/115: FMIS_FormblätterMielke_gefüllt (65).jpg
+[HPO] Aug 1/2 for image 38/115: FMIS_FormblätterMielke_gefüllt (75).jpg
+[HPO] Aug 2/2 for image 38/115: FMIS_FormblätterMielke_gefüllt (75).jpg
+[HPO] Aug 1/2 for image 39/115: FMIS_FormblätterMielke_gefüllt (46).jpg
+[HPO] Aug 2/2 for image 39/115: FMIS_FormblätterMielke_gefüllt (46).jpg
+[HPO] Aug 1/2 for image 40/115: FMIS_FormblätterMielke_gefüllt (157).jpg
+[HPO] Aug 2/2 for image 40/115: FMIS_FormblätterMielke_gefüllt (157).jpg
+[HPO] Aug 1/2 for image 41/115: FMIS_FormblätterMielke_gefüllt (115).jpg
+[HPO] Aug 2/2 for image 41/115: FMIS_FormblätterMielke_gefüllt (115).jpg
+[HPO] Aug 1/2 for image 42/115: FMIS_FormblätterMielke_gefüllt (25).jpg
+[HPO] Aug 2/2 for image 42/115: FMIS_FormblätterMielke_gefüllt (25).jpg
+[HPO] Aug 1/2 for image 43/115: FMIS_FormblätterMielke_gefüllt (4).jpg
+[HPO] Aug 2/2 for image 43/115: FMIS_FormblätterMielke_gefüllt (4).jpg
+[HPO] Aug 1/2 for image 44/115: FMIS_FormblätterMielke_gefüllt (77).jpg
+[HPO] Aug 2/2 for image 44/115: FMIS_FormblätterMielke_gefüllt (77).jpg
+[HPO] Aug 1/2 for image 45/115: FMIS_FormblätterMielke_gefüllt (73).jpg
+[HPO] Aug 2/2 for image 45/115: FMIS_FormblätterMielke_gefüllt (73).jpg
+[HPO] Aug 1/2 for image 46/115: FMIS_FormblätterMielke_gefüllt (155).jpg
+[HPO] Aug 2/2 for image 46/115: FMIS_FormblätterMielke_gefüllt (155).jpg
+[HPO] Aug 1/2 for image 47/115: FMIS_FormblätterMielke_gefüllt (120).jpg
+[HPO] Aug 2/2 for image 47/115: FMIS_FormblätterMielke_gefüllt (120).jpg
+[HPO] Aug 1/2 for image 48/115: FMIS_FormblätterMielke_gefüllt (131).jpg
+[HPO] Aug 2/2 for image 48/115: FMIS_FormblätterMielke_gefüllt (131).jpg
+[HPO] Aug 1/2 for image 49/115: FMIS_FormblätterMielke_gefüllt (59).jpg
+[HPO] Aug 2/2 for image 49/115: FMIS_FormblätterMielke_gefüllt (59).jpg
+[HPO] Aug 1/2 for image 50/115: FMIS_FormblätterMielke_gefüllt (133).jpg
+[HPO] Aug 2/2 for image 50/115: FMIS_FormblätterMielke_gefüllt (133).jpg
+[HPO] Aug 1/2 for image 51/115: FMIS_FormblätterMielke_gefüllt (158).jpg
+[HPO] Aug 2/2 for image 51/115: FMIS_FormblätterMielke_gefüllt (158).jpg
+[HPO] Aug 1/2 for image 52/115: FMIS_FormblätterMielke_gefüllt (26).jpg
+[HPO] Aug 2/2 for image 52/115: FMIS_FormblätterMielke_gefüllt (26).jpg
+[HPO] Aug 1/2 for image 53/115: FMIS_FormblätterMielke_gefüllt (97).jpg
+[HPO] Aug 2/2 for image 53/115: FMIS_FormblätterMielke_gefüllt (97).jpg
+[HPO] Aug 1/2 for image 54/115: FMIS_FormblätterMielke_gefüllt (69).jpg
+[HPO] Aug 2/2 for image 54/115: FMIS_FormblätterMielke_gefüllt (69).jpg
+[HPO] Aug 1/2 for image 55/115: FMIS_FormblätterMielke_gefüllt (117).jpg
+[HPO] Aug 2/2 for image 55/115: FMIS_FormblätterMielke_gefüllt (117).jpg
+[HPO] Aug 1/2 for image 56/115: FMIS_FormblätterMielke_gefüllt (67).jpg
+[HPO] Aug 2/2 for image 56/115: FMIS_FormblätterMielke_gefüllt (67).jpg
+[HPO] Aug 1/2 for image 57/115: FMIS_FormblätterMielke_gefüllt (101).jpg
+[HPO] Aug 2/2 for image 57/115: FMIS_FormblätterMielke_gefüllt (101).jpg
+[HPO] Aug 1/2 for image 58/115: FMIS_FormblätterMielke_gefüllt (32).jpg
+[HPO] Aug 2/2 for image 58/115: FMIS_FormblätterMielke_gefüllt (32).jpg
+[HPO] Aug 1/2 for image 59/115: FMIS_FormblätterMielke_gefüllt (49).jpg
+[HPO] Aug 2/2 for image 59/115: FMIS_FormblätterMielke_gefüllt (49).jpg
+[HPO] Aug 1/2 for image 60/115: FMIS_FormblätterMielke_gefüllt (140).jpg
+[HPO] Aug 2/2 for image 60/115: FMIS_FormblätterMielke_gefüllt (140).jpg
+[HPO] Aug 1/2 for image 61/115: FMIS_FormblätterMielke_gefüllt (92).jpg
+[HPO] Aug 2/2 for image 61/115: FMIS_FormblätterMielke_gefüllt (92).jpg
+[HPO] Aug 1/2 for image 62/115: FMIS_FormblätterMielke_gefüllt (106).jpg
+[HPO] Aug 2/2 for image 62/115: FMIS_FormblätterMielke_gefüllt (106).jpg
+[HPO] Aug 1/2 for image 63/115: FMIS_FormblätterMielke_gefüllt (100).jpg
+[HPO] Aug 2/2 for image 63/115: FMIS_FormblätterMielke_gefüllt (100).jpg
+[HPO] Aug 1/2 for image 64/115: FMIS_FormblätterMielke_gefüllt (60).jpg
+[HPO] Aug 2/2 for image 64/115: FMIS_FormblätterMielke_gefüllt (60).jpg
+[HPO] Aug 1/2 for image 65/115: FMIS_FormblätterMielke_gefüllt (48).jpg
+[HPO] Aug 2/2 for image 65/115: FMIS_FormblätterMielke_gefüllt (48).jpg
+[HPO] Aug 1/2 for image 66/115: FMIS_FormblätterMielke_gefüllt (128).jpg
+[HPO] Aug 2/2 for image 66/115: FMIS_FormblätterMielke_gefüllt (128).jpg
+[HPO] Aug 1/2 for image 67/115: FMIS_FormblätterMielke_gefüllt (64).jpg
+[HPO] Aug 2/2 for image 67/115: FMIS_FormblätterMielke_gefüllt (64).jpg
+[HPO] Aug 1/2 for image 68/115: FMIS_FormblätterMielke_gefüllt (23).jpg
+[HPO] Aug 2/2 for image 68/115: FMIS_FormblätterMielke_gefüllt (23).jpg
+[HPO] Aug 1/2 for image 69/115: FMIS_FormblätterMielke_gefüllt (41).jpg
+[HPO] Aug 2/2 for image 69/115: FMIS_FormblätterMielke_gefüllt (41).jpg
+[HPO] Aug 1/2 for image 70/115: FMIS_FormblätterMielke_gefüllt (68).jpg
+[HPO] Aug 2/2 for image 70/115: FMIS_FormblätterMielke_gefüllt (68).jpg
+[HPO] Aug 1/2 for image 71/115: FMIS_FormblätterMielke_gefüllt (22).jpg
+[HPO] Aug 2/2 for image 71/115: FMIS_FormblätterMielke_gefüllt (22).jpg
+[HPO] Aug 1/2 for image 72/115: FMIS_FormblätterMielke_gefüllt (143).jpg
+[HPO] Aug 2/2 for image 72/115: FMIS_FormblätterMielke_gefüllt (143).jpg
+[HPO] Aug 1/2 for image 73/115: FMIS_FormblätterMielke_gefüllt (40).jpg
+[HPO] Aug 2/2 for image 73/115: FMIS_FormblätterMielke_gefüllt (40).jpg
+[HPO] Aug 1/2 for image 74/115: FMIS_FormblätterMielke_gefüllt (137).jpg
+[HPO] Aug 2/2 for image 74/115: FMIS_FormblätterMielke_gefüllt (137).jpg
+[HPO] Aug 1/2 for image 75/115: FMIS_FormblätterMielke_gefüllt (16).jpg
+[HPO] Aug 2/2 for image 75/115: FMIS_FormblätterMielke_gefüllt (16).jpg
+[HPO] Aug 1/2 for image 76/115: FMIS_FormblätterMielke_gefüllt (24).jpg
+[HPO] Aug 2/2 for image 76/115: FMIS_FormblätterMielke_gefüllt (24).jpg
+[HPO] Aug 1/2 for image 77/115: FMIS_FormblätterMielke_gefüllt (142).jpg
+[HPO] Aug 2/2 for image 77/115: FMIS_FormblätterMielke_gefüllt (142).jpg
+[HPO] Aug 1/2 for image 78/115: FMIS_FormblätterMielke_gefüllt (84).jpg
+[HPO] Aug 2/2 for image 78/115: FMIS_FormblätterMielke_gefüllt (84).jpg
+[HPO] Aug 1/2 for image 79/115: FMIS_FormblätterMielke_gefüllt (145).jpg
+[HPO] Aug 2/2 for image 79/115: FMIS_FormblätterMielke_gefüllt (145).jpg
+[HPO] Aug 1/2 for image 80/115: FMIS_FormblätterMielke_gefüllt (57).jpg
+[HPO] Aug 2/2 for image 80/115: FMIS_FormblätterMielke_gefüllt (57).jpg
+[HPO] Aug 1/2 for image 81/115: FMIS_FormblätterMielke_gefüllt (47).jpg
+[HPO] Aug 2/2 for image 81/115: FMIS_FormblätterMielke_gefüllt (47).jpg
+[HPO] Aug 1/2 for image 82/115: FMIS_FormblätterMielke_gefüllt (19).jpg
+[HPO] Aug 2/2 for image 82/115: FMIS_FormblätterMielke_gefüllt (19).jpg
+[HPO] Aug 1/2 for image 83/115: FMIS_FormblätterMielke_gefüllt (146).jpg
+[HPO] Aug 2/2 for image 83/115: FMIS_FormblätterMielke_gefüllt (146).jpg
+[HPO] Aug 1/2 for image 84/115: FMIS_FormblätterMielke_gefüllt (54).jpg
+[HPO] Aug 2/2 for image 84/115: FMIS_FormblätterMielke_gefüllt (54).jpg
+[HPO] Aug 1/2 for image 85/115: FMIS_FormblätterMielke_gefüllt (121).jpg
+[HPO] Aug 2/2 for image 85/115: FMIS_FormblätterMielke_gefüllt (121).jpg
+[HPO] Aug 1/2 for image 86/115: FMIS_FormblätterMielke_gefüllt (161).jpg
+[HPO] Aug 2/2 for image 86/115: FMIS_FormblätterMielke_gefüllt (161).jpg
+[HPO] Aug 1/2 for image 87/115: FMIS_FormblätterMielke_gefüllt (76).jpg
+[HPO] Aug 2/2 for image 87/115: FMIS_FormblätterMielke_gefüllt (76).jpg
+[HPO] Aug 1/2 for image 88/115: FMIS_FormblätterMielke_gefüllt (122).jpg
+[HPO] Aug 2/2 for image 88/115: FMIS_FormblätterMielke_gefüllt (122).jpg
+[HPO] Aug 1/2 for image 89/115: FMIS_FormblätterMielke_gefüllt (7).jpg
+[HPO] Aug 2/2 for image 89/115: FMIS_FormblätterMielke_gefüllt (7).jpg
+[HPO] Aug 1/2 for image 90/115: FMIS_FormblätterMielke_gefüllt (144).jpg
+[HPO] Aug 2/2 for image 90/115: FMIS_FormblätterMielke_gefüllt (144).jpg
+[HPO] Aug 1/2 for image 91/115: FMIS_FormblätterMielke_gefüllt (79).jpg
+[HPO] Aug 2/2 for image 91/115: FMIS_FormblätterMielke_gefüllt (79).jpg
+[HPO] Aug 1/2 for image 92/115: FMIS_FormblätterMielke_gefüllt (95).jpg
+[HPO] Aug 2/2 for image 92/115: FMIS_FormblätterMielke_gefüllt (95).jpg
+[HPO] Aug 1/2 for image 93/115: FMIS_FormblätterMielke_gefüllt (34).jpg
+[HPO] Aug 2/2 for image 93/115: FMIS_FormblätterMielke_gefüllt (34).jpg
+[HPO] Aug 1/2 for image 94/115: FMIS_FormblätterMielke_Vorlage2.jpg
+[HPO] Aug 2/2 for image 94/115: FMIS_FormblätterMielke_Vorlage2.jpg
+[HPO] Aug 1/2 for image 95/115: FMIS_FormblätterMielke_gefüllt (17).jpg
+[HPO] Aug 2/2 for image 95/115: FMIS_FormblätterMielke_gefüllt (17).jpg
+[HPO] Aug 1/2 for image 96/115: FMIS_FormblätterMielke_gefüllt (112).jpg
+[HPO] Aug 2/2 for image 96/115: FMIS_FormblätterMielke_gefüllt (112).jpg
+[HPO] Aug 1/2 for image 97/115: FMIS_FormblätterMielke_gefüllt (62).jpg
+[HPO] Aug 2/2 for image 97/115: FMIS_FormblätterMielke_gefüllt (62).jpg
+[HPO] Aug 1/2 for image 98/115: FMIS_FormblätterMielke_gefüllt (3).jpg
+[HPO] Aug 2/2 for image 98/115: FMIS_FormblätterMielke_gefüllt (3).jpg
+[HPO] Aug 1/2 for image 99/115: FMIS_FormblätterMielke_gefüllt (71).jpg
+[HPO] Aug 2/2 for image 99/115: FMIS_FormblätterMielke_gefüllt (71).jpg
+[HPO] Aug 1/2 for image 100/115: FMIS_FormblätterMielke_gefüllt (8).jpg
+[HPO] Aug 2/2 for image 100/115: FMIS_FormblätterMielke_gefüllt (8).jpg
+[HPO] Aug 1/2 for image 101/115: FMIS_FormblätterMielke_gefüllt (44).jpg
+[HPO] Aug 2/2 for image 101/115: FMIS_FormblätterMielke_gefüllt (44).jpg
+[HPO] Aug 1/2 for image 102/115: FMIS_FormblätterMielke_gefüllt (107).jpg
+[HPO] Aug 2/2 for image 102/115: FMIS_FormblätterMielke_gefüllt (107).jpg
+[HPO] Aug 1/2 for image 103/115: FMIS_FormblätterMielke_gefüllt (124).jpg
+[HPO] Aug 2/2 for image 103/115: FMIS_FormblätterMielke_gefüllt (124).jpg
+[HPO] Aug 1/2 for image 104/115: FMIS_FormblätterMielke_gefüllt (153).jpg
+[HPO] Aug 2/2 for image 104/115: FMIS_FormblätterMielke_gefüllt (153).jpg
+[HPO] Aug 1/2 for image 105/115: FMIS_FormblätterMielke_gefüllt (141).jpg
+[HPO] Aug 2/2 for image 105/115: FMIS_FormblätterMielke_gefüllt (141).jpg
+[HPO] Aug 1/2 for image 106/115: FMIS_FormblätterMielke_gefüllt (37).jpg
+[HPO] Aug 2/2 for image 106/115: FMIS_FormblätterMielke_gefüllt (37).jpg
+[HPO] Aug 1/2 for image 107/115: FMIS_FormblätterMielke_gefüllt (109).jpg
+[HPO] Aug 2/2 for image 107/115: FMIS_FormblätterMielke_gefüllt (109).jpg
+[HPO] Aug 1/2 for image 108/115: FMIS_FormblätterMielke_gefüllt (5).jpg
+[HPO] Aug 2/2 for image 108/115: FMIS_FormblätterMielke_gefüllt (5).jpg
+[HPO] Aug 1/2 for image 109/115: FMIS_FormblätterMielke_gefüllt (113).jpg
+[HPO] Aug 2/2 for image 109/115: FMIS_FormblätterMielke_gefüllt (113).jpg
+[HPO] Aug 1/2 for image 110/115: FMIS_FormblätterMielke_gefüllt (35).jpg
+[HPO] Aug 2/2 for image 110/115: FMIS_FormblätterMielke_gefüllt (35).jpg
+[HPO] Aug 1/2 for image 111/115: FMIS_FormblätterMielke_gefüllt (21).jpg
+[HPO] Aug 2/2 for image 111/115: FMIS_FormblätterMielke_gefüllt (21).jpg
+[HPO] Aug 1/2 for image 112/115: FMIS_FormblätterMielke_gefüllt (104).jpg
+[HPO] Aug 2/2 for image 112/115: FMIS_FormblätterMielke_gefüllt (104).jpg
+[HPO] Aug 1/2 for image 113/115: FMIS_FormblätterMielke_gefüllt (135).jpg
+[HPO] Aug 2/2 for image 113/115: FMIS_FormblätterMielke_gefüllt (135).jpg
+[HPO] Aug 1/2 for image 114/115: FMIS_FormblätterMielke_gefüllt (78).jpg
+[HPO] Aug 2/2 for image 114/115: FMIS_FormblätterMielke_gefüllt (78).jpg
+[HPO] Aug 1/2 for image 115/115: FMIS_FormblätterMielke_gefüllt (148).jpg
+[HPO] Aug 2/2 for image 115/115: FMIS_FormblätterMielke_gefüllt (148).jpg
+[HPO] Augmented images created: 230
+[HPO] Total training samples: 345 (original: 115, augmented: 230)
+[HPO] Validation samples: 25
+[HPO] Training samples: 345, Validation raw records: 25
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial...
+
+{'loss': 3.3855, 'grad_norm': 8.886987686157227, 'learning_rate': 1.3358467698997916e-06, 'epoch': 0.06}
+{'loss': 3.3414, 'grad_norm': 8.07872200012207, 'learning_rate': 2.5232661209218285e-06, 'epoch': 0.12}
+{'loss': 3.0927, 'grad_norm': 6.751248359680176, 'learning_rate': 4.0075403096993745e-06, 'epoch': 0.17}
+{'loss': 2.4886, 'grad_norm': 4.271452903747559, 'learning_rate': 5.491814498476921e-06, 'epoch': 0.23}
+{'loss': 1.9812, 'grad_norm': 3.1856021881103516, 'learning_rate': 6.976088687254467e-06, 'epoch': 0.29}
+{'loss': 1.7406, 'grad_norm': 7.916131973266602, 'learning_rate': 8.460362876032014e-06, 'epoch': 0.35}
+{'loss': 1.5826, 'grad_norm': 1.479998230934143, 'learning_rate': 9.796209645931805e-06, 'epoch': 0.41}
+{'loss': 1.4205, 'grad_norm': 2.5675008296966553, 'learning_rate': 1.1280483834709351e-05, 'epoch': 0.46}
+{'loss': 1.2364, 'grad_norm': 1.7054710388183594, 'learning_rate': 1.2764758023486897e-05, 'epoch': 0.52}
+{'loss': 1.0395, 'grad_norm': 1.744456171989441, 'learning_rate': 1.4249032212264444e-05, 'epoch': 0.58}
+{'loss': 0.7738, 'grad_norm': 1.1512092351913452, 'learning_rate': 1.573330640104199e-05, 'epoch': 0.64}
+{'loss': 0.4627, 'grad_norm': 0.8200808763504028, 'learning_rate': 1.7217580589819536e-05, 'epoch': 0.7}
+{'loss': 0.3269, 'grad_norm': 0.6696915030479431, 'learning_rate': 1.870185477859708e-05, 'epoch': 0.75}
+{'loss': 0.2236, 'grad_norm': 0.9853775501251221, 'learning_rate': 2.0186128967374628e-05, 'epoch': 0.81}
+{'loss': 0.2243, 'grad_norm': 0.9029728770256042, 'learning_rate': 2.1670403156152174e-05, 'epoch': 0.87}
+{'loss': 0.1434, 'grad_norm': 1.8798638582229614, 'learning_rate': 2.315467734492972e-05, 'epoch': 0.93}
+{'loss': 0.1847, 'grad_norm': 1.0884867906570435, 'learning_rate': 2.463895153370727e-05, 'epoch': 0.99}
+{'eval_loss': 0.13199780881404877, 'eval_runtime': 28.2933, 'eval_samples_per_second': 0.884, 'eval_steps_per_second': 0.884, 'epoch': 1.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 1)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 1): 0.4221 (42.21%)
+[HPO]   🎯 NEW BEST CER: 0.4221 (improved by inf)
+================================================================================
+
+{'loss': 0.1178, 'grad_norm': 1.5655696392059326, 'learning_rate': 2.6123225722484815e-05, 'epoch': 1.04}
+{'loss': 0.1164, 'grad_norm': 0.5618113279342651, 'learning_rate': 2.7459072492384602e-05, 'epoch': 1.1}
+{'loss': 0.1313, 'grad_norm': 0.6589673757553101, 'learning_rate': 2.894334668116215e-05, 'epoch': 1.16}
+{'loss': 0.0904, 'grad_norm': 0.4352986812591553, 'learning_rate': 3.0427620869939694e-05, 'epoch': 1.21}
+{'loss': 0.0896, 'grad_norm': 0.699223518371582, 'learning_rate': 3.191189505871725e-05, 'epoch': 1.27}
+{'loss': 0.1064, 'grad_norm': 0.6964337229728699, 'learning_rate': 3.339616924749479e-05, 'epoch': 1.33}
+{'loss': 0.1085, 'grad_norm': 0.8428077101707458, 'learning_rate': 3.488044343627233e-05, 'epoch': 1.39}
+{'loss': 0.1163, 'grad_norm': 0.9727463722229004, 'learning_rate': 3.6364717625049885e-05, 'epoch': 1.45}
+{'loss': 0.0923, 'grad_norm': 0.3270898461341858, 'learning_rate': 3.7848991813827424e-05, 'epoch': 1.5}
+{'loss': 0.0911, 'grad_norm': 0.7071495056152344, 'learning_rate': 3.933326600260498e-05, 'epoch': 1.56}
+{'loss': 0.0779, 'grad_norm': 4.808125972747803, 'learning_rate': 4.0817540191382517e-05, 'epoch': 1.62}
+{'loss': 0.0775, 'grad_norm': 0.6464289426803589, 'learning_rate': 4.230181438016007e-05, 'epoch': 1.68}
+{'loss': 0.0776, 'grad_norm': 0.804985523223877, 'learning_rate': 4.378608856893761e-05, 'epoch': 1.74}
+{'loss': 0.0823, 'grad_norm': 0.37415602803230286, 'learning_rate': 4.527036275771516e-05, 'epoch': 1.79}
+{'loss': 0.0837, 'grad_norm': 0.333121657371521, 'learning_rate': 4.67546369464927e-05, 'epoch': 1.85}
+{'loss': 0.0844, 'grad_norm': 0.5734861493110657, 'learning_rate': 4.8238911135270254e-05, 'epoch': 1.91}
+{'loss': 0.1019, 'grad_norm': 0.7583943009376526, 'learning_rate': 4.972318532404779e-05, 'epoch': 1.97}
+{'eval_loss': 0.07928011566400528, 'eval_runtime': 27.5594, 'eval_samples_per_second': 0.907, 'eval_steps_per_second': 0.907, 'epoch': 2.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 2)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 2): 0.2761 (27.61%)
+[HPO]   🎯 NEW BEST CER: 0.2761 (improved by 0.1460)
+================================================================================
+
+{'loss': 0.0642, 'grad_norm': 0.6121464967727661, 'learning_rate': 5.105901895046693e-05, 'epoch': 2.02}
+{'loss': 0.0599, 'grad_norm': 0.6896684169769287, 'learning_rate': 5.105744174916262e-05, 'epoch': 2.08}
+{'loss': 0.0616, 'grad_norm': 0.6145483255386353, 'learning_rate': 5.105323603780715e-05, 'epoch': 2.14}
+{'loss': 0.0538, 'grad_norm': 0.4548308253288269, 'learning_rate': 5.104640224944605e-05, 'epoch': 2.2}
+{'loss': 0.0556, 'grad_norm': 0.2510737180709839, 'learning_rate': 5.1036941087727614e-05, 'epoch': 2.26}
+{'loss': 0.0414, 'grad_norm': 0.4929215610027313, 'learning_rate': 5.102485352683043e-05, 'epoch': 2.31}
+{'loss': 0.0418, 'grad_norm': 0.47541770339012146, 'learning_rate': 5.1010140811363086e-05, 'epoch': 2.37}
+{'loss': 0.0584, 'grad_norm': 0.6056109666824341, 'learning_rate': 5.099280445623598e-05, 'epoch': 2.43}
+{'loss': 0.0687, 'grad_norm': 0.41427555680274963, 'learning_rate': 5.0972846246505405e-05, 'epoch': 2.49}
+{'loss': 0.0394, 'grad_norm': 0.47932931780815125, 'learning_rate': 5.095026823718964e-05, 'epoch': 2.54}
+{'loss': 0.037, 'grad_norm': 0.7954244017601013, 'learning_rate': 5.092507275305749e-05, 'epoch': 2.6}
+{'loss': 0.0526, 'grad_norm': 1.047948956489563, 'learning_rate': 5.089726238838877e-05, 'epoch': 2.66}
+{'loss': 0.0554, 'grad_norm': 0.41382133960723877, 'learning_rate': 5.0866840006707324e-05, 'epoch': 2.72}
+{'loss': 0.0399, 'grad_norm': 0.6399936079978943, 'learning_rate': 5.083380874048605e-05, 'epoch': 2.78}
+{'loss': 0.0344, 'grad_norm': 0.9231265783309937, 'learning_rate': 5.079817199082446e-05, 'epoch': 2.83}
+{'loss': 0.0389, 'grad_norm': 0.9687458276748657, 'learning_rate': 5.075993342709842e-05, 'epoch': 2.89}
+{'loss': 0.0344, 'grad_norm': 0.5894802808761597, 'learning_rate': 5.071909698658237e-05, 'epoch': 2.95}
+{'eval_loss': 0.07799383997917175, 'eval_runtime': 27.7755, 'eval_samples_per_second': 0.9, 'eval_steps_per_second': 0.9, 'epoch': 3.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 3)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 3): 0.2183 (21.83%)
+[HPO]   🎯 NEW BEST CER: 0.2183 (improved by 0.0579)
+================================================================================
+
+{'loss': 0.0266, 'grad_norm': 0.29388976097106934, 'learning_rate': 5.0675666874043866e-05, 'epoch': 3.01}
+{'loss': 0.0306, 'grad_norm': 0.400716096162796, 'learning_rate': 5.0629647561310705e-05, 'epoch': 3.06}
+{'loss': 0.0247, 'grad_norm': 0.6791200041770935, 'learning_rate': 5.058104378681042e-05, 'epoch': 3.12}
+{'loss': 0.0245, 'grad_norm': 1.9295151233673096, 'learning_rate': 5.052986055508241e-05, 'epoch': 3.18}
+{'loss': 0.0251, 'grad_norm': 0.6173960566520691, 'learning_rate': 5.0476103136262615e-05, 'epoch': 3.24}
+{'loss': 0.0254, 'grad_norm': 0.4709874391555786, 'learning_rate': 5.0419777065540914e-05, 'epoch': 3.3}
+{'loss': 0.0231, 'grad_norm': 0.6776018142700195, 'learning_rate': 5.036088814259115e-05, 'epoch': 3.35}
+{'loss': 0.02, 'grad_norm': 0.21845288574695587, 'learning_rate': 5.029944243097397e-05, 'epoch': 3.41}
+{'loss': 0.023, 'grad_norm': 0.5470523238182068, 'learning_rate': 5.0235446257512506e-05, 'epoch': 3.47}
+{'loss': 0.0252, 'grad_norm': 0.47855302691459656, 'learning_rate': 5.0168906211640895e-05, 'epoch': 3.53}
+{'loss': 0.0216, 'grad_norm': 0.5117686986923218, 'learning_rate': 5.009982914472581e-05, 'epoch': 3.59}
+{'loss': 0.0097, 'grad_norm': 0.44922950863838196, 'learning_rate': 5.0028222169360995e-05, 'epoch': 3.64}
+{'loss': 0.0184, 'grad_norm': 0.4365618824958801, 'learning_rate': 4.995409265863491e-05, 'epoch': 3.7}
+{'loss': 0.0325, 'grad_norm': 0.99033123254776, 'learning_rate': 4.987744824537157e-05, 'epoch': 3.76}
+{'loss': 0.0265, 'grad_norm': 0.8022302985191345, 'learning_rate': 4.979829682134459e-05, 'epoch': 3.82}
+{'loss': 0.012, 'grad_norm': 0.25333672761917114, 'learning_rate': 4.9716646536464614e-05, 'epoch': 3.88}
+{'loss': 0.027, 'grad_norm': 0.7156289219856262, 'learning_rate': 4.963250579794017e-05, 'epoch': 3.93}
+{'loss': 0.0242, 'grad_norm': 0.3112083077430725, 'learning_rate': 4.9545883269411985e-05, 'epoch': 3.99}
+{'eval_loss': 0.08207134902477264, 'eval_runtime': 27.7475, 'eval_samples_per_second': 0.901, 'eval_steps_per_second': 0.901, 'epoch': 4.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 4)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 4): 0.2449 (24.49%)
+[HPO]   📊 No improvement. Best CER remains: 0.2183
+================================================================================
+
+{'loss': 0.0132, 'grad_norm': 0.07525520026683807, 'learning_rate': 4.945678787006095e-05, 'epoch': 4.05}
+{'loss': 0.009, 'grad_norm': 1.8227092027664185, 'learning_rate': 4.936522877368972e-05, 'epoch': 4.1}
+{'loss': 0.0128, 'grad_norm': 0.6117408275604248, 'learning_rate': 4.9271215407778145e-05, 'epoch': 4.16}
+{'loss': 0.0121, 'grad_norm': 4.386163711547852, 'learning_rate': 4.917475745251254e-05, 'epoch': 4.22}
+{'loss': 0.0073, 'grad_norm': 0.8469033241271973, 'learning_rate': 4.907586483978898e-05, 'epoch': 4.28}
+{'loss': 0.0101, 'grad_norm': 0.7468022108078003, 'learning_rate': 4.897454775219064e-05, 'epoch': 4.34}
+{'loss': 0.0099, 'grad_norm': 0.2426036298274994, 'learning_rate': 4.8870816621939305e-05, 'epoch': 4.39}
+{'loss': 0.0173, 'grad_norm': 1.0272177457809448, 'learning_rate': 4.876468212982127e-05, 'epoch': 4.45}
+{'loss': 0.0136, 'grad_norm': 0.36492207646369934, 'learning_rate': 4.865615520408751e-05, 'epoch': 4.51}
+{'loss': 0.0127, 'grad_norm': 0.5647916793823242, 'learning_rate': 4.854524701932849e-05, 'epoch': 4.57}
+{'loss': 0.0118, 'grad_norm': 0.5543766617774963, 'learning_rate': 4.843196899532355e-05, 'epoch': 4.63}
+{'loss': 0.0116, 'grad_norm': 0.28208687901496887, 'learning_rate': 4.8316332795865053e-05, 'epoch': 4.68}
+{'loss': 0.0169, 'grad_norm': 0.33208325505256653, 'learning_rate': 4.8198350327557384e-05, 'epoch': 4.74}
+{'loss': 0.0152, 'grad_norm': 0.612520694732666, 'learning_rate': 4.8078033738591025e-05, 'epoch': 4.8}
+{'loss': 0.01, 'grad_norm': 1.4316176176071167, 'learning_rate': 4.795539541749167e-05, 'epoch': 4.86}
+{'loss': 0.0083, 'grad_norm': 0.9468827843666077, 'learning_rate': 4.783044799184463e-05, 'epoch': 4.92}
+{'loss': 0.0138, 'grad_norm': 0.47250083088874817, 'learning_rate': 4.770320432699463e-05, 'epoch': 4.97}
+{'eval_loss': 0.09923426806926727, 'eval_runtime': 27.8494, 'eval_samples_per_second': 0.898, 'eval_steps_per_second': 0.898, 'epoch': 5.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 5)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 5): 0.2832 (28.32%)
+[HPO]   📊 No improvement. Best CER remains: 0.2183
+================================================================================
+
+{'loss': 0.0087, 'grad_norm': 0.5768793821334839, 'learning_rate': 4.75736775247211e-05, 'epoch': 5.03}
+{'loss': 0.0045, 'grad_norm': 0.30646640062332153, 'learning_rate': 4.7441880921889154e-05, 'epoch': 5.09}
+{'loss': 0.0092, 'grad_norm': 0.5089079737663269, 'learning_rate': 4.7307828089076334e-05, 'epoch': 5.14}
+{'loss': 0.0064, 'grad_norm': 0.27788111567497253, 'learning_rate': 4.7171532829175305e-05, 'epoch': 5.2}
+{'loss': 0.0067, 'grad_norm': 0.44381365180015564, 'learning_rate': 4.703300917597263e-05, 'epoch': 5.26}
+{'loss': 0.0103, 'grad_norm': 1.9603058099746704, 'learning_rate': 4.689227139270376e-05, 'epoch': 5.32}
+{'loss': 0.0106, 'grad_norm': 0.17902560532093048, 'learning_rate': 4.6749333970584385e-05, 'epoch': 5.38}
+{'loss': 0.008, 'grad_norm': 0.34300222992897034, 'learning_rate': 4.660421162731838e-05, 'epoch': 5.43}
+{'loss': 0.0072, 'grad_norm': 0.1375957429409027, 'learning_rate': 4.6456919305582346e-05, 'epoch': 5.49}
+{'loss': 0.0063, 'grad_norm': 3.5811567306518555, 'learning_rate': 4.6307472171487004e-05, 'epoch': 5.55}
+{'loss': 0.0089, 'grad_norm': 0.3810098469257355, 'learning_rate': 4.615588561301566e-05, 'epoch': 5.61}
+{'loss': 0.0099, 'grad_norm': 0.12890015542507172, 'learning_rate': 4.60021752384397e-05, 'epoch': 5.67}
+{'loss': 0.0096, 'grad_norm': 0.3067510426044464, 'learning_rate': 4.5846356874711526e-05, 'epoch': 5.72}
+{'loss': 0.0083, 'grad_norm': 0.320143461227417, 'learning_rate': 4.568844656583484e-05, 'epoch': 5.78}
+{'loss': 0.0034, 'grad_norm': 0.5109182000160217, 'learning_rate': 4.552846057121276e-05, 'epoch': 5.84}
+{'loss': 0.0086, 'grad_norm': 0.5722113847732544, 'learning_rate': 4.5366415363973555e-05, 'epoch': 5.9}
+{'loss': 0.0075, 'grad_norm': 0.3897527754306793, 'learning_rate': 4.5202327629274525e-05, 'epoch': 5.96}
+{'eval_loss': 0.10166976600885391, 'eval_runtime': 27.6221, 'eval_samples_per_second': 0.905, 'eval_steps_per_second': 0.905, 'epoch': 6.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 6)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 6): 0.2551 (25.51%)
+[HPO]   📊 No improvement. Best CER remains: 0.2183
+================================================================================
+
+{'loss': 0.0031, 'grad_norm': 0.13289588689804077, 'learning_rate': 4.5036214262584e-05, 'epoch': 6.01}
+{'loss': 0.0052, 'grad_norm': 0.05351626127958298, 'learning_rate': 4.4868092367941656e-05, 'epoch': 6.07}
+{'loss': 0.0055, 'grad_norm': 1.9530410766601562, 'learning_rate': 4.469797925619737e-05, 'epoch': 6.13}
+{'loss': 0.0034, 'grad_norm': 0.2678842544555664, 'learning_rate': 4.4525892443228826e-05, 'epoch': 6.19}
+{'loss': 0.0034, 'grad_norm': 0.2965279221534729, 'learning_rate': 4.435184964813796e-05, 'epoch': 6.24}
+{'loss': 0.0027, 'grad_norm': 0.256317138671875, 'learning_rate': 4.417586879142648e-05, 'epoch': 6.3}
+{'loss': 0.0067, 'grad_norm': 0.1556302309036255, 'learning_rate': 4.399796799315068e-05, 'epoch': 6.36}
+{'loss': 0.0042, 'grad_norm': 0.6516992449760437, 'learning_rate': 4.381816557105568e-05, 'epoch': 6.42}
+{'loss': 0.005, 'grad_norm': 0.04873552545905113, 'learning_rate': 4.363648003868931e-05, 'epoch': 6.48}
+{'loss': 0.0034, 'grad_norm': 0.0984184592962265, 'learning_rate': 4.345293010349586e-05, 'epoch': 6.53}
+{'loss': 0.0061, 'grad_norm': 0.26140981912612915, 'learning_rate': 4.3267534664889854e-05, 'epoch': 6.59}
+{'loss': 0.0035, 'grad_norm': 0.5243935585021973, 'learning_rate': 4.3080312812310025e-05, 'epoch': 6.65}
+{'loss': 0.0049, 'grad_norm': 0.2701934278011322, 'learning_rate': 4.289128382325377e-05, 'epoch': 6.71}
+{'loss': 0.0037, 'grad_norm': 0.38950082659721375, 'learning_rate': 4.270046716129222e-05, 'epoch': 6.77}
+{'loss': 0.0044, 'grad_norm': 0.22203223407268524, 'learning_rate': 4.250788247406616e-05, 'epoch': 6.82}
+{'loss': 0.0044, 'grad_norm': 0.30080434679985046, 'learning_rate': 4.231354959126295e-05, 'epoch': 6.88}
+{'loss': 0.0041, 'grad_norm': 0.293340802192688, 'learning_rate': 4.21174885225748e-05, 'epoch': 6.94}
+{'loss': 0.0021, 'grad_norm': 0.5178364515304565, 'learning_rate': 4.19197194556384e-05, 'epoch': 7.0}
+{'eval_loss': 0.11541640013456345, 'eval_runtime': 27.8327, 'eval_samples_per_second': 0.898, 'eval_steps_per_second': 0.898, 'epoch': 7.0}
+
+================================================================================
+[HPO] Qwen CER Callback: VALIDATION CER (Epoch 7)
+================================================================================
+[HPO]   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg[HPO]   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg[HPO]   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+[HPO]   ✅ Validation CER (Epoch 7): 0.2914 (29.14%)
+[HPO]   📊 No improvement. Best CER remains: 0.2183
+================================================================================
+
+{'loss': 0.0038, 'grad_norm': 0.8294930458068848, 'learning_rate': 4.17202627539563e-05, 'epoch': 7.05}
+{'loss': 0.0031, 'grad_norm': 0.15199734270572662, 'learning_rate': 4.1519138954800174e-05, 'epoch': 7.11}
+{'loss': 0.0022, 'grad_norm': 1.4674421548843384, 'learning_rate': 4.1316368767096146e-05, 'epoch': 7.17}
+{'loss': 0.0026, 'grad_norm': 0.088557668030262, 'learning_rate': 4.1111973069292494e-05, 'epoch': 7.23}
+{'loss': 0.0023, 'grad_norm': 0.08998958021402359, 'learning_rate': 4.090597290720989e-05, 'epoch': 7.28}
+{'loss': 0.0027, 'grad_norm': 0.009335621260106564, 'learning_rate': 4.069838949187434e-05, 'epoch': 7.34}
+{'loss': 0.0016, 'grad_norm': 0.25722742080688477, 'learning_rate': 4.048924419733325e-05, 'epoch': 7.4}
+{'loss': 0.0022, 'grad_norm': 0.19859400391578674, 'learning_rate': 4.027855855845456e-05, 'epoch': 7.46}
+{'loss': 0.0018, 'grad_norm': 0.09319333732128143, 'learning_rate': 4.0066354268709406e-05, 'epoch': 7.52}
+{'loss': 0.0032, 'grad_norm': 0.13179317116737366, 'learning_rate': 3.9852653177938424e-05, 'epoch': 7.57}
+{'loss': 0.0019, 'grad_norm': 0.07486908882856369, 'learning_rate': 3.9637477290101966e-05, 'epoch': 7.63}
+{'loss': 0.0046, 'grad_norm': 0.2939065992832184, 'learning_rate': 3.942084876101445e-05, 'epoch': 7.69}
+{'loss': 0.0032, 'grad_norm': 4.6800947189331055, 'learning_rate': 3.920278989606303e-05, 'epoch': 7.75}
+{'loss': 0.0036, 'grad_norm': 0.07033843547105789, 'learning_rate': 3.89833231479109e-05, 'epoch': 7.81}
+{'loss': 0.0035, 'grad_norm': 0.21423707902431488, 'learning_rate': 3.876247111418547e-05, 'epoch': 7.86}
+{'loss': 0.0046, 'grad_norm': 0.16696329414844513, 'learning_rate': 3.854025653515157e-05, 'epoch': 7.92}
+{'loss': 0.0025, 'grad_norm': 0.1947958767414093, 'learning_rate': 3.8316702291369905e-05, 'epoch': 7.98}
+=== JOB_STATISTICS ===
+=== current date     : Sat Dec  6 11:38:45 PM CET 2025
+= Job-ID             : 1457279 on tinygpu
+= Job-Name           : stair_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:19
+= Total RAM usage    : 20.4 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-12-05T23:37:46 / 2025-12-05T23:37:46 / 2025-12-05T23:38:24 / 2025-12-06T23:38:43
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.1G   104.9G   209.7G        N/A  28,353      500K   1,000K        N/A    
+    /home/woody           208.9G  1000.0G  1500.0G        N/A     939K   5,000K   7,500K        N/A    
+    /home/vault           886.7G  1048.6G  2097.2G        N/A   6,554      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 2393817, 55 %, 29 %, 18382 MiB, 86379739 ms

@@ -1,0 +1,767 @@
+### Starting TaskPrologue of job 1465974 on tg096 at Mon Dec 15 11:13:09 PM CET 2025
+Running on cores 32-63 with governor ondemand
+Mon Dec 15 23:13:09 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:41:00.0 Off |                    0 |
+| N/A   37C    P0             54W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+================================================================================
+[HPO] Starting / Resuming Optuna HPO for Gemma-3 Staircase OCR (FAST MODE)
+================================================================================
+[HPO]   Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+[HPO]   Study name: gemma3_stair
+[HPO]   Target total trials (COMPLETE): 25
+[HPO]   Current HPO run outputs will be saved under: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337
+[HPO]   Completed trials so far: 0
+[HPO]   Remaining trials to run: 25
+
+[HPO] Loading Gemma-3 helper + datasets (shared across trials)...
+[HPO] Loading Gemma-3 vision model from /home/vault/iwi5/iwi5298h/models/hf_cache/hub/models--unsloth--gemma-3-4b-it-unsloth-bnb-4bit/snapshots/316726ca0bd24aa323bfaf86e8a379ee1176d1fe with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit). Applying LoRA...
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied. HPO-ready model created.
+[HPO] Preparing TRAIN data (no augmentation) from /home/woody/iwi5/iwi5298h/json_staircase/train.jsonl
+[HPO] TRAIN valid samples: 115
+[HPO] Loading raw VAL data for CER from /home/woody/iwi5/iwi5298h/json_staircase/val.jsonl
+[HPO] VAL valid samples: 25
+[HPO] Shared TRAIN samples: 115, VAL raw records: 25
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_0
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 1.9563603928236998e-05
+[HPO]   • weight_decay: 0.09507143064099162
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 7.9649, 'grad_norm': 39.54397201538086, 'learning_rate': 1.9487689384115445e-05, 'epoch': 0.7}
+{'loss': 1.7527, 'grad_norm': 16.408615112304688, 'learning_rate': 1.7724018743172323e-05, 'epoch': 1.38}
+{'loss': 0.6141, 'grad_norm': 12.96243667602539, 'learning_rate': 1.4025966775617707e-05, 'epoch': 2.07}
+{'loss': 0.4104, 'grad_norm': 7.250332832336426, 'learning_rate': 9.294219381859465e-06, 'epoch': 2.77}
+{'loss': 0.2882, 'grad_norm': 12.27318286895752, 'learning_rate': 4.681226067540397e-06, 'epoch': 3.45}
+{'loss': 0.2536, 'grad_norm': 8.54403018951416, 'learning_rate': 1.3105129684033603e-06, 'epoch': 4.14}
+{'loss': 0.2203, 'grad_norm': 13.573833465576172, 'learning_rate': 3.040360114899032e-09, 'epoch': 4.83}
+{'train_runtime': 1013.3131, 'train_samples_per_second': 0.567, 'train_steps_per_second': 0.138, 'train_loss': 1.643464125905718, 'epoch': 4.83}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1559 (15.59%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_1
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 1.322474574136826e-05
+[HPO]   • weight_decay: 0.005808361216819946
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.241, 'grad_norm': 11.873002052307129, 'learning_rate': 1.3173428481636254e-05, 'epoch': 0.7}
+{'loss': 0.2011, 'grad_norm': 8.65754222869873, 'learning_rate': 1.1981209712357037e-05, 'epoch': 1.38}
+{'loss': 0.1691, 'grad_norm': 8.865493774414062, 'learning_rate': 9.481373936256062e-06, 'epoch': 2.07}
+{'loss': 0.1295, 'grad_norm': 5.371515274047852, 'learning_rate': 6.282773288626113e-06, 'epoch': 2.77}
+{'loss': 0.0991, 'grad_norm': 8.083046913146973, 'learning_rate': 3.1644488780378757e-06, 'epoch': 3.45}
+{'loss': 0.0835, 'grad_norm': 4.830806732177734, 'learning_rate': 8.858899853766382e-07, 'epoch': 4.14}
+{'loss': 0.0701, 'grad_norm': 5.734361171722412, 'learning_rate': 2.0552445055229805e-09, 'epoch': 4.83}
+{'train_runtime': 1017.4432, 'train_samples_per_second': 0.565, 'train_steps_per_second': 0.138, 'train_loss': 0.14188926560538156, 'epoch': 4.83}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.2544 (25.44%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_2
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 1.037571060238884e-05
+[HPO]   • weight_decay: 0.09699098521619944
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0755, 'grad_norm': 9.768506050109863, 'learning_rate': 1.0335448729208068e-05, 'epoch': 0.7}
+{'loss': 0.0711, 'grad_norm': 6.418567657470703, 'learning_rate': 9.400072188388652e-06, 'epoch': 1.38}
+{'loss': 0.0611, 'grad_norm': 5.663112163543701, 'learning_rate': 7.4387813572775e-06, 'epoch': 2.07}
+{'loss': 0.0388, 'grad_norm': 14.234199523925781, 'learning_rate': 4.929262059026841e-06, 'epoch': 2.77}
+{'loss': 0.028, 'grad_norm': 10.838974952697754, 'learning_rate': 2.4827249171127007e-06, 'epoch': 3.45}
+{'loss': 0.0191, 'grad_norm': 2.724780321121216, 'learning_rate': 6.950408192022815e-07, 'epoch': 4.14}
+{'loss': 0.0156, 'grad_norm': 3.6011626720428467, 'learning_rate': 1.6124788047720838e-09, 'epoch': 4.83}
+{'train_runtime': 1013.9715, 'train_samples_per_second': 0.567, 'train_steps_per_second': 0.138, 'train_loss': 0.04414434198822294, 'epoch': 4.83}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1705 (17.05%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_3
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 1.3890454258443006e-05
+[HPO]   • weight_decay: 0.030424224295953775
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0196, 'grad_norm': 11.245753288269043, 'learning_rate': 1.3836553785578239e-05, 'epoch': 0.7}
+{'loss': 0.0408, 'grad_norm': 16.56403350830078, 'learning_rate': 1.2584320993765275e-05, 'epoch': 1.38}
+{'loss': 0.0454, 'grad_norm': 6.320241451263428, 'learning_rate': 9.958648245068832e-06, 'epoch': 2.07}
+{'loss': 0.0245, 'grad_norm': 3.303591012954712, 'learning_rate': 6.599036131850755e-06, 'epoch': 2.77}
+{'loss': 0.0175, 'grad_norm': 10.229606628417969, 'learning_rate': 3.3237412085790817e-06, 'epoch': 3.45}
+{'loss': 0.0076, 'grad_norm': 51.29520797729492, 'learning_rate': 9.304840002628128e-07, 'epoch': 4.14}
+{'loss': 0.0043, 'grad_norm': 0.8473184704780579, 'learning_rate': 2.158701600181359e-09, 'epoch': 4.83}
+{'train_runtime': 1013.4281, 'train_samples_per_second': 0.567, 'train_steps_per_second': 0.138, 'train_loss': 0.022816338070801325, 'epoch': 4.83}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.2200 (22.00%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_4
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 12
+[HPO]   • learning_rate: 2.9930508485773462e-05
+[HPO]   • weight_decay: 0.013949386065204183
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.094, 'grad_norm': 19.225435256958008, 'learning_rate': 2.175933749534425e-05, 'epoch': 2.0}
+{'loss': 0.0689, 'grad_norm': 15.373024940490723, 'learning_rate': 1.6311150763370014e-06, 'epoch': 4.0}
+{'train_runtime': 946.7141, 'train_samples_per_second': 0.607, 'train_steps_per_second': 0.048, 'train_loss': 0.07514822483062744, 'epoch': 4.52}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1546 (15.46%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_5
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 4.0830590058956916e-05
+[HPO]   • weight_decay: 0.019967378215835975
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.1257, 'grad_norm': 18.279787063598633, 'learning_rate': 3.728320337193416e-05, 'epoch': 1.35}
+{'loss': 0.1324, 'grad_norm': 13.572964668273926, 'learning_rate': 1.9906327602356723e-05, 'epoch': 2.7}
+{'loss': 0.0418, 'grad_norm': 5.658809661865234, 'learning_rate': 2.9951099349942203e-06, 'epoch': 4.0}
+{'train_runtime': 992.1772, 'train_samples_per_second': 0.58, 'train_steps_per_second': 0.071, 'train_loss': 0.08752193472215107, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1278 (12.78%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_6
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 12
+[HPO]   • learning_rate: 2.9700364972490798e-05
+[HPO]   • weight_decay: 0.017052412368729154
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0795, 'grad_norm': 6.946004390716553, 'learning_rate': 2.1592024254399412e-05, 'epoch': 2.0}
+{'loss': 0.0325, 'grad_norm': 34.069007873535156, 'learning_rate': 1.6185730056129123e-06, 'epoch': 4.0}
+{'train_runtime': 951.7684, 'train_samples_per_second': 0.604, 'train_steps_per_second': 0.047, 'train_loss': 0.050976713912354574, 'epoch': 4.52}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1408 (14.08%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_7
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 4.2565271439766406e-05
+[HPO]   • weight_decay: 0.03046137691733707
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0658, 'grad_norm': 17.058696746826172, 'learning_rate': 3.886717457129331e-05, 'epoch': 1.35}
+{'loss': 0.0773, 'grad_norm': 8.29137134552002, 'learning_rate': 2.0752044889377098e-05, 'epoch': 2.7}
+{'loss': 0.0317, 'grad_norm': 2.2390570640563965, 'learning_rate': 3.122356723008058e-06, 'epoch': 4.0}
+{'train_runtime': 990.003, 'train_samples_per_second': 0.581, 'train_steps_per_second': 0.071, 'train_loss': 0.0514834215598447, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1933 (19.33%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_8
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.2444120419299872e-05
+[HPO]   • weight_decay: 0.04951769101112702
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0102, 'grad_norm': 5.375174522399902, 'learning_rate': 1.1362967610991422e-05, 'epoch': 1.35}
+{'loss': 0.0139, 'grad_norm': 2.4092326164245605, 'learning_rate': 6.066939944587425e-06, 'epoch': 2.7}
+{'loss': 0.0051, 'grad_norm': 1.4070360660552979, 'learning_rate': 9.128329677893872e-07, 'epoch': 4.0}
+{'train_runtime': 987.527, 'train_samples_per_second': 0.582, 'train_steps_per_second': 0.071, 'train_loss': 0.008524407739085811, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1107 (11.07%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_9
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 3.277498819805667e-05
+[HPO]   • weight_decay: 0.031171107608941095
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0379, 'grad_norm': 15.075504302978516, 'learning_rate': 2.9927477137520107e-05, 'epoch': 1.35}
+{'loss': 0.0698, 'grad_norm': 6.876194953918457, 'learning_rate': 1.5978942535285973e-05, 'epoch': 2.7}
+{'loss': 0.0246, 'grad_norm': 4.25602912902832, 'learning_rate': 2.4041948115266996e-06, 'epoch': 4.0}
+{'train_runtime': 989.6473, 'train_samples_per_second': 0.581, 'train_steps_per_second': 0.071, 'train_loss': 0.0394825921526977, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.3329 (33.29%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_10
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.4146163948944162e-05
+[HPO]   • weight_decay: 0.05979202320644859
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.01, 'grad_norm': 2.8017826080322266, 'learning_rate': 1.291713655569645e-05, 'epoch': 1.35}
+{'loss': 0.0129, 'grad_norm': 1.2344207763671875, 'learning_rate': 6.8967451481283994e-06, 'epoch': 2.7}
+{'loss': 0.0041, 'grad_norm': 0.036583878099918365, 'learning_rate': 1.037685620618291e-06, 'epoch': 4.0}
+{'train_runtime': 996.5573, 'train_samples_per_second': 0.577, 'train_steps_per_second': 0.07, 'train_loss': 0.007842128204980066, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.3294 (32.94%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_11
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 12
+[HPO]   • learning_rate: 1.0320378445126551e-05
+[HPO]   • weight_decay: 0.05506463283513352
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.005, 'grad_norm': 5.773800373077393, 'learning_rate': 7.5028661064654e-06, 'epoch': 2.0}
+{'loss': 0.0052, 'grad_norm': 0.08489193767309189, 'learning_rate': 5.624269592128956e-07, 'epoch': 4.0}
+{'train_runtime': 956.37, 'train_samples_per_second': 0.601, 'train_steps_per_second': 0.047, 'train_loss': 0.00477229758269257, 'epoch': 4.52}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.3453 (34.53%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_12
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 5.923498786572791e-05
+[HPO]   • weight_decay: 0.0023518590503291796
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0319, 'grad_norm': 44.080787658691406, 'learning_rate': 5.90051326142943e-05, 'epoch': 0.7}
+{'loss': 0.081, 'grad_norm': 13.750106811523438, 'learning_rate': 5.3665062891015e-05, 'epoch': 1.38}
+{'loss': 0.084, 'grad_norm': 8.46817398071289, 'learning_rate': 4.2468042943746555e-05, 'epoch': 2.07}
+{'loss': 0.0608, 'grad_norm': 6.025801181793213, 'learning_rate': 2.8141183716730024e-05, 'epoch': 2.77}
+{'loss': 0.0409, 'grad_norm': 4.816954135894775, 'learning_rate': 1.4173889960389991e-05, 'epoch': 3.45}
+{'loss': 0.0207, 'grad_norm': 9.314818382263184, 'learning_rate': 3.967991790572284e-06, 'epoch': 4.14}
+{'loss': 0.0063, 'grad_norm': 3.427309274673462, 'learning_rate': 9.205650205049763e-09, 'epoch': 4.83}
+{'train_runtime': 1031.7333, 'train_samples_per_second': 0.557, 'train_steps_per_second': 0.136, 'train_loss': 0.046534142323902676, 'epoch': 4.83}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1728 (17.28%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_13
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.6811514169065674e-05
+[HPO]   • weight_decay: 0.020143091196684768
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0119, 'grad_norm': 0.8293105363845825, 'learning_rate': 1.535091951525524e-05, 'epoch': 1.35}
+{'loss': 0.0146, 'grad_norm': 3.970484972000122, 'learning_rate': 8.196195745833228e-06, 'epoch': 2.7}
+{'loss': 0.0037, 'grad_norm': 4.936095714569092, 'learning_rate': 1.2332012110860746e-06, 'epoch': 4.0}
+{'train_runtime': 993.6638, 'train_samples_per_second': 0.579, 'train_steps_per_second': 0.07, 'train_loss': 0.008751812084977115, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1106 (11.06%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_14
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.5899353915635417e-05
+[HPO]   • weight_decay: 0.016093282325434978
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0043, 'grad_norm': 3.177006483078003, 'learning_rate': 1.4518008303653118e-05, 'epoch': 1.35}
+{'loss': 0.0071, 'grad_norm': 3.3947713375091553, 'learning_rate': 7.751486012165096e-06, 'epoch': 2.7}
+{'loss': 0.0019, 'grad_norm': 0.1064186617732048, 'learning_rate': 1.1662900977906033e-06, 'epoch': 4.0}
+{'train_runtime': 990.4628, 'train_samples_per_second': 0.581, 'train_steps_per_second': 0.071, 'train_loss': 0.00391107550156968, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.0712 (7.12%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_15
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.5647277664450715e-05
+[HPO]   • weight_decay: 0.019203435406856848
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.004, 'grad_norm': 20.170635223388672, 'learning_rate': 1.4287832591654258e-05, 'epoch': 1.35}
+{'loss': 0.0165, 'grad_norm': 3.830772876739502, 'learning_rate': 7.6285901042291315e-06, 'epoch': 2.7}
+{'loss': 0.0028, 'grad_norm': 0.23656699061393738, 'learning_rate': 1.1477991555042138e-06, 'epoch': 4.0}
+{'train_runtime': 984.8629, 'train_samples_per_second': 0.584, 'train_steps_per_second': 0.071, 'train_loss': 0.006736531328143818, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1610 (16.10%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_16
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.9793653303642824e-05
+[HPO]   • weight_decay: 0.010307943961332496
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0096, 'grad_norm': 12.781838417053223, 'learning_rate': 1.8073968574240206e-05, 'epoch': 1.35}
+{'loss': 0.0166, 'grad_norm': 0.4865438938140869, 'learning_rate': 9.650091917379709e-06, 'epoch': 2.7}
+{'loss': 0.0062, 'grad_norm': 0.026853306218981743, 'learning_rate': 1.4519547127281047e-06, 'epoch': 4.0}
+{'train_runtime': 993.4061, 'train_samples_per_second': 0.579, 'train_steps_per_second': 0.07, 'train_loss': 0.00961563754826784, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1348 (13.48%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_17
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 12
+[HPO]   • learning_rate: 4.243489126703295e-05
+[HPO]   • weight_decay: 0.07860747708629258
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0259, 'grad_norm': 10.103041648864746, 'learning_rate': 3.084996437987328e-05, 'epoch': 2.0}
+{'loss': 0.0322, 'grad_norm': 4.811499118804932, 'learning_rate': 2.3125631474412994e-06, 'epoch': 4.0}
+{'train_runtime': 953.9806, 'train_samples_per_second': 0.603, 'train_steps_per_second': 0.047, 'train_loss': 0.027303156753381092, 'epoch': 4.52}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.2127 (21.27%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_18
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.0075015612583286e-05
+[HPO]   • weight_decay: 0.020285430109155483
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0063, 'grad_norm': 3.0250535011291504, 'learning_rate': 9.199692081769306e-06, 'epoch': 1.35}
+{'loss': 0.0034, 'grad_norm': 0.2798894941806793, 'learning_rate': 4.911919252044851e-06, 'epoch': 2.7}
+{'loss': 0.0007, 'grad_norm': 0.04140549898147583, 'learning_rate': 7.390483290321808e-07, 'epoch': 4.0}
+{'train_runtime': 991.5336, 'train_samples_per_second': 0.58, 'train_steps_per_second': 0.071, 'train_loss': 0.0031223933212459086, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.2482 (24.82%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_19
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 2.5449644333416757e-05
+[HPO]   • weight_decay: 0.05533794815601643
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0072, 'grad_norm': 7.204161167144775, 'learning_rate': 2.5350889617531384e-05, 'epoch': 0.7}
+{'loss': 0.022, 'grad_norm': 8.932462692260742, 'learning_rate': 2.3056588899834507e-05, 'epoch': 1.38}
+{'loss': 0.0217, 'grad_norm': 2.076000928878784, 'learning_rate': 1.8245915588005798e-05, 'epoch': 2.07}
+{'loss': 0.0113, 'grad_norm': 2.2581593990325928, 'learning_rate': 1.2090542135933926e-05, 'epoch': 2.77}
+{'loss': 0.0105, 'grad_norm': 4.6155171394348145, 'learning_rate': 6.089651932242851e-06, 'epoch': 3.45}
+{'loss': 0.0054, 'grad_norm': 0.16653640568256378, 'learning_rate': 1.7048029116995787e-06, 'epoch': 4.14}
+{'loss': 0.0016, 'grad_norm': 0.8546769022941589, 'learning_rate': 3.955103765825386e-09, 'epoch': 4.83}
+{'train_runtime': 1024.4029, 'train_samples_per_second': 0.561, 'train_steps_per_second': 0.137, 'train_loss': 0.01138777094227927, 'epoch': 4.83}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1971 (19.71%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_20
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.8491821019933496e-05
+[HPO]   • weight_decay: 0.04145250345419871
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.004, 'grad_norm': 5.518377780914307, 'learning_rate': 1.688524027715705e-05, 'epoch': 1.35}
+{'loss': 0.005, 'grad_norm': 2.0905630588531494, 'learning_rate': 9.01540356520496e-06, 'epoch': 2.7}
+{'loss': 0.0045, 'grad_norm': 0.07255790382623672, 'learning_rate': 1.3564593794252082e-06, 'epoch': 4.0}
+{'train_runtime': 992.5885, 'train_samples_per_second': 0.579, 'train_steps_per_second': 0.071, 'train_loss': 0.003941571566143207, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.0877 (8.77%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_21
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.94608567450982e-05
+[HPO]   • weight_decay: 0.04165026680273077
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0071, 'grad_norm': 9.02978515625, 'learning_rate': 1.7770085584653647e-05, 'epoch': 1.35}
+{'loss': 0.0089, 'grad_norm': 1.2650409936904907, 'learning_rate': 9.48784206231368e-06, 'epoch': 2.7}
+{'loss': 0.0021, 'grad_norm': 5.2967848777771, 'learning_rate': 1.4275425678781373e-06, 'epoch': 4.0}
+{'train_runtime': 992.4072, 'train_samples_per_second': 0.579, 'train_steps_per_second': 0.071, 'train_loss': 0.0052390927581914834, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.0822 (8.22%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_22
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 2.2176253578939787e-05
+[HPO]   • weight_decay: 0.056865133492486925
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0076, 'grad_norm': 3.4318723678588867, 'learning_rate': 2.0249567077461847e-05, 'epoch': 1.35}
+{'loss': 0.0056, 'grad_norm': 0.8615756034851074, 'learning_rate': 1.0811692118528954e-05, 'epoch': 2.7}
+{'loss': 0.003, 'grad_norm': 0.028260288760066032, 'learning_rate': 1.626729305634005e-06, 'epoch': 4.0}
+{'train_runtime': 992.5888, 'train_samples_per_second': 0.579, 'train_steps_per_second': 0.071, 'train_loss': 0.0047227119960423026, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1083 (10.83%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_23
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 4.2454050062809445e-05
+[HPO]   • weight_decay: 0.09960165317474357
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0204, 'grad_norm': 9.76280403137207, 'learning_rate': 3.8765616175727506e-05, 'epoch': 1.35}
+{'loss': 0.0356, 'grad_norm': 6.08255672454834, 'learning_rate': 2.069782061383042e-05, 'epoch': 2.7}
+{'loss': 0.0151, 'grad_norm': 0.8462531566619873, 'learning_rate': 3.114198127929551e-06, 'epoch': 4.0}
+{'train_runtime': 993.3102, 'train_samples_per_second': 0.579, 'train_steps_per_second': 0.07, 'train_loss': 0.02103848297681127, 'epoch': 4.7}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.1693 (16.93%)
+================================================================================
+
+
+================================================================================
+[HPO] GEMMA-3 STAIRCASE OCR HPO TRIAL
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/trials/trial_24
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 12
+[HPO]   • learning_rate: 1.6003411146892918e-05
+[HPO]   • weight_decay: 0.03231263168976958
+[HPO] 🚀 Starting training for this trial (no eval during training)...
+
+{'loss': 0.0055, 'grad_norm': 14.209856033325195, 'learning_rate': 1.1634403885504133e-05, 'epoch': 2.0}
+{'loss': 0.0041, 'grad_norm': 0.04875143617391586, 'learning_rate': 8.721337028712393e-07, 'epoch': 4.0}
+{'train_runtime': 952.7283, 'train_samples_per_second': 0.604, 'train_steps_per_second': 0.047, 'train_loss': 0.00441156296680371, 'epoch': 4.52}
+[HPO] ✅ TRAINING FINISHED FOR THIS TRIAL
+
+================================================================================
+[HPO] 🔍 RUNNING GEMMA-3 CER EVALUATION ON VALIDATION SET
+================================================================================
+[HPO] Using 20 validation samples for CER.
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (110).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (61).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (63).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (39).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (2).jpg
+[HPO]   ✅ Validation CER (HPO objective): 0.2714 (27.14%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 Staircase HPO finished / resumed
+================================================================================
+[HPO]   Best trial number: 14
+[HPO]   Best Validation CER: 0.0712 (7.12%)
+[HPO]   Best params:
+[HPO]      learning_rate: 1.5899353915635417e-05
+[HPO]      weight_decay: 0.016093282325434978
+[HPO]      gradient_accumulation_steps: 8
+
+[HPO] ✅ Best hyperparameters saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/best_hyperparameters.json
+[HPO] ✅ Best config saved to:          /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/best_config.json
+[HPO] ✅ HPO summary saved to:         /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/hpo/hpo_gemma3_20251215_231337/hpo_summary.txt
+
+[HPO] 🎉 HPO done. You can now copy these values into your main Gemma-3 staircase finetune script.
+
+Gemma-3 training completed at: Tue Dec 16 05:55:33 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Dec 16 05:55:34 PM CET 2025
+= Job-ID             : 1465974 on tinygpu
+= Job-Name           : stair_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 18:42:29
+= Total RAM usage    : 8.9 GiB of requested  GiB (%)   
+= Node list          : tg096
+= Subm/Elig/Start/End: 2025-12-15T16:03:27 / 2025-12-15T16:03:27 / 2025-12-15T23:13:04 / 2025-12-16T17:55:33
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.1G   104.9G   209.7G        N/A  28,744      500K   1,000K        N/A    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/vault           959.0G  1048.6G  2097.2G        N/A   7,084      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:41:00.0, 4124000, 26 %, 5 %, 11032 MiB, 67338218 ms

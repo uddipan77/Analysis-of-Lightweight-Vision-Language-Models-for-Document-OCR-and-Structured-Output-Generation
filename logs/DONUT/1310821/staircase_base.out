@@ -1,0 +1,70 @@
+### Starting TaskPrologue of job 1310821 on tg074 at Tue Nov 11 02:26:22 PM CET 2025
+Running on cores 6-7,14-15,22-23,30-31 with governor ondemand
+Tue Nov 11 14:26:22 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:AF:00.0 Off |                    0 |
+| N/A   34C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+===================================
+DONUT Fine-tuning Configuration:
+===================================
+Job ID: 1310821
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/DONUT/1310821
+Data Directory: /home/woody/iwi5/iwi5298h/json_inven
+Image Directory: /home/woody/iwi5/iwi5298h/inventory_images
+Model Cache Directory: /home/vault/iwi5/iwi5298h/models/donut_cord
+Output Directory: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inven_data_cord_20251111_142624
+Num Epochs: 50
+Batch Size: 2
+Learning Rate: 1e-5
+Max Length: 512
+Prediction On: test
+Prediction Batch Size: 2
+Early Stopping Patience: 5
+Early Stopping Threshold: 0.00
+===================================
+===================================
+Training failed with exit code: 1
+Check logs for errors.
+Output directory: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inven_data_cord_20251111_142624
+Log directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/DONUT/1310821
+Job completed at: Tue Nov 11 02:27:33 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Nov 11 02:27:33 PM CET 2025
+= Job-ID             : 1310821 on tinygpu
+= Job-Name           : staircase_base
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut3.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:01:23
+= Total RAM usage    : 0.8 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2025-11-11T14:08:28 / 2025-11-11T14:08:28 / 2025-11-11T14:26:32 / 2025-11-11T14:27:55
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           184.5G  1000.0G  1500.0G        N/A     841K   5,000K   7,500K        N/A    
+    /home/hpc             102.1G   104.9G   209.7G        N/A  30,713      500K   1,000K        N/A    
+    /home/vault           905.3G  1048.6G  2097.2G        N/A   5,941      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]

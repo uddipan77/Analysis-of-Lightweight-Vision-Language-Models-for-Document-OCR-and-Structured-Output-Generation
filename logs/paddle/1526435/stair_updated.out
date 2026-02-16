@@ -1,0 +1,201 @@
+### Starting TaskPrologue of job 1526435 on tg072 at Sun Feb  8 01:23:30 AM CET 2026
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Sun Feb  8 01:23:30 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   30C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Configured torch.backends.cuda.sdp_kernel(mem_efficient=True, math=True, flash=False)
+
+============================================================
+PADDLEOCR-VL FINETUNING - STAIRCASE DATASET
+BEST MODEL SELECTION: CER(GT JSON string vs prediction_stripped_for_cer)
+============================================================
+Model: PaddlePaddle/PaddleOCR-VL
+Local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Output run dir: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/stair/run_20260208_012353_cer
+Prompt task: ocr -> 'OCR:'
+Attention impl override: None
+Image downscale max side: 768
+Resize snap multiple: 14
+Max new tokens (val/test): 256
+============================================================
+
+Using device: cuda
+Loading PaddleOCR-VL from local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Enabled gradient checkpointing (use_reentrant=False).
+Disabled use_cache for training.
+Loaded 115 samples from /home/woody/iwi5/iwi5298h/json_staircase/train.jsonl | max_image_side=768 size_multiple=14 max_gt_chars=0
+Loaded 25 samples from /home/woody/iwi5/iwi5298h/json_staircase/val.jsonl | max_image_side=768 size_multiple=14 max_gt_chars=0
+Loaded 24 samples from /home/woody/iwi5/iwi5298h/json_staircase/test.jsonl | max_image_side=768 size_multiple=14 max_gt_chars=0
+
+============================================================
+Epoch 1/10
+============================================================
+Epoch 1 - train loss: 5.3475
+
+Running validation (CER-based model selection)...
+Validation CER macro (PRIMARY): 0.9375 (93.75%)
+Validation CER micro:          0.9372 (93.72%)
+Validation structured CER (debug): 93.7179%
+🎯 New BEST validation macro CER: 0.9375 (93.75%), improvement 0.0000
+
+============================================================
+Epoch 2/10
+============================================================
+Epoch 2 - train loss: 0.3158
+
+Running validation (CER-based model selection)...
+Validation CER macro (PRIMARY): 0.6847 (68.47%)
+Validation CER micro:          0.6856 (68.56%)
+Validation structured CER (debug): 68.5591%
+🎯 New BEST validation macro CER: 0.6847 (68.47%), improvement 0.2528
+
+============================================================
+Epoch 3/10
+============================================================
+Epoch 3 - train loss: 0.0492
+
+Running validation (CER-based model selection)...
+Validation CER macro (PRIMARY): 0.7274 (72.74%)
+Validation CER micro:          0.7280 (72.80%)
+Validation structured CER (debug): 72.7989%
+No improvement. Best macro CER remains 0.6847 (68.47%) from epoch 2
+
+============================================================
+Epoch 4/10
+============================================================
+Epoch 4 - train loss: 0.0229
+
+Running validation (CER-based model selection)...
+Validation CER macro (PRIMARY): 0.6417 (64.17%)
+Validation CER micro:          0.6426 (64.26%)
+Validation structured CER (debug): 64.2637%
+🎯 New BEST validation macro CER: 0.6417 (64.17%), improvement 0.0430
+
+============================================================
+Epoch 5/10
+============================================================
+Epoch 5 - train loss: 0.0108
+
+Running validation (CER-based model selection)...
+Validation CER macro (PRIMARY): 0.6447 (64.47%)
+Validation CER micro:          0.6451 (64.51%)
+Validation structured CER (debug): 64.5079%
+No improvement. Best macro CER remains 0.6417 (64.17%) from epoch 4
+
+============================================================
+Epoch 6/10
+============================================================
+Epoch 6 - train loss: 0.0060
+
+Running validation (CER-based model selection)...
+Validation CER macro (PRIMARY): 0.6590 (65.90%)
+Validation CER micro:          0.6595 (65.95%)
+Validation structured CER (debug): 65.9536%
+No improvement. Best macro CER remains 0.6417 (64.17%) from epoch 4
+
+============================================================
+Epoch 7/10
+============================================================
+Epoch 7 - train loss: 0.0043
+
+Running validation (CER-based model selection)...
+Validation CER macro (PRIMARY): 0.6750 (67.50%)
+Validation CER micro:          0.6762 (67.62%)
+Validation structured CER (debug): 67.6184%
+No improvement. Best macro CER remains 0.6417 (64.17%) from epoch 4
+
+============================================================
+Epoch 8/10
+============================================================
+Epoch 8 - train loss: 0.0035
+
+Running validation (CER-based model selection)...
+Validation CER macro (PRIMARY): 0.6724 (67.24%)
+Validation CER micro:          0.6730 (67.30%)
+Validation structured CER (debug): 67.3021%
+No improvement. Best macro CER remains 0.6417 (64.17%) from epoch 4
+
+============================================================
+Epoch 9/10
+============================================================
+Epoch 9 - train loss: 0.0032
+
+Running validation (CER-based model selection)...
+Validation CER macro (PRIMARY): 0.6614 (66.14%)
+Validation CER micro:          0.6622 (66.22%)
+Validation structured CER (debug): 66.2227%
+No improvement. Best macro CER remains 0.6417 (64.17%) from epoch 4
+
+============================================================
+Epoch 10/10
+============================================================
+Epoch 10 - train loss: 0.0031
+
+Running validation (CER-based model selection)...
+Validation CER macro (PRIMARY): 0.6669 (66.69%)
+Validation CER micro:          0.6674 (66.74%)
+Validation structured CER (debug): 66.7444%
+No improvement. Best macro CER remains 0.6417 (64.17%) from epoch 4
+
+Training finished.
+Best epoch: 4, best val macro CER: 0.6417 (64.17%)
+
+Loading best model from /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/stair/run_20260208_012353_cer/best_model for test evaluation...
+Saved 24 test predictions to /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/stair/run_20260208_012353_cer/test_predictions.jsonl
+Test CER macro: 0.675809 (67.58%) | micro: 0.677626 (67.76%) | median(per-sample): 0.616965 (61.70%)
+Micro counts: S=1793 D=21049 I=179 ref_chars=33973
+
+============================================================
+FINAL RESULTS - STAIRCASE
+============================================================
+Best validation macro CER: 0.641699 (64.17%)
+Test macro CER:           0.675809 (67.58%)
+Test micro CER:           0.677626 (67.76%)
+Test median per-sample CER:0.616965 (61.70%)
+
+Run directory: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/stair/run_20260208_012353_cer
+============================================================
+
+Paddle training completed at: Sun Feb  8 12:39:28 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Sun Feb  8 12:39:28 PM CET 2026
+= Job-ID             : 1526435 on tinygpu
+= Job-Name           : stair_updated
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_paddle2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 11:16:11
+= Total RAM usage    : 8.1 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2026-02-08T01:22:55 / 2026-02-08T01:22:55 / 2026-02-08T01:23:17 / 2026-02-08T12:39:28
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.2G   104.9G   209.7G        N/A  30,039      500K   1,000K        N/A    
+    /home/vault           984.5G  1048.6G  2097.2G        N/A   9,633      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 3107105, 82 %, 26 %, 12184 MiB, 40535080 ms

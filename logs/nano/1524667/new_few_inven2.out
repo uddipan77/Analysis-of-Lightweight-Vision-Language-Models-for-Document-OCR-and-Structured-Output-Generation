@@ -1,0 +1,181 @@
+### Starting TaskPrologue of job 1524667 on tg072 at Wed Feb  4 10:05:33 PM CET 2026
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Wed Feb  4 22:05:33 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   32C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+NANONETS-OCR-S FEW-SHOT INVENTORY OCR
+============================================================
+Loading train.jsonl ...
+Loaded 215 train samples.
+
+Selecting fixed few-shot example...
+  ✓ Found in train.jsonl: inventarbuch-141.jpg
+
+Few-shot example selected:
+  - inventarbuch-141.jpg
+
+Loading test.jsonl ...
+Loaded 47 test samples.
+Loading Nanonets-OCR-s...
+Model loaded.
+
+Building few-shot messages ...
+  Few-shot example: inventarbuch-141.jpg -> /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-141.jpg
+Few-shot conversation length: 3 messages (1 example image(s)).
+
+Processing 47 test images...
+------------------------------------------------------------
+[1/47] inventarbuch-036.jpg
+  CER: 0.1853
+[2/47] inventarbuch-100.jpg
+  CER: 0.1053
+[3/47] inventarbuch-190.jpg
+  CER: 0.0975
+[4/47] inventarbuch-153.jpg
+  CER: 1.3220
+[5/47] inventarbuch-041.jpg
+  CER: 1.8205
+[6/47] inventarbuch-198.jpg
+  CER: 0.1214
+[7/47] inventarbuch-065.jpg
+  CER: 0.2375
+[8/47] inventarbuch-242.jpg
+  CER: 0.2176
+[9/47] inventarbuch-023.jpg
+  CER: 0.3471
+[10/47] inventarbuch-137.jpg
+  CER: 0.4508
+[11/47] inventarbuch-180.jpg
+  CER: 0.1079
+[12/47] inventarbuch-188.jpg
+  CER: 0.3599
+[13/47] inventarbuch-051.jpg
+  CER: 1.9375
+[14/47] inventarbuch-199.jpg
+  CER: 4.6312
+[15/47] inventarbuch-296.jpg
+  CER: 0.1773
+[16/47] inventarbuch-302.jpg
+  CER: 0.9463
+[17/47] inventarbuch-176.jpg
+  CER: 0.0637
+[18/47] inventarbuch-112.jpg
+  CER: 0.0306
+[19/47] inventarbuch-081.jpg
+  CER: 0.1565
+[20/47] inventarbuch-290.jpg
+  CER: 0.7266
+[21/47] inventarbuch-178.jpg
+  CER: 0.1458
+[22/47] inventarbuch-299.jpg
+  CER: 0.2261
+[23/47] inventarbuch-083.jpg
+  CER: 0.1568
+[24/47] inventarbuch-004.jpg
+  CER: 0.1948
+[25/47] inventarbuch-145.jpg
+  CER: 0.1768
+[26/47] inventarbuch-236.jpg
+  CER: 0.1864
+[27/47] inventarbuch-114.jpg
+  CER: 0.1092
+[28/47] inventarbuch-220.jpg
+  CER: 0.2564
+[29/47] inventarbuch-301.jpg
+  CER: 4.6312
+[30/47] inventarbuch-103.jpg
+  CER: 0.1566
+[31/47] inventarbuch-014.jpg
+  CER: 0.2980
+[32/47] inventarbuch-265.jpg
+  CER: 0.1189
+[33/47] inventarbuch-121.jpg
+  CER: 0.0977
+[34/47] inventarbuch-113.jpg
+  CER: 0.0952
+[35/47] inventarbuch-049.jpg
+  CER: 3.5511
+[36/47] inventarbuch-016.jpg
+  CER: 0.2227
+[37/47] inventarbuch-017.jpg
+  CER: 1.0000
+[38/47] inventarbuch-223.jpg
+  CER: 0.0890
+[39/47] inventarbuch-046.jpg
+  CER: 0.2115
+[40/47] inventarbuch-286.jpg
+  CER: 0.1494
+[41/47] inventarbuch-054.jpg
+  CER: 0.4416
+[42/47] inventarbuch-073.jpg
+  CER: 0.1819
+[43/47] inventarbuch-116.jpg
+  CER: 1.0000
+[44/47] inventarbuch-127.jpg
+  CER: 0.1533
+[45/47] inventarbuch-143.jpg
+  CER: 0.0570
+[46/47] inventarbuch-013.jpg
+  CER: 0.9625
+[47/47] inventarbuch-059.jpg
+  CER: 0.8239
+
+Predictions saved -> /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_inven/few_shot_20260204_220605/predictions_fewshot.jsonl
+
+============================================================
+NANONETS-OCR-S FEW-SHOT CER EVALUATION RESULTS
+INVENTORY DATASET
+============================================================
+Few-shot example: inventarbuch-141.jpg
+Average CER:  0.6327 (63.27%)
+Minimum CER:  0.0306 (3.06%)
+Maximum CER:  4.6312 (463.12%)
+Weighted CER: 0.3501 (35.01%)
+Perfect:      0/47
+Summary saved -> /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_inven/few_shot_20260204_220605/evaluation_summary_fewshot.json
+
+DONE. Outputs in: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_inven/few_shot_20260204_220605
+Nano training completed at: Wed Feb  4 10:23:32 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Wed Feb  4 10:23:32 PM CET 2026
+= Job-ID             : 1524667 on tinygpu
+= Job-Name           : new_few_inven2
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nano.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 01:00:00
+= Elapsed runtime    : 00:18:03
+= Total RAM usage    : 9.0 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2026-02-04T22:05:06 / 2026-02-04T22:05:06 / 2026-02-04T22:05:29 / 2026-02-04T22:23:32
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.3G   104.9G   209.7G        N/A  29,787      500K   1,000K        N/A    
+    /home/vault           855.9G  1048.6G  2097.2G        N/A   9,013      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 2232007, 32 %, 20 %, 8242 MiB, 1048308 ms

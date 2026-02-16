@@ -1,0 +1,184 @@
+### Starting TaskPrologue of job 1524470 on tg074 at Wed Feb  4 01:31:44 PM CET 2026
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Wed Feb  4 13:31:45 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   39C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+
+============================================================
+PADDLEOCR-VL FINETUNING - INVENTORY DATASET
+CER-BASED MODEL SELECTION (Phi-style JSON + deterministic decoding)
+============================================================
+Model: PaddlePaddle/PaddleOCR-VL
+Local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Output run dir: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_20260204_133246_cer
+Prompt task: ocr -> 'OCR:'
+============================================================
+
+Using device: cuda
+Loading PaddleOCR-VL from local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Enabled gradient checkpointing on model.
+Disabled use_cache for training.
+Loaded 215 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/train.jsonl
+Loaded 46 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/val.jsonl
+Loaded 47 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/test.jsonl
+TensorBoard logging to: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_20260204_133246_cer/tensorboard
+
+============================================================
+Epoch 1/10
+============================================================
+Epoch 1 - train loss: 5.5745
+
+Running validation (CER-based model selection)...
+Validation CER (jiwer, avg): 0.7262 (72.62%)
+Validation structured CER (editdistance over JSON): 62.1063%
+🎯 New BEST validation CER: 0.7262 (72.62%), improvement 0.0000
+
+============================================================
+Epoch 2/10
+============================================================
+Epoch 2 - train loss: 0.1412
+
+Running validation (CER-based model selection)...
+Validation CER (jiwer, avg): 0.6665 (66.65%)
+Validation structured CER (editdistance over JSON): 25.3912%
+🎯 New BEST validation CER: 0.6665 (66.65%), improvement 0.0598
+
+============================================================
+Epoch 3/10
+============================================================
+Epoch 3 - train loss: 0.0420
+
+Running validation (CER-based model selection)...
+Validation CER (jiwer, avg): 0.7021 (70.21%)
+Validation structured CER (editdistance over JSON): 77.5025%
+No improvement. Best CER remains 0.6665 (66.65%) from epoch 2
+
+============================================================
+Epoch 4/10
+============================================================
+Epoch 4 - train loss: 0.0139
+
+Running validation (CER-based model selection)...
+Validation CER (jiwer, avg): 0.9105 (91.05%)
+Validation structured CER (editdistance over JSON): 91.0782%
+No improvement. Best CER remains 0.6665 (66.65%) from epoch 2
+
+============================================================
+Epoch 5/10
+============================================================
+Epoch 5 - train loss: 0.0045
+
+Running validation (CER-based model selection)...
+Validation CER (jiwer, avg): 0.6570 (65.70%)
+Validation structured CER (editdistance over JSON): 72.7382%
+🎯 New BEST validation CER: 0.6570 (65.70%), improvement 0.0094
+
+============================================================
+Epoch 6/10
+============================================================
+Epoch 6 - train loss: 0.0015
+
+Running validation (CER-based model selection)...
+Validation CER (jiwer, avg): 0.4806 (48.06%)
+Validation structured CER (editdistance over JSON): 52.5075%
+🎯 New BEST validation CER: 0.4806 (48.06%), improvement 0.1765
+
+============================================================
+Epoch 7/10
+============================================================
+Epoch 7 - train loss: 0.0009
+
+Running validation (CER-based model selection)...
+Validation CER (jiwer, avg): 0.4819 (48.19%)
+Validation structured CER (editdistance over JSON): 52.8185%
+No improvement. Best CER remains 0.4806 (48.06%) from epoch 6
+
+============================================================
+Epoch 8/10
+============================================================
+Epoch 8 - train loss: 0.0008
+
+Running validation (CER-based model selection)...
+Validation CER (jiwer, avg): 0.5083 (50.83%)
+Validation structured CER (editdistance over JSON): 56.3992%
+No improvement. Best CER remains 0.4806 (48.06%) from epoch 6
+
+============================================================
+Epoch 9/10
+============================================================
+Epoch 9 - train loss: 0.0008
+
+Running validation (CER-based model selection)...
+Validation CER (jiwer, avg): 0.4819 (48.19%)
+Validation structured CER (editdistance over JSON): 52.8134%
+No improvement. Best CER remains 0.4806 (48.06%) from epoch 6
+
+============================================================
+Epoch 10/10
+============================================================
+Epoch 10 - train loss: 0.0008
+
+Running validation (CER-based model selection)...
+Validation CER (jiwer, avg): 0.4835 (48.35%)
+Validation structured CER (editdistance over JSON): 52.9940%
+No improvement. Best CER remains 0.4806 (48.06%) from epoch 6
+
+Training finished.
+Best epoch: 6, best val CER: 0.4806 (48.06%)
+
+Loading best model from /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_20260204_133246_cer/best_model for test evaluation...
+Saved 47 test predictions to /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_20260204_133246_cer/test_predictions.jsonl
+
+============================================================
+FINAL RESULTS - CER-BASED MODEL SELECTION (PaddleOCR-VL, INVENTORY)
+============================================================
+Best validation CER: 0.4806 (48.06%)
+Test average CER: 0.4755 (47.55%)
+Test median CER: 0.2603 (26.03%)
+
+Run directory: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_20260204_133246_cer
+============================================================
+
+Paddle training completed at: Wed Feb  4 03:29:02 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Wed Feb  4 03:29:02 PM CET 2026
+= Job-ID             : 1524470 on tinygpu
+= Job-Name           : inven
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_paddle.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 01:57:18
+= Total RAM usage    : 7.7 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2026-02-04T13:31:18 / 2026-02-04T13:31:18 / 2026-02-04T13:31:44 / 2026-02-04T15:29:02
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              88.4G   104.9G   209.7G        N/A  29,555      500K   1,000K        N/A    
+    /home/vault           855.7G  1048.6G  2097.2G        N/A   8,944      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 1433874, 56 %, 15 %, 10674 MiB, 6975905 ms

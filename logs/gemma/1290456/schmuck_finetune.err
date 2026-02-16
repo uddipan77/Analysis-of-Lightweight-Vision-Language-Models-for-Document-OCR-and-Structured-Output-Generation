@@ -1,0 +1,4 @@
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/finetune/schmuck.py", line 90
+    if response.startswith("```
+                           ^
+SyntaxError: unterminated string literal (detected at line 90)

@@ -1,0 +1,4 @@
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/models/auto/image_processing_auto.py:520: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:49<00:49, 49.95s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:21<00:00, 38.90s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:21<00:00, 40.56s/it]
+slurmstepd: error: *** JOB 1516465 ON tg06a CANCELLED AT 2026-01-23T16:45:25 ***

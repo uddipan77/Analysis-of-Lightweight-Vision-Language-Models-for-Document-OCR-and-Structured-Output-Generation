@@ -1,0 +1,65 @@
+### Starting TaskPrologue of job 1393865 on tg081 at Tue Nov 18 01:00:47 PM CET 2025
+Running on cores 0-1,16-17,32-33,48-49 with governor powersave
+Tue Nov 18 13:00:47 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3080        On  |   00000000:1A:00.0 Off |                  N/A |
+| 30%   35C    P8             19W /  300W |       1MiB /  10240MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+PaddleOCR-VL INFERENCE - INVENTORY DATASET (TEST)
+============================================================
+Model HF name:   PaddlePaddle/PaddleOCR-VL
+Local model dir: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Test JSONL:      /home/woody/iwi5/iwi5298h/json_inven/test.jsonl
+Images dir:      /home/woody/iwi5/iwi5298h/inventory_images
+Output dir:      /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_inference_20251118_130112
+Device:          cuda
+============================================================
+Loading model from local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Loaded 48 test samples.
+
+Inference finished.
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_inference_20251118_130112/inventory_test_predictions_paddleocr_vl.jsonl
+CER results saved to: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_inference_20251118_130112/cer_results_paddleocr_vl_inventory.txt
+All outputs in: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_inference_20251118_130112
+Paddle training completed at: Tue Nov 18 01:29:01 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Nov 18 01:29:01 PM CET 2025
+= Job-ID             : 1393865 on tinygpu
+= Job-Name           : inven_inference
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_paddle.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : rtx3080
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:28:15
+= Total RAM usage    : 6.5 GiB of requested  GiB (%)   
+= Node list          : tg081
+= Subm/Elig/Start/End: 2025-11-18T13:00:45 / 2025-11-18T13:00:45 / 2025-11-18T13:00:46 / 2025-11-18T13:29:01
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           188.8G  1000.0G  1500.0G        N/A     872K   5,000K   7,500K        N/A    
+!!! /home/hpc             109.0G   104.9G   209.7G  -29293days  31,574      500K   1,000K        N/A !!!
+    /home/vault           622.8G  1048.6G  2097.2G        N/A   6,164      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA GeForce RTX 3080, 00000000:1A:00.0, 3522515, 56 %, 21 %, 2444 MiB, 1669687 ms

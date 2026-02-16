@@ -1,0 +1,851 @@
+### Starting TaskPrologue of job 1132854 on tg074 at Sun Jul 27 11:08:46 PM CEST 2025
+Running on cores 6-7,14-15,22-23,30-31 with governor ondemand
+Sun Jul 27 23:08:46 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.158.01             Driver Version: 570.158.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:AF:00.0 Off |                    0 |
+| N/A   32C    P0             25W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+[2025-07-27 23:09:07,129] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-27 23:09:08,820] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+🦥 Unsloth Zoo will now patch everything to make training faster!
+Created run directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250727_230915
+Loading Qwen2.5-VL model with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with optimized LoRA adapters!
+============================================================
+STARTING TRAINING WITH VALIDATION MONITORING AND DATA AUGMENTATION
+============================================================
+Preparing training dataset with data augmentation...
+Preparing training data with augmentation factor: 2
+Loaded 205 original samples
+Processing sample 1/205: inventarbuch-265.jpg
+  Created augmentation 1: inventarbuch-265_aug1.jpg (Applied: blur_0.20)
+  Created augmentation 2: inventarbuch-265_aug2.jpg (Applied: brightness_1.04)
+Processing sample 2/205: inventarbuch-189.jpg
+  Created augmentation 1: inventarbuch-189_aug1.jpg (Applied: brightness_0.96, contrast_0.92, sharpness_0.93, blur_0.49)
+  Created augmentation 2: inventarbuch-189_aug2.jpg (Applied: contrast_1.06, sharpness_1.00, rotate_2.0, blur_0.19)
+Processing sample 3/205: inventarbuch-026.jpg
+  Created augmentation 1: inventarbuch-026_aug1.jpg (Applied: brightness_1.02)
+  Created augmentation 2: inventarbuch-026_aug2.jpg (Applied: rotate_1.3, blur_0.13)
+Processing sample 4/205: inventarbuch-021.jpg
+  Created augmentation 1: inventarbuch-021_aug1.jpg (Applied: brightness_0.96)
+  Created augmentation 2: inventarbuch-021_aug2.jpg (Applied: brightness_1.01, contrast_0.90)
+Processing sample 5/205: inventarbuch-281.jpg
+  Created augmentation 1: inventarbuch-281_aug1.jpg (Applied: contrast_0.94, sharpness_1.09)
+  Created augmentation 2: inventarbuch-281_aug2.jpg (Applied: brightness_0.91, sharpness_0.89)
+Processing sample 6/205: inventarbuch-167.jpg
+  Created augmentation 1: inventarbuch-167_aug1.jpg (Applied: brightness_0.99, contrast_0.96, blur_0.12)
+  Created augmentation 2: inventarbuch-167_aug2.jpg (Applied: brightness_0.97, sharpness_0.85)
+Processing sample 7/205: inventarbuch-280.jpg
+  Created augmentation 1: inventarbuch-280_aug1.jpg (Applied: brightness_1.05, contrast_1.06, sharpness_0.82, blur_0.39)
+  Created augmentation 2: inventarbuch-280_aug2.jpg (Applied: contrast_1.02, sharpness_0.98)
+Processing sample 8/205: inventarbuch-057.jpg
+  Created augmentation 1: inventarbuch-057_aug1.jpg (Applied: contrast_1.01, sharpness_0.97)
+  Created augmentation 2: inventarbuch-057_aug2.jpg (Applied: brightness_1.06, contrast_1.01)
+Processing sample 9/205: inventarbuch-159.jpg
+  Created augmentation 1: inventarbuch-159_aug1.jpg (Applied: brightness_0.95, sharpness_1.03)
+  Created augmentation 2: inventarbuch-159_aug2.jpg (Applied: sharpness_1.12, blur_0.15)
+Processing sample 10/205: inventarbuch-094.jpg
+  Created augmentation 1: inventarbuch-094_aug1.jpg (Applied: contrast_1.03)
+  Created augmentation 2: inventarbuch-094_aug2.jpg (Applied: brightness_1.06, contrast_1.00, sharpness_0.83, rotate_-0.2)
+Processing sample 11/205: inventarbuch-040.jpg
+  Created augmentation 1: inventarbuch-040_aug1.jpg (Applied: contrast_1.09)
+  Created augmentation 2: inventarbuch-040_aug2.jpg (Applied: rotate_-1.4)
+Processing sample 12/205: inventarbuch-305.jpg
+  Created augmentation 1: inventarbuch-305_aug1.jpg (Applied: contrast_1.06, sharpness_0.81)
+  Created augmentation 2: inventarbuch-305_aug2.jpg (Applied: brightness_1.09, contrast_0.98, sharpness_1.03)
+Processing sample 13/205: inventarbuch-220.jpg
+  Created augmentation 1: inventarbuch-220_aug1.jpg (Applied: sharpness_0.96, blur_0.28)
+  Created augmentation 2: inventarbuch-220_aug2.jpg (Applied: brightness_0.95, contrast_1.02, sharpness_0.96, rotate_1.9)
+Processing sample 14/205: inventarbuch-226.jpg
+  Created augmentation 1: inventarbuch-226_aug1.jpg (Applied: brightness_1.00)
+  Created augmentation 2: inventarbuch-226_aug2.jpg (Applied: brightness_1.02, contrast_1.00, sharpness_0.95, blur_0.16)
+Processing sample 15/205: inventarbuch-264.jpg
+  Created augmentation 1: inventarbuch-264_aug1.jpg (Applied: brightness_1.06, contrast_1.04, sharpness_0.93, rotate_1.1)
+  Created augmentation 2: inventarbuch-264_aug2.jpg (Applied: brightness_0.96, contrast_1.10, rotate_0.9)
+Processing sample 16/205: inventarbuch-089.jpg
+  Created augmentation 1: inventarbuch-089_aug1.jpg (Applied: brightness_0.93)
+  Created augmentation 2: inventarbuch-089_aug2.jpg (Applied: sharpness_0.94)
+Processing sample 17/205: inventarbuch-002.jpg
+  Created augmentation 1: inventarbuch-002_aug1.jpg (Applied: brightness_1.09, contrast_1.09)
+  Created augmentation 2: inventarbuch-002_aug2.jpg (Applied: brightness_1.04, contrast_0.90, sharpness_0.82)
+Processing sample 18/205: inventarbuch-290.jpg
+  Created augmentation 1: inventarbuch-290_aug1.jpg (Applied: contrast_0.99)
+  Created augmentation 2: inventarbuch-290_aug2.jpg (Applied: brightness_0.91, contrast_0.95, sharpness_1.00)
+Processing sample 19/205: inventarbuch-109.jpg
+  Created augmentation 1: inventarbuch-109_aug1.jpg (Applied: brightness_1.03, contrast_0.92, sharpness_0.91, rotate_-1.8)
+  Created augmentation 2: inventarbuch-109_aug2.jpg (Applied: contrast_0.91, sharpness_1.04)
+Processing sample 20/205: inventarbuch-144.jpg
+  Created augmentation 1: inventarbuch-144_aug1.jpg (Applied: contrast_1.06, sharpness_0.84, blur_0.24)
+  Created augmentation 2: inventarbuch-144_aug2.jpg (Applied: contrast_1.07, sharpness_1.15)
+Processing sample 21/205: inventarbuch-075.jpg
+  Created augmentation 1: inventarbuch-075_aug1.jpg (Applied: brightness_1.07, sharpness_1.03, blur_0.41)
+  Created augmentation 2: inventarbuch-075_aug2.jpg (Applied: brightness_0.98, contrast_1.05)
+Processing sample 22/205: inventarbuch-239.jpg
+  Created augmentation 1: inventarbuch-239_aug1.jpg (Applied: brightness_0.95, contrast_1.03, sharpness_1.04, rotate_1.5)
+  Created augmentation 2: inventarbuch-239_aug2.jpg (Applied: brightness_0.95, sharpness_1.19)
+Processing sample 23/205: inventarbuch-145.jpg
+  Created augmentation 1: inventarbuch-145_aug1.jpg (Applied: sharpness_0.96, rotate_1.4)
+  Created augmentation 2: inventarbuch-145_aug2.jpg (Applied: brightness_1.08, rotate_-0.9)
+Processing sample 24/205: inventarbuch-091.jpg
+  Created augmentation 1: inventarbuch-091_aug1.jpg (Applied: brightness_0.96, contrast_1.07)
+  Created augmentation 2: inventarbuch-091_aug2.jpg (Applied: contrast_1.09, sharpness_1.15, rotate_1.3)
+Processing sample 25/205: inventarbuch-007.jpg
+  Created augmentation 1: inventarbuch-007_aug1.jpg (Applied: brightness_0.93, contrast_0.99, sharpness_1.17)
+  Created augmentation 2: inventarbuch-007_aug2.jpg (Applied: brightness_1.09)
+Processing sample 26/205: inventarbuch-285.jpg
+  Created augmentation 1: inventarbuch-285_aug1.jpg (Applied: brightness_1.01)
+  Created augmentation 2: inventarbuch-285_aug2.jpg (Applied: brightness_1.08, contrast_0.99, rotate_-1.1, blur_0.38)
+Processing sample 27/205: inventarbuch-247.jpg
+  Created augmentation 1: inventarbuch-247_aug1.jpg (Applied: sharpness_0.91)
+  Created augmentation 2: inventarbuch-247_aug2.jpg (Applied: brightness_0.95, contrast_1.07, sharpness_0.95, rotate_-1.9)
+Processing sample 28/205: inventarbuch-117.jpg
+  Created augmentation 1: inventarbuch-117_aug1.jpg (Applied: brightness_0.91, sharpness_0.95, rotate_-1.5)
+  Created augmentation 2: inventarbuch-117_aug2.jpg (Applied: sharpness_0.91)
+Processing sample 29/205: inventarbuch-288.jpg
+  Created augmentation 1: inventarbuch-288_aug1.jpg (Applied: minimal)
+  Created augmentation 2: inventarbuch-288_aug2.jpg (Applied: brightness_1.02, contrast_0.99)
+Processing sample 30/205: inventarbuch-050.jpg
+  Created augmentation 1: inventarbuch-050_aug1.jpg (Applied: brightness_1.10, sharpness_0.96)
+  Created augmentation 2: inventarbuch-050_aug2.jpg (Applied: sharpness_1.02, rotate_-1.9)
+Processing sample 31/205: inventarbuch-063.jpg
+  Created augmentation 1: inventarbuch-063_aug1.jpg (Applied: brightness_0.94, contrast_0.91, sharpness_1.18)
+  Created augmentation 2: inventarbuch-063_aug2.jpg (Applied: brightness_0.98, contrast_1.09, sharpness_1.17, rotate_1.2, blur_0.22)
+Processing sample 32/205: inventarbuch-249.jpg
+  Created augmentation 1: inventarbuch-249_aug1.jpg (Applied: brightness_0.98, rotate_1.6, blur_0.28)
+  Created augmentation 2: inventarbuch-249_aug2.jpg (Applied: contrast_1.08, rotate_0.9)
+Processing sample 33/205: inventarbuch-204.jpg
+  Created augmentation 1: inventarbuch-204_aug1.jpg (Applied: brightness_1.07, contrast_1.08)
+  Created augmentation 2: inventarbuch-204_aug2.jpg (Applied: brightness_0.99, sharpness_0.97)
+Processing sample 34/205: inventarbuch-172.jpg
+  Created augmentation 1: inventarbuch-172_aug1.jpg (Applied: contrast_1.01, rotate_0.9)
+  Created augmentation 2: inventarbuch-172_aug2.jpg (Applied: brightness_0.99, sharpness_1.16)
+Processing sample 35/205: inventarbuch-088.jpg
+  Created augmentation 1: inventarbuch-088_aug1.jpg (Applied: contrast_0.91, sharpness_0.98)
+  Created augmentation 2: inventarbuch-088_aug2.jpg (Applied: sharpness_0.90)
+Processing sample 36/205: inventarbuch-039.jpg
+  Created augmentation 1: inventarbuch-039_aug1.jpg (Applied: sharpness_0.89)
+  Created augmentation 2: inventarbuch-039_aug2.jpg (Applied: brightness_0.94, sharpness_1.06, blur_0.16)
+Processing sample 37/205: inventarbuch-300.jpg
+  Created augmentation 1: inventarbuch-300_aug1.jpg (Applied: brightness_1.07, contrast_0.93, sharpness_0.82, rotate_2.0)
+  Created augmentation 2: inventarbuch-300_aug2.jpg (Applied: sharpness_1.09)
+Processing sample 38/205: inventarbuch-286.jpg
+  Created augmentation 1: inventarbuch-286_aug1.jpg (Applied: brightness_1.00, contrast_0.93, sharpness_1.13)
+  Created augmentation 2: inventarbuch-286_aug2.jpg (Applied: contrast_0.96, sharpness_1.16, blur_0.49)
+Processing sample 39/205: inventarbuch-192.jpg
+  Created augmentation 1: inventarbuch-192_aug1.jpg (Applied: sharpness_0.81)
+  Created augmentation 2: inventarbuch-192_aug2.jpg (Applied: contrast_1.05)
+Processing sample 40/205: inventarbuch-085.jpg
+  Created augmentation 1: inventarbuch-085_aug1.jpg (Applied: brightness_1.01, sharpness_1.11)
+  Created augmentation 2: inventarbuch-085_aug2.jpg (Applied: brightness_0.93, contrast_1.09, sharpness_1.04, rotate_-1.6, blur_0.14)
+Processing sample 41/205: inventarbuch-241.jpg
+  Created augmentation 1: inventarbuch-241_aug1.jpg (Applied: brightness_1.07, sharpness_0.97)
+  Created augmentation 2: inventarbuch-241_aug2.jpg (Applied: brightness_1.03, contrast_0.96)
+Processing sample 42/205: inventarbuch-270.jpg
+  Created augmentation 1: inventarbuch-270_aug1.jpg (Applied: contrast_0.91, sharpness_0.86)
+  Created augmentation 2: inventarbuch-270_aug2.jpg (Applied: contrast_0.94, rotate_1.4)
+Processing sample 43/205: inventarbuch-180.jpg
+  Created augmentation 1: inventarbuch-180_aug1.jpg (Applied: sharpness_0.91)
+  Created augmentation 2: inventarbuch-180_aug2.jpg (Applied: brightness_1.02, sharpness_0.83, rotate_1.4, blur_0.20)
+Processing sample 44/205: inventarbuch-202.jpg
+  Created augmentation 1: inventarbuch-202_aug1.jpg (Applied: brightness_0.97)
+  Created augmentation 2: inventarbuch-202_aug2.jpg (Applied: rotate_-0.7)
+Processing sample 45/205: inventarbuch-140.jpg
+  Created augmentation 1: inventarbuch-140_aug1.jpg (Applied: brightness_0.91, contrast_0.99, sharpness_1.11, blur_0.50)
+  Created augmentation 2: inventarbuch-140_aug2.jpg (Applied: contrast_1.07, blur_0.27)
+Processing sample 46/205: inventarbuch-008.jpg
+  Created augmentation 1: inventarbuch-008_aug1.jpg (Applied: contrast_1.07, sharpness_1.18, blur_0.50)
+  Created augmentation 2: inventarbuch-008_aug2.jpg (Applied: brightness_1.04, contrast_1.09, sharpness_0.96, rotate_-0.8)
+Processing sample 47/205: inventarbuch-258.jpg
+  Created augmentation 1: inventarbuch-258_aug1.jpg (Applied: minimal)
+  Created augmentation 2: inventarbuch-258_aug2.jpg (Applied: brightness_0.92, sharpness_0.80, rotate_1.8)
+Processing sample 48/205: inventarbuch-028.jpg
+  Created augmentation 1: inventarbuch-028_aug1.jpg (Applied: brightness_0.97, sharpness_0.99)
+  Created augmentation 2: inventarbuch-028_aug2.jpg (Applied: sharpness_1.00)
+Processing sample 49/205: inventarbuch-209.jpg
+  Created augmentation 1: inventarbuch-209_aug1.jpg (Applied: brightness_0.94, contrast_0.95, sharpness_0.95, rotate_-1.2)
+  Created augmentation 2: inventarbuch-209_aug2.jpg (Applied: contrast_1.00, sharpness_1.01)
+Processing sample 50/205: inventarbuch-228.jpg
+  Created augmentation 1: inventarbuch-228_aug1.jpg (Applied: sharpness_0.91)
+  Created augmentation 2: inventarbuch-228_aug2.jpg (Applied: brightness_0.96, sharpness_0.82, rotate_0.2, blur_0.48)
+Processing sample 51/205: inventarbuch-306.jpg
+  Created augmentation 1: inventarbuch-306_aug1.jpg (Applied: sharpness_1.14, rotate_0.3)
+  Created augmentation 2: inventarbuch-306_aug2.jpg (Applied: brightness_1.01, sharpness_1.08)
+Processing sample 52/205: inventarbuch-277.jpg
+  Created augmentation 1: inventarbuch-277_aug1.jpg (Applied: contrast_1.10)
+  Created augmentation 2: inventarbuch-277_aug2.jpg (Applied: brightness_1.00, contrast_0.93, sharpness_0.81, rotate_-0.1)
+Processing sample 53/205: inventarbuch-184.jpg
+  Created augmentation 1: inventarbuch-184_aug1.jpg (Applied: contrast_0.91, rotate_-1.2)
+  Created augmentation 2: inventarbuch-184_aug2.jpg (Applied: brightness_1.00, contrast_1.06, sharpness_0.92, blur_0.39)
+Processing sample 54/205: inventarbuch-289.jpg
+  Created augmentation 1: inventarbuch-289_aug1.jpg (Applied: minimal)
+  Created augmentation 2: inventarbuch-289_aug2.jpg (Applied: brightness_0.96, sharpness_0.99)
+Processing sample 55/205: inventarbuch-067.jpg
+  Created augmentation 1: inventarbuch-067_aug1.jpg (Applied: contrast_1.02, rotate_1.4)
+  Created augmentation 2: inventarbuch-067_aug2.jpg (Applied: contrast_1.06, sharpness_0.89, rotate_-0.3)
+Processing sample 56/205: inventarbuch-036.jpg
+  Created augmentation 1: inventarbuch-036_aug1.jpg (Applied: brightness_0.99, sharpness_0.97, rotate_1.7)
+  Created augmentation 2: inventarbuch-036_aug2.jpg (Applied: brightness_0.94, rotate_1.0)
+Processing sample 57/205: inventarbuch-292.jpg
+  Created augmentation 1: inventarbuch-292_aug1.jpg (Applied: brightness_1.07, sharpness_0.82, rotate_-1.9)
+  Created augmentation 2: inventarbuch-292_aug2.jpg (Applied: contrast_0.95, sharpness_1.17)
+Processing sample 58/205: inventarbuch-092.jpg
+  Created augmentation 1: inventarbuch-092_aug1.jpg (Applied: brightness_0.99, sharpness_1.00)
+  Created augmentation 2: inventarbuch-092_aug2.jpg (Applied: brightness_0.92, sharpness_0.91, rotate_1.1)
+Processing sample 59/205: inventarbuch-231.jpg
+  Created augmentation 1: inventarbuch-231_aug1.jpg (Applied: brightness_1.10, sharpness_0.97)
+  Created augmentation 2: inventarbuch-231_aug2.jpg (Applied: contrast_1.01, sharpness_0.89)
+Processing sample 60/205: inventarbuch-246.jpg
+  Created augmentation 1: inventarbuch-246_aug1.jpg (Applied: brightness_1.02, contrast_0.93, blur_0.34)
+  Created augmentation 2: inventarbuch-246_aug2.jpg (Applied: minimal)
+Processing sample 61/205: inventarbuch-081.jpg
+  Created augmentation 1: inventarbuch-081_aug1.jpg (Applied: brightness_0.99, contrast_1.09)
+  Created augmentation 2: inventarbuch-081_aug2.jpg (Applied: brightness_1.07, sharpness_1.05)
+Processing sample 62/205: inventarbuch-034.jpg
+  Created augmentation 1: inventarbuch-034_aug1.jpg (Applied: brightness_1.03, sharpness_0.80)
+  Created augmentation 2: inventarbuch-034_aug2.jpg (Applied: contrast_0.96, sharpness_1.00)
+Processing sample 63/205: inventarbuch-175.jpg
+  Created augmentation 1: inventarbuch-175_aug1.jpg (Applied: brightness_1.07, sharpness_1.01, rotate_-1.4)
+  Created augmentation 2: inventarbuch-175_aug2.jpg (Applied: sharpness_0.84)
+Processing sample 64/205: inventarbuch-044.jpg
+  Created augmentation 1: inventarbuch-044_aug1.jpg (Applied: sharpness_1.01)
+  Created augmentation 2: inventarbuch-044_aug2.jpg (Applied: sharpness_0.81)
+Processing sample 65/205: inventarbuch-006.jpg
+  Created augmentation 1: inventarbuch-006_aug1.jpg (Applied: contrast_1.04, sharpness_1.11)
+  Created augmentation 2: inventarbuch-006_aug2.jpg (Applied: contrast_1.03, sharpness_1.03)
+Processing sample 66/205: inventarbuch-154.jpg
+  Created augmentation 1: inventarbuch-154_aug1.jpg (Applied: sharpness_0.84)
+  Created augmentation 2: inventarbuch-154_aug2.jpg (Applied: contrast_1.08, sharpness_1.14, blur_0.18)
+Processing sample 67/205: inventarbuch-234.jpg
+  Created augmentation 1: inventarbuch-234_aug1.jpg (Applied: brightness_1.06, sharpness_1.00)
+  Created augmentation 2: inventarbuch-234_aug2.jpg (Applied: brightness_0.95, contrast_1.09, sharpness_0.86, rotate_1.9, blur_0.26)
+Processing sample 68/205: inventarbuch-111.jpg
+  Created augmentation 1: inventarbuch-111_aug1.jpg (Applied: contrast_0.97, sharpness_1.06)
+  Created augmentation 2: inventarbuch-111_aug2.jpg (Applied: contrast_1.06, sharpness_1.03, blur_0.39)
+Processing sample 69/205: inventarbuch-011.jpg
+  Created augmentation 1: inventarbuch-011_aug1.jpg (Applied: brightness_1.01, contrast_1.03, sharpness_0.99)
+  Created augmentation 2: inventarbuch-011_aug2.jpg (Applied: contrast_0.91, sharpness_0.91, rotate_-1.4)
+Processing sample 70/205: inventarbuch-126.jpg
+  Created augmentation 1: inventarbuch-126_aug1.jpg (Applied: brightness_0.99, rotate_-0.3)
+  Created augmentation 2: inventarbuch-126_aug2.jpg (Applied: brightness_1.00, contrast_0.91)
+Processing sample 71/205: inventarbuch-157.jpg
+  Created augmentation 1: inventarbuch-157_aug1.jpg (Applied: contrast_1.05, rotate_0.0)
+  Created augmentation 2: inventarbuch-157_aug2.jpg (Applied: sharpness_1.12, rotate_-0.8)
+Processing sample 72/205: inventarbuch-152.jpg
+  Created augmentation 1: inventarbuch-152_aug1.jpg (Applied: sharpness_1.13)
+  Created augmentation 2: inventarbuch-152_aug2.jpg (Applied: contrast_0.91, rotate_-1.6)
+Processing sample 73/205: inventarbuch-190.jpg
+  Created augmentation 1: inventarbuch-190_aug1.jpg (Applied: brightness_0.94, contrast_0.93)
+  Created augmentation 2: inventarbuch-190_aug2.jpg (Applied: brightness_0.95, contrast_1.07, sharpness_0.83, rotate_0.9)
+Processing sample 74/205: inventarbuch-304.jpg
+  Created augmentation 1: inventarbuch-304_aug1.jpg (Applied: brightness_1.02, rotate_1.9)
+  Created augmentation 2: inventarbuch-304_aug2.jpg (Applied: sharpness_1.09, blur_0.48)
+Processing sample 75/205: inventarbuch-217.jpg
+  Created augmentation 1: inventarbuch-217_aug1.jpg (Applied: brightness_0.94, blur_0.27)
+  Created augmentation 2: inventarbuch-217_aug2.jpg (Applied: brightness_1.05, sharpness_1.02, rotate_0.6, blur_0.16)
+Processing sample 76/205: inventarbuch-103.jpg
+  Created augmentation 1: inventarbuch-103_aug1.jpg (Applied: brightness_0.93, contrast_0.99, sharpness_1.02)
+  Created augmentation 2: inventarbuch-103_aug2.jpg (Applied: brightness_0.99, sharpness_0.83, rotate_-0.4)
+Processing sample 77/205: inventarbuch-207.jpg
+  Created augmentation 1: inventarbuch-207_aug1.jpg (Applied: brightness_0.98, sharpness_1.18)
+  Created augmentation 2: inventarbuch-207_aug2.jpg (Applied: brightness_1.09, contrast_0.92, sharpness_1.16, blur_0.30)
+Processing sample 78/205: inventarbuch-267.jpg
+  Created augmentation 1: inventarbuch-267_aug1.jpg (Applied: sharpness_1.05, rotate_-2.0)
+  Created augmentation 2: inventarbuch-267_aug2.jpg (Applied: sharpness_1.09, rotate_0.6, blur_0.46)
+Processing sample 79/205: inventarbuch-297.jpg
+  Created augmentation 1: inventarbuch-297_aug1.jpg (Applied: brightness_1.07, contrast_1.04, sharpness_0.97)
+  Created augmentation 2: inventarbuch-297_aug2.jpg (Applied: contrast_1.02, sharpness_1.15, blur_0.35)
+Processing sample 80/205: inventarbuch-308.jpg
+  Created augmentation 1: inventarbuch-308_aug1.jpg (Applied: contrast_0.92, rotate_-1.1)
+  Created augmentation 2: inventarbuch-308_aug2.jpg (Applied: sharpness_1.19, rotate_-0.9)
+Processing sample 81/205: inventarbuch-068.jpg
+  Created augmentation 1: inventarbuch-068_aug1.jpg (Applied: brightness_1.09, contrast_0.91)
+  Created augmentation 2: inventarbuch-068_aug2.jpg (Applied: contrast_0.96, sharpness_1.15)
+Processing sample 82/205: inventarbuch-259.jpg
+  Created augmentation 1: inventarbuch-259_aug1.jpg (Applied: brightness_0.91, sharpness_0.82)
+  Created augmentation 2: inventarbuch-259_aug2.jpg (Applied: contrast_0.98, sharpness_1.04, blur_0.45)
+Processing sample 83/205: inventarbuch-276.jpg
+  Created augmentation 1: inventarbuch-276_aug1.jpg (Applied: brightness_0.97, sharpness_0.96)
+  Created augmentation 2: inventarbuch-276_aug2.jpg (Applied: brightness_1.01)
+Processing sample 84/205: inventarbuch-053.jpg
+  Created augmentation 1: inventarbuch-053_aug1.jpg (Applied: brightness_0.95, sharpness_0.96)
+  Created augmentation 2: inventarbuch-053_aug2.jpg (Applied: brightness_1.00, contrast_1.10, sharpness_0.88)
+Processing sample 85/205: inventarbuch-269.jpg
+  Created augmentation 1: inventarbuch-269_aug1.jpg (Applied: contrast_1.09, sharpness_0.96, rotate_1.5)
+  Created augmentation 2: inventarbuch-269_aug2.jpg (Applied: brightness_1.05, sharpness_1.11)
+Processing sample 86/205: inventarbuch-236.jpg
+  Created augmentation 1: inventarbuch-236_aug1.jpg (Applied: sharpness_1.11, rotate_-1.3, blur_0.24)
+  Created augmentation 2: inventarbuch-236_aug2.jpg (Applied: brightness_0.96, contrast_0.93)
+Processing sample 87/205: inventarbuch-129.jpg
+  Created augmentation 1: inventarbuch-129_aug1.jpg (Applied: brightness_1.01, sharpness_0.92)
+  Created augmentation 2: inventarbuch-129_aug2.jpg (Applied: sharpness_1.18, rotate_1.2)
+Processing sample 88/205: inventarbuch-138.jpg
+  Created augmentation 1: inventarbuch-138_aug1.jpg (Applied: contrast_0.94, sharpness_0.83)
+  Created augmentation 2: inventarbuch-138_aug2.jpg (Applied: contrast_1.10, sharpness_0.85)
+Processing sample 89/205: inventarbuch-193.jpg
+  Created augmentation 1: inventarbuch-193_aug1.jpg (Applied: contrast_1.09, sharpness_1.11)
+  Created augmentation 2: inventarbuch-193_aug2.jpg (Applied: brightness_0.98, sharpness_0.95, blur_0.41)
+Processing sample 90/205: inventarbuch-080.jpg
+  Created augmentation 1: inventarbuch-080_aug1.jpg (Applied: rotate_-1.7)
+  Created augmentation 2: inventarbuch-080_aug2.jpg (Applied: brightness_1.06, contrast_1.10, sharpness_0.86, rotate_1.8)
+Processing sample 91/205: inventarbuch-125.jpg
+  Created augmentation 1: inventarbuch-125_aug1.jpg (Applied: sharpness_1.05)
+  Created augmentation 2: inventarbuch-125_aug2.jpg (Applied: contrast_1.02)
+Processing sample 92/205: inventarbuch-035.jpg
+  Created augmentation 1: inventarbuch-035_aug1.jpg (Applied: brightness_1.01, contrast_1.07)
+  Created augmentation 2: inventarbuch-035_aug2.jpg (Applied: brightness_1.06, contrast_1.04, sharpness_1.00, rotate_1.2)
+Processing sample 93/205: inventarbuch-023.jpg
+  Created augmentation 1: inventarbuch-023_aug1.jpg (Applied: brightness_0.95)
+  Created augmentation 2: inventarbuch-023_aug2.jpg (Applied: brightness_0.91)
+Processing sample 94/205: inventarbuch-072.jpg
+  Created augmentation 1: inventarbuch-072_aug1.jpg (Applied: blur_0.20)
+  Created augmentation 2: inventarbuch-072_aug2.jpg (Applied: rotate_1.1)
+Processing sample 95/205: inventarbuch-062.jpg
+  Created augmentation 1: inventarbuch-062_aug1.jpg (Applied: contrast_1.10, sharpness_0.90)
+  Created augmentation 2: inventarbuch-062_aug2.jpg (Applied: contrast_1.02)
+Processing sample 96/205: inventarbuch-087.jpg
+  Created augmentation 1: inventarbuch-087_aug1.jpg (Applied: sharpness_0.89)
+  Created augmentation 2: inventarbuch-087_aug2.jpg (Applied: brightness_0.95, contrast_0.99, sharpness_0.91)
+Processing sample 97/205: inventarbuch-128.jpg
+  Created augmentation 1: inventarbuch-128_aug1.jpg (Applied: contrast_1.05, sharpness_1.17)
+  Created augmentation 2: inventarbuch-128_aug2.jpg (Applied: brightness_1.08, sharpness_1.05)
+Processing sample 98/205: inventarbuch-160.jpg
+  Created augmentation 1: inventarbuch-160_aug1.jpg (Applied: brightness_1.03, sharpness_1.02)
+  Created augmentation 2: inventarbuch-160_aug2.jpg (Applied: sharpness_0.88)
+Processing sample 99/205: inventarbuch-150.jpg
+  Created augmentation 1: inventarbuch-150_aug1.jpg (Applied: brightness_1.04, sharpness_1.08, blur_0.31)
+  Created augmentation 2: inventarbuch-150_aug2.jpg (Applied: brightness_1.01, contrast_1.03, sharpness_0.84, rotate_-1.3)
+Processing sample 100/205: inventarbuch-218.jpg
+  Created augmentation 1: inventarbuch-218_aug1.jpg (Applied: sharpness_1.10)
+  Created augmentation 2: inventarbuch-218_aug2.jpg (Applied: rotate_1.0)
+Processing sample 101/205: inventarbuch-201.jpg
+  Created augmentation 1: inventarbuch-201_aug1.jpg (Applied: brightness_0.94, sharpness_1.02, blur_0.46)
+  Created augmentation 2: inventarbuch-201_aug2.jpg (Applied: contrast_0.99, sharpness_1.02)
+Processing sample 102/205: inventarbuch-119.jpg
+  Created augmentation 1: inventarbuch-119_aug1.jpg (Applied: brightness_1.06)
+  Created augmentation 2: inventarbuch-119_aug2.jpg (Applied: brightness_1.05, sharpness_0.98)
+Processing sample 103/205: inventarbuch-237.jpg
+  Created augmentation 1: inventarbuch-237_aug1.jpg (Applied: minimal)
+  Created augmentation 2: inventarbuch-237_aug2.jpg (Applied: contrast_0.99, sharpness_1.18)
+Processing sample 104/205: inventarbuch-108.jpg
+  Created augmentation 1: inventarbuch-108_aug1.jpg (Applied: sharpness_1.07)
+  Created augmentation 2: inventarbuch-108_aug2.jpg (Applied: brightness_0.97)
+Processing sample 105/205: inventarbuch-012.jpg
+  Created augmentation 1: inventarbuch-012_aug1.jpg (Applied: contrast_0.91, sharpness_1.20)
+  Created augmentation 2: inventarbuch-012_aug2.jpg (Applied: minimal)
+Processing sample 106/205: inventarbuch-074.jpg
+  Created augmentation 1: inventarbuch-074_aug1.jpg (Applied: sharpness_0.83)
+  Created augmentation 2: inventarbuch-074_aug2.jpg (Applied: brightness_1.01, sharpness_0.88)
+Processing sample 107/205: inventarbuch-162.jpg
+  Created augmentation 1: inventarbuch-162_aug1.jpg (Applied: contrast_1.07)
+  Created augmentation 2: inventarbuch-162_aug2.jpg (Applied: blur_0.16)
+Processing sample 108/205: inventarbuch-009.jpg
+  Created augmentation 1: inventarbuch-009_aug1.jpg (Applied: brightness_0.92, contrast_0.91)
+  Created augmentation 2: inventarbuch-009_aug2.jpg (Applied: minimal)
+Processing sample 109/205: inventarbuch-032.jpg
+  Created augmentation 1: inventarbuch-032_aug1.jpg (Applied: brightness_1.02, sharpness_0.84)
+  Created augmentation 2: inventarbuch-032_aug2.jpg (Applied: contrast_1.03, blur_0.22)
+Processing sample 110/205: inventarbuch-156.jpg
+  Created augmentation 1: inventarbuch-156_aug1.jpg (Applied: sharpness_0.90, blur_0.15)
+  Created augmentation 2: inventarbuch-156_aug2.jpg (Applied: brightness_0.92, sharpness_1.17)
+Processing sample 111/205: inventarbuch-106.jpg
+  Created augmentation 1: inventarbuch-106_aug1.jpg (Applied: brightness_0.95, contrast_0.94, sharpness_0.89, blur_0.20)
+  Created augmentation 2: inventarbuch-106_aug2.jpg (Applied: sharpness_0.87, blur_0.23)
+Processing sample 112/205: inventarbuch-110.jpg
+  Created augmentation 1: inventarbuch-110_aug1.jpg (Applied: brightness_1.05, sharpness_0.96)
+  Created augmentation 2: inventarbuch-110_aug2.jpg (Applied: contrast_0.96, sharpness_1.17)
+Processing sample 113/205: inventarbuch-048.jpg
+  Created augmentation 1: inventarbuch-048_aug1.jpg (Applied: minimal)
+  Created augmentation 2: inventarbuch-048_aug2.jpg (Applied: brightness_0.96, contrast_0.98, sharpness_0.83, blur_0.22)
+Processing sample 114/205: inventarbuch-275.jpg
+  Created augmentation 1: inventarbuch-275_aug1.jpg (Applied: brightness_0.91, sharpness_0.80)
+  Created augmentation 2: inventarbuch-275_aug2.jpg (Applied: contrast_0.98, sharpness_1.04)
+Processing sample 115/205: inventarbuch-250.jpg
+  Created augmentation 1: inventarbuch-250_aug1.jpg (Applied: contrast_1.02, rotate_-1.4)
+  Created augmentation 2: inventarbuch-250_aug2.jpg (Applied: brightness_1.03, contrast_0.92, sharpness_0.95)
+Processing sample 116/205: inventarbuch-214.jpg
+  Created augmentation 1: inventarbuch-214_aug1.jpg (Applied: contrast_1.01, sharpness_1.09)
+  Created augmentation 2: inventarbuch-214_aug2.jpg (Applied: brightness_1.08, sharpness_0.83, blur_0.26)
+Processing sample 117/205: inventarbuch-213.jpg
+  Created augmentation 1: inventarbuch-213_aug1.jpg (Applied: brightness_1.10, contrast_1.08, sharpness_0.90)
+  Created augmentation 2: inventarbuch-213_aug2.jpg (Applied: contrast_1.05)
+Processing sample 118/205: inventarbuch-137.jpg
+  Created augmentation 1: inventarbuch-137_aug1.jpg (Applied: contrast_1.01, sharpness_1.14)
+  Created augmentation 2: inventarbuch-137_aug2.jpg (Applied: brightness_1.00)
+Processing sample 119/205: inventarbuch-215.jpg
+  Created augmentation 1: inventarbuch-215_aug1.jpg (Applied: sharpness_0.99, rotate_0.5)
+  Created augmentation 2: inventarbuch-215_aug2.jpg (Applied: brightness_1.00, contrast_0.93, sharpness_1.12)
+Processing sample 120/205: inventarbuch-186.jpg
+  Created augmentation 1: inventarbuch-186_aug1.jpg (Applied: brightness_1.08, sharpness_1.20, rotate_1.4, blur_0.21)
+  Created augmentation 2: inventarbuch-186_aug2.jpg (Applied: minimal)
+Processing sample 121/205: inventarbuch-216.jpg
+  Created augmentation 1: inventarbuch-216_aug1.jpg (Applied: brightness_0.98, contrast_1.08, sharpness_0.89)
+  Created augmentation 2: inventarbuch-216_aug2.jpg (Applied: brightness_1.07, contrast_1.03)
+Processing sample 122/205: inventarbuch-212.jpg
+  Created augmentation 1: inventarbuch-212_aug1.jpg (Applied: brightness_1.09, contrast_0.92, sharpness_0.91)
+  Created augmentation 2: inventarbuch-212_aug2.jpg (Applied: brightness_1.04, rotate_1.4)
+Processing sample 123/205: inventarbuch-102.jpg
+  Created augmentation 1: inventarbuch-102_aug1.jpg (Applied: sharpness_1.19)
+  Created augmentation 2: inventarbuch-102_aug2.jpg (Applied: brightness_1.02, rotate_1.6, blur_0.47)
+Processing sample 124/205: inventarbuch-127.jpg
+  Created augmentation 1: inventarbuch-127_aug1.jpg (Applied: brightness_1.05)
+  Created augmentation 2: inventarbuch-127_aug2.jpg (Applied: contrast_1.07, sharpness_1.01, rotate_-1.4, blur_0.11)
+Processing sample 125/205: inventarbuch-210.jpg
+  Created augmentation 1: inventarbuch-210_aug1.jpg (Applied: minimal)
+  Created augmentation 2: inventarbuch-210_aug2.jpg (Applied: brightness_1.09, contrast_1.03)
+Processing sample 126/205: inventarbuch-240.jpg
+  Created augmentation 1: inventarbuch-240_aug1.jpg (Applied: contrast_1.02, sharpness_0.85)
+  Created augmentation 2: inventarbuch-240_aug2.jpg (Applied: contrast_0.99, sharpness_1.16)
+Processing sample 127/205: inventarbuch-219.jpg
+  Created augmentation 1: inventarbuch-219_aug1.jpg (Applied: brightness_1.07)
+  Created augmentation 2: inventarbuch-219_aug2.jpg (Applied: sharpness_0.95, rotate_0.1)
+Processing sample 128/205: inventarbuch-098.jpg
+  Created augmentation 1: inventarbuch-098_aug1.jpg (Applied: brightness_1.00, sharpness_1.11)
+  Created augmentation 2: inventarbuch-098_aug2.jpg (Applied: sharpness_1.13, rotate_0.2)
+Processing sample 129/205: inventarbuch-257.jpg
+  Created augmentation 1: inventarbuch-257_aug1.jpg (Applied: contrast_0.91, sharpness_1.04, blur_0.23)
+  Created augmentation 2: inventarbuch-257_aug2.jpg (Applied: brightness_0.96, blur_0.27)
+Processing sample 130/205: inventarbuch-052.jpg
+  Created augmentation 1: inventarbuch-052_aug1.jpg (Applied: contrast_1.02, rotate_0.9)
+  Created augmentation 2: inventarbuch-052_aug2.jpg (Applied: brightness_0.98, contrast_1.05, sharpness_0.81, rotate_-1.7)
+Processing sample 131/205: inventarbuch-139.jpg
+  Created augmentation 1: inventarbuch-139_aug1.jpg (Applied: brightness_1.02, contrast_1.09, sharpness_0.87, rotate_0.3, blur_0.18)
+  Created augmentation 2: inventarbuch-139_aug2.jpg (Applied: brightness_0.94, contrast_0.97, sharpness_0.94, rotate_0.3)
+Processing sample 132/205: inventarbuch-079.jpg
+  Created augmentation 1: inventarbuch-079_aug1.jpg (Applied: sharpness_1.16, blur_0.18)
+  Created augmentation 2: inventarbuch-079_aug2.jpg (Applied: brightness_1.09, sharpness_0.82)
+Processing sample 133/205: inventarbuch-029.jpg
+  Created augmentation 1: inventarbuch-029_aug1.jpg (Applied: brightness_1.08, contrast_1.01, sharpness_0.84)
+  Created augmentation 2: inventarbuch-029_aug2.jpg (Applied: sharpness_1.00)
+Processing sample 134/205: inventarbuch-135.jpg
+  Created augmentation 1: inventarbuch-135_aug1.jpg (Applied: brightness_0.98, contrast_1.10)
+  Created augmentation 2: inventarbuch-135_aug2.jpg (Applied: contrast_1.07, sharpness_0.94)
+Processing sample 135/205: inventarbuch-047.jpg
+  Created augmentation 1: inventarbuch-047_aug1.jpg (Applied: sharpness_0.88)
+  Created augmentation 2: inventarbuch-047_aug2.jpg (Applied: brightness_0.92)
+Processing sample 136/205: inventarbuch-133.jpg
+  Created augmentation 1: inventarbuch-133_aug1.jpg (Applied: brightness_1.01, contrast_0.90)
+  Created augmentation 2: inventarbuch-133_aug2.jpg (Applied: brightness_0.93, sharpness_1.03, rotate_0.4)
+Processing sample 137/205: inventarbuch-284.jpg
+  Created augmentation 1: inventarbuch-284_aug1.jpg (Applied: contrast_1.05, sharpness_1.12)
+  Created augmentation 2: inventarbuch-284_aug2.jpg (Applied: sharpness_1.07, rotate_-0.2)
+Processing sample 138/205: inventarbuch-001.jpg
+  Created augmentation 1: inventarbuch-001_aug1.jpg (Applied: brightness_0.99)
+  Created augmentation 2: inventarbuch-001_aug2.jpg (Applied: brightness_0.93)
+Processing sample 139/205: inventarbuch-233.jpg
+  Created augmentation 1: inventarbuch-233_aug1.jpg (Applied: brightness_0.99, contrast_1.03, rotate_-1.1, blur_0.13)
+  Created augmentation 2: inventarbuch-233_aug2.jpg (Applied: brightness_1.10, contrast_1.00)
+Processing sample 140/205: inventarbuch-163.jpg
+  Created augmentation 1: inventarbuch-163_aug1.jpg (Applied: contrast_1.08, sharpness_0.93)
+  Created augmentation 2: inventarbuch-163_aug2.jpg (Applied: rotate_-1.1)
+Processing sample 141/205: inventarbuch-295.jpg
+  Created augmentation 1: inventarbuch-295_aug1.jpg (Applied: brightness_0.91, sharpness_0.87)
+  Created augmentation 2: inventarbuch-295_aug2.jpg (Applied: sharpness_0.99)
+Processing sample 142/205: inventarbuch-261.jpg
+  Created augmentation 1: inventarbuch-261_aug1.jpg (Applied: brightness_1.07, rotate_-0.5)
+  Created augmentation 2: inventarbuch-261_aug2.jpg (Applied: contrast_0.91, sharpness_0.84)
+Processing sample 143/205: inventarbuch-165.jpg
+  Created augmentation 1: inventarbuch-165_aug1.jpg (Applied: contrast_1.05)
+  Created augmentation 2: inventarbuch-165_aug2.jpg (Applied: brightness_1.03, contrast_0.96, sharpness_0.95)
+Processing sample 144/205: inventarbuch-090.jpg
+  Created augmentation 1: inventarbuch-090_aug1.jpg (Applied: contrast_0.99, sharpness_1.17)
+  Created augmentation 2: inventarbuch-090_aug2.jpg (Applied: brightness_1.07, contrast_0.96)
+Processing sample 145/205: inventarbuch-198.jpg
+  Created augmentation 1: inventarbuch-198_aug1.jpg (Applied: rotate_-1.4, blur_0.47)
+  Created augmentation 2: inventarbuch-198_aug2.jpg (Applied: brightness_1.09, contrast_1.03, sharpness_0.94)
+Processing sample 146/205: inventarbuch-278.jpg
+  Created augmentation 1: inventarbuch-278_aug1.jpg (Applied: sharpness_0.93)
+  Created augmentation 2: inventarbuch-278_aug2.jpg (Applied: contrast_0.94, sharpness_1.12)
+Processing sample 147/205: inventarbuch-031.jpg
+  Created augmentation 1: inventarbuch-031_aug1.jpg (Applied: brightness_1.00, sharpness_1.15)
+  Created augmentation 2: inventarbuch-031_aug2.jpg (Applied: contrast_0.99, rotate_0.2)
+Processing sample 148/205: inventarbuch-003.jpg
+  Created augmentation 1: inventarbuch-003_aug1.jpg (Applied: minimal)
+  Created augmentation 2: inventarbuch-003_aug2.jpg (Applied: contrast_1.09, sharpness_1.04, blur_0.36)
+Processing sample 149/205: inventarbuch-262.jpg
+  Created augmentation 1: inventarbuch-262_aug1.jpg (Applied: brightness_1.01, sharpness_0.99, rotate_1.9)
+  Created augmentation 2: inventarbuch-262_aug2.jpg (Applied: sharpness_1.07, blur_0.34)
+Processing sample 150/205: inventarbuch-066.jpg
+  Created augmentation 1: inventarbuch-066_aug1.jpg (Applied: brightness_0.98, contrast_0.90, sharpness_0.97)
+  Created augmentation 2: inventarbuch-066_aug2.jpg (Applied: contrast_0.90, sharpness_1.14)
+Processing sample 151/205: inventarbuch-271.jpg
+  Created augmentation 1: inventarbuch-271_aug1.jpg (Applied: contrast_0.96, sharpness_0.86)
+  Created augmentation 2: inventarbuch-271_aug2.jpg (Applied: brightness_0.95, contrast_1.09, sharpness_1.00, rotate_1.1)
+Processing sample 152/205: inventarbuch-301.jpg
+  Created augmentation 1: inventarbuch-301_aug1.jpg (Applied: contrast_0.92, sharpness_1.12)
+  Created augmentation 2: inventarbuch-301_aug2.jpg (Applied: brightness_0.97, contrast_1.04, sharpness_0.82, rotate_1.1)
+Processing sample 153/205: inventarbuch-211.jpg
+  Created augmentation 1: inventarbuch-211_aug1.jpg (Applied: contrast_1.07, sharpness_1.14, rotate_1.4)
+  Created augmentation 2: inventarbuch-211_aug2.jpg (Applied: brightness_0.93)
+Processing sample 154/205: inventarbuch-101.jpg
+  Created augmentation 1: inventarbuch-101_aug1.jpg (Applied: brightness_1.06, contrast_1.09, sharpness_0.94)
+  Created augmentation 2: inventarbuch-101_aug2.jpg (Applied: sharpness_0.82)
+Processing sample 155/205: inventarbuch-196.jpg
+  Created augmentation 1: inventarbuch-196_aug1.jpg (Applied: sharpness_0.98)
+  Created augmentation 2: inventarbuch-196_aug2.jpg (Applied: sharpness_1.13)
+Processing sample 156/205: inventarbuch-158.jpg
+  Created augmentation 1: inventarbuch-158_aug1.jpg (Applied: brightness_1.05, contrast_1.08)
+  Created augmentation 2: inventarbuch-158_aug2.jpg (Applied: brightness_0.94, contrast_1.09, blur_0.37)
+Processing sample 157/205: inventarbuch-112.jpg
+  Created augmentation 1: inventarbuch-112_aug1.jpg (Applied: brightness_1.06, sharpness_0.96)
+  Created augmentation 2: inventarbuch-112_aug2.jpg (Applied: sharpness_0.88)
+Processing sample 158/205: inventarbuch-042.jpg
+  Created augmentation 1: inventarbuch-042_aug1.jpg (Applied: brightness_0.93, contrast_0.97, sharpness_0.84, blur_0.39)
+  Created augmentation 2: inventarbuch-042_aug2.jpg (Applied: brightness_1.06, contrast_0.91, rotate_-0.2)
+Processing sample 159/205: inventarbuch-041.jpg
+  Created augmentation 1: inventarbuch-041_aug1.jpg (Applied: brightness_1.07)
+  Created augmentation 2: inventarbuch-041_aug2.jpg (Applied: brightness_1.00, sharpness_0.90)
+Processing sample 160/205: inventarbuch-030.jpg
+  Created augmentation 1: inventarbuch-030_aug1.jpg (Applied: brightness_1.06, sharpness_1.04, rotate_-1.8)
+  Created augmentation 2: inventarbuch-030_aug2.jpg (Applied: brightness_0.95, sharpness_1.00, rotate_0.4)
+Processing sample 161/205: inventarbuch-307.jpg
+  Created augmentation 1: inventarbuch-307_aug1.jpg (Applied: minimal)
+  Created augmentation 2: inventarbuch-307_aug2.jpg (Applied: contrast_0.97, sharpness_0.96, blur_0.15)
+Processing sample 162/205: inventarbuch-025.jpg
+  Created augmentation 1: inventarbuch-025_aug1.jpg (Applied: brightness_1.07, sharpness_1.11, blur_0.16)
+  Created augmentation 2: inventarbuch-025_aug2.jpg (Applied: brightness_0.91, sharpness_0.95)
+Processing sample 163/205: inventarbuch-131.jpg
+  Created augmentation 1: inventarbuch-131_aug1.jpg (Applied: contrast_0.95, sharpness_1.08)
+  Created augmentation 2: inventarbuch-131_aug2.jpg (Applied: brightness_1.10, contrast_0.93)
+Processing sample 164/205: inventarbuch-136.jpg
+  Created augmentation 1: inventarbuch-136_aug1.jpg (Applied: brightness_0.97, sharpness_1.13)
+  Created augmentation 2: inventarbuch-136_aug2.jpg (Applied: contrast_1.09, sharpness_0.98)
+Processing sample 165/205: inventarbuch-205.jpg
+  Created augmentation 1: inventarbuch-205_aug1.jpg (Applied: contrast_1.04)
+  Created augmentation 2: inventarbuch-205_aug2.jpg (Applied: brightness_1.08, contrast_0.97, sharpness_0.92)
+Processing sample 166/205: inventarbuch-242.jpg
+  Created augmentation 1: inventarbuch-242_aug1.jpg (Applied: brightness_0.98, sharpness_0.89, rotate_0.2)
+  Created augmentation 2: inventarbuch-242_aug2.jpg (Applied: contrast_1.01)
+Processing sample 167/205: inventarbuch-251.jpg
+  Created augmentation 1: inventarbuch-251_aug1.jpg (Applied: sharpness_0.80, rotate_0.3)
+  Created augmentation 2: inventarbuch-251_aug2.jpg (Applied: sharpness_0.99)
+Processing sample 168/205: inventarbuch-199.jpg
+  Created augmentation 1: inventarbuch-199_aug1.jpg (Applied: contrast_1.05, sharpness_0.88, blur_0.46)
+  Created augmentation 2: inventarbuch-199_aug2.jpg (Applied: sharpness_0.81)
+Processing sample 169/205: inventarbuch-177.jpg
+  Created augmentation 1: inventarbuch-177_aug1.jpg (Applied: brightness_1.08, sharpness_1.15, rotate_0.8)
+  Created augmentation 2: inventarbuch-177_aug2.jpg (Applied: brightness_0.98, contrast_1.06, sharpness_1.06)
+Processing sample 170/205: inventarbuch-113.jpg
+  Created augmentation 1: inventarbuch-113_aug1.jpg (Applied: brightness_1.09)
+  Created augmentation 2: inventarbuch-113_aug2.jpg (Applied: contrast_1.06, sharpness_1.15, rotate_0.2)
+Processing sample 171/205: inventarbuch-155.jpg
+  Created augmentation 1: inventarbuch-155_aug1.jpg (Applied: brightness_0.94, contrast_0.95, sharpness_0.84)
+  Created augmentation 2: inventarbuch-155_aug2.jpg (Applied: brightness_1.02, sharpness_1.11)
+Processing sample 172/205: inventarbuch-208.jpg
+  Created augmentation 1: inventarbuch-208_aug1.jpg (Applied: brightness_1.00, contrast_1.07, sharpness_0.84)
+  Created augmentation 2: inventarbuch-208_aug2.jpg (Applied: sharpness_1.04)
+Processing sample 173/205: inventarbuch-268.jpg
+  Created augmentation 1: inventarbuch-268_aug1.jpg (Applied: brightness_1.04, contrast_0.92, sharpness_0.91, rotate_0.5)
+  Created augmentation 2: inventarbuch-268_aug2.jpg (Applied: sharpness_1.03, rotate_1.1)
+Processing sample 174/205: inventarbuch-149.jpg
+  Created augmentation 1: inventarbuch-149_aug1.jpg (Applied: brightness_0.94, sharpness_0.81)
+  Created augmentation 2: inventarbuch-149_aug2.jpg (Applied: brightness_1.01, contrast_1.06, sharpness_1.02)
+Processing sample 175/205: inventarbuch-065.jpg
+  Created augmentation 1: inventarbuch-065_aug1.jpg (Applied: sharpness_1.15, rotate_0.5, blur_0.33)
+  Created augmentation 2: inventarbuch-065_aug2.jpg (Applied: sharpness_1.10)
+Processing sample 176/205: inventarbuch-037.jpg
+  Created augmentation 1: inventarbuch-037_aug1.jpg (Applied: sharpness_0.90, blur_0.17)
+  Created augmentation 2: inventarbuch-037_aug2.jpg (Applied: contrast_0.98, sharpness_1.00)
+Processing sample 177/205: inventarbuch-069.jpg
+  Created augmentation 1: inventarbuch-069_aug1.jpg (Applied: minimal)
+  Created augmentation 2: inventarbuch-069_aug2.jpg (Applied: brightness_1.02, sharpness_0.93)
+Processing sample 178/205: inventarbuch-038.jpg
+  Created augmentation 1: inventarbuch-038_aug1.jpg (Applied: sharpness_0.85, rotate_-1.0)
+  Created augmentation 2: inventarbuch-038_aug2.jpg (Applied: brightness_0.96, contrast_0.95, sharpness_1.01)
+Processing sample 179/205: inventarbuch-122.jpg
+  Created augmentation 1: inventarbuch-122_aug1.jpg (Applied: contrast_1.00, blur_0.15)
+  Created augmentation 2: inventarbuch-122_aug2.jpg (Applied: brightness_1.09, sharpness_1.06, rotate_1.8)
+Processing sample 180/205: inventarbuch-170.jpg
+  Created augmentation 1: inventarbuch-170_aug1.jpg (Applied: brightness_0.91)
+  Created augmentation 2: inventarbuch-170_aug2.jpg (Applied: sharpness_1.02)
+Processing sample 181/205: inventarbuch-291.jpg
+  Created augmentation 1: inventarbuch-291_aug1.jpg (Applied: brightness_0.91, contrast_0.99, sharpness_0.81, blur_0.16)
+  Created augmentation 2: inventarbuch-291_aug2.jpg (Applied: contrast_1.03, sharpness_0.98)
+Processing sample 182/205: inventarbuch-132.jpg
+  Created augmentation 1: inventarbuch-132_aug1.jpg (Applied: blur_0.16)
+  Created augmentation 2: inventarbuch-132_aug2.jpg (Applied: brightness_1.02, contrast_1.08, sharpness_0.94, rotate_1.5)
+Processing sample 183/205: inventarbuch-174.jpg
+  Created augmentation 1: inventarbuch-174_aug1.jpg (Applied: contrast_1.04, sharpness_1.04)
+  Created augmentation 2: inventarbuch-174_aug2.jpg (Applied: sharpness_0.94)
+Processing sample 184/205: inventarbuch-195.jpg
+  Created augmentation 1: inventarbuch-195_aug1.jpg (Applied: brightness_1.07, contrast_0.94, rotate_-1.8)
+  Created augmentation 2: inventarbuch-195_aug2.jpg (Applied: brightness_1.03, rotate_-0.8, blur_0.32)
+Processing sample 185/205: inventarbuch-200.jpg
+  Created augmentation 1: inventarbuch-200_aug1.jpg (Applied: contrast_0.90)
+  Created augmentation 2: inventarbuch-200_aug2.jpg (Applied: brightness_0.93, contrast_1.05, sharpness_1.03)
+Processing sample 186/205: inventarbuch-273.jpg
+  Created augmentation 1: inventarbuch-273_aug1.jpg (Applied: brightness_0.92)
+  Created augmentation 2: inventarbuch-273_aug2.jpg (Applied: brightness_1.07, contrast_0.94, sharpness_1.13)
+Processing sample 187/205: inventarbuch-151.jpg
+  Created augmentation 1: inventarbuch-151_aug1.jpg (Applied: brightness_0.98, sharpness_0.96)
+  Created augmentation 2: inventarbuch-151_aug2.jpg (Applied: brightness_0.98, blur_0.32)
+Processing sample 188/205: inventarbuch-056.jpg
+  Created augmentation 1: inventarbuch-056_aug1.jpg (Applied: sharpness_1.19, rotate_-1.9)
+  Created augmentation 2: inventarbuch-056_aug2.jpg (Applied: contrast_0.93, sharpness_1.01, blur_0.42)
+Processing sample 189/205: inventarbuch-298.jpg
+  Created augmentation 1: inventarbuch-298_aug1.jpg (Applied: brightness_1.06, sharpness_0.81)
+  Created augmentation 2: inventarbuch-298_aug2.jpg (Applied: brightness_0.95, sharpness_1.11, rotate_-0.7)
+Processing sample 190/205: inventarbuch-224.jpg
+  Created augmentation 1: inventarbuch-224_aug1.jpg (Applied: brightness_0.93, contrast_0.91, rotate_-1.8, blur_0.33)
+  Created augmentation 2: inventarbuch-224_aug2.jpg (Applied: brightness_0.99, contrast_0.92, sharpness_0.93)
+Processing sample 191/205: inventarbuch-105.jpg
+  Created augmentation 1: inventarbuch-105_aug1.jpg (Applied: brightness_1.02, contrast_0.95)
+  Created augmentation 2: inventarbuch-105_aug2.jpg (Applied: contrast_0.91, sharpness_0.81)
+Processing sample 192/205: inventarbuch-083.jpg
+  Created augmentation 1: inventarbuch-083_aug1.jpg (Applied: brightness_1.05, contrast_1.03, sharpness_1.18, rotate_-0.2)
+  Created augmentation 2: inventarbuch-083_aug2.jpg (Applied: sharpness_1.05)
+Processing sample 193/205: inventarbuch-010.jpg
+  Created augmentation 1: inventarbuch-010_aug1.jpg (Applied: contrast_1.09, sharpness_1.04)
+  Created augmentation 2: inventarbuch-010_aug2.jpg (Applied: minimal)
+Processing sample 194/205: inventarbuch-243.jpg
+  Created augmentation 1: inventarbuch-243_aug1.jpg (Applied: brightness_1.03, sharpness_0.88, rotate_1.7)
+  Created augmentation 2: inventarbuch-243_aug2.jpg (Applied: brightness_0.93, sharpness_1.11)
+Processing sample 195/205: inventarbuch-016.jpg
+  Created augmentation 1: inventarbuch-016_aug1.jpg (Applied: blur_0.36)
+  Created augmentation 2: inventarbuch-016_aug2.jpg (Applied: sharpness_0.92, rotate_-0.2)
+Processing sample 196/205: inventarbuch-086.jpg
+  Created augmentation 1: inventarbuch-086_aug1.jpg (Applied: sharpness_0.84)
+  Created augmentation 2: inventarbuch-086_aug2.jpg (Applied: brightness_0.92, contrast_1.03)
+Processing sample 197/205: inventarbuch-182.jpg
+  Created augmentation 1: inventarbuch-182_aug1.jpg (Applied: brightness_0.99, contrast_0.92, sharpness_0.88, blur_0.43)
+  Created augmentation 2: inventarbuch-182_aug2.jpg (Applied: sharpness_0.82)
+Processing sample 198/205: inventarbuch-058.jpg
+  Created augmentation 1: inventarbuch-058_aug1.jpg (Applied: brightness_1.06, contrast_1.08, sharpness_0.86)
+  Created augmentation 2: inventarbuch-058_aug2.jpg (Applied: contrast_0.94, sharpness_0.87, rotate_-1.4, blur_0.35)
+Processing sample 199/205: inventarbuch-282.jpg
+  Created augmentation 1: inventarbuch-282_aug1.jpg (Applied: brightness_1.07, sharpness_0.84, rotate_-1.3)
+  Created augmentation 2: inventarbuch-282_aug2.jpg (Applied: contrast_1.04, sharpness_1.01)
+Processing sample 200/205: inventarbuch-293.jpg
+  Created augmentation 1: inventarbuch-293_aug1.jpg (Applied: brightness_1.01, contrast_1.06, sharpness_1.14, blur_0.19)
+  Created augmentation 2: inventarbuch-293_aug2.jpg (Applied: sharpness_0.86, blur_0.46)
+Processing sample 201/205: inventarbuch-169.jpg
+  Created augmentation 1: inventarbuch-169_aug1.jpg (Applied: brightness_1.03, sharpness_0.90, rotate_-0.7)
+  Created augmentation 2: inventarbuch-169_aug2.jpg (Applied: contrast_1.09, rotate_-0.4)
+Processing sample 202/205: inventarbuch-071.jpg
+  Created augmentation 1: inventarbuch-071_aug1.jpg (Applied: contrast_0.94, sharpness_0.87, rotate_-0.7, blur_0.38)
+  Created augmentation 2: inventarbuch-071_aug2.jpg (Applied: contrast_1.01, sharpness_0.98)
+Processing sample 203/205: inventarbuch-255.jpg
+  Created augmentation 1: inventarbuch-255_aug1.jpg (Applied: contrast_1.06, sharpness_0.92, rotate_1.6)
+  Created augmentation 2: inventarbuch-255_aug2.jpg (Applied: minimal)
+Processing sample 204/205: inventarbuch-123.jpg
+  Created augmentation 1: inventarbuch-123_aug1.jpg (Applied: contrast_1.00, sharpness_1.15)
+  Created augmentation 2: inventarbuch-123_aug2.jpg (Applied: sharpness_1.14, rotate_-1.9)
+Processing sample 205/205: inventarbuch-254.jpg
+  Created augmentation 1: inventarbuch-254_aug1.jpg (Applied: sharpness_1.12, rotate_-0.6)
+  Created augmentation 2: inventarbuch-254_aug2.jpg (Applied: brightness_0.97, contrast_0.99)
+Created 615 total samples (original + augmented)
+Augmentation multiplier: 3.0x
+Preparing validation dataset (no augmentation)...
+Training: 615 samples (with augmentation), Validation: 44 samples
+Unsloth: Model does not have a default image size - using 512
+GPU = Tesla V100-PCIE-32GB. Max memory = 31.733 GB.
+7.82 GB of memory reserved.
+Starting training with early stopping and data augmentation...
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 3.6038, 'grad_norm': 11.422999382019043, 'learning_rate': 6e-06, 'epoch': 0.13}
+{'loss': 2.8438, 'grad_norm': 8.626407623291016, 'learning_rate': 1.4000000000000001e-05, 'epoch': 0.26}
+{'loss': 1.8982, 'grad_norm': 4.262372970581055, 'learning_rate': 2.4e-05, 'epoch': 0.39}
+{'loss': 1.3303, 'grad_norm': 4.9829816818237305, 'learning_rate': 3.4000000000000007e-05, 'epoch': 0.52}
+{'loss': 1.1185, 'grad_norm': 2.5013480186462402, 'learning_rate': 4.4000000000000006e-05, 'epoch': 0.65}
+{'loss': 1.057, 'grad_norm': 3.828648090362549, 'learning_rate': 4.9999110891770654e-05, 'epoch': 0.78}
+{'loss': 0.915, 'grad_norm': 2.7369024753570557, 'learning_rate': 4.998910915046048e-05, 'epoch': 0.91}
+{'eval_loss': 1.059258222579956, 'eval_runtime': 17.5347, 'eval_samples_per_second': 2.509, 'eval_steps_per_second': 1.255, 'epoch': 1.0}
+{'loss': 0.8285, 'grad_norm': 5.798787593841553, 'learning_rate': 4.9967998743552526e-05, 'epoch': 1.04}
+{'loss': 0.7365, 'grad_norm': 3.137615442276001, 'learning_rate': 4.9935789055473e-05, 'epoch': 1.17}
+{'loss': 0.6953, 'grad_norm': 11.507326126098633, 'learning_rate': 4.989249440472569e-05, 'epoch': 1.3}
+{'loss': 0.6347, 'grad_norm': 3.289158821105957, 'learning_rate': 4.98381340375268e-05, 'epoch': 1.43}
+{'loss': 0.6329, 'grad_norm': 3.918267011642456, 'learning_rate': 4.977273211924921e-05, 'epoch': 1.56}
+{'loss': 0.5961, 'grad_norm': 20.615222930908203, 'learning_rate': 4.969631772368005e-05, 'epoch': 1.69}
+{'loss': 0.5566, 'grad_norm': 7.2392988204956055, 'learning_rate': 4.960892482009617e-05, 'epoch': 1.82}
+{'loss': 0.5544, 'grad_norm': 6.300304412841797, 'learning_rate': 4.951059225816347e-05, 'epoch': 1.95}
+{'eval_loss': 1.225042462348938, 'eval_runtime': 17.1205, 'eval_samples_per_second': 2.57, 'eval_steps_per_second': 1.285, 'epoch': 2.0}
+{'loss': 0.3814, 'grad_norm': 3.9621543884277344, 'learning_rate': 4.940136375066664e-05, 'epoch': 2.08}
+{'loss': 0.263, 'grad_norm': 4.3791961669921875, 'learning_rate': 4.928128785407707e-05, 'epoch': 2.21}
+{'loss': 0.2131, 'grad_norm': 2.581448793411255, 'learning_rate': 4.915041794696755e-05, 'epoch': 2.34}
+{'loss': 0.2032, 'grad_norm': 4.242034435272217, 'learning_rate': 4.900881220628332e-05, 'epoch': 2.47}
+{'loss': 0.1412, 'grad_norm': 3.2789559364318848, 'learning_rate': 4.8856533581480094e-05, 'epoch': 2.6}
+{'loss': 0.1736, 'grad_norm': 10.365199089050293, 'learning_rate': 4.8693649766540516e-05, 'epoch': 2.73}
+{'loss': 0.1341, 'grad_norm': 9.899090766906738, 'learning_rate': 4.85202331698814e-05, 'epoch': 2.86}
+{'loss': 0.1039, 'grad_norm': 2.820340156555176, 'learning_rate': 4.833636088216532e-05, 'epoch': 2.99}
+{'eval_loss': 1.4571189880371094, 'eval_runtime': 17.2522, 'eval_samples_per_second': 2.55, 'eval_steps_per_second': 1.275, 'epoch': 3.0}
+{'loss': 0.0485, 'grad_norm': 1.9447784423828125, 'learning_rate': 4.8142114642030665e-05, 'epoch': 3.12}
+{'loss': 0.0447, 'grad_norm': 2.739187717437744, 'learning_rate': 4.7937580799755585e-05, 'epoch': 3.25}
+{'loss': 0.0657, 'grad_norm': 2.0127315521240234, 'learning_rate': 4.772285027887174e-05, 'epoch': 3.38}
+{'loss': 0.0461, 'grad_norm': 2.1594974994659424, 'learning_rate': 4.749801853574517e-05, 'epoch': 3.51}
+{'loss': 0.0403, 'grad_norm': 1.4286293983459473, 'learning_rate': 4.726318551714209e-05, 'epoch': 3.64}
+{'loss': 0.0498, 'grad_norm': 2.2968506813049316, 'learning_rate': 4.701845561579853e-05, 'epoch': 3.77}
+{'loss': 0.0405, 'grad_norm': 2.2383012771606445, 'learning_rate': 4.676393762401353e-05, 'epoch': 3.9}
+{'eval_loss': 1.5347720384597778, 'eval_runtime': 17.2901, 'eval_samples_per_second': 2.545, 'eval_steps_per_second': 1.272, 'epoch': 4.0}
+{'train_runtime': 3065.3544, 'train_samples_per_second': 4.013, 'train_steps_per_second': 0.502, 'train_loss': 0.648554321571991, 'epoch': 4.0}
+3065.3544 seconds used for training.
+51.09 minutes used for training.
+Peak reserved memory = 10.34 GB.
+Peak reserved memory for training = 2.52 GB.
+Peak reserved memory % of max memory = 32.584 %.
+Peak reserved memory for training % of max memory = 7.941 %.
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250727_230915...
+Saving model in recommended formats...
+Model saved successfully in multiple formats!
+
+============================================================
+STARTING EVALUATION ON TEST.JSONL
+============================================================
+Starting evaluation on test.jsonl...
+Loaded 45 test samples
+Processing test image 1/45: inventarbuch-022.jpg
+  Processed successfully. CER: 0.257
+Processing test image 2/45: inventarbuch-099.jpg
+  Processed successfully. CER: 0.185
+Processing test image 3/45: inventarbuch-245.jpg
+  Processed successfully. CER: 0.227
+Processing test image 4/45: inventarbuch-263.jpg
+  Processed successfully. CER: 0.175
+Processing test image 5/45: inventarbuch-033.jpg
+  Processed successfully. CER: 0.338
+Processing test image 6/45: inventarbuch-143.jpg
+  Processed successfully. CER: 0.159
+Processing test image 7/45: inventarbuch-244.jpg
+  Processed successfully. CER: 0.397
+Processing test image 8/45: inventarbuch-024.jpg
+  Processed successfully. CER: 0.049
+Processing test image 9/45: inventarbuch-141.jpg
+  Processed successfully. CER: 0.114
+Processing test image 10/45: inventarbuch-183.jpg
+  Processed successfully. CER: 0.407
+Processing test image 11/45: inventarbuch-191.jpg
+  Processed successfully. CER: 0.251
+Processing test image 12/45: inventarbuch-051.jpg
+  Processed successfully. CER: 0.072
+Processing test image 13/45: inventarbuch-203.jpg
+  Processed successfully. CER: 0.215
+Processing test image 14/45: inventarbuch-296.jpg
+  Processed successfully. CER: 1.000
+Processing test image 15/45: inventarbuch-302.jpg
+  Processed successfully. CER: 0.028
+Processing test image 16/45: inventarbuch-179.jpg
+  Processed successfully. CER: 0.223
+Processing test image 17/45: inventarbuch-114.jpg
+  Processed successfully. CER: 0.227
+Processing test image 18/45: inventarbuch-082.jpg
+  Processed successfully. CER: 0.285
+Processing test image 19/45: inventarbuch-287.jpg
+  Processed successfully. CER: 0.352
+Processing test image 20/45: inventarbuch-181.jpg
+  Processed successfully. CER: 0.265
+Processing test image 21/45: inventarbuch-299.jpg
+  Processed successfully. CER: 0.231
+Processing test image 22/45: inventarbuch-084.jpg
+  Processed successfully. CER: 0.372
+Processing test image 23/45: inventarbuch-004.jpg
+  Processed successfully. CER: 0.184
+Processing test image 24/45: inventarbuch-148.jpg
+  Processed successfully. CER: 0.093
+Processing test image 25/45: inventarbuch-238.jpg
+  Processed successfully. CER: 0.237
+Processing test image 26/45: inventarbuch-116.jpg
+  Processed successfully. CER: 0.144
+Processing test image 27/45: inventarbuch-223.jpg
+  Processed successfully. CER: 0.164
+Processing test image 28/45: inventarbuch-104.jpg
+  Processed successfully. CER: 0.276
+Processing test image 29/45: inventarbuch-015.jpg
+  Processed successfully. CER: 0.261
+Processing test image 30/45: inventarbuch-272.jpg
+  Processed successfully. CER: 0.220
+Processing test image 31/45: inventarbuch-124.jpg
+  Processed successfully. CER: 0.161
+Processing test image 32/45: inventarbuch-115.jpg
+  Processed successfully. CER: 0.226
+Processing test image 33/45: inventarbuch-049.jpg
+  Processed successfully. CER: 0.033
+Processing test image 34/45: inventarbuch-017.jpg
+  Processed successfully. CER: 0.023
+Processing test image 35/45: inventarbuch-018.jpg
+  Processed successfully. CER: 0.229
+Processing test image 36/45: inventarbuch-225.jpg
+  Processed successfully. CER: 0.350
+Processing test image 37/45: inventarbuch-046.jpg
+  Processed successfully. CER: 0.242
+Processing test image 38/45: inventarbuch-294.jpg
+  Processed successfully. CER: 0.132
+Processing test image 39/45: inventarbuch-054.jpg
+  Processed successfully. CER: 0.315
+Processing test image 40/45: inventarbuch-073.jpg
+  Processed successfully. CER: 0.297
+Processing test image 41/45: inventarbuch-118.jpg
+  Processed successfully. CER: 0.203
+Processing test image 42/45: inventarbuch-130.jpg
+  Processed successfully. CER: 0.163
+Processing test image 43/45: inventarbuch-146.jpg
+  Processed successfully. CER: 0.250
+Processing test image 44/45: inventarbuch-014.jpg
+  Processed successfully. CER: 0.235
+Processing test image 45/45: inventarbuch-059.jpg
+  Processed successfully. CER: 0.216
+CER evaluation results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250727_230915/cer_evaluation_results.txt
+
+Evaluation completed!
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250727_230915/test_predictions.jsonl
+CER results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250727_230915/cer_evaluation_results.txt
+All files saved in: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250727_230915
+
+============================================================
+FINAL RESULTS SUMMARY
+============================================================
+Average CER: 0.2330 (23.30%)
+Median CER: 0.2270 (22.70%)
+Perfect matches: 0/45 (0.00%)
+Total images processed: 45
+
+Training and evaluation completed successfully!
+All outputs saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250727_230915
+=== JOB_STATISTICS ===
+=== current date     : Mon Jul 28 12:20:17 AM CEST 2025
+= Job-ID             : 1132854 on tinygpu
+= Job-Name           : qwen_inven
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 01:11:34
+= Total RAM usage    : 11.7 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2025-07-27T23:09:00 / 2025-07-27T23:09:00 / 2025-07-27T23:09:01 / 2025-07-28T00:20:35
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody            71.2G  1000.0G  1500.0G        N/A     239K   5,000K   7,500K        N/A    
+    /home/hpc              90.4G   104.9G   209.7G        N/A  31,976      500K   1,000K        N/A    
+    /home/vault           158.9G  1048.6G  2097.2G        N/A     766      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:AF:00.0, 2793638, 51 %, 23 %, 10998 MiB, 4286207 ms

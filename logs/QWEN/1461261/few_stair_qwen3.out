@@ -1,0 +1,232 @@
+### Starting TaskPrologue of job 1461261 on tg072 at Tue Dec  9 04:53:58 AM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Tue Dec  9 04:53:58 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   51C    P0             34W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Loading test data...
+Loaded 24 test samples from /home/woody/iwi5/iwi5298h/json_staircase/test.jsonl
+
+Loading training data...
+Loaded 115 training samples from /home/woody/iwi5/iwi5298h/json_staircase/train.jsonl
+
+Selecting fixed few-shot examples (8) and (149)...
+  ✓ Found: FMIS_FormblätterMielke_gefüllt (8).jpg
+    Path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (8).jpg
+  ✓ Found: FMIS_FormblätterMielke_gefüllt (149).jpg
+    Path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (149).jpg
+
+============================================================
+Using 2 fixed few-shot examples:
+  1. FMIS_FormblätterMielke_gefüllt (8).jpg
+     Path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (8).jpg
+  2. FMIS_FormblätterMielke_gefüllt (149).jpg
+     Path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (149).jpg
+============================================================
+Loading Qwen3-VL-8B-Instruct model for few-shot Staircase OCR...
+Found existing model in /home/vault/iwi5/iwi5298h/models/qwen3. Using local weights.
+Model loaded from /home/vault/iwi5/iwi5298h/models/qwen3, dtype=torch.float16
+GPU Memory - Allocated: 17.53 GB, Reserved: 17.56 GB
+
+Creating few-shot messages...
+  Few-shot example 1: FMIS_FormblätterMielke_gefüllt (8).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (8).jpg
+    Exists: True
+  Resizing FMIS_FormblätterMielke_gefüllt (8).jpg from 2480x3540 to 717x1024
+  Few-shot example 2: FMIS_FormblätterMielke_gefüllt (149).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (149).jpg
+    Exists: True
+  Resizing FMIS_FormblätterMielke_gefüllt (149).jpg from 2487x3545 to 718x1024
+Created few-shot conversation with 4 messages
+Total images per inference: 2 few-shot + 1 test (each dual-view where available)
+
+Processing 24 test images (few-shot)...
+
+[1/24] Processing: FMIS_FormblätterMielke_gefüllt (83).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (83).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (83).jpg from 2491x3545 to 719x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[2/24] Processing: FMIS_FormblätterMielke_gefüllt (45).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (45).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (45).jpg from 2500x3545 to 722x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[3/24] Processing: FMIS_FormblätterMielke_gefüllt (27).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (27).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (27).jpg from 2490x3534 to 721x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[4/24] Processing: FMIS_FormblätterMielke_gefüllt (130).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (130).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (130).jpg from 2483x3545 to 717x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[5/24] Processing: FMIS_FormblätterMielke_gefüllt (129).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (129).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (129).jpg from 2479x3549 to 715x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[6/24] Processing: FMIS_FormblätterMielke_gefüllt (88).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (88).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (88).jpg from 2483x3541 to 718x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[7/24] Processing: FMIS_FormblätterMielke_gefüllt (102).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (102).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (102).jpg from 2487x3545 to 718x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[8/24] Processing: FMIS_FormblätterMielke_gefüllt (103).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (103).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (103).jpg from 2487x3549 to 717x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[9/24] Processing: FMIS_FormblätterMielke_gefüllt (165).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (165).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (165).jpg from 2504x3562 to 719x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[10/24] Processing: FMIS_FormblätterMielke_gefüllt (43).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (43).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (43).jpg from 2495x3554 to 718x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[11/24] Processing: FMIS_FormblätterMielke_gefüllt (11).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (11).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (11).jpg from 2504x3564 to 719x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[12/24] Processing: FMIS_FormblätterMielke_gefüllt (36).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (36).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (36).jpg from 2488x3538 to 720x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[13/24] Processing: FMIS_FormblätterMielke_gefüllt (87).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (87).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (87).jpg from 2495x3549 to 719x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[14/24] Processing: FMIS_FormblätterMielke_gefüllt (94).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (94).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (94).jpg from 2504x3541 to 724x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[15/24] Processing: FMIS_FormblätterMielke_gefüllt (58).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (58).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (58).jpg from 2483x3545 to 717x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[16/24] Processing: FMIS_FormblätterMielke_gefüllt (111).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (111).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (111).jpg from 2479x3545 to 716x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[17/24] Processing: FMIS_FormblätterMielke_gefüllt (99).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (99).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (99).jpg from 2487x3549 to 717x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[18/24] Processing: FMIS_FormblätterMielke_gefüllt (116).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (116).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (116).jpg from 2483x3537 to 718x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[19/24] Processing: FMIS_FormblätterMielke_Vorlage3.jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_Vorlage3.jpg
+  Resizing FMIS_FormblätterMielke_Vorlage3.jpg from 2500x3562 to 718x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[20/24] Processing: FMIS_FormblätterMielke_gefüllt (132).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (132).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (132).jpg from 2491x3574 to 713x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[21/24] Processing: FMIS_FormblätterMielke_gefüllt (139).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (139).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (139).jpg from 2479x3545 to 716x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[22/24] Processing: FMIS_FormblätterMielke_gefüllt (66).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (66).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (66).jpg from 2479x3545 to 716x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[23/24] Processing: FMIS_FormblätterMielke_gefüllt (105).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (105).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (105).jpg from 2483x3545 to 717x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+[24/24] Processing: FMIS_FormblätterMielke_gefüllt (13).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (13).jpg
+  Resizing FMIS_FormblätterMielke_gefüllt (13).jpg from 2482x3538 to 718x1024
+  ERROR: string indices must be integers, not 'str' (type=<class 'TypeError'>)
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/qwen3/stair_shots/few_stair_20251209_045709
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen3/stair_shots/few_stair_20251209_045709/predictions.jsonl
+
+============================================================
+CER EVALUATION RESULTS (Few-shot Qwen3-VL-8B-Instruct)
+============================================================
+
+CER over 24 images:
+--------------------------------------------------
+Average CER: 1.0000 (100.00%)
+Minimum CER: 1.0000 (100.00%)
+Maximum CER: 1.0000 (100.00%)
+
+Weighted CER: 1.0000 (100.00%)
+Total characters: 33973
+Total errors: 33973
+Perfect matches: 0/24 (0.0%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen3/stair_shots/few_stair_20251209_045709/cer_evaluation_summary.json
+
+============================================================
+Few-shot Staircase processing complete! (Qwen3-VL-8B-Instruct)
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen3/stair_shots/few_stair_20251209_045709
+Total images processed: 24
+Average CER on test set: 1.0000 (100.00%)
+============================================================
+
+=== JOB_STATISTICS ===
+=== current date     : Tue Dec  9 04:57:11 AM CET 2025
+= Job-ID             : 1461261 on tinygpu
+= Job-Name           : few_stair_qwen3
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 00:03:18
+= Total RAM usage    : 17.7 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-12-09T02:41:04 / 2025-12-09T02:41:04 / 2025-12-09T04:53:53 / 2025-12-09T04:57:11
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.3G   104.9G   209.7G        N/A  28,537      500K   1,000K        N/A    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/vault           921.0G  1048.6G  2097.2G        N/A   6,677      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 3670383, 1 %, 0 %, 17048 MiB, 170892 ms

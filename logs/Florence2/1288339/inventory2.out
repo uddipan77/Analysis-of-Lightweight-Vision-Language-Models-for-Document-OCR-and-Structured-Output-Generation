@@ -1,0 +1,269 @@
+### Starting TaskPrologue of job 1288339 on tg072 at Fri Oct 24 02:49:07 PM CEST 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Fri Oct 24 14:49:07 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:86:00.0 Off |                    0 |
+| N/A   32C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+========================================
+Florence-2 OCR Fine-tuning Job Configuration:
+========================================
+Job ID: 1288339
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/Florence2/1288339
+CUDA Device: 0
+Job started at: Fri Oct 24 02:49:14 PM CEST 2025
+========================================
+Loading datasets...
+Loaded 213 training samples
+Loaded 47 validation samples
+Loaded 48 test samples
+Using device: cuda
+Output directory: /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/lora_run_20251024_144950
+Loading Florence-2 model...
+Applying LoRA...
+✅ Model loaded successfully!
+Trainable params: 11,321,344 (1.44%)
+LoRA modules: 408
+Model with LoRA loaded successfully!
+Preparing datasets...
+Train dataset size: 213
+Validation dataset size: 47
+Starting LoRA training...
+{'loss': 4.174, 'grad_norm': 1.8793495893478394, 'learning_rate': 8.999999999999999e-05, 'epoch': 0.37}
+{'loss': 3.2614, 'grad_norm': 2.1795198917388916, 'learning_rate': 0.00019, 'epoch': 0.75}
+{'eval_cer': 0.5079343217746501, 'eval_perfect_matches': 0.0, 'eval_loss': 2.1165754795074463, 'eval_runtime': 18.4053, 'eval_samples_per_second': 2.554, 'eval_steps_per_second': 1.304, 'epoch': 1.0}
+
+📊 Epoch 1 - Validation CER: 0.5079 (50.79%)
+🎯 New best CER: 0.5079 (improved by inf)
+✅ Model saved to /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/lora_run_20251024_144950/best_model
+
+{'loss': 2.4809, 'grad_norm': 2.0036938190460205, 'learning_rate': 0.00029, 'epoch': 1.11}
+{'loss': 1.8987, 'grad_norm': 1.6720865964889526, 'learning_rate': 0.00039000000000000005, 'epoch': 1.49}
+{'loss': 1.7148, 'grad_norm': 1.9412153959274292, 'learning_rate': 0.00049, 'epoch': 1.86}
+{'eval_cer': 0.2523411781286988, 'eval_perfect_matches': 0.0, 'eval_loss': 1.547098994255066, 'eval_runtime': 18.3112, 'eval_samples_per_second': 2.567, 'eval_steps_per_second': 1.311, 'epoch': 2.0}
+
+📊 Epoch 2 - Validation CER: 0.2523 (25.23%)
+🎯 New best CER: 0.2523 (improved by 0.2556)
+✅ Model saved to /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/lora_run_20251024_144950/best_model
+
+{'loss': 1.5108, 'grad_norm': 1.8954330682754517, 'learning_rate': 0.00047954545454545456, 'epoch': 2.22}
+{'loss': 1.3808, 'grad_norm': 1.5443235635757446, 'learning_rate': 0.0004568181818181819, 'epoch': 2.6}
+{'loss': 1.4172, 'grad_norm': 1.383544921875, 'learning_rate': 0.0004340909090909091, 'epoch': 2.97}
+{'eval_cer': 0.22403134859588186, 'eval_perfect_matches': 0.0, 'eval_loss': 1.3754699230194092, 'eval_runtime': 18.2566, 'eval_samples_per_second': 2.574, 'eval_steps_per_second': 1.315, 'epoch': 3.0}
+
+📊 Epoch 3 - Validation CER: 0.2240 (22.40%)
+🎯 New best CER: 0.2240 (improved by 0.0283)
+✅ Model saved to /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/lora_run_20251024_144950/best_model
+
+{'loss': 1.2624, 'grad_norm': 1.4257460832595825, 'learning_rate': 0.00041136363636363636, 'epoch': 3.34}
+{'loss': 1.1046, 'grad_norm': 1.4973595142364502, 'learning_rate': 0.0003886363636363636, 'epoch': 3.71}
+{'eval_cer': 0.2285892719500729, 'eval_perfect_matches': 0.0, 'eval_loss': 1.3267505168914795, 'eval_runtime': 18.2286, 'eval_samples_per_second': 2.578, 'eval_steps_per_second': 1.317, 'epoch': 4.0}
+
+📊 Epoch 4 - Validation CER: 0.2286 (22.86%)
+   Best CER so far: 0.2240
+
+{'loss': 1.2079, 'grad_norm': 1.0550795793533325, 'learning_rate': 0.0003659090909090909, 'epoch': 4.07}
+{'loss': 1.0249, 'grad_norm': 1.366759181022644, 'learning_rate': 0.0003431818181818182, 'epoch': 4.45}
+{'loss': 1.1066, 'grad_norm': 1.2616708278656006, 'learning_rate': 0.00032045454545454543, 'epoch': 4.82}
+{'eval_cer': 0.22960794093825443, 'eval_perfect_matches': 0.0, 'eval_loss': 1.323357105255127, 'eval_runtime': 18.2799, 'eval_samples_per_second': 2.571, 'eval_steps_per_second': 1.313, 'epoch': 5.0}
+
+📊 Epoch 5 - Validation CER: 0.2296 (22.96%)
+   Best CER so far: 0.2240
+
+{'loss': 1.0131, 'grad_norm': 1.1466058492660522, 'learning_rate': 0.00029772727272727275, 'epoch': 5.19}
+{'loss': 0.945, 'grad_norm': 1.1435893774032593, 'learning_rate': 0.000275, 'epoch': 5.56}
+{'loss': 0.8881, 'grad_norm': 1.3266814947128296, 'learning_rate': 0.0002522727272727273, 'epoch': 5.93}
+{'eval_cer': 0.20709922944246817, 'eval_perfect_matches': 0.0, 'eval_loss': 1.3511028289794922, 'eval_runtime': 18.2511, 'eval_samples_per_second': 2.575, 'eval_steps_per_second': 1.315, 'epoch': 6.0}
+
+📊 Epoch 6 - Validation CER: 0.2071 (20.71%)
+🎯 New best CER: 0.2071 (improved by 0.0169)
+✅ Model saved to /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/lora_run_20251024_144950/best_model
+
+{'loss': 0.8088, 'grad_norm': 1.0017056465148926, 'learning_rate': 0.00022954545454545455, 'epoch': 6.3}
+{'loss': 0.7955, 'grad_norm': 1.236788272857666, 'learning_rate': 0.00020681818181818182, 'epoch': 6.67}
+{'eval_cer': 0.19479804331486397, 'eval_perfect_matches': 0.0, 'eval_loss': 1.3288753032684326, 'eval_runtime': 18.3184, 'eval_samples_per_second': 2.566, 'eval_steps_per_second': 1.31, 'epoch': 7.0}
+
+📊 Epoch 7 - Validation CER: 0.1948 (19.48%)
+🎯 New best CER: 0.1948 (improved by 0.0123)
+✅ Model saved to /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/lora_run_20251024_144950/best_model
+
+{'loss': 0.8416, 'grad_norm': 1.254643201828003, 'learning_rate': 0.00018409090909090909, 'epoch': 7.04}
+{'loss': 0.7659, 'grad_norm': 1.3141074180603027, 'learning_rate': 0.00016136363636363638, 'epoch': 7.41}
+{'loss': 0.7625, 'grad_norm': 1.2607632875442505, 'learning_rate': 0.00013863636363636365, 'epoch': 7.79}
+{'eval_cer': 0.19857698914018315, 'eval_perfect_matches': 0.0, 'eval_loss': 1.3431031703948975, 'eval_runtime': 18.2248, 'eval_samples_per_second': 2.579, 'eval_steps_per_second': 1.317, 'epoch': 8.0}
+
+📊 Epoch 8 - Validation CER: 0.1986 (19.86%)
+   Best CER so far: 0.1948
+
+{'loss': 0.698, 'grad_norm': 1.2620247602462769, 'learning_rate': 0.00011590909090909091, 'epoch': 8.15}
+{'loss': 0.6892, 'grad_norm': 1.111038088798523, 'learning_rate': 9.318181818181818e-05, 'epoch': 8.52}
+{'loss': 0.644, 'grad_norm': 1.2546535730361938, 'learning_rate': 7.045454545454545e-05, 'epoch': 8.9}
+{'eval_cer': 0.20742031157261825, 'eval_perfect_matches': 0.0, 'eval_loss': 1.3559658527374268, 'eval_runtime': 18.2435, 'eval_samples_per_second': 2.576, 'eval_steps_per_second': 1.316, 'epoch': 9.0}
+
+📊 Epoch 9 - Validation CER: 0.2074 (20.74%)
+   Best CER so far: 0.1948
+
+{'loss': 0.6572, 'grad_norm': 1.3855921030044556, 'learning_rate': 4.772727272727273e-05, 'epoch': 9.26}
+{'loss': 0.6507, 'grad_norm': 1.1376515626907349, 'learning_rate': 2.5e-05, 'epoch': 9.64}
+{'loss': 0.6547, 'grad_norm': 1.622231364250183, 'learning_rate': 2.2727272727272728e-06, 'epoch': 10.0}
+{'eval_cer': 0.20369135671775765, 'eval_perfect_matches': 0.0, 'eval_loss': 1.3566527366638184, 'eval_runtime': 18.2862, 'eval_samples_per_second': 2.57, 'eval_steps_per_second': 1.312, 'epoch': 10.0}
+
+📊 Epoch 10 - Validation CER: 0.2037 (20.37%)
+   Best CER so far: 0.1948
+
+{'train_runtime': 1445.9365, 'train_samples_per_second': 1.473, 'train_steps_per_second': 0.187, 'train_loss': 1.2725683883384422, 'epoch': 10.0}
+
+✅ Training completed!
+Best validation CER: 0.1948
+Best model: /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/lora_run_20251024_144950/best_model
+Making predictions on 48 test images...
+[1/48] inventarbuch-022.jpg
+  ✅ CER: 0.2744
+[2/48] inventarbuch-099.jpg
+  ✅ CER: 0.1627
+[3/48] inventarbuch-245.jpg
+  ✅ CER: 0.3182
+[4/48] inventarbuch-263.jpg
+  ✅ CER: 0.1833
+[5/48] inventarbuch-033.jpg
+  ✅ CER: 0.3528
+[6/48] inventarbuch-143.jpg
+  ✅ CER: 0.1963
+[7/48] inventarbuch-244.jpg
+  ✅ CER: 0.4106
+[8/48] inventarbuch-024.jpg
+  ✅ CER: 0.5926
+[9/48] inventarbuch-141.jpg
+  ✅ CER: 0.1248
+[10/48] inventarbuch-183.jpg
+  ✅ CER: 0.3901
+[11/48] inventarbuch-191.jpg
+  ✅ CER: 0.2212
+[12/48] inventarbuch-051.jpg
+  ✅ CER: 0.2955
+[13/48] inventarbuch-203.jpg
+  ✅ CER: 0.2104
+[14/48] inventarbuch-296.jpg
+  ✅ CER: 0.2909
+[15/48] inventarbuch-302.jpg
+  ✅ CER: 0.1734
+[16/48] inventarbuch-179.jpg
+  ✅ CER: 0.2586
+[17/48] inventarbuch-114.jpg
+  ✅ CER: 0.2849
+[18/48] inventarbuch-082.jpg
+  ✅ CER: 0.3197
+[19/48] inventarbuch-287.jpg
+  ✅ CER: 0.4175
+[20/48] inventarbuch-181.jpg
+  ✅ CER: 0.2646
+[21/48] inventarbuch-299.jpg
+  ✅ CER: 0.2664
+[22/48] inventarbuch-084.jpg
+  ✅ CER: 0.4177
+[23/48] inventarbuch-004.jpg
+  ✅ CER: 0.2037
+[24/48] inventarbuch-148.jpg
+  ✅ CER: 0.1314
+[25/48] inventarbuch-238.jpg
+  ✅ CER: 0.2433
+[26/48] inventarbuch-116.jpg
+  ✅ CER: 0.2383
+[27/48] inventarbuch-223.jpg
+  ✅ CER: 0.2003
+[28/48] inventarbuch-104.jpg
+  ✅ CER: 0.3011
+[29/48] inventarbuch-015.jpg
+  ✅ CER: 0.2376
+[30/48] inventarbuch-272.jpg
+  ✅ CER: 0.3035
+[31/48] inventarbuch-124.jpg
+  ✅ CER: 0.1708
+[32/48] inventarbuch-115.jpg
+  ✅ CER: 0.2809
+[33/48] inventarbuch-049.jpg
+  ✅ CER: 0.3702
+[34/48] inventarbuch-017.jpg
+  ✅ CER: 0.1690
+[35/48] inventarbuch-018.jpg
+  ✅ CER: 0.2632
+[36/48] inventarbuch-225.jpg
+  ✅ CER: 0.3030
+[37/48] inventarbuch-046.jpg
+  ✅ CER: 0.2287
+[38/48] inventarbuch-294.jpg
+  ✅ CER: 0.1493
+[39/48] inventarbuch-054.jpg
+  ✅ CER: 0.3287
+[40/48] inventarbuch-073.jpg
+  ✅ CER: 0.3348
+[41/48] inventarbuch-118.jpg
+  ✅ CER: 0.2316
+[42/48] inventarbuch-130.jpg
+  ✅ CER: 0.2302
+[43/48] inventarbuch-146.jpg
+  ✅ CER: 0.3341
+[44/48] inventarbuch-014.jpg
+  ✅ CER: 0.2488
+[45/48] inventarbuch-059.jpg
+  ✅ CER: 0.3857
+[46/48] inventarbuch-256.jpg
+  ✅ CER: 0.1940
+[47/48] inventarbuch-260.jpg
+  ✅ CER: 0.1894
+[48/48] inventarbuch-279.jpg
+  ✅ CER: 0.3219
+
+============================================================
+TEST RESULTS
+============================================================
+Average CER: 0.2713 (27.13%)
+Perfect matches: 0/48
+JSON success rate: 77.1%
+============================================================
+
+LoRA finetuning pipeline completed successfully!
+Results saved in: /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/lora_run_20251024_144950
+========================================
+Job completed at: Fri Oct 24 03:28:57 PM CEST 2025
+========================================
+=== JOB_STATISTICS ===
+=== current date     : Fri Oct 24 03:28:57 PM CEST 2025
+= Job-ID             : 1288339 on tinygpu
+= Job-Name           : inventory2
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_florence.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 00:39:51
+= Total RAM usage    : 9.5 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-10-24T14:48:09 / 2025-10-24T14:48:09 / 2025-10-24T14:48:10 / 2025-10-24T15:28:01
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           183.8G  1000.0G  1500.0G        N/A     833K   5,000K   7,500K        N/A    
+    /home/hpc             101.7G   104.9G   209.7G        N/A  29,790      500K   1,000K        N/A    
+    /home/vault           847.3G  1048.6G  2097.2G        N/A   4,484      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 1639240, 68 %, 26 %, 32464 MiB, 2356161 ms

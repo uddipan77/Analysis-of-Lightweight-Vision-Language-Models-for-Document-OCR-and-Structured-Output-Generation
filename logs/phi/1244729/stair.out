@@ -1,0 +1,49 @@
+### Starting TaskPrologue of job 1244729 on tg073 at Wed Oct 22 01:22:07 AM CEST 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Wed Oct 22 01:22:07 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:86:00.0 Off |                    0 |
+| N/A   48C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Wed Oct 22 01:22:11 AM CEST 2025
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+Finished at: Wed Oct 22 01:23:09 AM CEST 2025
+Exit status: 1
+=== JOB_STATISTICS ===
+=== current date     : Wed Oct 22 01:23:09 AM CEST 2025
+= Job-ID             : 1244729 on tinygpu
+= Job-Name           : stair_phi
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:01:06
+= Total RAM usage    : 1.6 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2025-10-21T16:46:33 / 2025-10-21T16:46:33 / 2025-10-22T01:21:44 / 2025-10-22T01:22:50
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc             100.9G   104.9G   209.7G        N/A  33,392      500K   1,000K        N/A    
+    /home/woody           180.7G  1000.0G  1500.0G        N/A     802K   5,000K   7,500K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]

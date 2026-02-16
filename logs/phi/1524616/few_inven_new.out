@@ -1,0 +1,509 @@
+### Starting TaskPrologue of job 1524616 on tg073 at Wed Feb  4 07:59:35 PM CET 2026
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Wed Feb  4 19:59:35 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   31C    P0             24W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Wed Feb  4 07:59:40 PM CET 2026
+================================================================================
+🚀 Phi-3.5-Vision 1-shot Inference (New JSON Structure)
+================================================================================
+📂 Loading train data: /home/woody/iwi5/iwi5298h/updated_json_inven/train.jsonl
+✅ Train samples: 215
+📂 Loading test data: /home/woody/iwi5/iwi5298h/updated_json_inven/test.jsonl
+✅ Test samples: 47
+✅ Using 1 example(s): ['inventarbuch-156.jpg']
+
+⏳ Loading model from: /home/vault/iwi5/iwi5298h/models/phi_3_5_vision
+📍 Device: cuda
+✅ Model and processor loaded
+
+================================================================================
+RUNNING 1-SHOT INFERENCE
+================================================================================
+
+────────────────────────────────────────────────────────────
+[1/47] inventarbuch-036.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (1-shot)...
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[2/47] inventarbuch-100.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[3/47] inventarbuch-190.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[4/47] inventarbuch-153.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[5/47] inventarbuch-041.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[6/47] inventarbuch-198.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[7/47] inventarbuch-065.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[8/47] inventarbuch-242.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[9/47] inventarbuch-023.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[10/47] inventarbuch-137.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[11/47] inventarbuch-180.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[12/47] inventarbuch-188.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[13/47] inventarbuch-051.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[14/47] inventarbuch-199.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[15/47] inventarbuch-296.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[16/47] inventarbuch-302.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[17/47] inventarbuch-176.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[18/47] inventarbuch-112.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[19/47] inventarbuch-081.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[20/47] inventarbuch-290.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[21/47] inventarbuch-178.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[22/47] inventarbuch-299.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[23/47] inventarbuch-083.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[24/47] inventarbuch-004.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[25/47] inventarbuch-145.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[26/47] inventarbuch-236.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[27/47] inventarbuch-114.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[28/47] inventarbuch-220.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[29/47] inventarbuch-301.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[30/47] inventarbuch-103.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[31/47] inventarbuch-014.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[32/47] inventarbuch-265.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[33/47] inventarbuch-121.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[34/47] inventarbuch-113.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[35/47] inventarbuch-049.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[36/47] inventarbuch-016.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[37/47] inventarbuch-017.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[38/47] inventarbuch-223.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[39/47] inventarbuch-046.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[40/47] inventarbuch-286.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[41/47] inventarbuch-054.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[42/47] inventarbuch-073.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[43/47] inventarbuch-116.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[44/47] inventarbuch-127.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[45/47] inventarbuch-143.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[46/47] inventarbuch-013.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+────────────────────────────────────────────────────────────
+[47/47] inventarbuch-059.jpg
+────────────────────────────────────────────────────────────
+  ❌ Error: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+================================================================================
+📊 FINAL RESULTS - FEW-SHOT
+================================================================================
+  Total Samples: 47
+  Macro CER (avg per-sample): 1.0000 (100.00%)
+  Micro CER (char-weighted):  1.0000 (100.00%)
+  Perfect Matches: 0/47 (0.00%)
+  Valid JSON Parsed: 0/47 (0.00%)
+  JSON-like Outputs: 0/47 (0.00%)
+  Total Characters: 32120
+  Total Errors: 32120
+================================================================================
+
+💾 Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20260204_200027/predictions.jsonl
+💾 Metrics saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20260204_200027/metrics.json
+📂 Output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20260204_200027
+
+✅ Few-shot inference complete!
+Finished at: Wed Feb  4 08:03:02 PM CET 2026
+Exit status: 0
+=== JOB_STATISTICS ===
+=== current date     : Wed Feb  4 08:03:03 PM CET 2026
+= Job-ID             : 1524616 on tinygpu
+= Job-Name           : few_inven_new
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi3.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 05:00:00
+= Elapsed runtime    : 00:03:35
+= Total RAM usage    : 9.4 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2026-02-04T19:59:20 / 2026-02-04T19:59:20 / 2026-02-04T19:59:27 / 2026-02-04T20:03:02
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.4G   104.9G   209.7G        N/A  29,752      500K   1,000K        N/A    
+    /home/vault           855.9G  1048.6G  2097.2G        N/A   9,002      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 1903705, 2 %, 0 %, 12180 MiB, 155681 ms

@@ -1,0 +1,243 @@
+### Starting TaskPrologue of job 1517180 on tg071 at Sun Jan 25 03:33:56 AM CET 2026
+Running on cores 0-1,8-9,17-18,24-25 with governor ondemand
+Sun Jan 25 03:33:56 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   32C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Sun Jan 25 03:34:05 AM CET 2026
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING - SCHMUCK DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Configuration:
+   • Output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/schmuck/finetune/20260125_033736
+   • Training epochs: 10
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 0.0002
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+   • LoRA r=16, alpha=32, dropout=0.1
+
+🔧 Anti-Repetition:
+   • First-JSON extraction: enabled
+   • Note: Using improved JSON parsing instead of generation penalties
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Processor loaded
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.27 GB, Reserved: 2.37 GB
+
+📝 Preparing model for LoRA training...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+
+📊 Loading Schmuck datasets...
+   📁 Training dataset:
+   📊 Loaded 413 valid samples (out of 413 total)
+   🔄 Data augmentation ENABLED
+   📁 Validation dataset:
+   📊 Loaded 88 valid samples (out of 88 total)
+   📊 Validation samples for CER computation: 88
+
+================================================================================
+GPU INFORMATION
+================================================================================
+   GPU: Tesla V100-PCIE-32GB
+   Max memory: 31.733 GB
+================================================================================
+
+🚀 Starting QLoRA training on Schmuck dataset...
+
+================================================================================
+{'loss': 4.1565, 'grad_norm': 4.31561803817749, 'learning_rate': 8e-05, 'epoch': 0.39}
+{'loss': 1.1715, 'grad_norm': 0.7086052894592285, 'learning_rate': 0.00016, 'epoch': 0.77}
+{'eval_loss': 0.038680676370859146, 'eval_runtime': 398.9635, 'eval_samples_per_second': 0.221, 'eval_steps_per_second': 0.221, 'epoch': 0.97}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 0)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 0): 0.0030 (0.30%)
+   🎯 NEW BEST CER: 0.0030 (improved by inf)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/schmuck/finetune/20260125_033736/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 0.4703, 'grad_norm': 0.7644298076629639, 'learning_rate': 0.00019975640502598244, 'epoch': 1.16}
+{'loss': 0.3764, 'grad_norm': 0.7265475988388062, 'learning_rate': 0.00019781476007338058, 'epoch': 1.55}
+{'loss': 0.3843, 'grad_norm': 0.8335882425308228, 'learning_rate': 0.00019396926207859084, 'epoch': 1.94}
+{'eval_loss': 0.023496299982070923, 'eval_runtime': 407.8734, 'eval_samples_per_second': 0.216, 'eval_steps_per_second': 0.216, 'epoch': 1.98}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 1)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 1): 0.0049 (0.49%)
+   📊 No improvement. Best CER remains: 0.0030
+================================================================================
+
+{'loss': 0.2694, 'grad_norm': 0.566646933555603, 'learning_rate': 0.00018829475928589271, 'epoch': 2.32}
+{'loss': 0.2291, 'grad_norm': 0.602627158164978, 'learning_rate': 0.00018090169943749476, 'epoch': 2.71}
+{'eval_loss': 0.02112622745335102, 'eval_runtime': 401.0845, 'eval_samples_per_second': 0.219, 'eval_steps_per_second': 0.219, 'epoch': 2.98}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 2)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 2): 0.0022 (0.22%)
+   🎯 NEW BEST CER: 0.0022 (improved by 0.0008)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/schmuck/finetune/20260125_033736/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 0.1842, 'grad_norm': 0.4122026860713959, 'learning_rate': 0.0001719339800338651, 'epoch': 3.1}
+{'loss': 0.1232, 'grad_norm': 0.5350115895271301, 'learning_rate': 0.0001615661475325658, 'epoch': 3.49}
+{'loss': 0.1011, 'grad_norm': 1.1337145566940308, 'learning_rate': 0.00015000000000000001, 'epoch': 3.87}
+{'eval_loss': 0.024486519396305084, 'eval_runtime': 401.0914, 'eval_samples_per_second': 0.219, 'eval_steps_per_second': 0.219, 'epoch': 3.99}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 3)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 3): 0.0022 (0.22%)
+   🎯 NEW BEST CER: 0.0022 (improved by 0.0000)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/schmuck/finetune/20260125_033736/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 0.0927, 'grad_norm': 1.1043148040771484, 'learning_rate': 0.00013746065934159123, 'epoch': 4.26}
+{'loss': 0.0915, 'grad_norm': 0.7176767587661743, 'learning_rate': 0.00012419218955996676, 'epoch': 4.65}
+{'eval_loss': 0.023475414142012596, 'eval_runtime': 400.1259, 'eval_samples_per_second': 0.22, 'eval_steps_per_second': 0.22, 'epoch': 5.0}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 4)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 4): 0.0022 (0.22%)
+   📊 No improvement. Best CER remains: 0.0022
+================================================================================
+
+{'loss': 0.1023, 'grad_norm': 0.9589792490005493, 'learning_rate': 0.00011045284632676536, 'epoch': 5.04}
+{'loss': 0.0581, 'grad_norm': 0.2929175794124603, 'learning_rate': 9.651005032974994e-05, 'epoch': 5.42}
+{'loss': 0.0521, 'grad_norm': 0.2942659854888916, 'learning_rate': 8.263518223330697e-05, 'epoch': 5.81}
+{'eval_loss': 0.028093624860048294, 'eval_runtime': 399.3649, 'eval_samples_per_second': 0.22, 'eval_steps_per_second': 0.22, 'epoch': 5.97}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 5)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 5): 0.0021 (0.21%)
+   🎯 NEW BEST CER: 0.0021 (improved by 0.0000)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/schmuck/finetune/20260125_033736/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 0.0531, 'grad_norm': 0.46401622891426086, 'learning_rate': 6.909830056250527e-05, 'epoch': 6.2}
+{'loss': 0.0449, 'grad_norm': 0.6009098887443542, 'learning_rate': 5.616288532109225e-05, 'epoch': 6.59}
+{'loss': 0.0558, 'grad_norm': 0.20657986402511597, 'learning_rate': 4.4080709652925336e-05, 'epoch': 6.97}
+{'eval_loss': 0.02614688128232956, 'eval_runtime': 400.1166, 'eval_samples_per_second': 0.22, 'eval_steps_per_second': 0.22, 'epoch': 6.97}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 6)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 6): 0.0023 (0.23%)
+   📊 No improvement. Best CER remains: 0.0021
+================================================================================
+
+{'loss': 0.0297, 'grad_norm': 0.7268266677856445, 'learning_rate': 3.308693936411421e-05, 'epoch': 7.36}
+{'loss': 0.0498, 'grad_norm': 0.5585148334503174, 'learning_rate': 2.339555568810221e-05, 'epoch': 7.75}
+{'eval_loss': 0.026355993002653122, 'eval_runtime': 399.664, 'eval_samples_per_second': 0.22, 'eval_steps_per_second': 0.22, 'epoch': 7.98}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 7)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 7): 0.0022 (0.22%)
+   📊 No improvement. Best CER remains: 0.0021
+================================================================================
+
+{'loss': 0.0334, 'grad_norm': 0.41075399518013, 'learning_rate': 1.5195190384357404e-05, 'epoch': 8.14}
+{'loss': 0.0305, 'grad_norm': 0.6809383630752563, 'learning_rate': 8.645454235739903e-06, 'epoch': 8.52}
+{'loss': 0.0174, 'grad_norm': 0.33513885736465454, 'learning_rate': 3.873830406168111e-06, 'epoch': 8.91}
+{'eval_loss': 0.02654724195599556, 'eval_runtime': 401.563, 'eval_samples_per_second': 0.219, 'eval_steps_per_second': 0.219, 'epoch': 8.99}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 8)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 8): 0.0022 (0.22%)
+   📊 No improvement. Best CER remains: 0.0021
+================================================================================
+
+{'loss': 0.0195, 'grad_norm': 0.1854945719242096, 'learning_rate': 9.731931258429638e-07, 'epoch': 9.3}
+{'loss': 0.0262, 'grad_norm': 0.5530352592468262, 'learning_rate': 0.0, 'epoch': 9.69}
+{'eval_loss': 0.026762783527374268, 'eval_runtime': 405.8721, 'eval_samples_per_second': 0.217, 'eval_steps_per_second': 0.217, 'epoch': 9.69}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 9)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 9): 0.0022 (0.22%)
+   📊 No improvement. Best CER remains: 0.0021
+================================================================================
+
+{'train_runtime': 81476.8249, 'train_samples_per_second': 0.051, 'train_steps_per_second': 0.003, 'train_loss': 0.32892090374231336, 'epoch': 9.69}
+
+================================================================================
+✅ TRAINING COMPLETED!
+================================================================================
+   🎯 Best Validation CER: 0.0021 (0.21%)
+   💾 Best model saved at: /home/vault/iwi5/iwi5298h/models_image_text/phi/schmuck/finetune/20260125_033736/best_model
+================================================================================
+
+================================================================================
+PHASE 2: EVALUATION ON TEST SET
+================================================================================
+
+⏳ Loading best model from: /home/vault/iwi5/iwi5298h/models_image_text/phi/schmuck/finetune/20260125_033736/best_model
+=== JOB_STATISTICS ===
+=== current date     : Mon Jan 26 03:33:57 AM CET 2026
+= Job-ID             : 1517180 on tinygpu
+= Job-Name           : schmuck_preprocess
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi3.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:06
+= Total RAM usage    : 10.7 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2026-01-25T02:23:13 / 2026-01-25T02:23:13 / 2026-01-25T03:33:50 / 2026-01-26T03:33:56
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.1G   104.9G   209.7G        N/A  29,267      500K   1,000K        N/A    
+    /home/woody           219.6G  1000.0G  1500.0G        N/A   1,017K   5,000K   7,500K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 770014, 76 %, 29 %, 11480 MiB, 86226803 ms

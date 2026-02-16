@@ -1,0 +1,167 @@
+### Starting TaskPrologue of job 1473043 on tg085 at Tue Dec 23 07:30:03 PM CET 2025
+Running on cores 14-15,30-31,46-47,62-63 with governor powersave
+Tue Dec 23 19:30:03 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3080        On  |   00000000:DB:00.0 Off |                  N/A |
+| 32%   46C    P8             20W /  300W |       1MiB /  10240MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+DONUT-BASE ZERO-SHOT STAIRCASE OCR
+============================================================
+
+Loading test data...
+Loaded 24 test samples
+
+Note: CER compares GT JSON string (excluding image_name) vs Donut output string (cleaned).
+Loading Donut-base (LOCAL)...
+Model path: /home/vault/iwi5/iwi5298h/models/donut_base
+❌ No DocVQA/CORD tokens found -> best-effort generation.
+
+Processing 24 test images with zero-shot inference...
+------------------------------------------------------------
+Processing image 1/24: FMIS_FormblätterMielke_gefüllt (83).jpg
+  Resizing from 2491x3545 to 719x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (83).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 2/24: FMIS_FormblätterMielke_gefüllt (45).jpg
+  Resizing from 2500x3545 to 722x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (45).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 3/24: FMIS_FormblätterMielke_gefüllt (27).jpg
+  Resizing from 2490x3534 to 721x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (27).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 4/24: FMIS_FormblätterMielke_gefüllt (130).jpg
+  Resizing from 2483x3545 to 717x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (130).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 5/24: FMIS_FormblätterMielke_gefüllt (129).jpg
+  Resizing from 2479x3549 to 715x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (129).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 6/24: FMIS_FormblätterMielke_gefüllt (88).jpg
+  Resizing from 2483x3541 to 718x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (88).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 7/24: FMIS_FormblätterMielke_gefüllt (102).jpg
+  Resizing from 2487x3545 to 718x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (102).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 8/24: FMIS_FormblätterMielke_gefüllt (103).jpg
+  Resizing from 2487x3549 to 717x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (103).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 9/24: FMIS_FormblätterMielke_gefüllt (165).jpg
+  Resizing from 2504x3562 to 719x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (165).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 10/24: FMIS_FormblätterMielke_gefüllt (43).jpg
+  Resizing from 2495x3554 to 718x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (43).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 11/24: FMIS_FormblätterMielke_gefüllt (11).jpg
+  Resizing from 2504x3564 to 719x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (11).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 12/24: FMIS_FormblätterMielke_gefüllt (36).jpg
+  Resizing from 2488x3538 to 720x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (36).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 13/24: FMIS_FormblätterMielke_gefüllt (87).jpg
+  Resizing from 2495x3549 to 719x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (87).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 14/24: FMIS_FormblätterMielke_gefüllt (94).jpg
+  Resizing from 2504x3541 to 724x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (94).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 15/24: FMIS_FormblätterMielke_gefüllt (58).jpg
+  Resizing from 2483x3545 to 717x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (58).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 16/24: FMIS_FormblätterMielke_gefüllt (111).jpg
+  Resizing from 2479x3545 to 716x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (111).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 17/24: FMIS_FormblätterMielke_gefüllt (99).jpg
+  Resizing from 2487x3549 to 717x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (99).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 18/24: FMIS_FormblätterMielke_gefüllt (116).jpg
+  Resizing from 2483x3537 to 718x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (116).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 19/24: FMIS_FormblätterMielke_Vorlage3.jpg
+  Resizing from 2500x3562 to 718x1024
+  ❌ Error processing FMIS_FormblätterMielke_Vorlage3.jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 20/24: FMIS_FormblätterMielke_gefüllt (132).jpg
+  Resizing from 2491x3574 to 713x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (132).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 21/24: FMIS_FormblätterMielke_gefüllt (139).jpg
+  Resizing from 2479x3545 to 716x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (139).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 22/24: FMIS_FormblätterMielke_gefüllt (66).jpg
+  Resizing from 2479x3545 to 716x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (66).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 23/24: FMIS_FormblätterMielke_gefüllt (105).jpg
+  Resizing from 2483x3545 to 717x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (105).jpg: Input type (float) and bias type (c10::Half) should be the same
+Processing image 24/24: FMIS_FormblätterMielke_gefüllt (13).jpg
+  Resizing from 2482x3538 to 718x1024
+  ❌ Error processing FMIS_FormblätterMielke_gefüllt (13).jpg: Input type (float) and bias type (c10::Half) should be the same
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_staircase/donut_base_zeroshot_20251223_193122
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_staircase/donut_base_zeroshot_20251223_193122/predictions_zeroshot.jsonl
+
+============================================================
+DONUT-BASE ZERO-SHOT CER EVALUATION RESULTS
+STAIRCASE DATASET
+============================================================
+
+CER Statistics across 24 images:
+--------------------------------------------------
+Average CER: 1.0000 (100.00%)
+Minimum CER: 1.0000 (100.00%)
+Maximum CER: 1.0000 (100.00%)
+
+Weighted CER: 1.0000 (100.00%)
+Total characters: 33973
+Total errors: 33973
+Perfect matches: 0/24 (0.0%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_staircase/donut_base_zeroshot_20251223_193122/evaluation_summary_zeroshot.json
+
+============================================================
+DONUT-BASE ZERO-SHOT PROCESSING COMPLETE!
+============================================================
+Model: Donut-base (LOCAL)
+Dataset: Staircase
+Method: Zero-Shot OCR transcription
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_staircase/donut_base_zeroshot_20251223_193122
+Total images processed: 24
+Average CER on test set: 1.0000 (100.00%)
+============================================================
+
+DONUT zero-shot inference completed at: Tue Dec 23 07:31:27 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Dec 23 07:31:27 PM CET 2025
+= Job-ID             : 1473043 on tinygpu
+= Job-Name           : donutbase_zero_stair
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut_shots2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : rtx3080
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 02:30:00
+= Elapsed runtime    : 00:01:25
+= Total RAM usage    : 2.2 GiB of requested  GiB (%)   
+= Node list          : tg085
+= Subm/Elig/Start/End: 2025-12-23T16:17:29 / 2025-12-23T16:17:29 / 2025-12-23T19:30:02 / 2025-12-23T19:31:27
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.6G   104.9G   209.7G        N/A  29,070      500K   1,000K        N/A    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/vault           959.0G  1048.6G  2097.2G        N/A   7,437      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA GeForce RTX 3080, 00000000:DB:00.0, 1297801, 0 %, 0 %, 708 MiB, 31785 ms

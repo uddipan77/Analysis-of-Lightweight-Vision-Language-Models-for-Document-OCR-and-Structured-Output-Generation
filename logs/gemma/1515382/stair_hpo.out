@@ -1,0 +1,1474 @@
+### Starting TaskPrologue of job 1515382 on tg095 at Thu Jan 22 04:47:59 AM CET 2026
+Running on cores 64-71,104-127 with governor ondemand
+Thu Jan 22 04:47:59 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:81:00.0 Off |                    0 |
+| N/A   35C    P0             55W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+[HPO] Created HPO run directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836
+
+================================================================================
+[HPO] Starting / Resuming Optuna HPO for Gemma-3 STAIRCASE (FINETUNE-ALIGNED)
+================================================================================
+[HPO]   Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+[HPO]   Study name: gemma3_stair_enhanced_fixed_epochs
+[HPO]   Target total trials (COMPLETE): 25
+[HPO]   Output dir for this HPO run: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836
+[HPO]   Completed trials so far: 0
+[HPO]   Remaining trials to run: 25
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=32, alpha=32, dropout=0.05, rslora=True
+[HPO] ✅ Fixed validation subset saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/fixed_val_subset_image_names.json
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_0
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 1.9906996673933362e-05
+[HPO]   • weight_decay: 0.1426071459614874
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.03636499344142013
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.13118910790805946
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.5798625466052894
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=32, alpha=64, dropout=0.03636499344142013, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 10.4565, 'grad_norm': 196.86734008789062, 'learning_rate': 6.890883464053856e-06, 'epoch': 0.35}
+{'loss': 5.4305, 'grad_norm': 771.548828125, 'learning_rate': 1.4547420646335918e-05, 'epoch': 0.7}
+{'loss': 2.2287, 'grad_norm': 179.73870849609375, 'learning_rate': 1.9891704158578292e-05, 'epoch': 1.03}
+{'loss': 0.7983, 'grad_norm': 30.612220764160156, 'learning_rate': 1.9621142472871002e-05, 'epoch': 1.38}
+{'loss': 0.5665, 'grad_norm': 17.15907096862793, 'learning_rate': 1.90213607611766e-05, 'epoch': 1.73}
+{'loss': 0.4496, 'grad_norm': 9.831201553344727, 'learning_rate': 1.811278387032797e-05, 'epoch': 2.07}
+{'loss': 0.3284, 'grad_norm': 11.702300071716309, 'learning_rate': 1.692635229662509e-05, 'epoch': 2.42}
+{'loss': 0.3055, 'grad_norm': 10.995890617370605, 'learning_rate': 1.5502468544342578e-05, 'epoch': 2.77}
+{'loss': 0.2455, 'grad_norm': 14.168122291564941, 'learning_rate': 1.3889621266904092e-05, 'epoch': 3.1}
+{'loss': 0.2003, 'grad_norm': 22.309940338134766, 'learning_rate': 1.2142734043945702e-05, 'epoch': 3.45}
+{'loss': 0.1498, 'grad_norm': 7.778794288635254, 'learning_rate': 1.0321295024684963e-05, 'epoch': 3.8}
+{'loss': 0.1629, 'grad_norm': 13.652347564697266, 'learning_rate': 8.487331130347477e-06, 'epoch': 4.14}
+{'loss': 0.1228, 'grad_norm': 15.132298469543457, 'learning_rate': 6.703295801757673e-06, 'epoch': 4.49}
+{'loss': 0.1003, 'grad_norm': 17.513809204101562, 'learning_rate': 5.029942222316133e-06, 'epoch': 4.83}
+{'loss': 0.089, 'grad_norm': 7.809260368347168, 'learning_rate': 3.524254441204335e-06, 'epoch': 5.17}
+{'loss': 0.0647, 'grad_norm': 4.832067966461182, 'learning_rate': 2.2375068499345907e-06, 'epoch': 5.52}
+{'loss': 0.0858, 'grad_norm': 7.754642486572266, 'learning_rate': 1.213518094443966e-06, 'epoch': 5.87}
+{'loss': 0.049, 'grad_norm': 6.118998050689697, 'learning_rate': 4.871588836615452e-07, 'epoch': 6.21}
+{'loss': 0.0519, 'grad_norm': 7.398880958557129, 'learning_rate': 8.316450933867232e-08, 'epoch': 6.56}
+{'train_runtime': 1500.4755, 'train_samples_per_second': 0.536, 'train_steps_per_second': 0.131, 'train_loss': 1.1184980183535693, 'epoch': 6.77}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0606 (6.06%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_1
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 1.4639847680621729e-05
+[HPO]   • weight_decay: 0.09177793420835692
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.18977710745066667
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.07615344229334267
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 0.7441802850159597
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=16, alpha=64, dropout=0.18977710745066667, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 39.2508, 'grad_norm': 307.95819091796875, 'learning_rate': 1.4198402257765832e-05, 'epoch': 1.28}
+{'loss': 24.8953, 'grad_norm': 79.50924682617188, 'learning_rate': 1.0979885760466297e-05, 'epoch': 2.56}
+{'loss': 19.6639, 'grad_norm': 56.12453079223633, 'learning_rate': 6.048832404780165e-06, 'epoch': 3.83}
+{'loss': 15.3232, 'grad_norm': 27.81956672668457, 'learning_rate': 1.7125368583865981e-06, 'epoch': 5.0}
+{'train_runtime': 1339.8618, 'train_samples_per_second': 0.601, 'train_steps_per_second': 0.037, 'train_loss': 23.1370018161073, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.9197 (91.97%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_2
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 6.239536949187824e-05
+[HPO]   • weight_decay: 0.06602287406094019
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.18789978831283782
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.2304685587557792
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 0.7212312551297988
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.18789978831283782, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 19.7089, 'grad_norm': 215.77772521972656, 'learning_rate': 2.441557936638714e-05, 'epoch': 0.7}
+{'loss': 8.3252, 'grad_norm': 81.67852020263672, 'learning_rate': 5.154400088459507e-05, 'epoch': 1.35}
+{'loss': 2.3282, 'grad_norm': 10.152917861938477, 'learning_rate': 6.141523685705531e-05, 'epoch': 2.0}
+{'loss': 1.1383, 'grad_norm': 26.601945877075195, 'learning_rate': 5.564710616504577e-05, 'epoch': 2.7}
+{'loss': 0.6617, 'grad_norm': 29.847902297973633, 'learning_rate': 4.565144839365211e-05, 'epoch': 3.35}
+{'loss': 0.5614, 'grad_norm': 27.62548065185547, 'learning_rate': 3.3156603579248375e-05, 'epoch': 4.0}
+{'loss': 0.4321, 'grad_norm': 17.699459075927734, 'learning_rate': 2.0323043902346563e-05, 'epoch': 4.7}
+{'loss': 0.2931, 'grad_norm': 25.145166397094727, 'learning_rate': 9.369808420312488e-06, 'epoch': 5.35}
+{'loss': 0.2845, 'grad_norm': 11.198038101196289, 'learning_rate': 2.1908110550103417e-06, 'epoch': 6.0}
+{'train_runtime': 1433.8423, 'train_samples_per_second': 0.561, 'train_steps_per_second': 0.068, 'train_loss': 3.463450687272208, 'epoch': 6.56}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0905 (9.05%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_3
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.030258739379631e-05
+[HPO]   • weight_decay: 0.00678409333658071
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.03974313630683449
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.17671433596190428
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.3225179201024684
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.03974313630683449, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 21.1388, 'grad_norm': 1026.517578125, 'learning_rate': 5.151293696898155e-06, 'epoch': 0.7}
+{'loss': 10.7116, 'grad_norm': 360.8445739746094, 'learning_rate': 1.029861593304261e-05, 'epoch': 1.35}
+{'loss': 5.1886, 'grad_norm': 280.1878967285156, 'learning_rate': 9.829405904104382e-06, 'epoch': 2.0}
+{'loss': 2.1678, 'grad_norm': 111.51150512695312, 'learning_rate': 8.647995698811767e-06, 'epoch': 2.7}
+{'loss': 1.2046, 'grad_norm': 170.19187927246094, 'learning_rate': 6.934244311410383e-06, 'epoch': 3.35}
+{'loss': 1.0353, 'grad_norm': 35.70457458496094, 'learning_rate': 4.949054855437083e-06, 'epoch': 4.0}
+{'loss': 0.9064, 'grad_norm': 95.29618835449219, 'learning_rate': 2.994654429776567e-06, 'epoch': 4.7}
+{'loss': 0.6821, 'grad_norm': 64.50777435302734, 'learning_rate': 1.3685827825516731e-06, 'epoch': 5.35}
+{'loss': 0.687, 'grad_norm': 34.870079040527344, 'learning_rate': 3.183945816762033e-07, 'epoch': 6.0}
+{'train_runtime': 1431.53, 'train_samples_per_second': 0.562, 'train_steps_per_second': 0.068, 'train_loss': 4.5195572911476605, 'epoch': 6.56}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.1428 (14.28%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_4
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 8.601840180932145e-05
+[HPO]   • weight_decay: 0.011106697760113554
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.02391884918766034
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.14031929939237406
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.4274179498864026
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.02391884918766034, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 22.633, 'grad_norm': 217.3583984375, 'learning_rate': 8.553802457049894e-05, 'epoch': 1.28}
+{'loss': 2.0271, 'grad_norm': 112.52108001708984, 'learning_rate': 6.982499905481011e-05, 'epoch': 2.56}
+{'loss': 0.9509, 'grad_norm': 56.13909149169922, 'learning_rate': 3.9795119295978106e-05, 'epoch': 3.83}
+{'loss': 0.5423, 'grad_norm': 22.970672607421875, 'learning_rate': 1.148122567559413e-05, 'epoch': 5.0}
+{'train_runtime': 1337.1106, 'train_samples_per_second': 0.602, 'train_steps_per_second': 0.037, 'train_loss': 5.409327599467064, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0416 (4.16%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_5
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 3.0907236344562716e-05
+[HPO]   • weight_decay: 0.0784099244072991
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.0153959819657586
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.23242441308564327
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.5203009489110424
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=16, alpha=16, dropout=0.0153959819657586, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 11.9871, 'grad_norm': 72.42110443115234, 'learning_rate': 6.047067980457923e-06, 'epoch': 0.35}
+{'loss': 11.5765, 'grad_norm': 25.320072174072266, 'learning_rate': 1.2766032403188949e-05, 'epoch': 0.7}
+{'loss': 9.3747, 'grad_norm': 15.178120613098145, 'learning_rate': 1.9484996825919973e-05, 'epoch': 1.03}
+{'loss': 7.2362, 'grad_norm': 6.203133583068848, 'learning_rate': 2.6203961248651e-05, 'epoch': 1.38}
+{'loss': 5.785, 'grad_norm': 15.287216186523438, 'learning_rate': 3.087674215914301e-05, 'epoch': 1.73}
+{'loss': 4.3409, 'grad_norm': 4.873985290527344, 'learning_rate': 3.0337964717406808e-05, 'epoch': 2.07}
+{'loss': 3.1128, 'grad_norm': 5.292335033416748, 'learning_rate': 2.914866990862964e-05, 'epoch': 2.42}
+{'loss': 1.9292, 'grad_norm': 5.955026149749756, 'learning_rate': 2.7360835622824732e-05, 'epoch': 2.77}
+{'loss': 1.2941, 'grad_norm': 4.483147144317627, 'learning_rate': 2.5052598797262483e-05, 'epoch': 3.1}
+{'loss': 1.0572, 'grad_norm': 4.660750389099121, 'learning_rate': 2.232484045736913e-05, 'epoch': 3.45}
+{'loss': 0.7546, 'grad_norm': 4.400691986083984, 'learning_rate': 1.9296776731834765e-05, 'epoch': 3.8}
+{'loss': 0.764, 'grad_norm': 3.657498359680176, 'learning_rate': 1.6100748535727076e-05, 'epoch': 4.14}
+{'loss': 0.6438, 'grad_norm': 4.746222972869873, 'learning_rate': 1.2876437637460815e-05, 'epoch': 4.49}
+{'loss': 0.579, 'grad_norm': 3.468345880508423, 'learning_rate': 9.764761895250474e-06, 'epoch': 4.83}
+{'loss': 0.5388, 'grad_norm': 3.124197483062744, 'learning_rate': 6.901716470507483e-06, 'epoch': 5.17}
+{'loss': 0.5215, 'grad_norm': 3.9984259605407715, 'learning_rate': 4.412430186709314e-06, 'epoch': 5.52}
+{'loss': 0.5613, 'grad_norm': 4.726568698883057, 'learning_rate': 2.405696799378801e-06, 'epoch': 5.87}
+{'loss': 0.4679, 'grad_norm': 2.185786485671997, 'learning_rate': 9.692201869174393e-07, 'epoch': 6.21}
+{'loss': 0.5266, 'grad_norm': 2.6517345905303955, 'learning_rate': 1.6578127026934723e-07, 'epoch': 6.56}
+{'train_runtime': 1483.8876, 'train_samples_per_second': 0.542, 'train_steps_per_second': 0.132, 'train_loss': 3.2312124140408574, 'epoch': 6.77}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.1942 (19.42%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_6
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 5.1727420391054366e-05
+[HPO]   • weight_decay: 0.13071908852815764
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 256
+[HPO]   • lora_dropout: 0.0013904261062381408
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.05552695261768256
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 0.7996634183342071
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=32, alpha=256, dropout=0.0013904261062381408, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 24.0467, 'grad_norm': 87.97992706298828, 'learning_rate': 4.9586197485726525e-05, 'epoch': 1.28}
+{'loss': 3.261, 'grad_norm': 39.70356750488281, 'learning_rate': 3.776269900249998e-05, 'epoch': 2.56}
+{'loss': 1.5032, 'grad_norm': 31.94797134399414, 'learning_rate': 2.060158283639647e-05, 'epoch': 3.83}
+{'loss': 0.8861, 'grad_norm': 10.262027740478516, 'learning_rate': 5.800938177349727e-06, 'epoch': 5.0}
+{'train_runtime': 1342.578, 'train_samples_per_second': 0.6, 'train_steps_per_second': 0.036, 'train_loss': 6.203984241096341, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.1399 (13.99%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_7
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 1.7371997688647257e-05
+[HPO]   • weight_decay: 0.14143645558687787
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 256
+[HPO]   • lora_dropout: 0.1005358046457723
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.22706647149166342
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.098904726667431
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=16, alpha=256, dropout=0.1005358046457723, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 29.5581, 'grad_norm': 740.6680297851562, 'learning_rate': 1.3028998266485443e-05, 'epoch': 1.28}
+{'loss': 4.9333, 'grad_norm': 479.6336364746094, 'learning_rate': 1.5882432700166616e-05, 'epoch': 2.56}
+{'loss': 1.6379, 'grad_norm': 288.9122619628906, 'learning_rate': 9.789275479853524e-06, 'epoch': 3.83}
+{'loss': 0.9157, 'grad_norm': 48.788536071777344, 'learning_rate': 2.9473789604835498e-06, 'epoch': 5.0}
+{'train_runtime': 1350.5942, 'train_samples_per_second': 0.596, 'train_steps_per_second': 0.036, 'train_loss': 7.698348191319679, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0896 (8.96%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_8
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 8.532971239942569e-06
+[HPO]   • weight_decay: 0.07341791404163445
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 256
+[HPO]   • lora_dropout: 0.06415601299434717
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.14772323579706045
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.193910904605706
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=256, dropout=0.06415601299434717, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 11.6037, 'grad_norm': 821.589599609375, 'learning_rate': 2.648163488258039e-06, 'epoch': 0.35}
+{'loss': 8.1541, 'grad_norm': 188.1073455810547, 'learning_rate': 5.590567364100303e-06, 'epoch': 0.7}
+{'loss': 5.4957, 'grad_norm': 145.9656219482422, 'learning_rate': 8.532971239942569e-06, 'epoch': 1.03}
+{'loss': 3.4408, 'grad_norm': 101.99905395507812, 'learning_rate': 8.457700540880954e-06, 'epoch': 1.38}
+{'loss': 1.8927, 'grad_norm': 233.88790893554688, 'learning_rate': 8.234544343020232e-06, 'epoch': 1.73}
+{'loss': 1.0555, 'grad_norm': 32.044742584228516, 'learning_rate': 7.871376631888105e-06, 'epoch': 2.07}
+{'loss': 0.7751, 'grad_norm': 68.8897476196289, 'learning_rate': 7.381011648491535e-06, 'epoch': 2.42}
+{'loss': 0.6179, 'grad_norm': 110.49452209472656, 'learning_rate': 6.780751743469101e-06, 'epoch': 2.77}
+{'loss': 0.518, 'grad_norm': 62.337615966796875, 'learning_rate': 6.0917768699223415e-06, 'epoch': 3.1}
+{'loss': 0.4632, 'grad_norm': 42.196041107177734, 'learning_rate': 5.338397256450179e-06, 'epoch': 3.45}
+{'loss': 0.3924, 'grad_norm': 35.6911735534668, 'learning_rate': 4.547195629547399e-06, 'epoch': 3.8}
+{'loss': 0.3979, 'grad_norm': 27.369218826293945, 'learning_rate': 3.7460892517388695e-06, 'epoch': 4.14}
+{'loss': 0.3305, 'grad_norm': 86.84120178222656, 'learning_rate': 2.963344871093826e-06, 'epoch': 4.49}
+{'loss': 0.2707, 'grad_norm': 188.04466247558594, 'learning_rate': 2.226581339269427e-06, 'epoch': 4.83}
+{'loss': 0.2362, 'grad_norm': 47.29747772216797, 'learning_rate': 1.5617950903443178e-06, 'epoch': 5.17}
+{'loss': 0.2434, 'grad_norm': 30.953636169433594, 'learning_rate': 9.924428660681504e-07, 'epoch': 5.52}
+{'loss': 0.2634, 'grad_norm': 29.567140579223633, 'learning_rate': 5.386140532340969e-07, 'epoch': 5.87}
+{'loss': 0.2139, 'grad_norm': 45.12477493286133, 'learning_rate': 2.1632183695002187e-07, 'epoch': 6.21}
+{'loss': 0.2411, 'grad_norm': 20.810155868530273, 'learning_rate': 3.6938181208144924e-08, 'epoch': 6.56}
+{'train_runtime': 1472.7233, 'train_samples_per_second': 0.547, 'train_steps_per_second': 0.133, 'train_loss': 1.874380039925478, 'epoch': 6.77}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.1332 (13.32%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_9
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 5.31550708560823e-06
+[HPO]   • weight_decay: 0.07681395874489215
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.13199680920683582
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.13241264458900162
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.1046307272511293
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=32, alpha=64, dropout=0.13199680920683582, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 23.8456, 'grad_norm': 121.69181060791016, 'learning_rate': 3.679966443882621e-06, 'epoch': 0.7}
+{'loss': 20.2369, 'grad_norm': 99.21107482910156, 'learning_rate': 5.250423931751935e-06, 'epoch': 1.35}
+{'loss': 16.1868, 'grad_norm': 27.981361389160156, 'learning_rate': 4.864178091883545e-06, 'epoch': 2.0}
+{'loss': 14.4213, 'grad_norm': 40.50299835205078, 'learning_rate': 4.179942390441489e-06, 'epoch': 2.7}
+{'loss': 11.9275, 'grad_norm': 61.07337951660156, 'learning_rate': 3.290126650386423e-06, 'epoch': 3.35}
+{'loss': 11.0695, 'grad_norm': 18.55971336364746, 'learning_rate': 2.3149054180520125e-06, 'epoch': 4.0}
+{'loss': 11.1074, 'grad_norm': 28.790685653686523, 'learning_rate': 1.3859877247524148e-06, 'epoch': 4.7}
+{'loss': 9.877, 'grad_norm': 26.964859008789062, 'learning_rate': 6.288290522783711e-07, 'epoch': 5.35}
+{'loss': 9.8036, 'grad_norm': 25.803735733032227, 'learning_rate': 1.4568787490854122e-07, 'epoch': 6.0}
+{'train_runtime': 1430.3972, 'train_samples_per_second': 0.563, 'train_steps_per_second': 0.069, 'train_loss': 13.962447263756577, 'epoch': 6.56}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.8893 (88.93%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_10
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00012459828912469152
+[HPO]   • weight_decay: 0.006955905222645414
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.1262084703221371
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.21312613876327247
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.406801022712361
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.1262084703221371, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 23.1332, 'grad_norm': 222.07977294921875, 'learning_rate': 0.00010194405473838398, 'epoch': 1.28}
+{'loss': 2.1637, 'grad_norm': 74.30194091796875, 'learning_rate': 0.00011146192323723485, 'epoch': 2.56}
+{'loss': 0.9219, 'grad_norm': 66.5010986328125, 'learning_rate': 6.744376714379049e-05, 'epoch': 3.83}
+{'loss': 0.5006, 'grad_norm': 36.96653366088867, 'learning_rate': 2.0105082022220994e-05, 'epoch': 5.0}
+{'train_runtime': 1338.6336, 'train_samples_per_second': 0.601, 'train_steps_per_second': 0.037, 'train_loss': 5.513477641708997, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0448 (4.48%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_11
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00014556887081181618
+[HPO]   • weight_decay: 0.029830301604238777
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.12279131242102742
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.22279665103644258
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.1936600921843854
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.12279131242102742, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 27.6957, 'grad_norm': 141.78639221191406, 'learning_rate': 0.00011910180339148597, 'epoch': 1.28}
+{'loss': 3.407, 'grad_norm': 58.49647903442383, 'learning_rate': 0.0001302215818382553, 'epoch': 2.56}
+{'loss': 1.1961, 'grad_norm': 31.11208724975586, 'learning_rate': 7.879492644230124e-05, 'epoch': 3.83}
+{'loss': 0.6622, 'grad_norm': 70.33493041992188, 'learning_rate': 2.348887860430244e-05, 'epoch': 5.0}
+{'train_runtime': 1342.3059, 'train_samples_per_second': 0.6, 'train_steps_per_second': 0.037, 'train_loss': 6.819181422798001, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0439 (4.39%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_12
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 4.322021021007393e-05
+[HPO]   • weight_decay: 0.024286985702106537
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.02848254525025762
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.08538036006236667
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.7122035111780396
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=64, dropout=0.02848254525025762, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 28.811, 'grad_norm': 246.33204650878906, 'learning_rate': 4.234484911239072e-05, 'epoch': 1.28}
+{'loss': 6.0703, 'grad_norm': 158.78555297851562, 'learning_rate': 3.329340999432554e-05, 'epoch': 2.56}
+{'loss': 2.133, 'grad_norm': 159.5227813720703, 'learning_rate': 1.853466649194494e-05, 'epoch': 3.83}
+{'loss': 1.4068, 'grad_norm': 47.29273986816406, 'learning_rate': 5.278277370154498e-06, 'epoch': 5.0}
+{'train_runtime': 1339.4531, 'train_samples_per_second': 0.601, 'train_steps_per_second': 0.037, 'train_loss': 8.08244241986956, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0796 (7.96%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_13
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 8.500575680263857e-05
+[HPO]   • weight_decay: 0.06051266021901695
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.08567464100944851
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.16608906741340573
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.7604711914388516
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.08567464100944851, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 30.0284, 'grad_norm': 128.5911865234375, 'learning_rate': 8.500575680263857e-05, 'epoch': 1.28}
+{'loss': 5.4539, 'grad_norm': 56.956111907958984, 'learning_rate': 7.25569519388394e-05, 'epoch': 2.56}
+{'loss': 1.6963, 'grad_norm': 32.782012939453125, 'learning_rate': 4.2502878401319287e-05, 'epoch': 3.83}
+{'loss': 0.9272, 'grad_norm': 17.40816307067871, 'learning_rate': 1.2448804863799176e-05, 'epoch': 5.0}
+{'train_runtime': 1344.7084, 'train_samples_per_second': 0.599, 'train_steps_per_second': 0.036, 'train_loss': 7.922698935683893, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0983 (9.83%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_14
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00014916474520155793
+[HPO]   • weight_decay: 0.04927088177846821
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.00807317620657708
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.15833219478510716
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.5556773720551154
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=64, alpha=16, dropout=0.00807317620657708, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 26.1792, 'grad_norm': 38.582496643066406, 'learning_rate': 0.00014894590569215888, 'epoch': 1.28}
+{'loss': 2.908, 'grad_norm': 26.914318084716797, 'learning_rate': 0.0001242039418714013, 'epoch': 2.56}
+{'loss': 1.1547, 'grad_norm': 13.735766410827637, 'learning_rate': 7.172566384508034e-05, 'epoch': 3.83}
+{'loss': 0.6583, 'grad_norm': 2.325716018676758, 'learning_rate': 2.0844162639938036e-05, 'epoch': 5.0}
+{'train_runtime': 1348.2925, 'train_samples_per_second': 0.597, 'train_steps_per_second': 0.036, 'train_loss': 6.399331910269601, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0504 (5.04%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_15
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00014520304816548112
+[HPO]   • weight_decay: 0.026805489385537888
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.03053938045034317
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.11314416173702183
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.946251574464977
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.03053938045034317, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 19.3399, 'grad_norm': 117.73544311523438, 'learning_rate': 0.00014346612041369935, 'epoch': 1.28}
+{'loss': 1.6662, 'grad_norm': 68.30109405517578, 'learning_rate': 0.0001148453681533786, 'epoch': 2.56}
+{'loss': 0.8538, 'grad_norm': 58.726234436035156, 'learning_rate': 6.46610076637359e-05, 'epoch': 3.83}
+{'loss': 0.4277, 'grad_norm': 13.643256187438965, 'learning_rate': 1.8529928521112626e-05, 'epoch': 5.0}
+{'train_runtime': 1342.4221, 'train_samples_per_second': 0.6, 'train_steps_per_second': 0.037, 'train_loss': 4.595498980308066, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0485 (4.85%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_16
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 8.6441823035809e-05
+[HPO]   • weight_decay: 0.06014339545230658
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.13768370637899066
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.2305613409448053
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.6832791823239353
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=32, dropout=0.13768370637899066, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 38.0182, 'grad_norm': 82.20587921142578, 'learning_rate': 6.483136727685674e-05, 'epoch': 1.28}
+{'loss': 18.2488, 'grad_norm': 44.28657531738281, 'learning_rate': 7.902985375960269e-05, 'epoch': 2.56}
+{'loss': 6.8846, 'grad_norm': 23.247528076171875, 'learning_rate': 4.871073746638149e-05, 'epoch': 3.83}
+{'loss': 3.0218, 'grad_norm': 11.223761558532715, 'learning_rate': 1.4665947756145768e-05, 'epoch': 5.0}
+{'train_runtime': 1342.195, 'train_samples_per_second': 0.6, 'train_steps_per_second': 0.037, 'train_loss': 14.000281041982223, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.4367 (43.67%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_17
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 4.872431787705046e-05
+[HPO]   • weight_decay: 0.0034558891243867997
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 256
+[HPO]   • lora_dropout: 0.13133015993495334
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.20332448823054486
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.731699376632161
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=256, dropout=0.13133015993495334, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 10.102, 'grad_norm': 313.5364990234375, 'learning_rate': 1.0962971522336352e-05, 'epoch': 0.35}
+{'loss': 5.0372, 'grad_norm': 208.68597412109375, 'learning_rate': 2.3144050991598965e-05, 'epoch': 0.7}
+{'loss': 1.7266, 'grad_norm': 62.40154266357422, 'learning_rate': 3.532513046086158e-05, 'epoch': 1.03}
+{'loss': 0.6773, 'grad_norm': 39.7982292175293, 'learning_rate': 4.7506209930124197e-05, 'epoch': 1.38}
+{'loss': 0.4627, 'grad_norm': 19.233184814453125, 'learning_rate': 4.8325263446668935e-05, 'epoch': 1.73}
+{'loss': 0.383, 'grad_norm': 68.25067901611328, 'learning_rate': 4.6962591521681465e-05, 'epoch': 2.07}
+{'loss': 0.3118, 'grad_norm': 322.5024719238281, 'learning_rate': 4.468643958455744e-05, 'epoch': 2.42}
+{'loss': 0.2638, 'grad_norm': 26.095090866088867, 'learning_rate': 4.158880672830088e-05, 'epoch': 2.77}
+{'loss': 0.2162, 'grad_norm': 24.21864128112793, 'learning_rate': 3.779489523338657e-05, 'epoch': 3.1}
+{'loss': 0.1761, 'grad_norm': 33.20144271850586, 'learning_rate': 3.345805005485763e-05, 'epoch': 3.45}
+{'loss': 0.1453, 'grad_norm': 26.93048858642578, 'learning_rate': 2.875356081921748e-05, 'epoch': 3.8}
+{'loss': 0.1825, 'grad_norm': 21.708919525146484, 'learning_rate': 2.387157684631903e-05, 'epoch': 4.14}
+{'loss': 0.1011, 'grad_norm': 20.613691329956055, 'learning_rate': 1.900942156182703e-05, 'epoch': 4.49}
+{'loss': 0.0907, 'grad_norm': 16.842267990112305, 'learning_rate': 1.4363616941679138e-05, 'epoch': 4.83}
+{'loss': 0.0823, 'grad_norm': 19.3834228515625, 'learning_rate': 1.0121940350099773e-05, 'epoch': 5.17}
+{'loss': 0.0566, 'grad_norm': 21.009191513061523, 'learning_rate': 6.45583482341572e-06, 'epoch': 5.52}
+{'loss': 0.0511, 'grad_norm': 10.770956039428711, 'learning_rate': 3.513479566104029e-06, 'epoch': 5.87}
+{'loss': 0.0461, 'grad_norm': 8.177563667297363, 'learning_rate': 1.4138007405852488e-06, 'epoch': 6.21}
+{'loss': 0.0405, 'grad_norm': 22.706377029418945, 'learning_rate': 2.416646268281654e-07, 'epoch': 6.56}
+{'train_runtime': 1489.0213, 'train_samples_per_second': 0.541, 'train_steps_per_second': 0.132, 'train_loss': 1.0292425817068742, 'epoch': 6.77}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0457 (4.57%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_18
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 9.758849305511215e-05
+[HPO]   • weight_decay: 0.01643855544250916
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.07974484053218876
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.2129383615219656
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.5213547090786292
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=32, alpha=16, dropout=0.07974484053218876, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 40.2271, 'grad_norm': 56.8985595703125, 'learning_rate': 7.98451306814554e-05, 'epoch': 1.28}
+{'loss': 21.3238, 'grad_norm': 11.485225677490234, 'learning_rate': 8.729976308792489e-05, 'epoch': 2.56}
+{'loss': 10.2423, 'grad_norm': 11.216413497924805, 'learning_rate': 5.282364346861729e-05, 'epoch': 3.83}
+{'loss': 4.7842, 'grad_norm': 2.5208845138549805, 'learning_rate': 1.574680255307905e-05, 'epoch': 5.0}
+{'train_runtime': 1343.1872, 'train_samples_per_second': 0.599, 'train_steps_per_second': 0.036, 'train_loss': 16.36107588787468, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.6638 (66.38%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_19
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 3.70332795441358e-05
+[HPO]   • weight_decay: 0.025445144526978478
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.10027264181616254
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.11414692796235923
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.894283974464152
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=16, alpha=16, dropout=0.10027264181616254, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 36.1129, 'grad_norm': 86.3014907836914, 'learning_rate': 3.659028518697606e-05, 'epoch': 1.28}
+{'loss': 17.4203, 'grad_norm': 46.18928909301758, 'learning_rate': 2.9290711709620592e-05, 'epoch': 2.56}
+{'loss': 8.5267, 'grad_norm': 41.572086334228516, 'learning_rate': 1.649145250509903e-05, 'epoch': 3.83}
+{'loss': 4.3463, 'grad_norm': 24.534255981445312, 'learning_rate': 4.725961551944566e-06, 'epoch': 5.0}
+{'train_runtime': 1345.2924, 'train_samples_per_second': 0.598, 'train_steps_per_second': 0.036, 'train_loss': 14.279281226956115, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.7350 (73.50%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_20
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00011345171207178935
+[HPO]   • weight_decay: 0.04586831404437627
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.0047237011235952385
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.19474172501741574
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.4547331347541619
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.0047237011235952385, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 22.9671, 'grad_norm': 1130.9947509765625, 'learning_rate': 0.00010210654086461041, 'epoch': 1.28}
+{'loss': 2.4249, 'grad_norm': 96.69691467285156, 'learning_rate': 9.918576897796836e-05, 'epoch': 2.56}
+{'loss': 1.0031, 'grad_norm': 75.96785736083984, 'learning_rate': 5.9009975957691314e-05, 'epoch': 3.83}
+{'loss': 0.5418, 'grad_norm': 34.60200500488281, 'learning_rate': 1.743047408615093e-05, 'epoch': 5.0}
+{'train_runtime': 1332.3381, 'train_samples_per_second': 0.604, 'train_steps_per_second': 0.037, 'train_loss': 5.562648038474881, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0907 (9.07%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_21
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 9.756595044684347e-05
+[HPO]   • weight_decay: 0.019876894681904435
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.13137193687163032
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.1871984024844071
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.331561955991879
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=64, alpha=128, dropout=0.13137193687163032, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 19.3202, 'grad_norm': 243.84703063964844, 'learning_rate': 8.780935540215912e-05, 'epoch': 1.28}
+{'loss': 1.9649, 'grad_norm': 101.90345764160156, 'learning_rate': 8.529755650591742e-05, 'epoch': 2.56}
+{'loss': 1.0134, 'grad_norm': 106.08873748779297, 'learning_rate': 5.074726758212712e-05, 'epoch': 3.83}
+{'loss': 0.5318, 'grad_norm': 11.59277629852295, 'learning_rate': 1.498982024950211e-05, 'epoch': 5.0}
+{'train_runtime': 1341.3356, 'train_samples_per_second': 0.6, 'train_steps_per_second': 0.037, 'train_loss': 4.720501048224313, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0471 (4.71%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_22
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 8.446151968429664e-05
+[HPO]   • weight_decay: 0.004123946930475998
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.18810556945572454
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.17010725059416895
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.0471383824847518
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=16, dropout=0.18810556945572454, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 35.1505, 'grad_norm': 185.2537078857422, 'learning_rate': 8.446151968429664e-05, 'epoch': 1.28}
+{'loss': 14.3145, 'grad_norm': 52.51351547241211, 'learning_rate': 7.209241650119193e-05, 'epoch': 2.56}
+{'loss': 4.3991, 'grad_norm': 42.05752944946289, 'learning_rate': 4.223075984214832e-05, 'epoch': 3.83}
+{'loss': 2.31, 'grad_norm': 6.374584674835205, 'learning_rate': 1.2369103183104713e-05, 'epoch': 5.0}
+{'train_runtime': 1334.5254, 'train_samples_per_second': 0.603, 'train_steps_per_second': 0.037, 'train_loss': 11.855109039618045, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.2808 (28.08%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_23
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 9.081049029896345e-05
+[HPO]   • weight_decay: 0.015620395810987767
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.16131105566525322
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.21506481871405256
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.0048532551945217
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.16131105566525322, rslora=False
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 30.7121, 'grad_norm': 154.2635040283203, 'learning_rate': 7.429949206278828e-05, 'epoch': 1.28}
+{'loss': 5.9217, 'grad_norm': 56.10261917114258, 'learning_rate': 8.123636343601187e-05, 'epoch': 2.56}
+{'loss': 1.7424, 'grad_norm': 53.41831588745117, 'learning_rate': 4.915478057493672e-05, 'epoch': 3.83}
+{'loss': 0.9679, 'grad_norm': 9.447141647338867, 'learning_rate': 1.4653109354588695e-05, 'epoch': 5.0}
+{'train_runtime': 1330.3302, 'train_samples_per_second': 0.605, 'train_steps_per_second': 0.037, 'train_loss': 8.177781581878662, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0886 (8.86%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO TRIAL (FINETUNE-ALIGNED, FIXED EPOCHS)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/trials/trial_24
+[HPO]   • num_epochs: 7 (fixed)
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00014834369800089715
+[HPO]   • weight_decay: 0.025825366890956415
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.0835606934252038
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.24867741208902105
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 2.4031748218316804
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.0835606934252038, rslora=True
+[HPO] Preparing STAIRCASE TRAIN data (no augmentation)
+[HPO] Training: 115 samples (missing images: 0)
+[HPO] Training samples: 115, Fixed validation subset: 20
+[HPO] Starting training for this trial...
+
+{'loss': 22.9644, 'grad_norm': 358.32342529296875, 'learning_rate': 0.00010269948323139033, 'epoch': 1.28}
+{'loss': 2.4695, 'grad_norm': 219.48538208007812, 'learning_rate': 0.00013840655448050048, 'epoch': 2.56}
+{'loss': 1.1058, 'grad_norm': 51.94313430786133, 'learning_rate': 8.705165541356322e-05, 'epoch': 3.83}
+{'loss': 0.486, 'grad_norm': 18.622039794921875, 'learning_rate': 2.6495103475419303e-05, 'epoch': 5.0}
+{'train_runtime': 1328.1151, 'train_samples_per_second': 0.606, 'train_steps_per_second': 0.037, 'train_loss': 5.567399394755461, 'epoch': 6.14}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 20 fixed validation samples for CER
+[HPO]   Evaluating 1/20: FMIS_FormblätterMielke_gefüllt (147).jpg[HPO]   Evaluating 2/20: FMIS_FormblätterMielke_gefüllt (86).jpg[HPO]   Evaluating 3/20: FMIS_FormblätterMielke_gefüllt (96).jpg[HPO]   Evaluating 4/20: FMIS_FormblätterMielke_gefüllt (1).jpg[HPO]   Evaluating 5/20: FMIS_FormblätterMielke_gefüllt (9).jpg[HPO]   Evaluating 6/20: FMIS_FormblätterMielke_gefüllt (80).jpg[HPO]   Evaluating 7/20: FMIS_FormblätterMielke_gefüllt (118).jpg[HPO]   Evaluating 8/20: FMIS_FormblätterMielke_gefüllt (98).jpg[HPO]   Evaluating 9/20: FMIS_FormblätterMielke_gefüllt (119).jpg[HPO]   Evaluating 10/20: FMIS_FormblätterMielke_gefüllt (72).jpg[HPO]   Evaluating 11/20: FMIS_FormblätterMielke_gefüllt (93).jpg[HPO]   Evaluating 12/20: FMIS_FormblätterMielke_gefüllt (91).jpg[HPO]   Evaluating 13/20: FMIS_FormblätterMielke_gefüllt (90).jpg[HPO]   Evaluating 14/20: FMIS_FormblätterMielke_gefüllt (162).jpg[HPO]   Evaluating 15/20: FMIS_FormblätterMielke_gefüllt (82).jpg[HPO]   Evaluating 16/20: FMIS_FormblätterMielke_gefüllt (74).jpg[HPO]   Evaluating 17/20: FMIS_FormblätterMielke_gefüllt (156).jpg[HPO]   Evaluating 18/20: FMIS_FormblätterMielke_gefüllt (50).jpg[HPO]   Evaluating 19/20: FMIS_FormblätterMielke_gefüllt (2).jpg[HPO]   Evaluating 20/20: FMIS_FormblätterMielke_gefüllt (61).jpg
+[HPO]   ✅ Validation CER: 0.0445 (4.45%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 STAIRCASE HPO finished / resumed (FINETUNE-ALIGNED)
+================================================================================
+[HPO]   Best trial number: 4
+[HPO]   Best Validation CER: 0.0416 (4.16%)
+[HPO]   Best params:
+[HPO]      learning_rate: 8.601840180932145e-05
+[HPO]      weight_decay: 0.011106697760113554
+[HPO]      gradient_accumulation_steps: 16
+[HPO]      lora_r: 8
+[HPO]      lora_alpha: 128
+[HPO]      lora_dropout: 0.02391884918766034
+[HPO]      use_rslora: True
+[HPO]      warmup_ratio: 0.14031929939237406
+[HPO]      max_grad_norm: 2.4274179498864026
+
+[HPO] ✅ Best hyperparameters saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/best_hyperparameters.json
+[HPO] ✅ Best config saved to:          /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/best_config.json
+[HPO] ✅ HPO summary saved to:         /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/hpo_summary.txt
+[HPO] ✅ Fixed val subset list saved to:/home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/stair/run_HPO_20260122_044836/fixed_val_subset_image_names.json
+
+[HPO] 🎉 HPO done. Copy these values into your main Gemma-3 STAIRCASE finetune script.
+
+Gemma-3 training completed at: Fri Jan 23 02:44:11 AM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Fri Jan 23 02:44:11 AM CET 2026
+= Job-ID             : 1515382 on tinygpu
+= Job-Name           : stair_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 21:56:36
+= Total RAM usage    : 12.1 GiB of requested  GiB (%)   
+= Node list          : tg095
+= Subm/Elig/Start/End: 2026-01-21T20:44:56 / 2026-01-21T20:44:56 / 2026-01-22T04:47:35 / 2026-01-23T02:44:11
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.4G   104.9G   209.7G        N/A  29,373      500K   1,000K        N/A    
+    /home/woody           219.6G  1000.0G  1500.0G        N/A   1,017K   5,000K   7,500K        N/A    
+    /home/vault          1033.5G  1048.6G  2097.2G        N/A   8,312      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:81:00.0, 2763245, 25 %, 6 %, 12110 MiB, 78959061 ms

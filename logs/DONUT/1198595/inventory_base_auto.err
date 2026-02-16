@@ -1,0 +1,116 @@
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Config of the encoder: <class 'transformers.models.donut.modeling_donut_swin.DonutSwinModel'> is overwritten by shared encoder config: DonutSwinConfig {
+  "attention_probs_dropout_prob": 0.0,
+  "depths": [
+    2,
+    2,
+    14,
+    2
+  ],
+  "drop_path_rate": 0.1,
+  "embed_dim": 128,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.0,
+  "hidden_size": 1024,
+  "image_size": [
+    2560,
+    1920
+  ],
+  "initializer_range": 0.02,
+  "layer_norm_eps": 1e-05,
+  "mlp_ratio": 4.0,
+  "model_type": "donut-swin",
+  "num_channels": 3,
+  "num_heads": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "num_layers": 4,
+  "patch_size": 4,
+  "path_norm": true,
+  "qkv_bias": true,
+  "torch_dtype": "float32",
+  "transformers_version": "4.51.3",
+  "use_absolute_embeddings": false,
+  "window_size": 10
+}
+
+Config of the decoder: <class 'transformers.models.mbart.modeling_mbart.MBartForCausalLM'> is overwritten by shared decoder config: MBartConfig {
+  "activation_dropout": 0.0,
+  "activation_function": "gelu",
+  "add_cross_attention": true,
+  "add_final_layer_norm": true,
+  "attention_dropout": 0.0,
+  "bos_token_id": 0,
+  "classifier_dropout": 0.0,
+  "d_model": 1024,
+  "decoder_attention_heads": 16,
+  "decoder_ffn_dim": 4096,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 4,
+  "dropout": 0.1,
+  "encoder_attention_heads": 16,
+  "encoder_ffn_dim": 4096,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 12,
+  "eos_token_id": 2,
+  "forced_eos_token_id": 2,
+  "init_std": 0.02,
+  "is_decoder": true,
+  "is_encoder_decoder": false,
+  "max_position_embeddings": 1536,
+  "model_type": "mbart",
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "scale_embedding": true,
+  "torch_dtype": "float32",
+  "transformers_version": "4.51.3",
+  "use_cache": true,
+  "vocab_size": 57525
+}
+
+  0%|          | 0/5350 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing`. Setting `use_cache=False`...
+  0%|          | 1/5350 [00:56<83:32:40, 56.23s/it]  0%|          | 2/5350 [01:43<75:56:30, 51.12s/it]  0%|          | 3/5350 [02:34<75:38:46, 50.93s/it]  0%|          | 4/5350 [03:27<77:04:41, 51.90s/it]  0%|          | 5/5350 [04:15<74:40:46, 50.30s/it]  0%|          | 6/5350 [05:02<73:19:51, 49.40s/it]  0%|          | 7/5350 [06:08<81:01:52, 54.60s/it]  0%|          | 8/5350 [07:00<79:46:36, 53.76s/it]  0%|          | 9/5350 [07:44<75:10:14, 50.67s/it]  0%|          | 10/5350 [08:31<73:44:22, 49.71s/it]  0%|          | 11/5350 [09:14<70:30:26, 47.54s/it]  0%|          | 12/5350 [09:53<66:39:55, 44.96s/it]  0%|          | 13/5350 [10:28<62:15:10, 41.99s/it]  0%|          | 14/5350 [11:28<70:12:57, 47.37s/it]  0%|          | 15/5350 [12:12<68:44:40, 46.39s/it]  0%|          | 16/5350 [13:06<72:16:26, 48.78s/it]  0%|          | 17/5350 [13:43<67:02:54, 45.26s/it]  0%|          | 18/5350 [14:28<66:58:36, 45.22s/it]  0%|          | 19/5350 [14:33<48:40:59, 32.88s/it]  0%|          | 20/5350 [15:08<49:35:42, 33.50s/it]  0%|          | 21/5350 [15:12<36:28:35, 24.64s/it]  0%|          | 22/5350 [16:06<49:41:45, 33.58s/it]  0%|          | 23/5350 [16:23<42:23:34, 28.65s/it]  0%|          | 24/5350 [16:32<33:48:58, 22.86s/it]  0%|          | 25/5350 [16:37<25:30:51, 17.25s/it]  0%|          | 26/5350 [17:45<48:17:42, 32.66s/it]  1%|          | 27/5350 [18:33<54:55:56, 37.15s/it]  1%|          | 28/5350 [19:12<55:35:52, 37.61s/it]  1%|          | 29/5350 [19:58<59:28:16, 40.24s/it]  1%|          | 30/5350 [20:02<43:21:12, 29.34s/it]  1%|          | 31/5350 [20:53<53:01:08, 35.88s/it]  1%|          | 32/5350 [21:31<53:58:17, 36.54s/it]  1%|          | 33/5350 [22:33<65:02:03, 44.03s/it]  1%|          | 34/5350 [22:36<47:10:12, 31.94s/it]  1%|          | 35/5350 [22:40<34:45:28, 23.54s/it]  1%|          | 36/5350 [22:44<26:10:34, 17.73s/it]  1%|          | 37/5350 [23:49<47:04:54, 31.90s/it]  1%|          | 38/5350 [23:53<34:37:32, 23.47s/it]  1%|          | 39/5350 [23:58<26:19:47, 17.85s/it]  1%|          | 40/5350 [24:48<40:48:42, 27.67s/it]  1%|          | 41/5350 [24:53<30:21:12, 20.58s/it]  1%|          | 42/5350 [24:56<22:59:12, 15.59s/it]  1%|          | 43/5350 [25:43<36:37:00, 24.84s/it]  1%|          | 44/5350 [26:34<48:02:59, 32.60s/it]  1%|          | 45/5350 [27:15<52:04:44, 35.34s/it]  1%|          | 46/5350 [28:03<57:36:28, 39.10s/it]  1%|          | 47/5350 [28:55<63:07:38, 42.85s/it]  1%|          | 48/5350 [29:56<71:22:47, 48.47s/it]  1%|          | 49/5350 [30:44<70:55:19, 48.16s/it]  1%|          | 50/5350 [31:23<66:59:33, 45.50s/it]                                                      1%|          | 50/5350 [31:23<66:59:33, 45.50s/it]  1%|          | 51/5350 [32:09<67:12:19, 45.66s/it]  1%|          | 52/5350 [33:09<73:27:33, 49.92s/it]  1%|          | 53/5350 [33:13<53:05:22, 36.08s/it]  1%|          | 54/5350 [34:06<60:30:29, 41.13s/it]  1%|          | 55/5350 [34:47<60:42:38, 41.28s/it]  1%|          | 56/5350 [35:44<67:21:39, 45.81s/it]  1%|          | 57/5350 [36:29<67:19:42, 45.79s/it]  1%|          | 58/5350 [36:33<48:51:32, 33.24s/it]  1%|          | 59/5350 [37:34<60:45:20, 41.34s/it]  1%|          | 60/5350 [38:40<71:34:21, 48.71s/it]  1%|          | 61/5350 [38:43<51:47:21, 35.25s/it]  1%|          | 62/5350 [39:36<59:30:09, 40.51s/it]  1%|          | 63/5350 [40:20<61:02:10, 41.56s/it]  1%|          | 64/5350 [41:03<61:29:36, 41.88s/it]  1%|          | 65/5350 [41:06<44:37:13, 30.39s/it]  1%|          | 66/5350 [41:40<46:05:07, 31.40s/it]  1%|▏         | 67/5350 [42:27<52:45:44, 35.95s/it]  1%|▏         | 68/5350 [43:13<57:04:42, 38.90s/it]  1%|▏         | 69/5350 [43:49<55:58:52, 38.16s/it]  1%|▏         | 70/5350 [44:43<63:03:26, 42.99s/it]  1%|▏         | 71/5350 [45:45<71:11:01, 48.54s/it]  1%|▏         | 72/5350 [46:20<65:10:33, 44.45s/it]  1%|▏         | 73/5350 [47:23<73:34:28, 50.19s/it]  1%|▏         | 74/5350 [48:09<71:44:02, 48.95s/it]  1%|▏         | 75/5350 [48:53<69:28:07, 47.41s/it]  1%|▏         | 76/5350 [49:38<68:09:57, 46.53s/it]  1%|▏         | 77/5350 [50:20<66:31:53, 45.42s/it]  1%|▏         | 78/5350 [50:39<54:44:27, 37.38s/it]  1%|▏         | 79/5350 [51:24<58:04:14, 39.66s/it]  1%|▏         | 80/5350 [52:09<60:33:01, 41.36s/it]  2%|▏         | 81/5350 [53:14<70:56:21, 48.47s/it]  2%|▏         | 82/5350 [53:58<68:55:50, 47.11s/it]  2%|▏         | 83/5350 [54:51<71:12:23, 48.67s/it]  2%|▏         | 84/5350 [55:31<67:34:25, 46.20s/it]  2%|▏         | 85/5350 [56:19<68:14:49, 46.66s/it]  2%|▏         | 86/5350 [57:03<66:59:27, 45.81s/it]  2%|▏         | 87/5350 [57:37<61:52:58, 42.33s/it]  2%|▏         | 88/5350 [58:38<70:07:17, 47.97s/it]  2%|▏         | 89/5350 [59:19<67:09:34, 45.96s/it]  2%|▏         | 90/5350 [1:00:31<78:20:10, 53.61s/it]  2%|▏         | 91/5350 [1:01:17<74:59:10, 51.33s/it]  2%|▏         | 92/5350 [1:02:08<74:49:55, 51.24s/it]  2%|▏         | 93/5350 [1:03:00<75:12:41, 51.50s/it]  2%|▏         | 94/5350 [1:03:48<73:54:10, 50.62s/it]  2%|▏         | 95/5350 [1:04:34<71:31:40, 49.00s/it]  2%|▏         | 96/5350 [1:05:26<72:59:08, 50.01s/it]  2%|▏         | 97/5350 [1:05:57<64:49:11, 44.42s/it]  2%|▏         | 98/5350 [1:06:43<65:27:27, 44.87s/it]  2%|▏         | 99/5350 [1:07:41<71:09:27, 48.78s/it]  2%|▏         | 100/5350 [1:08:32<71:59:07, 49.36s/it]                                                         2%|▏         | 100/5350 [1:08:33<71:59:07, 49.36s/it]  2%|▏         | 101/5350 [1:09:15<69:03:52, 47.37s/it]  2%|▏         | 102/5350 [1:10:11<72:48:36, 49.95s/it]  2%|▏         | 103/5350 [1:10:24<56:50:45, 39.00s/it]  2%|▏         | 104/5350 [1:11:07<58:22:17, 40.06s/it]  2%|▏         | 105/5350 [1:11:46<57:57:10, 39.78s/it]  2%|▏         | 106/5350 [1:12:36<62:36:25, 42.98s/it]  2%|▏         | 107/5350 [1:12:38<44:31:12, 30.57s/it]Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/DONUT/finetune_with_autoregressive/inven_base.py", line 572, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/DONUT/finetune_with_autoregressive/inven_base.py", line 512, in main
+    trainer.train()
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/transformers/trainer.py", line 2661, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/transformers/trainer.py", line 3096, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/transformers/trainer.py", line 3045, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/transformers/trainer.py", line 4154, in evaluate
+    output = eval_loop(
+             ^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/transformers/trainer.py", line 4348, in evaluation_loop
+    losses, logits, labels = self.prediction_step(model, inputs, prediction_loss_only, ignore_keys=ignore_keys)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/transformers/trainer.py", line 4574, in prediction_step
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/transformers/models/vision_encoder_decoder/modeling_vision_encoder_decoder.py", line 589, in forward
+    encoder_outputs = self.encoder(
+                      ^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/uddipan_thesis/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DonutSwinModel.forward() got an unexpected keyword argument 'target_ids'
+  2%|▏         | 107/5350 [1:12:41<59:22:17, 40.77s/it]

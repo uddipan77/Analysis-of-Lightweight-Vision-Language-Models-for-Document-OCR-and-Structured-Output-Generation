@@ -1,0 +1,236 @@
+### Starting TaskPrologue of job 1229409 on tg092 at Fri Oct  3 03:02:37 AM CEST 2025
+Running on cores 96-127 with governor ondemand
+Fri Oct  3 03:02:37 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.65.06              Driver Version: 580.65.06      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:C1:00.0 Off |                    0 |
+| N/A   32C    P0             52W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+Created run directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/inventory_dataset/run_CER_METRIC_20251003_030301
+============================================================
+GEMMA-3 WITH CER-BASED MODEL SELECTION
+============================================================
+Loading Gemma-3 vision model with Unsloth...
+Clearing Unsloth compiled cache: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/unsloth_compiled_cache
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+Model loaded - Unsloth auto-configured dtype and attention
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+Gemma-3 vision model loaded with enhanced LoRA config
+
+============================================================
+STARTING TRAINING WITH CER METRIC
+============================================================
+Preparing training and validation datasets...
+Training: 213 samples, Validation: 47 samples
+GPU = NVIDIA A100-SXM4-40GB. Max memory = 39.494 GB.
+4.809 GB of memory reserved.
+Starting training with CER-based evaluation...
+{'loss': 52.7118, 'grad_norm': 589.7772827148438, 'learning_rate': 0.0, 'epoch': 0.08}
+{'loss': 54.0359, 'grad_norm': 699.003662109375, 'learning_rate': 1.2000000000000002e-06, 'epoch': 0.38}
+{'loss': 53.1037, 'grad_norm': 557.6350708007812, 'learning_rate': 2.7e-06, 'epoch': 0.75}
+{'eval_loss': 2.6489405632019043, 'eval_cer': 0.8188142674803164, 'eval_cer_percentage': 81.88142674803164, 'eval_runtime': 109.1723, 'eval_samples_per_second': 0.431, 'eval_steps_per_second': 0.431, 'epoch': 1.0}
+{'loss': 40.1475, 'grad_norm': 350.7452087402344, 'learning_rate': 4.2000000000000004e-06, 'epoch': 1.08}
+{'loss': 37.7988, 'grad_norm': 178.84017944335938, 'learning_rate': 5.7000000000000005e-06, 'epoch': 1.45}
+{'loss': 32.5447, 'grad_norm': 153.921875, 'learning_rate': 7.2e-06, 'epoch': 1.83}
+{'eval_loss': 1.7195707559585571, 'eval_cer': 0.7505667908833351, 'eval_cer_percentage': 75.05667908833351, 'eval_runtime': 108.6643, 'eval_samples_per_second': 0.433, 'eval_steps_per_second': 0.433, 'epoch': 2.0}
+{'loss': 24.5334, 'grad_norm': 101.20543670654297, 'learning_rate': 8.7e-06, 'epoch': 2.15}
+{'loss': 23.5387, 'grad_norm': 97.14971160888672, 'learning_rate': 1.02e-05, 'epoch': 2.53}
+{'loss': 18.999, 'grad_norm': 166.5665283203125, 'learning_rate': 1.1700000000000001e-05, 'epoch': 2.9}
+{'eval_loss': 1.0200059413909912, 'eval_cer': 0.6722394517613999, 'eval_cer_percentage': 67.22394517613999, 'eval_runtime': 108.8463, 'eval_samples_per_second': 0.432, 'eval_steps_per_second': 0.432, 'epoch': 3.0}
+{'loss': 13.9989, 'grad_norm': 67.26762390136719, 'learning_rate': 1.32e-05, 'epoch': 3.23}
+{'loss': 13.7082, 'grad_norm': 54.350433349609375, 'learning_rate': 1.47e-05, 'epoch': 3.6}
+{'loss': 13.4627, 'grad_norm': 45.8833122253418, 'learning_rate': 1.62e-05, 'epoch': 3.98}
+{'eval_loss': 0.8447412252426147, 'eval_cer': 0.6893684719899277, 'eval_cer_percentage': 68.93684719899277, 'eval_runtime': 108.9548, 'eval_samples_per_second': 0.431, 'eval_steps_per_second': 0.431, 'epoch': 4.0}
+{'loss': 10.9071, 'grad_norm': 55.534236907958984, 'learning_rate': 1.77e-05, 'epoch': 4.3}
+{'loss': 11.7704, 'grad_norm': 35.82379913330078, 'learning_rate': 1.9200000000000003e-05, 'epoch': 4.68}
+{'loss': 9.848, 'grad_norm': 29.506982803344727, 'learning_rate': 2.07e-05, 'epoch': 5.0}
+{'eval_loss': 0.7728936076164246, 'eval_cer': 0.7497577078582897, 'eval_cer_percentage': 74.97577078582897, 'eval_runtime': 108.6708, 'eval_samples_per_second': 0.432, 'eval_steps_per_second': 0.432, 'epoch': 5.0}
+{'loss': 10.3411, 'grad_norm': 85.43598175048828, 'learning_rate': 2.22e-05, 'epoch': 5.38}
+{'loss': 10.2969, 'grad_norm': 61.13936996459961, 'learning_rate': 2.37e-05, 'epoch': 5.75}
+{'eval_loss': 0.7497830390930176, 'eval_cer': 0.7102490186368082, 'eval_cer_percentage': 71.02490186368082, 'eval_runtime': 108.9837, 'eval_samples_per_second': 0.431, 'eval_steps_per_second': 0.431, 'epoch': 6.0}
+{'train_runtime': 2496.1422, 'train_samples_per_second': 1.28, 'train_steps_per_second': 0.078, 'train_loss': 22.93554946354457, 'epoch': 6.0}
+2496.1422 seconds used for training.
+41.6 minutes used for training.
+Peak reserved memory = 8.777 GB.
+Peak reserved memory for training = 3.968 GB.
+Peak reserved memory % of max memory = 22.224 %.
+Peak reserved memory for training % of max memory = 10.047 %.
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/gemma/inventory_dataset/run_CER_METRIC_20251003_030301...
+Model (LoRA adapters) saved successfully!
+Note: Merged model saving skipped due to Gemma-3 compatibility issue
+Attempting to save LoRA adapters to /home/vault/iwi5/iwi5298h/models_image_text/gemma/inventory_dataset/run_CER_METRIC_20251003_030301/lora_adapters...
+Detected local model directory: /home/vault/iwi5/iwi5298h/models/hf_cache/hub/models--unsloth--gemma-3-4b-it-unsloth-bnb-4bit/snapshots/316726ca0bd24aa323bfaf86e8a379ee1176d1fe
+Found HuggingFace hub cache directory: /home/hpc/iwi5/iwi5298h/.cache/huggingface/hub
+Copying safetensors from local directory: /home/vault/iwi5/iwi5298h/models/hf_cache/hub/models--unsloth--gemma-3-4b-it-unsloth-bnb-4bit/snapshots/316726ca0bd24aa323bfaf86e8a379ee1176d1fe
+Copied model.safetensors from local model directory
+Warning: Could not save separate LoRA adapters: Bad in-place call: input tensor size [1310720, 1] and output tensor size [1024, 2560] should match
+Main model checkpoint is still saved and usable.
+
+============================================================
+STARTING EVALUATION ON TEST.JSONL
+============================================================
+Starting evaluation on test.jsonl...
+Loaded 48 test samples
+Processing test image 1/48: inventarbuch-022.jpg
+  Processed successfully. CER: 0.932
+Processing test image 2/48: inventarbuch-099.jpg
+  Processed successfully. CER: 0.231
+Processing test image 3/48: inventarbuch-245.jpg
+  Processed successfully. CER: 0.339
+Processing test image 4/48: inventarbuch-263.jpg
+  Processed successfully. CER: 0.163
+Processing test image 5/48: inventarbuch-033.jpg
+  Processed successfully. CER: 0.298
+Processing test image 6/48: inventarbuch-143.jpg
+  Processed successfully. CER: 0.183
+Processing test image 7/48: inventarbuch-244.jpg
+  Processed successfully. CER: 0.389
+Processing test image 8/48: inventarbuch-024.jpg
+  Processed successfully. CER: 0.085
+Processing test image 9/48: inventarbuch-141.jpg
+  Processed successfully. CER: 0.145
+Processing test image 10/48: inventarbuch-183.jpg
+  Processed successfully. CER: 0.399
+Processing test image 11/48: inventarbuch-191.jpg
+  Processed successfully. CER: 0.253
+Processing test image 12/48: inventarbuch-051.jpg
+  Processed successfully. CER: 0.097
+Processing test image 13/48: inventarbuch-203.jpg
+  Processed successfully. CER: 0.244
+Processing test image 14/48: inventarbuch-296.jpg
+  Processed successfully. CER: 0.232
+Processing test image 15/48: inventarbuch-302.jpg
+  Processed successfully. CER: 0.087
+Processing test image 16/48: inventarbuch-179.jpg
+  Processed successfully. CER: 0.259
+Processing test image 17/48: inventarbuch-114.jpg
+  Processed successfully. CER: 0.287
+Processing test image 18/48: inventarbuch-082.jpg
+  Processed successfully. CER: 0.358
+Processing test image 19/48: inventarbuch-287.jpg
+  Processed successfully. CER: 0.339
+Processing test image 20/48: inventarbuch-181.jpg
+  Processed successfully. CER: 0.263
+Processing test image 21/48: inventarbuch-299.jpg
+  Processed successfully. CER: 0.269
+Processing test image 22/48: inventarbuch-084.jpg
+  Processed successfully. CER: 0.400
+Processing test image 23/48: inventarbuch-004.jpg
+  Processed successfully. CER: 0.226
+Processing test image 24/48: inventarbuch-148.jpg
+  Processed successfully. CER: 0.143
+Processing test image 25/48: inventarbuch-238.jpg
+  Processed successfully. CER: 0.279
+Processing test image 26/48: inventarbuch-116.jpg
+  Processed successfully. CER: 0.125
+Processing test image 27/48: inventarbuch-223.jpg
+  Processed successfully. CER: 0.225
+Processing test image 28/48: inventarbuch-104.jpg
+  Processed successfully. CER: 0.303
+Processing test image 29/48: inventarbuch-015.jpg
+  Processed successfully. CER: 1.000
+Processing test image 30/48: inventarbuch-272.jpg
+  Processed successfully. CER: 0.293
+Processing test image 31/48: inventarbuch-124.jpg
+  Processed successfully. CER: 0.161
+Processing test image 32/48: inventarbuch-115.jpg
+  Processed successfully. CER: 1.000
+Processing test image 33/48: inventarbuch-049.jpg
+  Processed successfully. CER: 0.091
+Processing test image 34/48: inventarbuch-017.jpg
+  Processed successfully. CER: 0.103
+Processing test image 35/48: inventarbuch-018.jpg
+  Processed successfully. CER: 0.930
+Processing test image 36/48: inventarbuch-225.jpg
+  Processed successfully. CER: 0.331
+Processing test image 37/48: inventarbuch-046.jpg
+  Processed successfully. CER: 0.381
+Processing test image 38/48: inventarbuch-294.jpg
+  Processed successfully. CER: 0.160
+Processing test image 39/48: inventarbuch-054.jpg
+  Processed successfully. CER: 0.373
+Processing test image 40/48: inventarbuch-073.jpg
+  Processed successfully. CER: 0.325
+Processing test image 41/48: inventarbuch-118.jpg
+  Processed successfully. CER: 0.242
+Processing test image 42/48: inventarbuch-130.jpg
+  Processed successfully. CER: 0.217
+Processing test image 43/48: inventarbuch-146.jpg
+  Processed successfully. CER: 0.279
+Processing test image 44/48: inventarbuch-014.jpg
+  Processed successfully. CER: 0.363
+Processing test image 45/48: inventarbuch-059.jpg
+  Processed successfully. CER: 0.254
+Processing test image 46/48: inventarbuch-256.jpg
+  Processed successfully. CER: 0.256
+Processing test image 47/48: inventarbuch-260.jpg
+  Processed successfully. CER: 0.256
+Processing test image 48/48: inventarbuch-279.jpg
+  Processed successfully. CER: 0.345
+CER evaluation results saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/inventory_dataset/run_CER_METRIC_20251003_030301/cer_evaluation_results.txt
+
+Evaluation completed!
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/inventory_dataset/run_CER_METRIC_20251003_030301/test_predictions.jsonl
+CER results saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/inventory_dataset/run_CER_METRIC_20251003_030301/cer_evaluation_results.txt
+All files saved in: /home/vault/iwi5/iwi5298h/models_image_text/gemma/inventory_dataset/run_CER_METRIC_20251003_030301
+
+============================================================
+FINAL RESULTS SUMMARY
+============================================================
+Average CER: 0.3107 (31.07%)
+Median CER: 0.2607 (26.07%)
+Perfect matches: 0/48 (0.00%)
+Total images processed: 48
+
+🎉 Gemma-3 training and evaluation completed successfully!
+All outputs saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/inventory_dataset/run_CER_METRIC_20251003_030301
+Gemma-3 training completed at: Fri Oct  3 04:22:10 AM CEST 2025
+=== JOB_STATISTICS ===
+=== current date     : Fri Oct  3 04:22:10 AM CEST 2025
+= Job-ID             : 1229409 on tinygpu
+= Job-Name           : gemma_inven
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 15:00:00
+= Elapsed runtime    : 01:19:46
+= Total RAM usage    : 76.3 GiB of requested  GiB (%)   
+= Node list          : tg092
+= Subm/Elig/Start/End: 2025-10-03T02:33:03 / 2025-10-03T02:33:03 / 2025-10-03T03:02:24 / 2025-10-03T04:22:10
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              65.7G   104.9G   209.7G        N/A  36,287      500K   1,000K        N/A    
+    /home/woody            77.8G  1000.0G  1500.0G        N/A     441K   5,000K   7,500K        N/A    
+    /home/vault           706.6G  1048.6G  2097.2G        N/A   4,554      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:C1:00.0, 2704725, 24 %, 5 %, 9530 MiB, 4766817 ms

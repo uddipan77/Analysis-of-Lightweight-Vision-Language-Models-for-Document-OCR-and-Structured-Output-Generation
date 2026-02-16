@@ -1,0 +1,11 @@
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/models/auto/image_processing_auto.py:520: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:47<00:47, 47.84s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:18<00:00, 37.67s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:18<00:00, 39.20s/it]
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/gradio/interface.py:415: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated. Use `flagging_mode` instead.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ui_phi.py", line 367, in <module>
+    demo.launch(server_name="0.0.0.0", server_port=7860)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/gradio/blocks.py", line 2681, in launch
+    raise Exception(
+Exception: Couldn't start the app because 'http://localhost:7860/gradio_api/startup-events' failed (code 503). Check your network or proxy settings to ensure localhost is accessible.

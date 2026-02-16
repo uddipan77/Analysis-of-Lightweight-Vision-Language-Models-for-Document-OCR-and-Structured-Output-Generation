@@ -1,0 +1,537 @@
+### Starting TaskPrologue of job 1521501 on tg097 at Sun Feb  1 09:38:14 AM CET 2026
+Running on cores 0-31 with governor ondemand
+Sun Feb  1 09:38:14 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.09             Driver Version: 580.126.09     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:01:00.0 Off |                    0 |
+| N/A   38C    P0             54W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+Created run directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/finetune/run_A100_20260201_093837
+
+============================================================
+GEMMA-3 SCHMUCK - A100 OPTIMIZED
+============================================================
+Loading Gemma-3 vision model with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.493 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+Model loaded - Unsloth auto-configured dtype and attention
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+Gemma-3 vision model loaded with A100-optimized LoRA config
+
+============================================================
+STARTING TRAINING (A100-OPTIMIZED)
+============================================================
+Preparing training and validation datasets...
+Training: 413 samples, Validation: 88 samples
+GPU = NVIDIA A100-SXM4-40GB. Max memory = 39.493 GB.
+4.809 GB of memory reserved.
+Starting training with CER-based evaluation (A100-optimized)...
+{'loss': 14.1868, 'grad_norm': 256.2267761230469, 'learning_rate': 0.0, 'epoch': 0.04}
+{'loss': 14.0584, 'grad_norm': 346.5254821777344, 'learning_rate': 1.2000000000000002e-06, 'epoch': 0.19}
+{'loss': 13.556, 'grad_norm': 260.8939514160156, 'learning_rate': 2.7e-06, 'epoch': 0.39}
+{'loss': 10.6054, 'grad_norm': 511.5276184082031, 'learning_rate': 4.2000000000000004e-06, 'epoch': 0.58}
+{'loss': 7.4757, 'grad_norm': 90.75367736816406, 'learning_rate': 5.7000000000000005e-06, 'epoch': 0.77}
+{'loss': 5.3093, 'grad_norm': 120.2450942993164, 'learning_rate': 7.2e-06, 'epoch': 0.97}
+{'eval_loss': 0.5559293627738953, 'eval_cer': 0.6573033707865169, 'eval_cer_percentage': 65.73033707865169, 'eval_runtime': 55.1414, 'eval_samples_per_second': 1.596, 'eval_steps_per_second': 1.596, 'epoch': 0.97}
+{'loss': 4.3593, 'grad_norm': 59.54656219482422, 'learning_rate': 8.7e-06, 'epoch': 1.19}
+{'loss': 2.363, 'grad_norm': 46.128868103027344, 'learning_rate': 1.02e-05, 'epoch': 1.39}
+{'loss': 1.2155, 'grad_norm': 37.22077178955078, 'learning_rate': 1.1700000000000001e-05, 'epoch': 1.58}
+{'loss': 0.7137, 'grad_norm': 68.10663604736328, 'learning_rate': 1.32e-05, 'epoch': 1.77}
+{'loss': 0.4902, 'grad_norm': 22.65008544921875, 'learning_rate': 1.47e-05, 'epoch': 1.97}
+{'eval_loss': 0.0581999197602272, 'eval_cer': 0.6376404494382022, 'eval_cer_percentage': 63.76404494382022, 'eval_runtime': 52.1925, 'eval_samples_per_second': 1.686, 'eval_steps_per_second': 1.686, 'epoch': 1.97}
+{'loss': 0.4546, 'grad_norm': 7.4034318923950195, 'learning_rate': 1.62e-05, 'epoch': 2.19}
+{'loss': 0.2818, 'grad_norm': 9.759223937988281, 'learning_rate': 1.77e-05, 'epoch': 2.39}
+{'loss': 0.1508, 'grad_norm': 12.684711456298828, 'learning_rate': 1.9200000000000003e-05, 'epoch': 2.58}
+{'loss': 0.1069, 'grad_norm': 5.241988658905029, 'learning_rate': 2.07e-05, 'epoch': 2.77}
+{'loss': 0.1199, 'grad_norm': 9.548007011413574, 'learning_rate': 2.22e-05, 'epoch': 2.97}
+{'eval_loss': 0.015752112492918968, 'eval_cer': 0.6310861423220974, 'eval_cer_percentage': 63.10861423220974, 'eval_runtime': 52.013, 'eval_samples_per_second': 1.692, 'eval_steps_per_second': 1.692, 'epoch': 2.97}
+{'loss': 0.0862, 'grad_norm': 2.5952680110931396, 'learning_rate': 2.37e-05, 'epoch': 3.19}
+{'loss': 0.0523, 'grad_norm': 3.2291510105133057, 'learning_rate': 2.52e-05, 'epoch': 3.39}
+{'loss': 0.0833, 'grad_norm': 4.430177688598633, 'learning_rate': 2.6700000000000002e-05, 'epoch': 3.58}
+{'loss': 0.0674, 'grad_norm': 4.32559061050415, 'learning_rate': 2.8199999999999998e-05, 'epoch': 3.77}
+{'loss': 0.0667, 'grad_norm': 11.14511489868164, 'learning_rate': 2.97e-05, 'epoch': 3.97}
+{'eval_loss': 0.014040154404938221, 'eval_cer': 0.6067415730337079, 'eval_cer_percentage': 60.67415730337079, 'eval_runtime': 51.8461, 'eval_samples_per_second': 1.697, 'eval_steps_per_second': 1.697, 'epoch': 3.97}
+{'loss': 0.0785, 'grad_norm': 3.774954319000244, 'learning_rate': 2.9984341865073467e-05, 'epoch': 4.19}
+{'loss': 0.0493, 'grad_norm': 6.287326812744141, 'learning_rate': 2.9920786714609776e-05, 'epoch': 4.39}
+{'loss': 0.0504, 'grad_norm': 6.220086574554443, 'learning_rate': 2.9808563059202443e-05, 'epoch': 4.58}
+{'loss': 0.0403, 'grad_norm': 3.3699986934661865, 'learning_rate': 2.9648036949089453e-05, 'epoch': 4.77}
+{'loss': 0.0374, 'grad_norm': 2.474224805831909, 'learning_rate': 2.9439731987076293e-05, 'epoch': 4.97}
+{'eval_loss': 0.015518185682594776, 'eval_cer': 0.6254681647940075, 'eval_cer_percentage': 62.546816479400746, 'eval_runtime': 51.6847, 'eval_samples_per_second': 1.703, 'eval_steps_per_second': 1.703, 'epoch': 4.97}
+{'loss': 0.0414, 'grad_norm': 10.154948234558105, 'learning_rate': 2.9184327620652376e-05, 'epoch': 5.19}
+{'loss': 0.0297, 'grad_norm': 6.606167316436768, 'learning_rate': 2.88826569257746e-05, 'epoch': 5.39}
+{'loss': 0.0432, 'grad_norm': 2.0047810077667236, 'learning_rate': 2.853570388954673e-05, 'epoch': 5.58}
+{'loss': 0.0317, 'grad_norm': 2.623378276824951, 'learning_rate': 2.8144600200657953e-05, 'epoch': 5.77}
+{'loss': 0.0288, 'grad_norm': 23.958097457885742, 'learning_rate': 2.771062155804964e-05, 'epoch': 5.97}
+{'eval_loss': 0.015286695212125778, 'eval_cer': 0.5589887640449438, 'eval_cer_percentage': 55.89887640449438, 'eval_runtime': 52.2092, 'eval_samples_per_second': 1.686, 'eval_steps_per_second': 1.686, 'epoch': 5.97}
+{'loss': 0.0346, 'grad_norm': 2.628891944885254, 'learning_rate': 2.7235183509850527e-05, 'epoch': 6.19}
+{'loss': 0.0273, 'grad_norm': 1.1654517650604248, 'learning_rate': 2.6719836836152968e-05, 'epoch': 6.39}
+{'loss': 0.0267, 'grad_norm': 5.824814319610596, 'learning_rate': 2.616626249069058e-05, 'epoch': 6.58}
+{'loss': 0.0155, 'grad_norm': 2.098141670227051, 'learning_rate': 2.5576266117916586e-05, 'epoch': 6.77}
+{'loss': 0.0187, 'grad_norm': 5.007586479187012, 'learning_rate': 2.4951772163366876e-05, 'epoch': 6.97}
+{'eval_loss': 0.021065855398774147, 'eval_cer': 0.5561797752808989, 'eval_cer_percentage': 55.61797752808989, 'eval_runtime': 52.2349, 'eval_samples_per_second': 1.685, 'eval_steps_per_second': 1.685, 'epoch': 6.97}
+{'loss': 0.0224, 'grad_norm': 2.428351402282715, 'learning_rate': 2.4294817596518718e-05, 'epoch': 7.19}
+{'loss': 0.0193, 'grad_norm': 2.136965036392212, 'learning_rate': 2.360754526661966e-05, 'epoch': 7.39}
+{'loss': 0.0188, 'grad_norm': 2.3359897136688232, 'learning_rate': 2.289219691315873e-05, 'epoch': 7.58}
+{'loss': 0.0188, 'grad_norm': 1.0832998752593994, 'learning_rate': 2.2151105853778124e-05, 'epoch': 7.77}
+{'loss': 0.0154, 'grad_norm': 3.1952900886535645, 'learning_rate': 2.138668937347609e-05, 'epoch': 7.97}
+{'eval_loss': 0.019056158140301704, 'eval_cer': 0.6563670411985019, 'eval_cer_percentage': 65.63670411985018, 'eval_runtime': 51.5401, 'eval_samples_per_second': 1.707, 'eval_steps_per_second': 1.707, 'epoch': 7.97}
+{'loss': 0.0149, 'grad_norm': 1.5968666076660156, 'learning_rate': 2.0601440839925675e-05, 'epoch': 8.19}
+{'loss': 0.0158, 'grad_norm': 2.3968942165374756, 'learning_rate': 1.9797921570627614e-05, 'epoch': 8.39}
+{'loss': 0.0139, 'grad_norm': 0.7249888181686401, 'learning_rate': 1.8978752478425067e-05, 'epoch': 8.58}
+{'loss': 0.0096, 'grad_norm': 1.0954819917678833, 'learning_rate': 1.8146605522630642e-05, 'epoch': 8.77}
+{'loss': 0.013, 'grad_norm': 7.530230522155762, 'learning_rate': 1.7304194993650494e-05, 'epoch': 8.97}
+{'eval_loss': 0.026331311091780663, 'eval_cer': 0.7097378277153558, 'eval_cer_percentage': 70.97378277153558, 'eval_runtime': 51.5711, 'eval_samples_per_second': 1.706, 'eval_steps_per_second': 1.706, 'epoch': 8.97}
+{'train_runtime': 4403.3998, 'train_samples_per_second': 1.407, 'train_steps_per_second': 0.085, 'train_loss': 1.38585333465702, 'epoch': 8.97}
+4403.3998 seconds used for training.
+73.39 minutes used for training.
+Peak reserved memory = 11.707 GB.
+Peak reserved memory for training = 6.898 GB.
+Peak reserved memory % of max memory = 29.643 %.
+Peak reserved memory for training % of max memory = 17.466 %.
+
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/finetune/run_A100_20260201_093837...
+Model (LoRA adapters) saved successfully!
+
+============================================================
+STARTING EVALUATION ON TEST.JSONL
+============================================================
+Starting evaluation on test.jsonl with aggressive chunking...
+Loaded 89 test samples
+
+============================================================
+Chunk 1/18 (5 images)
+============================================================
+
+[1/89] Processing: SCH_2891_118.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[2/89] Processing: SCH_2891_225.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[3/89] Processing: SCH_3071.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[4/89] Processing: SCH_3213.jpg
+  ✅ CER: 0.0500 (5.00%)
+
+[5/89] Processing: SCH_3129.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+Chunk 1 completed. Cleaning memory...
+
+============================================================
+Chunk 2/18 (5 images)
+============================================================
+
+[6/89] Processing: SCH_2984.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[7/89] Processing: SCH_2891_162.jpg
+  ✅ CER: 0.0479 (4.79%)
+
+[8/89] Processing: SCH_3043.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[9/89] Processing: SCH_3005.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[10/89] Processing: SCH_3192_41.jpg
+  ✅ CER: 0.0041 (0.41%)
+
+Chunk 2 completed. Cleaning memory...
+
+============================================================
+Chunk 3/18 (5 images)
+============================================================
+
+[11/89] Processing: SCH_2106.jpg
+  ✅ CER: 0.0023 (0.23%)
+
+[12/89] Processing: SCH_2891_143.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[13/89] Processing: SCH_2892.jpg
+  ✅ CER: 0.0417 (4.17%)
+
+[14/89] Processing: SCH_2891_211.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[15/89] Processing: SCH_3170.jpg
+  ✅ CER: 0.0025 (0.25%)
+
+Chunk 3 completed. Cleaning memory...
+Saved intermediate results to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/finetune/run_A100_20260201_093837/test_predictions_chunk_3.jsonl
+
+============================================================
+Chunk 4/18 (5 images)
+============================================================
+
+[16/89] Processing: SCH_2891_73.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[17/89] Processing: SCH_2087.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[18/89] Processing: SCH_2891_222.jpg
+  ✅ CER: 0.0024 (0.24%)
+
+[19/89] Processing: SCH_2891_63.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[20/89] Processing: SCH_2891_145.jpg
+  ✅ CER: 0.0025 (0.25%)
+
+Chunk 4 completed. Cleaning memory...
+
+============================================================
+Chunk 5/18 (5 images)
+============================================================
+
+[21/89] Processing: SCH_2891_292.jpg
+  ✅ CER: 0.0049 (0.49%)
+
+[22/89] Processing: SCH_3030.jpg
+  ✅ CER: 0.0026 (0.26%)
+
+[23/89] Processing: SCH_3220.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[24/89] Processing: SCH_3179.jpg
+  ✅ CER: 0.0050 (0.50%)
+
+[25/89] Processing: SCH_3239.jpg
+  ✅ CER: 0.0025 (0.25%)
+
+Chunk 5 completed. Cleaning memory...
+
+============================================================
+Chunk 6/18 (5 images)
+============================================================
+
+[26/89] Processing: SCH_3192_6.jpg
+  ✅ CER: 0.0025 (0.25%)
+
+[27/89] Processing: SCH_2891_142.jpg
+  ✅ CER: 0.0053 (0.53%)
+
+[28/89] Processing: SCH_2891_53.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[29/89] Processing: SCH_2891_262_263.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[30/89] Processing: SCH_2891_282.jpg
+  ✅ CER: 0.0043 (0.43%)
+
+Chunk 6 completed. Cleaning memory...
+Saved intermediate results to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/finetune/run_A100_20260201_093837/test_predictions_chunk_6.jsonl
+
+============================================================
+Chunk 7/18 (5 images)
+============================================================
+
+[31/89] Processing: SCH_3218.jpg
+  ✅ CER: 0.0457 (4.57%)
+
+[32/89] Processing: SCH_2891_275.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[33/89] Processing: SCH_3002.jpg
+  ✅ CER: 0.0053 (0.53%)
+
+[34/89] Processing: SCH_3137_a.jpg
+  ✅ CER: 0.0694 (6.94%)
+
+[35/89] Processing: SCH_3131.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+Chunk 7 completed. Cleaning memory...
+
+============================================================
+Chunk 8/18 (5 images)
+============================================================
+
+[36/89] Processing: SCH_3192_36.jpg
+  ✅ CER: 0.1009 (10.09%)
+
+[37/89] Processing: SCH_3165.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[38/89] Processing: SCH_3192_14.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[39/89] Processing: SCH_2891_173.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[40/89] Processing: SCH_2891_72.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+Chunk 8 completed. Cleaning memory...
+
+============================================================
+Chunk 9/18 (5 images)
+============================================================
+
+[41/89] Processing: SCH_2067_recto.jpg
+  ✅ CER: 0.0863 (8.63%)
+
+[42/89] Processing: SCH_3192_4.jpg
+  ✅ CER: 0.0021 (0.21%)
+
+[43/89] Processing: SCH_2891_29_30.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[44/89] Processing: SCH_2891_272.jpg
+  ✅ CER: 0.0025 (0.25%)
+
+[45/89] Processing: SCH_2891_177.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+Chunk 9 completed. Cleaning memory...
+Saved intermediate results to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/finetune/run_A100_20260201_093837/test_predictions_chunk_9.jsonl
+
+============================================================
+Chunk 10/18 (5 images)
+============================================================
+
+[46/89] Processing: SCH_3192_13.jpg
+  ✅ CER: 0.0067 (0.67%)
+
+[47/89] Processing: SCH_2891_291.jpg
+  ✅ CER: 0.0023 (0.23%)
+
+[48/89] Processing: SCH_3192_60.jpg
+  ✅ CER: 0.0024 (0.24%)
+
+[49/89] Processing: SCH_3124.jpg
+  ✅ CER: 0.0020 (0.20%)
+
+[50/89] Processing: SCH_3026.jpg
+  ✅ CER: 0.0051 (0.51%)
+
+Chunk 10 completed. Cleaning memory...
+
+============================================================
+Chunk 11/18 (5 images)
+============================================================
+
+[51/89] Processing: SCH_2065.jpg
+  ✅ CER: 0.0463 (4.63%)
+
+[52/89] Processing: SCH_2891_138.jpg
+  ✅ CER: 0.0051 (0.51%)
+
+[53/89] Processing: SCH_2891_245.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[54/89] Processing: SCH_2891_268.jpg
+  ✅ CER: 0.0450 (4.50%)
+
+[55/89] Processing: SCH_3192_32.jpg
+  ✅ CER: 0.0044 (0.44%)
+
+Chunk 11 completed. Cleaning memory...
+
+============================================================
+Chunk 12/18 (5 images)
+============================================================
+
+[56/89] Processing: SCH_2891_293.jpg
+  ✅ CER: 0.0073 (0.73%)
+
+[57/89] Processing: SCH_3192_27.jpg
+  ✅ CER: 0.0069 (0.69%)
+
+[58/89] Processing: SCH_3174.jpg
+  ✅ CER: 0.0067 (0.67%)
+
+[59/89] Processing: SCH_2891_235_236.jpg
+  ✅ CER: 0.0046 (0.46%)
+
+[60/89] Processing: SCH_2891_59.jpg
+  ✅ CER: 0.0096 (0.96%)
+
+Chunk 12 completed. Cleaning memory...
+Saved intermediate results to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/finetune/run_A100_20260201_093837/test_predictions_chunk_12.jsonl
+
+============================================================
+Chunk 13/18 (5 images)
+============================================================
+
+[61/89] Processing: SCH_3211.jpg
+  ✅ CER: 0.0027 (0.27%)
+
+[62/89] Processing: SCH_3141.jpg
+  ✅ CER: 0.0024 (0.24%)
+
+[63/89] Processing: SCH_2891_241.jpg
+  ✅ CER: 0.0048 (0.48%)
+
+[64/89] Processing: SCH_3171.jpg
+  ✅ CER: 0.0024 (0.24%)
+
+[65/89] Processing: SCH_3215.jpg
+  ✅ CER: 0.0048 (0.48%)
+
+Chunk 13 completed. Cleaning memory...
+
+============================================================
+Chunk 14/18 (5 images)
+============================================================
+
+[66/89] Processing: SCH_1938.jpg
+  ✅ CER: 0.0430 (4.30%)
+
+[67/89] Processing: SCH_2891_153_154.jpg
+  ✅ CER: 0.0416 (4.16%)
+
+[68/89] Processing: SCH_2997.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[69/89] Processing: SCH_2891_64.jpg
+  ✅ CER: 0.0022 (0.22%)
+
+[70/89] Processing: SCH_2944.jpg
+  ✅ CER: 0.0041 (0.41%)
+
+Chunk 14 completed. Cleaning memory...
+
+============================================================
+Chunk 15/18 (5 images)
+============================================================
+
+[71/89] Processing: SCH_3173_ab.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[72/89] Processing: SCH_2891_41.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[73/89] Processing: SCH_2032.jpg
+  ✅ CER: 0.0713 (7.13%)
+
+[74/89] Processing: SCH_3078.jpg
+  ✅ CER: 0.0073 (0.73%)
+
+[75/89] Processing: SCH_2891_77_78.jpg
+  ✅ CER: 0.0471 (4.71%)
+
+Chunk 15 completed. Cleaning memory...
+Saved intermediate results to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/finetune/run_A100_20260201_093837/test_predictions_chunk_15.jsonl
+
+============================================================
+Chunk 16/18 (5 images)
+============================================================
+
+[76/89] Processing: SCH_2891_62.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[77/89] Processing: SCH_3192_28.jpg
+  ✅ CER: 0.0075 (0.75%)
+
+[78/89] Processing: SCH_2043_recto.jpg
+  ✅ CER: 0.0493 (4.93%)
+
+[79/89] Processing: SCH_2045.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[80/89] Processing: SCH_2965.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+Chunk 16 completed. Cleaning memory...
+
+============================================================
+Chunk 17/18 (5 images)
+============================================================
+
+[81/89] Processing: SCH_3192_22.jpg
+  ✅ CER: 0.0071 (0.71%)
+
+[82/89] Processing: SCH_3133_a.jpg
+  ✅ CER: 0.0052 (0.52%)
+
+[83/89] Processing: SCH_3192_37.jpg
+  ✅ CER: 0.0022 (0.22%)
+
+[84/89] Processing: SCH_3195_9.jpg
+  ✅ CER: 0.0444 (4.44%)
+
+[85/89] Processing: SCH_2891_67_recto.jpg
+  ✅ CER: 0.0045 (0.45%)
+
+Chunk 17 completed. Cleaning memory...
+
+============================================================
+Chunk 18/18 (4 images)
+============================================================
+
+[86/89] Processing: SCH_2891_99.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[87/89] Processing: SCH_2891_150.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[88/89] Processing: SCH_2025.jpg
+  ✅ CER: 0.0045 (0.45%)
+
+[89/89] Processing: SCH_3192_48.jpg
+  ✅ CER: 0.0459 (4.59%)
+
+Chunk 18 completed. Cleaning memory...
+Saved intermediate results to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/finetune/run_A100_20260201_093837/test_predictions_chunk_18.jsonl
+
+CER evaluation results saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/finetune/run_A100_20260201_093837/cer_evaluation_results.txt
+
+🎉 Gemma-3 Schmuck training completed!
+All outputs saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/finetune/run_A100_20260201_093837
+
+Final CER: 0.0118 (1.18%)
+Gemma-3 training completed at: Sun Feb  1 11:42:41 AM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Sun Feb  1 11:42:41 AM CET 2026
+= Job-ID             : 1521501 on tinygpu
+= Job-Name           : schmuck_preprocess
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 02:04:28
+= Total RAM usage    : 9.1 GiB of requested  GiB (%)   
+= Node list          : tg097
+= Subm/Elig/Start/End: 2026-02-01T00:46:04 / 2026-02-01T00:46:04 / 2026-02-01T09:38:13 / 2026-02-01T11:42:41
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.2G   104.9G   209.7G        N/A  29,344      500K   1,000K        N/A    
+    /home/woody           408.0G  1000.0G  1500.0G        N/A   1,017K   5,000K   7,500K        N/A    
+    /home/vault           755.9G  1048.6G  2097.2G        N/A   8,534      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:01:00.0, 2715924, 4 %, 0 %, 672 MiB, 11211783 ms
+NVIDIA A100-SXM4-40GB, 00000000:01:00.0, 3679271, 31 %, 10 %, 12530 MiB, 7461984 ms

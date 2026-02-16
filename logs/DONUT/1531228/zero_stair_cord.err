@@ -1,0 +1,74 @@
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Config of the encoder: <class 'transformers.models.donut.modeling_donut_swin.DonutSwinModel'> is overwritten by shared encoder config: DonutSwinConfig {
+  "attention_probs_dropout_prob": 0.0,
+  "depths": [
+    2,
+    2,
+    14,
+    2
+  ],
+  "drop_path_rate": 0.1,
+  "embed_dim": 128,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.0,
+  "hidden_size": 1024,
+  "image_size": [
+    1280,
+    960
+  ],
+  "initializer_range": 0.02,
+  "layer_norm_eps": 1e-05,
+  "mlp_ratio": 4.0,
+  "model_type": "donut-swin",
+  "num_channels": 3,
+  "num_heads": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "num_layers": 4,
+  "patch_size": 4,
+  "path_norm": true,
+  "qkv_bias": true,
+  "torch_dtype": "float32",
+  "transformers_version": "4.51.3",
+  "use_absolute_embeddings": false,
+  "window_size": 10
+}
+
+Config of the decoder: <class 'transformers.models.mbart.modeling_mbart.MBartForCausalLM'> is overwritten by shared decoder config: MBartConfig {
+  "activation_dropout": 0.0,
+  "activation_function": "gelu",
+  "add_cross_attention": true,
+  "add_final_layer_norm": true,
+  "attention_dropout": 0.0,
+  "bos_token_id": 0,
+  "classifier_dropout": 0.0,
+  "d_model": 1024,
+  "decoder_attention_heads": 16,
+  "decoder_ffn_dim": 4096,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 4,
+  "dropout": 0.1,
+  "encoder_attention_heads": 16,
+  "encoder_ffn_dim": 4096,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 12,
+  "eos_token_id": 2,
+  "forced_eos_token_id": 2,
+  "init_std": 0.02,
+  "is_decoder": true,
+  "is_encoder_decoder": false,
+  "max_position_embeddings": 768,
+  "model_type": "mbart",
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "scale_embedding": true,
+  "torch_dtype": "float32",
+  "transformers_version": "4.51.3",
+  "use_cache": true,
+  "vocab_size": 57580
+}
+
+Infer (Donut CORD):   0%|          | 0/12 [00:00<?, ?it/s]Infer (Donut CORD):   8%|▊         | 1/12 [00:04<00:51,  4.72s/it]Infer (Donut CORD):  17%|█▋        | 2/12 [00:08<00:44,  4.43s/it]Infer (Donut CORD):  25%|██▌       | 3/12 [00:12<00:36,  4.11s/it]Infer (Donut CORD):  33%|███▎      | 4/12 [00:16<00:30,  3.86s/it]Infer (Donut CORD):  42%|████▏     | 5/12 [00:19<00:25,  3.61s/it]Infer (Donut CORD):  50%|█████     | 6/12 [00:23<00:21,  3.65s/it]Infer (Donut CORD):  58%|█████▊    | 7/12 [00:26<00:17,  3.57s/it]Infer (Donut CORD):  67%|██████▋   | 8/12 [00:30<00:14,  3.66s/it]Infer (Donut CORD):  75%|███████▌  | 9/12 [00:33<00:10,  3.56s/it]Infer (Donut CORD):  83%|████████▎ | 10/12 [00:36<00:06,  3.49s/it]Infer (Donut CORD):  92%|█████████▏| 11/12 [00:41<00:03,  3.67s/it]Infer (Donut CORD): 100%|██████████| 12/12 [00:45<00:00,  3.86s/it]Infer (Donut CORD): 100%|██████████| 12/12 [00:45<00:00,  3.78s/it]

@@ -1,0 +1,362 @@
+### Starting TaskPrologue of job 1526250 on tg072 at Sat Feb  7 03:26:38 PM CET 2026
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Sat Feb  7 15:26:38 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   33C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Configured torch.backends.cuda.sdp_kernel(mem_efficient=True, math=True, flash=False)
+
+============================================================
+PADDLEOCR-VL FINETUNING - STAIRCASE DATASET
+BEST MODEL SELECTION: CER(GT JSON string vs prediction_stripped_for_cer)
+============================================================
+Model: PaddlePaddle/PaddleOCR-VL
+Local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Output run dir: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/stair/run_20260207_152659_cer
+Prompt task: ocr -> 'OCR:'
+Attention impl override: None
+============================================================
+
+Using device: cuda
+Loading PaddleOCR-VL from local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Enabled gradient checkpointing (use_reentrant=False).
+Disabled use_cache for training.
+Loaded 115 samples from /home/woody/iwi5/iwi5298h/json_staircase/train.jsonl
+Loaded 25 samples from /home/woody/iwi5/iwi5298h/json_staircase/val.jsonl
+Loaded 24 samples from /home/woody/iwi5/iwi5298h/json_staircase/test.jsonl
+
+============================================================
+Epoch 1/10
+============================================================
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+
+⚠️ CUDA OOM during backward. Skipping this batch and clearing cache.
+Epoch 1 - train loss: 0.0000
+
+Running validation (CER-based model selection)...
+
+⚠️ CUDA OOM at validation sample 0. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 1. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 2. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 3. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 4. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 5. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 6. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 7. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 8. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 9. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 10. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 11. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 12. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 13. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 14. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 15. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 16. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 17. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 18. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 19. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 20. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 21. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 22. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 23. Skipping and clearing cache.
+
+⚠️ CUDA OOM at validation sample 24. Skipping and clearing cache.
+Validation CER macro (PRIMARY): 1.0000 (100.00%)
+Validation CER micro:          1.0000 (100.00%)
+Validation structured CER (debug): 100.0000%
+🎯 New BEST validation macro CER: 1.0000 (100.00%), improvement 0.0000
+
+============================================================
+Epoch 2/10
+============================================================
+=== JOB_STATISTICS ===
+=== current date     : Sat Feb  7 03:33:39 PM CET 2026
+= Job-ID             : 1526250 on tinygpu
+= Job-Name           : stair_updated
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_paddle2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:07:00
+= Total RAM usage    : 11.4 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2026-02-07T15:23:11 / 2026-02-07T15:23:11 / 2026-02-07T15:26:37 / 2026-02-07T15:33:37
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.3G   104.9G   209.7G        N/A  29,992      500K   1,000K        N/A    
+    /home/vault           917.5G  1048.6G  2097.2G        N/A   9,350      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 3058773, 56 %, 9 %, 32490 MiB, 398200 ms

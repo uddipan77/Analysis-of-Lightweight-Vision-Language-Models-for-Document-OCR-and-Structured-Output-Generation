@@ -1,0 +1,274 @@
+### Starting TaskPrologue of job 1242708 on tg071 at Fri Oct 17 01:09:51 PM CEST 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Fri Oct 17 13:09:51 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   31C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+===================================
+TrOCR Training Job Configuration:
+===================================
+Job ID: 1242708
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/QWEN/1242708
+CUDA Device: 0
+Job started at: Fri Oct 17 01:09:53 PM CEST 2025
+===================================
+Loading test data...
+Loaded 26 test samples
+
+Loading few-shot examples from train data...
+Total training examples: 26
+
+============================================================
+FIRST 10 IMAGES IN TRAIN.JSONL:
+============================================================
+  [  0] ✓ FMIS_FormblätterMielke_gefüllt (14).jpg
+        → /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (14).jpg
+  [  1] ✓ FMIS_FormblätterMielke_gefüllt (18).jpg
+        → /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (18).jpg
+  [  2] ✓ FMIS_FormblätterMielke_gefüllt (35).jpg
+        → /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (35).jpg
+  [  3] ✓ FMIS_FormblätterMielke_gefüllt (12).jpg
+        → /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (12).jpg
+  [  4] ✓ FMIS_FormblätterMielke_gefüllt (27).jpg
+        → /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (27).jpg
+  [  5] ✓ FMIS_FormblätterMielke_gefüllt (2).jpg
+        → /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (2).jpg
+  [  6] ✓ FMIS_FormblätterMielke_gefüllt (3).jpg
+        → /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (3).jpg
+  [  7] ✓ FMIS_FormblätterMielke_gefüllt (25).jpg
+        → /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (25).jpg
+  [  8] ✓ FMIS_FormblätterMielke_gefüllt (37).jpg
+        → /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (37).jpg
+  [  9] ✓ FMIS_FormblätterMielke_gefüllt (15).jpg
+        → /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (15).jpg
+============================================================
+
+Searching for 2 specific few-shot examples...
+  ✓ MATCHED: 'FMIS_FormblätterMielke_gefüllt (16).jpg' -> 'FMIS_FormblätterMielke_gefüllt (16).jpg'
+  ✓ MATCHED: 'FMIS_FormblätterMielke_gefüllt (8).jpg' -> 'FMIS_FormblätterMielke_gefüllt (8).jpg'
+
+============================================================
+FINAL: Using 2 few-shot examples:
+  1. FMIS_FormblätterMielke_gefüllt (16).jpg
+     Path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (16).jpg
+     Exists: True
+  2. FMIS_FormblätterMielke_gefüllt (8).jpg
+     Path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (8).jpg
+     Exists: True
+============================================================
+Loading Qwen2.5-VL model...
+Model will be loaded from cache: ~/.cache/huggingface/hub/
+Setting image resolution: min=200704, max=401408
+Model loaded successfully!
+GPU Memory - Allocated: 16.58 GB, Reserved: 16.59 GB
+
+Creating few-shot messages with images...
+  Few-shot example 1: FMIS_FormblätterMielke_gefüllt (16).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (16).jpg
+    Exists: True
+  Few-shot example 2: FMIS_FormblätterMielke_gefüllt (8).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (8).jpg
+    Exists: True
+Created few-shot conversation with 4 messages
+Total images per inference: 2 few-shot + 1 test = 3
+
+Processing 26 test images...
+
+[1/26] Processing: FMIS_FormblätterMielke_gefüllt (14).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (14).jpg
+  CER: 0.9986 (99.86%)
+  GPU Memory: 16.59 GB
+
+[2/26] Processing: FMIS_FormblätterMielke_gefüllt (18).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (18).jpg
+  CER: 0.6243 (62.43%)
+  GPU Memory: 16.59 GB
+
+[3/26] Processing: FMIS_FormblätterMielke_gefüllt (35).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (35).jpg
+  CER: 0.9984 (99.84%)
+  GPU Memory: 16.59 GB
+
+[4/26] Processing: FMIS_FormblätterMielke_gefüllt (12).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (12).jpg
+  CER: 0.9985 (99.85%)
+  GPU Memory: 16.59 GB
+
+[5/26] Processing: FMIS_FormblätterMielke_gefüllt (27).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (27).jpg
+  CER: 0.9982 (99.82%)
+  GPU Memory: 16.59 GB
+
+[6/26] Processing: FMIS_FormblätterMielke_gefüllt (2).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (2).jpg
+  CER: 0.9984 (99.84%)
+  GPU Memory: 16.59 GB
+
+[7/26] Processing: FMIS_FormblätterMielke_gefüllt (3).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (3).jpg
+  CER: 0.5901 (59.01%)
+  GPU Memory: 16.59 GB
+
+[8/26] Processing: FMIS_FormblätterMielke_gefüllt (25).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (25).jpg
+  CER: 0.1176 (11.76%)
+  GPU Memory: 16.59 GB
+
+[9/26] Processing: FMIS_FormblätterMielke_gefüllt (37).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (37).jpg
+  CER: 0.0846 (8.46%)
+  GPU Memory: 16.59 GB
+
+[10/26] Processing: FMIS_FormblätterMielke_gefüllt (15).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (15).jpg
+  CER: 0.1478 (14.78%)
+  GPU Memory: 16.59 GB
+
+[11/26] Processing: FMIS_FormblätterMielke_gefüllt (34).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (34).jpg
+  CER: 0.9984 (99.84%)
+  GPU Memory: 16.59 GB
+
+[12/26] Processing: FMIS_FormblätterMielke_gefüllt (22).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (22).jpg
+  CER: 0.1671 (16.71%)
+  GPU Memory: 16.59 GB
+
+[13/26] Processing: FMIS_FormblätterMielke_gefüllt (38).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (38).jpg
+  CER: 0.6664 (66.64%)
+  GPU Memory: 16.59 GB
+
+[14/26] Processing: FMIS_FormblätterMielke_gefüllt (28).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (28).jpg
+  CER: 0.1510 (15.10%)
+  GPU Memory: 16.59 GB
+
+[15/26] Processing: FMIS_FormblätterMielke_gefüllt (4).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (4).jpg
+  CER: 0.1395 (13.95%)
+  GPU Memory: 16.59 GB
+
+[16/26] Processing: FMIS_FormblätterMielke_gefüllt (16).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (16).jpg
+  CER: 0.9987 (99.87%)
+  GPU Memory: 16.59 GB
+
+[17/26] Processing: FMIS_FormblätterMielke_gefüllt (24).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (24).jpg
+  CER: 0.6450 (64.50%)
+  GPU Memory: 16.59 GB
+
+[18/26] Processing: FMIS_FormblätterMielke_gefüllt (11).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (11).jpg
+  CER: 0.0876 (8.76%)
+  GPU Memory: 16.59 GB
+
+[19/26] Processing: FMIS_FormblätterMielke_gefüllt (39).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (39).jpg
+  CER: 0.0794 (7.94%)
+  GPU Memory: 16.59 GB
+
+[20/26] Processing: FMIS_FormblätterMielke_gefüllt (41).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (41).jpg
+  CER: 0.0783 (7.83%)
+  GPU Memory: 16.59 GB
+
+[21/26] Processing: FMIS_FormblätterMielke_gefüllt (21).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (21).jpg
+  CER: 0.7112 (71.12%)
+  GPU Memory: 16.59 GB
+
+[22/26] Processing: FMIS_FormblätterMielke_gefüllt (8).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (8).jpg
+  CER: 0.6310 (63.10%)
+  GPU Memory: 16.59 GB
+
+[23/26] Processing: FMIS_FormblätterMielke_gefüllt (7).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (7).jpg
+  CER: 0.6419 (64.19%)
+  GPU Memory: 16.59 GB
+
+[24/26] Processing: FMIS_FormblätterMielke_Vorlage1.jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_Vorlage1.jpg
+  CER: 0.4385 (43.85%)
+  GPU Memory: 16.59 GB
+
+[25/26] Processing: FMIS_FormblätterMielke_gefüllt (36).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (36).jpg
+  CER: 0.9984 (99.84%)
+  GPU Memory: 16.59 GB
+
+[26/26] Processing: FMIS_FormblätterMielke_gefüllt (26).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (26).jpg
+  CER: 0.1475 (14.75%)
+  GPU Memory: 16.59 GB
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/few_shot_stair/run_20251017_133019
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/few_shot_stair/run_20251017_133019/predictions.jsonl
+
+============================================================
+CER EVALUATION RESULTS
+============================================================
+
+CER Statistics across 26 images:
+--------------------------------------------------
+Average CER: 0.5437 (54.37%)
+Minimum CER: 0.0783 (7.83%)
+Maximum CER: 0.9987 (99.87%)
+
+Weighted CER: 0.5602 (56.02%)
+Total characters: 32743
+Total errors: 18342
+Perfect matches: 0/26 (0.0%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/few_shot_stair/run_20251017_133019/cer_evaluation_summary.json
+
+============================================================
+Processing complete!
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/few_shot_stair/run_20251017_133019
+Total images processed: 26
+Average CER on test set: 0.5437 (54.37%)
+============================================================
+
+=== JOB_STATISTICS ===
+=== current date     : Fri Oct 17 01:30:25 PM CEST 2025
+= Job-ID             : 1242708 on tinygpu
+= Job-Name           : qwen7b_zeroshot_staircase
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen_shots.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:20:35
+= Total RAM usage    : 17.6 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2025-10-17T13:09:40 / 2025-10-17T13:09:40 / 2025-10-17T13:09:41 / 2025-10-17T13:30:16
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              87.3G   104.9G   209.7G        N/A  32,927      500K   1,000K        N/A    
+    /home/woody           122.0G  1000.0G  1500.0G        N/A     601K   5,000K   7,500K        N/A    
+    /home/vault           578.6G  1048.6G  2097.2G        N/A   3,865      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 135583, 47 %, 34 %, 18696 MiB, 1185082 ms

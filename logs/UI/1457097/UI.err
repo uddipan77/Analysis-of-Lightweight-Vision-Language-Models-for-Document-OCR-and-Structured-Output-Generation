@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ocr_service.py", line 47, in <module>
+    from qwen_vl_utils import process_vision_info
+ModuleNotFoundError: No module named 'qwen_vl_utils'

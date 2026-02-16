@@ -1,0 +1,355 @@
+### Starting TaskPrologue of job 1473313 on tg072 at Wed Dec 24 01:02:20 AM CET 2025
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Wed Dec 24 01:02:20 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   31C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+DONUT-BASE ZERO-SHOT (SCHMUCK) - OCR (FIXED DTYPE + ROBUST TOKENS)
+============================================================
+
+Loading test data...
+Loaded 89 test samples
+Loading Donut-base...
+
+Token availability check:
+  has_docvqa = False
+  has_cord   = False
+  force_mode = cord
+⚠️ force_mode='cord' but <s_cord-v2> not found in tokenizer – will still try.
+Model device=cuda, model_dtype=torch.float16
+
+Processing 89 images...
+------------------------------------------------------------
+[1/89] SCH_2891_118.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.7837 | mode=cord_fallback_forced
+[2/89] SCH_2891_225.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.4331 | mode=cord_fallback_forced
+[3/89] SCH_3071.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.0802 | mode=cord_fallback_forced
+[4/89] SCH_3213.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 10.2644 | mode=cord_fallback_forced
+[5/89] SCH_3129.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 2.8012 | mode=cord_fallback_forced
+[6/89] SCH_2984.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 10.1987 | mode=cord_fallback_forced
+[7/89] SCH_2891_162.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.5422 | mode=cord_fallback_forced
+[8/89] SCH_3043.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.5282 | mode=cord_fallback_forced
+[9/89] SCH_3005.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.9869 | mode=cord_fallback_forced
+[10/89] SCH_3192_41.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 3.6444 | mode=cord_fallback_forced
+[11/89] SCH_2106.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ✅ CER: 8.2700 | mode=cord_fallback_forced
+[12/89] SCH_2891_143.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.3600 | mode=cord_fallback_forced
+[13/89] SCH_2892.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.1553 | mode=cord_fallback_forced
+[14/89] SCH_2891_211.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.4620 | mode=cord_fallback_forced
+[15/89] SCH_3170.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.9733 | mode=cord_fallback_forced
+[16/89] SCH_2891_73.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 6.2147 | mode=cord_fallback_forced
+[17/89] SCH_2087.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ✅ CER: 5.8113 | mode=cord_fallback_forced
+[18/89] SCH_2891_222.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.3754 | mode=cord_fallback_forced
+[19/89] SCH_2891_63.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 3.8608 | mode=cord_fallback_forced
+[20/89] SCH_2891_145.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.5689 | mode=cord_fallback_forced
+[21/89] SCH_2891_292.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 6.1140 | mode=cord_fallback_forced
+[22/89] SCH_3030.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 6.9936 | mode=cord_fallback_forced
+[23/89] SCH_3220.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 9.3882 | mode=cord_fallback_forced
+[24/89] SCH_3179.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.5148 | mode=cord_fallback_forced
+[25/89] SCH_3239.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.4868 | mode=cord_fallback_forced
+[26/89] SCH_3192_6.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.9558 | mode=cord_fallback_forced
+[27/89] SCH_2891_142.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.8599 | mode=cord_fallback_forced
+[28/89] SCH_2891_53.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.5522 | mode=cord_fallback_forced
+[29/89] SCH_2891_262_263.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 5.6648 | mode=cord_fallback_forced
+[30/89] SCH_2891_282.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 3.7065 | mode=cord_fallback_forced
+[31/89] SCH_3218.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 9.9055 | mode=cord_fallback_forced
+[32/89] SCH_2891_275.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.4985 | mode=cord_fallback_forced
+[33/89] SCH_3002.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 9.6349 | mode=cord_fallback_forced
+[34/89] SCH_3137_a.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 3.5882 | mode=cord_fallback_forced
+[35/89] SCH_3131.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 9.8544 | mode=cord_fallback_forced
+[36/89] SCH_3192_36.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 5.6089 | mode=cord_fallback_forced
+[37/89] SCH_3165.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.5118 | mode=cord_fallback_forced
+[38/89] SCH_3192_14.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.1132 | mode=cord_fallback_forced
+[39/89] SCH_2891_173.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.2271 | mode=cord_fallback_forced
+[40/89] SCH_2891_72.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.2271 | mode=cord_fallback_forced
+[41/89] SCH_2067_recto.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ✅ CER: 3.8966 | mode=cord_fallback_forced
+[42/89] SCH_3192_4.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 3.7537 | mode=cord_fallback_forced
+[43/89] SCH_2891_29_30.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.1643 | mode=cord_fallback_forced
+[44/89] SCH_2891_272.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.8571 | mode=cord_fallback_forced
+[45/89] SCH_2891_177.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.1737 | mode=cord_fallback_forced
+[46/89] SCH_3192_13.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.0026 | mode=cord_fallback_forced
+[47/89] SCH_2891_291.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.2262 | mode=cord_fallback_forced
+[48/89] SCH_3192_60.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.4540 | mode=cord_fallback_forced
+[49/89] SCH_3124.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 3.4989 | mode=cord_fallback_forced
+[50/89] SCH_3026.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 9.2030 | mode=cord_fallback_forced
+[51/89] SCH_2065.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ✅ CER: 7.3171 | mode=cord_fallback_forced
+[52/89] SCH_2891_138.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.6383 | mode=cord_fallback_forced
+[53/89] SCH_2891_245.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.1213 | mode=cord_fallback_forced
+[54/89] SCH_2891_268.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 9.0746 | mode=cord_fallback_forced
+[55/89] SCH_3192_32.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 5.7804 | mode=cord_fallback_forced
+[56/89] SCH_2891_293.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.3362 | mode=cord_fallback_forced
+[57/89] SCH_3192_27.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 7.8387 | mode=cord_fallback_forced
+[58/89] SCH_3174.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 1.6005 | mode=cord_fallback_forced
+[59/89] SCH_2891_235_236.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.0775 | mode=cord_fallback_forced
+[60/89] SCH_2891_59.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.3031 | mode=cord_fallback_forced
+[61/89] SCH_3211.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 9.8599 | mode=cord_fallback_forced
+[62/89] SCH_3141.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.5909 | mode=cord_fallback_forced
+[63/89] SCH_2891_241.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.3476 | mode=cord_fallback_forced
+[64/89] SCH_3171.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.6562 | mode=cord_fallback_forced
+[65/89] SCH_3215.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.6268 | mode=cord_fallback_forced
+[66/89] SCH_1938.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ✅ CER: 3.8150 | mode=cord_fallback_forced
+[67/89] SCH_2891_153_154.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.0842 | mode=cord_fallback_forced
+[68/89] SCH_2997.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.7099 | mode=cord_fallback_forced
+[69/89] SCH_2891_64.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 3.8125 | mode=cord_fallback_forced
+[70/89] SCH_2944.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 7.0539 | mode=cord_fallback_forced
+[71/89] SCH_3173_ab.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.5252 | mode=cord_fallback_forced
+[72/89] SCH_2891_41.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.3079 | mode=cord_fallback_forced
+[73/89] SCH_2032.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ✅ CER: 4.1216 | mode=cord_fallback_forced
+[74/89] SCH_3078.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.7791 | mode=cord_fallback_forced
+[75/89] SCH_2891_77_78.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.4250 | mode=cord_fallback_forced
+[76/89] SCH_2891_62.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.6810 | mode=cord_fallback_forced
+[77/89] SCH_3192_28.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 6.3702 | mode=cord_fallback_forced
+[78/89] SCH_2043_recto.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ✅ CER: 8.4100 | mode=cord_fallback_forced
+[79/89] SCH_2045.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ✅ CER: 4.1216 | mode=cord_fallback_forced
+[80/89] SCH_2965.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 9.1111 | mode=cord_fallback_forced
+[81/89] SCH_3192_22.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.4831 | mode=cord_fallback_forced
+[82/89] SCH_3133_a.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 8.7241 | mode=cord_fallback_forced
+[83/89] SCH_3192_37.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.0312 | mode=cord_fallback_forced
+[84/89] SCH_3195_9.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 6.9424 | mode=cord_fallback_forced
+[85/89] SCH_2891_67_recto.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.0667 | mode=cord_fallback_forced
+[86/89] SCH_2891_99.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 4.3150 | mode=cord_fallback_forced
+[87/89] SCH_2891_150.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 2.1250 | mode=cord_fallback_forced
+[88/89] SCH_2025.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ✅ CER: 7.9710 | mode=cord_fallback_forced
+[89/89] SCH_3192_48.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ✅ CER: 7.7048 | mode=cord_fallback_forced
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_schmuck/donut_base_zeroshot_20251224_011805
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_schmuck/donut_base_zeroshot_20251224_011805/predictions_zeroshot.jsonl
+
+============================================================
+DONUT-BASE ZERO-SHOT CER EVALUATION RESULTS (SCHMUCK)
+============================================================
+Images: 89
+Average CER:  5.8518 (585.18%)
+Min CER:      1.6005 (160.05%)
+Max CER:      10.2644 (1026.44%)
+Weighted CER: 5.7703 (577.03%)
+Perfect: 0/89 (0.0%)
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_schmuck/donut_base_zeroshot_20251224_011805/evaluation_summary_zeroshot.json
+
+============================================================
+DONUT-BASE ZERO-SHOT OCR COMPLETE!
+============================================================
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_schmuck/donut_base_zeroshot_20251224_011805
+Total images processed: 89
+Average CER: 5.8518 (585.18%)
+============================================================
+
+DONUT zero-shot inference completed at: Wed Dec 24 01:18:06 AM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Wed Dec 24 01:18:06 AM CET 2025
+= Job-ID             : 1473313 on tinygpu
+= Job-Name           : donutbase_zero_schmuck
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut_shots.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 02:30:00
+= Elapsed runtime    : 00:15:47
+= Total RAM usage    : 2.7 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-12-24T01:02:09 / 2025-12-24T01:02:09 / 2025-12-24T01:02:19 / 2025-12-24T01:18:06
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/hpc              88.4G   104.9G   209.7G        N/A  29,108      500K   1,000K        N/A    
+    /home/vault           959.0G  1048.6G  2097.2G        N/A   7,461      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 44233, 44 %, 8 %, 2246 MiB, 925876 ms

@@ -1,0 +1,76 @@
+### Starting TaskPrologue of job 1453220 on tg072 at Mon Dec  1 09:39:40 PM CET 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Mon Dec  1 21:39:40 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   31C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Mon Dec  1 09:39:43 PM CET 2025
+Using device: cuda
+
+Loading processor and fine-tuned Phi-3.5-Vision (best_model)...
+Loaded 24 test samples
+Visualizing saliency for 6 samples...
+Saving outputs to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/stair/saliency_vis
+
+[1/6] FMIS_FormblätterMielke_gefüllt (58).jpg
+   ❌ Error on FMIS_FormblätterMielke_gefüllt (58).jpg: CUDA out of memory. Tried to allocate 1006.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 976.25 MiB is free. Including non-PyTorch memory, this process has 30.78 GiB memory in use. Of the allocated memory 30.01 GiB is allocated by PyTorch, and 405.99 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+[2/6] FMIS_FormblätterMielke_gefüllt (88).jpg
+   ❌ Error on FMIS_FormblätterMielke_gefüllt (88).jpg: CUDA out of memory. Tried to allocate 996.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 176.25 MiB is free. Including non-PyTorch memory, this process has 31.56 GiB memory in use. Of the allocated memory 30.86 GiB is allocated by PyTorch, and 338.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+[3/6] FMIS_FormblätterMielke_gefüllt (130).jpg
+   ❌ Error on FMIS_FormblätterMielke_gefüllt (130).jpg: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 876.25 MiB is free. Including non-PyTorch memory, this process has 30.87 GiB memory in use. Of the allocated memory 30.24 GiB is allocated by PyTorch, and 276.20 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+[4/6] FMIS_FormblätterMielke_gefüllt (116).jpg
+   ❌ Error on FMIS_FormblätterMielke_gefüllt (116).jpg: CUDA out of memory. Tried to allocate 980.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 416.25 MiB is free. Including non-PyTorch memory, this process has 31.32 GiB memory in use. Of the allocated memory 30.67 GiB is allocated by PyTorch, and 298.68 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+[5/6] FMIS_FormblätterMielke_gefüllt (27).jpg
+   ❌ Error on FMIS_FormblätterMielke_gefüllt (27).jpg: CUDA out of memory. Tried to allocate 986.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 276.25 MiB is free. Including non-PyTorch memory, this process has 31.46 GiB memory in use. Of the allocated memory 30.75 GiB is allocated by PyTorch, and 356.95 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+[6/6] FMIS_FormblätterMielke_gefüllt (83).jpg
+   ❌ Error on FMIS_FormblätterMielke_gefüllt (83).jpg: CUDA out of memory. Tried to allocate 1014.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 976.25 MiB is free. Including non-PyTorch memory, this process has 30.78 GiB memory in use. Of the allocated memory 30.12 GiB is allocated by PyTorch, and 295.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Done. You can now drop these PNGs directly into your thesis/paper.
+Finished at: Mon Dec  1 09:42:14 PM CET 2025
+Exit status: 0
+=== JOB_STATISTICS ===
+=== current date     : Mon Dec  1 09:42:14 PM CET 2025
+= Job-ID             : 1453220 on tinygpu
+= Job-Name           : phi_image_stair
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 01:00:00
+= Elapsed runtime    : 00:02:36
+= Total RAM usage    : 10.4 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-12-01T21:39:28 / 2025-12-01T21:39:28 / 2025-12-01T21:39:38 / 2025-12-01T21:42:14
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              87.9G   104.9G   209.7G        N/A  28,146      500K   1,000K        N/A    
+    /home/woody           197.6G  1000.0G  1500.0G        N/A     878K   5,000K   7,500K        N/A    
+    /home/vault           886.7G  1048.6G  2097.2G        N/A   6,521      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 4029606, 9 %, 2 %, 32474 MiB, 128885 ms

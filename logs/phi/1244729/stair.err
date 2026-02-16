@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/unsloth_zoo/temporary_patches/utils.py", line 107, in <module>
+    from transformers.processing_utils import Unpack
+ImportError: cannot import name 'Unpack' from 'transformers.processing_utils' (/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/processing_utils.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/unsloth/__init__.py", line 91, in <module>
+    import unsloth_zoo
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/unsloth_zoo/__init__.py", line 96, in <module>
+    from .temporary_patches import (
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/unsloth_zoo/temporary_patches/__init__.py", line 19, in <module>
+    from .gemma import *
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/unsloth_zoo/temporary_patches/gemma.py", line 22, in <module>
+    from .utils import (
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/unsloth_zoo/temporary_patches/utils.py", line 123, in <module>
+    raise RuntimeError(
+RuntimeError: Unsloth: Unpack has been moved! Other error = cannot import name 'Unpack' from 'transformers.processing_utils' (/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/processing_utils.py).
+Please file a bug report asap!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/phivision/finetune/stair.py", line 9, in <module>
+    from unsloth import FastVisionModel
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/unsloth/__init__.py", line 93, in <module>
+    raise ImportError("Unsloth: Please install unsloth_zoo via `pip install unsloth_zoo`")
+ImportError: Unsloth: Please install unsloth_zoo via `pip install unsloth_zoo`

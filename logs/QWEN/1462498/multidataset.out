@@ -1,0 +1,615 @@
+### Starting TaskPrologue of job 1462498 on tg072 at Sun Dec 14 05:27:58 PM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Sun Dec 14 17:27:58 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   33C    P0             28W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+Created new run directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/multidataset/run_20251214_172847
+Loading Qwen2.5-VL-7B from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2 patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2 does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model + LoRA initialized successfully!
+================================================================================
+STARTING MULTI-DATASET MULTI-STAGE TRAINING FOR QWEN2.5-VL-7B
+================================================================================
+
+Preparing training & validation datasets for all 3 datasets...
+
+[STAIRCASE]
+  Train: 115 samples (valid)
+  Val:   25 samples (valid)
+
+[SCHMUCK]
+  Train: 413 samples (valid)
+  Val:   88 samples (valid)
+
+[INVENTORY]
+  Train: 213 samples (valid)
+  Val:   47 samples (valid)
+
+TOTAL combined train samples: 741
+TOTAL combined val samples:   160
+
+Unsloth: Model does not have a default image size - using 512
+
+================================================================================
+STAGE 1: WARM-UP TRAINING (no eval, teacher forcing, higher LR)
+================================================================================
+🚀 Starting Stage 1 warm-up training...
+
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 3.3659, 'grad_norm': 9.750399589538574, 'learning_rate': 1.5000000000000002e-05, 'epoch': 0.11}
+{'loss': 1.9226, 'grad_norm': 8.97025203704834, 'learning_rate': 4.5e-05, 'epoch': 0.22}
+{'loss': 0.8208, 'grad_norm': 2.607938051223755, 'learning_rate': 7.500000000000001e-05, 'epoch': 0.32}
+{'loss': 0.3473, 'grad_norm': 12.48136043548584, 'learning_rate': 0.000105, 'epoch': 0.43}
+{'loss': 0.2656, 'grad_norm': 0.7048118710517883, 'learning_rate': 0.00013500000000000003, 'epoch': 0.54}
+{'loss': 0.2911, 'grad_norm': 2.4086754322052, 'learning_rate': 0.000149964775139332, 'epoch': 0.65}
+{'loss': 0.4166, 'grad_norm': 0.9388523101806641, 'learning_rate': 0.0001495688753508495, 'epoch': 0.75}
+{'loss': 0.1635, 'grad_norm': 1.4366464614868164, 'learning_rate': 0.00014873537575079847, 'epoch': 0.86}
+{'loss': 0.3012, 'grad_norm': 1.1789277791976929, 'learning_rate': 0.00014746916764625856, 'epoch': 0.97}
+{'loss': 0.2032, 'grad_norm': 28.45803451538086, 'learning_rate': 0.00014577768164987273, 'epoch': 1.09}
+{'loss': 0.2188, 'grad_norm': 1.386865258216858, 'learning_rate': 0.00014367084407405757, 'epoch': 1.19}
+{'loss': 0.2622, 'grad_norm': 1.63314688205719, 'learning_rate': 0.00014116101867945514, 'epoch': 1.3}
+{'loss': 0.2397, 'grad_norm': 1.0101418495178223, 'learning_rate': 0.00013856974695971962, 'epoch': 1.41}
+{'loss': 0.2362, 'grad_norm': 1.8230299949645996, 'learning_rate': 0.00013533670729914252, 'epoch': 1.52}
+{'loss': 0.2286, 'grad_norm': 3.6644694805145264, 'learning_rate': 0.00013174958784829715, 'epoch': 1.63}
+{'loss': 0.2668, 'grad_norm': 0.9156777262687683, 'learning_rate': 0.00012782943925047642, 'epoch': 1.73}
+{'loss': 0.2843, 'grad_norm': 2.681410551071167, 'learning_rate': 0.00012359926649643086, 'epoch': 1.84}
+{'loss': 0.1646, 'grad_norm': 0.9334948658943176, 'learning_rate': 0.0001190838939219355, 'epoch': 1.95}
+{'loss': 0.1881, 'grad_norm': 1.0086565017700195, 'learning_rate': 0.00011430981952871642, 'epoch': 2.06}
+{'loss': 0.149, 'grad_norm': 3.5292446613311768, 'learning_rate': 0.00010930505948364027, 'epoch': 2.17}
+{'loss': 0.1035, 'grad_norm': 0.7095032334327698, 'learning_rate': 0.0001040989837087069, 'epoch': 2.28}
+{'loss': 0.163, 'grad_norm': 6.172172546386719, 'learning_rate': 9.872214352666865e-05, 'epoch': 2.39}
+{'loss': 0.1353, 'grad_norm': 7.262011528015137, 'learning_rate': 9.320609237372022e-05, 'epoch': 2.5}
+{'loss': 0.1552, 'grad_norm': 1.2038743495941162, 'learning_rate': 8.758320063138843e-05, 'epoch': 2.6}
+{'loss': 0.1116, 'grad_norm': 0.2810753881931305, 'learning_rate': 8.188646566426188e-05, 'epoch': 2.71}
+{'loss': 0.1524, 'grad_norm': 4.174023151397705, 'learning_rate': 7.614931817833473e-05, 'epoch': 2.82}
+{'loss': 0.1237, 'grad_norm': 0.4997062385082245, 'learning_rate': 7.040542603633086e-05, 'epoch': 2.93}
+{'loss': 0.0983, 'grad_norm': 0.5871815085411072, 'learning_rate': 6.468849668129779e-05, 'epoch': 3.04}
+{'loss': 0.0572, 'grad_norm': 3.133216619491577, 'learning_rate': 5.903207932792795e-05, 'epoch': 3.15}
+{'loss': 0.0661, 'grad_norm': 2.416749954223633, 'learning_rate': 5.346936808242633e-05, 'epoch': 3.26}
+{'loss': 0.0665, 'grad_norm': 0.7237812876701355, 'learning_rate': 4.803300714629642e-05, 'epoch': 3.37}
+{'loss': 0.0804, 'grad_norm': 1.2169073820114136, 'learning_rate': 4.275489924718535e-05, 'epoch': 3.47}
+{'loss': 0.0559, 'grad_norm': 0.8198248147964478, 'learning_rate': 3.7666018420992455e-05, 'epoch': 3.58}
+{'loss': 0.0525, 'grad_norm': 1.8485811948776245, 'learning_rate': 3.2796228243910326e-05, 'epoch': 3.69}
+{'loss': 0.0868, 'grad_norm': 1.2695540189743042, 'learning_rate': 2.8174106581084983e-05, 'epoch': 3.8}
+{'loss': 0.0408, 'grad_norm': 0.2327042818069458, 'learning_rate': 2.3826777880339784e-05, 'epoch': 3.91}
+{'loss': 0.0547, 'grad_norm': 0.7228219509124756, 'learning_rate': 1.977975399512998e-05, 'epoch': 4.02}
+{'loss': 0.0263, 'grad_norm': 0.4625994563102722, 'learning_rate': 1.60567844708423e-05, 'epoch': 4.13}
+{'loss': 0.0189, 'grad_norm': 0.4452662765979767, 'learning_rate': 1.267971717301896e-05, 'epoch': 4.24}
+{'loss': 0.0277, 'grad_norm': 1.7922072410583496, 'learning_rate': 9.668370075395417e-06, 'epoch': 4.35}
+{'loss': 0.0396, 'grad_norm': 0.8986493945121765, 'learning_rate': 7.040414960150024e-06, 'epoch': 4.45}
+{'loss': 0.0303, 'grad_norm': 0.6997888684272766, 'learning_rate': 4.811273712859463e-06, 'epoch': 4.56}
+{'loss': 0.0255, 'grad_norm': 0.8205291032791138, 'learning_rate': 2.994027820741899e-06, 'epoch': 4.67}
+{'loss': 0.0226, 'grad_norm': 0.5789793133735657, 'learning_rate': 1.5993416052883238e-06, 'epoch': 4.78}
+{'loss': 0.0228, 'grad_norm': 0.06613356620073318, 'learning_rate': 6.353996397836127e-07, 'epoch': 4.88}
+{'loss': 0.0243, 'grad_norm': 0.24429680407047272, 'learning_rate': 1.0785871897601997e-07, 'epoch': 4.99}
+{'train_runtime': 6266.722, 'train_samples_per_second': 0.591, 'train_steps_per_second': 0.073, 'train_loss': 0.2647338989312234, 'epoch': 4.99}
+
+✅ Stage 1 completed!
+
+
+================================================================================
+STAGE 2: MAIN TRAINING (eval each epoch, CER-based best model)
+================================================================================
+Total epochs: 20 -> Stage1: 5, Stage2: 15
+GPU = Tesla V100-PCIE-32GB, Max memory = 31.733 GB.
+12.852 GB reserved before Stage 2.
+
+[Stage 2] No existing checkpoint found, starting from scratch.
+
+{'loss': 0.0184, 'grad_norm': 0.18336859345436096, 'learning_rate': 9e-06, 'epoch': 0.11}
+{'loss': 0.0355, 'grad_norm': 6.654881000518799, 'learning_rate': 1.9e-05, 'epoch': 0.22}
+{'loss': 0.0154, 'grad_norm': 1.7190076112747192, 'learning_rate': 2.8000000000000003e-05, 'epoch': 0.32}
+{'loss': 0.0306, 'grad_norm': 0.6733708381652832, 'learning_rate': 3.7e-05, 'epoch': 0.43}
+{'loss': 0.0155, 'grad_norm': 0.6002163290977478, 'learning_rate': 4.7e-05, 'epoch': 0.54}
+{'loss': 0.0179, 'grad_norm': 0.33379679918289185, 'learning_rate': 4.9996582624811725e-05, 'epoch': 0.65}
+{'loss': 0.0293, 'grad_norm': 0.2341771274805069, 'learning_rate': 4.9979846709696866e-05, 'epoch': 0.75}
+{'loss': 0.0096, 'grad_norm': 0.20148636400699615, 'learning_rate': 4.994917389921947e-05, 'epoch': 0.86}
+{'loss': 0.0238, 'grad_norm': 0.596428632736206, 'learning_rate': 4.990458130652501e-05, 'epoch': 0.97}
+{'eval_loss': 0.43204745650291443, 'eval_runtime': 100.9373, 'eval_samples_per_second': 1.585, 'eval_steps_per_second': 0.793, 'epoch': 0.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 0
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.2738 (27.38%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0030 (0.30%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2194 (21.94%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1590 (15.90%)
+
+🎯 NEW BEST GLOBAL CER: 0.1590 (improved by inf)
+   💾 Saved best-by-CER state_dict to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/multidataset/run_20251214_172847/best_model_cer/pytorch_model_best_cer.bin
+================================================================================
+
+{'loss': 0.0173, 'grad_norm': 0.241886168718338, 'learning_rate': 4.9846093810961424e-05, 'epoch': 1.09}
+{'loss': 0.0137, 'grad_norm': 0.8121838569641113, 'learning_rate': 4.977374404419837e-05, 'epoch': 1.19}
+{'loss': 0.0204, 'grad_norm': 0.6703326106071472, 'learning_rate': 4.968757237202114e-05, 'epoch': 1.3}
+{'loss': 0.0168, 'grad_norm': 1.0689765214920044, 'learning_rate': 4.958762687180956e-05, 'epoch': 1.41}
+{'loss': 0.0167, 'grad_norm': 1.1934837102890015, 'learning_rate': 4.94739633057144e-05, 'epoch': 1.52}
+{'loss': 0.0182, 'grad_norm': 0.43085911870002747, 'learning_rate': 4.934664508954624e-05, 'epoch': 1.63}
+{'loss': 0.0177, 'grad_norm': 0.5297827124595642, 'learning_rate': 4.920574325739416e-05, 'epoch': 1.73}
+{'loss': 0.0284, 'grad_norm': 0.3116398751735687, 'learning_rate': 4.905133642199402e-05, 'epoch': 1.84}
+{'loss': 0.0214, 'grad_norm': 1.0270665884017944, 'learning_rate': 4.888351073086839e-05, 'epoch': 1.95}
+{'eval_loss': 0.44726046919822693, 'eval_runtime': 98.2075, 'eval_samples_per_second': 1.629, 'eval_steps_per_second': 0.815, 'epoch': 1.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 1
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.3152 (31.52%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0027 (0.27%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2184 (21.84%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1707 (17.07%)
+
+📊 No improvement. Best global CER remains: 0.1590
+================================================================================
+
+{'loss': 0.0182, 'grad_norm': 0.21978335082530975, 'learning_rate': 4.8702359818262644e-05, 'epoch': 2.06}
+{'loss': 0.0123, 'grad_norm': 1.0070301294326782, 'learning_rate': 4.850798475290403e-05, 'epoch': 2.17}
+{'loss': 0.0083, 'grad_norm': 0.49018290638923645, 'learning_rate': 4.8300493981612846e-05, 'epoch': 2.28}
+{'loss': 0.0136, 'grad_norm': 1.0919594764709473, 'learning_rate': 4.8080003268797166e-05, 'epoch': 2.39}
+{'loss': 0.0131, 'grad_norm': 0.8380839824676514, 'learning_rate': 4.784663563186492e-05, 'epoch': 2.5}
+{'loss': 0.0125, 'grad_norm': 0.6112818717956543, 'learning_rate': 4.760052127258936e-05, 'epoch': 2.6}
+{'loss': 0.0114, 'grad_norm': 0.43356192111968994, 'learning_rate': 4.734179750446613e-05, 'epoch': 2.71}
+{'loss': 0.0147, 'grad_norm': 1.1162619590759277, 'learning_rate': 4.707060867610257e-05, 'epoch': 2.82}
+{'loss': 0.0111, 'grad_norm': 0.4269958734512329, 'learning_rate': 4.678710609068193e-05, 'epoch': 2.93}
+{'eval_loss': 0.4789597988128662, 'eval_runtime': 100.0128, 'eval_samples_per_second': 1.6, 'eval_steps_per_second': 0.8, 'epoch': 2.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 2
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.2576 (25.76%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0032 (0.32%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2270 (22.70%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1570 (15.70%)
+
+🎯 NEW BEST GLOBAL CER: 0.1570 (improved by 0.0020)
+   💾 Saved best-by-CER state_dict to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/multidataset/run_20251214_172847/best_model_cer/pytorch_model_best_cer.bin
+================================================================================
+
+{'loss': 0.0101, 'grad_norm': 0.3423088490962982, 'learning_rate': 4.652155609124414e-05, 'epoch': 3.04}
+{'loss': 0.0061, 'grad_norm': 0.8295689225196838, 'learning_rate': 4.6215098742109775e-05, 'epoch': 3.15}
+{'loss': 0.0064, 'grad_norm': 0.7643917798995972, 'learning_rate': 4.589680494679099e-05, 'epoch': 3.26}
+{'loss': 0.0089, 'grad_norm': 0.15929795801639557, 'learning_rate': 4.556685228953684e-05, 'epoch': 3.37}
+{'loss': 0.0075, 'grad_norm': 0.32843706011772156, 'learning_rate': 4.522542485937369e-05, 'epoch': 3.47}
+{'loss': 0.0095, 'grad_norm': 1.2009880542755127, 'learning_rate': 4.4872713147397127e-05, 'epoch': 3.58}
+{'loss': 0.0085, 'grad_norm': 0.3684454560279846, 'learning_rate': 4.450891394049221e-05, 'epoch': 3.69}
+{'loss': 0.0106, 'grad_norm': 1.0280921459197998, 'learning_rate': 4.413423021154098e-05, 'epoch': 3.8}
+{'loss': 0.0074, 'grad_norm': 0.27744221687316895, 'learning_rate': 4.37488710061787e-05, 'epoch': 3.91}
+{'eval_loss': 0.4888502061367035, 'eval_runtime': 99.6773, 'eval_samples_per_second': 1.605, 'eval_steps_per_second': 0.803, 'epoch': 3.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 3
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.3929 (39.29%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0034 (0.34%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2241 (22.41%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1959 (19.59%)
+
+📊 No improvement. Best global CER remains: 0.1570
+================================================================================
+
+{'loss': 0.0086, 'grad_norm': 0.31942427158355713, 'learning_rate': 4.3353051326161986e-05, 'epoch': 4.02}
+{'loss': 0.0059, 'grad_norm': 0.32753729820251465, 'learning_rate': 4.2946992009413774e-05, 'epoch': 4.13}
+{'loss': 0.006, 'grad_norm': 0.29719293117523193, 'learning_rate': 4.2530919606812216e-05, 'epoch': 4.24}
+{'loss': 0.0052, 'grad_norm': 3.211904764175415, 'learning_rate': 4.2105066255792185e-05, 'epoch': 4.35}
+{'loss': 0.0089, 'grad_norm': 0.3348608613014221, 'learning_rate': 4.1669669550829815e-05, 'epoch': 4.45}
+{'loss': 0.0085, 'grad_norm': 0.28798073530197144, 'learning_rate': 4.122497241088247e-05, 'epoch': 4.56}
+{'loss': 0.0067, 'grad_norm': 1.3114715814590454, 'learning_rate': 4.0771222943858104e-05, 'epoch': 4.67}
+{'loss': 0.0063, 'grad_norm': 0.34717032313346863, 'learning_rate': 4.030867430818941e-05, 'epoch': 4.78}
+{'loss': 0.0056, 'grad_norm': 0.03522152826189995, 'learning_rate': 3.983758457159037e-05, 'epoch': 4.88}
+{'loss': 0.0067, 'grad_norm': 0.37534791231155396, 'learning_rate': 3.935821656707359e-05, 'epoch': 4.99}
+{'eval_loss': 0.49367743730545044, 'eval_runtime': 98.5439, 'eval_samples_per_second': 1.624, 'eval_steps_per_second': 0.812, 'epoch': 4.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 4
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.2410 (24.10%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0034 (0.34%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2179 (21.79%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1490 (14.90%)
+
+🎯 NEW BEST GLOBAL CER: 0.1490 (improved by 0.0081)
+   💾 Saved best-by-CER state_dict to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/multidataset/run_20251214_172847/best_model_cer/pytorch_model_best_cer.bin
+================================================================================
+
+{'loss': 0.006, 'grad_norm': 0.25917455554008484, 'learning_rate': 3.887083774630908e-05, 'epoch': 5.11}
+{'loss': 0.0042, 'grad_norm': 0.028664328157901764, 'learning_rate': 3.837572003040612e-05, 'epoch': 5.22}
+{'loss': 0.0066, 'grad_norm': 0.48135533928871155, 'learning_rate': 3.7873139658201516e-05, 'epoch': 5.32}
+{'loss': 0.0049, 'grad_norm': 0.1951896846294403, 'learning_rate': 3.736337703213888e-05, 'epoch': 5.43}
+{'loss': 0.0041, 'grad_norm': 0.22458983957767487, 'learning_rate': 3.6846716561824965e-05, 'epoch': 5.54}
+{'loss': 0.0061, 'grad_norm': 0.1256607472896576, 'learning_rate': 3.632344650535024e-05, 'epoch': 5.65}
+{'loss': 0.0051, 'grad_norm': 1.1215238571166992, 'learning_rate': 3.579385880846232e-05, 'epoch': 5.75}
+{'loss': 0.006, 'grad_norm': 0.5933170914649963, 'learning_rate': 3.525824894168203e-05, 'epoch': 5.86}
+{'loss': 0.0043, 'grad_norm': 1.5648760795593262, 'learning_rate': 3.471691573545276e-05, 'epoch': 5.97}
+{'eval_loss': 0.5079788565635681, 'eval_runtime': 99.1572, 'eval_samples_per_second': 1.614, 'eval_steps_per_second': 0.807, 'epoch': 5.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 5
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.2873 (28.73%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0029 (0.29%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2233 (22.33%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1643 (16.43%)
+
+📊 No improvement. Best global CER remains: 0.1490
+================================================================================
+
+{'loss': 0.0044, 'grad_norm': 0.16126827895641327, 'learning_rate': 3.417016121341537e-05, 'epoch': 6.09}
+{'loss': 0.004, 'grad_norm': 0.11478771269321442, 'learning_rate': 3.361829042390148e-05, 'epoch': 6.19}
+{'loss': 0.0042, 'grad_norm': 0.3885105848312378, 'learning_rate': 3.306161126973918e-05, 'epoch': 6.3}
+{'loss': 0.0044, 'grad_norm': 0.02952146716415882, 'learning_rate': 3.250043433646615e-05, 'epoch': 6.41}
+{'loss': 0.0039, 'grad_norm': 0.0501922182738781, 'learning_rate': 3.1935072719046115e-05, 'epoch': 6.52}
+{'loss': 0.004, 'grad_norm': 0.7466304302215576, 'learning_rate': 3.136584184718509e-05, 'epoch': 6.63}
+{'loss': 0.006, 'grad_norm': 0.42312389612197876, 'learning_rate': 3.079305930934509e-05, 'epoch': 6.73}
+{'loss': 0.0039, 'grad_norm': 0.12120501697063446, 'learning_rate': 3.021704467555344e-05, 'epoch': 6.84}
+{'loss': 0.0045, 'grad_norm': 0.5811076760292053, 'learning_rate': 2.963811931910645e-05, 'epoch': 6.95}
+{'eval_loss': 0.5202633738517761, 'eval_runtime': 98.792, 'eval_samples_per_second': 1.62, 'eval_steps_per_second': 0.81, 'epoch': 6.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 6
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.3017 (30.17%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0030 (0.30%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2189 (21.89%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1670 (16.70%)
+
+📊 No improvement. Best global CER remains: 0.1490
+================================================================================
+
+{'loss': 0.0038, 'grad_norm': 0.1993190348148346, 'learning_rate': 2.905660623726705e-05, 'epoch': 7.06}
+{'loss': 0.0035, 'grad_norm': 0.03242882713675499, 'learning_rate': 2.8472829871056332e-05, 'epoch': 7.17}
+{'loss': 0.003, 'grad_norm': 0.03403132036328316, 'learning_rate': 2.788711592423966e-05, 'epoch': 7.28}
+{'loss': 0.0038, 'grad_norm': 0.032399773597717285, 'learning_rate': 2.7299791181608124e-05, 'epoch': 7.39}
+{'loss': 0.0038, 'grad_norm': 0.19523315131664276, 'learning_rate': 2.6711183326657036e-05, 'epoch': 7.5}
+{'loss': 0.0036, 'grad_norm': 0.09373769164085388, 'learning_rate': 2.6121620758762877e-05, 'epoch': 7.6}
+{'loss': 0.0033, 'grad_norm': 0.10190072655677795, 'learning_rate': 2.5531432409960892e-05, 'epoch': 7.71}
+{'loss': 0.0037, 'grad_norm': 0.09435581415891647, 'learning_rate': 2.4940947561425505e-05, 'epoch': 7.82}
+{'loss': 0.0035, 'grad_norm': 0.18190276622772217, 'learning_rate': 2.4350495659755924e-05, 'epoch': 7.93}
+{'eval_loss': 0.5295820236206055, 'eval_runtime': 98.658, 'eval_samples_per_second': 1.622, 'eval_steps_per_second': 0.811, 'epoch': 7.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 7
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.3002 (30.02%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0030 (0.30%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2241 (22.41%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1684 (16.84%)
+
+📊 No improvement. Best global CER remains: 0.1490
+================================================================================
+
+{'loss': 0.0033, 'grad_norm': 0.04384283721446991, 'learning_rate': 2.381938939358742e-05, 'epoch': 8.04}
+{'loss': 0.0031, 'grad_norm': 0.08890695869922638, 'learning_rate': 2.322990750239733e-05, 'epoch': 8.15}
+{'loss': 0.0029, 'grad_norm': 0.23641528189182281, 'learning_rate': 2.2641413191083445e-05, 'epoch': 8.26}
+{'loss': 0.0034, 'grad_norm': 0.09275845438241959, 'learning_rate': 2.2054234795673334e-05, 'epoch': 8.37}
+{'loss': 0.0031, 'grad_norm': 0.027634358033537865, 'learning_rate': 2.146869991801146e-05, 'epoch': 8.47}
+{'loss': 0.0035, 'grad_norm': 0.06625134497880936, 'learning_rate': 2.088513524298165e-05, 'epoch': 8.58}
+{'loss': 0.0032, 'grad_norm': 0.29330477118492126, 'learning_rate': 2.0303866356241347e-05, 'epoch': 8.69}
+{'loss': 0.0035, 'grad_norm': 0.03263534605503082, 'learning_rate': 1.9725217562568948e-05, 'epoch': 8.8}
+{'loss': 0.0028, 'grad_norm': 0.10279756039381027, 'learning_rate': 1.9149511704925942e-05, 'epoch': 8.91}
+{'eval_loss': 0.5411761999130249, 'eval_runtime': 98.6018, 'eval_samples_per_second': 1.623, 'eval_steps_per_second': 0.811, 'epoch': 8.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 8
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.2513 (25.13%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0031 (0.31%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2435 (24.35%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1610 (16.10%)
+
+📊 No improvement. Best global CER remains: 0.1490
+================================================================================
+
+{'loss': 0.0038, 'grad_norm': 2.5983989238739014, 'learning_rate': 1.8577069984334522e-05, 'epoch': 9.02}
+{'loss': 0.0028, 'grad_norm': 0.03588281571865082, 'learning_rate': 1.8008211780671353e-05, 'epoch': 9.13}
+{'loss': 0.0035, 'grad_norm': 0.7705729603767395, 'learning_rate': 1.7443254474477327e-05, 'epoch': 9.24}
+{'loss': 0.0029, 'grad_norm': 0.045679040253162384, 'learning_rate': 1.6882513269882917e-05, 'epoch': 9.35}
+{'loss': 0.0037, 'grad_norm': 0.04448944330215454, 'learning_rate': 1.6326301018747623e-05, 'epoch': 9.45}
+{'loss': 0.0036, 'grad_norm': 0.0220585186034441, 'learning_rate': 1.5774928046112027e-05, 'epoch': 9.56}
+{'loss': 0.0031, 'grad_norm': 0.18755659461021423, 'learning_rate': 1.5228701977059428e-05, 'epoch': 9.67}
+{'loss': 0.0031, 'grad_norm': 0.022433757781982422, 'learning_rate': 1.4687927565084022e-05, 'epoch': 9.78}
+{'loss': 0.0035, 'grad_norm': 0.027689019218087196, 'learning_rate': 1.4152906522061048e-05, 'epoch': 9.88}
+{'loss': 0.0032, 'grad_norm': 0.03862812742590904, 'learning_rate': 1.3623937349914093e-05, 'epoch': 9.99}
+{'eval_loss': 0.5411725044250488, 'eval_runtime': 99.7769, 'eval_samples_per_second': 1.604, 'eval_steps_per_second': 0.802, 'epoch': 9.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 9
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.2004 (20.04%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0031 (0.31%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2232 (22.32%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1388 (13.88%)
+
+🎯 NEW BEST GLOBAL CER: 0.1388 (improved by 0.0102)
+   💾 Saved best-by-CER state_dict to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/multidataset/run_20251214_172847/best_model_cer/pytorch_model_best_cer.bin
+================================================================================
+
+{'loss': 0.0029, 'grad_norm': 0.026689033955335617, 'learning_rate': 1.3101315174073162e-05, 'epoch': 10.11}
+{'loss': 0.003, 'grad_norm': 0.05051964148879051, 'learning_rate': 1.2585331578816738e-05, 'epoch': 10.22}
+{'loss': 0.003, 'grad_norm': 0.026777509599924088, 'learning_rate': 1.2076274444589361e-05, 'epoch': 10.32}
+{'loss': 0.0031, 'grad_norm': 0.03185123950242996, 'learning_rate': 1.1574427787385852e-05, 'epoch': 10.43}
+{'loss': 0.0031, 'grad_norm': 0.029681721702218056, 'learning_rate': 1.1080071600291453e-05, 'epoch': 10.54}
+{'loss': 0.003, 'grad_norm': 0.054404567927122116, 'learning_rate': 1.0593481697266583e-05, 'epoch': 10.65}
+{'loss': 0.0029, 'grad_norm': 0.019946610555052757, 'learning_rate': 1.0114929559263122e-05, 'epoch': 10.75}
+{'loss': 0.003, 'grad_norm': 0.027813762426376343, 'learning_rate': 9.644682182758306e-06, 'epoch': 10.86}
+{'loss': 0.0026, 'grad_norm': 0.030551115050911903, 'learning_rate': 9.183001930790483e-06, 'epoch': 10.97}
+{'eval_loss': 0.5492018461227417, 'eval_runtime': 98.7621, 'eval_samples_per_second': 1.62, 'eval_steps_per_second': 0.81, 'epoch': 10.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 10
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.1976 (19.76%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0031 (0.31%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2286 (22.86%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1399 (13.99%)
+
+📊 No improvement. Best global CER remains: 0.1388
+================================================================================
+
+{'loss': 0.003, 'grad_norm': 0.03319348394870758, 'learning_rate': 8.730146386580157e-06, 'epoch': 11.09}
+{'loss': 0.0027, 'grad_norm': 0.031583480536937714, 'learning_rate': 8.286368209817644e-06, 'epoch': 11.19}
+{'loss': 0.0031, 'grad_norm': 0.03957797959446907, 'learning_rate': 7.8519149956978e-06, 'epoch': 11.3}
+{'loss': 0.0028, 'grad_norm': 0.014330210164189339, 'learning_rate': 7.427029136780333e-06, 'epoch': 11.41}
+{'loss': 0.003, 'grad_norm': 0.02367011457681656, 'learning_rate': 7.011947687752804e-06, 'epoch': 11.52}
+{'loss': 0.0029, 'grad_norm': 0.0385163314640522, 'learning_rate': 6.606902233171711e-06, 'epoch': 11.63}
+{'loss': 0.0029, 'grad_norm': 0.02362513728439808, 'learning_rate': 6.212118758255595e-06, 'epoch': 11.73}
+{'loss': 0.0028, 'grad_norm': 0.020776446908712387, 'learning_rate': 5.827817522802065e-06, 'epoch': 11.84}
+{'loss': 0.0026, 'grad_norm': 0.02674904838204384, 'learning_rate': 5.454212938299255e-06, 'epoch': 11.95}
+{'eval_loss': 0.5524808764457703, 'eval_runtime': 97.8072, 'eval_samples_per_second': 1.636, 'eval_steps_per_second': 0.818, 'epoch': 11.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 11
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.2004 (20.04%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0031 (0.31%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2284 (22.84%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1406 (14.06%)
+
+📊 No improvement. Best global CER remains: 0.1388
+================================================================================
+
+{'loss': 0.003, 'grad_norm': 0.013392454013228416, 'learning_rate': 5.091513448300142e-06, 'epoch': 12.06}
+{'loss': 0.0028, 'grad_norm': 0.017550718039274216, 'learning_rate': 4.739921412126591e-06, 'epoch': 12.17}
+{'loss': 0.0031, 'grad_norm': 0.029205117374658585, 'learning_rate': 4.3996329919678666e-06, 'epoch': 12.28}
+{'loss': 0.0028, 'grad_norm': 0.019966762512922287, 'learning_rate': 4.070838043436786e-06, 'epoch': 12.39}
+{'loss': 0.0027, 'grad_norm': 0.02870207093656063, 'learning_rate': 3.753720009644371e-06, 'epoch': 12.5}
+{'loss': 0.0025, 'grad_norm': 0.02795051969587803, 'learning_rate': 3.448455818852267e-06, 'epoch': 12.6}
+{'loss': 0.0029, 'grad_norm': 0.02914739027619362, 'learning_rate': 3.1552157857599324e-06, 'epoch': 12.71}
+{'loss': 0.0029, 'grad_norm': 0.020760782063007355, 'learning_rate': 2.8741635164817315e-06, 'epoch': 12.82}
+{'loss': 0.0033, 'grad_norm': 0.026453055441379547, 'learning_rate': 2.6054558172668607e-06, 'epoch': 12.93}
+{'eval_loss': 0.5540030002593994, 'eval_runtime': 98.82, 'eval_samples_per_second': 1.619, 'eval_steps_per_second': 0.81, 'epoch': 12.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 12
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.2291 (22.91%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0031 (0.31%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2284 (22.84%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1491 (14.91%)
+
+📊 No improvement. Best global CER remains: 0.1388
+================================================================================
+
+{'loss': 0.0032, 'grad_norm': 0.025368351489305496, 'learning_rate': 2.3492426070131747e-06, 'epoch': 13.04}
+{'loss': 0.0029, 'grad_norm': 0.016734270378947258, 'learning_rate': 2.1056668336235622e-06, 'epoch': 13.15}
+{'loss': 0.0028, 'grad_norm': 0.026649056002497673, 'learning_rate': 1.874864394251688e-06, 'epoch': 13.26}
+{'loss': 0.0028, 'grad_norm': 0.019979430362582207, 'learning_rate': 1.6569640594814528e-06, 'epoch': 13.37}
+{'loss': 0.0027, 'grad_norm': 0.031075026839971542, 'learning_rate': 1.4520874014826463e-06, 'epoch': 13.47}
+{'loss': 0.0032, 'grad_norm': 0.03861039876937866, 'learning_rate': 1.2603487261826724e-06, 'epoch': 13.58}
+{'loss': 0.0026, 'grad_norm': 0.03222664073109627, 'learning_rate': 1.081855009492383e-06, 'epoch': 13.69}
+{'loss': 0.0028, 'grad_norm': 0.04683258756995201, 'learning_rate': 9.167058376214621e-07, 'epoch': 13.8}
+{'loss': 0.0029, 'grad_norm': 0.07312215864658356, 'learning_rate': 7.649933515167407e-07, 'epoch': 13.91}
+{'eval_loss': 0.5547633767127991, 'eval_runtime': 100.0064, 'eval_samples_per_second': 1.6, 'eval_steps_per_second': 0.8, 'epoch': 13.99}
+
+================================================================================
+🔍 Multi-dataset CER Callback: validation CER at Epoch 13
+================================================================================
+
+[STAIRCASE] Evaluating on 25 validation samples...
+  [staircase] val 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg  [staircase] val 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg  [staircase] val 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg  [staircase] val 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg  [staircase] val 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg  [staircase] val 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg  [staircase] val 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg  [staircase] val 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg  [staircase] val 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg  [staircase] val 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg  [staircase] val 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg  [staircase] val 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg  [staircase] val 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg  [staircase] val 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg  [staircase] val 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg  [staircase] val 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg  [staircase] val 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg  [staircase] val 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg  [staircase] val 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg  [staircase] val 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg  [staircase] val 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg  [staircase] val 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg  [staircase] val 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg  [staircase] val 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg  [staircase] val 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+  ✅ staircase CER: 0.2000 (20.00%)
+
+[SCHMUCK] Evaluating on 30 validation samples...
+  [schmuck] val 1/30: SCH_1941.jpg  [schmuck] val 2/30: SCH_3097.jpg  [schmuck] val 3/30: SCH_3217.jpg  [schmuck] val 4/30: SCH_2891_185.jpg  [schmuck] val 5/30: SCH_1931.jpg  [schmuck] val 6/30: SCH_2891_139.jpg  [schmuck] val 7/30: SCH_2891_303.jpg  [schmuck] val 8/30: SCH_3082_recto.jpg  [schmuck] val 9/30: SCH_3192_15.jpg  [schmuck] val 10/30: SCH_2969.jpg  [schmuck] val 11/30: SCH_2891_24_a.jpg  [schmuck] val 12/30: SCH_3028.jpg  [schmuck] val 13/30: SCH_3192_34.jpg  [schmuck] val 14/30: SCH_2891_194_195.jpg  [schmuck] val 15/30: SCH_3138.jpg  [schmuck] val 16/30: SCH_2891_216.jpg  [schmuck] val 17/30: SCH_3201.jpg  [schmuck] val 18/30: SCH_2891_208.jpg  [schmuck] val 19/30: SCH_2079.jpg  [schmuck] val 20/30: SCH_2891_122.jpg  [schmuck] val 21/30: SCH_3192_24.jpg  [schmuck] val 22/30: SCH_2891_294.jpg  [schmuck] val 23/30: SCH_2891_119.jpg  [schmuck] val 24/30: SCH_3049.jpg  [schmuck] val 25/30: SCH_2891_269.jpg  [schmuck] val 26/30: SCH_2990.jpg  [schmuck] val 27/30: SCH_1933.jpg  [schmuck] val 28/30: SCH_2891_71.jpg  [schmuck] val 29/30: SCH_3121.jpg  [schmuck] val 30/30: SCH_2891_61.jpg
+  ✅ schmuck CER: 0.0031 (0.31%)
+
+[INVENTORY] Evaluating on 30 validation samples...
+  [inventory] val 1/30: inventarbuch-064.jpg  [inventory] val 2/30: inventarbuch-194.jpg  [inventory] val 3/30: inventarbuch-142.jpg  [inventory] val 4/30: inventarbuch-045.jpg  [inventory] val 5/30: inventarbuch-232.jpg  [inventory] val 6/30: inventarbuch-161.jpg  [inventory] val 7/30: inventarbuch-020.jpg  [inventory] val 8/30: inventarbuch-171.jpg  [inventory] val 9/30: inventarbuch-283.jpg  [inventory] val 10/30: inventarbuch-187.jpg  [inventory] val 11/30: inventarbuch-070.jpg  [inventory] val 12/30: inventarbuch-178.jpg  [inventory] val 13/30: inventarbuch-055.jpg  [inventory] val 14/30: inventarbuch-093.jpg  [inventory] val 15/30: inventarbuch-097.jpg  [inventory] val 16/30: inventarbuch-043.jpg  [inventory] val 17/30: inventarbuch-096.jpg  [inventory] val 18/30: inventarbuch-222.jpg  [inventory] val 19/30: inventarbuch-168.jpg  [inventory] val 20/30: inventarbuch-120.jpg  [inventory] val 21/30: inventarbuch-303.jpg  [inventory] val 22/30: inventarbuch-100.jpg  [inventory] val 23/30: inventarbuch-027.jpg  [inventory] val 24/30: inventarbuch-230.jpg  [inventory] val 25/30: inventarbuch-061.jpg  [inventory] val 26/30: inventarbuch-227.jpg  [inventory] val 27/30: inventarbuch-266.jpg  [inventory] val 28/30: inventarbuch-076.jpg  [inventory] val 29/30: inventarbuch-206.jpg  [inventory] val 30/30: inventarbuch-060.jpg
+  ✅ inventory CER: 0.2272 (22.72%)
+
+🌐 GLOBAL validation CER (all datasets): 0.1401 (14.01%)
+
+📊 No improvement. Best global CER remains: 0.1388
+================================================================================
+
+{'loss': 0.003, 'grad_norm': 0.027569221332669258, 'learning_rate': 6.268021954544096e-07, 'epoch': 14.02}
+{'loss': 0.0028, 'grad_norm': 0.02848253771662712, 'learning_rate': 5.022094698148072e-07, 'epoch': 14.13}
+{'loss': 0.0031, 'grad_norm': 0.021586604416370392, 'learning_rate': 3.9128468806614306e-07, 'epoch': 14.24}
+{'loss': 0.0027, 'grad_norm': 0.012304787524044514, 'learning_rate': 2.9408973798115967e-07, 'epoch': 14.35}
+{'loss': 0.003, 'grad_norm': 0.01641934923827648, 'learning_rate': 2.106788471083615e-07, 'epoch': 14.45}
+{'loss': 0.0026, 'grad_norm': 0.02010459266602993, 'learning_rate': 1.410985525170827e-07, 'epoch': 14.56}
+{'loss': 0.0028, 'grad_norm': 0.021319923922419548, 'learning_rate': 8.538767483325383e-08, 'epoch': 14.67}
+{'loss': 0.0031, 'grad_norm': 0.028021644800901413, 'learning_rate': 4.357729658039378e-08, 'epoch': 14.78}
+{'loss': 0.0026, 'grad_norm': 0.02842990681529045, 'learning_rate': 1.5690744837873473e-08, 'epoch': 14.88}
+{'loss': 0.0028, 'grad_norm': 0.04209054633975029, 'learning_rate': 1.743578226129361e-09, 'epoch': 14.99}
+=== JOB_STATISTICS ===
+=== current date     : Mon Dec 15 05:28:25 PM CET 2025
+= Job-ID             : 1462498 on tinygpu
+= Job-Name           : multidataset
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:27
+= Total RAM usage    : 20.7 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-12-10T22:31:14 / 2025-12-10T22:31:14 / 2025-12-14T17:27:56 / 2025-12-15T17:28:23
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/hpc              88.2G   104.9G   209.7G        N/A  28,662      500K   1,000K        N/A    
+    /home/vault           953.5G  1048.6G  2097.2G        N/A   6,938      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 2429722, 52 %, 26 %, 18884 MiB, 86414260 ms

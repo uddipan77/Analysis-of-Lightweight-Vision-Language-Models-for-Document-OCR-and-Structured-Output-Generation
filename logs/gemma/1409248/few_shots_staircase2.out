@@ -1,0 +1,292 @@
+### Starting TaskPrologue of job 1409248 on tg095 at Sat Nov 22 04:03:55 PM CET 2025
+Running on cores 96-127 with governor ondemand
+Sat Nov 22 16:03:55 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:C1:00.0 Off |                    0 |
+| N/A   33C    P0             50W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+GEMMA-3 FEW-SHOT OCR (Staircase Forms, dual-view, schema prompt)
+============================================================
+Loading train data...
+Loaded 115 train samples
+Loading test data...
+Loaded 24 test samples
+✓ Found few-shot example for FMIS_FormblätterMielke_gefüllt (8).jpg: FMIS_FormblätterMielke_gefüllt (8).jpg
+✓ Found few-shot example for FMIS_FormblätterMielke_gefüllt (149).jpg: FMIS_FormblätterMielke_gefüllt (149).jpg
+
+Using the following few-shot examples:
+  - FMIS_FormblätterMielke_gefüllt (8).jpg  (stair_type: INNENTREPPE, path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (8).jpg)
+  - FMIS_FormblätterMielke_gefüllt (149).jpg  (stair_type: WENDELTREPPE, path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (149).jpg)
+Loading Gemma-3 4B (Unsloth snapshot) for Staircase few-shot...
+Loaded Gemma-3. dtype=torch.bfloat16
+
+Building few-shot conversation messages (dual-view)...
+Few-shot example 1: FMIS_FormblätterMielke_gefüllt (8).jpg
+  Path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (8).jpg
+Few-shot example 2: FMIS_FormblätterMielke_gefüllt (149).jpg
+  Path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (149).jpg
+Built few-shot conversation with 5 messages (2 examples, dual-view)
+
+Processing 24 test images (few-shot)...
+
+[1/24] FMIS_FormblätterMielke_gefüllt (83).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (83).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1767
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Dom-Inneres, Westwand",   "Adresse": "Residenzhol. 6",   "Bauherr": "",   "Baumeister": "f. da Fabrelli",   "Bauzeit": "1734-36",   "MATE'
+    CER: 0.3053 (30.53%)
+
+[2/24] FMIS_FormblätterMielke_gefüllt (45).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (45).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1772
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Freilands Winterm.",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Holz, Ziegel, Werkstein",   "T'
+    CER: 0.2895 (28.95%)
+
+[3/24] FMIS_FormblätterMielke_gefüllt (27).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (27).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1822
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Schlopp",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Holz, Ziegel, Werkstein",   "TREPPENTYP ('
+    CER: 0.2786 (27.86%)
+
+[4/24] FMIS_FormblätterMielke_gefüllt (130).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (130).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1769
+    [DEBUG] raw preview: '```json {   "stair_type": "WENDELTREPPE",   "Name des Hauses": "Schonauer Str. 26",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Holz, Ziegel, Werkstein",   "T'
+    CER: 0.3290 (32.90%)
+
+[5/24] FMIS_FormblätterMielke_gefüllt (129).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (129).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1817
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Admiralschloss Nr. 6",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "~1888-1900",   "MATERIAL": "Holz, Ziegel, Werk'
+    CER: 0.3229 (32.29%)
+
+[6/24] FMIS_FormblätterMielke_gefüllt (88).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (88).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1728
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Wanzen Haus",   "Adresse": "Ölschnitz 25",   "Bauherr": "Hof W. Strasoldo Düntzböhl",   "Baumeister": "M. Pedetti",   "Bauzeit": "1788-69'
+    CER: 0.2174 (21.74%)
+
+[7/24] FMIS_FormblätterMielke_gefüllt (102).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (102).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1732
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Griesmühlstr. 2",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Holz, Ziegel, Werkstein",   "TREP'
+    CER: 0.3211 (32.11%)
+
+[8/24] FMIS_FormblätterMielke_gefüllt (103).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (103).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1710
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "NEUE. WECKT",   "Adresse": "GRIES MOHL STR. 12",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "HOLZ",   "TREPPENTY'
+    CER: 0.2295 (22.95%)
+
+[9/24] FMIS_FormblätterMielke_gefüllt (165).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (165).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1773
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Oper 2",   "Adresse": "Opernring 2",   "Bauherr": "",   "Baumeister": "August v. Sicardsburg",   "Bauzeit": "1861 - 1869",   "MATERIAL": '
+    CER: 0.2178 (21.78%)
+
+[10/24] FMIS_FormblätterMielke_gefüllt (43).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (43).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1519
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Rathaus",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Werkstein",   "TREPPENTYP (Laufform)": ""'
+    CER: 0.2767 (27.67%)
+
+[11/24] FMIS_FormblätterMielke_gefüllt (11).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (11).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1702
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Residenz Residenzpl. 1",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Stein",   "TREPPENTYP (Lau'
+    CER: 0.3029 (30.29%)
+
+[12/24] FMIS_FormblätterMielke_gefüllt (36).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (36).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1763
+    [DEBUG] raw preview: '```json {   "stair_type": "KALHDRALE",   "Name des Hauses": "Kalhdraele",   "Adresse": "",   "Bauherr": "Lorenzo Gafa",   "Baumeister": "Lorenzo Gafa",   "Bauzeit": "1691 - 1762",   "MATERIAL": "Holz,'
+    CER: 0.6614 (66.14%)
+
+[13/24] FMIS_FormblätterMielke_gefüllt (87).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (87).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1854
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Wiesener Haus",   "Adresse": "Widmannsgasse 2",   "Bauherr": "",   "Baumeister": "A. Ngs. 74",   "Bauzeit": "",   "MATERIAL": "Holz, Zieg'
+    CER: 0.3198 (31.98%)
+
+[14/24] FMIS_FormblätterMielke_gefüllt (94).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (94).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1820
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Schlop",   "Adresse": "Martinstr. 6",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "1700",   "MATERIAL": "Holz, Ziegel, Werkstein", '
+    CER: 0.3057 (30.57%)
+
+[15/24] FMIS_FormblätterMielke_gefüllt (58).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (58).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1584
+    [DEBUG] raw preview: '```json {   "stair_type": "WENDELTREPPE",   "Name des Hauses": "Bischof Moritz v. Hilden",   "Adresse": "",   "Bauherr": "Bischof Moritz v. Hilden",   "Baumeister": "Erhard Reith",   "Bauzeit": "~ 157'
+    CER: 0.6306 (63.06%)
+
+[16/24] FMIS_FormblätterMielke_gefüllt (111).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (111).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1726
+    [DEBUG] raw preview: '```json {   "stair_type": "WENDELTREPPE",   "Name des Hauses": "Havel Haus 6",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Holz, Ziegel, Werkstein",   "TREPPE'
+    CER: 0.3020 (30.20%)
+
+[17/24] FMIS_FormblätterMielke_gefüllt (99).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (99).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1537
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "GOLDKNOPF GASSE 2",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "HOLZ",   "TREPPENTYP (Laufform)'
+    CER: 0.2995 (29.95%)
+
+[18/24] FMIS_FormblätterMielke_gefüllt (116).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (116).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1545
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Kanalstr. 18",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Holz, Ziegel, Werkstein",   "TREPPEN'
+    CER: 0.3324 (33.24%)
+
+[19/24] FMIS_FormblätterMielke_Vorlage3.jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_Vorlage3.jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1871
+    [DEBUG] raw preview: '```json {   "stair_type": "WENDELTREPPE",   "Name des Hauses": "Dom-Inneres, Westwand",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Holz, Ziegel, Werkstein", '
+    CER: 0.6728 (67.28%)
+
+[20/24] FMIS_FormblätterMielke_gefüllt (132).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (132).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1706
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Schultheiß 27",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Eiche",   "TREPPENTYP (Laufform)": '
+    CER: 0.3067 (30.67%)
+
+[21/24] FMIS_FormblätterMielke_gefüllt (139).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (139).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1822
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Therenien Str. 27",   "Adresse": "I. H. 19. u.",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Holz, Ziegel, Werks'
+    CER: 0.3394 (33.94%)
+
+[22/24] FMIS_FormblätterMielke_gefüllt (66).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (66).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1891
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Dom-Inneres, Westwand",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "1748",   "MATERIAL": "Holz, Ziegel, Werkstein'
+    CER: 0.4094 (40.94%)
+
+[23/24] FMIS_FormblätterMielke_gefüllt (105).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (105).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1640
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Harderstr. 13",   "Adresse": "Ingolstadt",   "Bauherr": "Neuhausen 1864",   "Baumeister": "",   "Bauzeit": "",   "MATERIAL": "Holz, Ziege'
+    CER: 0.3755 (37.55%)
+
+[24/24] FMIS_FormblätterMielke_gefüllt (13).jpg
+    Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (13).jpg
+    [DEBUG] prompt image markers: 6, collected images: 6
+    [DEBUG] used_sampling_fallback: False
+    [DEBUG] raw output length: 1684
+    [DEBUG] raw preview: '```json {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Dom",   "Adresse": "Rezidenzl. 14",   "Bauherr": "G.W.C. v. Guttenberg",   "Baumeister": "Domdechantei Caritas verband",   "Bauzeit": "na'
+    CER: 0.3222 (32.22%)
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/shots_stair/run_fewshot_20251122_164210
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/shots_stair/run_fewshot_20251122_164210/predictions_fewshot.jsonl
+
+============================================================
+GEMMA-3 FEW-SHOT CER EVALUATION RESULTS (Staircase)
+============================================================
+
+CER over 24 images:
+--------------------------------------------------
+Average CER: 0.3487 (34.87%)
+Minimum CER: 0.2174 (21.74%)
+Maximum CER: 0.6728 (67.28%)
+
+Weighted CER: 0.3491 (34.91%)
+Total characters: 33973
+Total errors: 11861
+Perfect matches: 0/24 (0.0%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/shots_stair/run_fewshot_20251122_164210/evaluation_summary_fewshot.json
+
+============================================================
+GEMMA-3 FEW-SHOT STAIRCASE OCR DONE
+============================================================
+Saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/shots_stair/run_fewshot_20251122_164210
+Total images processed: 24
+Average CER: 0.3487 (34.87%)
+============================================================
+Gemma-3 training completed at: Sat Nov 22 04:42:12 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Sat Nov 22 04:42:12 PM CET 2025
+= Job-ID             : 1409248 on tinygpu
+= Job-Name           : few_shots_staircase2
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 05:00:00
+= Elapsed runtime    : 00:38:19
+= Total RAM usage    : 7.1 GiB of requested  GiB (%)   
+= Node list          : tg095
+= Subm/Elig/Start/End: 2025-11-22T16:03:53 / 2025-11-22T16:03:53 / 2025-11-22T16:03:53 / 2025-11-22T16:42:12
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              68.2G   104.9G   209.7G        N/A  26,969      500K   1,000K        N/A    
+    /home/vault           957.6G  1048.6G  2097.2G        N/A   6,809      200K     400K        N/A    
+    /home/woody           197.4G  1000.0G  1500.0G        N/A     876K   5,000K   7,500K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:C1:00.0, 26508, 25 %, 3 %, 6018 MiB, 2285897 ms

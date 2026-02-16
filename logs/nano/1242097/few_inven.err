@@ -1,0 +1,10 @@
+Fetching 17 files:   0%|          | 0/17 [00:00<?, ?it/s]/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/huggingface_hub/file_download.py:982: UserWarning: `local_dir_use_symlinks` parameter is deprecated and will be ignored. The process to download files to a local folder has been updated and do not rely on symlinks anymore. You only need to pass a destination folder as`local_dir`.
+For more details, check out https://huggingface.co/docs/huggingface_hub/main/en/guides/download#download-files-to-local-folder.
+  warnings.warn(
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Fetching 17 files:   6%|▌         | 1/17 [00:00<00:04,  3.64it/s]Fetching 17 files:  12%|█▏        | 2/17 [00:00<00:03,  3.75it/s]Fetching 17 files:  53%|█████▎    | 9/17 [03:06<03:02, 22.80s/it]Fetching 17 files: 100%|██████████| 17/17 [03:06<00:00, 11.00s/it]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:45<00:45, 45.10s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:07<00:00, 31.68s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:07<00:00, 33.69s/it]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.

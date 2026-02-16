@@ -1,0 +1,545 @@
+### Starting TaskPrologue of job 1530594 on tg097 at Sun Feb 15 10:05:31 AM CET 2026
+Running on cores 64-95 with governor ondemand
+Sun Feb 15 10:05:31 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.16             Driver Version: 580.126.16     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:81:00.0 Off |                    0 |
+| N/A   37C    P0             54W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+================================================================================
+GEMMA-3 FINE-TUNING - MULTI-DATASET (RESUME + BEST GLOBAL CER)
+(INVENTORY + SCHMUCK + STAIRCASE)
+Single model, Unsloth 4-bit QLoRA, BEST by epoch-wise autoregressive CER
+================================================================================
+
+🆕 New run directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/general/run_20260215_100553_multidataset_bestCER
+   • epochs: 12
+   • batch_size: 2
+   • grad_accum: 8
+   • lr: 3e-05
+   • LoRA: r=32 alpha=32 dropout=0.05
+   • save_strategy: steps (every 500 steps, keep 1)
+   • best adapter saved to: best_model/
+   • tensorboard: /home/vault/iwi5/iwi5298h/models_image_text/gemma/general/run_20260215_100553_multidataset_bestCER/tb_logs
+
+⏳ Loading Gemma-3 vision model with Unsloth 4-bit...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.493 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+   ✅ Model loaded
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+   ✅ LoRA applied (Unsloth)
+
+📊 Preparing combined training data...
+
+   📁 INVENTORY train:
+   [inventory] 215 valid / 215 total
+   📁 INVENTORY val:
+   [inventory] 46 valid / 46 total
+
+   📁 SCHMUCK train:
+   [schmuck] 413 valid / 413 total
+   📁 SCHMUCK val:
+   [schmuck] 88 valid / 88 total
+
+   📁 STAIRCASE train:
+   [staircase] 115 valid / 115 total
+   📁 STAIRCASE val:
+   [staircase] 25 valid / 25 total
+
+   📊 TOTAL combined train samples: 743
+   📊 TOTAL combined val samples: 159
+   📊 Dummy eval samples (for Trainer eval_loss): 9
+
+================================================================================
+GPU INFORMATION
+================================================================================
+   GPU: NVIDIA A100-SXM4-40GB
+   Max memory: 39.493 GB
+   Reserved: 4.809 GB
+================================================================================
+
+
+================================================================================
+🚀 Starting multi-dataset Gemma-3 QLoRA training from scratch...
+{'loss': 31.348, 'grad_norm': 313.1332702636719, 'learning_rate': 0.0, 'epoch': 0.02}
+{'loss': 31.0493, 'grad_norm': 233.2360382080078, 'learning_rate': 2.7e-06, 'epoch': 0.22}
+{'loss': 25.1531, 'grad_norm': 116.20649719238281, 'learning_rate': 5.7000000000000005e-06, 'epoch': 0.43}
+{'loss': 18.1379, 'grad_norm': 71.47592163085938, 'learning_rate': 8.7e-06, 'epoch': 0.65}
+{'loss': 14.1016, 'grad_norm': 54.87323760986328, 'learning_rate': 1.1700000000000001e-05, 'epoch': 0.86}
+{'eval_loss': 1.661150574684143, 'eval_runtime': 4.4082, 'eval_samples_per_second': 2.042, 'eval_steps_per_second': 2.042, 'epoch': 1.0}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 1)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.3853 (38.53%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0112 (1.12%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.8117 (81.17%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.3787 (37.87%)
+   • inventory: 0.3853 (38.53%)
+   • schmuck: 0.0112 (1.12%)
+   • staircase: 0.8117 (81.17%)
+--------------------------------------------------------------------------------
+   🎯 NEW BEST GLOBAL CER = 0.3787 (improved by inf)
+   💾 Saving best adapter to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/general/run_20260215_100553_multidataset_bestCER/best_model
+   ✅ Adapter + tokenizer saved
+================================================================================
+
+{'loss': 10.8826, 'grad_norm': 76.25450897216797, 'learning_rate': 1.47e-05, 'epoch': 1.06}
+{'loss': 10.161, 'grad_norm': 26.922731399536133, 'learning_rate': 1.77e-05, 'epoch': 1.28}
+{'loss': 9.0648, 'grad_norm': 47.591796875, 'learning_rate': 2.07e-05, 'epoch': 1.49}
+{'loss': 8.3054, 'grad_norm': 12.021599769592285, 'learning_rate': 2.37e-05, 'epoch': 1.71}
+{'loss': 7.9312, 'grad_norm': 17.230327606201172, 'learning_rate': 2.6700000000000002e-05, 'epoch': 1.92}
+{'eval_loss': 1.1124062538146973, 'eval_runtime': 4.2923, 'eval_samples_per_second': 2.097, 'eval_steps_per_second': 2.097, 'epoch': 2.0}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 2)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.1584 (15.84%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0072 (0.72%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.3853 (38.53%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.1718 (17.18%)
+   • inventory: 0.1584 (15.84%)
+   • schmuck: 0.0072 (0.72%)
+   • staircase: 0.3853 (38.53%)
+--------------------------------------------------------------------------------
+   🎯 NEW BEST GLOBAL CER = 0.1718 (improved by 0.2069)
+   💾 Saving best adapter to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/general/run_20260215_100553_multidataset_bestCER/best_model
+   ✅ Adapter + tokenizer saved
+================================================================================
+
+{'loss': 7.2405, 'grad_norm': 8.050741195678711, 'learning_rate': 2.97e-05, 'epoch': 2.13}
+{'loss': 7.6025, 'grad_norm': 9.776139259338379, 'learning_rate': 2.9970662200387674e-05, 'epoch': 2.34}
+{'loss': 7.5685, 'grad_norm': 6.448008060455322, 'learning_rate': 2.986939491128791e-05, 'epoch': 2.56}
+{'loss': 7.4981, 'grad_norm': 10.21178150177002, 'learning_rate': 2.969632483038685e-05, 'epoch': 2.77}
+{'loss': 7.44, 'grad_norm': 8.259087562561035, 'learning_rate': 2.94522876954573e-05, 'epoch': 2.99}
+{'eval_loss': 1.024299144744873, 'eval_runtime': 4.6153, 'eval_samples_per_second': 1.95, 'eval_steps_per_second': 1.95, 'epoch': 3.0}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 3)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.1003 (10.03%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0037 (0.37%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.1781 (17.81%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.0891 (8.91%)
+   • inventory: 0.1003 (10.03%)
+   • schmuck: 0.0037 (0.37%)
+   • staircase: 0.1781 (17.81%)
+--------------------------------------------------------------------------------
+   🎯 NEW BEST GLOBAL CER = 0.0891 (improved by 0.0828)
+   💾 Saving best adapter to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/general/run_20260215_100553_multidataset_bestCER/best_model
+   ✅ Adapter + tokenizer saved
+================================================================================
+
+{'loss': 6.8743, 'grad_norm': 5.864137172698975, 'learning_rate': 2.9138461936939466e-05, 'epoch': 3.19}
+{'loss': 7.2189, 'grad_norm': 4.004444122314453, 'learning_rate': 2.8756362987420578e-05, 'epoch': 3.41}
+{'loss': 7.2599, 'grad_norm': 10.282440185546875, 'learning_rate': 2.8307835963765403e-05, 'epoch': 3.62}
+{'loss': 7.1714, 'grad_norm': 7.486822605133057, 'learning_rate': 2.779504675723508e-05, 'epoch': 3.84}
+{'eval_loss': 1.0016264915466309, 'eval_runtime': 4.292, 'eval_samples_per_second': 2.097, 'eval_steps_per_second': 2.097, 'epoch': 4.0}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 4)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.1186 (11.86%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0037 (0.37%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.1692 (16.92%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.0929 (9.29%)
+   • inventory: 0.1186 (11.86%)
+   • schmuck: 0.0037 (0.37%)
+   • staircase: 0.1692 (16.92%)
+--------------------------------------------------------------------------------
+   📊 No improvement. Best remains: 0.0891
+================================================================================
+
+{'loss': 6.7985, 'grad_norm': 10.224089622497559, 'learning_rate': 2.7220471574619063e-05, 'epoch': 4.04}
+{'loss': 7.0722, 'grad_norm': 9.58757495880127, 'learning_rate': 2.6586884980885045e-05, 'epoch': 4.26}
+{'loss': 7.0475, 'grad_norm': 4.5350422859191895, 'learning_rate': 2.5897346501087632e-05, 'epoch': 4.47}
+{'loss': 7.0253, 'grad_norm': 5.910780429840088, 'learning_rate': 2.5155185846233844e-05, 'epoch': 4.69}
+{'loss': 7.0349, 'grad_norm': 17.17368507385254, 'learning_rate': 2.43639868344482e-05, 'epoch': 4.9}
+{'eval_loss': 0.9876363277435303, 'eval_runtime': 4.2981, 'eval_samples_per_second': 2.094, 'eval_steps_per_second': 2.094, 'epoch': 5.0}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 5)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.0836 (8.36%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0035 (0.35%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.1781 (17.81%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.0831 (8.31%)
+   • inventory: 0.0836 (8.36%)
+   • schmuck: 0.0035 (0.35%)
+   • staircase: 0.1781 (17.81%)
+--------------------------------------------------------------------------------
+   🎯 NEW BEST GLOBAL CER = 0.0831 (improved by 0.0059)
+   💾 Saving best adapter to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/general/run_20260215_100553_multidataset_bestCER/best_model
+   ✅ Adapter + tokenizer saved
+================================================================================
+
+{'loss': 6.6565, 'grad_norm': 8.158958435058594, 'learning_rate': 2.3527570085080407e-05, 'epoch': 5.11}
+{'loss': 6.9425, 'grad_norm': 8.50803279876709, 'learning_rate': 2.2649974569324133e-05, 'epoch': 5.32}
+{'loss': 6.9468, 'grad_norm': 3.704009771347046, 'learning_rate': 2.1735438106436967e-05, 'epoch': 5.54}
+{'loss': 6.9463, 'grad_norm': 5.805963039398193, 'learning_rate': 2.0788376899743316e-05, 'epoch': 5.75}
+{'loss': 6.926, 'grad_norm': 4.508297920227051, 'learning_rate': 1.9813364211238918e-05, 'epoch': 5.97}
+{'eval_loss': 0.9892966151237488, 'eval_runtime': 4.3101, 'eval_samples_per_second': 2.088, 'eval_steps_per_second': 2.088, 'epoch': 6.0}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 6)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.0980 (9.80%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0060 (0.60%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.1119 (11.19%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.0696 (6.96%)
+   • inventory: 0.0980 (9.80%)
+   • schmuck: 0.0060 (0.60%)
+   • staircase: 0.1119 (11.19%)
+--------------------------------------------------------------------------------
+   🎯 NEW BEST GLOBAL CER = 0.0696 (improved by 0.0136)
+   💾 Saving best adapter to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/general/run_20260215_100553_multidataset_bestCER/best_model
+   ✅ Adapter + tokenizer saved
+================================================================================
+
+{'loss': 6.5716, 'grad_norm': 4.668422222137451, 'learning_rate': 1.8815108277774976e-05, 'epoch': 6.17}
+{'loss': 6.8734, 'grad_norm': 10.642525672912598, 'learning_rate': 1.7798429575462477e-05, 'epoch': 6.39}
+{'loss': 6.8827, 'grad_norm': 7.451328277587891, 'learning_rate': 1.6768237542084645e-05, 'epoch': 6.6}
+{'loss': 6.8706, 'grad_norm': 6.182449817657471, 'learning_rate': 1.5729506869922446e-05, 'epoch': 6.82}
+{'eval_loss': 0.9942976832389832, 'eval_runtime': 4.2718, 'eval_samples_per_second': 2.107, 'eval_steps_per_second': 2.107, 'epoch': 7.0}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 7)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.0858 (8.58%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0035 (0.35%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.1299 (12.99%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.0697 (6.97%)
+   • inventory: 0.0858 (8.58%)
+   • schmuck: 0.0035 (0.35%)
+   • staircase: 0.1299 (12.99%)
+--------------------------------------------------------------------------------
+   📊 No improvement. Best remains: 0.0696
+================================================================================
+
+{'loss': 6.5479, 'grad_norm': 5.468293190002441, 'learning_rate': 1.4687253483472871e-05, 'epoch': 7.02}
+{'loss': 6.8494, 'grad_norm': 6.854094982147217, 'learning_rate': 1.3646510318060985e-05, 'epoch': 7.24}
+{'loss': 6.8457, 'grad_norm': 5.089024066925049, 'learning_rate': 1.2612303016308467e-05, 'epoch': 7.45}
+{'loss': 6.835, 'grad_norm': 5.399746894836426, 'learning_rate': 1.1589625659817846e-05, 'epoch': 7.67}
+{'loss': 6.8308, 'grad_norm': 9.826762199401855, 'learning_rate': 1.0583416653261663e-05, 'epoch': 7.88}
+{'eval_loss': 1.0004124641418457, 'eval_runtime': 4.2736, 'eval_samples_per_second': 2.106, 'eval_steps_per_second': 2.106, 'epoch': 8.0}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 8)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.0899 (8.99%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0038 (0.38%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.1252 (12.52%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.0699 (6.99%)
+   • inventory: 0.0899 (8.99%)
+   • schmuck: 0.0038 (0.38%)
+   • staircase: 0.1252 (12.52%)
+--------------------------------------------------------------------------------
+   📊 No improvement. Best remains: 0.0696
+================================================================================
+
+{'loss': 6.4736, 'grad_norm': 2.4607911109924316, 'learning_rate': 9.59853487732992e-06, 'epoch': 8.09}
+{'loss': 6.8154, 'grad_norm': 4.251485347747803, 'learning_rate': 8.639736225690653e-06, 'epoch': 8.3}
+{'loss': 6.7991, 'grad_norm': 5.675601959228516, 'learning_rate': 7.711650639264374e-06, 'epoch': 8.52}
+{'loss': 6.7996, 'grad_norm': 2.4400694370269775, 'learning_rate': 6.818759748711476e-06, 'epoch': 8.73}
+{'loss': 6.8255, 'grad_norm': 3.5716357231140137, 'learning_rate': 5.965375233094762e-06, 'epoch': 8.95}
+{'eval_loss': 1.0041744709014893, 'eval_runtime': 4.2918, 'eval_samples_per_second': 2.097, 'eval_steps_per_second': 2.097, 'epoch': 9.0}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 9)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.0954 (9.54%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0032 (0.32%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.1322 (13.22%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.0737 (7.37%)
+   • inventory: 0.0954 (9.54%)
+   • schmuck: 0.0032 (0.32%)
+   • staircase: 0.1322 (13.22%)
+--------------------------------------------------------------------------------
+   📊 No improvement. Best remains: 0.0696
+================================================================================
+
+{'loss': 6.4583, 'grad_norm': 3.2306907176971436, 'learning_rate': 5.1556179992209375e-06, 'epoch': 9.15}
+{'loss': 6.7901, 'grad_norm': 1.802342176437378, 'learning_rate': 4.393398282201788e-06, 'epoch': 9.37}
+{'loss': 6.7951, 'grad_norm': 2.2702624797821045, 'learning_rate': 3.6823967633276183e-06, 'epoch': 9.58}
+{'loss': 6.7968, 'grad_norm': 4.527926445007324, 'learning_rate': 3.026046796432582e-06, 'epoch': 9.8}
+{'loss': 6.4441, 'grad_norm': 1.1479485034942627, 'learning_rate': 2.4275178285790973e-06, 'epoch': 10.0}
+{'eval_loss': 1.010474681854248, 'eval_runtime': 4.286, 'eval_samples_per_second': 2.1, 'eval_steps_per_second': 2.1, 'epoch': 10.0}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 10)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.0970 (9.70%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0031 (0.31%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.0845 (8.45%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.0602 (6.02%)
+   • inventory: 0.0970 (9.70%)
+   • schmuck: 0.0031 (0.31%)
+   • staircase: 0.0845 (8.45%)
+--------------------------------------------------------------------------------
+   🎯 NEW BEST GLOBAL CER = 0.0602 (improved by 0.0094)
+   💾 Saving best adapter to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/general/run_20260215_100553_multidataset_bestCER/best_model
+   ✅ Adapter + tokenizer saved
+================================================================================
+
+{'loss': 6.7816, 'grad_norm': 1.5707025527954102, 'learning_rate': 1.889700095121219e-06, 'epoch': 10.22}
+{'loss': 6.7675, 'grad_norm': 2.4145660400390625, 'learning_rate': 1.4151906630527866e-06, 'epoch': 10.43}
+{'loss': 6.7819, 'grad_norm': 1.5146945714950562, 'learning_rate': 1.00628089003575e-06, 'epoch': 10.65}
+{'loss': 6.7908, 'grad_norm': 2.1242661476135254, 'learning_rate': 6.649453596676663e-07, 'epoch': 10.86}
+{'eval_loss': 1.0139214992523193, 'eval_runtime': 4.6764, 'eval_samples_per_second': 1.925, 'eval_steps_per_second': 1.925, 'epoch': 11.0}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 11)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.0978 (9.78%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0031 (0.31%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.1043 (10.43%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.0663 (6.63%)
+   • inventory: 0.0978 (9.78%)
+   • schmuck: 0.0031 (0.31%)
+   • staircase: 0.1043 (10.43%)
+--------------------------------------------------------------------------------
+   📊 No improvement. Best remains: 0.0602
+================================================================================
+
+{'loss': 6.4308, 'grad_norm': 1.0968703031539917, 'learning_rate': 3.928323464188621e-07, 'epoch': 11.06}
+{'loss': 6.7765, 'grad_norm': 1.4813250303268433, 'learning_rate': 1.9125585628307408e-07, 'epoch': 11.28}
+{'loss': 6.7796, 'grad_norm': 2.1817352771759033, 'learning_rate': 6.118928157650749e-08, 'epoch': 11.49}
+{'loss': 6.7645, 'grad_norm': 1.7989006042480469, 'learning_rate': 3.260700525591909e-09, 'epoch': 11.71}
+{'eval_loss': 1.0155366659164429, 'eval_runtime': 4.4385, 'eval_samples_per_second': 2.028, 'eval_steps_per_second': 2.028, 'epoch': 11.75}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 11)
+================================================================================
+
+--- Dataset: inventory (30 samples) ---
+
+   ✅ CER [inventory] = 0.0973 (9.73%)
+
+--- Dataset: schmuck (30 samples) ---
+
+   ✅ CER [schmuck] = 0.0057 (0.57%)
+
+--- Dataset: staircase (25 samples) ---
+
+   ✅ CER [staircase] = 0.1050 (10.50%)
+
+--------------------------------------------------------------------------------
+🌐 Global CER (all samples combined) = 0.0672 (6.72%)
+   • inventory: 0.0973 (9.73%)
+   • schmuck: 0.0057 (0.57%)
+   • staircase: 0.1050 (10.50%)
+--------------------------------------------------------------------------------
+   📊 No improvement. Best remains: 0.0602
+================================================================================
+
+{'train_runtime': 85466.4571, 'train_samples_per_second': 0.104, 'train_steps_per_second': 0.006, 'train_loss': 8.214129532592883, 'epoch': 11.75}
+================================================================================
+
+================================================================================
+✅ TRAINING COMPLETED - MULTI-DATASET MODEL
+================================================================================
+   🎯 Best GLOBAL Validation CER: 0.0602 (6.02%)
+   💾 Best adapter saved at: /home/vault/iwi5/iwi5298h/models_image_text/gemma/general/run_20260215_100553_multidataset_bestCER/best_model
+================================================================================
+
+================================================================================
+PHASE 2: PER-DATASET EVALUATION ON TEST SETS
+================================================================================
+
+⏳ Loading best adapter weights from: /home/vault/iwi5/iwi5298h/models_image_text/gemma/general/run_20260215_100553_multidataset_bestCER/best_model
+   ✅ Best adapter weights loaded into existing Unsloth model
+
+================================================================================
+TEST INFERENCE - INVENTORY
+================================================================================
+📊 Test samples: 47
+   [1/47] inventarbuch-036.jpg  ⚠️ CER: 0.1665
+   [2/47] inventarbuch-100.jpg  ✅ CER: 0.0576
+   [3/47] inventarbuch-190.jpg  ⚠️ CER: 0.1015
+   [4/47] inventarbuch-153.jpg  ✨ CER: 0.0000
+   [5/47] inventarbuch-041.jpg  ✅ CER: 0.0497
+   [6/47] inventarbuch-198.jpg  ✅ CER: 0.0511
+   [7/47] inventarbuch-065.jpg  ⚠️ CER: 0.1416
+   [8/47] inventarbuch-242.jpg  ✅ CER: 0.0861
+   [9/47] inventarbuch-023.jpg  ⚠️ CER: 0.1502
+   [10/47] inventarbuch-137.jpg  ✅ CER: 0.0721
+   [11/47] inventarbuch-180.jpg  ⚠️ CER: 0.1412
+   [12/47] inventarbuch-188.jpg  ✅ CER: 0.0557
+   [13/47] inventarbuch-051.jpg  ✅ CER: 0.0207
+   [14/47] inventarbuch-199.jpg  ✨ CER: 0.0000
+   [15/47] inventarbuch-296.jpg  ⚠️ CER: 0.1608
+   [16/47] inventarbuch-302.jpg  ✅ CER: 0.0068
+   [17/47] inventarbuch-176.jpg  ✅ CER: 0.0395
+   [18/47] inventarbuch-112.jpg  ✅ CER: 0.0134
+   [19/47] inventarbuch-081.jpg  ❌ CER: 0.3151
+   [20/47] inventarbuch-290.jpg  ⚠️ CER: 0.1271
+   [21/47] inventarbuch-178.jpg  ✅ CER: 0.0498
+   [22/47] inventarbuch-299.jpg  ✅ CER: 0.0980
+=== JOB_STATISTICS ===
+=== current date     : Mon Feb 16 10:06:00 AM CET 2026
+= Job-ID             : 1530594 on tinygpu
+= Job-Name           : multidataset_finetune
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma4.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:28
+= Total RAM usage    : 4.1 GiB of requested  GiB (%)   
+= Node list          : tg097
+= Subm/Elig/Start/End: 2026-02-13T23:01:57 / 2026-02-13T23:01:57 / 2026-02-15T10:05:30 / 2026-02-16T10:05:58
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:81:00.0, 131853, 24 %, 4 %, 25218 MiB, 86423590 ms

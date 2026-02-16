@@ -1,0 +1,257 @@
+### Starting TaskPrologue of job 1460730 on tg072 at Mon Dec  8 03:00:13 PM CET 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Mon Dec  8 15:00:13 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   33C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+QWEN3-VL-8B ZERO-SHOT OCR (Staircase Forms) — single generic schema (no normalization)
+============================================================
+Loading test data...
+Loaded 24 samples from /home/woody/iwi5/iwi5298h/json_staircase/test.jsonl
+Loading Qwen3-VL-8B-Instruct model for zero-shot Staircase OCR...
+Local model not found at /home/vault/iwi5/iwi5298h/models/qwen3.
+Downloading Qwen/Qwen3-VL-8B-Instruct to /home/vault/iwi5/iwi5298h/models/qwen3 via snapshot_download...
+Download complete.
+Model loaded from: /home/vault/iwi5/iwi5298h/models/qwen3
+dtype=torch.float16
+GPU Memory - Allocated: 17.53 GB, Reserved: 17.56 GB
+
+Processing 24 images (zero-shot, single-schema)...
+
+[1/24] Processing: FMIS_FormblätterMielke_gefüllt (83).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (83).jpg
+  raw output length: 1973
+  raw preview: {   "stair_type": "",   "Name des Hauses": "Rendeluppl. 6",   "Adresse": "",   "Bauherr": "f. da fabrieli",   "Baumeister": "",   "Bauzeit": "1734-36",   "LAGE 
+  CER: 0.1728 (17.28%)
+  GPU Memory: 17.54 GB
+
+[2/24] Processing: FMIS_FormblätterMielke_gefüllt (45).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (45).jpg
+  raw output length: 1947
+  raw preview: {   "stair_type": "",   "Name des Hauses": "Freiland untereim",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "1772 und 1823",   "LAGE am/i
+  CER: 0.1257 (12.57%)
+  GPU Memory: 17.54 GB
+
+[3/24] Processing: FMIS_FormblätterMielke_gefüllt (27).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (27).jpg
+  raw output length: 1925
+  raw preview: {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Schlops",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "LAGE am/im Hause": { 
+  CER: 0.1064 (10.64%)
+  GPU Memory: 17.54 GB
+
+[4/24] Processing: FMIS_FormblätterMielke_gefüllt (130).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (130).jpg
+  raw output length: 1947
+  raw preview: {   "stair_type": "",   "Name des Hauses": "Schwarzenbach 26",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "LAGE am/im Hause": {   
+  CER: 0.1301 (13.01%)
+  GPU Memory: 17.54 GB
+
+[5/24] Processing: FMIS_FormblätterMielke_gefüllt (129).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (129).jpg
+  raw output length: 1939
+  raw preview: {   "stair_type": "VENTREPPE",   "Name des Hauses": "",   "Adresse": "Schwarzenstr. 6",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "1885 - 1900",   "LAGE
+  CER: 0.1316 (13.16%)
+  GPU Memory: 17.54 GB
+
+[6/24] Processing: FMIS_FormblätterMielke_gefüllt (88).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (88).jpg
+  raw output length: 2001
+  raw preview: {   "stair_type": "",   "Name des Hauses": "Wartenhaus",   "Adresse": "Olfenstr. 25 Dürkbrodt",   "Bauherr": "Joh.v. Stierwoldo Dürkbrodt",   "Baumeister": "M. 
+  CER: 0.1262 (12.62%)
+  GPU Memory: 17.54 GB
+
+[7/24] Processing: FMIS_FormblätterMielke_gefüllt (102).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (102).jpg
+  raw output length: 1936
+  raw preview: {   "stair_type": "",   "Name des Hauses": "",   "Adresse": "Griesmühlstr. 2 Ingolstadt",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "LAGE am/im Ha
+  CER: 0.1293 (12.93%)
+  GPU Memory: 17.54 GB
+
+[8/24] Processing: FMIS_FormblätterMielke_gefüllt (103).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (103).jpg
+  raw output length: 1950
+  raw preview: {   "stair_type": "",   "Name des Hauses": "NEUE WELT",   "Adresse": "GRIES MÖHLE STR. 18",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "LAGE am/im 
+  CER: 0.1411 (14.11%)
+  GPU Memory: 17.54 GB
+
+[9/24] Processing: FMIS_FormblätterMielke_gefüllt (165).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (165).jpg
+  raw output length: 1958
+  raw preview: {   "stair_type": "",   "Name des Hauses": "Oper",   "Adresse": "Opernring 2",   "Bauherr": "August v. Siccardsburg",   "Baumeister": "August v. Siccardsburg", 
+  CER: 0.1042 (10.42%)
+  GPU Memory: 17.54 GB
+
+[10/24] Processing: FMIS_FormblätterMielke_gefüllt (43).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (43).jpg
+  raw output length: 1972
+  raw preview: {   "stair_type": "",   "Name des Hauses": "Rathaus",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "1845",   "LAGE am/im Hause": {     "im
+  CER: 0.1266 (12.66%)
+  GPU Memory: 17.54 GB
+
+[11/24] Processing: FMIS_FormblätterMielke_gefüllt (11).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (11).jpg
+  raw output length: 1956
+  raw preview: {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Residenz",   "Adresse": "Residenzpl. 1",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "LAGE am
+  CER: 0.0834 (8.34%)
+  GPU Memory: 17.54 GB
+
+[12/24] Processing: FMIS_FormblätterMielke_gefüllt (36).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (36).jpg
+  raw output length: 2075
+  raw preview: {   "stair_type": "INDENTREPPE",   "Name des Hauses": "Kathedrale",   "Adresse": "",   "Bauherr": "Lorenzo Gafa",   "Baumeister": "",   "Bauzeit": "1698 - 1702"
+  CER: 0.7159 (71.59%)
+  GPU Memory: 17.54 GB
+
+[13/24] Processing: FMIS_FormblätterMielke_gefüllt (87).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (87).jpg
+  raw output length: 1968
+  raw preview: {   "stair_type": "",   "Name des Hauses": "Mesmerhaus",   "Adresse": "Widmannsgasse 2",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "4.16.74",   "LAGE am
+  CER: 0.1135 (11.35%)
+  GPU Memory: 17.54 GB
+
+[14/24] Processing: FMIS_FormblätterMielke_gefüllt (94).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (94).jpg
+  raw output length: 2012
+  raw preview: {   "stair_type": "",   "Name des Hauses": "Schloß",   "Adresse": "Martinstr. 6",   "Bauherr": "Engel",   "Baumeister": "",   "Bauzeit": "1775 - 1780",   "LAGE 
+  CER: 0.1640 (16.40%)
+  GPU Memory: 17.54 GB
+
+[15/24] Processing: FMIS_FormblätterMielke_gefüllt (58).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (58).jpg
+  raw output length: 2096
+  raw preview: {   "stair_type": "WENDELTREPPE",   "Name des Hauses": "Hüttenbadl",   "Adresse": "",   "Bauherr": "Bischof Moritz v. Hütten",   "Baumeister": "Erhard Reid",   
+  CER: 0.6580 (65.80%)
+  GPU Memory: 17.54 GB
+
+[16/24] Processing: FMIS_FormblätterMielke_gefüllt (111).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (111).jpg
+  raw output length: 1913
+  raw preview: {   "stair_type": "Wendeltreppe",   "Name des Hauses": "",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "1635",   "LAGE am/im Hause": {   
+  CER: 0.1109 (11.09%)
+  GPU Memory: 17.54 GB
+
+[17/24] Processing: FMIS_FormblätterMielke_gefüllt (99).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (99).jpg
+  raw output length: 1942
+  raw preview: {   "stair_type": "INNENTREPPE",   "Name des Hauses": "",   "Adresse": "GOLDKNOPFGASSE 2",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "LAGE am/im H
+  CER: 0.1037 (10.37%)
+  GPU Memory: 17.54 GB
+
+[18/24] Processing: FMIS_FormblätterMielke_gefüllt (116).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (116).jpg
+  raw output length: 1938
+  raw preview: {   "stair_type": "",   "Name des Hauses": "",   "Adresse": "Kanalstr. 18",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "LAGE am/im Hause": {     "i
+  CER: 0.1154 (11.54%)
+  GPU Memory: 17.54 GB
+
+[19/24] Processing: FMIS_FormblätterMielke_Vorlage3.jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_Vorlage3.jpg
+  raw output length: 1899
+  raw preview: {   "stair_type": "WENDELTREPPE",   "Name des Hauses": "",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "",   "LAGE am/im Hause": {     "i
+  CER: 0.6466 (64.66%)
+  GPU Memory: 17.54 GB
+
+[20/24] Processing: FMIS_FormblätterMielke_gefüllt (132).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (132).jpg
+  raw output length: 1929
+  raw preview: {   "stair_type": "INNENTREPPE",   "Name des Hauses": "",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "17",   "LAGE am/im Hause": {     "
+  CER: 0.0974 (9.74%)
+  GPU Memory: 17.54 GB
+
+[21/24] Processing: FMIS_FormblätterMielke_gefüllt (139).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (139).jpg
+  raw output length: 1971
+  raw preview: {   "stair_type": "INNENTREPPE",   "Name des Hauses": "Therenienstr. 27",   "Adresse": "I H. des 19 Jh.",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "184
+  CER: 0.1677 (16.77%)
+  GPU Memory: 17.54 GB
+
+[22/24] Processing: FMIS_FormblätterMielke_gefüllt (66).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (66).jpg
+  raw output length: 1970
+  raw preview: {   "stair_type": "",   "Name des Hauses": "Leitföldtstr. 18",   "Adresse": "",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "1748 - 1807",   "LAGE am/im H
+  CER: 0.1480 (14.80%)
+  GPU Memory: 17.54 GB
+
+[23/24] Processing: FMIS_FormblätterMielke_gefüllt (105).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (105).jpg
+  raw output length: 2010
+  raw preview: {   "stair_type": "",   "Name des Hauses": "",   "Adresse": "Harder.str. 13 Ingolstadt",   "Bauherr": "",   "Baumeister": "",   "Bauzeit": "Neubau 1964",   "LAG
+  CER: 0.1154 (11.54%)
+  GPU Memory: 17.54 GB
+
+[24/24] Processing: FMIS_FormblätterMielke_gefüllt (13).jpg
+  Resolved path: /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (13).jpg
+  raw output length: 2138
+  raw preview: {   "stair_type": "INNENTREPPE",   "Name des Hauses": "chem. Domdechantei Caritasverband",   "Adresse": "Residenzpl. 14",   "Bauherr": "G.W.C.v. Gutenbergs Domk
+  CER: 0.1637 (16.37%)
+  GPU Memory: 17.54 GB
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/qwen3/stair_shots/zeroshot_20251208_153825
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen3/stair_shots/zeroshot_20251208_153825/predictions.jsonl
+
+============================================================
+CER EVALUATION RESULTS (Zero-shot, Qwen3-VL-8B-Instruct, single generic schema)
+============================================================
+
+CER over 24 images:
+--------------------------------------------------
+Average CER: 0.1957 (19.57%)
+Minimum CER: 0.0834 (8.34%)
+Maximum CER: 0.7159 (71.59%)
+
+Weighted CER: 0.1965 (19.65%)
+Total characters: 33973
+Total errors: 6675
+Perfect matches: 0/24 (0.0%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen3/stair_shots/zeroshot_20251208_153825/cer_evaluation_summary.json
+
+============================================================
+Processing complete! (Zero-shot, single generic schema, Qwen3-VL-8B-Instruct, no normalization)
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen3/stair_shots/zeroshot_20251208_153825
+Total images processed: 24
+Average CER on test set: 0.1957 (19.57%)
+============================================================
+
+=== JOB_STATISTICS ===
+=== current date     : Mon Dec  8 03:38:31 PM CET 2025
+= Job-ID             : 1460730 on tinygpu
+= Job-Name           : zero_stair_qwen3
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 00:38:20
+= Total RAM usage    : 20.7 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-12-08T14:48:42 / 2025-12-08T14:48:42 / 2025-12-08T15:00:11 / 2025-12-08T15:38:31
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.2G   104.9G   209.7G        N/A  28,410      500K   1,000K        N/A    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/vault           921.0G  1048.6G  2097.2G        N/A   6,632      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 3304490, 40 %, 34 %, 19724 MiB, 2263355 ms

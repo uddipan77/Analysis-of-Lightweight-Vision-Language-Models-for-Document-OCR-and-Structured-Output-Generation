@@ -1,0 +1,1558 @@
+### Starting TaskPrologue of job 1512871 on tg090 at Mon Jan 19 06:49:53 AM CET 2026
+Running on cores 0-7,40-63 with governor ondemand
+Mon Jan 19 06:49:53 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:01:00.0 Off |                    0 |
+| N/A   47C    P0             58W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+[HPO] Created HPO run directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019
+
+================================================================================
+[HPO] Starting / Resuming Optuna HPO for Gemma-3 INVENTORY (FINETUNE-ALIGNED)
+================================================================================
+[HPO]   Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+[HPO]   Study name: gemma3_inven_enhanced
+[HPO]   Target total trials (COMPLETE): 25
+[HPO]   Output dir for this HPO run: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019
+[HPO]   Completed trials so far: 0
+[HPO]   Remaining trials to run: 25
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=32, alpha=32, dropout=0.05, rslora=True
+[HPO] ✅ Fixed validation subset saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/fixed_val_subset_image_names.json
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_0
+[HPO]   • num_epochs: 9
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 1.9906996673933362e-05
+[HPO]   • weight_decay: 0.1426071459614874
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.10495128632644757
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.1223705789444759
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 0.7092407909780627
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=32, alpha=128, dropout=0.10495128632644757, rslora=False
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 13.6216, 'grad_norm': 208.3518829345703, 'learning_rate': 3.0366605095830554e-06, 'epoch': 0.19}
+{'loss': 11.7102, 'grad_norm': 66.2166748046875, 'learning_rate': 6.410727742453116e-06, 'epoch': 0.38}
+{'loss': 8.5552, 'grad_norm': 48.324195861816406, 'learning_rate': 9.784794975323179e-06, 'epoch': 0.56}
+{'loss': 6.3196, 'grad_norm': 75.51766204833984, 'learning_rate': 1.315886220819324e-05, 'epoch': 0.75}
+{'loss': 4.4329, 'grad_norm': 21.62839126586914, 'learning_rate': 1.65329294410633e-05, 'epoch': 0.94}
+{'loss': 2.7788, 'grad_norm': 12.258241653442383, 'learning_rate': 1.9906996673933362e-05, 'epoch': 1.11}
+{'loss': 2.5253, 'grad_norm': 9.057250022888184, 'learning_rate': 1.9878897827413813e-05, 'epoch': 1.3}
+{'loss': 2.4509, 'grad_norm': 10.46104907989502, 'learning_rate': 1.9794759934624167e-05, 'epoch': 1.49}
+{'loss': 2.3818, 'grad_norm': 10.087661743164062, 'learning_rate': 1.9655058040147935e-05, 'epoch': 1.68}
+{'loss': 2.6411, 'grad_norm': 10.452512741088867, 'learning_rate': 1.946058090426989e-05, 'epoch': 1.86}
+{'loss': 2.0295, 'grad_norm': 13.99787425994873, 'learning_rate': 1.921242654961637e-05, 'epoch': 2.04}
+{'loss': 1.9022, 'grad_norm': 7.953113555908203, 'learning_rate': 1.8911996061692893e-05, 'epoch': 2.23}
+{'loss': 2.078, 'grad_norm': 8.583979606628418, 'learning_rate': 1.8560985678321416e-05, 'epoch': 2.41}
+{'loss': 2.1002, 'grad_norm': 13.158245086669922, 'learning_rate': 1.8161377212640434e-05, 'epoch': 2.6}
+{'loss': 1.6497, 'grad_norm': 8.092580795288086, 'learning_rate': 1.7715426863739948e-05, 'epoch': 2.79}
+{'loss': 2.2369, 'grad_norm': 9.893522262573242, 'learning_rate': 1.722565247810667e-05, 'epoch': 2.98}
+{'loss': 1.654, 'grad_norm': 9.441215515136719, 'learning_rate': 1.6694819333801675e-05, 'epoch': 3.15}
+{'loss': 1.6991, 'grad_norm': 10.046338081359863, 'learning_rate': 1.6125924527633418e-05, 'epoch': 3.34}
+{'loss': 1.4053, 'grad_norm': 9.19537353515625, 'learning_rate': 1.552218005347644e-05, 'epoch': 3.53}
+{'loss': 1.8667, 'grad_norm': 9.5922269821167, 'learning_rate': 1.4886994667276044e-05, 'epoch': 3.71}
+{'loss': 1.5938, 'grad_norm': 11.390986442565918, 'learning_rate': 1.4223954641129553e-05, 'epoch': 3.9}
+{'loss': 1.5031, 'grad_norm': 11.132060050964355, 'learning_rate': 1.3536803515107058e-05, 'epoch': 4.08}
+{'loss': 1.3848, 'grad_norm': 8.674956321716309, 'learning_rate': 1.2829420961133382e-05, 'epoch': 4.26}
+{'loss': 1.3727, 'grad_norm': 13.373261451721191, 'learning_rate': 1.2105800878266283e-05, 'epoch': 4.45}
+{'loss': 1.3654, 'grad_norm': 13.928657531738281, 'learning_rate': 1.1370028843045509e-05, 'epoch': 4.64}
+{'loss': 1.3969, 'grad_norm': 15.742188453674316, 'learning_rate': 1.0626259042228541e-05, 'epoch': 4.83}
+{'loss': 1.1024, 'grad_norm': 7.529312610626221, 'learning_rate': 9.878690818151414e-06, 'epoch': 5.0}
+{'loss': 1.0382, 'grad_norm': 10.245917320251465, 'learning_rate': 9.131544959140025e-06, 'epoch': 5.19}
+{'loss': 1.0684, 'grad_norm': 18.090011596679688, 'learning_rate': 8.389039868836862e-06, 'epoch': 5.38}
+{'loss': 1.1141, 'grad_norm': 12.09717845916748, 'learning_rate': 7.655367748991715e-06, 'epoch': 5.56}
+{'loss': 1.0124, 'grad_norm': 11.465978622436523, 'learning_rate': 6.934670930188932e-06, 'epoch': 5.75}
+{'loss': 0.9761, 'grad_norm': 25.995084762573242, 'learning_rate': 6.23101848414844e-06, 'epoch': 5.94}
+{'loss': 0.8202, 'grad_norm': 12.353169441223145, 'learning_rate': 5.548383249648134e-06, 'epoch': 6.11}
+{'loss': 0.8286, 'grad_norm': 19.738889694213867, 'learning_rate': 4.890619401779766e-06, 'epoch': 6.3}
+{'loss': 0.8896, 'grad_norm': 18.17964744567871, 'learning_rate': 4.261440691182893e-06, 'epoch': 6.49}
+{'loss': 0.8661, 'grad_norm': 13.941778182983398, 'learning_rate': 3.6643994761186784e-06, 'epoch': 6.68}
+{'loss': 0.8618, 'grad_norm': 21.780776977539062, 'learning_rate': 3.1028666657690022e-06, 'epoch': 6.86}
+{'loss': 0.6472, 'grad_norm': 14.174843788146973, 'learning_rate': 2.5800126880014422e-06, 'epoch': 7.04}
+{'loss': 0.704, 'grad_norm': 16.735843658447266, 'learning_rate': 2.0987895890566394e-06, 'epoch': 7.23}
+{'loss': 0.6176, 'grad_norm': 11.998754501342773, 'learning_rate': 1.6619143662236139e-06, 'epoch': 7.41}
+{'loss': 0.6999, 'grad_norm': 13.27707576751709, 'learning_rate': 1.2718536276071749e-06, 'epoch': 7.6}
+{'loss': 0.6588, 'grad_norm': 56.22562026977539, 'learning_rate': 9.308096655987286e-07, 'epoch': 7.79}
+{'loss': 0.6898, 'grad_norm': 11.403688430786133, 'learning_rate': 6.40708022680019e-07, 'epoch': 7.98}
+{'loss': 0.6558, 'grad_norm': 10.597579956054688, 'learning_rate': 4.03186619763567e-07, 'epoch': 8.15}
+{'loss': 0.6905, 'grad_norm': 40.36063003540039, 'learning_rate': 2.1958650845147627e-07, 'epoch': 8.34}
+{'loss': 0.6259, 'grad_norm': 15.050880432128906, 'learning_rate': 9.09442994255563e-08, 'epoch': 8.53}
+{'loss': 0.4956, 'grad_norm': 11.12665843963623, 'learning_rate': 1.7986309718265767e-08, 'epoch': 8.71}
+{'train_runtime': 2775.907, 'train_samples_per_second': 0.691, 'train_steps_per_second': 0.172, 'train_loss': 2.139657781309052, 'epoch': 8.85}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2815 (28.15%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_1
+[HPO]   • num_epochs: 12
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.4689372953975092e-05
+[HPO]   • weight_decay: 0.05495427649405375
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.08803049874792027
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.006877704223043679
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.8639806031181732
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=64, alpha=16, dropout=0.08803049874792027, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 22.5557, 'grad_norm': 71.90734100341797, 'learning_rate': 1.4675711595927612e-05, 'epoch': 0.38}
+{'loss': 13.384, 'grad_norm': 28.24335479736328, 'learning_rate': 1.4592409491628613e-05, 'epoch': 0.75}
+{'loss': 8.3832, 'grad_norm': 24.620832443237305, 'learning_rate': 1.443425420935676e-05, 'epoch': 1.11}
+{'loss': 5.6141, 'grad_norm': 31.07168197631836, 'learning_rate': 1.4202879148383435e-05, 'epoch': 1.49}
+{'loss': 5.5858, 'grad_norm': 11.947052001953125, 'learning_rate': 1.3900673908667476e-05, 'epoch': 1.86}
+{'loss': 4.6041, 'grad_norm': 9.032560348510742, 'learning_rate': 1.3530759611497202e-05, 'epoch': 2.23}
+{'loss': 4.9454, 'grad_norm': 17.330074310302734, 'learning_rate': 1.309695666511184e-05, 'epoch': 2.6}
+{'loss': 4.5367, 'grad_norm': 10.050309181213379, 'learning_rate': 1.2603745308213301e-05, 'epoch': 2.98}
+{'loss': 4.1894, 'grad_norm': 8.757899284362793, 'learning_rate': 1.205621933886776e-05, 'epoch': 3.34}
+{'loss': 4.0694, 'grad_norm': 11.450809478759766, 'learning_rate': 1.1460033506676633e-05, 'epoch': 3.71}
+{'loss': 3.9457, 'grad_norm': 8.859015464782715, 'learning_rate': 1.0821345111541104e-05, 'epoch': 4.08}
+{'loss': 3.9007, 'grad_norm': 9.624398231506348, 'learning_rate': 1.0146750412177695e-05, 'epoch': 4.45}
+{'loss': 3.9011, 'grad_norm': 10.4269437789917, 'learning_rate': 9.443216501146239e-06, 'epoch': 4.83}
+{'loss': 3.2647, 'grad_norm': 9.325565338134766, 'learning_rate': 8.718009349972685e-06, 'epoch': 5.19}
+{'loss': 3.6341, 'grad_norm': 11.18226432800293, 'learning_rate': 7.978618767503802e-06, 'epoch': 5.56}
+{'loss': 3.3806, 'grad_norm': 14.24477481842041, 'learning_rate': 7.232681046510324e-06, 'epoch': 5.94}
+{'loss': 3.1895, 'grad_norm': 13.233813285827637, 'learning_rate': 6.4879000974305214e-06, 'epoch': 6.3}
+{'loss': 3.3249, 'grad_norm': 10.030556678771973, 'learning_rate': 5.751967883770676e-06, 'epoch': 6.68}
+{'loss': 3.0281, 'grad_norm': 10.797513961791992, 'learning_rate': 5.032484980891319e-06, 'epoch': 7.04}
+{'loss': 2.9675, 'grad_norm': 10.715694427490234, 'learning_rate': 4.3368820786337775e-06, 'epoch': 7.41}
+{'loss': 3.0155, 'grad_norm': 12.867478370666504, 'learning_rate': 3.672343238493775e-06, 'epoch': 7.79}
+{'loss': 3.032, 'grad_norm': 11.62267780303955, 'learning_rate': 3.0457316979281406e-06, 'epoch': 8.15}
+{'loss': 2.98, 'grad_norm': 13.512534141540527, 'learning_rate': 2.4635189880744636e-06, 'epoch': 8.53}
+{'loss': 2.6877, 'grad_norm': 15.827231407165527, 'learning_rate': 1.9317180969429968e-06, 'epoch': 8.9}
+{'loss': 2.6742, 'grad_norm': 15.24226188659668, 'learning_rate': 1.4558213683594673e-06, 'epoch': 9.26}
+{'loss': 2.6241, 'grad_norm': 11.938957214355469, 'learning_rate': 1.0407437780271875e-06, 'epoch': 9.64}
+{'loss': 2.7483, 'grad_norm': 10.69108772277832, 'learning_rate': 6.90772172543215e-07, 'epoch': 10.0}
+{'loss': 2.6626, 'grad_norm': 19.16202163696289, 'learning_rate': 4.095209956187406e-07, 'epoch': 10.38}
+{'loss': 2.8704, 'grad_norm': 13.294709205627441, 'learning_rate': 1.9989495875541393e-07, 'epoch': 10.75}
+{'loss': 2.5397, 'grad_norm': 13.33252239227295, 'learning_rate': 6.405904190809585e-08, 'epoch': 11.11}
+{'loss': 2.5684, 'grad_norm': 17.506542205810547, 'learning_rate': 3.4161339617955214e-09, 'epoch': 11.49}
+{'train_runtime': 3655.7168, 'train_samples_per_second': 0.699, 'train_steps_per_second': 0.085, 'train_loss': 4.597633034755022, 'epoch': 11.56}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2354 (23.54%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_2
+[HPO]   • num_epochs: 7
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 1.2988262560967654e-05
+[HPO]   • weight_decay: 0.09937834265309729
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.05426980635477918
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.05618690193747616
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.3140441247373726
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=32, alpha=128, dropout=0.05426980635477918, rslora=False
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 48.8589, 'grad_norm': 181.42637634277344, 'learning_rate': 1.2948382989790083e-05, 'epoch': 0.75}
+{'loss': 27.1455, 'grad_norm': 67.04720306396484, 'learning_rate': 1.2252956012927241e-05, 'epoch': 1.45}
+{'loss': 18.147, 'grad_norm': 60.61255645751953, 'learning_rate': 1.0779767845198482e-05, 'epoch': 2.15}
+{'loss': 12.7563, 'grad_norm': 34.07680130004883, 'learning_rate': 8.727780711873006e-06, 'epoch': 2.9}
+{'loss': 10.382, 'grad_norm': 32.45954513549805, 'learning_rate': 6.374126845759655e-06, 'epoch': 3.6}
+{'loss': 9.9905, 'grad_norm': 23.157297134399414, 'learning_rate': 4.036680243523329e-06, 'epoch': 4.3}
+{'loss': 9.4465, 'grad_norm': 18.062137603759766, 'learning_rate': 2.0311260210347976e-06, 'epoch': 5.0}
+{'loss': 10.1333, 'grad_norm': 29.33963394165039, 'learning_rate': 6.283253892007207e-07, 'epoch': 5.75}
+{'loss': 9.3151, 'grad_norm': 26.862136840820312, 'learning_rate': 1.773434653693175e-08, 'epoch': 6.45}
+{'train_runtime': 2050.7257, 'train_samples_per_second': 0.727, 'train_steps_per_second': 0.044, 'train_loss': 17.2814945598225, 'epoch': 6.53}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2794 (27.94%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_3
+[HPO]   • num_epochs: 9
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 8.408897660399114e-06
+[HPO]   • weight_decay: 0.12032954711310595
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.012711670057204728
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.1459212356676128
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.4563362070328196
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=16, alpha=32, dropout=0.012711670057204728, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 27.411, 'grad_norm': 328.0927734375, 'learning_rate': 2.162287969816915e-06, 'epoch': 0.38}
+{'loss': 24.598, 'grad_norm': 158.91490173339844, 'learning_rate': 4.5648301585023755e-06, 'epoch': 0.75}
+{'loss': 18.1161, 'grad_norm': 86.49525451660156, 'learning_rate': 6.967372347187837e-06, 'epoch': 1.11}
+{'loss': 13.6396, 'grad_norm': 57.31117630004883, 'learning_rate': 8.400517577220295e-06, 'epoch': 1.49}
+{'loss': 10.4259, 'grad_norm': 73.20780181884766, 'learning_rate': 8.306624861938467e-06, 'epoch': 1.86}
+{'loss': 6.8183, 'grad_norm': 36.31560516357422, 'learning_rate': 8.11070735455558e-06, 'epoch': 2.23}
+{'loss': 6.0327, 'grad_norm': 24.661579132080078, 'learning_rate': 7.81763769895748e-06, 'epoch': 2.6}
+{'loss': 5.3534, 'grad_norm': 33.567222595214844, 'learning_rate': 7.4347047999722815e-06, 'epoch': 2.98}
+{'loss': 5.1175, 'grad_norm': 20.917625427246094, 'learning_rate': 6.9714325417788545e-06, 'epoch': 3.34}
+{'loss': 4.9495, 'grad_norm': 51.07141876220703, 'learning_rate': 6.439342920377047e-06, 'epoch': 3.71}
+{'loss': 4.7707, 'grad_norm': 19.67409324645996, 'learning_rate': 5.851669481227276e-06, 'epoch': 4.08}
+{'loss': 4.792, 'grad_norm': 14.480781555175781, 'learning_rate': 5.223028189122051e-06, 'epoch': 4.45}
+{'loss': 4.781, 'grad_norm': 25.107460021972656, 'learning_rate': 4.569053916050517e-06, 'epoch': 4.83}
+{'loss': 4.0573, 'grad_norm': 19.068803787231445, 'learning_rate': 3.906011587928412e-06, 'epoch': 5.19}
+{'loss': 4.4994, 'grad_norm': 22.835372924804688, 'learning_rate': 3.2503916613225632e-06, 'epoch': 5.56}
+{'loss': 4.2208, 'grad_norm': 23.761716842651367, 'learning_rate': 2.6184999910260713e-06, 'epoch': 5.94}
+{'loss': 4.1121, 'grad_norm': 30.26567268371582, 'learning_rate': 2.0260522888449595e-06, 'epoch': 6.3}
+{'loss': 4.3071, 'grad_norm': 22.655996322631836, 'learning_rate': 1.4877832597694844e-06, 'epoch': 6.68}
+{'loss': 3.9588, 'grad_norm': 18.742856979370117, 'learning_rate': 1.0170801366636127e-06, 'epoch': 7.04}
+{'loss': 4.0761, 'grad_norm': 19.79305076599121, 'learning_rate': 6.256497277931574e-07, 'epoch': 7.41}
+{'loss': 4.1883, 'grad_norm': 22.580324172973633, 'learning_rate': 3.2322725801879335e-07, 'epoch': 7.79}
+{'loss': 4.222, 'grad_norm': 24.757625579833984, 'learning_rate': 1.1733424503422446e-07, 'epoch': 8.15}
+{'loss': 4.286, 'grad_norm': 21.084247589111328, 'learning_rate': 1.3091432484357068e-08, 'epoch': 8.53}
+{'train_runtime': 2726.4649, 'train_samples_per_second': 0.703, 'train_steps_per_second': 0.086, 'train_loss': 7.707392309465979, 'epoch': 8.68}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2635 (26.35%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_4
+[HPO]   • num_epochs: 7
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00013192832331971238
+[HPO]   • weight_decay: 0.07083223877429239
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.04985844582977499
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.045759633098324495
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 0.6154698647431895
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.04985844582977499, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 26.6137, 'grad_norm': 133.0710906982422, 'learning_rate': 0.00013122536752866937, 'epoch': 0.75}
+{'loss': 8.4668, 'grad_norm': 195.0051727294922, 'learning_rate': 0.00012348816979403625, 'epoch': 1.45}
+{'loss': 7.0889, 'grad_norm': 55.88536071777344, 'learning_rate': 0.00010815965626341556, 'epoch': 2.15}
+{'loss': 5.2677, 'grad_norm': 135.6427459716797, 'learning_rate': 8.726269687699967e-05, 'epoch': 2.9}
+{'loss': 3.3377, 'grad_norm': 106.82742309570312, 'learning_rate': 6.355501702673579e-05, 'epoch': 3.6}
+{'loss': 2.2952, 'grad_norm': 65.55964660644531, 'learning_rate': 4.016526665151068e-05, 'epoch': 4.3}
+{'loss': 1.2626, 'grad_norm': 48.89237594604492, 'learning_rate': 2.0180139242387707e-05, 'epoch': 5.0}
+{'loss': 0.6333, 'grad_norm': 66.50110626220703, 'learning_rate': 6.237027747226406e-06, 'epoch': 5.75}
+{'loss': 0.4082, 'grad_norm': 80.12889862060547, 'learning_rate': 1.7597367168011866e-07, 'epoch': 6.45}
+{'train_runtime': 2047.7465, 'train_samples_per_second': 0.728, 'train_steps_per_second': 0.044, 'train_loss': 6.088520328749667, 'epoch': 6.53}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2494 (24.94%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_5
+[HPO]   • num_epochs: 12
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 1.4560262826662174e-05
+[HPO]   • weight_decay: 0.02418319308810066
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.1721461166512687
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.08348220062975581
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 0.8331617157060953
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=32, alpha=128, dropout=0.1721461166512687, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 12.6429, 'grad_norm': 330.2921142578125, 'learning_rate': 2.426710471110362e-06, 'epoch': 0.19}
+{'loss': 7.8316, 'grad_norm': 212.99566650390625, 'learning_rate': 5.123055439010765e-06, 'epoch': 0.38}
+{'loss': 4.5221, 'grad_norm': 126.38485717773438, 'learning_rate': 7.819400406911169e-06, 'epoch': 0.56}
+{'loss': 3.0836, 'grad_norm': 57.900760650634766, 'learning_rate': 1.0515745374811569e-05, 'epoch': 0.75}
+{'loss': 2.9666, 'grad_norm': 77.34624481201172, 'learning_rate': 1.3212090342711973e-05, 'epoch': 0.94}
+{'loss': 2.1996, 'grad_norm': 41.872005462646484, 'learning_rate': 1.455761141815973e-05, 'epoch': 1.11}
+{'loss': 2.0321, 'grad_norm': 36.89783477783203, 'learning_rate': 1.453641173638206e-05, 'epoch': 1.3}
+{'loss': 1.9974, 'grad_norm': 52.36372756958008, 'learning_rate': 1.4494074128614048e-05, 'epoch': 1.49}
+{'loss': 1.9956, 'grad_norm': 58.748714447021484, 'learning_rate': 1.4430721926532496e-05, 'epoch': 1.68}
+{'loss': 2.3009, 'grad_norm': 33.32714080810547, 'learning_rate': 1.4346539678432032e-05, 'epoch': 1.86}
+{'loss': 1.7684, 'grad_norm': 48.64866638183594, 'learning_rate': 1.4241772611626213e-05, 'epoch': 2.04}
+{'loss': 1.4227, 'grad_norm': 47.09731674194336, 'learning_rate': 1.4116725918087478e-05, 'epoch': 2.23}
+{'loss': 1.5688, 'grad_norm': 50.32406234741211, 'learning_rate': 1.397176386540689e-05, 'epoch': 2.41}
+{'loss': 1.5962, 'grad_norm': 50.774208068847656, 'learning_rate': 1.3807308735663496e-05, 'epoch': 2.6}
+{'loss': 1.2421, 'grad_norm': 35.03297805786133, 'learning_rate': 1.3623839595294438e-05, 'epoch': 2.79}
+{'loss': 1.6748, 'grad_norm': 45.774871826171875, 'learning_rate': 1.3421890899549233e-05, 'epoch': 2.98}
+{'loss': 1.0882, 'grad_norm': 51.801429748535156, 'learning_rate': 1.3202050935593544e-05, 'epoch': 3.15}
+{'loss': 0.8914, 'grad_norm': 42.957969665527344, 'learning_rate': 1.2964960108797746e-05, 'epoch': 3.34}
+{'loss': 0.776, 'grad_norm': 32.460941314697266, 'learning_rate': 1.2711309077202412e-05, 'epoch': 3.53}
+{'loss': 1.0417, 'grad_norm': 64.3698959350586, 'learning_rate': 1.2441836739595153e-05, 'epoch': 3.71}
+{'loss': 0.9152, 'grad_norm': 131.90093994140625, 'learning_rate': 1.2157328083059598e-05, 'epoch': 3.9}
+{'loss': 0.7273, 'grad_norm': 45.12355422973633, 'learning_rate': 1.185861189626676e-05, 'epoch': 4.08}
+{'loss': 0.4908, 'grad_norm': 52.17204666137695, 'learning_rate': 1.1546558355170082e-05, 'epoch': 4.26}
+{'loss': 0.5821, 'grad_norm': 31.39497947692871, 'learning_rate': 1.1222076488137139e-05, 'epoch': 4.45}
+{'loss': 0.5076, 'grad_norm': 75.63536834716797, 'learning_rate': 1.0886111527902221e-05, 'epoch': 4.64}
+{'loss': 0.4895, 'grad_norm': 43.87286376953125, 'learning_rate': 1.05396421580537e-05, 'epoch': 4.83}
+{'loss': 0.4667, 'grad_norm': 21.923208236694336, 'learning_rate': 1.0183677662077294e-05, 'epoch': 5.0}
+{'loss': 0.2199, 'grad_norm': 38.63792419433594, 'learning_rate': 9.819254983260213e-06, 'epoch': 5.19}
+{'loss': 0.2241, 'grad_norm': 49.81534194946289, 'learning_rate': 9.44743570402088e-06, 'epoch': 5.38}
+{'loss': 0.2431, 'grad_norm': 55.58976364135742, 'learning_rate': 9.069302953463516e-06, 'epoch': 5.56}
+{'loss': 0.2282, 'grad_norm': 51.26285934448242, 'learning_rate': 8.685958252166158e-06, 'epoch': 5.75}
+{'loss': 0.2168, 'grad_norm': 45.65907287597656, 'learning_rate': 8.298518303393295e-06, 'epoch': 5.94}
+{'loss': 0.1368, 'grad_norm': 25.183706283569336, 'learning_rate': 7.908111740080568e-06, 'epoch': 6.11}
+{'loss': 0.0705, 'grad_norm': 42.77738952636719, 'learning_rate': 7.515875837067715e-06, 'epoch': 6.3}
+{'loss': 0.0922, 'grad_norm': 28.33279800415039, 'learning_rate': 7.122953198157166e-06, 'epoch': 6.49}
+{'loss': 0.1052, 'grad_norm': 26.87584114074707, 'learning_rate': 6.73048842764912e-06, 'epoch': 6.68}
+{'loss': 0.1, 'grad_norm': 40.02851486206055, 'learning_rate': 6.3396247960490584e-06, 'epoch': 6.86}
+{'loss': 0.0807, 'grad_norm': 15.00554084777832, 'learning_rate': 5.951500909660652e-06, 'epoch': 7.04}
+{'loss': 0.0458, 'grad_norm': 115.02098846435547, 'learning_rate': 5.5672473937657755e-06, 'epoch': 7.23}
+{'loss': 0.0358, 'grad_norm': 8.116491317749023, 'learning_rate': 5.187983599053607e-06, 'epoch': 7.41}
+{'loss': 0.0463, 'grad_norm': 17.577606201171875, 'learning_rate': 4.814814340893253e-06, 'epoch': 7.6}
+{'loss': 0.0351, 'grad_norm': 31.072729110717773, 'learning_rate': 4.448826680948503e-06, 'epoch': 7.79}
+{'loss': 0.0475, 'grad_norm': 25.565025329589844, 'learning_rate': 4.091086760510049e-06, 'epoch': 7.98}
+{'loss': 0.0287, 'grad_norm': 15.173643112182617, 'learning_rate': 3.74263669476989e-06, 'epoch': 8.15}
+{'loss': 0.0197, 'grad_norm': 28.075626373291016, 'learning_rate': 3.4044915370849806e-06, 'epoch': 8.34}
+{'loss': 0.0167, 'grad_norm': 49.608802795410156, 'learning_rate': 3.077636322073466e-06, 'epoch': 8.53}
+{'loss': 0.0274, 'grad_norm': 15.97342586517334, 'learning_rate': 2.7630231961570436e-06, 'epoch': 8.71}
+{'loss': 0.0154, 'grad_norm': 25.78152847290039, 'learning_rate': 2.4615686439084104e-06, 'epoch': 8.9}
+{'loss': 0.0093, 'grad_norm': 12.64506721496582, 'learning_rate': 2.174150818283514e-06, 'epoch': 9.08}
+{'loss': 0.0072, 'grad_norm': 36.391841888427734, 'learning_rate': 1.9016069825158442e-06, 'epoch': 9.26}
+{'loss': 0.0087, 'grad_norm': 9.065823554992676, 'learning_rate': 1.6447310711246136e-06, 'epoch': 9.45}
+{'loss': 0.0049, 'grad_norm': 2.7470169067382812, 'learning_rate': 1.4042713771417839e-06, 'epoch': 9.64}
+{'loss': 0.0079, 'grad_norm': 18.745594024658203, 'learning_rate': 1.1809283722951268e-06, 'epoch': 9.83}
+{'loss': 0.0073, 'grad_norm': 15.3596773147583, 'learning_rate': 9.753526664972558e-07, 'epoch': 10.0}
+{'loss': 0.0031, 'grad_norm': 6.57630729675293, 'learning_rate': 7.881431125847682e-07, 'epoch': 10.19}
+{'loss': 0.0017, 'grad_norm': 1.1192235946655273, 'learning_rate': 6.198450618284355e-07, 'epoch': 10.38}
+{'loss': 0.0028, 'grad_norm': 1.6352450847625732, 'learning_rate': 4.7094877529630506e-07, 'epoch': 10.56}
+{'loss': 0.0049, 'grad_norm': 15.203587532043457, 'learning_rate': 3.4188799569742584e-07, 'epoch': 10.75}
+{'loss': 0.0019, 'grad_norm': 5.651762962341309, 'learning_rate': 2.3303868386654683e-07, 'epoch': 10.94}
+{'loss': 0.0015, 'grad_norm': 1.1885349750518799, 'learning_rate': 1.4471792357044e-07, 'epoch': 11.11}
+{'loss': 0.0017, 'grad_norm': 0.6161239147186279, 'learning_rate': 7.718299782621826e-08, 'epoch': 11.3}
+{'loss': 0.0013, 'grad_norm': 1.434492826461792, 'learning_rate': 3.063063942239082e-08, 'epoch': 11.49}
+{'loss': 0.0013, 'grad_norm': 1.824051022529602, 'learning_rate': 5.196457825902582e-09, 'epoch': 11.68}
+{'train_runtime': 3736.4756, 'train_samples_per_second': 0.684, 'train_steps_per_second': 0.17, 'train_loss': 0.9579232721428428, 'epoch': 11.79}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2422 (24.22%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_6
+[HPO]   • num_epochs: 9
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 7.780392628080266e-06
+[HPO]   • weight_decay: 0.05064227571054419
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.05572929284732229
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.02897897441824462
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.2341791404163445
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=16, alpha=32, dropout=0.05572929284732229, rslora=False
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 13.691, 'grad_norm': 36.4957275390625, 'learning_rate': 5.001680975194457e-06, 'epoch': 0.19}
+{'loss': 13.1348, 'grad_norm': 38.730995178222656, 'learning_rate': 7.778154022213094e-06, 'epoch': 0.38}
+{'loss': 11.246, 'grad_norm': 23.11440086364746, 'learning_rate': 7.760260630727017e-06, 'epoch': 0.56}
+{'loss': 9.7726, 'grad_norm': 16.909103393554688, 'learning_rate': 7.72455619779128e-06, 'epoch': 0.75}
+{'loss': 8.6818, 'grad_norm': 27.378536224365234, 'learning_rate': 7.67120504448247e-06, 'epoch': 0.94}
+{'loss': 7.116, 'grad_norm': 16.452760696411133, 'learning_rate': 7.600452706669036e-06, 'epoch': 1.11}
+{'loss': 6.5746, 'grad_norm': 13.003681182861328, 'learning_rate': 7.51262480499145e-06, 'epoch': 1.3}
+{'loss': 5.8664, 'grad_norm': 12.306282043457031, 'learning_rate': 7.408125546271408e-06, 'epoch': 1.49}
+{'loss': 5.1007, 'grad_norm': 12.042492866516113, 'learning_rate': 7.287435863247031e-06, 'epoch': 1.68}
+{'loss': 4.8148, 'grad_norm': 7.918252468109131, 'learning_rate': 7.151111201195448e-06, 'epoch': 1.86}
+{'loss': 3.6246, 'grad_norm': 12.110913276672363, 'learning_rate': 6.9997789616293265e-06, 'epoch': 2.04}
+{'loss': 3.2618, 'grad_norm': 8.08240032196045, 'learning_rate': 6.834135614832108e-06, 'epoch': 2.23}
+{'loss': 3.1679, 'grad_norm': 7.443573474884033, 'learning_rate': 6.65494349452082e-06, 'epoch': 2.41}
+{'loss': 3.093, 'grad_norm': 5.980608940124512, 'learning_rate': 6.463027289388244e-06, 'epoch': 2.6}
+{'loss': 2.4451, 'grad_norm': 5.427834510803223, 'learning_rate': 6.259270247671299e-06, 'epoch': 2.79}
+{'loss': 3.141, 'grad_norm': 7.459863662719727, 'learning_rate': 6.0446101122131795e-06, 'epoch': 2.98}
+{'loss': 2.6231, 'grad_norm': 5.834560394287109, 'learning_rate': 5.820034804727166e-06, 'epoch': 3.15}
+{'loss': 2.8196, 'grad_norm': 6.630776882171631, 'learning_rate': 5.5865778791242215e-06, 'epoch': 3.34}
+{'loss': 2.3272, 'grad_norm': 8.341704368591309, 'learning_rate': 5.3453137648293815e-06, 'epoch': 3.53}
+{'loss': 2.9754, 'grad_norm': 6.957862377166748, 'learning_rate': 5.097352821978392e-06, 'epoch': 3.71}
+{'loss': 2.5795, 'grad_norm': 7.0473222732543945, 'learning_rate': 4.843836231251886e-06, 'epoch': 3.9}
+{'loss': 2.5497, 'grad_norm': 5.413276195526123, 'learning_rate': 4.58593074186541e-06, 'epoch': 4.08}
+{'loss': 2.6973, 'grad_norm': 6.116898059844971, 'learning_rate': 4.324823301886403e-06, 'epoch': 4.26}
+{'loss': 2.5827, 'grad_norm': 4.2871994972229, 'learning_rate': 4.061715595590816e-06, 'epoch': 4.45}
+{'loss': 2.599, 'grad_norm': 5.543064117431641, 'learning_rate': 3.797818512999867e-06, 'epoch': 4.64}
+{'loss': 2.6966, 'grad_norm': 6.277126312255859, 'learning_rate': 3.534346577049572e-06, 'epoch': 4.83}
+{'loss': 2.1344, 'grad_norm': 2.871225357055664, 'learning_rate': 3.2725123540406526e-06, 'epoch': 5.0}
+{'loss': 2.4334, 'grad_norm': 11.412386894226074, 'learning_rate': 3.0135208730933823e-06, 'epoch': 5.19}
+{'loss': 2.5674, 'grad_norm': 5.986127853393555, 'learning_rate': 2.7585640802905114e-06, 'epoch': 5.38}
+{'loss': 2.5636, 'grad_norm': 4.363821506500244, 'learning_rate': 2.508815353031715e-06, 'epoch': 5.56}
+{'loss': 2.5201, 'grad_norm': 8.366222381591797, 'learning_rate': 2.265424099845946e-06, 'epoch': 5.75}
+{'loss': 2.392, 'grad_norm': 6.237200736999512, 'learning_rate': 2.0295104705147685e-06, 'epoch': 5.94}
+{'loss': 2.085, 'grad_norm': 5.157111644744873, 'learning_rate': 1.8021602008520388e-06, 'epoch': 6.11}
+{'loss': 2.7154, 'grad_norm': 6.770764350891113, 'learning_rate': 1.5844196158656134e-06, 'epoch': 6.3}
+{'loss': 2.5511, 'grad_norm': 5.557989120483398, 'learning_rate': 1.377290814297816e-06, 'epoch': 6.49}
+{'loss': 2.4693, 'grad_norm': 5.484982490539551, 'learning_rate': 1.181727056706675e-06, 'epoch': 6.68}
+{'loss': 2.5053, 'grad_norm': 6.130330562591553, 'learning_rate': 9.986283783131831e-07, 'epoch': 6.86}
+{'loss': 2.1473, 'grad_norm': 5.3758111000061035, 'learning_rate': 8.288374468053588e-07, 'epoch': 7.04}
+{'loss': 2.5784, 'grad_norm': 7.305490970611572, 'learning_rate': 6.731356841626337e-07, 'epoch': 7.23}
+{'loss': 2.2253, 'grad_norm': 5.282612323760986, 'learning_rate': 5.322396703488736e-07, 'epoch': 7.41}
+{'loss': 2.5506, 'grad_norm': 5.736172676086426, 'learning_rate': 4.0679784542521915e-07, 'epoch': 7.6}
+{'loss': 2.3699, 'grad_norm': 5.671929836273193, 'learning_rate': 2.9738752526045253e-07, 'epoch': 7.79}
+{'loss': 2.5196, 'grad_norm': 5.734736442565918, 'learning_rate': 2.0451224457338462e-07, 'epoch': 7.98}
+{'loss': 2.4151, 'grad_norm': 6.520984172821045, 'learning_rate': 1.2859943953525045e-07, 'epoch': 8.15}
+{'loss': 2.6598, 'grad_norm': 7.078659534454346, 'learning_rate': 6.999848059740605e-08, 'epoch': 8.34}
+{'loss': 2.3514, 'grad_norm': 5.831256866455078, 'learning_rate': 2.8979064597739062e-08, 'epoch': 8.53}
+{'loss': 2.2509, 'grad_norm': 5.3729376792907715, 'learning_rate': 5.729973545751832e-09, 'epoch': 8.71}
+{'train_runtime': 2797.6364, 'train_samples_per_second': 0.685, 'train_steps_per_second': 0.171, 'train_loss': 3.8516563139621565, 'epoch': 8.85}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.3420 (34.20%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_7
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 0.0001896885698949479
+[HPO]   • weight_decay: 0.03630829072672506
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.0033175657855712306
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.12903455808189
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 0.7615496435074871
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=32, alpha=128, dropout=0.0033175657855712306, rslora=False
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 18.8404, 'grad_norm': 32.07704162597656, 'learning_rate': 0.00010042336053261948, 'epoch': 0.38}
+{'loss': 6.0433, 'grad_norm': 21.750736236572266, 'learning_rate': 0.00018954199077021416, 'epoch': 0.75}
+{'loss': 4.8001, 'grad_norm': 10.541497230529785, 'learning_rate': 0.00018445913689843637, 'epoch': 1.11}
+{'loss': 3.66, 'grad_norm': 10.962396621704102, 'learning_rate': 0.0001724941398774077, 'epoch': 1.49}
+{'loss': 3.8746, 'grad_norm': 8.558959007263184, 'learning_rate': 0.0001545658744303062, 'epoch': 1.86}
+{'loss': 2.8099, 'grad_norm': 33.178138732910156, 'learning_rate': 0.00013205117583095713, 'epoch': 2.23}
+{'loss': 2.4063, 'grad_norm': 11.05396556854248, 'learning_rate': 0.00010667910321799249, 'epoch': 2.6}
+{'loss': 2.1403, 'grad_norm': 9.391473770141602, 'learning_rate': 8.039815320680766e-05, 'epoch': 2.98}
+{'loss': 1.3435, 'grad_norm': 18.399593353271484, 'learning_rate': 5.522662138276221e-05, 'epoch': 3.34}
+{'loss': 1.1391, 'grad_norm': 8.909672737121582, 'learning_rate': 3.3097603449610714e-05, 'epoch': 3.71}
+{'loss': 1.0337, 'grad_norm': 8.031047821044922, 'learning_rate': 1.5710539465030475e-05, 'epoch': 4.08}
+{'loss': 0.5845, 'grad_norm': 6.589940071105957, 'learning_rate': 4.4007021062842565e-06, 'epoch': 4.45}
+{'loss': 0.6111, 'grad_norm': 8.019993782043457, 'learning_rate': 3.66518631023314e-08, 'epoch': 4.83}
+{'train_runtime': 1546.8886, 'train_samples_per_second': 0.688, 'train_steps_per_second': 0.084, 'train_loss': 3.7912897916940542, 'epoch': 4.83}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2529 (25.29%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_8
+[HPO]   • num_epochs: 7
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 6.395782863492867e-05
+[HPO]   • weight_decay: 0.05801030194508061
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.1266202914546536
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.14519113577404788
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.8456653899288655
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=16, alpha=128, dropout=0.1266202914546536, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 10.9327, 'grad_norm': 171.8629150390625, 'learning_rate': 1.0659638105821445e-05, 'epoch': 0.19}
+{'loss': 4.5586, 'grad_norm': 77.31632232666016, 'learning_rate': 2.2503680445623052e-05, 'epoch': 0.38}
+{'loss': 2.6116, 'grad_norm': 66.34175872802734, 'learning_rate': 3.434772278542466e-05, 'epoch': 0.56}
+{'loss': 2.6764, 'grad_norm': 33.84196090698242, 'learning_rate': 4.6191765125226264e-05, 'epoch': 0.75}
+{'loss': 2.7345, 'grad_norm': 169.69729614257812, 'learning_rate': 5.803580746502787e-05, 'epoch': 0.94}
+{'loss': 1.9058, 'grad_norm': 82.84825134277344, 'learning_rate': 6.391857624685987e-05, 'epoch': 1.11}
+{'loss': 1.7892, 'grad_norm': 41.051246643066406, 'learning_rate': 6.360513506796063e-05, 'epoch': 1.3}
+{'loss': 1.7745, 'grad_norm': 34.78794479370117, 'learning_rate': 6.29813286779932e-05, 'epoch': 1.49}
+{'loss': 1.7877, 'grad_norm': 32.03563690185547, 'learning_rate': 6.205327882648357e-05, 'epoch': 1.68}
+{'loss': 2.0041, 'grad_norm': 35.511016845703125, 'learning_rate': 6.083009296861325e-05, 'epoch': 1.86}
+{'loss': 1.5656, 'grad_norm': 34.97893142700195, 'learning_rate': 5.932377488883528e-05, 'epoch': 2.04}
+{'loss': 1.0299, 'grad_norm': 33.03282928466797, 'learning_rate': 5.75491069012445e-05, 'epoch': 2.23}
+{'loss': 1.0451, 'grad_norm': 51.17947769165039, 'learning_rate': 5.5523504782733425e-05, 'epoch': 2.41}
+{'loss': 1.1207, 'grad_norm': 37.557838439941406, 'learning_rate': 5.326684686255334e-05, 'epoch': 2.6}
+{'loss': 0.8772, 'grad_norm': 22.221593856811523, 'learning_rate': 5.080127894551698e-05, 'epoch': 2.79}
+{'loss': 1.2395, 'grad_norm': 27.577369689941406, 'learning_rate': 4.815099698323712e-05, 'epoch': 2.98}
+{'loss': 0.6055, 'grad_norm': 23.601665496826172, 'learning_rate': 4.534200962616565e-05, 'epoch': 3.15}
+{'loss': 0.4106, 'grad_norm': 50.46950912475586, 'learning_rate': 4.240188298663836e-05, 'epoch': 3.34}
+{'loss': 0.4045, 'grad_norm': 18.835708618164062, 'learning_rate': 3.935947011770395e-05, 'epoch': 3.53}
+{'loss': 0.4831, 'grad_norm': 25.542924880981445, 'learning_rate': 3.6244627862507645e-05, 'epoch': 3.71}
+{'loss': 0.4443, 'grad_norm': 37.557029724121094, 'learning_rate': 3.3087923852939594e-05, 'epoch': 3.9}
+{'loss': 0.2922, 'grad_norm': 15.39899730682373, 'learning_rate': 2.9920336532928926e-05, 'epoch': 4.08}
+{'loss': 0.1497, 'grad_norm': 41.2206916809082, 'learning_rate': 2.6772951150216996e-05, 'epoch': 4.26}
+{'loss': 0.1566, 'grad_norm': 17.295223236083984, 'learning_rate': 2.367665470000708e-05, 'epoch': 4.45}
+{'loss': 0.1548, 'grad_norm': 23.55572509765625, 'learning_rate': 2.066183281417346e-05, 'epoch': 4.64}
+{'loss': 0.137, 'grad_norm': 20.722124099731445, 'learning_rate': 1.775807157062001e-05, 'epoch': 4.83}
+{'loss': 0.1181, 'grad_norm': 8.24642562866211, 'learning_rate': 1.4993867149094443e-05, 'epoch': 5.0}
+{'loss': 0.0493, 'grad_norm': 8.775196075439453, 'learning_rate': 1.2396346182762665e-05, 'epoch': 5.19}
+{'loss': 0.0554, 'grad_norm': 18.729156494140625, 'learning_rate': 9.99099954988451e-06, 'epoch': 5.38}
+{'loss': 0.0698, 'grad_norm': 29.582237243652344, 'learning_rate': 7.801432218037203e-06, 'epoch': 5.56}
+{'loss': 0.0465, 'grad_norm': 7.389719486236572, 'learning_rate': 5.8491315958003944e-06, 'epoch': 5.75}
+{'loss': 0.0381, 'grad_norm': 7.6646342277526855, 'learning_rate': 4.153256665193145e-06, 'epoch': 5.94}
+{'loss': 0.0218, 'grad_norm': 5.668243885040283, 'learning_rate': 2.7304499642200855e-06, 'epoch': 6.11}
+{'loss': 0.0176, 'grad_norm': 9.358195304870605, 'learning_rate': 1.5946742646439466e-06, 'epoch': 6.3}
+{'loss': 0.0131, 'grad_norm': 5.218717098236084, 'learning_rate': 7.570755477536613e-07, 'epoch': 6.49}
+{'loss': 0.0127, 'grad_norm': 12.410919189453125, 'learning_rate': 2.2587362282107722e-07, 'epoch': 6.68}
+{'loss': 0.0147, 'grad_norm': 10.978622436523438, 'learning_rate': 6.281461666381986e-09, 'epoch': 6.86}
+{'train_runtime': 2207.8703, 'train_samples_per_second': 0.675, 'train_steps_per_second': 0.168, 'train_loss': 1.1684684261348288, 'epoch': 6.88}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2329 (23.29%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_9
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 0.00013186686260071982
+[HPO]   • weight_decay: 0.11698133187864357
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.04744981749936002
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.12992657980944294
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.7738351157412668
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.04744981749936002, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 9.6279, 'grad_norm': 138.94187927246094, 'learning_rate': 3.390862181161366e-05, 'epoch': 0.19}
+{'loss': 3.13, 'grad_norm': 63.40431594848633, 'learning_rate': 7.158486826896218e-05, 'epoch': 0.38}
+{'loss': 2.4018, 'grad_norm': 46.64027786254883, 'learning_rate': 0.00010926111472631071, 'epoch': 0.56}
+{'loss': 2.6354, 'grad_norm': 39.5783576965332, 'learning_rate': 0.0001317684769641682, 'epoch': 0.75}
+{'loss': 2.7613, 'grad_norm': 44.95421600341797, 'learning_rate': 0.0001306650078443287, 'epoch': 0.94}
+{'loss': 1.8364, 'grad_norm': 81.41465759277344, 'learning_rate': 0.0001283557119303214, 'epoch': 1.11}
+{'loss': 1.6265, 'grad_norm': 43.02705764770508, 'learning_rate': 0.00012488360703566853, 'epoch': 1.3}
+{'loss': 1.6668, 'grad_norm': 30.916017532348633, 'learning_rate': 0.00012031337190508276, 'epoch': 1.49}
+{'loss': 1.72, 'grad_norm': 35.526283264160156, 'learning_rate': 0.00011473014137182998, 'epoch': 1.68}
+{'loss': 1.9855, 'grad_norm': 41.119117736816406, 'learning_rate': 0.00010823792045686679, 'epoch': 1.86}
+{'loss': 1.5212, 'grad_norm': 36.583221435546875, 'learning_rate': 0.00010095764695208528, 'epoch': 2.04}
+{'loss': 1.04, 'grad_norm': 26.64164924621582, 'learning_rate': 9.302493857807306e-05, 'epoch': 2.23}
+{'loss': 0.9761, 'grad_norm': 41.683589935302734, 'learning_rate': 8.458756668257728e-05, 'epoch': 2.41}
+{'loss': 1.1038, 'grad_norm': 45.63198471069336, 'learning_rate': 7.580270353989041e-05, 'epoch': 2.6}
+{'loss': 0.7894, 'grad_norm': 24.954870223999023, 'learning_rate': 6.683399452876127e-05, 'epoch': 2.79}
+{'loss': 1.202, 'grad_norm': 24.436792373657227, 'learning_rate': 5.784850972861809e-05, 'epoch': 2.98}
+{'loss': 0.485, 'grad_norm': 19.154808044433594, 'learning_rate': 4.901363172009738e-05, 'epoch': 3.15}
+{'loss': 0.2501, 'grad_norm': 23.96241569519043, 'learning_rate': 4.04939375642667e-05, 'epoch': 3.34}
+{'loss': 0.2963, 'grad_norm': 24.252840042114258, 'learning_rate': 3.244813304336885e-05, 'epoch': 3.53}
+{'loss': 0.3671, 'grad_norm': 13.399633407592773, 'learning_rate': 2.5026096272381344e-05, 'epoch': 3.71}
+{'loss': 0.3401, 'grad_norm': 27.616411209106445, 'learning_rate': 1.8366085753314822e-05, 'epoch': 3.9}
+{'loss': 0.2141, 'grad_norm': 10.832615852355957, 'learning_rate': 1.2592164880915659e-05, 'epoch': 4.08}
+{'loss': 0.0854, 'grad_norm': 7.139401435852051, 'learning_rate': 7.811890876358815e-06, 'epoch': 4.26}
+{'loss': 0.0691, 'grad_norm': 7.881638050079346, 'learning_rate': 4.114311199723432e-06, 'epoch': 4.45}
+{'loss': 0.0631, 'grad_norm': 11.430743217468262, 'learning_rate': 1.5683047642958021e-06, 'epoch': 4.64}
+{'loss': 0.089, 'grad_norm': 4.586440563201904, 'learning_rate': 2.2129885273877228e-07, 'epoch': 4.83}
+{'train_runtime': 1552.2812, 'train_samples_per_second': 0.686, 'train_steps_per_second': 0.171, 'train_loss': 1.4459333309587443, 'epoch': 4.92}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2727 (27.27%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_10
+[HPO]   • num_epochs: 7
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 0.0001462051733521822
+[HPO]   • weight_decay: 0.05605720903604904
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.13803046240196418
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.05487703679057472
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.9103557273832703
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=16, alpha=128, dropout=0.13803046240196418, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 13.6046, 'grad_norm': 262.1584777832031, 'learning_rate': 0.00013158465601696397, 'epoch': 0.38}
+{'loss': 5.185, 'grad_norm': 43.83470153808594, 'learning_rate': 0.00014521968290983687, 'epoch': 0.75}
+{'loss': 4.5663, 'grad_norm': 44.74916076660156, 'learning_rate': 0.00014184714794216754, 'epoch': 1.11}
+{'loss': 3.3531, 'grad_norm': 80.60870361328125, 'learning_rate': 0.00013618757447786522, 'epoch': 1.49}
+{'loss': 3.5558, 'grad_norm': 72.88976287841797, 'learning_rate': 0.0001284292488649551, 'epoch': 1.86}
+{'loss': 2.4087, 'grad_norm': 47.31728744506836, 'learning_rate': 0.00011883028009445194, 'epoch': 2.23}
+{'loss': 1.9936, 'grad_norm': 38.491912841796875, 'learning_rate': 0.00010771001286362058, 'epoch': 2.6}
+{'loss': 1.8292, 'grad_norm': 32.707679748535156, 'learning_rate': 9.543840341018169e-05, 'epoch': 2.98}
+{'loss': 0.8549, 'grad_norm': 45.63798904418945, 'learning_rate': 8.242371156907743e-05, 'epoch': 3.34}
+{'loss': 0.7628, 'grad_norm': 39.048702239990234, 'learning_rate': 6.909891852040749e-05, 'epoch': 3.71}
+{'loss': 0.6658, 'grad_norm': 50.294342041015625, 'learning_rate': 5.5907322091675974e-05, 'epoch': 4.08}
+{'loss': 0.272, 'grad_norm': 41.54127883911133, 'learning_rate': 4.328778883914445e-05, 'epoch': 4.45}
+{'loss': 0.272, 'grad_norm': 18.809162139892578, 'learning_rate': 3.166015355158075e-05, 'epoch': 4.83}
+{'loss': 0.1703, 'grad_norm': 11.865325927734375, 'learning_rate': 2.141125191514973e-05, 'epoch': 5.19}
+{'loss': 0.0916, 'grad_norm': 11.948141098022461, 'learning_rate': 1.288205101377821e-05, 'epoch': 5.56}
+{'loss': 0.0771, 'grad_norm': 14.639815330505371, 'learning_rate': 6.356305815825834e-06, 'epoch': 5.94}
+{'loss': 0.0368, 'grad_norm': 6.987608909606934, 'learning_rate': 2.051119030395202e-06, 'epoch': 6.3}
+{'loss': 0.0282, 'grad_norm': 2.813465118408203, 'learning_rate': 1.097183940830519e-07, 'epoch': 6.68}
+{'train_runtime': 2133.6215, 'train_samples_per_second': 0.699, 'train_steps_per_second': 0.085, 'train_loss': 2.183207087136887, 'epoch': 6.75}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2678 (26.78%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_11
+[HPO]   • num_epochs: 12
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 7.293827876868667e-06
+[HPO]   • weight_decay: 0.05532930355932747
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.15172032366368518
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.039453137054769126
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.724947615035928
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=64, alpha=16, dropout=0.15172032366368518, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 27.0247, 'grad_norm': 120.68733215332031, 'learning_rate': 5.049573145524462e-06, 'epoch': 0.38}
+{'loss': 20.9922, 'grad_norm': 75.61382293701172, 'learning_rate': 7.286583324613066e-06, 'epoch': 0.75}
+{'loss': 15.0319, 'grad_norm': 28.204713821411133, 'learning_rate': 7.2424152505756406e-06, 'epoch': 1.11}
+{'loss': 11.3336, 'grad_norm': 45.67818069458008, 'learning_rate': 7.158590415222401e-06, 'epoch': 1.49}
+{'loss': 9.0936, 'grad_norm': 22.685197830200195, 'learning_rate': 7.036033368761885e-06, 'epoch': 1.86}
+{'loss': 6.272, 'grad_norm': 17.014179229736328, 'learning_rate': 6.8760958602596934e-06, 'epoch': 2.23}
+{'loss': 5.9808, 'grad_norm': 24.367094039916992, 'learning_rate': 6.680541928454654e-06, 'epoch': 2.6}
+{'loss': 5.3718, 'grad_norm': 13.04971694946289, 'learning_rate': 6.451528445205433e-06, 'epoch': 2.98}
+{'loss': 5.1936, 'grad_norm': 15.500919342041016, 'learning_rate': 6.1915813261646416e-06, 'epoch': 3.34}
+{'loss': 5.0367, 'grad_norm': 10.956220626831055, 'learning_rate': 5.9035676710659735e-06, 'epoch': 3.71}
+{'loss': 4.8533, 'grad_norm': 11.12408447265625, 'learning_rate': 5.590664140904481e-06, 'epoch': 4.08}
+{'loss': 4.91, 'grad_norm': 8.872993469238281, 'learning_rate': 5.256321920795461e-06, 'epoch': 4.45}
+{'loss': 4.8913, 'grad_norm': 11.397461891174316, 'learning_rate': 4.904228654955839e-06, 'epoch': 4.83}
+{'loss': 4.18, 'grad_norm': 14.586188316345215, 'learning_rate': 4.538267773648081e-06, 'epoch': 5.19}
+{'loss': 4.6431, 'grad_norm': 12.849892616271973, 'learning_rate': 4.162475660692139e-06, 'epoch': 5.56}
+{'loss': 4.3452, 'grad_norm': 12.435235023498535, 'learning_rate': 3.7809971339684953e-06, 'epoch': 5.94}
+{'loss': 4.1863, 'grad_norm': 13.733704566955566, 'learning_rate': 3.398039729942318e-06, 'epoch': 6.3}
+{'loss': 4.374, 'grad_norm': 12.733952522277832, 'learning_rate': 3.0178272964298494e-06, 'epoch': 6.68}
+{'loss': 4.0012, 'grad_norm': 11.25022029876709, 'learning_rate': 2.644553405457942e-06, 'epoch': 7.04}
+{'loss': 4.1149, 'grad_norm': 11.097103118896484, 'learning_rate': 2.282335100051922e-06, 'epoch': 7.41}
+{'loss': 4.1696, 'grad_norm': 17.863237380981445, 'learning_rate': 1.935167485103895e-06, 'epoch': 7.79}
+{'loss': 4.2015, 'grad_norm': 10.713837623596191, 'learning_rate': 1.6068796631637842e-06, 'epoch': 8.15}
+{'loss': 4.2214, 'grad_norm': 11.401604652404785, 'learning_rate': 1.3010925011614954e-06, 'epoch': 8.53}
+{'loss': 3.8952, 'grad_norm': 13.484928131103516, 'learning_rate': 1.0211786938742532e-06, 'epoch': 8.9}
+{'loss': 3.8737, 'grad_norm': 12.374900817871094, 'learning_rate': 7.702255646210933e-07, 'epoch': 9.26}
+{'loss': 3.852, 'grad_norm': 15.637418746948242, 'learning_rate': 5.510010134760992e-07, 'epoch': 9.64}
+{'loss': 4.0645, 'grad_norm': 9.672916412353516, 'learning_rate': 3.659229885762872e-07, 'epoch': 10.0}
+{'loss': 3.99, 'grad_norm': 13.476436614990234, 'learning_rate': 2.1703281724184573e-07, 'epoch': 10.38}
+{'loss': 4.2611, 'grad_norm': 26.662931442260742, 'learning_rate': 1.0597269105450058e-07, 'epoch': 10.75}
+{'loss': 3.7371, 'grad_norm': 10.966043472290039, 'learning_rate': 3.396755322343492e-08, 'epoch': 11.11}
+{'loss': 3.8668, 'grad_norm': 11.663761138916016, 'learning_rate': 1.8115880129782747e-09, 'epoch': 11.49}
+{'train_runtime': 3672.2416, 'train_samples_per_second': 0.696, 'train_steps_per_second': 0.085, 'train_loss': 6.439583466603206, 'epoch': 11.56}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2597 (25.97%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_12
+[HPO]   • num_epochs: 7
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 4.5562716036941045e-05
+[HPO]   • weight_decay: 0.05151100509563534
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.04603322119908447
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.1501777712242081
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.897865777502341
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=16, alpha=128, dropout=0.04603322119908447, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 11.4798, 'grad_norm': 199.92465209960938, 'learning_rate': 7.3225793630798115e-06, 'epoch': 0.19}
+{'loss': 5.6398, 'grad_norm': 86.5096206665039, 'learning_rate': 1.545877865539071e-05, 'epoch': 0.38}
+{'loss': 2.8402, 'grad_norm': 53.957740783691406, 'learning_rate': 2.3594977947701614e-05, 'epoch': 0.56}
+{'loss': 2.7885, 'grad_norm': 37.0858154296875, 'learning_rate': 3.1731177240012514e-05, 'epoch': 0.75}
+{'loss': 2.7251, 'grad_norm': 54.50952911376953, 'learning_rate': 3.986737653232342e-05, 'epoch': 0.94}
+{'loss': 1.9239, 'grad_norm': 66.26132202148438, 'learning_rate': 4.5552519836554025e-05, 'epoch': 1.11}
+{'loss': 1.8548, 'grad_norm': 36.3060302734375, 'learning_rate': 4.5371507842783244e-05, 'epoch': 1.3}
+{'loss': 1.7938, 'grad_norm': 40.29670715332031, 'learning_rate': 4.4965984790999975e-05, 'epoch': 1.49}
+{'loss': 1.8315, 'grad_norm': 51.277252197265625, 'learning_rate': 4.4339980951481845e-05, 'epoch': 1.68}
+{'loss': 2.0661, 'grad_norm': 29.4596004486084, 'learning_rate': 4.349971783163023e-05, 'epoch': 1.86}
+{'loss': 1.5916, 'grad_norm': 41.91783142089844, 'learning_rate': 4.2453546343834555e-05, 'epoch': 2.04}
+{'loss': 1.0766, 'grad_norm': 34.728031158447266, 'learning_rate': 4.121186381035315e-05, 'epoch': 2.23}
+{'loss': 1.0914, 'grad_norm': 38.48362350463867, 'learning_rate': 3.978701063005348e-05, 'epoch': 2.41}
+{'loss': 1.2003, 'grad_norm': 35.419410705566406, 'learning_rate': 3.819314763398401e-05, 'epoch': 2.6}
+{'loss': 0.905, 'grad_norm': 19.949893951416016, 'learning_rate': 3.644611534867321e-05, 'epoch': 2.79}
+{'loss': 1.285, 'grad_norm': 26.111738204956055, 'learning_rate': 3.45632765658603e-05, 'epoch': 2.98}
+{'loss': 0.6145, 'grad_norm': 29.442405700683594, 'learning_rate': 3.256334378327035e-05, 'epoch': 3.15}
+{'loss': 0.3735, 'grad_norm': 50.76952362060547, 'learning_rate': 3.046619323140492e-05, 'epoch': 3.34}
+{'loss': 0.459, 'grad_norm': 14.521424293518066, 'learning_rate': 2.8292667334633597e-05, 'epoch': 3.53}
+{'loss': 0.559, 'grad_norm': 37.04911804199219, 'learning_rate': 2.6064367569816743e-05, 'epoch': 3.71}
+{'loss': 0.4652, 'grad_norm': 28.923927307128906, 'learning_rate': 2.3803439781123548e-05, 'epoch': 3.9}
+{'loss': 0.331, 'grad_norm': 16.782548904418945, 'learning_rate': 2.1532354084683242e-05, 'epoch': 4.08}
+{'loss': 0.1215, 'grad_norm': 21.240915298461914, 'learning_rate': 1.9273681550475917e-05, 'epoch': 4.26}
+{'loss': 0.1773, 'grad_norm': 23.201251983642578, 'learning_rate': 1.7049869880898516e-05, 'epoch': 4.45}
+{'loss': 0.1487, 'grad_norm': 29.381711959838867, 'learning_rate': 1.4883020315413371e-05, 'epoch': 4.64}
+{'loss': 0.132, 'grad_norm': 22.90271759033203, 'learning_rate': 1.2794667978501052e-05, 'epoch': 4.83}
+{'loss': 0.1148, 'grad_norm': 13.376111030578613, 'learning_rate': 1.0805567853918166e-05, 'epoch': 5.0}
+{'loss': 0.0379, 'grad_norm': 9.041600227355957, 'learning_rate': 8.935488512344236e-06, 'epoch': 5.19}
+{'loss': 0.0384, 'grad_norm': 24.70583724975586, 'learning_rate': 7.203015642444866e-06, 'epoch': 5.38}
+{'loss': 0.0487, 'grad_norm': 23.319860458374023, 'learning_rate': 5.625367337947811e-06, 'epoch': 5.56}
+{'loss': 0.0363, 'grad_norm': 14.848458290100098, 'learning_rate': 4.218222976491951e-06, 'epoch': 5.75}
+{'loss': 0.0236, 'grad_norm': 7.503639221191406, 'learning_rate': 2.995567390928049e-06, 'epoch': 5.94}
+{'loss': 0.0189, 'grad_norm': 4.798675537109375, 'learning_rate': 1.9695518817669316e-06, 'epoch': 6.11}
+{'loss': 0.0106, 'grad_norm': 11.387149810791016, 'learning_rate': 1.1503734520958156e-06, 'epoch': 6.3}
+{'loss': 0.0109, 'grad_norm': 2.571988344192505, 'learning_rate': 5.461734651803994e-07, 'epoch': 6.49}
+{'loss': 0.0059, 'grad_norm': 3.7021093368530273, 'learning_rate': 1.6295673193909386e-07, 'epoch': 6.68}
+{'loss': 0.0105, 'grad_norm': 14.584115982055664, 'learning_rate': 4.531832434325524e-09, 'epoch': 6.86}
+{'train_runtime': 2174.4589, 'train_samples_per_second': 0.686, 'train_steps_per_second': 0.171, 'train_loss': 1.2354058897338627, 'epoch': 6.88}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2389 (23.89%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_13
+[HPO]   • num_epochs: 12
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 5.458232690434425e-05
+[HPO]   • weight_decay: 0.0049129254613151305
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.020346239660457774
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.034301603321188125
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.7171973092796322
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=64, alpha=16, dropout=0.020346239660457774, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 21.7153, 'grad_norm': 60.35258483886719, 'learning_rate': 4.4658267467190755e-05, 'epoch': 0.38}
+{'loss': 9.0274, 'grad_norm': 16.668203353881836, 'learning_rate': 5.448724750061719e-05, 'epoch': 0.75}
+{'loss': 5.4997, 'grad_norm': 8.691121101379395, 'learning_rate': 5.4102122566482704e-05, 'epoch': 1.11}
+{'loss': 4.3821, 'grad_norm': 10.858926773071289, 'learning_rate': 5.342519794617051e-05, 'epoch': 1.49}
+{'loss': 4.5359, 'grad_norm': 8.303740501403809, 'learning_rate': 5.2463841014750336e-05, 'epoch': 1.86}
+{'loss': 3.5242, 'grad_norm': 6.513055324554443, 'learning_rate': 5.122851479406695e-05, 'epoch': 2.23}
+{'loss': 3.6394, 'grad_norm': 7.7663164138793945, 'learning_rate': 4.9732664077422464e-05, 'epoch': 2.6}
+{'loss': 3.2995, 'grad_norm': 7.587024688720703, 'learning_rate': 4.7992569101858145e-05, 'epoch': 2.98}
+{'loss': 2.6162, 'grad_norm': 9.26354694366455, 'learning_rate': 4.602716836060822e-05, 'epoch': 3.34}
+{'loss': 2.478, 'grad_norm': 8.084734916687012, 'learning_rate': 4.385785248416319e-05, 'epoch': 3.71}
+{'loss': 2.2839, 'grad_norm': 13.548152923583984, 'learning_rate': 4.150823143325843e-05, 'epoch': 4.08}
+{'loss': 1.6681, 'grad_norm': 15.957646369934082, 'learning_rate': 3.900387753756584e-05, 'epoch': 4.45}
+{'loss': 1.6233, 'grad_norm': 13.19433879852295, 'learning_rate': 3.6372047176751834e-05, 'epoch': 4.83}
+{'loss': 1.0678, 'grad_norm': 11.447075843811035, 'learning_rate': 3.364138413301325e-05, 'epoch': 5.19}
+{'loss': 0.9254, 'grad_norm': 15.997994422912598, 'learning_rate': 3.084160784368253e-05, 'epoch': 5.56}
+{'loss': 0.8367, 'grad_norm': 12.459665298461914, 'learning_rate': 2.8003189946835383e-05, 'epoch': 5.94}
+{'loss': 0.4509, 'grad_norm': 14.96786117553711, 'learning_rate': 2.5157022640248464e-05, 'epoch': 6.3}
+{'loss': 0.3761, 'grad_norm': 11.6248197555542, 'learning_rate': 2.2334082463154496e-05, 'epoch': 6.68}
+{'loss': 0.3556, 'grad_norm': 6.136380672454834, 'learning_rate': 1.956509316005894e-05, 'epoch': 7.04}
+{'loss': 0.1457, 'grad_norm': 6.135487079620361, 'learning_rate': 1.6880191295872725e-05, 'epoch': 7.41}
+{'loss': 0.1293, 'grad_norm': 11.86103630065918, 'learning_rate': 1.4308598261671307e-05, 'epoch': 7.79}
+{'loss': 0.0844, 'grad_norm': 10.32145881652832, 'learning_rate': 1.187830224083735e-05, 'epoch': 8.15}
+{'loss': 0.0371, 'grad_norm': 9.289213180541992, 'learning_rate': 9.615753596939544e-06, 'epoch': 8.53}
+{'loss': 0.0337, 'grad_norm': 7.19652795791626, 'learning_rate': 7.545576998623123e-06, 'epoch': 8.9}
+{'loss': 0.021, 'grad_norm': 2.7860026359558105, 'learning_rate': 5.690303414629091e-06, 'epoch': 9.26}
+{'loss': 0.0112, 'grad_norm': 1.0113880634307861, 'learning_rate': 4.070124895800368e-06, 'epoch': 9.64}
+{'loss': 0.0108, 'grad_norm': 0.8344925045967102, 'learning_rate': 2.7026748129287315e-06, 'epoch': 10.0}
+{'loss': 0.0043, 'grad_norm': 1.332899570465088, 'learning_rate': 1.6028359422455147e-06, 'epoch': 10.38}
+{'loss': 0.0057, 'grad_norm': 0.3646849989891052, 'learning_rate': 7.825784872761844e-07, 'epoch': 10.75}
+{'loss': 0.0055, 'grad_norm': 0.6455961465835571, 'learning_rate': 2.5082979996382036e-07, 'epoch': 11.11}
+{'loss': 0.0042, 'grad_norm': 1.0491251945495605, 'learning_rate': 1.3377218964297293e-08, 'epoch': 11.49}
+{'train_runtime': 3652.9976, 'train_samples_per_second': 0.7, 'train_steps_per_second': 0.085, 'train_loss': 2.2692013338076857, 'epoch': 11.56}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2433 (24.33%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_14
+[HPO]   • num_epochs: 12
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.527409409334991e-05
+[HPO]   • weight_decay: 0.08806529897601978
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.07388452779951367
+[HPO]   • use_rslora: False
+[HPO]   • warmup_ratio: 0.0006850498054357347
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.74295302679177
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=64, alpha=32, dropout=0.07388452779951367, rslora=False
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 25.902, 'grad_norm': 24.303813934326172, 'learning_rate': 1.5249170075976363e-05, 'epoch': 0.38}
+{'loss': 20.0714, 'grad_norm': 14.791775703430176, 'learning_rate': 1.514819500697213e-05, 'epoch': 0.75}
+{'loss': 15.5954, 'grad_norm': 11.291475296020508, 'learning_rate': 1.4970639834156947e-05, 'epoch': 1.11}
+{'loss': 12.5917, 'grad_norm': 11.028060913085938, 'learning_rate': 1.4718314825899678e-05, 'epoch': 1.49}
+{'loss': 10.4358, 'grad_norm': 8.816794395446777, 'learning_rate': 1.4393792568365393e-05, 'epoch': 1.86}
+{'loss': 7.5641, 'grad_norm': 6.009337425231934, 'learning_rate': 1.4000381736646404e-05, 'epoch': 2.23}
+{'loss': 6.5323, 'grad_norm': 4.680025577545166, 'learning_rate': 1.3542093361079572e-05, 'epoch': 2.6}
+{'loss': 5.6358, 'grad_norm': 5.5552978515625, 'learning_rate': 1.3023599932682487e-05, 'epoch': 2.98}
+{'loss': 5.4493, 'grad_norm': 3.9514896869659424, 'learning_rate': 1.2450187764650122e-05, 'epoch': 3.34}
+{'loss': 5.2736, 'grad_norm': 3.62077260017395, 'learning_rate': 1.1827703095611582e-05, 'epoch': 3.71}
+{'loss': 5.0656, 'grad_norm': 4.35080623626709, 'learning_rate': 1.1162492484152535e-05, 'epoch': 4.08}
+{'loss': 5.1669, 'grad_norm': 2.811610460281372, 'learning_rate': 1.0461338102312593e-05, 'epoch': 4.45}
+{'loss': 5.1661, 'grad_norm': 4.626429080963135, 'learning_rate': 9.731388587774387e-06, 'epoch': 4.83}
+{'loss': 4.4533, 'grad_norm': 2.814274311065674, 'learning_rate': 8.9800861597427e-06, 'epoch': 5.19}
+{'loss': 4.9438, 'grad_norm': 3.5238466262817383, 'learning_rate': 8.215090741605565e-06, 'epoch': 5.56}
+{'loss': 4.7023, 'grad_norm': 3.351573944091797, 'learning_rate': 7.444201863986731e-06, 'epoch': 5.94}
+{'loss': 4.546, 'grad_norm': 3.53536319732666, 'learning_rate': 6.675279144428925e-06, 'epoch': 6.3}
+{'loss': 4.725, 'grad_norm': 2.9039294719696045, 'learning_rate': 5.916162154459371e-06, 'epoch': 6.68}
+{'loss': 4.3337, 'grad_norm': 5.955160617828369, 'learning_rate': 5.174590491034998e-06, 'epoch': 7.04}
+{'loss': 4.4087, 'grad_norm': 3.604342222213745, 'learning_rate': 4.458124867280943e-06, 'epoch': 7.41}
+{'loss': 4.4795, 'grad_norm': 3.326680898666382, 'learning_rate': 3.7740700270438295e-06, 'epoch': 7.79}
+{'loss': 4.4933, 'grad_norm': 3.581064462661743, 'learning_rate': 3.1294002691864464e-06, 'epoch': 8.15}
+{'loss': 4.5065, 'grad_norm': 3.2677247524261475, 'learning_rate': 2.5306883409428335e-06, 'epoch': 8.53}
+{'loss': 4.1575, 'grad_norm': 4.699245452880859, 'learning_rate': 1.9840384253034063e-06, 'epoch': 8.9}
+{'loss': 4.1428, 'grad_norm': 6.130960941314697, 'learning_rate': 1.4950239056589852e-06, 'epoch': 9.26}
+{'loss': 4.1215, 'grad_norm': 2.975644826889038, 'learning_rate': 1.0686305422259018e-06, 'epoch': 9.64}
+{'loss': 4.3401, 'grad_norm': 2.863891124725342, 'learning_rate': 7.092056395984211e-07, 'epoch': 10.0}
+{'loss': 4.286, 'grad_norm': 4.816573143005371, 'learning_rate': 4.2041372369201644e-07, 'epoch': 10.38}
+{'loss': 4.5525, 'grad_norm': 3.647491693496704, 'learning_rate': 2.0519917997436193e-07, 'epoch': 10.75}
+{'loss': 3.9922, 'grad_norm': 3.133392333984375, 'learning_rate': 6.575623390695309e-08, 'epoch': 11.11}
+{'loss': 4.1352, 'grad_norm': 5.110750198364258, 'learning_rate': 3.5065796625023085e-09, 'epoch': 11.49}
+{'train_runtime': 3657.4648, 'train_samples_per_second': 0.699, 'train_steps_per_second': 0.085, 'train_loss': 6.756078353294959, 'epoch': 11.56}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2673 (26.73%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_15
+[HPO]   • num_epochs: 7
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 4.247973603291046e-05
+[HPO]   • weight_decay: 0.05094274711354731
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 128
+[HPO]   • lora_dropout: 0.154556682188423
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.12673369740695184
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.5023498709736818
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=128, dropout=0.154556682188423, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 11.816, 'grad_norm': 266.19342041015625, 'learning_rate': 7.964950506170712e-06, 'epoch': 0.19}
+{'loss': 6.1853, 'grad_norm': 102.46830749511719, 'learning_rate': 1.6814895513027057e-05, 'epoch': 0.38}
+{'loss': 3.0599, 'grad_norm': 86.74883270263672, 'learning_rate': 2.56648405198834e-05, 'epoch': 0.56}
+{'loss': 2.8679, 'grad_norm': 44.99973678588867, 'learning_rate': 3.4514785526739747e-05, 'epoch': 0.75}
+{'loss': 2.7768, 'grad_norm': 124.32132720947266, 'learning_rate': 4.247873138682802e-05, 'epoch': 0.94}
+{'loss': 1.9995, 'grad_norm': 78.739013671875, 'learning_rate': 4.235828881237185e-05, 'epoch': 1.11}
+{'loss': 1.8988, 'grad_norm': 99.01464080810547, 'learning_rate': 4.203822178391931e-05, 'epoch': 1.3}
+{'loss': 1.8844, 'grad_norm': 74.85172271728516, 'learning_rate': 4.152155577418043e-05, 'epoch': 1.49}
+{'loss': 1.8609, 'grad_norm': 43.159942626953125, 'learning_rate': 4.0813174631767255e-05, 'epoch': 1.68}
+{'loss': 2.1413, 'grad_norm': 41.002105712890625, 'learning_rate': 3.991977441601784e-05, 'epoch': 1.86}
+{'loss': 1.6847, 'grad_norm': 49.48882293701172, 'learning_rate': 3.884980010167688e-05, 'epoch': 2.04}
+{'loss': 1.3092, 'grad_norm': 63.14479064941406, 'learning_rate': 3.761336575173964e-05, 'epoch': 2.23}
+{'loss': 1.3922, 'grad_norm': 52.68540954589844, 'learning_rate': 3.6222158913035197e-05, 'epoch': 2.41}
+{'loss': 1.3922, 'grad_norm': 57.70743179321289, 'learning_rate': 3.468933013826142e-05, 'epoch': 2.6}
+{'loss': 1.0717, 'grad_norm': 34.39483642578125, 'learning_rate': 3.302936867877811e-05, 'epoch': 2.79}
+{'loss': 1.5224, 'grad_norm': 42.48970031738281, 'learning_rate': 3.125796552318744e-05, 'epoch': 2.98}
+{'loss': 0.8895, 'grad_norm': 31.377077102661133, 'learning_rate': 2.939186507634616e-05, 'epoch': 3.15}
+{'loss': 0.7011, 'grad_norm': 43.687278747558594, 'learning_rate': 2.7448706880831957e-05, 'epoch': 3.34}
+{'loss': 0.6408, 'grad_norm': 36.79133605957031, 'learning_rate': 2.5446858877011053e-05, 'epoch': 3.53}
+{'loss': 0.8488, 'grad_norm': 46.214622497558594, 'learning_rate': 2.340524377783666e-05, 'epoch': 3.71}
+{'loss': 0.7558, 'grad_norm': 50.10638427734375, 'learning_rate': 2.1343160199591794e-05, 'epoch': 3.9}
+{'loss': 0.6041, 'grad_norm': 31.007122039794922, 'learning_rate': 1.928010023935985e-05, 'epoch': 4.08}
+{'loss': 0.2935, 'grad_norm': 52.989322662353516, 'learning_rate': 1.7235565223594295e-05, 'epoch': 4.26}
+{'loss': 0.3397, 'grad_norm': 30.500003814697266, 'learning_rate': 1.522888136944664e-05, 'epoch': 4.45}
+{'loss': 0.3633, 'grad_norm': 41.28049850463867, 'learning_rate': 1.327901710133644e-05, 'epoch': 4.64}
+{'loss': 0.3297, 'grad_norm': 43.74232864379883, 'learning_rate': 1.140440374960083e-05, 'epoch': 4.83}
+{'loss': 0.2756, 'grad_norm': 34.52354049682617, 'learning_rate': 9.622761326091602e-06, 'epoch': 5.0}
+{'loss': 0.117, 'grad_norm': 20.66790008544922, 'learning_rate': 7.950931023597108e-06, 'epoch': 5.19}
+{'loss': 0.1067, 'grad_norm': 45.45878219604492, 'learning_rate': 6.404716022408888e-06, 'epoch': 5.38}
+{'loss': 0.1411, 'grad_norm': 41.82902908325195, 'learning_rate': 4.998732108828174e-06, 'epoch': 5.56}
+{'loss': 0.1571, 'grad_norm': 29.37961769104004, 'learning_rate': 3.7462695176594074e-06, 'epoch': 5.75}
+{'loss': 0.103, 'grad_norm': 11.864678382873535, 'learning_rate': 2.6591673046411267e-06, 'epoch': 5.94}
+{'loss': 0.0565, 'grad_norm': 7.552598476409912, 'learning_rate': 1.7477014363244809e-06, 'epoch': 6.11}
+{'loss': 0.0486, 'grad_norm': 39.331695556640625, 'learning_rate': 1.0204876552433267e-06, 'epoch': 6.3}
+{'loss': 0.0369, 'grad_norm': 9.495672225952148, 'learning_rate': 4.844000385547416e-07, 'epoch': 6.49}
+{'loss': 0.0483, 'grad_norm': 30.213491439819336, 'learning_rate': 1.4450601998446968e-07, 'epoch': 6.68}
+{'loss': 0.0628, 'grad_norm': 22.397424697875977, 'learning_rate': 4.018489290203618e-09, 'epoch': 6.86}
+{'train_runtime': 2179.0613, 'train_samples_per_second': 0.684, 'train_steps_per_second': 0.17, 'train_loss': 1.3959662751005988, 'epoch': 6.88}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2687 (26.87%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_16
+[HPO]   • num_epochs: 7
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 2.853355863981491e-05
+[HPO]   • weight_decay: 0.0438538352988626
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.06836384158015128
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.0014670700532715903
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.7017765392567585
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=64, alpha=64, dropout=0.06836384158015128, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 6.8972, 'grad_norm': 53.73379135131836, 'learning_rate': 2.8500657933083765e-05, 'epoch': 0.19}
+{'loss': 2.6196, 'grad_norm': 29.706073760986328, 'learning_rate': 2.8367258840338247e-05, 'epoch': 0.38}
+{'loss': 2.3646, 'grad_norm': 24.4029483795166, 'learning_rate': 2.8132265469536284e-05, 'epoch': 0.56}
+{'loss': 2.5678, 'grad_norm': 18.627473831176758, 'learning_rate': 2.7797370953299367e-05, 'epoch': 0.75}
+{'loss': 2.6441, 'grad_norm': 24.487220764160156, 'learning_rate': 2.7364988214291076e-05, 'epoch': 0.94}
+{'loss': 1.8594, 'grad_norm': 27.340696334838867, 'learning_rate': 2.683823258005398e-05, 'epoch': 1.11}
+{'loss': 1.6372, 'grad_norm': 58.22240447998047, 'learning_rate': 2.622089933700335e-05, 'epoch': 1.3}
+{'loss': 1.7114, 'grad_norm': 106.69580078125, 'learning_rate': 2.551743638530151e-05, 'epoch': 1.49}
+{'loss': 1.6773, 'grad_norm': 29.37002944946289, 'learning_rate': 2.4732912191635303e-05, 'epoch': 1.68}
+{'loss': 1.9743, 'grad_norm': 29.696855545043945, 'learning_rate': 2.387297927079741e-05, 'epoch': 1.86}
+{'loss': 1.4649, 'grad_norm': 17.02430534362793, 'learning_rate': 2.2943833459187798e-05, 'epoch': 2.04}
+{'loss': 1.1498, 'grad_norm': 30.100797653198242, 'learning_rate': 2.1952169273670435e-05, 'epoch': 2.23}
+{'loss': 1.1948, 'grad_norm': 23.503015518188477, 'learning_rate': 2.09051316774259e-05, 'epoch': 2.41}
+{'loss': 1.247, 'grad_norm': 30.85462188720703, 'learning_rate': 1.9810264600327958e-05, 'epoch': 2.6}
+{'loss': 0.9204, 'grad_norm': 12.372047424316406, 'learning_rate': 1.8675456584755914e-05, 'epoch': 2.79}
+{'loss': 1.259, 'grad_norm': 18.427223205566406, 'learning_rate': 1.750888394846603e-05, 'epoch': 2.98}
+{'loss': 0.7065, 'grad_norm': 33.52170181274414, 'learning_rate': 1.6318951874034725e-05, 'epoch': 3.15}
+{'loss': 0.533, 'grad_norm': 40.14934158325195, 'learning_rate': 1.511423384932551e-05, 'epoch': 3.34}
+{'loss': 0.5653, 'grad_norm': 10.9716157913208, 'learning_rate': 1.3903409895312461e-05, 'epoch': 3.53}
+{'loss': 0.7034, 'grad_norm': 21.257211685180664, 'learning_rate': 1.2695204026330215e-05, 'epoch': 3.71}
+{'loss': 0.5706, 'grad_norm': 34.01668930053711, 'learning_rate': 1.149832139335075e-05, 'epoch': 3.9}
+{'loss': 0.4344, 'grad_norm': 17.921175003051758, 'learning_rate': 1.0321385563171195e-05, 'epoch': 4.08}
+{'loss': 0.281, 'grad_norm': 38.34638595581055, 'learning_rate': 9.172876385417412e-06, 'epoch': 4.26}
+{'loss': 0.277, 'grad_norm': 15.090970993041992, 'learning_rate': 8.061068895033151e-06, 'epoch': 4.45}
+{'loss': 0.2573, 'grad_norm': 20.00913429260254, 'learning_rate': 6.993973690463629e-06, 'epoch': 4.64}
+{'loss': 0.2195, 'grad_norm': 17.866004943847656, 'learning_rate': 5.979279217110211e-06, 'epoch': 4.83}
+{'loss': 0.2082, 'grad_norm': 19.39285659790039, 'learning_rate': 5.024296371905068e-06, 'epoch': 5.0}
+{'loss': 0.0958, 'grad_norm': 12.868002891540527, 'learning_rate': 4.135905828131293e-06, 'epoch': 5.19}
+{'loss': 0.0955, 'grad_norm': 20.889986038208008, 'learning_rate': 3.3205084600141895e-06, 'epoch': 5.38}
+{'loss': 0.1082, 'grad_norm': 28.786481857299805, 'learning_rate': 2.583979224275838e-06, 'epoch': 5.56}
+{'loss': 0.0738, 'grad_norm': 30.75023078918457, 'learning_rate': 1.9316248309372533e-06, 'epoch': 5.75}
+{'loss': 0.0918, 'grad_norm': 5.881587028503418, 'learning_rate': 1.3681455083511112e-06, 'epoch': 5.94}
+{'loss': 0.0426, 'grad_norm': 6.933706760406494, 'learning_rate': 8.976011379487425e-07, 'epoch': 6.11}
+{'loss': 0.0365, 'grad_norm': 7.107516765594482, 'learning_rate': 5.233820027013993e-07, 'epoch': 6.3}
+{'loss': 0.0275, 'grad_norm': 8.902641296386719, 'learning_rate': 2.481843600537433e-07, 'epoch': 6.49}
+{'loss': 0.0465, 'grad_norm': 53.7335319519043, 'learning_rate': 7.399101532719607e-08, 'epoch': 6.68}
+{'loss': 0.0339, 'grad_norm': 14.890908241271973, 'learning_rate': 2.0570355621396104e-09, 'epoch': 6.86}
+{'train_runtime': 2188.2332, 'train_samples_per_second': 0.681, 'train_steps_per_second': 0.17, 'train_loss': 1.0404172921779182, 'epoch': 6.88}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.3092 (30.92%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_17
+[HPO]   • num_epochs: 7
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 1.0779511334911546e-05
+[HPO]   • weight_decay: 0.08694322872102284
+[HPO]   • lora_r: 64
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.020592629159649073
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.03802994509773129
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.8208170793145244
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=64, alpha=16, dropout=0.020592629159649073, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 25.2647, 'grad_norm': 72.96060943603516, 'learning_rate': 1.0776037764815595e-05, 'epoch': 0.38}
+{'loss': 16.4208, 'grad_norm': 48.3979377746582, 'learning_rate': 1.0654932278606476e-05, 'epoch': 0.75}
+{'loss': 11.3302, 'grad_norm': 25.386926651000977, 'learning_rate': 1.0364599683913229e-05, 'epoch': 1.11}
+{'loss': 7.5984, 'grad_norm': 37.276248931884766, 'learning_rate': 9.914371509215745e-06, 'epoch': 1.49}
+{'loss': 6.2118, 'grad_norm': 11.281235694885254, 'learning_rate': 9.318718458497781e-06, 'epoch': 1.86}
+{'loss': 5.0073, 'grad_norm': 12.18488597869873, 'learning_rate': 8.596785310914376e-06, 'epoch': 2.23}
+{'loss': 5.4007, 'grad_norm': 12.286751747131348, 'learning_rate': 7.77177559183743e-06, 'epoch': 2.6}
+{'loss': 4.9723, 'grad_norm': 10.699012756347656, 'learning_rate': 6.870205792458336e-06, 'epoch': 2.98}
+{'loss': 4.7854, 'grad_norm': 9.3483247756958, 'learning_rate': 5.921053107943238e-06, 'epoch': 3.34}
+{'loss': 4.6551, 'grad_norm': 8.900835990905762, 'learning_rate': 4.954824086537885e-06, 'epoch': 3.71}
+{'loss': 4.5123, 'grad_norm': 12.323623657226562, 'learning_rate': 4.0025741240061285e-06, 'epoch': 4.08}
+{'loss': 4.5703, 'grad_norm': 8.003267288208008, 'learning_rate': 3.0949093176576186e-06, 'epoch': 4.45}
+{'loss': 4.5713, 'grad_norm': 10.417834281921387, 'learning_rate': 2.2610027611974876e-06, 'epoch': 4.83}
+{'loss': 3.9304, 'grad_norm': 16.208791732788086, 'learning_rate': 1.5276568974909649e-06, 'epoch': 5.19}
+{'loss': 4.4275, 'grad_norm': 20.418365478515625, 'learning_rate': 9.184420659965653e-07, 'epoch': 5.56}
+{'loss': 4.1915, 'grad_norm': 19.658357620239258, 'learning_rate': 4.529389326621482e-07, 'epoch': 5.94}
+{'loss': 4.1399, 'grad_norm': 10.551055908203125, 'learning_rate': 1.4610915121033778e-07, 'epoch': 6.3}
+{'loss': 4.3671, 'grad_norm': 11.469931602478027, 'learning_rate': 7.814483277381343e-09, 'epoch': 6.68}
+{'train_runtime': 2136.6749, 'train_samples_per_second': 0.698, 'train_steps_per_second': 0.085, 'train_loss': 6.9818536056267035, 'epoch': 6.75}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg[HPO]   Evaluating 3/47: inventarbuch-020.jpg[HPO]   Evaluating 4/47: inventarbuch-027.jpg[HPO]   Evaluating 5/47: inventarbuch-043.jpg[HPO]   Evaluating 6/47: inventarbuch-045.jpg[HPO]   Evaluating 7/47: inventarbuch-055.jpg[HPO]   Evaluating 8/47: inventarbuch-060.jpg[HPO]   Evaluating 9/47: inventarbuch-061.jpg[HPO]   Evaluating 10/47: inventarbuch-064.jpg[HPO]   Evaluating 11/47: inventarbuch-070.jpg[HPO]   Evaluating 12/47: inventarbuch-076.jpg[HPO]   Evaluating 13/47: inventarbuch-078.jpg[HPO]   Evaluating 14/47: inventarbuch-093.jpg[HPO]   Evaluating 15/47: inventarbuch-095.jpg[HPO]   Evaluating 16/47: inventarbuch-096.jpg[HPO]   Evaluating 17/47: inventarbuch-097.jpg[HPO]   Evaluating 18/47: inventarbuch-100.jpg[HPO]   Evaluating 19/47: inventarbuch-120.jpg[HPO]   Evaluating 20/47: inventarbuch-142.jpg[HPO]   Evaluating 21/47: inventarbuch-147.jpg[HPO]   Evaluating 22/47: inventarbuch-153.jpg[HPO]   Evaluating 23/47: inventarbuch-161.jpg[HPO]   Evaluating 24/47: inventarbuch-164.jpg[HPO]   Evaluating 25/47: inventarbuch-166.jpg[HPO]   Evaluating 26/47: inventarbuch-168.jpg[HPO]   Evaluating 27/47: inventarbuch-171.jpg[HPO]   Evaluating 28/47: inventarbuch-176.jpg[HPO]   Evaluating 29/47: inventarbuch-178.jpg[HPO]   Evaluating 30/47: inventarbuch-187.jpg[HPO]   Evaluating 31/47: inventarbuch-188.jpg[HPO]   Evaluating 32/47: inventarbuch-194.jpg[HPO]   Evaluating 33/47: inventarbuch-206.jpg[HPO]   Evaluating 34/47: inventarbuch-221.jpg[HPO]   Evaluating 35/47: inventarbuch-222.jpg[HPO]   Evaluating 36/47: inventarbuch-227.jpg[HPO]   Evaluating 37/47: inventarbuch-229.jpg[HPO]   Evaluating 38/47: inventarbuch-230.jpg[HPO]   Evaluating 39/47: inventarbuch-232.jpg[HPO]   Evaluating 40/47: inventarbuch-235.jpg[HPO]   Evaluating 41/47: inventarbuch-248.jpg[HPO]   Evaluating 42/47: inventarbuch-252.jpg[HPO]   Evaluating 43/47: inventarbuch-253.jpg[HPO]   Evaluating 44/47: inventarbuch-266.jpg[HPO]   Evaluating 45/47: inventarbuch-274.jpg[HPO]   Evaluating 46/47: inventarbuch-283.jpg[HPO]   Evaluating 47/47: inventarbuch-303.jpg
+[HPO]   ✅ Validation CER: 0.2864 (28.64%)
+================================================================================
+
+
+================================================================================
+[HPO] Gemma-3 INVENTORY HPO TRIAL (FINETUNE-ALIGNED)
+================================================================================
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/HPO/inven/run_HPO_20260119_065019/trials/trial_18
+[HPO]   • num_epochs: 12
+[HPO]   • batch_size: 1
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 4.3771231052993014e-05
+[HPO]   • weight_decay: 0.045297487327220956
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.12130669439168558
+[HPO]   • use_rslora: True
+[HPO]   • warmup_ratio: 0.025564864856528022
+[HPO]   • lr_scheduler_type: cosine
+[HPO]   • max_grad_norm: 1.9883035316760451
+[HPO]   • optim: adamw_8bit
+[HPO] Loading Gemma-3 vision model with Unsloth for INVENTORY...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] Gemma-3 model wrapped with LoRA: r=8, alpha=64, dropout=0.12130669439168558, rslora=True
+[HPO] Preparing INVENTORY TRAIN data (no augmentation)
+[HPO] Training: 213 samples (missing images: 0)
+[HPO] Training samples: 213, Fixed validation subset: 47
+[HPO] Starting training for this trial...
+
+{'loss': 19.9401, 'grad_norm': 204.73536682128906, 'learning_rate': 4.377006242177661e-05, 'epoch': 0.38}
+{'loss': 7.4633, 'grad_norm': 53.96005630493164, 'learning_rate': 4.3629977624963214e-05, 'epoch': 0.75}
+{'loss': 5.3682, 'grad_norm': 40.46498107910156, 'learning_rate': 4.3257879619709464e-05, 'epoch': 1.11}
+{'loss': 4.3205, 'grad_norm': 34.75507736206055, 'learning_rate': 4.265773870653107e-05, 'epoch': 1.49}
+{'loss': 4.5223, 'grad_norm': 28.432844161987305, 'learning_rate': 4.183595841284136e-05, 'epoch': 1.86}
+{'loss': 3.4906, 'grad_norm': 23.2412166595459, 'learning_rate': 4.0801307167059086e-05, 'epoch': 2.23}
+{'loss': 3.5446, 'grad_norm': 31.841129302978516, 'learning_rate': 3.956482473912847e-05, 'epoch': 2.6}
+{'loss': 3.2582, 'grad_norm': 34.47380065917969, 'learning_rate': 3.8139704445734786e-05, 'epoch': 2.98}
+{'loss': 2.5659, 'grad_norm': 47.16050720214844, 'learning_rate': 3.6541152377090575e-05, 'epoch': 3.34}
+{'loss': 2.445, 'grad_norm': 34.572959899902344, 'learning_rate': 3.478622514734831e-05, 'epoch': 3.71}
+{'loss': 2.1634, 'grad_norm': 44.37483215332031, 'learning_rate': 3.289364789984897e-05, 'epoch': 4.08}
+{'loss': 1.7321, 'grad_norm': 50.239418029785156, 'learning_rate': 3.0883614509097825e-05, 'epoch': 4.45}
+{'loss': 1.7308, 'grad_norm': 40.63413619995117, 'learning_rate': 2.8777572111320272e-05, 'epoch': 4.83}
+{'loss': 1.096, 'grad_norm': 30.945558547973633, 'learning_rate': 2.6597992262665313e-05, 'epoch': 5.19}
+{'loss': 1.004, 'grad_norm': 65.44535064697266, 'learning_rate': 2.436813116680765e-05, 'epoch': 5.56}
+{'loss': 0.8614, 'grad_norm': 46.307369232177734, 'learning_rate': 2.2111781530329495e-05, 'epoch': 5.94}
+{'loss': 0.5317, 'grad_norm': 125.68429565429688, 'learning_rate': 1.9853018693595023e-05, 'epoch': 6.3}
+{'loss': 0.4623, 'grad_norm': 76.31584930419922, 'learning_rate': 1.7615943745911128e-05, 'epoch': 6.68}
+{'loss': 0.4178, 'grad_norm': 64.3154525756836, 'learning_rate': 1.5424426365945933e-05, 'epoch': 7.04}
+{'loss': 0.2002, 'grad_norm': 33.48618698120117, 'learning_rate': 1.3301850131308022e-05, 'epoch': 7.41}
+{'loss': 0.1897, 'grad_norm': 37.190250396728516, 'learning_rate': 1.1270863014843286e-05, 'epoch': 7.79}
+{'loss': 0.1453, 'grad_norm': 35.53301239013672, 'learning_rate': 9.353135729863907e-06, 'epoch': 8.15}
+{'loss': 0.0712, 'grad_norm': 58.34724426269531, 'learning_rate': 7.5691305027753706e-06, 'epoch': 8.53}
+{'loss': 0.0601, 'grad_norm': 40.71851348876953, 'learning_rate': 5.937882740306875e-06, 'epoch': 8.9}
+{'loss': 0.0367, 'grad_norm': 22.934711456298828, 'learning_rate': 4.476797920964401e-06, 'epoch': 9.26}
+{'loss': 0.0336, 'grad_norm': 24.58172607421875, 'learning_rate': 3.2014658778828167e-06, 'epoch': 9.64}
+{'loss': 0.0224, 'grad_norm': 4.361342906951904, 'learning_rate': 2.1254944546862545e-06, 'epoch': 10.0}
+{'loss': 0.0133, 'grad_norm': 10.18470287322998, 'learning_rate': 1.260364309255371e-06, 'epoch': 10.38}
+{'loss': 0.0168, 'grad_norm': 11.22342300415039, 'learning_rate': 6.153064146511906e-07, 'epoch': 10.75}
+{'loss': 0.0153, 'grad_norm': 18.728242874145508, 'learning_rate': 1.9720356426534914e-07, 'epoch': 11.11}
+{'loss': 0.0126, 'grad_norm': 7.157707214355469, 'learning_rate': 1.0516932140891421e-08, 'epoch': 11.49}
+{'train_runtime': 3627.8796, 'train_samples_per_second': 0.705, 'train_steps_per_second': 0.086, 'train_loss': 2.171074100328275, 'epoch': 11.56}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON FIXED VAL SUBSET
+================================================================================
+[HPO] Using 47 fixed validation samples for CER
+[HPO]   Evaluating 1/47: inventarbuch-013.jpg[HPO]   Evaluating 2/47: inventarbuch-019.jpg=== JOB_STATISTICS ===
+=== current date     : Tue Jan 20 06:49:48 AM CET 2026
+= Job-ID             : 1512871 on tinygpu
+= Job-Name           : inven_hpo2
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:15
+= Total RAM usage    : 12.4 GiB of requested  GiB (%)   
+= Node list          : tg090
+= Subm/Elig/Start/End: 2026-01-18T17:09:46 / 2026-01-18T17:09:46 / 2026-01-19T06:49:31 / 2026-01-20T06:49:46
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.4G   104.9G   209.7G        N/A  29,380      500K   1,000K        N/A    
+    /home/woody           219.6G  1000.0G  1500.0G        N/A   1,017K   5,000K   7,500K        N/A    
+    /home/vault          1033.5G  1048.6G  2097.2G        N/A   8,250      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:01:00.0, 2331764, 29 %, 8 %, 10872 MiB, 86386482 ms

@@ -1,0 +1,1158 @@
+### Starting TaskPrologue of job 1487309 on tg091 at Tue Jan 13 07:15:19 AM CET 2026
+Running on cores 96-127 with governor ondemand
+Tue Jan 13 07:15:19 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:C1:00.0 Off |                    0 |
+| N/A   35C    P0             52W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+[HPO] Created HPO run directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma3/hpo/schmuck/hpo_run_20260113_071545
+
+================================================================================
+[HPO] Starting / Resuming Optuna HPO for Gemma-3 SCHMUCK (LOCAL MODEL)
+================================================================================
+[HPO]   Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+[HPO]   Study name: gemma3_schmuck_data_ssv2
+[HPO]   Target COMPLETE trials: 30
+[HPO]   Output dir: /home/vault/iwi5/iwi5298h/models_image_text/gemma3/hpo/schmuck/hpo_run_20260113_071545
+[HPO]   Completed trials so far: 0
+[HPO]   Remaining trials to run: 30
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=8, alpha=32, dropout=0.1940, rslora=True)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 35.6112, 'grad_norm': 232.1808319091797, 'learning_rate': 0.00011769554508388652, 'epoch': 0.77}
+{'loss': 1.2274, 'grad_norm': 30.934616088867188, 'learning_rate': 0.00010949975078203003, 'epoch': 1.54}
+{'loss': 0.4225, 'grad_norm': 11.101505279541016, 'learning_rate': 9.345713124226456e-05, 'epoch': 2.31}
+{'loss': 0.2578, 'grad_norm': 14.492087364196777, 'learning_rate': 7.207143067200246e-05, 'epoch': 3.08}
+{'loss': 0.1568, 'grad_norm': 14.973919868469238, 'learning_rate': 4.868027880132157e-05, 'epoch': 3.85}
+{'loss': 0.1294, 'grad_norm': 8.163519859313965, 'learning_rate': 2.693429271652445e-05, 'epoch': 4.62}
+{'loss': 0.078, 'grad_norm': 7.666836738586426, 'learning_rate': 1.0227331292049999e-05, 'epoch': 5.39}
+{'loss': 0.0685, 'grad_norm': 5.630931377410889, 'learning_rate': 1.1668214375936042e-06, 'epoch': 6.15}
+{'train_runtime': 4203.9946, 'train_samples_per_second': 0.688, 'train_steps_per_second': 0.02, 'train_loss': 4.521021281856866, 'epoch': 6.46}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0035 (0.35%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=64, alpha=16, dropout=0.0244, rslora=True)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 9.0192, 'grad_norm': 62.48491668701172, 'learning_rate': 5.503279042535808e-06, 'epoch': 0.1}
+{'loss': 5.8349, 'grad_norm': 34.14902114868164, 'learning_rate': 1.1618033534242264e-05, 'epoch': 0.19}
+{'loss': 3.2129, 'grad_norm': 26.879507064819336, 'learning_rate': 1.7732788025948717e-05, 'epoch': 0.29}
+{'loss': 1.1966, 'grad_norm': 13.614331245422363, 'learning_rate': 2.384754251765517e-05, 'epoch': 0.39}
+{'loss': 0.302, 'grad_norm': 45.117366790771484, 'learning_rate': 2.9962297009361623e-05, 'epoch': 0.48}
+{'loss': 0.1886, 'grad_norm': 6.126343250274658, 'learning_rate': 3.607705150106808e-05, 'epoch': 0.58}
+{'loss': 0.1132, 'grad_norm': 11.912550926208496, 'learning_rate': 4.219180599277453e-05, 'epoch': 0.68}
+{'loss': 0.0633, 'grad_norm': 2.076979875564575, 'learning_rate': 4.8306560484480985e-05, 'epoch': 0.77}
+{'loss': 0.0613, 'grad_norm': 3.353092670440674, 'learning_rate': 5.442131497618744e-05, 'epoch': 0.87}
+{'loss': 0.0649, 'grad_norm': 2.3646886348724365, 'learning_rate': 5.5036961472078216e-05, 'epoch': 0.97}
+{'loss': 0.0717, 'grad_norm': 0.38717058300971985, 'learning_rate': 5.427783096901506e-05, 'epoch': 1.06}
+{'loss': 0.0371, 'grad_norm': 2.0082569122314453, 'learning_rate': 5.3518700465951916e-05, 'epoch': 1.15}
+{'loss': 0.0362, 'grad_norm': 0.5849471092224121, 'learning_rate': 5.275956996288877e-05, 'epoch': 1.25}
+{'loss': 0.0514, 'grad_norm': 2.0440006256103516, 'learning_rate': 5.200043945982562e-05, 'epoch': 1.35}
+{'loss': 0.0407, 'grad_norm': 1.4477146863937378, 'learning_rate': 5.124130895676247e-05, 'epoch': 1.45}
+{'loss': 0.0651, 'grad_norm': 2.1297125816345215, 'learning_rate': 5.048217845369932e-05, 'epoch': 1.54}
+{'loss': 0.0431, 'grad_norm': 1.0714439153671265, 'learning_rate': 4.9723047950636176e-05, 'epoch': 1.64}
+{'loss': 0.0456, 'grad_norm': 1.7295315265655518, 'learning_rate': 4.896391744757303e-05, 'epoch': 1.74}
+{'loss': 0.034, 'grad_norm': 1.0090382099151611, 'learning_rate': 4.820478694450988e-05, 'epoch': 1.83}
+{'loss': 0.043, 'grad_norm': 1.90592622756958, 'learning_rate': 4.7445656441446736e-05, 'epoch': 1.93}
+{'loss': 0.0272, 'grad_norm': 0.9913283586502075, 'learning_rate': 4.668652593838359e-05, 'epoch': 2.02}
+{'loss': 0.0288, 'grad_norm': 0.5225454568862915, 'learning_rate': 4.5927395435320437e-05, 'epoch': 2.12}
+{'loss': 0.0318, 'grad_norm': 0.550341010093689, 'learning_rate': 4.51682649322573e-05, 'epoch': 2.21}
+{'loss': 0.025, 'grad_norm': 0.3588571548461914, 'learning_rate': 4.440913442919414e-05, 'epoch': 2.31}
+{'loss': 0.0215, 'grad_norm': 1.1176352500915527, 'learning_rate': 4.3650003926131e-05, 'epoch': 2.41}
+{'loss': 0.0103, 'grad_norm': 0.04879816249012947, 'learning_rate': 4.289087342306784e-05, 'epoch': 2.5}
+{'loss': 0.0362, 'grad_norm': 0.3193281292915344, 'learning_rate': 4.2131742920004704e-05, 'epoch': 2.6}
+{'loss': 0.0215, 'grad_norm': 1.2459908723831177, 'learning_rate': 4.137261241694155e-05, 'epoch': 2.7}
+{'loss': 0.0313, 'grad_norm': 0.42871150374412537, 'learning_rate': 4.0613481913878404e-05, 'epoch': 2.79}
+{'loss': 0.0231, 'grad_norm': 0.6296664476394653, 'learning_rate': 3.985435141081526e-05, 'epoch': 2.89}
+{'loss': 0.0226, 'grad_norm': 0.7173982262611389, 'learning_rate': 3.909522090775211e-05, 'epoch': 2.99}
+{'loss': 0.0111, 'grad_norm': 2.949660539627075, 'learning_rate': 3.833609040468896e-05, 'epoch': 3.08}
+{'loss': 0.0127, 'grad_norm': 0.12626343965530396, 'learning_rate': 3.757695990162582e-05, 'epoch': 3.17}
+{'loss': 0.0116, 'grad_norm': 0.060218341648578644, 'learning_rate': 3.6817829398562664e-05, 'epoch': 3.27}
+{'loss': 0.0111, 'grad_norm': 0.5216261744499207, 'learning_rate': 3.605869889549952e-05, 'epoch': 3.37}
+{'loss': 0.0273, 'grad_norm': 1.910402774810791, 'learning_rate': 3.529956839243637e-05, 'epoch': 3.46}
+{'loss': 0.0144, 'grad_norm': 0.8888003826141357, 'learning_rate': 3.4540437889373224e-05, 'epoch': 3.56}
+{'loss': 0.0197, 'grad_norm': 0.4985494017601013, 'learning_rate': 3.378130738631008e-05, 'epoch': 3.66}
+{'loss': 0.0154, 'grad_norm': 0.7529101371765137, 'learning_rate': 3.3022176883246924e-05, 'epoch': 3.76}
+{'loss': 0.0076, 'grad_norm': 0.4233510494232178, 'learning_rate': 3.2263046380183784e-05, 'epoch': 3.85}
+{'loss': 0.0167, 'grad_norm': 0.224583700299263, 'learning_rate': 3.150391587712063e-05, 'epoch': 3.95}
+{'loss': 0.0129, 'grad_norm': 1.0868936777114868, 'learning_rate': 3.0744785374057484e-05, 'epoch': 4.04}
+{'loss': 0.0075, 'grad_norm': 0.050329890102148056, 'learning_rate': 2.9985654870994338e-05, 'epoch': 4.14}
+{'loss': 0.0065, 'grad_norm': 2.292243719100952, 'learning_rate': 2.9226524367931188e-05, 'epoch': 4.23}
+{'loss': 0.011, 'grad_norm': 0.4557149410247803, 'learning_rate': 2.846739386486804e-05, 'epoch': 4.33}
+{'loss': 0.006, 'grad_norm': 0.1801411509513855, 'learning_rate': 2.7708263361804895e-05, 'epoch': 4.43}
+{'loss': 0.0166, 'grad_norm': 2.3842759132385254, 'learning_rate': 2.6949132858741748e-05, 'epoch': 4.52}
+{'loss': 0.0082, 'grad_norm': 1.3768978118896484, 'learning_rate': 2.6190002355678598e-05, 'epoch': 4.62}
+{'loss': 0.0066, 'grad_norm': 0.551430344581604, 'learning_rate': 2.543087185261545e-05, 'epoch': 4.72}
+{'loss': 0.0115, 'grad_norm': 0.5171343684196472, 'learning_rate': 2.46717413495523e-05, 'epoch': 4.81}
+{'loss': 0.0082, 'grad_norm': 1.9929180145263672, 'learning_rate': 2.3912610846489155e-05, 'epoch': 4.91}
+{'loss': 0.0177, 'grad_norm': 0.027803897857666016, 'learning_rate': 2.3153480343426008e-05, 'epoch': 5.0}
+{'loss': 0.0059, 'grad_norm': 0.05017140135169029, 'learning_rate': 2.239434984036286e-05, 'epoch': 5.1}
+{'loss': 0.0036, 'grad_norm': 0.39284661412239075, 'learning_rate': 2.1635219337299712e-05, 'epoch': 5.19}
+{'loss': 0.0042, 'grad_norm': 3.7317802906036377, 'learning_rate': 2.0876088834236562e-05, 'epoch': 5.29}
+{'loss': 0.0045, 'grad_norm': 0.06246514990925789, 'learning_rate': 2.0116958331173415e-05, 'epoch': 5.39}
+{'loss': 0.0073, 'grad_norm': 0.7984523773193359, 'learning_rate': 1.935782782811027e-05, 'epoch': 5.48}
+{'loss': 0.0054, 'grad_norm': 0.9076237678527832, 'learning_rate': 1.859869732504712e-05, 'epoch': 5.58}
+{'loss': 0.005, 'grad_norm': 0.04931751638650894, 'learning_rate': 1.7839566821983972e-05, 'epoch': 5.68}
+{'loss': 0.0051, 'grad_norm': 1.3291144371032715, 'learning_rate': 1.7080436318920822e-05, 'epoch': 5.77}
+{'loss': 0.0072, 'grad_norm': 0.3314555585384369, 'learning_rate': 1.6321305815857675e-05, 'epoch': 5.87}
+{'loss': 0.0023, 'grad_norm': 0.2555316686630249, 'learning_rate': 1.556217531279453e-05, 'epoch': 5.97}
+{'loss': 0.0059, 'grad_norm': 0.08369140326976776, 'learning_rate': 1.480304480973138e-05, 'epoch': 6.06}
+{'loss': 0.0032, 'grad_norm': 0.027093783020973206, 'learning_rate': 1.4043914306668234e-05, 'epoch': 6.15}
+{'loss': 0.0046, 'grad_norm': 0.6856352090835571, 'learning_rate': 1.3284783803605086e-05, 'epoch': 6.25}
+{'loss': 0.0042, 'grad_norm': 0.599777102470398, 'learning_rate': 1.2525653300541937e-05, 'epoch': 6.35}
+{'loss': 0.0017, 'grad_norm': 0.35416215658187866, 'learning_rate': 1.1766522797478789e-05, 'epoch': 6.45}
+{'loss': 0.0012, 'grad_norm': 0.16312693059444427, 'learning_rate': 1.1007392294415643e-05, 'epoch': 6.54}
+{'loss': 0.0012, 'grad_norm': 0.05655143782496452, 'learning_rate': 1.0248261791352496e-05, 'epoch': 6.64}
+{'loss': 0.0019, 'grad_norm': 0.007241391111165285, 'learning_rate': 9.489131288289348e-06, 'epoch': 6.74}
+{'loss': 0.0039, 'grad_norm': 0.31014570593833923, 'learning_rate': 8.7300007852262e-06, 'epoch': 6.83}
+{'loss': 0.0018, 'grad_norm': 0.04522709175944328, 'learning_rate': 7.970870282163051e-06, 'epoch': 6.93}
+{'loss': 0.0024, 'grad_norm': 0.07942748069763184, 'learning_rate': 7.2117397790999045e-06, 'epoch': 7.02}
+{'loss': 0.0015, 'grad_norm': 0.15069472789764404, 'learning_rate': 6.452609276036755e-06, 'epoch': 7.12}
+{'loss': 0.0004, 'grad_norm': 0.006873351987451315, 'learning_rate': 5.693478772973608e-06, 'epoch': 7.21}
+{'loss': 0.0004, 'grad_norm': 0.19923439621925354, 'learning_rate': 4.9343482699104605e-06, 'epoch': 7.31}
+{'loss': 0.0001, 'grad_norm': 0.06487660109996796, 'learning_rate': 4.175217766847313e-06, 'epoch': 7.41}
+{'loss': 0.0029, 'grad_norm': 0.024985387921333313, 'learning_rate': 3.4160872637841647e-06, 'epoch': 7.5}
+{'loss': 0.0032, 'grad_norm': 0.0189884752035141, 'learning_rate': 2.6569567607210173e-06, 'epoch': 7.6}
+{'loss': 0.001, 'grad_norm': 0.09642087668180466, 'learning_rate': 1.8978262576578694e-06, 'epoch': 7.7}
+{'loss': 0.0017, 'grad_norm': 0.05165117233991623, 'learning_rate': 1.1386957545947218e-06, 'epoch': 7.79}
+{'loss': 0.0004, 'grad_norm': 0.18384847044944763, 'learning_rate': 3.795652515315739e-07, 'epoch': 7.89}
+{'train_runtime': 5210.2273, 'train_samples_per_second': 0.634, 'train_steps_per_second': 0.158, 'train_loss': 0.2567832660160561, 'epoch': 7.93}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0049 (0.49%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=32, alpha=128, dropout=0.1974, rslora=True)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 7.0941, 'grad_norm': 105.2395248413086, 'learning_rate': 5.548777280551551e-05, 'epoch': 0.19}
+{'loss': 0.3922, 'grad_norm': 375.0107727050781, 'learning_rate': 5.548777280551551e-05, 'epoch': 0.39}
+{'loss': 0.2112, 'grad_norm': 30.513442993164062, 'learning_rate': 5.548777280551551e-05, 'epoch': 0.58}
+{'loss': 0.1656, 'grad_norm': 135.8772735595703, 'learning_rate': 5.548777280551551e-05, 'epoch': 0.77}
+{'loss': 0.1398, 'grad_norm': 106.58299255371094, 'learning_rate': 5.548777280551551e-05, 'epoch': 0.97}
+{'loss': 0.1427, 'grad_norm': 40.42923355102539, 'learning_rate': 5.548777280551551e-05, 'epoch': 1.15}
+{'loss': 0.1237, 'grad_norm': 42.94024658203125, 'learning_rate': 5.548777280551551e-05, 'epoch': 1.35}
+{'loss': 0.1619, 'grad_norm': 35.968292236328125, 'learning_rate': 5.548777280551551e-05, 'epoch': 1.54}
+{'loss': 0.1178, 'grad_norm': 39.936100006103516, 'learning_rate': 5.548777280551551e-05, 'epoch': 1.74}
+{'loss': 0.1082, 'grad_norm': 23.101608276367188, 'learning_rate': 5.548777280551551e-05, 'epoch': 1.93}
+{'loss': 0.0923, 'grad_norm': 104.88340759277344, 'learning_rate': 5.548777280551551e-05, 'epoch': 2.12}
+{'loss': 0.0918, 'grad_norm': 14.366615295410156, 'learning_rate': 5.548777280551551e-05, 'epoch': 2.31}
+{'loss': 0.0604, 'grad_norm': 8.407697677612305, 'learning_rate': 5.548777280551551e-05, 'epoch': 2.5}
+{'loss': 0.1061, 'grad_norm': 6.631538391113281, 'learning_rate': 5.548777280551551e-05, 'epoch': 2.7}
+{'loss': 0.103, 'grad_norm': 60.93868637084961, 'learning_rate': 5.548777280551551e-05, 'epoch': 2.89}
+{'loss': 0.112, 'grad_norm': 24.392581939697266, 'learning_rate': 5.548777280551551e-05, 'epoch': 3.08}
+{'loss': 0.0804, 'grad_norm': 311.1792297363281, 'learning_rate': 5.548777280551551e-05, 'epoch': 3.27}
+{'loss': 0.0695, 'grad_norm': 28.759628295898438, 'learning_rate': 5.548777280551551e-05, 'epoch': 3.46}
+{'loss': 0.0803, 'grad_norm': 34.57571029663086, 'learning_rate': 5.548777280551551e-05, 'epoch': 3.66}
+{'loss': 0.0678, 'grad_norm': 7.769811153411865, 'learning_rate': 5.548777280551551e-05, 'epoch': 3.85}
+{'loss': 0.0859, 'grad_norm': 111.4539566040039, 'learning_rate': 5.548777280551551e-05, 'epoch': 4.04}
+{'loss': 0.0675, 'grad_norm': 39.66691589355469, 'learning_rate': 5.548777280551551e-05, 'epoch': 4.23}
+{'loss': 0.054, 'grad_norm': 20.317867279052734, 'learning_rate': 5.548777280551551e-05, 'epoch': 4.43}
+{'loss': 0.0681, 'grad_norm': 15.534850120544434, 'learning_rate': 5.548777280551551e-05, 'epoch': 4.62}
+{'loss': 0.0512, 'grad_norm': 5.5752763748168945, 'learning_rate': 5.548777280551551e-05, 'epoch': 4.81}
+{'loss': 0.0911, 'grad_norm': 23.741060256958008, 'learning_rate': 5.548777280551551e-05, 'epoch': 5.0}
+{'loss': 0.0559, 'grad_norm': 9.498841285705566, 'learning_rate': 5.548777280551551e-05, 'epoch': 5.19}
+{'loss': 0.0646, 'grad_norm': 5.014334201812744, 'learning_rate': 5.548777280551551e-05, 'epoch': 5.39}
+{'loss': 0.0605, 'grad_norm': 4.672929286956787, 'learning_rate': 5.548777280551551e-05, 'epoch': 5.58}
+{'loss': 0.0568, 'grad_norm': 6.628201961517334, 'learning_rate': 5.548777280551551e-05, 'epoch': 5.77}
+{'loss': 0.0549, 'grad_norm': 9.212388038635254, 'learning_rate': 5.548777280551551e-05, 'epoch': 5.97}
+{'loss': 0.0613, 'grad_norm': 2.5603840351104736, 'learning_rate': 5.548777280551551e-05, 'epoch': 6.15}
+{'loss': 0.048, 'grad_norm': 32.55562973022461, 'learning_rate': 5.548777280551551e-05, 'epoch': 6.35}
+{'loss': 0.0701, 'grad_norm': 8.356657981872559, 'learning_rate': 5.548777280551551e-05, 'epoch': 6.54}
+{'loss': 0.0672, 'grad_norm': 3.1703455448150635, 'learning_rate': 5.548777280551551e-05, 'epoch': 6.74}
+{'loss': 0.073, 'grad_norm': 10.432106018066406, 'learning_rate': 5.548777280551551e-05, 'epoch': 6.93}
+{'loss': 0.0392, 'grad_norm': 9.192523002624512, 'learning_rate': 5.548777280551551e-05, 'epoch': 7.12}
+{'loss': 0.0569, 'grad_norm': 515.9052734375, 'learning_rate': 5.548777280551551e-05, 'epoch': 7.31}
+{'loss': 0.047, 'grad_norm': 12.2549467086792, 'learning_rate': 5.548777280551551e-05, 'epoch': 7.5}
+{'loss': 0.0616, 'grad_norm': 47.80750274658203, 'learning_rate': 5.548777280551551e-05, 'epoch': 7.7}
+{'loss': 0.0444, 'grad_norm': 104.4403076171875, 'learning_rate': 5.548777280551551e-05, 'epoch': 7.89}
+{'loss': 0.063, 'grad_norm': 160.10263061523438, 'learning_rate': 5.548777280551551e-05, 'epoch': 8.08}
+{'loss': 0.0328, 'grad_norm': 7.811595439910889, 'learning_rate': 5.548777280551551e-05, 'epoch': 8.27}
+{'loss': 0.055, 'grad_norm': 7.658831596374512, 'learning_rate': 5.548777280551551e-05, 'epoch': 8.46}
+{'loss': 0.0422, 'grad_norm': 45.37105941772461, 'learning_rate': 5.548777280551551e-05, 'epoch': 8.66}
+{'train_runtime': 5757.7857, 'train_samples_per_second': 0.646, 'train_steps_per_second': 0.08, 'train_loss': 0.24114163937392058, 'epoch': 8.83}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0062 (0.62%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=64, alpha=32, dropout=0.0051, rslora=True)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 24.7681, 'grad_norm': 86.43386840820312, 'learning_rate': 0.00021592930476342978, 'epoch': 0.77}
+{'loss': 0.64, 'grad_norm': 21.961637496948242, 'learning_rate': 0.00019691220303480554, 'epoch': 1.54}
+{'loss': 0.3881, 'grad_norm': 24.62714958190918, 'learning_rate': 0.00015824225852474036, 'epoch': 2.31}
+{'loss': 0.252, 'grad_norm': 7.2627081871032715, 'learning_rate': 0.00010851692529723509, 'epoch': 3.08}
+{'loss': 0.1631, 'grad_norm': 5.706266403198242, 'learning_rate': 5.8791592069729825e-05, 'epoch': 3.85}
+{'loss': 0.1339, 'grad_norm': 9.795602798461914, 'learning_rate': 2.0121647559664656e-05, 'epoch': 4.62}
+{'loss': 0.0746, 'grad_norm': 2.6275863647460938, 'learning_rate': 1.1045458310403936e-06, 'epoch': 5.39}
+{'train_runtime': 3617.3855, 'train_samples_per_second': 0.685, 'train_steps_per_second': 0.02, 'train_loss': 3.6712964170922837, 'epoch': 5.54}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0037 (0.37%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=64, alpha=256, dropout=0.1721, rslora=False)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 5.6598, 'grad_norm': 50.73362731933594, 'learning_rate': 4.273756634281663e-05, 'epoch': 0.1}
+{'loss': 0.4969, 'grad_norm': 59.756385803222656, 'learning_rate': 9.022375116816845e-05, 'epoch': 0.19}
+{'loss': 0.1051, 'grad_norm': 6.8525166511535645, 'learning_rate': 0.00013770993599352026, 'epoch': 0.29}
+{'loss': 0.1823, 'grad_norm': 4.959173202514648, 'learning_rate': 0.0001851961208188721, 'epoch': 0.39}
+{'loss': 0.2086, 'grad_norm': 52.31492614746094, 'learning_rate': 0.0002326823056442239, 'epoch': 0.48}
+{'loss': 0.1749, 'grad_norm': 4.725625991821289, 'learning_rate': 0.0002801684904695757, 'epoch': 0.58}
+{'loss': 0.1909, 'grad_norm': 23.320085525512695, 'learning_rate': 0.000317496675218061, 'epoch': 0.68}
+{'loss': 0.1319, 'grad_norm': 4.896909713745117, 'learning_rate': 0.0003141928596590801, 'epoch': 0.77}
+{'loss': 0.1688, 'grad_norm': 11.635290145874023, 'learning_rate': 0.0003108890441000993, 'epoch': 0.87}
+{'loss': 0.2555, 'grad_norm': 9.727445602416992, 'learning_rate': 0.0003075852285411184, 'epoch': 0.97}
+{'loss': 0.1927, 'grad_norm': 4.332162857055664, 'learning_rate': 0.0003042814129821375, 'epoch': 1.06}
+{'loss': 0.1256, 'grad_norm': 4.289988040924072, 'learning_rate': 0.0003009775974231567, 'epoch': 1.15}
+{'loss': 0.1581, 'grad_norm': 4.124876976013184, 'learning_rate': 0.0002976737818641758, 'epoch': 1.25}
+{'loss': 0.1483, 'grad_norm': 2.801754951477051, 'learning_rate': 0.00029436996630519493, 'epoch': 1.35}
+{'loss': 0.2168, 'grad_norm': 13.389391899108887, 'learning_rate': 0.0002910661507462141, 'epoch': 1.45}
+{'loss': 0.2107, 'grad_norm': 6.442991256713867, 'learning_rate': 0.0002877623351872332, 'epoch': 1.54}
+{'loss': 0.1736, 'grad_norm': 11.141270637512207, 'learning_rate': 0.00028445851962825234, 'epoch': 1.64}
+{'loss': 0.1604, 'grad_norm': 7.366434097290039, 'learning_rate': 0.0002811547040692715, 'epoch': 1.74}
+{'loss': 0.1679, 'grad_norm': 4.834109783172607, 'learning_rate': 0.00027785088851029063, 'epoch': 1.83}
+{'loss': 0.1548, 'grad_norm': 6.346277713775635, 'learning_rate': 0.00027454707295130975, 'epoch': 1.93}
+{'loss': 0.1013, 'grad_norm': 3.9115281105041504, 'learning_rate': 0.0002712432573923289, 'epoch': 2.02}
+{'loss': 0.1641, 'grad_norm': 12.871007919311523, 'learning_rate': 0.00026793944183334804, 'epoch': 2.12}
+{'loss': 0.151, 'grad_norm': 11.40466022491455, 'learning_rate': 0.00026463562627436715, 'epoch': 2.21}
+{'loss': 0.1314, 'grad_norm': 12.781434059143066, 'learning_rate': 0.0002613318107153863, 'epoch': 2.31}
+{'loss': 0.1672, 'grad_norm': 3.818510055541992, 'learning_rate': 0.0002580279951564055, 'epoch': 2.41}
+{'loss': 0.113, 'grad_norm': 4.006351470947266, 'learning_rate': 0.00025472417959742456, 'epoch': 2.5}
+{'loss': 0.1971, 'grad_norm': 13.495705604553223, 'learning_rate': 0.00025142036403844373, 'epoch': 2.6}
+{'loss': 0.1185, 'grad_norm': 5.449586391448975, 'learning_rate': 0.0002481165484794629, 'epoch': 2.7}
+{'loss': 0.1241, 'grad_norm': 3.3372385501861572, 'learning_rate': 0.00024481273292048197, 'epoch': 2.79}
+{'loss': 0.1303, 'grad_norm': 2.9607198238372803, 'learning_rate': 0.00024150891736150114, 'epoch': 2.89}
+{'loss': 0.1214, 'grad_norm': 2.032670259475708, 'learning_rate': 0.00023820510180252029, 'epoch': 2.99}
+{'loss': 0.089, 'grad_norm': 4.966798782348633, 'learning_rate': 0.0002349012862435394, 'epoch': 3.08}
+{'loss': 0.0677, 'grad_norm': 3.312622547149658, 'learning_rate': 0.00023159747068455855, 'epoch': 3.17}
+{'loss': 0.1015, 'grad_norm': 23.154233932495117, 'learning_rate': 0.0002282936551255777, 'epoch': 3.27}
+{'loss': 0.0968, 'grad_norm': 2.6663365364074707, 'learning_rate': 0.0002249898395665968, 'epoch': 3.37}
+{'loss': 0.1348, 'grad_norm': 6.058920383453369, 'learning_rate': 0.00022168602400761595, 'epoch': 3.46}
+{'loss': 0.0762, 'grad_norm': 1.6493122577667236, 'learning_rate': 0.0002183822084486351, 'epoch': 3.56}
+{'loss': 0.1326, 'grad_norm': 1.6546976566314697, 'learning_rate': 0.00021507839288965422, 'epoch': 3.66}
+{'loss': 0.1133, 'grad_norm': 1.8368895053863525, 'learning_rate': 0.00021177457733067336, 'epoch': 3.76}
+{'loss': 0.0799, 'grad_norm': 8.071495056152344, 'learning_rate': 0.0002084707617716925, 'epoch': 3.85}
+{'loss': 0.1042, 'grad_norm': 3.5043394565582275, 'learning_rate': 0.00020516694621271162, 'epoch': 3.95}
+{'loss': 0.0717, 'grad_norm': 2.8382163047790527, 'learning_rate': 0.00020186313065373077, 'epoch': 4.04}
+{'loss': 0.0805, 'grad_norm': 3.722707748413086, 'learning_rate': 0.00019855931509474991, 'epoch': 4.14}
+{'loss': 0.0869, 'grad_norm': 5.5382609367370605, 'learning_rate': 0.00019525549953576903, 'epoch': 4.23}
+{'loss': 0.0627, 'grad_norm': 8.173407554626465, 'learning_rate': 0.00019195168397678818, 'epoch': 4.33}
+{'loss': 0.0833, 'grad_norm': 2.6966733932495117, 'learning_rate': 0.00018864786841780732, 'epoch': 4.43}
+{'loss': 0.0952, 'grad_norm': 3.579819440841675, 'learning_rate': 0.00018534405285882644, 'epoch': 4.52}
+{'loss': 0.0697, 'grad_norm': 0.5406882762908936, 'learning_rate': 0.00018204023729984558, 'epoch': 4.62}
+{'loss': 0.0295, 'grad_norm': 0.7125481963157654, 'learning_rate': 0.00017873642174086473, 'epoch': 4.72}
+{'loss': 0.0777, 'grad_norm': 5.594504356384277, 'learning_rate': 0.00017543260618188385, 'epoch': 4.81}
+{'loss': 0.052, 'grad_norm': 2.9000942707061768, 'learning_rate': 0.000172128790622903, 'epoch': 4.91}
+{'loss': 0.0731, 'grad_norm': 2.3881735801696777, 'learning_rate': 0.00016882497506392214, 'epoch': 5.0}
+{'loss': 0.0399, 'grad_norm': 4.951229095458984, 'learning_rate': 0.00016552115950494125, 'epoch': 5.1}
+{'loss': 0.061, 'grad_norm': 3.8304388523101807, 'learning_rate': 0.0001622173439459604, 'epoch': 5.19}
+{'loss': 0.0456, 'grad_norm': 4.4587788581848145, 'learning_rate': 0.00015891352838697954, 'epoch': 5.29}
+{'loss': 0.0716, 'grad_norm': 2.984456777572632, 'learning_rate': 0.0001556097128279987, 'epoch': 5.39}
+{'loss': 0.0648, 'grad_norm': 0.5949571132659912, 'learning_rate': 0.0001523058972690178, 'epoch': 5.48}
+{'loss': 0.0475, 'grad_norm': 2.890763998031616, 'learning_rate': 0.00014900208171003695, 'epoch': 5.58}
+{'loss': 0.0618, 'grad_norm': 1.7183964252471924, 'learning_rate': 0.0001456982661510561, 'epoch': 5.68}
+{'loss': 0.0398, 'grad_norm': 0.7443517446517944, 'learning_rate': 0.00014239445059207521, 'epoch': 5.77}
+{'loss': 0.0556, 'grad_norm': 5.334986209869385, 'learning_rate': 0.00013909063503309436, 'epoch': 5.87}
+{'loss': 0.0333, 'grad_norm': 0.025754254311323166, 'learning_rate': 0.0001357868194741135, 'epoch': 5.97}
+{'loss': 0.0451, 'grad_norm': 5.3480916023254395, 'learning_rate': 0.00013248300391513265, 'epoch': 6.06}
+{'loss': 0.047, 'grad_norm': 6.645199775695801, 'learning_rate': 0.00012917918835615177, 'epoch': 6.15}
+{'loss': 0.035, 'grad_norm': 0.6019203066825867, 'learning_rate': 0.0001258753727971709, 'epoch': 6.25}
+{'loss': 0.0375, 'grad_norm': 10.252937316894531, 'learning_rate': 0.00012257155723819006, 'epoch': 6.35}
+{'loss': 0.0439, 'grad_norm': 4.22283411026001, 'learning_rate': 0.00011926774167920919, 'epoch': 6.45}
+{'loss': 0.0321, 'grad_norm': 1.8679227828979492, 'learning_rate': 0.00011596392612022832, 'epoch': 6.54}
+{'loss': 0.0193, 'grad_norm': 1.2275426387786865, 'learning_rate': 0.00011266011056124746, 'epoch': 6.64}
+{'loss': 0.0396, 'grad_norm': 5.109946250915527, 'learning_rate': 0.0001093562950022666, 'epoch': 6.74}
+{'loss': 0.0393, 'grad_norm': 1.9349746704101562, 'learning_rate': 0.00010605247944328573, 'epoch': 6.83}
+{'loss': 0.0246, 'grad_norm': 0.35886991024017334, 'learning_rate': 0.00010274866388430487, 'epoch': 6.93}
+{'loss': 0.011, 'grad_norm': 0.19692440330982208, 'learning_rate': 9.9444848325324e-05, 'epoch': 7.02}
+{'loss': 0.0277, 'grad_norm': 0.5934993624687195, 'learning_rate': 9.614103276634313e-05, 'epoch': 7.12}
+{'loss': 0.0143, 'grad_norm': 3.6525862216949463, 'learning_rate': 9.283721720736228e-05, 'epoch': 7.21}
+{'loss': 0.0211, 'grad_norm': 0.36238813400268555, 'learning_rate': 8.953340164838141e-05, 'epoch': 7.31}
+{'loss': 0.0141, 'grad_norm': 0.2772679626941681, 'learning_rate': 8.622958608940054e-05, 'epoch': 7.41}
+{'loss': 0.0342, 'grad_norm': 1.371508240699768, 'learning_rate': 8.292577053041968e-05, 'epoch': 7.5}
+{'loss': 0.0254, 'grad_norm': 1.2557135820388794, 'learning_rate': 7.962195497143882e-05, 'epoch': 7.6}
+{'loss': 0.019, 'grad_norm': 0.12296593934297562, 'learning_rate': 7.631813941245795e-05, 'epoch': 7.7}
+{'loss': 0.0232, 'grad_norm': 3.143078088760376, 'learning_rate': 7.301432385347709e-05, 'epoch': 7.79}
+{'loss': 0.0104, 'grad_norm': 3.0418756008148193, 'learning_rate': 6.971050829449622e-05, 'epoch': 7.89}
+{'loss': 0.0158, 'grad_norm': 0.8622058033943176, 'learning_rate': 6.640669273551535e-05, 'epoch': 7.99}
+{'loss': 0.0135, 'grad_norm': 0.37495937943458557, 'learning_rate': 6.31028771765345e-05, 'epoch': 8.08}
+{'loss': 0.0078, 'grad_norm': 0.03464559465646744, 'learning_rate': 5.979906161755364e-05, 'epoch': 8.17}
+{'loss': 0.0163, 'grad_norm': 0.08240613341331482, 'learning_rate': 5.649524605857277e-05, 'epoch': 8.27}
+{'loss': 0.0092, 'grad_norm': 0.4372998774051666, 'learning_rate': 5.319143049959191e-05, 'epoch': 8.37}
+{'loss': 0.0133, 'grad_norm': 0.044577207416296005, 'learning_rate': 4.9887614940611045e-05, 'epoch': 8.46}
+{'loss': 0.0158, 'grad_norm': 0.3900923430919647, 'learning_rate': 4.6583799381630176e-05, 'epoch': 8.56}
+{'loss': 0.0098, 'grad_norm': 0.29818958044052124, 'learning_rate': 4.3279983822649314e-05, 'epoch': 8.66}
+{'loss': 0.0095, 'grad_norm': 2.855674982070923, 'learning_rate': 3.997616826366845e-05, 'epoch': 8.76}
+{'loss': 0.0067, 'grad_norm': 0.7320010662078857, 'learning_rate': 3.667235270468759e-05, 'epoch': 8.85}
+{'loss': 0.0173, 'grad_norm': 2.0491316318511963, 'learning_rate': 3.336853714570672e-05, 'epoch': 8.95}
+{'loss': 0.0047, 'grad_norm': 0.1600673347711563, 'learning_rate': 3.006472158672586e-05, 'epoch': 9.04}
+{'loss': 0.0068, 'grad_norm': 0.018762970343232155, 'learning_rate': 2.6760906027744994e-05, 'epoch': 9.14}
+{'loss': 0.0049, 'grad_norm': 0.4833284914493561, 'learning_rate': 2.3457090468764132e-05, 'epoch': 9.23}
+{'loss': 0.0058, 'grad_norm': 0.2637830376625061, 'learning_rate': 2.0153274909783267e-05, 'epoch': 9.33}
+{'loss': 0.0033, 'grad_norm': 0.1511669009923935, 'learning_rate': 1.6849459350802405e-05, 'epoch': 9.43}
+{'loss': 0.0104, 'grad_norm': 0.02827013097703457, 'learning_rate': 1.3545643791821541e-05, 'epoch': 9.52}
+{'loss': 0.0065, 'grad_norm': 0.14074404537677765, 'learning_rate': 1.0241828232840678e-05, 'epoch': 9.62}
+{'loss': 0.0044, 'grad_norm': 0.19552163779735565, 'learning_rate': 6.938012673859814e-06, 'epoch': 9.72}
+{'loss': 0.0042, 'grad_norm': 0.3809307813644409, 'learning_rate': 3.63419711487895e-06, 'epoch': 9.81}
+{'loss': 0.005, 'grad_norm': 0.06413083523511887, 'learning_rate': 3.303815558980864e-07, 'epoch': 9.91}
+{'train_runtime': 6505.4481, 'train_samples_per_second': 0.635, 'train_steps_per_second': 0.158, 'train_loss': 0.13454288907927794, 'epoch': 9.91}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0051 (0.51%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=64, alpha=128, dropout=0.1344, rslora=True)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 4.0975, 'grad_norm': 109.04193878173828, 'learning_rate': 3.265940001598133e-05, 'epoch': 0.1}
+{'loss': 0.2512, 'grad_norm': 65.74032592773438, 'learning_rate': 5.4429050057351226e-05, 'epoch': 0.19}
+{'loss': 0.1332, 'grad_norm': 29.24608039855957, 'learning_rate': 5.439212200001181e-05, 'epoch': 0.29}
+{'loss': 0.1681, 'grad_norm': 83.9044189453125, 'learning_rate': 5.431421762341831e-05, 'epoch': 0.39}
+{'loss': 0.1233, 'grad_norm': 16.84664535522461, 'learning_rate': 5.4195454392976044e-05, 'epoch': 0.48}
+{'loss': 0.1243, 'grad_norm': 23.539560317993164, 'learning_rate': 5.4036011381692344e-05, 'epoch': 0.58}
+{'loss': 0.1103, 'grad_norm': 30.33209228515625, 'learning_rate': 5.3836129000167533e-05, 'epoch': 0.68}
+{'loss': 0.0986, 'grad_norm': 5.861489295959473, 'learning_rate': 5.35961086341002e-05, 'epoch': 0.77}
+{'loss': 0.0908, 'grad_norm': 17.49544334411621, 'learning_rate': 5.331631218985322e-05, 'epoch': 0.87}
+{'loss': 0.0988, 'grad_norm': 14.321269035339355, 'learning_rate': 5.299716154876582e-05, 'epoch': 0.97}
+{'loss': 0.1075, 'grad_norm': 5.240726947784424, 'learning_rate': 5.263913793103452e-05, 'epoch': 1.06}
+{'loss': 0.0617, 'grad_norm': 40.80572509765625, 'learning_rate': 5.2242781170121955e-05, 'epoch': 1.15}
+{'loss': 0.1024, 'grad_norm': 11.374897003173828, 'learning_rate': 5.180868889878774e-05, 'epoch': 1.25}
+{'loss': 0.0965, 'grad_norm': 1.7871626615524292, 'learning_rate': 5.133751564796877e-05, 'epoch': 1.35}
+{'loss': 0.0837, 'grad_norm': 103.97398376464844, 'learning_rate': 5.082997185986741e-05, 'epoch': 1.45}
+{'loss': 0.1304, 'grad_norm': 19.788719177246094, 'learning_rate': 5.0286822816735996e-05, 'epoch': 1.54}
+{'loss': 0.105, 'grad_norm': 33.578861236572266, 'learning_rate': 4.97088874869726e-05, 'epoch': 1.64}
+{'loss': 0.0632, 'grad_norm': 28.853097915649414, 'learning_rate': 4.909703729026794e-05, 'epoch': 1.74}
+{'loss': 0.0709, 'grad_norm': 16.224252700805664, 'learning_rate': 4.845219478366558e-05, 'epoch': 1.83}
+{'loss': 0.084, 'grad_norm': 29.40337562561035, 'learning_rate': 4.777533227051634e-05, 'epoch': 1.93}
+{'loss': 0.0696, 'grad_norm': 28.256677627563477, 'learning_rate': 4.706747033442448e-05, 'epoch': 2.02}
+{'loss': 0.0672, 'grad_norm': 79.9774169921875, 'learning_rate': 4.6329676300396215e-05, 'epoch': 2.12}
+{'loss': 0.0825, 'grad_norm': 1.8686423301696777, 'learning_rate': 4.556306262551085e-05, 'epoch': 2.21}
+{'loss': 0.0527, 'grad_norm': 67.57229614257812, 'learning_rate': 4.476878522154099e-05, 'epoch': 2.31}
+{'loss': 0.076, 'grad_norm': 25.429880142211914, 'learning_rate': 4.394804171205121e-05, 'epoch': 2.41}
+{'loss': 0.0454, 'grad_norm': 6.126124858856201, 'learning_rate': 4.310206962660305e-05, 'epoch': 2.5}
+{'loss': 0.0992, 'grad_norm': 3.3776562213897705, 'learning_rate': 4.223214453478899e-05, 'epoch': 2.6}
+{'loss': 0.0511, 'grad_norm': 12.824518203735352, 'learning_rate': 4.133957812290925e-05, 'epoch': 2.7}
+{'loss': 0.0539, 'grad_norm': 3.9185681343078613, 'learning_rate': 4.0425716216191274e-05, 'epoch': 2.79}
+{'loss': 0.0634, 'grad_norm': 45.05575942993164, 'learning_rate': 3.949193674953386e-05, 'epoch': 2.89}
+{'loss': 0.0621, 'grad_norm': 3.1742031574249268, 'learning_rate': 3.853964768983596e-05, 'epoch': 2.99}
+{'loss': 0.035, 'grad_norm': 9.83570384979248, 'learning_rate': 3.7570284913042826e-05, 'epoch': 3.08}
+{'loss': 0.0426, 'grad_norm': 12.403695106506348, 'learning_rate': 3.658531003911029e-05, 'epoch': 3.17}
+{'loss': 0.0616, 'grad_norm': 13.440539360046387, 'learning_rate': 3.558620822815199e-05, 'epoch': 3.27}
+{'loss': 0.0407, 'grad_norm': 8.525677680969238, 'learning_rate': 3.4574485941092336e-05, 'epoch': 3.37}
+{'loss': 0.0642, 'grad_norm': 5.0425028800964355, 'learning_rate': 3.35516686682018e-05, 'epoch': 3.46}
+{'loss': 0.0336, 'grad_norm': 0.9398517608642578, 'learning_rate': 3.2519298628939405e-05, 'epoch': 3.56}
+{'loss': 0.0455, 'grad_norm': 1.5829181671142578, 'learning_rate': 3.14789324465708e-05, 'epoch': 3.66}
+{'loss': 0.0477, 'grad_norm': 2.0200607776641846, 'learning_rate': 3.0432138801067966e-05, 'epoch': 3.76}
+{'loss': 0.0311, 'grad_norm': 9.65351676940918, 'learning_rate': 2.9380496063829662e-05, 'epoch': 3.85}
+{'loss': 0.0383, 'grad_norm': 6.464824676513672, 'learning_rate': 2.8325589917789016e-05, 'epoch': 3.95}
+{'loss': 0.0396, 'grad_norm': 2.761476755142212, 'learning_rate': 2.726901096649664e-05, 'epoch': 4.04}
+{'loss': 0.0331, 'grad_norm': 4.1820759773254395, 'learning_rate': 2.6212352335784367e-05, 'epoch': 4.14}
+{'loss': 0.0362, 'grad_norm': 1.300973653793335, 'learning_rate': 2.515720727162589e-05, 'epoch': 4.23}
+{'loss': 0.0302, 'grad_norm': 8.727131843566895, 'learning_rate': 2.4105166737816202e-05, 'epoch': 4.33}
+{'loss': 0.022, 'grad_norm': 0.5102609395980835, 'learning_rate': 2.3057817017092133e-05, 'epoch': 4.43}
+{'loss': 0.0572, 'grad_norm': 12.962864875793457, 'learning_rate': 2.2016737319311153e-05, 'epoch': 4.52}
+{'loss': 0.0458, 'grad_norm': 2.539189338684082, 'learning_rate': 2.098349740029465e-05, 'epoch': 4.62}
+{'loss': 0.0148, 'grad_norm': 2.332726240158081, 'learning_rate': 1.9959655194926176e-05, 'epoch': 4.72}
+{'loss': 0.0428, 'grad_norm': 16.387826919555664, 'learning_rate': 1.8946754468073592e-05, 'epoch': 4.81}
+{'loss': 0.0151, 'grad_norm': 176.8897247314453, 'learning_rate': 1.7946322486876816e-05, 'epoch': 4.91}
+{'loss': 0.0366, 'grad_norm': 0.13890798389911652, 'learning_rate': 1.6959867717911187e-05, 'epoch': 5.0}
+{'loss': 0.0148, 'grad_norm': 2.840749979019165, 'learning_rate': 1.5988877552698636e-05, 'epoch': 5.1}
+{'loss': 0.0154, 'grad_norm': 6.005923271179199, 'learning_rate': 1.5034816064996032e-05, 'epoch': 5.19}
+{'loss': 0.0128, 'grad_norm': 0.7470804452896118, 'learning_rate': 1.4099121803242534e-05, 'epoch': 5.29}
+{'loss': 0.0199, 'grad_norm': 0.8311435580253601, 'learning_rate': 1.3183205621494313e-05, 'epoch': 5.39}
+{'loss': 0.0203, 'grad_norm': 1.1156061887741089, 'learning_rate': 1.2288448552117375e-05, 'epoch': 5.48}
+{'loss': 0.0169, 'grad_norm': 0.6518845558166504, 'learning_rate': 1.141619972344583e-05, 'epoch': 5.58}
+{'loss': 0.0208, 'grad_norm': 3.0465188026428223, 'learning_rate': 1.0567774325545744e-05, 'epoch': 5.68}
+{'loss': 0.0227, 'grad_norm': 4.402736663818359, 'learning_rate': 9.744451627151518e-06, 'epoch': 5.77}
+{'loss': 0.0186, 'grad_norm': 1.8234962224960327, 'learning_rate': 8.947473046764921e-06, 'epoch': 5.87}
+{'loss': 0.0082, 'grad_norm': 1.7484984397888184, 'learning_rate': 8.178040280825494e-06, 'epoch': 5.97}
+{'loss': 0.0106, 'grad_norm': 2.3187053203582764, 'learning_rate': 7.437313491774278e-06, 'epoch': 6.06}
+{'loss': 0.0074, 'grad_norm': 1.0921059846878052, 'learning_rate': 6.7264095587432314e-06, 'epoch': 6.15}
+{'loss': 0.0127, 'grad_norm': 0.14314481616020203, 'learning_rate': 6.046400393507892e-06, 'epoch': 6.25}
+{'loss': 0.0106, 'grad_norm': 1.4899299144744873, 'learning_rate': 5.3983113242424535e-06, 'epoch': 6.35}
+{'loss': 0.0074, 'grad_norm': 3.289196491241455, 'learning_rate': 4.78311954951435e-06, 'epoch': 6.45}
+{'loss': 0.0113, 'grad_norm': 0.3407968282699585, 'learning_rate': 4.201752664849363e-06, 'epoch': 6.54}
+{'loss': 0.008, 'grad_norm': 0.10440615564584732, 'learning_rate': 3.65508726408898e-06, 'epoch': 6.64}
+{'loss': 0.0048, 'grad_norm': 0.05412016436457634, 'learning_rate': 3.143947617648807e-06, 'epoch': 6.74}
+{'loss': 0.01, 'grad_norm': 0.15756440162658691, 'learning_rate': 2.66910442967116e-06, 'epoch': 6.83}
+{'loss': 0.0046, 'grad_norm': 0.7698501348495483, 'learning_rate': 2.231273675945548e-06, 'epoch': 6.93}
+{'loss': 0.0035, 'grad_norm': 0.2950689196586609, 'learning_rate': 1.8311155243495194e-06, 'epoch': 7.02}
+{'loss': 0.0064, 'grad_norm': 3.275813341140747, 'learning_rate': 1.4692333394374694e-06, 'epoch': 7.12}
+{'loss': 0.0015, 'grad_norm': 0.08329731225967407, 'learning_rate': 1.1461727726783754e-06, 'epoch': 7.21}
+{'loss': 0.0033, 'grad_norm': 0.6217358708381653, 'learning_rate': 8.624209397142161e-07, 'epoch': 7.31}
+{'loss': 0.0032, 'grad_norm': 0.07632647454738617, 'learning_rate': 6.184056858795656e-07, 'epoch': 7.41}
+{'loss': 0.0054, 'grad_norm': 0.12568295001983643, 'learning_rate': 4.1449494108991247e-07, 'epoch': 7.5}
+{'loss': 0.0082, 'grad_norm': 0.8923779129981995, 'learning_rate': 2.509961650712981e-07, 'epoch': 7.6}
+{'loss': 0.0038, 'grad_norm': 0.01562245562672615, 'learning_rate': 1.2815588376789143e-07, 'epoch': 7.7}
+{'loss': 0.0038, 'grad_norm': 7.564757347106934, 'learning_rate': 4.615931762639494e-08, 'epoch': 7.79}
+{'loss': 0.0015, 'grad_norm': 0.6898007988929749, 'learning_rate': 5.1301023178376815e-09, 'epoch': 7.89}
+{'train_runtime': 5224.9524, 'train_samples_per_second': 0.632, 'train_steps_per_second': 0.158, 'train_loss': 0.09755913815257655, 'epoch': 7.93}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0366 (3.66%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=32, alpha=64, dropout=0.1320, rslora=True)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 28.4891, 'grad_norm': 112.10680389404297, 'learning_rate': 0.00012424110962796817, 'epoch': 0.77}
+{'loss': 1.8127, 'grad_norm': 132.23089599609375, 'learning_rate': 0.0002208730837830545, 'epoch': 1.54}
+{'loss': 0.663, 'grad_norm': 326.24737548828125, 'learning_rate': 0.0002208730837830545, 'epoch': 2.31}
+{'loss': 0.4563, 'grad_norm': 26.046167373657227, 'learning_rate': 0.0002208730837830545, 'epoch': 3.08}
+{'loss': 0.3901, 'grad_norm': 18.359102249145508, 'learning_rate': 0.0002208730837830545, 'epoch': 3.85}
+{'loss': 0.3926, 'grad_norm': 112.48088073730469, 'learning_rate': 0.0002208730837830545, 'epoch': 4.62}
+{'loss': 0.299, 'grad_norm': 38.11289596557617, 'learning_rate': 0.0002208730837830545, 'epoch': 5.39}
+{'loss': 0.2819, 'grad_norm': 9.52017879486084, 'learning_rate': 0.0002208730837830545, 'epoch': 6.15}
+{'loss': 0.2744, 'grad_norm': 17.244598388671875, 'learning_rate': 0.0002208730837830545, 'epoch': 6.93}
+{'loss': 0.2379, 'grad_norm': 17.691091537475586, 'learning_rate': 0.0002208730837830545, 'epoch': 7.7}
+{'loss': 0.1894, 'grad_norm': 18.617225646972656, 'learning_rate': 0.0002208730837830545, 'epoch': 8.46}
+{'loss': 0.3896, 'grad_norm': 85.0278549194336, 'learning_rate': 0.0002208730837830545, 'epoch': 9.23}
+{'train_runtime': 5996.5455, 'train_samples_per_second': 0.689, 'train_steps_per_second': 0.02, 'train_loss': 2.823007024327914, 'epoch': 9.23}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0215 (2.15%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=32, alpha=64, dropout=0.1424, rslora=False)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 13.1797, 'grad_norm': 23.793413162231445, 'learning_rate': 0.0003952088436963068, 'epoch': 0.39}
+{'loss': 0.5643, 'grad_norm': 5.50335168838501, 'learning_rate': 0.00039015111418854223, 'epoch': 0.77}
+{'loss': 0.2836, 'grad_norm': 5.014189720153809, 'learning_rate': 0.0003801653173175362, 'epoch': 1.15}
+{'loss': 0.2241, 'grad_norm': 6.047592639923096, 'learning_rate': 0.00036550745329743257, 'epoch': 1.54}
+{'loss': 0.208, 'grad_norm': 6.568700313568115, 'learning_rate': 0.0003465532974796138, 'epoch': 1.93}
+{'loss': 0.1551, 'grad_norm': 3.2237000465393066, 'learning_rate': 0.000323788766813018, 'epoch': 2.31}
+{'loss': 0.1317, 'grad_norm': 3.109119415283203, 'learning_rate': 0.00029779746266675087, 'epoch': 2.7}
+{'loss': 0.1289, 'grad_norm': 1.9556547403335571, 'learning_rate': 0.0002692457093725877, 'epoch': 3.08}
+{'loss': 0.0945, 'grad_norm': 1.9534002542495728, 'learning_rate': 0.00023886547204577218, 'epoch': 3.46}
+{'loss': 0.1113, 'grad_norm': 2.1390128135681152, 'learning_rate': 0.00020743559161025537, 'epoch': 3.85}
+{'loss': 0.0758, 'grad_norm': 4.262329578399658, 'learning_rate': 0.00017576181809539804, 'epoch': 4.23}
+{'loss': 0.0686, 'grad_norm': 2.482771873474121, 'learning_rate': 0.00014465615407919038, 'epoch': 4.62}
+{'loss': 0.0591, 'grad_norm': 3.3962085247039795, 'learning_rate': 0.00011491603783842657, 'epoch': 5.0}
+{'loss': 0.0428, 'grad_norm': 3.6323699951171875, 'learning_rate': 8.730389987561365e-05, 'epoch': 5.39}
+{'loss': 0.0454, 'grad_norm': 1.8902413845062256, 'learning_rate': 6.252761692034657e-05, 'epoch': 5.77}
+{'loss': 0.0415, 'grad_norm': 0.3422175645828247, 'learning_rate': 4.122236449483623e-05, 'epoch': 6.15}
+{'loss': 0.0314, 'grad_norm': 0.7494596838951111, 'learning_rate': 2.3934333279082552e-05, 'epoch': 6.54}
+{'loss': 0.0246, 'grad_norm': 2.259228229522705, 'learning_rate': 1.110672673000821e-05, 'epoch': 6.93}
+{'loss': 0.0137, 'grad_norm': 0.4313814342021942, 'learning_rate': 3.0683989256536684e-06, 'epoch': 7.31}
+{'loss': 0.0226, 'grad_norm': 0.2790226936340332, 'learning_rate': 2.5423919582644865e-08, 'epoch': 7.7}
+{'train_runtime': 5027.9202, 'train_samples_per_second': 0.657, 'train_steps_per_second': 0.04, 'train_loss': 0.7753345651179552, 'epoch': 7.7}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0030 (0.30%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=16, alpha=128, dropout=0.0740, rslora=False)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 11.6763, 'grad_norm': 55.83045959472656, 'learning_rate': 7.077911966720008e-05, 'epoch': 0.19}
+{'loss': 0.9628, 'grad_norm': 81.23896789550781, 'learning_rate': 0.00014942258596408904, 'epoch': 0.39}
+{'loss': 0.1826, 'grad_norm': 35.43152618408203, 'learning_rate': 0.00018859795212271076, 'epoch': 0.58}
+{'loss': 0.1757, 'grad_norm': 9.235389709472656, 'learning_rate': 0.00018742973889950224, 'epoch': 0.77}
+{'loss': 0.1146, 'grad_norm': 9.528959274291992, 'learning_rate': 0.00018510779598352532, 'epoch': 0.97}
+{'loss': 0.1119, 'grad_norm': 5.374638080596924, 'learning_rate': 0.0001816609108685659, 'epoch': 1.15}
+{'loss': 0.1033, 'grad_norm': 0.9413675665855408, 'learning_rate': 0.00017713181810384345, 'epoch': 1.35}
+{'loss': 0.1151, 'grad_norm': 69.33082580566406, 'learning_rate': 0.0001715766694702322, 'epoch': 1.54}
+{'loss': 0.1241, 'grad_norm': 2.0175580978393555, 'learning_rate': 0.00016506433780938106, 'epoch': 1.74}
+{'loss': 0.1261, 'grad_norm': 3.3297626972198486, 'learning_rate': 0.00015767556313687293, 'epoch': 1.93}
+{'loss': 0.065, 'grad_norm': 4.965814113616943, 'learning_rate': 0.0001495019516259288, 'epoch': 2.12}
+{'loss': 0.0799, 'grad_norm': 2.7685606479644775, 'learning_rate': 0.00014064483987227678, 'epoch': 2.31}
+{'loss': 0.067, 'grad_norm': 31.53517723083496, 'learning_rate': 0.00013121403852105141, 'epoch': 2.5}
+{'loss': 0.0707, 'grad_norm': 1.697008490562439, 'learning_rate': 0.00012132647083226351, 'epoch': 2.7}
+{'loss': 0.0702, 'grad_norm': 1.9892524480819702, 'learning_rate': 0.00011110472306393002, 'epoch': 2.89}
+{'loss': 0.0548, 'grad_norm': 2.8015968799591064, 'learning_rate': 0.00010067552464524468, 'epoch': 3.08}
+{'loss': 0.0336, 'grad_norm': 2.5125741958618164, 'learning_rate': 9.016817698263056e-05, 'epoch': 3.27}
+{'loss': 0.0452, 'grad_norm': 1.1225855350494385, 'learning_rate': 7.971295037836891e-05, 'epoch': 3.46}
+{'loss': 0.0371, 'grad_norm': 0.8721822500228882, 'learning_rate': 6.943946893683775e-05, 'epoch': 3.66}
+{'loss': 0.0378, 'grad_norm': 0.7890719175338745, 'learning_rate': 5.947510348232519e-05, 'epoch': 3.85}
+{'loss': 0.0427, 'grad_norm': 2.352376699447632, 'learning_rate': 4.9943392413053027e-05, 'epoch': 4.04}
+{'loss': 0.0251, 'grad_norm': 1.6247750520706177, 'learning_rate': 4.096251006969427e-05, 'epoch': 4.23}
+{'loss': 0.0175, 'grad_norm': 1.3137686252593994, 'learning_rate': 3.2643801607580945e-05, 'epoch': 4.43}
+{'loss': 0.0306, 'grad_norm': 0.4437347948551178, 'learning_rate': 2.509040253728568e-05, 'epoch': 4.62}
+{'loss': 0.014, 'grad_norm': 2.926819324493408, 'learning_rate': 1.839596004854024e-05, 'epoch': 4.81}
+{'loss': 0.0228, 'grad_norm': 1.057638168334961, 'learning_rate': 1.2643471970541365e-05, 'epoch': 5.0}
+{'loss': 0.0113, 'grad_norm': 0.21376565098762512, 'learning_rate': 7.904257763237696e-06, 'epoch': 5.19}
+{'loss': 0.0104, 'grad_norm': 0.43535515666007996, 'learning_rate': 4.237074297267193e-06, 'epoch': 5.39}
+{'loss': 0.0168, 'grad_norm': 0.562978982925415, 'learning_rate': 1.687387385123403e-06, 'epoch': 5.58}
+{'loss': 0.0145, 'grad_norm': 1.0050617456436157, 'learning_rate': 2.8680809512081743e-07, 'epoch': 5.77}
+{'train_runtime': 3843.8272, 'train_samples_per_second': 0.645, 'train_steps_per_second': 0.08, 'train_loss': 0.47285815118964203, 'epoch': 5.89}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0022 (0.22%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=16, alpha=256, dropout=0.1734, rslora=True)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 6.9788, 'grad_norm': 202.6532745361328, 'learning_rate': 5.3635521976330266e-05, 'epoch': 0.19}
+{'loss': 0.5344, 'grad_norm': 95.42122650146484, 'learning_rate': 0.00011323054639447502, 'epoch': 0.39}
+{'loss': 0.3171, 'grad_norm': 163.3151092529297, 'learning_rate': 0.00017282557081261976, 'epoch': 0.58}
+{'loss': 0.7701, 'grad_norm': 357.9390563964844, 'learning_rate': 0.0002324205952307645, 'epoch': 0.77}
+{'loss': 1.3271, 'grad_norm': 253.9774627685547, 'learning_rate': 0.00029201561964890924, 'epoch': 0.97}
+{'loss': 1.194, 'grad_norm': 104.33216857910156, 'learning_rate': 0.00035161064406705395, 'epoch': 1.15}
+{'loss': 1.4555, 'grad_norm': 111.6617431640625, 'learning_rate': 0.0004112056684851987, 'epoch': 1.35}
+{'loss': 2.6781, 'grad_norm': 171.07345581054688, 'learning_rate': 0.00047080069290334343, 'epoch': 1.54}
+{'loss': 3.0313, 'grad_norm': 129.23886108398438, 'learning_rate': 0.0004796055811263956, 'epoch': 1.74}
+{'loss': 2.7649, 'grad_norm': 213.8994903564453, 'learning_rate': 0.00046664326812297953, 'epoch': 1.93}
+{'loss': 2.6166, 'grad_norm': 198.21102905273438, 'learning_rate': 0.00045368095511956344, 'epoch': 2.12}
+{'loss': 2.7839, 'grad_norm': 89.6005859375, 'learning_rate': 0.00044071864211614735, 'epoch': 2.31}
+{'loss': 2.9039, 'grad_norm': 72.3564682006836, 'learning_rate': 0.0004277563291127312, 'epoch': 2.5}
+{'loss': 2.3412, 'grad_norm': 69.46647644042969, 'learning_rate': 0.0004147940161093152, 'epoch': 2.7}
+{'loss': 2.3601, 'grad_norm': 81.67201232910156, 'learning_rate': 0.00040183170310589903, 'epoch': 2.89}
+{'loss': 2.2349, 'grad_norm': 55.05454635620117, 'learning_rate': 0.00038886939010248294, 'epoch': 3.08}
+{'loss': 2.3368, 'grad_norm': 77.41455841064453, 'learning_rate': 0.00037590707709906685, 'epoch': 3.27}
+{'loss': 2.2453, 'grad_norm': 72.1527328491211, 'learning_rate': 0.00036294476409565077, 'epoch': 3.46}
+{'loss': 1.9373, 'grad_norm': 57.654476165771484, 'learning_rate': 0.0003499824510922346, 'epoch': 3.66}
+{'loss': 2.005, 'grad_norm': 43.214847564697266, 'learning_rate': 0.0003370201380888186, 'epoch': 3.85}
+{'loss': 1.9049, 'grad_norm': 47.714237213134766, 'learning_rate': 0.00032405782508540244, 'epoch': 4.04}
+{'loss': 1.9104, 'grad_norm': 78.8402099609375, 'learning_rate': 0.00031109551208198635, 'epoch': 4.23}
+{'loss': 1.7265, 'grad_norm': 70.93727111816406, 'learning_rate': 0.00029813319907857027, 'epoch': 4.43}
+{'loss': 1.6373, 'grad_norm': 58.821895599365234, 'learning_rate': 0.0002851708860751542, 'epoch': 4.62}
+{'loss': 1.5395, 'grad_norm': 40.53984832763672, 'learning_rate': 0.00027220857307173803, 'epoch': 4.81}
+{'loss': 1.8924, 'grad_norm': 32.410064697265625, 'learning_rate': 0.000259246260068322, 'epoch': 5.0}
+{'loss': 1.4835, 'grad_norm': 48.53703308105469, 'learning_rate': 0.00024628394706490586, 'epoch': 5.19}
+{'loss': 1.3787, 'grad_norm': 54.575477600097656, 'learning_rate': 0.00023332163406148977, 'epoch': 5.39}
+{'loss': 1.365, 'grad_norm': 50.81136703491211, 'learning_rate': 0.00022035932105807368, 'epoch': 5.58}
+{'loss': 1.4396, 'grad_norm': 46.45845413208008, 'learning_rate': 0.0002073970080546576, 'epoch': 5.77}
+{'loss': 1.3042, 'grad_norm': 52.81635284423828, 'learning_rate': 0.00019443469505124147, 'epoch': 5.97}
+{'loss': 0.9973, 'grad_norm': 47.557273864746094, 'learning_rate': 0.00018147238204782538, 'epoch': 6.15}
+{'loss': 1.0648, 'grad_norm': 41.87879180908203, 'learning_rate': 0.0001685100690444093, 'epoch': 6.35}
+{'loss': 1.1278, 'grad_norm': 34.5231819152832, 'learning_rate': 0.00015554775604099318, 'epoch': 6.54}
+{'loss': 1.0504, 'grad_norm': 29.306474685668945, 'learning_rate': 0.0001425854430375771, 'epoch': 6.74}
+{'loss': 1.1859, 'grad_norm': 32.761024475097656, 'learning_rate': 0.000129623130034161, 'epoch': 6.93}
+{'loss': 0.7579, 'grad_norm': 194.6243133544922, 'learning_rate': 0.00011666081703074488, 'epoch': 7.12}
+{'loss': 0.8517, 'grad_norm': 100.06647491455078, 'learning_rate': 0.0001036985040273288, 'epoch': 7.31}
+{'loss': 0.7665, 'grad_norm': 25.085634231567383, 'learning_rate': 9.073619102391269e-05, 'epoch': 7.5}
+{'loss': 0.7468, 'grad_norm': 30.415443420410156, 'learning_rate': 7.777387802049659e-05, 'epoch': 7.7}
+{'loss': 0.6556, 'grad_norm': 28.558290481567383, 'learning_rate': 6.48115650170805e-05, 'epoch': 7.89}
+{'loss': 0.6314, 'grad_norm': 23.307992935180664, 'learning_rate': 5.18492520136644e-05, 'epoch': 8.08}
+{'loss': 0.4444, 'grad_norm': 27.009441375732422, 'learning_rate': 3.8886939010248294e-05, 'epoch': 8.27}
+{'loss': 0.4465, 'grad_norm': 20.3582706451416, 'learning_rate': 2.59246260068322e-05, 'epoch': 8.46}
+{'loss': 0.5019, 'grad_norm': 24.075654983520508, 'learning_rate': 1.29623130034161e-05, 'epoch': 8.66}
+{'train_runtime': 5756.1434, 'train_samples_per_second': 0.646, 'train_steps_per_second': 0.08, 'train_loss': 1.613382086514907, 'epoch': 8.83}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0542 (5.42%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=16, alpha=64, dropout=0.1301, rslora=False)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 15.6129, 'grad_norm': 79.43026733398438, 'learning_rate': 3.3845991278645674e-05, 'epoch': 0.19}
+{'loss': 5.6337, 'grad_norm': 31.241466522216797, 'learning_rate': 7.145264825491865e-05, 'epoch': 0.39}
+{'loss': 0.8344, 'grad_norm': 8.956348419189453, 'learning_rate': 0.00010905930523119163, 'epoch': 0.58}
+{'loss': 0.252, 'grad_norm': 8.7772855758667, 'learning_rate': 0.0001466659622074646, 'epoch': 0.77}
+{'loss': 0.1334, 'grad_norm': 3.9947471618652344, 'learning_rate': 0.00018427261918373757, 'epoch': 0.97}
+{'loss': 0.1161, 'grad_norm': 4.312479496002197, 'learning_rate': 0.00019530056810607426, 'epoch': 1.15}
+{'loss': 0.1012, 'grad_norm': 8.810901641845703, 'learning_rate': 0.00019405942753374957, 'epoch': 1.35}
+{'loss': 0.1257, 'grad_norm': 3.3397092819213867, 'learning_rate': 0.00019179767254365126, 'epoch': 1.54}
+{'loss': 0.1005, 'grad_norm': 0.8833526968955994, 'learning_rate': 0.00018853927830133298, 'epoch': 1.74}
+{'loss': 0.0814, 'grad_norm': 1.3757920265197754, 'learning_rate': 0.00018431878459635676, 'epoch': 1.93}
+{'loss': 0.0595, 'grad_norm': 3.401615619659424, 'learning_rate': 0.000179180929711931, 'epoch': 2.12}
+{'loss': 0.0603, 'grad_norm': 2.298478364944458, 'learning_rate': 0.00017318017618797902, 'epoch': 2.31}
+{'loss': 0.0366, 'grad_norm': 0.3557833433151245, 'learning_rate': 0.00016638013350466708, 'epoch': 2.5}
+{'loss': 0.0697, 'grad_norm': 1.180255651473999, 'learning_rate': 0.0001588528838060905, 'epoch': 2.7}
+{'loss': 0.0532, 'grad_norm': 0.8547109961509705, 'learning_rate': 0.0001506782178116143, 'epoch': 2.89}
+{'loss': 0.0433, 'grad_norm': 3.5102639198303223, 'learning_rate': 0.00014194278901439827, 'epoch': 3.08}
+{'loss': 0.0356, 'grad_norm': 0.5779258012771606, 'learning_rate': 0.00013273919513281276, 'epoch': 3.27}
+{'loss': 0.0378, 'grad_norm': 1.1776351928710938, 'learning_rate': 0.00012316499655158815, 'epoch': 3.46}
+{'loss': 0.0416, 'grad_norm': 2.576251983642578, 'learning_rate': 0.00011332168215746663, 'epoch': 3.66}
+{'loss': 0.0326, 'grad_norm': 0.6247357130050659, 'learning_rate': 0.00010331359353175538, 'epoch': 3.85}
+{'loss': 0.0282, 'grad_norm': 2.846249580383301, 'learning_rate': 9.324681890360731e-05, 'epoch': 4.04}
+{'loss': 0.0288, 'grad_norm': 12.56977367401123, 'learning_rate': 8.322806858840068e-05, 'epoch': 4.23}
+{'loss': 0.0202, 'grad_norm': 2.9606399536132812, 'learning_rate': 7.33635438318493e-05, 'epoch': 4.43}
+{'loss': 0.0265, 'grad_norm': 0.3756144046783447, 'learning_rate': 6.375781105037862e-05, 'epoch': 4.62}
+{'loss': 0.019, 'grad_norm': 2.9299874305725098, 'learning_rate': 5.451269340109831e-05, 'epoch': 4.81}
+{'loss': 0.0237, 'grad_norm': 0.8039687275886536, 'learning_rate': 4.5726191431006174e-05, 'epoch': 5.0}
+{'loss': 0.0118, 'grad_norm': 0.3020014464855194, 'learning_rate': 3.7491444246810525e-05, 'epoch': 5.19}
+{'loss': 0.0197, 'grad_norm': 0.48714494705200195, 'learning_rate': 2.9895742217228722e-05, 'epoch': 5.39}
+{'loss': 0.019, 'grad_norm': 3.6522836685180664, 'learning_rate': 2.3019601673363283e-05, 'epoch': 5.58}
+{'loss': 0.0101, 'grad_norm': 0.40980443358421326, 'learning_rate': 1.693591141556236e-05, 'epoch': 5.77}
+{'loss': 0.0116, 'grad_norm': 0.1143592968583107, 'learning_rate': 1.1709160074003304e-05, 'epoch': 5.97}
+{'loss': 0.0105, 'grad_norm': 0.17103096842765808, 'learning_rate': 7.394752513169791e-06, 'epoch': 6.15}
+{'loss': 0.0087, 'grad_norm': 0.15671809017658234, 'learning_rate': 4.038422526505419e-06, 'epoch': 6.35}
+{'loss': 0.0065, 'grad_norm': 0.13624325394630432, 'learning_rate': 1.6757480468258066e-06, 'epoch': 6.54}
+{'loss': 0.0057, 'grad_norm': 0.46423032879829407, 'learning_rate': 3.317740113799961e-07, 'epoch': 6.74}
+{'train_runtime': 4476.1144, 'train_samples_per_second': 0.646, 'train_steps_per_second': 0.08, 'train_loss': 0.6643258122941192, 'epoch': 6.87}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0018 (0.18%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=16, alpha=16, dropout=0.0716, rslora=False)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 17.1051, 'grad_norm': 35.612491607666016, 'learning_rate': 6.147368506625127e-05, 'epoch': 0.19}
+{'loss': 8.5019, 'grad_norm': 22.50251579284668, 'learning_rate': 0.00012977777958430824, 'epoch': 0.39}
+{'loss': 2.13, 'grad_norm': 3.1788806915283203, 'learning_rate': 0.0001980818741023652, 'epoch': 0.58}
+{'loss': 0.387, 'grad_norm': 1.9048433303833008, 'learning_rate': 0.00026638596862042216, 'epoch': 0.77}
+{'loss': 0.1511, 'grad_norm': 1.0747995376586914, 'learning_rate': 0.00033469006313847915, 'epoch': 0.97}
+{'loss': 0.1322, 'grad_norm': 1.1577099561691284, 'learning_rate': 0.00035451609924894124, 'epoch': 1.15}
+{'loss': 0.1009, 'grad_norm': 0.3657764494419098, 'learning_rate': 0.00035127000519234595, 'epoch': 1.35}
+{'loss': 0.1147, 'grad_norm': 2.281552314758301, 'learning_rate': 0.00034537036403892635, 'epoch': 1.54}
+{'loss': 0.1014, 'grad_norm': 0.5914427042007446, 'learning_rate': 0.00033690731301457374, 'epoch': 1.74}
+{'loss': 0.1023, 'grad_norm': 2.366241693496704, 'learning_rate': 0.0003260101542110717, 'epoch': 1.93}
+{'loss': 0.0605, 'grad_norm': 0.3988385796546936, 'learning_rate': 0.00031284537905376295, 'epoch': 2.12}
+{'loss': 0.054, 'grad_norm': 1.200145959854126, 'learning_rate': 0.0002976141245747656, 'epoch': 2.31}
+{'loss': 0.0295, 'grad_norm': 0.1359035223722458, 'learning_rate': 0.0002805491003558791, 'epoch': 2.5}
+{'loss': 0.0571, 'grad_norm': 0.8112074732780457, 'learning_rate': 0.0002619110330926524, 'epoch': 2.7}
+{'loss': 0.0555, 'grad_norm': 0.53897625207901, 'learning_rate': 0.0002419846831010763, 'epoch': 2.89}
+{'loss': 0.0453, 'grad_norm': 0.23606187105178833, 'learning_rate': 0.0002210744936284043, 'epoch': 3.08}
+{'loss': 0.0301, 'grad_norm': 0.541225790977478, 'learning_rate': 0.00019949993943978067, 'epoch': 3.27}
+{'loss': 0.0389, 'grad_norm': 1.1671112775802612, 'learning_rate': 0.0001775906457469481, 'epoch': 3.46}
+{'loss': 0.0326, 'grad_norm': 1.583491563796997, 'learning_rate': 0.00015568135205411556, 'epoch': 3.66}
+{'loss': 0.026, 'grad_norm': 0.3049987256526947, 'learning_rate': 0.00013410679786549198, 'epoch': 3.85}
+{'loss': 0.0265, 'grad_norm': 0.1761699616909027, 'learning_rate': 0.00011319660839281995, 'epoch': 4.04}
+{'loss': 0.0204, 'grad_norm': 1.0334826707839966, 'learning_rate': 9.327025840124381e-05, 'epoch': 4.23}
+{'loss': 0.0179, 'grad_norm': 0.122889444231987, 'learning_rate': 7.463219113801716e-05, 'epoch': 4.43}
+{'loss': 0.0216, 'grad_norm': 3.6334595680236816, 'learning_rate': 5.756716691913064e-05, 'epoch': 4.62}
+{'loss': 0.0132, 'grad_norm': 0.10366576164960861, 'learning_rate': 4.23359124401333e-05, 'epoch': 4.81}
+{'loss': 0.0176, 'grad_norm': 0.18870364129543304, 'learning_rate': 2.9171137282824532e-05, 'epoch': 5.0}
+{'loss': 0.009, 'grad_norm': 0.11692396551370621, 'learning_rate': 1.8273978479322502e-05, 'epoch': 5.19}
+{'loss': 0.0097, 'grad_norm': 0.24905966222286224, 'learning_rate': 9.810927454969856e-06, 'epoch': 5.39}
+{'loss': 0.0115, 'grad_norm': 0.16462700068950653, 'learning_rate': 3.911286301550277e-06, 'epoch': 5.58}
+{'loss': 0.0096, 'grad_norm': 0.13064907491207123, 'learning_rate': 6.651922449550052e-07, 'epoch': 5.77}
+{'train_runtime': 3850.4865, 'train_samples_per_second': 0.644, 'train_steps_per_second': 0.079, 'train_loss': 0.9615129076820963, 'epoch': 5.89}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0025 (0.25%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=16, alpha=16, dropout=0.0201, rslora=False)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 9.1556, 'grad_norm': 24.092077255249023, 'learning_rate': 2.5297241632352692e-05, 'epoch': 0.1}
+{'loss': 6.2297, 'grad_norm': 10.584088325500488, 'learning_rate': 5.340528789052235e-05, 'epoch': 0.19}
+{'loss': 3.0408, 'grad_norm': 7.034646511077881, 'learning_rate': 8.1513334148692e-05, 'epoch': 0.29}
+{'loss': 0.7657, 'grad_norm': 1.7823556661605835, 'learning_rate': 0.00010962138040686165, 'epoch': 0.39}
+{'loss': 0.2385, 'grad_norm': 1.7928622961044312, 'learning_rate': 0.00012083213006905414, 'epoch': 0.48}
+{'loss': 0.0911, 'grad_norm': 0.6600967645645142, 'learning_rate': 0.00012063383570823423, 'epoch': 0.58}
+{'loss': 0.0922, 'grad_norm': 3.230957269668579, 'learning_rate': 0.00012025587630196355, 'epoch': 0.68}
+{'loss': 0.0604, 'grad_norm': 0.6536423563957214, 'learning_rate': 0.00011969937982966141, 'epoch': 0.77}
+{'loss': 0.0503, 'grad_norm': 0.5486850738525391, 'learning_rate': 0.00011896600709552344, 'epoch': 0.87}
+{'loss': 0.061, 'grad_norm': 1.0000641345977783, 'learning_rate': 0.00011805794677202895, 'epoch': 0.97}
+{'loss': 0.0791, 'grad_norm': 0.48932725191116333, 'learning_rate': 0.00011697790886808214, 'epoch': 1.06}
+{'loss': 0.0369, 'grad_norm': 0.518487811088562, 'learning_rate': 0.00011572911664128039, 'epoch': 1.15}
+{'loss': 0.0368, 'grad_norm': 0.2791922688484192, 'learning_rate': 0.00011431529697844671, 'epoch': 1.25}
+{'loss': 0.0471, 'grad_norm': 0.09015826135873795, 'learning_rate': 0.00011274066927313466, 'epoch': 1.35}
+{'loss': 0.0457, 'grad_norm': 0.9937796592712402, 'learning_rate': 0.00011100993283329967, 'epoch': 1.45}
+{'loss': 0.0653, 'grad_norm': 0.5524172186851501, 'learning_rate': 0.00010912825285671707, 'epoch': 1.54}
+{'loss': 0.0402, 'grad_norm': 0.3856799304485321, 'learning_rate': 0.00010710124501600183, 'epoch': 1.64}
+{'loss': 0.0508, 'grad_norm': 0.6072607636451721, 'learning_rate': 0.00010493495869923436, 'epoch': 1.74}
+{'loss': 0.0376, 'grad_norm': 6.946385383605957, 'learning_rate': 0.00010263585895620878, 'epoch': 1.83}
+{'loss': 0.0453, 'grad_norm': 0.7525536417961121, 'learning_rate': 0.0001002108072041835, 'epoch': 1.93}
+{'loss': 0.026, 'grad_norm': 0.40350067615509033, 'learning_rate': 9.766704075071514e-05, 'epoch': 2.02}
+{'loss': 0.0211, 'grad_norm': 0.22569911181926727, 'learning_rate': 9.50121511946884e-05, 'epoch': 2.12}
+{'loss': 0.0283, 'grad_norm': 0.1867901086807251, 'learning_rate': 9.22540617700013e-05, 'epoch': 2.21}
+{'loss': 0.0258, 'grad_norm': 0.41698336601257324, 'learning_rate': 8.940100369952099e-05, 'epoch': 2.31}
+{'loss': 0.0137, 'grad_norm': 0.042518265545368195, 'learning_rate': 8.64614916298795e-05, 'epoch': 2.41}
+{'loss': 0.0129, 'grad_norm': 0.15449830889701843, 'learning_rate': 8.344429822042192e-05, 'epoch': 2.5}
+{'loss': 0.0365, 'grad_norm': 0.15294460952281952, 'learning_rate': 8.035842796214266e-05, 'epoch': 2.6}
+{'loss': 0.0214, 'grad_norm': 0.21720130741596222, 'learning_rate': 7.721309030474545e-05, 'epoch': 2.7}
+{'loss': 0.0232, 'grad_norm': 0.21586856245994568, 'learning_rate': 7.401767217202565e-05, 'epoch': 2.79}
+{'loss': 0.031, 'grad_norm': 4.250065803527832, 'learning_rate': 7.078170994760038e-05, 'epoch': 2.89}
+{'loss': 0.0185, 'grad_norm': 3.581721305847168, 'learning_rate': 6.751486101459163e-05, 'epoch': 2.99}
+{'loss': 0.0141, 'grad_norm': 0.37589576840400696, 'learning_rate': 6.422687493419933e-05, 'epoch': 3.08}
+{'loss': 0.0142, 'grad_norm': 0.14493411779403687, 'learning_rate': 6.092756434917878e-05, 'epoch': 3.17}
+{'loss': 0.015, 'grad_norm': 0.022686133161187172, 'learning_rate': 5.762677569905811e-05, 'epoch': 3.27}
+{'loss': 0.007, 'grad_norm': 0.02209143340587616, 'learning_rate': 5.433435983449252e-05, 'epoch': 3.37}
+{'loss': 0.0165, 'grad_norm': 0.565689742565155, 'learning_rate': 5.1060142618454436e-05, 'epoch': 3.46}
+{'loss': 0.0128, 'grad_norm': 0.45979535579681396, 'learning_rate': 4.781389560199632e-05, 'epoch': 3.56}
+{'loss': 0.0128, 'grad_norm': 0.9976293444633484, 'learning_rate': 4.4605306862101814e-05, 'epoch': 3.66}
+{'loss': 0.0132, 'grad_norm': 0.174805149435997, 'learning_rate': 4.1443952088656405e-05, 'epoch': 3.76}
+{'loss': 0.0096, 'grad_norm': 0.13866890966892242, 'learning_rate': 3.8339266006824986e-05, 'epoch': 3.85}
+{'loss': 0.0161, 'grad_norm': 0.0919206440448761, 'learning_rate': 3.530051422012401e-05, 'epoch': 3.95}
+{'loss': 0.0124, 'grad_norm': 0.49880269169807434, 'learning_rate': 3.2336765558218825e-05, 'epoch': 4.04}
+{'loss': 0.0086, 'grad_norm': 0.38939645886421204, 'learning_rate': 2.9456865011971588e-05, 'epoch': 4.14}
+{'loss': 0.005, 'grad_norm': 0.22264261543750763, 'learning_rate': 2.6669407336512073e-05, 'epoch': 4.23}
+{'loss': 0.0062, 'grad_norm': 0.11035442352294922, 'learning_rate': 2.398271140111048e-05, 'epoch': 4.33}
+{'loss': 0.0056, 'grad_norm': 0.06822174042463303, 'learning_rate': 2.1404795362401832e-05, 'epoch': 4.43}
+{'loss': 0.0102, 'grad_norm': 0.2730679214000702, 'learning_rate': 1.894335273505515e-05, 'epoch': 4.52}
+{'loss': 0.0033, 'grad_norm': 0.07293690741062164, 'learning_rate': 1.6605729431301928e-05, 'epoch': 4.62}
+{'loss': 0.0018, 'grad_norm': 0.20274268090724945, 'learning_rate': 1.4398901837846819e-05, 'epoch': 4.72}
+{'loss': 0.0071, 'grad_norm': 0.13282987475395203, 'learning_rate': 1.2329455995587742e-05, 'epoch': 4.81}
+{'loss': 0.0038, 'grad_norm': 0.10474585741758347, 'learning_rate': 1.0403567944281272e-05, 'epoch': 4.91}
+{'loss': 0.0074, 'grad_norm': 0.013054044917225838, 'learning_rate': 8.626985290812628e-06, 'epoch': 5.0}
+{'loss': 0.0031, 'grad_norm': 0.04992416128516197, 'learning_rate': 7.005010056077795e-06, 'epoch': 5.1}
+{'loss': 0.0021, 'grad_norm': 0.02114267647266388, 'learning_rate': 5.542482851669174e-06, 'epoch': 5.19}
+{'loss': 0.0026, 'grad_norm': 0.2163516730070114, 'learning_rate': 4.243768433588161e-06, 'epoch': 5.29}
+{'loss': 0.002, 'grad_norm': 0.10580116510391235, 'learning_rate': 3.112742676097659e-06, 'epoch': 5.39}
+{'loss': 0.0036, 'grad_norm': 0.06806738674640656, 'learning_rate': 2.152781004589992e-06, 'epoch': 5.48}
+{'loss': 0.0044, 'grad_norm': 0.1909448653459549, 'learning_rate': 1.3667483219908554e-06, 'epoch': 5.58}
+{'loss': 0.0028, 'grad_norm': 0.07958167791366577, 'learning_rate': 7.569904587629495e-07, 'epoch': 5.68}
+{'loss': 0.003, 'grad_norm': 0.01505569089204073, 'learning_rate': 3.25327172025942e-07, 'epoch': 5.77}
+{'loss': 0.0036, 'grad_norm': 0.2835223972797394, 'learning_rate': 7.304671468594127e-08, 'epoch': 5.87}
+{'train_runtime': 3887.1955, 'train_samples_per_second': 0.637, 'train_steps_per_second': 0.159, 'train_loss': 0.33591864261667703, 'epoch': 5.95}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0026 (0.26%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=32, alpha=128, dropout=0.0983, rslora=False)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 9.1027, 'grad_norm': 23.37761116027832, 'learning_rate': 0.00016357477220899146, 'epoch': 0.19}
+{'loss': 0.35, 'grad_norm': 7.570905685424805, 'learning_rate': 0.0003271351735492443, 'epoch': 0.39}
+{'loss': 0.2284, 'grad_norm': 59.6024055480957, 'learning_rate': 0.00032541372258656896, 'epoch': 0.58}
+{'loss': 0.3367, 'grad_norm': 9.732669830322266, 'learning_rate': 0.00032085271791217735, 'epoch': 0.77}
+{'loss': 0.1651, 'grad_norm': 5.842557430267334, 'learning_rate': 0.00031353218487053776, 'epoch': 0.97}
+{'loss': 0.1316, 'grad_norm': 4.948603630065918, 'learning_rate': 0.00030358056625444895, 'epoch': 1.15}
+{'loss': 0.1341, 'grad_norm': 1.32899010181427, 'learning_rate': 0.0002911724687053466, 'epoch': 1.35}
+{'loss': 0.1827, 'grad_norm': 6.895814418792725, 'learning_rate': 0.00027652559914340455, 'epoch': 1.54}
+{'loss': 0.1294, 'grad_norm': 10.546805381774902, 'learning_rate': 0.000259896944979457, 'epoch': 1.74}
+{'loss': 0.1335, 'grad_norm': 4.909389972686768, 'learning_rate': 0.00024157826512903027, 'epoch': 1.93}
+{'loss': 0.1164, 'grad_norm': 10.030108451843262, 'learning_rate': 0.000221890970941133, 'epoch': 2.12}
+{'loss': 0.0985, 'grad_norm': 2.5447230339050293, 'learning_rate': 0.0002011804868587345, 'epoch': 2.31}
+{'loss': 0.063, 'grad_norm': 0.5580442547798157, 'learning_rate': 0.0001798101897562547, 'epoch': 2.5}
+{'loss': 0.0894, 'grad_norm': 4.365898132324219, 'learning_rate': 0.00015815503329173603, 'epoch': 2.7}
+{'loss': 0.0917, 'grad_norm': 39.37272644042969, 'learning_rate': 0.00013659496913795668, 'epoch': 2.89}
+{'loss': 0.0854, 'grad_norm': 2.5713891983032227, 'learning_rate': 0.00011550828052061641, 'epoch': 3.08}
+{'loss': 0.0421, 'grad_norm': 0.3713059425354004, 'learning_rate': 9.526494503034769e-05, 'epoch': 3.27}
+{'loss': 0.0572, 'grad_norm': 1.9794058799743652, 'learning_rate': 7.622014316167785e-05, 'epoch': 3.46}
+{'loss': 0.0457, 'grad_norm': 3.7014782428741455, 'learning_rate': 5.870802647521038e-05, 'epoch': 3.66}
+{'loss': 0.0448, 'grad_norm': 1.1328622102737427, 'learning_rate': 4.303585472405808e-05, 'epoch': 3.85}
+{'loss': 0.0394, 'grad_norm': 1.3369024991989136, 'learning_rate': 2.9478604811882385e-05, 'epoch': 4.04}
+{'loss': 0.0275, 'grad_norm': 2.9681575298309326, 'learning_rate': 1.8274146171344473e-05, 'epoch': 4.23}
+{'loss': 0.0179, 'grad_norm': 0.591897189617157, 'learning_rate': 9.619067213616468e-06, 'epoch': 4.43}
+{'loss': 0.0319, 'grad_norm': 8.437798500061035, 'learning_rate': 3.6652260762003858e-06, 'epoch': 4.62}
+{'loss': 0.0209, 'grad_norm': 2.8528010845184326, 'learning_rate': 5.170861880870803e-07, 'epoch': 4.81}
+{'train_runtime': 3201.012, 'train_samples_per_second': 0.645, 'train_steps_per_second': 0.08, 'train_loss': 0.4616341075038209, 'epoch': 4.91}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0023 (0.23%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=32, alpha=64, dropout=0.1568, rslora=False)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 15.9755, 'grad_norm': 95.68543243408203, 'learning_rate': 2.9320835597634834e-05, 'epoch': 0.19}
+{'loss': 6.5533, 'grad_norm': 22.96497917175293, 'learning_rate': 6.18995418172291e-05, 'epoch': 0.39}
+{'loss': 1.2625, 'grad_norm': 22.607587814331055, 'learning_rate': 9.447824803682335e-05, 'epoch': 0.58}
+{'loss': 0.3414, 'grad_norm': 10.389449119567871, 'learning_rate': 0.0001270569542564176, 'epoch': 0.77}
+{'loss': 0.1412, 'grad_norm': 5.192332744598389, 'learning_rate': 0.00015963566047601187, 'epoch': 0.97}
+{'loss': 0.1334, 'grad_norm': 1.2765536308288574, 'learning_rate': 0.00019221436669560613, 'epoch': 1.15}
+{'loss': 0.0971, 'grad_norm': 9.958901405334473, 'learning_rate': 0.00022153047381302598, 'epoch': 1.35}
+{'loss': 0.1153, 'grad_norm': 5.238027572631836, 'learning_rate': 0.0002209635445034618, 'epoch': 1.54}
+{'loss': 0.1051, 'grad_norm': 5.277045726776123, 'learning_rate': 0.0002194564622591723, 'epoch': 1.74}
+{'loss': 0.1052, 'grad_norm': 2.2966156005859375, 'learning_rate': 0.00021702208497448354, 'epoch': 1.93}
+{'loss': 0.0572, 'grad_norm': 2.75667142868042, 'learning_rate': 0.00021368118189805124, 'epoch': 2.12}
+{'loss': 0.081, 'grad_norm': 0.9418283104896545, 'learning_rate': 0.00020946225643695427, 'epoch': 2.31}
+{'loss': 0.0371, 'grad_norm': 1.8707776069641113, 'learning_rate': 0.00020440130297567552, 'epoch': 2.5}
+{'loss': 0.075, 'grad_norm': 4.120429992675781, 'learning_rate': 0.00019854149978470464, 'epoch': 2.7}
+{'loss': 0.0759, 'grad_norm': 2.1870217323303223, 'learning_rate': 0.00019193284063875865, 'epoch': 2.89}
+{'loss': 0.0506, 'grad_norm': 0.5581328868865967, 'learning_rate': 0.00018463170828752308, 'epoch': 3.08}
+{'loss': 0.0403, 'grad_norm': 4.1659111976623535, 'learning_rate': 0.000176700393417912, 'epoch': 3.27}
+{'loss': 0.0497, 'grad_norm': 0.924121618270874, 'learning_rate': 0.00016820656321189003, 'epoch': 3.46}
+{'loss': 0.0453, 'grad_norm': 1.6283330917358398, 'learning_rate': 0.0001592226840339348, 'epoch': 3.66}
+{'loss': 0.0344, 'grad_norm': 0.33418112993240356, 'learning_rate': 0.00014982540317356595, 'epoch': 3.85}
+{'loss': 0.0422, 'grad_norm': 1.2270759344100952, 'learning_rate': 0.0001400948949176964, 'epoch': 4.04}
+{'loss': 0.033, 'grad_norm': 1.5975607633590698, 'learning_rate': 0.00013011417653188456, 'epoch': 4.23}
+{'loss': 0.0234, 'grad_norm': 1.4712164402008057, 'learning_rate': 0.00011996839998629596, 'epoch': 4.43}
+{'loss': 0.0429, 'grad_norm': 0.9140194654464722, 'learning_rate': 0.00010974412546911757, 'epoch': 4.62}
+{'loss': 0.0277, 'grad_norm': 0.3819931447505951, 'learning_rate': 9.952858288555228e-05, 'epoch': 4.81}
+{'loss': 0.0305, 'grad_norm': 0.23155760765075684, 'learning_rate': 8.940892764302417e-05, 'epoch': 5.0}
+{'loss': 0.0145, 'grad_norm': 0.13715584576129913, 'learning_rate': 7.947149707197258e-05, 'epoch': 5.19}
+{'loss': 0.0131, 'grad_norm': 0.43610092997550964, 'learning_rate': 6.980107382619042e-05, 'epoch': 5.39}
+{'loss': 0.0203, 'grad_norm': 0.38558346033096313, 'learning_rate': 6.048016254711546e-05, 'epoch': 5.58}
+{'loss': 0.0213, 'grad_norm': 0.9079526662826538, 'learning_rate': 5.1588285963320015e-05, 'epoch': 5.77}
+{'loss': 0.0172, 'grad_norm': 0.1209198608994484, 'learning_rate': 4.320130643062969e-05, 'epoch': 5.97}
+{'loss': 0.0199, 'grad_norm': 1.9599947929382324, 'learning_rate': 3.539077870125165e-05, 'epoch': 6.15}
+{'loss': 0.0141, 'grad_norm': 0.40965625643730164, 'learning_rate': 2.8223339443858476e-05, 'epoch': 6.35}
+{'loss': 0.0085, 'grad_norm': 6.033463478088379, 'learning_rate': 2.176013872302635e-05, 'epoch': 6.54}
+{'loss': 0.0079, 'grad_norm': 0.689888596534729, 'learning_rate': 1.6056318288445012e-05, 'epoch': 6.74}
+{'loss': 0.0101, 'grad_norm': 0.2485642284154892, 'learning_rate': 1.116054112495184e-05, 'epoch': 6.93}
+{'loss': 0.0055, 'grad_norm': 0.15240944921970367, 'learning_rate': 7.114576277103401e-06, 'epoch': 7.12}
+{'loss': 0.0043, 'grad_norm': 0.754896342754364, 'learning_rate': 3.9529424904144546e-06, 'epoch': 7.31}
+{'loss': 0.0065, 'grad_norm': 0.9508360624313354, 'learning_rate': 1.7026137095924035e-06, 'epoch': 7.5}
+{'loss': 0.0065, 'grad_norm': 0.1457633525133133, 'learning_rate': 3.8278894635161845e-07, 'epoch': 7.7}
+{'train_runtime': 5116.9939, 'train_samples_per_second': 0.646, 'train_steps_per_second': 0.08, 'train_loss': 0.6311324404497796, 'epoch': 7.85}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg[HPO]   Evaluating 18/30: SCH_2891_242.jpg[HPO]   Evaluating 19/30: SCH_2891_269.jpg[HPO]   Evaluating 20/30: SCH_2891_270.jpg[HPO]   Evaluating 21/30: SCH_3138.jpg[HPO]   Evaluating 22/30: SCH_2891_216.jpg[HPO]   Evaluating 23/30: SCH_2891_58.jpg[HPO]   Evaluating 24/30: SCH_2891_218_219.jpg[HPO]   Evaluating 25/30: SCH_2891_185.jpg[HPO]   Evaluating 26/30: SCH_2891_39_40.jpg[HPO]   Evaluating 27/30: SCH_2891_208.jpg[HPO]   Evaluating 28/30: SCH_2891_159.jpg[HPO]   Evaluating 29/30: SCH_2989.jpg[HPO]   Evaluating 30/30: SCH_3195_3.jpg
+[HPO]   ✅ Validation CER: 0.0023 (0.23%)
+================================================================================
+
+[HPO] Loading Gemma-3 model from LOCAL snapshot with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+[HPO] Base model loaded (4-bit, local_files_only=True)
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+[HPO] LoRA applied (r=16, alpha=256, dropout=0.1786, rslora=False)
+[HPO] Training: 413 samples (missing images: 0)
+
+[HPO] Starting training for this trial...
+
+{'loss': 13.0144, 'grad_norm': 145.04232788085938, 'learning_rate': 2.2853026232314887e-05, 'epoch': 0.19}
+{'loss': 2.1478, 'grad_norm': 30.018253326416016, 'learning_rate': 4.8245277601553645e-05, 'epoch': 0.39}
+{'loss': 0.3034, 'grad_norm': 131.9717254638672, 'learning_rate': 7.363752897079241e-05, 'epoch': 0.58}
+{'loss': 0.1547, 'grad_norm': 22.081003189086914, 'learning_rate': 9.902978034003116e-05, 'epoch': 0.77}
+{'loss': 0.1246, 'grad_norm': 6.923213481903076, 'learning_rate': 0.00010128238068388709, 'epoch': 0.97}
+{'loss': 0.1254, 'grad_norm': 32.91658401489258, 'learning_rate': 0.00010029573196449351, 'epoch': 1.15}
+{'loss': 0.1077, 'grad_norm': 18.311866760253906, 'learning_rate': 9.861926401227088e-05, 'epoch': 1.35}
+{'loss': 0.124, 'grad_norm': 113.50638580322266, 'learning_rate': 9.62763343534762e-05, 'epoch': 1.54}
+{'loss': 0.1059, 'grad_norm': 18.38906478881836, 'learning_rate': 9.329958604636248e-05, 'epoch': 1.74}
+{'loss': 0.0953, 'grad_norm': 11.99428653717041, 'learning_rate': 8.97304928791115e-05, 'epoch': 1.93}
+{'loss': 0.055, 'grad_norm': 20.84261703491211, 'learning_rate': 8.561878153290274e-05, 'epoch': 2.12}
+{'loss': 0.0638, 'grad_norm': 2.4661741256713867, 'learning_rate': 8.102173876087881e-05, 'epoch': 2.31}
+{'loss': 0.0446, 'grad_norm': 3.090470790863037, 'learning_rate': 7.600341323579241e-05, 'epoch': 2.5}
+{'loss': 0.0745, 'grad_norm': 8.109692573547363, 'learning_rate': 7.063372318665773e-05, 'epoch': 2.7}
+{'loss': 0.0743, 'grad_norm': 5.7366042137146, 'learning_rate': 6.498748225733156e-05, 'epoch': 2.89}
+{'loss': 0.0711, 'grad_norm': 8.032190322875977, 'learning_rate': 5.9143357159328045e-05, 'epoch': 3.08}
+{'loss': 0.0295, 'grad_norm': 1.0282565355300903, 'learning_rate': 5.318277164145494e-05, 'epoch': 3.27}
+{'loss': 0.0577, 'grad_norm': 6.3215556144714355, 'learning_rate': 4.718877204680307e-05, 'epoch': 3.46}
+{'loss': 0.0444, 'grad_norm': 10.46107006072998, 'learning_rate': 4.124487026280881e-05, 'epoch': 3.66}
+{'loss': 0.036, 'grad_norm': 87.03034210205078, 'learning_rate': 3.5433880185082166e-05, 'epoch': 3.85}
+{'loss': 0.0368, 'grad_norm': 7.404079914093018, 'learning_rate': 2.983676390606276e-05, 'epoch': 4.04}
+{'loss': 0.0342, 'grad_norm': 4.653156280517578, 'learning_rate': 2.453150370407418e-05, 'epoch': 4.23}
+{'loss': 0.018, 'grad_norm': 1.1530730724334717, 'learning_rate': 1.959201554888138e-05, 'epoch': 4.43}
+{'loss': 0.0266, 'grad_norm': 3.651578903198242, 'learning_rate': 1.5087119261422928e-05, 'epoch': 4.62}
+{'loss': 0.0157, 'grad_norm': 5.396529197692871, 'learning_rate': 1.1079579676051922e-05, 'epoch': 4.81}
+{'loss': 0.0222, 'grad_norm': 2.477538824081421, 'learning_rate': 7.625232164370497e-06, 'epoch': 5.0}
+{'loss': 0.013, 'grad_norm': 4.878334999084473, 'learning_rate': 4.772204704368346e-06, 'epoch': 5.19}
+{'loss': 0.0129, 'grad_norm': 1.1585736274719238, 'learning_rate': 2.5602473334504235e-06, 'epoch': 5.39}
+{'loss': 0.0145, 'grad_norm': 0.8686286807060242, 'learning_rate': 1.0201783278039768e-06, 'epoch': 5.58}
+{'loss': 0.0109, 'grad_norm': 1.6030285358428955, 'learning_rate': 1.734548242560643e-07, 'epoch': 5.77}
+{'train_runtime': 3870.3604, 'train_samples_per_second': 0.64, 'train_steps_per_second': 0.079, 'train_loss': 0.5579632716922979, 'epoch': 5.89}
+
+[HPO] Training finished for this trial.
+
+================================================================================
+[HPO] RUNNING GENERATION-BASED CER EVALUATION ON SCHMUCK VALIDATION
+================================================================================
+[HPO]   Evaluating 1/30: SCH_3082_recto.jpg[HPO]   Evaluating 2/30: SCH_2891_55.jpg[HPO]   Evaluating 3/30: SCH_3201.jpg[HPO]   Evaluating 4/30: SCH_1937.jpg[HPO]   Evaluating 5/30: SCH_2891_71.jpg[HPO]   Evaluating 6/30: SCH_3076.jpg[HPO]   Evaluating 7/30: SCH_2089.jpg[HPO]   Evaluating 8/30: SCH_3195_1.jpg[HPO]   Evaluating 9/30: SCH_3192_62.jpg[HPO]   Evaluating 10/30: SCH_3164.jpg[HPO]   Evaluating 11/30: SCH_2976.jpg[HPO]   Evaluating 12/30: SCH_2891_123.jpg[HPO]   Evaluating 13/30: SCH_2891_184.jpg[HPO]   Evaluating 14/30: SCH_2891_217.jpg[HPO]   Evaluating 15/30: SCH_2891_298.jpg[HPO]   Evaluating 16/30: SCH_3121.jpg[HPO]   Evaluating 17/30: SCH_2891_194_195.jpg=== JOB_STATISTICS ===
+=== current date     : Wed Jan 14 07:15:12 AM CET 2026
+= Job-ID             : 1487309 on tinygpu
+= Job-Name           : schmuck_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:08
+= Total RAM usage    : 11.8 GiB of requested  GiB (%)   
+= Node list          : tg091
+= Subm/Elig/Start/End: 2026-01-12T20:34:31 / 2026-01-12T20:34:31 / 2026-01-13T07:15:02 / 2026-01-14T07:15:10
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.2G   104.9G   209.7G        N/A  29,217      500K   1,000K        N/A    
+    /home/woody           219.6G  1000.0G  1500.0G        N/A   1,017K   5,000K   7,500K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:C1:00.0, 1464611, 29 %, 9 %, 11558 MiB, 86383593 ms

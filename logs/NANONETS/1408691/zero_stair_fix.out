@@ -1,0 +1,171 @@
+### Starting TaskPrologue of job 1408691 on tg072 at Fri Nov 21 07:42:20 PM CET 2025
+Running on cores 6-7,14-15,22-23,30-31 with governor ondemand
+Fri Nov 21 19:42:20 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:AF:00.0 Off |                    0 |
+| N/A   30C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting Nanonets-OCR-s inference...
+Job ID: 1408691
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/NANONETS/1408691
+Job started at: Fri Nov 21 07:42:22 PM CET 2025
+============================================================
+NANONETS-OCR-S ZERO-SHOT STAIRCASE OCR
+============================================================
+
+Loading test data...
+Loaded 24 test samples
+
+Note: Using ZERO-SHOT inference (no fine-tuning, no examples)
+Loading Nanonets-OCR-s model...
+Model found at /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Model loaded successfully!
+
+Processing 24 test images with zero-shot prompting...
+------------------------------------------------------------
+Processing image 1/24: FMIS_FormblätterMielke_gefüllt (83).jpg
+  Resizing from 2491x3545 to 719x1024
+  Processed successfully. CER: 0.3435
+Processing image 2/24: FMIS_FormblätterMielke_gefüllt (45).jpg
+  Resizing from 2500x3545 to 722x1024
+  Processed successfully. CER: 0.3857
+Processing image 3/24: FMIS_FormblätterMielke_gefüllt (27).jpg
+  Resizing from 2490x3534 to 721x1024
+  Processed successfully. CER: 0.3415
+Processing image 4/24: FMIS_FormblätterMielke_gefüllt (130).jpg
+  Resizing from 2483x3545 to 717x1024
+  Processed successfully. CER: 0.2429
+Processing image 5/24: FMIS_FormblätterMielke_gefüllt (129).jpg
+  Resizing from 2479x3549 to 715x1024
+  Processed successfully. CER: 0.3642
+Processing image 6/24: FMIS_FormblätterMielke_gefüllt (88).jpg
+  Resizing from 2483x3541 to 718x1024
+  Processed successfully. CER: 0.2328
+Processing image 7/24: FMIS_FormblätterMielke_gefüllt (102).jpg
+  Resizing from 2487x3545 to 718x1024
+  Processed successfully. CER: 0.3865
+Processing image 8/24: FMIS_FormblätterMielke_gefüllt (103).jpg
+  Resizing from 2487x3549 to 717x1024
+  Processed successfully. CER: 0.2865
+Processing image 9/24: FMIS_FormblätterMielke_gefüllt (165).jpg
+  Resizing from 2504x3562 to 719x1024
+  Processed successfully. CER: 0.3864
+Processing image 10/24: FMIS_FormblätterMielke_gefüllt (43).jpg
+  Resizing from 2495x3554 to 718x1024
+  Processed successfully. CER: 0.3497
+Processing image 11/24: FMIS_FormblätterMielke_gefüllt (11).jpg
+  Resizing from 2504x3564 to 719x1024
+  Processed successfully. CER: 0.3597
+Processing image 12/24: FMIS_FormblätterMielke_gefüllt (36).jpg
+  Resizing from 2488x3538 to 720x1024
+  Processed successfully. CER: 0.6686
+Processing image 13/24: FMIS_FormblätterMielke_gefüllt (87).jpg
+  Resizing from 2495x3549 to 719x1024
+  Processed successfully. CER: 0.3747
+Processing image 14/24: FMIS_FormblätterMielke_gefüllt (94).jpg
+  Resizing from 2504x3541 to 724x1024
+  Processed successfully. CER: 0.5445
+Processing image 15/24: FMIS_FormblätterMielke_gefüllt (58).jpg
+  Resizing from 2483x3545 to 717x1024
+  Processed successfully. CER: 0.6114
+Processing image 16/24: FMIS_FormblätterMielke_gefüllt (111).jpg
+  Resizing from 2479x3545 to 716x1024
+  Processed successfully. CER: 0.4989
+Processing image 17/24: FMIS_FormblätterMielke_gefüllt (99).jpg
+  Resizing from 2487x3549 to 717x1024
+  Processed successfully. CER: 0.3600
+Processing image 18/24: FMIS_FormblätterMielke_gefüllt (116).jpg
+  Resizing from 2483x3537 to 718x1024
+  Processed successfully. CER: 0.3730
+Processing image 19/24: FMIS_FormblätterMielke_Vorlage3.jpg
+  Resizing from 2500x3562 to 718x1024
+  Processed successfully. CER: 0.6346
+Processing image 20/24: FMIS_FormblätterMielke_gefüllt (132).jpg
+  Resizing from 2491x3574 to 713x1024
+  Processed successfully. CER: 0.1969
+Processing image 21/24: FMIS_FormblätterMielke_gefüllt (139).jpg
+  Resizing from 2479x3545 to 716x1024
+  Processed successfully. CER: 0.3749
+Processing image 22/24: FMIS_FormblätterMielke_gefüllt (66).jpg
+  Resizing from 2479x3545 to 716x1024
+  Processed successfully. CER: 0.3975
+Processing image 23/24: FMIS_FormblätterMielke_gefüllt (105).jpg
+  Resizing from 2483x3545 to 717x1024
+  Processed successfully. CER: 0.3825
+Processing image 24/24: FMIS_FormblätterMielke_gefüllt (13).jpg
+  Resizing from 2482x3538 to 718x1024
+  Processed successfully. CER: 0.3351
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_staircase/run_zeroshot_20251121_195336
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_staircase/run_zeroshot_20251121_195336/predictions_zeroshot.jsonl
+
+============================================================
+NANONETS-OCR-S ZERO-SHOT CER EVALUATION RESULTS
+STAIRCASE DOCUMENTATION DATASET
+============================================================
+
+CER Statistics across 24 images:
+--------------------------------------------------
+Average CER: 0.3930 (39.30%)
+Minimum CER: 0.1969 (19.69%)
+Maximum CER: 0.6686 (66.86%)
+
+Weighted CER: 0.3931 (39.31%)
+Total characters: 33976
+Total errors: 13357
+Perfect matches: 0/24 (0.0%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_staircase/run_zeroshot_20251121_195336/evaluation_summary_zeroshot.json
+
+============================================================
+ZERO-SHOT PROCESSING COMPLETE!
+============================================================
+Model: Nanonets-OCR-s
+Dataset: Staircase Documentation
+Method: Zero-Shot (no fine-tuning, no examples)
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_staircase/run_zeroshot_20251121_195336
+Total images processed: 24
+Average CER on test set: 0.3930 (39.30%)
+============================================================
+
+Job completed at: Fri Nov 21 07:53:43 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Fri Nov 21 07:53:44 PM CET 2025
+= Job-ID             : 1408691 on tinygpu
+= Job-Name           : zero_stair_fix
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nanonets_inference.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 08:00:00
+= Elapsed runtime    : 00:11:30
+= Total RAM usage    : 9.0 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-11-21T19:09:16 / 2025-11-21T19:09:16 / 2025-11-21T19:42:13 / 2025-11-21T19:53:43
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           197.4G  1000.0G  1500.0G        N/A     876K   5,000K   7,500K        N/A    
+    /home/hpc              68.3G   104.9G   209.7G        N/A  26,807      500K   1,000K        N/A    
+    /home/vault           778.9G  1048.6G  2097.2G        N/A   6,510      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:AF:00.0, 1142344, 56 %, 37 %, 8322 MiB, 655037 ms

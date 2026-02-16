@@ -1,0 +1,218 @@
+### Starting TaskPrologue of job 1131389 on tg071 at Fri Jul 25 02:06:58 AM CEST 2025
+Running on cores 2-3,10-11,16,19,26-27 with governor ondemand
+Fri Jul 25 02:06:58 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.158.01             Driver Version: 570.158.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   30C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+[2025-07-25 02:08:00,951] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-25 02:08:06,533] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+🦥 Unsloth Zoo will now patch everything to make training faster!
+Created run directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/staircase_inference/run_20250725_020826
+Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2 patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2 does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Created temporary directory for augmented images: /tmp/1131389.tinygpu/augmented_images_9tw6o7kc
+Model loaded successfully with optimized LoRA adapters!
+============================================================
+STARTING STAIRCASE DATASET TRAINING WITH DATA AUGMENTATION
+============================================================
+Preparing training and validation datasets...
+Preparing training data with augmentation factor: 2
+Creating augmentation 1/2 for image 1/26: FMIS_FormblätterMielke_gefüllt (14).jpg
+Creating augmentation 2/2 for image 1/26: FMIS_FormblätterMielke_gefüllt (14).jpg
+Creating augmentation 1/2 for image 2/26: FMIS_FormblätterMielke_gefüllt (18).jpg
+Creating augmentation 2/2 for image 2/26: FMIS_FormblätterMielke_gefüllt (18).jpg
+Creating augmentation 1/2 for image 3/26: FMIS_FormblätterMielke_gefüllt (35).jpg
+Creating augmentation 2/2 for image 3/26: FMIS_FormblätterMielke_gefüllt (35).jpg
+Creating augmentation 1/2 for image 4/26: FMIS_FormblätterMielke_gefüllt (12).jpg
+Creating augmentation 2/2 for image 4/26: FMIS_FormblätterMielke_gefüllt (12).jpg
+Creating augmentation 1/2 for image 5/26: FMIS_FormblätterMielke_gefüllt (27).jpg
+Creating augmentation 2/2 for image 5/26: FMIS_FormblätterMielke_gefüllt (27).jpg
+Creating augmentation 1/2 for image 6/26: FMIS_FormblätterMielke_gefüllt (2).jpg
+Creating augmentation 2/2 for image 6/26: FMIS_FormblätterMielke_gefüllt (2).jpg
+Creating augmentation 1/2 for image 7/26: FMIS_FormblätterMielke_gefüllt (3).jpg
+Creating augmentation 2/2 for image 7/26: FMIS_FormblätterMielke_gefüllt (3).jpg
+Creating augmentation 1/2 for image 8/26: FMIS_FormblätterMielke_gefüllt (25).jpg
+Creating augmentation 2/2 for image 8/26: FMIS_FormblätterMielke_gefüllt (25).jpg
+Creating augmentation 1/2 for image 9/26: FMIS_FormblätterMielke_gefüllt (37).jpg
+Creating augmentation 2/2 for image 9/26: FMIS_FormblätterMielke_gefüllt (37).jpg
+Creating augmentation 1/2 for image 10/26: FMIS_FormblätterMielke_gefüllt (15).jpg
+Creating augmentation 2/2 for image 10/26: FMIS_FormblätterMielke_gefüllt (15).jpg
+Creating augmentation 1/2 for image 11/26: FMIS_FormblätterMielke_gefüllt (34).jpg
+Creating augmentation 2/2 for image 11/26: FMIS_FormblätterMielke_gefüllt (34).jpg
+Creating augmentation 1/2 for image 12/26: FMIS_FormblätterMielke_gefüllt (22).jpg
+Creating augmentation 2/2 for image 12/26: FMIS_FormblätterMielke_gefüllt (22).jpg
+Creating augmentation 1/2 for image 13/26: FMIS_FormblätterMielke_gefüllt (38).jpg
+Creating augmentation 2/2 for image 13/26: FMIS_FormblätterMielke_gefüllt (38).jpg
+Creating augmentation 1/2 for image 14/26: FMIS_FormblätterMielke_gefüllt (28).jpg
+Creating augmentation 2/2 for image 14/26: FMIS_FormblätterMielke_gefüllt (28).jpg
+Creating augmentation 1/2 for image 15/26: FMIS_FormblätterMielke_gefüllt (4).jpg
+Creating augmentation 2/2 for image 15/26: FMIS_FormblätterMielke_gefüllt (4).jpg
+Creating augmentation 1/2 for image 16/26: FMIS_FormblätterMielke_gefüllt (16).jpg
+Creating augmentation 2/2 for image 16/26: FMIS_FormblätterMielke_gefüllt (16).jpg
+Creating augmentation 1/2 for image 17/26: FMIS_FormblätterMielke_gefüllt (24).jpg
+Creating augmentation 2/2 for image 17/26: FMIS_FormblätterMielke_gefüllt (24).jpg
+Creating augmentation 1/2 for image 18/26: FMIS_FormblätterMielke_gefüllt (11).jpg
+Creating augmentation 2/2 for image 18/26: FMIS_FormblätterMielke_gefüllt (11).jpg
+Creating augmentation 1/2 for image 19/26: FMIS_FormblätterMielke_gefüllt (39).jpg
+Creating augmentation 2/2 for image 19/26: FMIS_FormblätterMielke_gefüllt (39).jpg
+Creating augmentation 1/2 for image 20/26: FMIS_FormblätterMielke_gefüllt (41).jpg
+Creating augmentation 2/2 for image 20/26: FMIS_FormblätterMielke_gefüllt (41).jpg
+Creating augmentation 1/2 for image 21/26: FMIS_FormblätterMielke_gefüllt (21).jpg
+Creating augmentation 2/2 for image 21/26: FMIS_FormblätterMielke_gefüllt (21).jpg
+Creating augmentation 1/2 for image 22/26: FMIS_FormblätterMielke_gefüllt (8).jpg
+Creating augmentation 2/2 for image 22/26: FMIS_FormblätterMielke_gefüllt (8).jpg
+Creating augmentation 1/2 for image 23/26: FMIS_FormblätterMielke_gefüllt (7).jpg
+Creating augmentation 2/2 for image 23/26: FMIS_FormblätterMielke_gefüllt (7).jpg
+Creating augmentation 1/2 for image 24/26: FMIS_FormblätterMielke_Vorlage1.jpg
+Creating augmentation 2/2 for image 24/26: FMIS_FormblätterMielke_Vorlage1.jpg
+Creating augmentation 1/2 for image 25/26: FMIS_FormblätterMielke_gefüllt (36).jpg
+Creating augmentation 2/2 for image 25/26: FMIS_FormblätterMielke_gefüllt (36).jpg
+Creating augmentation 1/2 for image 26/26: FMIS_FormblätterMielke_gefüllt (26).jpg
+Creating augmentation 2/2 for image 26/26: FMIS_FormblätterMielke_gefüllt (26).jpg
+Successfully created 52 augmented images
+Total training samples: 78 (original: 26, augmented: 52)
+Training: 78 samples, Validation: 9 samples
+Unsloth: Model does not have a default image size - using 512
+GPU = Tesla V100-PCIE-32GB. Max memory = 31.733 GB.
+7.854 GB of memory reserved.
+Starting training with early stopping and data augmentation...
+Unsloth: Will smartly offload gradients to save VRAM!
+{'eval_loss': 1.5437077283859253, 'eval_runtime': 10.2395, 'eval_samples_per_second': 0.879, 'eval_steps_per_second': 0.488, 'epoch': 0.92}
+{'loss': 1.9721, 'grad_norm': 8.107586860656738, 'learning_rate': 6e-06, 'epoch': 1.1}
+{'eval_loss': 1.009785532951355, 'eval_runtime': 9.2397, 'eval_samples_per_second': 0.974, 'eval_steps_per_second': 0.541, 'epoch': 1.92}
+{'loss': 1.4566, 'grad_norm': 3.0246872901916504, 'learning_rate': 1.6000000000000003e-05, 'epoch': 2.21}
+{'eval_loss': 0.6560973525047302, 'eval_runtime': 9.707, 'eval_samples_per_second': 0.927, 'eval_steps_per_second': 0.515, 'epoch': 2.92}
+{'loss': 0.9412, 'grad_norm': 4.242494583129883, 'learning_rate': 2.6000000000000002e-05, 'epoch': 3.31}
+{'eval_loss': 0.27792078256607056, 'eval_runtime': 9.6626, 'eval_samples_per_second': 0.931, 'eval_steps_per_second': 0.517, 'epoch': 3.92}
+{'loss': 0.4284, 'grad_norm': 9.010295867919922, 'learning_rate': 3.5e-05, 'epoch': 4.41}
+{'eval_loss': 0.16172747313976288, 'eval_runtime': 9.5511, 'eval_samples_per_second': 0.942, 'eval_steps_per_second': 0.523, 'epoch': 4.92}
+{'loss': 0.1914, 'grad_norm': 1.1936697959899902, 'learning_rate': 4.5e-05, 'epoch': 5.51}
+{'eval_loss': 0.14139309525489807, 'eval_runtime': 9.5108, 'eval_samples_per_second': 0.946, 'eval_steps_per_second': 0.526, 'epoch': 5.92}
+{'loss': 0.1168, 'grad_norm': 1.6693371534347534, 'learning_rate': 4.981772185245135e-05, 'epoch': 6.62}
+{'eval_loss': 0.14490348100662231, 'eval_runtime': 9.486, 'eval_samples_per_second': 0.949, 'eval_steps_per_second': 0.527, 'epoch': 6.92}
+{'loss': 0.0581, 'grad_norm': 6.4628586769104, 'learning_rate': 4.837540606713538e-05, 'epoch': 7.72}
+{'eval_loss': 0.16522011160850525, 'eval_runtime': 9.4713, 'eval_samples_per_second': 0.95, 'eval_steps_per_second': 0.528, 'epoch': 7.92}
+{'loss': 0.0389, 'grad_norm': 1.550014615058899, 'learning_rate': 4.557459664734141e-05, 'epoch': 8.82}
+{'eval_loss': 0.17916512489318848, 'eval_runtime': 9.6312, 'eval_samples_per_second': 0.934, 'eval_steps_per_second': 0.519, 'epoch': 8.92}
+{'train_runtime': 1754.4056, 'train_samples_per_second': 0.889, 'train_steps_per_second': 0.103, 'train_loss': 0.6428001980170791, 'epoch': 8.92}
+1754.4056 seconds used for training.
+29.24 minutes used for training.
+Peak reserved memory = 12.062 GB.
+Peak reserved memory for training = 4.208 GB.
+Peak reserved memory % of max memory = 38.011 %.
+Peak reserved memory for training % of max memory = 13.261 %.
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/qwen/staircase_inference/run_20250725_020826...
+Saving model in recommended formats...
+Detected local model directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Found HuggingFace hub cache directory: /home/hpc/iwi5/iwi5298h/.cache/huggingface/hub
+Copying safetensors from local directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Copied safetensors index file from local model
+Copied model-00005-of-00005.safetensors from local model directory
+Copied model-00004-of-00005.safetensors from local model directory
+Copied model-00002-of-00005.safetensors from local model directory
+Copied model-00003-of-00005.safetensors from local model directory
+Copied model-00001-of-00005.safetensors from local model directory
+Detected local model directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Found HuggingFace hub cache directory: /home/hpc/iwi5/iwi5298h/.cache/huggingface/hub
+Copying safetensors from local directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Copied safetensors index file from local model
+Copied model-00005-of-00005.safetensors from local model directory
+Copied model-00004-of-00005.safetensors from local model directory
+Copied model-00002-of-00005.safetensors from local model directory
+Copied model-00003-of-00005.safetensors from local model directory
+Copied model-00001-of-00005.safetensors from local model directory
+Model saved successfully in multiple formats!
+
+============================================================
+STARTING EVALUATION ON STAIRCASE TEST.JSONL
+============================================================
+Starting evaluation on test.jsonl...
+Loaded 9 test samples
+Processing test image 1/9: FMIS_FormblätterMielke_gefüllt (6).jpg
+  Processed successfully. CER: 0.440
+Processing test image 2/9: FMIS_FormblätterMielke_gefüllt (31).jpg
+  Processed successfully. CER: 0.217
+Processing test image 3/9: FMIS_FormblätterMielke_gefüllt (32).jpg
+  Processed successfully. CER: 0.228
+Processing test image 4/9: FMIS_FormblätterMielke_gefüllt (5).jpg
+  Processed successfully. CER: 0.133
+Processing test image 5/9: FMIS_FormblätterMielke_gefüllt (40).jpg
+  Processed successfully. CER: 0.126
+Processing test image 6/9: FMIS_FormblätterMielke_gefüllt (9).jpg
+  Processed successfully. CER: 0.153
+Processing test image 7/9: FMIS_FormblätterMielke_gefüllt (13).jpg
+  Processed successfully. CER: 0.073
+Processing test image 8/9: FMIS_FormblätterMielke_gefüllt (20).jpg
+  Processed successfully. CER: 0.102
+Processing test image 9/9: FMIS_FormblätterMielke_gefüllt (17).jpg
+  Processed successfully. CER: 0.198
+CER evaluation results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/staircase_inference/run_20250725_020826/cer_evaluation_results.txt
+
+Evaluation completed!
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/staircase_inference/run_20250725_020826/test_predictions.jsonl
+CER results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/staircase_inference/run_20250725_020826/cer_evaluation_results.txt
+All files saved in: /home/vault/iwi5/iwi5298h/models_image_text/qwen/staircase_inference/run_20250725_020826
+
+============================================================
+FINAL RESULTS SUMMARY - STAIRCASE DATASET WITH AUGMENTATION
+============================================================
+Augmentation factor: 2
+Average CER: 0.1857 (18.57%)
+Median CER: 0.1526 (15.26%)
+Perfect matches: 0/9 (0.00%)
+Total images processed: 9
+
+Staircase dataset training and evaluation completed successfully!
+All outputs saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/staircase_inference/run_20250725_020826
+Cleaned up temporary directory: /tmp/1131389.tinygpu/augmented_images_9tw6o7kc
+=== JOB_STATISTICS ===
+=== current date     : Fri Jul 25 03:20:10 AM CEST 2025
+= Job-ID             : 1131389 on tinygpu
+= Job-Name           : qwen_aug
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 07:00:00
+= Elapsed runtime    : 01:13:15
+= Total RAM usage    : 20.7 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2025-07-25T02:06:58 / 2025-07-25T02:06:58 / 2025-07-25T02:07:01 / 2025-07-25T03:20:16
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody            71.1G  1000.0G  1500.0G        N/A     238K   5,000K   7,500K        N/A    
+    /home/hpc              90.3G   104.9G   209.7G        N/A  31,950      500K   1,000K        N/A    
+    /home/vault           341.3G  1048.6G  2097.2G        N/A     805      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 41899, 36 %, 17 %, 18808 MiB, 4378757 ms

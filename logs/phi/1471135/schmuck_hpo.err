@@ -1,0 +1,150 @@
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/models/auto/image_processing_auto.py:520: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
+  warnings.warn(
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/optuna/_experimental.py:32: ExperimentalWarning: Argument ``multivariate`` is an experimental feature. The interface can change in the future.
+  warnings.warn(
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/optuna/_experimental.py:32: ExperimentalWarning: Argument ``group`` is an experimental feature. The interface can change in the future.
+  warnings.warn(
+[I 2025-12-19 20:30:45,246] A new study created in RDB with name: phi_schmuck
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.23s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.75s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.82s/it]
+  0%|          | 0/408 [00:00<?, ?it/s]You are not running the flash-attention implementation, expect numerical differences.
+[W 2025-12-19 20:37:01,675] Trial 0 failed with parameters: {'learning_rate': 0.00010894653829887865, 'weight_decay': 0.09507143064099162, 'lora_r': 8, 'lora_alpha': 32, 'lora_dropout': 0.052058449429580246, 'gradient_accumulation_steps': 8} because of the following error: OutOfMemoryError('CUDA out of memory. Tried to allocate 340.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 144.25 MiB is free. Including non-PyTorch memory, this process has 31.59 GiB memory in use. Of the allocated memory 30.96 GiB is allocated by PyTorch, and 264.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)').
+Traceback (most recent call last):
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/optuna/study/_optimize.py", line 201, in _run_trial
+    value_or_values = func(trial)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/phivision/hpo/schmuck_hpo.py", line 716, in objective
+    val_cer, info = train_one_config(
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/phivision/hpo/schmuck_hpo.py", line 597, in train_one_config
+    trainer.train()
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/trainer.py", line 2122, in train
+    return inner_training_loop(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/trainer.py", line 2474, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/trainer.py", line 3572, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/trainer.py", line 3625, in compute_loss
+    outputs = model(**inputs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 823, in forward
+    return model_forward(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 811, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/peft/peft_model.py", line 1644, in forward
+    return self.base_model(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 197, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/phi_3_5_vision/modeling_phi3_v.py", line 1603, in forward
+    outputs = self.model(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/phi_3_5_vision/modeling_phi3_v.py", line 1479, in forward
+    layer_outputs = decoder_layer(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/phi_3_5_vision/modeling_phi3_v.py", line 1177, in forward
+    attn_outputs, self_attn_weights, present_key_value = self.self_attn(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/phi_3_5_vision/modeling_phi3_v.py", line 681, in forward
+    attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 340.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 144.25 MiB is free. Including non-PyTorch memory, this process has 31.59 GiB memory in use. Of the allocated memory 30.96 GiB is allocated by PyTorch, and 264.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[W 2025-12-19 20:37:02,003] Trial 0 failed with value None.
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/phivision/hpo/schmuck_hpo.py", line 854, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/phivision/hpo/schmuck_hpo.py", line 844, in main
+    run_optuna_hpo_only(
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/phivision/hpo/schmuck_hpo.py", line 734, in run_optuna_hpo_only
+    study.optimize(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/optuna/study/study.py", line 490, in optimize
+    _optimize(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/optuna/study/_optimize.py", line 63, in _optimize
+    _optimize_sequential(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/optuna/study/_optimize.py", line 160, in _optimize_sequential
+    frozen_trial_id = _run_trial(study, func, catch)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/optuna/study/_optimize.py", line 258, in _run_trial
+    raise func_err
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/optuna/study/_optimize.py", line 201, in _run_trial
+    value_or_values = func(trial)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/phivision/hpo/schmuck_hpo.py", line 716, in objective
+    val_cer, info = train_one_config(
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/phivision/hpo/schmuck_hpo.py", line 597, in train_one_config
+    trainer.train()
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/trainer.py", line 2122, in train
+    return inner_training_loop(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/trainer.py", line 2474, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/trainer.py", line 3572, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/trainer.py", line 3625, in compute_loss
+    outputs = model(**inputs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 823, in forward
+    return model_forward(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 811, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/peft/peft_model.py", line 1644, in forward
+    return self.base_model(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 197, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/phi_3_5_vision/modeling_phi3_v.py", line 1603, in forward
+    outputs = self.model(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/phi_3_5_vision/modeling_phi3_v.py", line 1479, in forward
+    layer_outputs = decoder_layer(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/phi_3_5_vision/modeling_phi3_v.py", line 1177, in forward
+    attn_outputs, self_attn_weights, present_key_value = self.self_attn(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/phi_3_5_vision/modeling_phi3_v.py", line 681, in forward
+    attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 340.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 144.25 MiB is free. Including non-PyTorch memory, this process has 31.59 GiB memory in use. Of the allocated memory 30.96 GiB is allocated by PyTorch, and 264.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  0%|          | 0/408 [02:24<?, ?it/s]

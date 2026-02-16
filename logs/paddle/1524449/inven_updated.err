@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/paddleocr/inven_updated.py", line 42, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/utils/tensorboard/__init__.py", line 1, in <module>
+    import tensorboard
+ModuleNotFoundError: No module named 'tensorboard'
+[W204 12:54:01.393460460 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

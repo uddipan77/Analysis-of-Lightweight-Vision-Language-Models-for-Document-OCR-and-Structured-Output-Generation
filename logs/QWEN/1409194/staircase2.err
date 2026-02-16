@@ -1,0 +1,73 @@
+Unsloth: KwargsForCausalLM cannot be inherited from TransformersKwargs since it's of type = <class 'type'>
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [01:01<04:07, 61.84s/it]Loading checkpoint shards:  40%|████      | 2/5 [02:02<03:02, 60.93s/it]Loading checkpoint shards:  60%|██████    | 3/5 [02:52<01:52, 56.08s/it]Loading checkpoint shards:  80%|████████  | 4/5 [03:49<00:56, 56.47s/it]Loading checkpoint shards: 100%|██████████| 5/5 [04:06<00:00, 42.29s/it]Loading checkpoint shards: 100%|██████████| 5/5 [04:06<00:00, 49.33s/it]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+  0%|          | 0/1140 [00:00<?, ?it/s]Unsloth: Not an error, but Qwen2_5_VLForConditionalGeneration does not accept `num_items_in_batch`.
+Using gradient accumulation will be very slightly less accurate.
+Read more on gradient accumulation issues here: https://unsloth.ai/blog/gradient
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+  0%|          | 1/1140 [00:17<5:34:19, 17.61s/it]  0%|          | 2/1140 [00:29<4:27:08, 14.08s/it]  0%|          | 3/1140 [00:40<4:00:44, 12.70s/it]  0%|          | 4/1140 [00:52<3:53:15, 12.32s/it]  0%|          | 5/1140 [01:02<3:37:07, 11.48s/it]  1%|          | 6/1140 [01:12<3:28:59, 11.06s/it]  1%|          | 7/1140 [01:23<3:29:45, 11.11s/it]  1%|          | 8/1140 [01:34<3:29:04, 11.08s/it]  1%|          | 9/1140 [01:46<3:31:50, 11.24s/it]  1%|          | 10/1140 [01:57<3:33:52, 11.36s/it]                                                     1%|          | 10/1140 [01:57<3:33:52, 11.36s/it]  1%|          | 11/1140 [02:09<3:35:56, 11.48s/it]  1%|          | 12/1140 [02:20<3:33:53, 11.38s/it]  1%|          | 13/1140 [02:31<3:28:31, 11.10s/it]  1%|          | 14/1140 [02:41<3:25:27, 10.95s/it]  1%|▏         | 15/1140 [02:51<3:19:31, 10.64s/it]  1%|▏         | 16/1140 [03:02<3:20:34, 10.71s/it]  1%|▏         | 17/1140 [03:12<3:14:37, 10.40s/it]  2%|▏         | 18/1140 [03:23<3:20:34, 10.73s/it]  2%|▏         | 19/1140 [03:35<3:25:59, 11.03s/it]  2%|▏         | 20/1140 [03:45<3:22:38, 10.86s/it]                                                     2%|▏         | 20/1140 [03:45<3:22:38, 10.86s/it]  2%|▏         | 21/1140 [03:56<3:22:47, 10.87s/it]  2%|▏         | 22/1140 [04:08<3:26:30, 11.08s/it]  2%|▏         | 23/1140 [04:19<3:25:38, 11.05s/it]  2%|▏         | 24/1140 [04:30<3:28:57, 11.23s/it]  2%|▏         | 25/1140 [04:41<3:24:14, 10.99s/it]  2%|▏         | 26/1140 [04:52<3:24:08, 10.99s/it]  2%|▏         | 27/1140 [05:02<3:20:34, 10.81s/it]  2%|▏         | 28/1140 [05:13<3:22:08, 10.91s/it]  3%|▎         | 29/1140 [05:24<3:22:59, 10.96s/it]  3%|▎         | 30/1140 [05:36<3:25:31, 11.11s/it]                                                     3%|▎         | 30/1140 [05:36<3:25:31, 11.11s/it]  3%|▎         | 31/1140 [05:47<3:26:38, 11.18s/it]  3%|▎         | 32/1140 [05:59<3:27:44, 11.25s/it]  3%|▎         | 33/1140 [06:10<3:27:54, 11.27s/it]  3%|▎         | 34/1140 [06:21<3:26:05, 11.18s/it]  3%|▎         | 35/1140 [06:32<3:27:39, 11.28s/it]  3%|▎         | 36/1140 [06:42<3:20:08, 10.88s/it]  3%|▎         | 37/1140 [06:53<3:20:53, 10.93s/it]  3%|▎         | 38/1140 [07:04<3:19:42, 10.87s/it]  3%|▎         | 39/1140 [07:16<3:22:49, 11.05s/it]  4%|▎         | 40/1140 [07:27<3:24:38, 11.16s/it]                                                     4%|▎         | 40/1140 [07:27<3:24:38, 11.16s/it]  4%|▎         | 41/1140 [07:37<3:17:38, 10.79s/it]  4%|▎         | 42/1140 [07:47<3:11:00, 10.44s/it]  4%|▍         | 43/1140 [07:58<3:13:21, 10.58s/it]  4%|▍         | 44/1140 [08:08<3:14:49, 10.67s/it]  4%|▍         | 45/1140 [08:19<3:14:28, 10.66s/it]  4%|▍         | 46/1140 [08:30<3:18:49, 10.90s/it]  4%|▍         | 47/1140 [08:42<3:19:23, 10.95s/it]  4%|▍         | 48/1140 [08:53<3:23:34, 11.19s/it]  4%|▍         | 49/1140 [09:04<3:22:18, 11.13s/it]  4%|▍         | 50/1140 [09:15<3:19:31, 10.98s/it]                                                     4%|▍         | 50/1140 [09:15<3:19:31, 10.98s/it]  4%|▍         | 51/1140 [09:26<3:20:10, 11.03s/it]  5%|▍         | 52/1140 [09:37<3:17:49, 10.91s/it]  5%|▍         | 53/1140 [09:48<3:18:18, 10.95s/it]  5%|▍         | 54/1140 [09:59<3:17:59, 10.94s/it]  5%|▍         | 55/1140 [10:10<3:21:48, 11.16s/it]  5%|▍         | 56/1140 [10:21<3:20:56, 11.12s/it]  5%|▌         | 57/1140 [10:32<3:18:19, 10.99s/it]  5%|▌         | 58/1140 [10:37<2:47:55,  9.31s/it]
+  0%|          | 0/25 [00:00<?, ?it/s][A
+  8%|▊         | 2/25 [00:01<00:13,  1.72it/s][A
+ 12%|█▏        | 3/25 [00:02<00:19,  1.16it/s][A
+ 16%|█▌        | 4/25 [00:03<00:20,  1.02it/s][A
+ 20%|██        | 5/25 [00:04<00:21,  1.07s/it][A
+ 24%|██▍       | 6/25 [00:06<00:21,  1.11s/it][A
+ 28%|██▊       | 7/25 [00:07<00:20,  1.15s/it][A
+ 32%|███▏      | 8/25 [00:08<00:19,  1.15s/it][A
+ 36%|███▌      | 9/25 [00:09<00:18,  1.17s/it][A
+ 40%|████      | 10/25 [00:10<00:17,  1.17s/it][A
+ 44%|████▍     | 11/25 [00:12<00:16,  1.18s/it][A
+ 48%|████▊     | 12/25 [00:13<00:15,  1.17s/it][A
+ 52%|█████▏    | 13/25 [00:14<00:14,  1.17s/it][A
+ 56%|█████▌    | 14/25 [00:15<00:12,  1.16s/it][A
+ 60%|██████    | 15/25 [00:16<00:11,  1.17s/it][A
+ 64%|██████▍   | 16/25 [00:17<00:10,  1.16s/it][A
+ 68%|██████▊   | 17/25 [00:18<00:09,  1.17s/it][A
+ 72%|███████▏  | 18/25 [00:20<00:08,  1.16s/it][A
+ 76%|███████▌  | 19/25 [00:21<00:06,  1.17s/it][A
+ 80%|████████  | 20/25 [00:22<00:05,  1.19s/it][A
+ 84%|████████▍ | 21/25 [00:23<00:04,  1.21s/it][A
+ 88%|████████▊ | 22/25 [00:24<00:03,  1.19s/it][A
+ 92%|█████████▏| 23/25 [00:26<00:02,  1.21s/it][A
+ 96%|█████████▌| 24/25 [00:27<00:01,  1.18s/it][A
+100%|██████████| 25/25 [00:28<00:00,  1.07s/it][A                                                   
+                                               [A  5%|▌         | 58/1140 [11:07<2:47:55,  9.31s/it]
+100%|██████████| 25/25 [00:28<00:00,  1.07s/it][ATraceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/staircase2.py", line 1062, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/staircase2.py", line 1008, in main
+    trainer = finetuner.train_model(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/staircase2.py", line 466, in train_model
+    trainer_stats = trainer.train()
+                    ^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 2661, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 3096, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 3045, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 4184, in evaluate
+    self.control = self.callback_handler.on_evaluate(self.args, self.state, self.control, output.metrics)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer_callback.py", line 538, in on_evaluate
+    return self.call_event("on_evaluate", args, state, control, metrics=metrics)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer_callback.py", line 556, in call_event
+    result = getattr(callback, event)(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/staircase2.py", line 933, in on_evaluate
+    val_cer = self.parent.calculate_cer(predictions, targets)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/staircase2.py", line 350, in calculate_cer
+    measures = jiwer.compute_measures(target_str, pred_str)
+               ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'jiwer' has no attribute 'compute_measures'
+  5%|▌         | 58/1140 [53:08<16:31:22, 54.97s/it]
+
+                                               [A

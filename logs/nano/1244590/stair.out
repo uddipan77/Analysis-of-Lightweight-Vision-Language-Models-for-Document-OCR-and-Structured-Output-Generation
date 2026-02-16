@@ -1,0 +1,247 @@
+### Starting TaskPrologue of job 1244590 on tg080 at Tue Oct 21 01:29:56 PM CEST 2025
+Running on cores 6-7,22-23,38-39,54-55 with governor powersave
+Tue Oct 21 13:29:56 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3080        On  |   00000000:3E:00.0 Off |                  N/A |
+| 30%   33C    P8             17W /  300W |      33MiB /  10240MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+============================================================
+NANONETS-OCR-S FINETUNING - STAIRCASE DATASET
+WITH DATA AUGMENTATION (NO ROTATION)
+============================================================
+Model: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Output: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/stair/run_20251021_133052_unsloth_aug
+Augmentation: 2x
+============================================================
+
+============================================================
+LOADING NANONETS-OCR-S WITH UNSLOTH FOR STAIRCASE DATASET
+============================================================
+Model path: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Augmentation factor: 2
+Created temporary directory: /tmp/1244590.tinygpu/augmented_staircase_dinqtv1o
+✓ Model directory verified
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.10.7: Fast Qwen2_5_Vl patching. Transformers: 4.56.2.
+   \\   /|    NVIDIA GeForce RTX 3080. Num GPUs = 1. Max memory: 9.644 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.8.0+cu128. CUDA: 8.6. CUDA Toolkit: 12.8. Triton: 3.4.0
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.32.post2. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to fast eager.
+
+✅ Model loaded successfully!
+Applying LoRA adaptors...
+Unsloth: Making `model.base_model.model.model` require gradients
+✅ LoRA applied successfully!
+============================================================
+
+
+============================================================
+PHASE 1: TRAINING WITH DATA AUGMENTATION
+============================================================
+
+Preparing datasets...
+Preparing training data with augmentation factor: 2
+Creating augmentation 1/2 for image 1/26: FMIS_FormblätterMielke_gefüllt (14).jpg
+Creating augmentation 2/2 for image 1/26: FMIS_FormblätterMielke_gefüllt (14).jpg
+Creating augmentation 1/2 for image 2/26: FMIS_FormblätterMielke_gefüllt (18).jpg
+Creating augmentation 2/2 for image 2/26: FMIS_FormblätterMielke_gefüllt (18).jpg
+Creating augmentation 1/2 for image 3/26: FMIS_FormblätterMielke_gefüllt (35).jpg
+Creating augmentation 2/2 for image 3/26: FMIS_FormblätterMielke_gefüllt (35).jpg
+Creating augmentation 1/2 for image 4/26: FMIS_FormblätterMielke_gefüllt (12).jpg
+Creating augmentation 2/2 for image 4/26: FMIS_FormblätterMielke_gefüllt (12).jpg
+Creating augmentation 1/2 for image 5/26: FMIS_FormblätterMielke_gefüllt (27).jpg
+Creating augmentation 2/2 for image 5/26: FMIS_FormblätterMielke_gefüllt (27).jpg
+Creating augmentation 1/2 for image 6/26: FMIS_FormblätterMielke_gefüllt (2).jpg
+Creating augmentation 2/2 for image 6/26: FMIS_FormblätterMielke_gefüllt (2).jpg
+Creating augmentation 1/2 for image 7/26: FMIS_FormblätterMielke_gefüllt (3).jpg
+Creating augmentation 2/2 for image 7/26: FMIS_FormblätterMielke_gefüllt (3).jpg
+Creating augmentation 1/2 for image 8/26: FMIS_FormblätterMielke_gefüllt (25).jpg
+Creating augmentation 2/2 for image 8/26: FMIS_FormblätterMielke_gefüllt (25).jpg
+Creating augmentation 1/2 for image 9/26: FMIS_FormblätterMielke_gefüllt (37).jpg
+Creating augmentation 2/2 for image 9/26: FMIS_FormblätterMielke_gefüllt (37).jpg
+Creating augmentation 1/2 for image 10/26: FMIS_FormblätterMielke_gefüllt (15).jpg
+Creating augmentation 2/2 for image 10/26: FMIS_FormblätterMielke_gefüllt (15).jpg
+Creating augmentation 1/2 for image 11/26: FMIS_FormblätterMielke_gefüllt (34).jpg
+Creating augmentation 2/2 for image 11/26: FMIS_FormblätterMielke_gefüllt (34).jpg
+Creating augmentation 1/2 for image 12/26: FMIS_FormblätterMielke_gefüllt (22).jpg
+Creating augmentation 2/2 for image 12/26: FMIS_FormblätterMielke_gefüllt (22).jpg
+Creating augmentation 1/2 for image 13/26: FMIS_FormblätterMielke_gefüllt (38).jpg
+Creating augmentation 2/2 for image 13/26: FMIS_FormblätterMielke_gefüllt (38).jpg
+Creating augmentation 1/2 for image 14/26: FMIS_FormblätterMielke_gefüllt (28).jpg
+Creating augmentation 2/2 for image 14/26: FMIS_FormblätterMielke_gefüllt (28).jpg
+Creating augmentation 1/2 for image 15/26: FMIS_FormblätterMielke_gefüllt (4).jpg
+Creating augmentation 2/2 for image 15/26: FMIS_FormblätterMielke_gefüllt (4).jpg
+Creating augmentation 1/2 for image 16/26: FMIS_FormblätterMielke_gefüllt (16).jpg
+Creating augmentation 2/2 for image 16/26: FMIS_FormblätterMielke_gefüllt (16).jpg
+Creating augmentation 1/2 for image 17/26: FMIS_FormblätterMielke_gefüllt (24).jpg
+Creating augmentation 2/2 for image 17/26: FMIS_FormblätterMielke_gefüllt (24).jpg
+Creating augmentation 1/2 for image 18/26: FMIS_FormblätterMielke_gefüllt (11).jpg
+Creating augmentation 2/2 for image 18/26: FMIS_FormblätterMielke_gefüllt (11).jpg
+Creating augmentation 1/2 for image 19/26: FMIS_FormblätterMielke_gefüllt (39).jpg
+Creating augmentation 2/2 for image 19/26: FMIS_FormblätterMielke_gefüllt (39).jpg
+Creating augmentation 1/2 for image 20/26: FMIS_FormblätterMielke_gefüllt (41).jpg
+Creating augmentation 2/2 for image 20/26: FMIS_FormblätterMielke_gefüllt (41).jpg
+Creating augmentation 1/2 for image 21/26: FMIS_FormblätterMielke_gefüllt (21).jpg
+Creating augmentation 2/2 for image 21/26: FMIS_FormblätterMielke_gefüllt (21).jpg
+Creating augmentation 1/2 for image 22/26: FMIS_FormblätterMielke_gefüllt (8).jpg
+Creating augmentation 2/2 for image 22/26: FMIS_FormblätterMielke_gefüllt (8).jpg
+Creating augmentation 1/2 for image 23/26: FMIS_FormblätterMielke_gefüllt (7).jpg
+Creating augmentation 2/2 for image 23/26: FMIS_FormblätterMielke_gefüllt (7).jpg
+Creating augmentation 1/2 for image 24/26: FMIS_FormblätterMielke_Vorlage1.jpg
+Creating augmentation 2/2 for image 24/26: FMIS_FormblätterMielke_Vorlage1.jpg
+Creating augmentation 1/2 for image 25/26: FMIS_FormblätterMielke_gefüllt (36).jpg
+Creating augmentation 2/2 for image 25/26: FMIS_FormblätterMielke_gefüllt (36).jpg
+Creating augmentation 1/2 for image 26/26: FMIS_FormblätterMielke_gefüllt (26).jpg
+Creating augmentation 2/2 for image 26/26: FMIS_FormblätterMielke_gefüllt (26).jpg
+Successfully created 52 augmented images
+Total training samples: 78 (original: 26, augmented: 52)
+Found 9 valid samples out of 9 total
+Training: 78 samples, Validation: 9 samples
+
+Unsloth: Model does not have a default image size - using 512
+
+============================================================
+GPU INFORMATION
+============================================================
+GPU: NVIDIA GeForce RTX 3080
+Max memory: 9.644 GB
+Reserved: 3.594 GB
+
+✅ UNSLOTH OPTIMIZATIONS:
+   • 4-bit quantization
+   • LoRA rank 16 (RSLoRA)
+   • Gradient checkpointing
+   • Data augmentation: 2x
+   • Model selection: eval_loss
+   • Batch size: 2, Grad accum: 4
+============================================================
+
+Starting training...
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 0.4455, 'grad_norm': 0.6875357627868652, 'learning_rate': 9e-06, 'epoch': 1.0}
+{'eval_loss': 1.4540995359420776, 'eval_runtime': 8.461, 'eval_samples_per_second': 1.064, 'eval_steps_per_second': 0.591, 'epoch': 1.0}
+{'loss': 0.4076, 'grad_norm': 0.43529728055000305, 'learning_rate': 1.9e-05, 'epoch': 2.0}
+{'eval_loss': 1.1883500814437866, 'eval_runtime': 7.9003, 'eval_samples_per_second': 1.139, 'eval_steps_per_second': 0.633, 'epoch': 2.0}
+{'loss': 0.3211, 'grad_norm': 0.39278465509414673, 'learning_rate': 2.9e-05, 'epoch': 3.0}
+{'eval_loss': 0.8967628479003906, 'eval_runtime': 8.0255, 'eval_samples_per_second': 1.121, 'eval_steps_per_second': 0.623, 'epoch': 3.0}
+{'loss': 0.2262, 'grad_norm': 0.4317615330219269, 'learning_rate': 3.9000000000000006e-05, 'epoch': 4.0}
+{'eval_loss': 0.5583711862564087, 'eval_runtime': 8.2084, 'eval_samples_per_second': 1.096, 'eval_steps_per_second': 0.609, 'epoch': 4.0}
+{'loss': 0.1247, 'grad_norm': 0.37520089745521545, 'learning_rate': 4.9e-05, 'epoch': 5.0}
+{'eval_loss': 0.29688337445259094, 'eval_runtime': 8.1689, 'eval_samples_per_second': 1.102, 'eval_steps_per_second': 0.612, 'epoch': 5.0}
+{'loss': 0.0671, 'grad_norm': 0.2742730677127838, 'learning_rate': 4.9557181268217227e-05, 'epoch': 6.0}
+{'eval_loss': 0.19323308765888214, 'eval_runtime': 8.084, 'eval_samples_per_second': 1.113, 'eval_steps_per_second': 0.619, 'epoch': 6.0}
+{'loss': 0.048, 'grad_norm': 0.2076294720172882, 'learning_rate': 4.8046578789712515e-05, 'epoch': 7.0}
+{'eval_loss': 0.17280152440071106, 'eval_runtime': 8.1898, 'eval_samples_per_second': 1.099, 'eval_steps_per_second': 0.611, 'epoch': 7.0}
+{'loss': 0.0361, 'grad_norm': 0.21958377957344055, 'learning_rate': 4.5528730228342605e-05, 'epoch': 8.0}
+{'eval_loss': 0.17308634519577026, 'eval_runtime': 8.1122, 'eval_samples_per_second': 1.109, 'eval_steps_per_second': 0.616, 'epoch': 8.0}
+{'loss': 0.0265, 'grad_norm': 0.18342909216880798, 'learning_rate': 4.211367764821722e-05, 'epoch': 9.0}
+{'eval_loss': 0.2010764479637146, 'eval_runtime': 8.2078, 'eval_samples_per_second': 1.097, 'eval_steps_per_second': 0.609, 'epoch': 9.0}
+{'loss': 0.0196, 'grad_norm': 0.2298903912305832, 'learning_rate': 3.795067523432826e-05, 'epoch': 10.0}
+{'eval_loss': 0.20885732769966125, 'eval_runtime': 8.1367, 'eval_samples_per_second': 1.106, 'eval_steps_per_second': 0.614, 'epoch': 10.0}
+{'train_runtime': 1269.2942, 'train_samples_per_second': 1.229, 'train_steps_per_second': 0.158, 'train_loss': 0.17224980220198632, 'epoch': 10.0}
+
+============================================================
+TRAINING COMPLETED
+============================================================
+Runtime: 21.15 min
+Peak memory: 9.189 GB
+Training memory: 5.595 GB
+============================================================
+
+
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/nanonets/stair/run_20251021_133052_unsloth_aug...
+✅ Model saved!
+
+============================================================
+PHASE 2: EVALUATION
+============================================================
+
+Starting evaluation on test set...
+Loaded 9 test samples
+Processing test image 1/9: FMIS_FormblätterMielke_gefüllt (6).jpg
+  Processed successfully. CER: 0.198
+Processing test image 2/9: FMIS_FormblätterMielke_gefüllt (31).jpg
+  Processed successfully. CER: 0.359
+Processing test image 3/9: FMIS_FormblätterMielke_gefüllt (32).jpg
+  Processed successfully. CER: 0.355
+Processing test image 4/9: FMIS_FormblätterMielke_gefüllt (5).jpg
+  Processed successfully. CER: 0.112
+Processing test image 5/9: FMIS_FormblätterMielke_gefüllt (40).jpg
+  Processed successfully. CER: 0.217
+Processing test image 6/9: FMIS_FormblätterMielke_gefüllt (9).jpg
+  Processed successfully. CER: 0.227
+Processing test image 7/9: FMIS_FormblätterMielke_gefüllt (13).jpg
+  Processed successfully. CER: 0.079
+Processing test image 8/9: FMIS_FormblätterMielke_gefüllt (20).jpg
+  Processed successfully. CER: 0.466
+Processing test image 9/9: FMIS_FormblätterMielke_gefüllt (17).jpg
+  Processed successfully. CER: 0.531
+
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/stair/run_20251021_133052_unsloth_aug/cer_evaluation_results.txt
+
+============================================================
+FINAL RESULTS
+============================================================
+Model: Nanonets-OCR-s (finetuned)
+Dataset: Staircase
+
+Metrics:
+  Avg CER: 0.2826 (28.26%)
+  Weighted CER: 0.2875 (28.75%)
+  Median: 0.2271 | Std: 0.1459
+
+Accuracy:
+  Perfect: 0/9 (0.00%)
+  Parsing: 0/9 (0.00%)
+
+Saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/stair/run_20251021_133052_unsloth_aug
+============================================================
+
+Cleaned up temporary directory: /tmp/1244590.tinygpu/augmented_staircase_dinqtv1o
+Nano training completed at: Tue Oct 21 02:08:39 PM CEST 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Oct 21 02:08:39 PM CEST 2025
+= Job-ID             : 1244590 on tinygpu
+= Job-Name           : stair
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nano.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : rtx3080
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 00:38:43
+= Total RAM usage    : 12.3 GiB of requested  GiB (%)   
+= Node list          : tg080
+= Subm/Elig/Start/End: 2025-10-21T13:29:55 / 2025-10-21T13:29:55 / 2025-10-21T13:29:56 / 2025-10-21T14:08:39
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           176.0G  1000.0G  1500.0G        N/A     784K   5,000K   7,500K        N/A    
+    /home/hpc              97.8G   104.9G   209.7G        N/A  32,270      500K   1,000K        N/A    
+    /home/vault           836.2G  1048.6G  2097.2G        N/A   4,131      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA GeForce RTX 3080, 00000000:3E:00.0, 1715867, 39 %, 20 %, 9830 MiB, 2308188 ms

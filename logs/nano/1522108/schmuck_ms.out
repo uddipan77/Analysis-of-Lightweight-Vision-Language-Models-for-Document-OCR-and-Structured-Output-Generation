@@ -1,0 +1,185 @@
+### Starting TaskPrologue of job 1522108 on tg073 at Sun Feb  1 11:44:51 PM CET 2026
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Sun Feb  1 23:44:51 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   29C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+============================================================
+NANONETS-OCR-S FINETUNING WITH UNSLOTH (MULTI-STAGE, NaN-SAFE)
+============================================================
+Model: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Output: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/schmuck/run_20260201_234604_unsloth_multistage_nan_safe
+============================================================
+
+============================================================
+LOADING NANONETS-OCR-S WITH UNSLOTH
+============================================================
+Model path: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+✓ Model directory verified
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.10.7: Fast Qwen2_5_Vl patching. Transformers: 4.56.2.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.8.0+cu128. CUDA: 7.0. CUDA Toolkit: 12.8. Triton: 3.4.0
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.32.post2. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to fast eager.
+Unsloth: Making `model.base_model.model.model` require gradients
+
+✅ Model loaded + LoRA applied successfully!
+
+
+============================================================
+PHASE 1+2: MULTI-STAGE TRAINING
+============================================================
+
+Preparing datasets...
+Found 413 valid samples out of 413 total
+Found 88 valid samples out of 88 total
+Training: 413 samples, Validation: 88 samples
+
+
+===== STAGE 1: Warm-up (train only) =====
+
+Unsloth: Model does not have a default image size - using 512
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 0.6627, 'grad_norm': 1.6771068572998047, 'learning_rate': 1.125e-05, 'epoch': 0.19}
+{'loss': 0.4339, 'grad_norm': 0.49585115909576416, 'learning_rate': 2.375e-05, 'epoch': 0.39}
+{'loss': 0.276, 'grad_norm': 0.48747971653938293, 'learning_rate': 2.4730832799757614e-05, 'epoch': 0.58}
+{'loss': 0.1529, 'grad_norm': 0.6100127100944519, 'learning_rate': 2.3934923356100264e-05, 'epoch': 0.77}
+{'loss': 0.0423, 'grad_norm': 0.18888701498508453, 'learning_rate': 2.2475215341003e-05, 'epoch': 0.97}
+{'loss': 0.0198, 'grad_norm': 0.05722590163350105, 'learning_rate': 2.0485585070649515e-05, 'epoch': 1.15}
+{'loss': 0.0177, 'grad_norm': 0.06223924085497856, 'learning_rate': 1.8071729447206733e-05, 'epoch': 1.35}
+{'loss': 0.0211, 'grad_norm': 0.05777522176504135, 'learning_rate': 1.5642172931388787e-05, 'epoch': 1.54}
+{'loss': 0.0168, 'grad_norm': 0.054867636412382126, 'learning_rate': 1.2788723645662515e-05, 'epoch': 1.73}
+{'loss': 0.0159, 'grad_norm': 0.05379099026322365, 'learning_rate': 9.919936236374507e-06, 'epoch': 1.93}
+{'loss': 0.0158, 'grad_norm': 0.054687317460775375, 'learning_rate': 7.18821185395723e-06, 'epoch': 2.12}
+{'loss': 0.0161, 'grad_norm': 0.06200846657156944, 'learning_rate': 4.738670327505358e-06, 'epoch': 2.31}
+{'loss': 0.014, 'grad_norm': 0.04517252743244171, 'learning_rate': 2.7014408347525818e-06, 'epoch': 2.5}
+{'loss': 0.0159, 'grad_norm': 0.05405453220009804, 'learning_rate': 1.1847489337814739e-06, 'epoch': 2.7}
+{'loss': 0.015, 'grad_norm': 0.08330646902322769, 'learning_rate': 2.6916720024238867e-07, 'epoch': 2.89}
+{'train_runtime': 1041.8577, 'train_samples_per_second': 1.189, 'train_steps_per_second': 0.15, 'train_loss': 0.1119121195605168, 'epoch': 3.0}
+
+===== STAGE 2: Main training (train + val, best by eval_loss) =====
+
+Unsloth: Model does not have a default image size - using 512
+Starting Stage 2 training...
+{'loss': 0.0148, 'grad_norm': 0.05465107038617134, 'learning_rate': 9e-06, 'epoch': 0.19}
+{'loss': 0.0156, 'grad_norm': 0.047067124396562576, 'learning_rate': 1.9e-05, 'epoch': 0.39}
+{'loss': 0.0119, 'grad_norm': 0.05239249765872955, 'learning_rate': 2.9e-05, 'epoch': 0.58}
+{'loss': 0.0105, 'grad_norm': 0.05458700284361839, 'learning_rate': 3.8e-05, 'epoch': 0.77}
+{'loss': 0.011, 'grad_norm': 0.06523243337869644, 'learning_rate': 4.8e-05, 'epoch': 0.97}
+{'eval_loss': 0.04069400951266289, 'eval_runtime': 39.2677, 'eval_samples_per_second': 2.241, 'eval_steps_per_second': 1.121, 'epoch': 1.0}
+{'loss': 0.0094, 'grad_norm': 0.04136607423424721, 'learning_rate': 4.997603946215262e-05, 'epoch': 1.15}
+{'loss': 0.0066, 'grad_norm': 0.043871380388736725, 'learning_rate': 4.987877848730627e-05, 'epoch': 1.35}
+{'loss': 0.0082, 'grad_norm': 0.07144869863986969, 'learning_rate': 4.9727527277269915e-05, 'epoch': 1.54}
+{'loss': 0.0068, 'grad_norm': 0.05068498104810715, 'learning_rate': 4.948913664850917e-05, 'epoch': 1.73}
+{'loss': 0.0062, 'grad_norm': 0.055601026862859726, 'learning_rate': 4.917740600042645e-05, 'epoch': 1.93}
+{'eval_loss': 0.02993052639067173, 'eval_runtime': 36.6644, 'eval_samples_per_second': 2.4, 'eval_steps_per_second': 1.2, 'epoch': 2.0}
+{'loss': 0.0049, 'grad_norm': 0.05608765035867691, 'learning_rate': 4.8793268903366905e-05, 'epoch': 2.12}
+{'loss': 0.004, 'grad_norm': 0.043293699622154236, 'learning_rate': 4.833787577036981e-05, 'epoch': 2.31}
+{'loss': 0.0031, 'grad_norm': 0.03248944506049156, 'learning_rate': 4.781259041191375e-05, 'epoch': 2.5}
+{'loss': 0.0043, 'grad_norm': 0.04432746395468712, 'learning_rate': 4.7218985951579685e-05, 'epoch': 2.7}
+{'loss': 0.0037, 'grad_norm': 0.06226355955004692, 'learning_rate': 4.655884011486341e-05, 'epoch': 2.89}
+{'eval_loss': 0.029518187046051025, 'eval_runtime': 37.231, 'eval_samples_per_second': 2.364, 'eval_steps_per_second': 1.182, 'epoch': 3.0}
+{'loss': 0.0037, 'grad_norm': 0.030304405838251114, 'learning_rate': 4.5909445954503506e-05, 'epoch': 3.08}
+{'loss': 0.0022, 'grad_norm': 0.02864784747362137, 'learning_rate': 4.512847808875424e-05, 'epoch': 3.27}
+{'loss': 0.0018, 'grad_norm': 0.05111280828714371, 'learning_rate': 4.428722949554857e-05, 'epoch': 3.46}
+{'loss': 0.0025, 'grad_norm': 0.08248091489076614, 'learning_rate': 4.348064438859629e-05, 'epoch': 3.66}
+{'loss': 0.0018, 'grad_norm': 0.05223574861884117, 'learning_rate': 4.253194641192621e-05, 'epoch': 3.85}
+{'eval_loss': 0.031593043357133865, 'eval_runtime': 36.9419, 'eval_samples_per_second': 2.382, 'eval_steps_per_second': 1.191, 'epoch': 4.0}
+{'loss': 0.0019, 'grad_norm': 0.035454727709293365, 'learning_rate': 4.153074379587018e-05, 'epoch': 4.04}
+{'loss': 0.0013, 'grad_norm': 0.06599421054124832, 'learning_rate': 4.048003494009666e-05, 'epoch': 4.23}
+{'loss': 0.0011, 'grad_norm': 0.025135988369584084, 'learning_rate': 3.938296650546552e-05, 'epoch': 4.43}
+{'loss': 0.0012, 'grad_norm': 0.04298622906208038, 'learning_rate': 3.8242823990414214e-05, 'epoch': 4.62}
+{'loss': 0.001, 'grad_norm': 0.025391224771738052, 'learning_rate': 3.706302189155338e-05, 'epoch': 4.81}
+{'loss': 0.0016, 'grad_norm': 0.07807248830795288, 'learning_rate': 3.597020902071278e-05, 'epoch': 5.0}
+{'eval_loss': 0.036576997488737106, 'eval_runtime': 36.8287, 'eval_samples_per_second': 2.389, 'eval_steps_per_second': 1.195, 'epoch': 5.0}
+{'train_runtime': 1888.3805, 'train_samples_per_second': 2.624, 'train_steps_per_second': 0.33, 'train_loss': 0.00543642551638186, 'epoch': 5.0}
+
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/schmuck/run_20260201_234604_unsloth_multistage_nan_safe...
+✅ Model saved!
+
+============================================================
+PHASE 3: EVALUATION (CHUNKED)
+============================================================
+
+Starting evaluation with chunked loading...
+Dataset: 89 samples, 5 chunks of size 20
+
+Processing chunk 1/5
+Processing 1/20 in chunk 1Processing 2/20 in chunk 1Processing 3/20 in chunk 1Processing 4/20 in chunk 1Processing 5/20 in chunk 1Processing 6/20 in chunk 1Processing 7/20 in chunk 1Processing 8/20 in chunk 1Processing 9/20 in chunk 1Processing 10/20 in chunk 1Processing 11/20 in chunk 1Processing 12/20 in chunk 1Processing 13/20 in chunk 1Processing 14/20 in chunk 1Processing 15/20 in chunk 1Processing 16/20 in chunk 1Processing 17/20 in chunk 1Processing 18/20 in chunk 1Processing 19/20 in chunk 1Processing 20/20 in chunk 1
+Processing chunk 2/5
+Processing 1/20 in chunk 2Processing 2/20 in chunk 2Processing 3/20 in chunk 2Processing 4/20 in chunk 2Processing 5/20 in chunk 2Processing 6/20 in chunk 2Processing 7/20 in chunk 2Processing 8/20 in chunk 2Processing 9/20 in chunk 2Processing 10/20 in chunk 2Processing 11/20 in chunk 2Processing 12/20 in chunk 2Processing 13/20 in chunk 2Processing 14/20 in chunk 2Processing 15/20 in chunk 2Processing 16/20 in chunk 2Processing 17/20 in chunk 2Processing 18/20 in chunk 2Processing 19/20 in chunk 2Processing 20/20 in chunk 2
+Processing chunk 3/5
+Processing 1/20 in chunk 3Processing 2/20 in chunk 3Processing 3/20 in chunk 3Processing 4/20 in chunk 3Processing 5/20 in chunk 3Processing 6/20 in chunk 3Processing 7/20 in chunk 3Processing 8/20 in chunk 3Processing 9/20 in chunk 3Processing 10/20 in chunk 3Processing 11/20 in chunk 3Processing 12/20 in chunk 3Processing 13/20 in chunk 3Processing 14/20 in chunk 3Processing 15/20 in chunk 3Processing 16/20 in chunk 3Processing 17/20 in chunk 3Processing 18/20 in chunk 3Processing 19/20 in chunk 3Processing 20/20 in chunk 3
+Processing chunk 4/5
+Processing 1/20 in chunk 4Processing 2/20 in chunk 4Processing 3/20 in chunk 4Processing 4/20 in chunk 4Processing 5/20 in chunk 4Processing 6/20 in chunk 4Processing 7/20 in chunk 4Processing 8/20 in chunk 4Processing 9/20 in chunk 4Processing 10/20 in chunk 4Processing 11/20 in chunk 4Processing 12/20 in chunk 4Processing 13/20 in chunk 4Processing 14/20 in chunk 4Processing 15/20 in chunk 4Processing 16/20 in chunk 4Processing 17/20 in chunk 4Processing 18/20 in chunk 4Processing 19/20 in chunk 4Processing 20/20 in chunk 4
+Processing chunk 5/5
+Processing 1/9 in chunk 5Processing 2/9 in chunk 5Processing 3/9 in chunk 5Processing 4/9 in chunk 5Processing 5/9 in chunk 5Processing 6/9 in chunk 5Processing 7/9 in chunk 5Processing 8/9 in chunk 5Processing 9/9 in chunk 5
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/schmuck/run_20260201_234604_unsloth_multistage_nan_safe/cer_evaluation_results.txt
+
+============================================================
+FINAL RESULTS
+============================================================
+Model: Nanonets-OCR-s (finetuned, best by eval_loss)
+Dataset: Schmuck Jewelry Catalog
+
+Metrics:
+  Avg CER: 0.1051 (10.51%)
+  Weighted CER: 0.1034 (10.34%)
+  Median: 0.0030 | Std: 0.5305
+
+Accuracy:
+  Perfect: 21/89 (23.60%)
+  Parsing: 0/89 (0.00%)
+
+Saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/schmuck/run_20260201_234604_unsloth_multistage_nan_safe
+============================================================
+
+Nano training completed at: Mon Feb  2 01:22:18 AM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Mon Feb  2 01:22:19 AM CET 2026
+= Job-ID             : 1522108 on tinygpu
+= Job-Name           : schmuck_ms
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nano.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 01:37:33
+= Total RAM usage    : 11.7 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2026-02-01T23:44:31 / 2026-02-01T23:44:31 / 2026-02-01T23:44:45 / 2026-02-02T01:22:18
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.2G   104.9G   209.7G        N/A  29,430      500K   1,000K        N/A    
+    /home/vault           762.3G  1048.6G  2097.2G        N/A   8,651      200K     400K        N/A    
+    /home/woody           408.0G  1000.0G  1500.0G        N/A   1,017K   5,000K   7,500K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 1503846, 36 %, 14 %, 7440 MiB, 5826521 ms

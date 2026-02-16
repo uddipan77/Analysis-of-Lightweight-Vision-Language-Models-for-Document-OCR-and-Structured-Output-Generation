@@ -1,0 +1,391 @@
+### Starting TaskPrologue of job 1450952 on tg090 at Fri Nov 28 06:12:16 AM CET 2025
+Running on cores 0-31 with governor ondemand
+Fri Nov 28 06:12:16 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:01:00.0 Off |                    0 |
+| N/A   46C    P0             58W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+Created run directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/finetune/run_A100_multistage_20251128_061244
+
+============================================================
+GEMMA-3 STAIRCASE - A100 OPTIMIZED + AUGMENTATION (factor=1) + MULTI-STAGE
+============================================================
+Loading Gemma-3 vision model with Unsloth for STAIRCASE...
+Temporary directory for augmented images: /tmp/1450952.tinygpu/stair_gemma_aug_k9uo2jse
+Augmentation factor (per original image): 1
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+Model loaded - Unsloth auto-configured dtype and attention
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+Gemma-3 vision model loaded with A100-optimized LoRA config
+
+============================================================
+STARTING MULTI-STAGE TRAINING (A100-OPTIMIZED, STAIRCASE)
+============================================================
+Preparing training and validation datasets for STAIRCASE...
+Preparing staircase TRAIN data with augmentation factor = 1
+  Augmenting [1/115] FMIS_FormblätterMielke_gefüllt (10).jpg (1/1)
+  Augmenting [2/115] FMIS_FormblätterMielke_gefüllt (114).jpg (1/1)
+  Augmenting [3/115] FMIS_FormblätterMielke_gefüllt (12).jpg (1/1)
+  Augmenting [4/115] FMIS_FormblätterMielke_gefüllt (123).jpg (1/1)
+  Augmenting [5/115] FMIS_FormblätterMielke_gefüllt (125).jpg (1/1)
+  Augmenting [6/115] FMIS_FormblätterMielke_gefüllt (126).jpg (1/1)
+  Augmenting [7/115] FMIS_FormblätterMielke_gefüllt (134).jpg (1/1)
+  Augmenting [8/115] FMIS_FormblätterMielke_gefüllt (136).jpg (1/1)
+  Augmenting [9/115] FMIS_FormblätterMielke_gefüllt (138).jpg (1/1)
+  Augmenting [10/115] FMIS_FormblätterMielke_gefüllt (14).jpg (1/1)
+  Augmenting [11/115] FMIS_FormblätterMielke_gefüllt (149).jpg (1/1)
+  Augmenting [12/115] FMIS_FormblätterMielke_gefüllt (15).jpg (1/1)
+  Augmenting [13/115] FMIS_FormblätterMielke_gefüllt (152).jpg (1/1)
+  Augmenting [14/115] FMIS_FormblätterMielke_gefüllt (154).jpg (1/1)
+  Augmenting [15/115] FMIS_FormblätterMielke_gefüllt (159).jpg (1/1)
+  Augmenting [16/115] FMIS_FormblätterMielke_gefüllt (160).jpg (1/1)
+  Augmenting [17/115] FMIS_FormblätterMielke_gefüllt (163).jpg (1/1)
+  Augmenting [18/115] FMIS_FormblätterMielke_gefüllt (164).jpg (1/1)
+  Augmenting [19/115] FMIS_FormblätterMielke_gefüllt (18).jpg (1/1)
+  Augmenting [20/115] FMIS_FormblätterMielke_gefüllt (20).jpg (1/1)
+  Augmenting [21/115] FMIS_FormblätterMielke_gefüllt (28).jpg (1/1)
+  Augmenting [22/115] FMIS_FormblätterMielke_gefüllt (29).jpg (1/1)
+  Augmenting [23/115] FMIS_FormblätterMielke_gefüllt (30).jpg (1/1)
+  Augmenting [24/115] FMIS_FormblätterMielke_gefüllt (31).jpg (1/1)
+  Augmenting [25/115] FMIS_FormblätterMielke_gefüllt (33).jpg (1/1)
+  Augmenting [26/115] FMIS_FormblätterMielke_gefüllt (38).jpg (1/1)
+  Augmenting [27/115] FMIS_FormblätterMielke_gefüllt (51).jpg (1/1)
+  Augmenting [28/115] FMIS_FormblätterMielke_gefüllt (52).jpg (1/1)
+  Augmenting [29/115] FMIS_FormblätterMielke_gefüllt (53).jpg (1/1)
+  Augmenting [30/115] FMIS_FormblätterMielke_gefüllt (55).jpg (1/1)
+  Augmenting [31/115] FMIS_FormblätterMielke_gefüllt (56).jpg (1/1)
+  Augmenting [32/115] FMIS_FormblätterMielke_gefüllt (6).jpg (1/1)
+  Augmenting [33/115] FMIS_FormblätterMielke_gefüllt (81).jpg (1/1)
+  Augmenting [34/115] FMIS_FormblätterMielke_gefüllt (85).jpg (1/1)
+  Augmenting [35/115] FMIS_FormblätterMielke_gefüllt (89).jpg (1/1)
+  Augmenting [36/115] FMIS_FormblätterMielke_gefüllt (108).jpg (1/1)
+  Augmenting [37/115] FMIS_FormblätterMielke_gefüllt (65).jpg (1/1)
+  Augmenting [38/115] FMIS_FormblätterMielke_gefüllt (75).jpg (1/1)
+  Augmenting [39/115] FMIS_FormblätterMielke_gefüllt (46).jpg (1/1)
+  Augmenting [40/115] FMIS_FormblätterMielke_gefüllt (157).jpg (1/1)
+  Augmenting [41/115] FMIS_FormblätterMielke_gefüllt (115).jpg (1/1)
+  Augmenting [42/115] FMIS_FormblätterMielke_gefüllt (25).jpg (1/1)
+  Augmenting [43/115] FMIS_FormblätterMielke_gefüllt (4).jpg (1/1)
+  Augmenting [44/115] FMIS_FormblätterMielke_gefüllt (77).jpg (1/1)
+  Augmenting [45/115] FMIS_FormblätterMielke_gefüllt (73).jpg (1/1)
+  Augmenting [46/115] FMIS_FormblätterMielke_gefüllt (155).jpg (1/1)
+  Augmenting [47/115] FMIS_FormblätterMielke_gefüllt (120).jpg (1/1)
+  Augmenting [48/115] FMIS_FormblätterMielke_gefüllt (131).jpg (1/1)
+  Augmenting [49/115] FMIS_FormblätterMielke_gefüllt (59).jpg (1/1)
+  Augmenting [50/115] FMIS_FormblätterMielke_gefüllt (133).jpg (1/1)
+  Augmenting [51/115] FMIS_FormblätterMielke_gefüllt (158).jpg (1/1)
+  Augmenting [52/115] FMIS_FormblätterMielke_gefüllt (26).jpg (1/1)
+  Augmenting [53/115] FMIS_FormblätterMielke_gefüllt (97).jpg (1/1)
+  Augmenting [54/115] FMIS_FormblätterMielke_gefüllt (69).jpg (1/1)
+  Augmenting [55/115] FMIS_FormblätterMielke_gefüllt (117).jpg (1/1)
+  Augmenting [56/115] FMIS_FormblätterMielke_gefüllt (67).jpg (1/1)
+  Augmenting [57/115] FMIS_FormblätterMielke_gefüllt (101).jpg (1/1)
+  Augmenting [58/115] FMIS_FormblätterMielke_gefüllt (32).jpg (1/1)
+  Augmenting [59/115] FMIS_FormblätterMielke_gefüllt (49).jpg (1/1)
+  Augmenting [60/115] FMIS_FormblätterMielke_gefüllt (140).jpg (1/1)
+  Augmenting [61/115] FMIS_FormblätterMielke_gefüllt (92).jpg (1/1)
+  Augmenting [62/115] FMIS_FormblätterMielke_gefüllt (106).jpg (1/1)
+  Augmenting [63/115] FMIS_FormblätterMielke_gefüllt (100).jpg (1/1)
+  Augmenting [64/115] FMIS_FormblätterMielke_gefüllt (60).jpg (1/1)
+  Augmenting [65/115] FMIS_FormblätterMielke_gefüllt (48).jpg (1/1)
+  Augmenting [66/115] FMIS_FormblätterMielke_gefüllt (128).jpg (1/1)
+  Augmenting [67/115] FMIS_FormblätterMielke_gefüllt (64).jpg (1/1)
+  Augmenting [68/115] FMIS_FormblätterMielke_gefüllt (23).jpg (1/1)
+  Augmenting [69/115] FMIS_FormblätterMielke_gefüllt (41).jpg (1/1)
+  Augmenting [70/115] FMIS_FormblätterMielke_gefüllt (68).jpg (1/1)
+  Augmenting [71/115] FMIS_FormblätterMielke_gefüllt (22).jpg (1/1)
+  Augmenting [72/115] FMIS_FormblätterMielke_gefüllt (143).jpg (1/1)
+  Augmenting [73/115] FMIS_FormblätterMielke_gefüllt (40).jpg (1/1)
+  Augmenting [74/115] FMIS_FormblätterMielke_gefüllt (137).jpg (1/1)
+  Augmenting [75/115] FMIS_FormblätterMielke_gefüllt (16).jpg (1/1)
+  Augmenting [76/115] FMIS_FormblätterMielke_gefüllt (24).jpg (1/1)
+  Augmenting [77/115] FMIS_FormblätterMielke_gefüllt (142).jpg (1/1)
+  Augmenting [78/115] FMIS_FormblätterMielke_gefüllt (84).jpg (1/1)
+  Augmenting [79/115] FMIS_FormblätterMielke_gefüllt (145).jpg (1/1)
+  Augmenting [80/115] FMIS_FormblätterMielke_gefüllt (57).jpg (1/1)
+  Augmenting [81/115] FMIS_FormblätterMielke_gefüllt (47).jpg (1/1)
+  Augmenting [82/115] FMIS_FormblätterMielke_gefüllt (19).jpg (1/1)
+  Augmenting [83/115] FMIS_FormblätterMielke_gefüllt (146).jpg (1/1)
+  Augmenting [84/115] FMIS_FormblätterMielke_gefüllt (54).jpg (1/1)
+  Augmenting [85/115] FMIS_FormblätterMielke_gefüllt (121).jpg (1/1)
+  Augmenting [86/115] FMIS_FormblätterMielke_gefüllt (161).jpg (1/1)
+  Augmenting [87/115] FMIS_FormblätterMielke_gefüllt (76).jpg (1/1)
+  Augmenting [88/115] FMIS_FormblätterMielke_gefüllt (122).jpg (1/1)
+  Augmenting [89/115] FMIS_FormblätterMielke_gefüllt (7).jpg (1/1)
+  Augmenting [90/115] FMIS_FormblätterMielke_gefüllt (144).jpg (1/1)
+  Augmenting [91/115] FMIS_FormblätterMielke_gefüllt (79).jpg (1/1)
+  Augmenting [92/115] FMIS_FormblätterMielke_gefüllt (95).jpg (1/1)
+  Augmenting [93/115] FMIS_FormblätterMielke_gefüllt (34).jpg (1/1)
+  Augmenting [94/115] FMIS_FormblätterMielke_Vorlage2.jpg (1/1)
+  Augmenting [95/115] FMIS_FormblätterMielke_gefüllt (17).jpg (1/1)
+  Augmenting [96/115] FMIS_FormblätterMielke_gefüllt (112).jpg (1/1)
+  Augmenting [97/115] FMIS_FormblätterMielke_gefüllt (62).jpg (1/1)
+  Augmenting [98/115] FMIS_FormblätterMielke_gefüllt (3).jpg (1/1)
+  Augmenting [99/115] FMIS_FormblätterMielke_gefüllt (71).jpg (1/1)
+  Augmenting [100/115] FMIS_FormblätterMielke_gefüllt (8).jpg (1/1)
+  Augmenting [101/115] FMIS_FormblätterMielke_gefüllt (44).jpg (1/1)
+  Augmenting [102/115] FMIS_FormblätterMielke_gefüllt (107).jpg (1/1)
+  Augmenting [103/115] FMIS_FormblätterMielke_gefüllt (124).jpg (1/1)
+  Augmenting [104/115] FMIS_FormblätterMielke_gefüllt (153).jpg (1/1)
+  Augmenting [105/115] FMIS_FormblätterMielke_gefüllt (141).jpg (1/1)
+  Augmenting [106/115] FMIS_FormblätterMielke_gefüllt (37).jpg (1/1)
+  Augmenting [107/115] FMIS_FormblätterMielke_gefüllt (109).jpg (1/1)
+  Augmenting [108/115] FMIS_FormblätterMielke_gefüllt (5).jpg (1/1)
+  Augmenting [109/115] FMIS_FormblätterMielke_gefüllt (113).jpg (1/1)
+  Augmenting [110/115] FMIS_FormblätterMielke_gefüllt (35).jpg (1/1)
+  Augmenting [111/115] FMIS_FormblätterMielke_gefüllt (21).jpg (1/1)
+  Augmenting [112/115] FMIS_FormblätterMielke_gefüllt (104).jpg (1/1)
+  Augmenting [113/115] FMIS_FormblätterMielke_gefüllt (135).jpg (1/1)
+  Augmenting [114/115] FMIS_FormblätterMielke_gefüllt (78).jpg (1/1)
+  Augmenting [115/115] FMIS_FormblätterMielke_gefüllt (148).jpg (1/1)
+Training: 230 samples (original: 115, augmented: 115)
+Validation/Test: 25 valid samples out of 25 total (no augmentation)
+Training: 230 samples (with augmentation), Validation: 25 samples
+
+======================================================================
+STAGE 1: Warm-up training (no eval, teacher forcing)
+======================================================================
+
+{'loss': 27.6028, 'grad_norm': 282.6724853515625, 'learning_rate': 0.0, 'epoch': 0.07}
+{'loss': 27.033, 'grad_norm': 853.6336059570312, 'learning_rate': 7.2000000000000005e-06, 'epoch': 0.35}
+{'loss': 21.449, 'grad_norm': 120.70097351074219, 'learning_rate': 1.62e-05, 'epoch': 0.7}
+{'loss': 14.5998, 'grad_norm': 16.28804588317871, 'learning_rate': 2.5200000000000003e-05, 'epoch': 1.0}
+{'loss': 13.2251, 'grad_norm': 28.732595443725586, 'learning_rate': 3.4200000000000005e-05, 'epoch': 1.35}
+{'loss': 10.6112, 'grad_norm': 20.18575668334961, 'learning_rate': 4.32e-05, 'epoch': 1.7}
+{'loss': 7.8409, 'grad_norm': 10.70145320892334, 'learning_rate': 5.22e-05, 'epoch': 2.0}
+{'loss': 8.027, 'grad_norm': 7.815144062042236, 'learning_rate': 6.120000000000001e-05, 'epoch': 2.35}
+{'loss': 7.6685, 'grad_norm': 6.425466060638428, 'learning_rate': 7.020000000000001e-05, 'epoch': 2.7}
+{'loss': 6.5447, 'grad_norm': 13.99635124206543, 'learning_rate': 7.92e-05, 'epoch': 3.0}
+{'loss': 7.239, 'grad_norm': 4.282754421234131, 'learning_rate': 8.82e-05, 'epoch': 3.35}
+{'loss': 7.1464, 'grad_norm': 3.626380443572998, 'learning_rate': 2.250000000000001e-05, 'epoch': 3.7}
+{'train_runtime': 1348.4461, 'train_samples_per_second': 0.682, 'train_steps_per_second': 0.042, 'train_loss': 11.867504511560712, 'epoch': 3.77}
+
+======================================================================
+STAGE 2: Main training (eval each epoch, CER-based best model)
+======================================================================
+
+GPU = NVIDIA A100-SXM4-40GB. Max memory = 39.494 GB.
+23.309 GB of memory reserved.
+{'loss': 7.1014, 'grad_norm': 4.7937726974487305, 'learning_rate': 0.0, 'epoch': 0.07}
+{'loss': 7.0302, 'grad_norm': 5.013082027435303, 'learning_rate': 2.4000000000000003e-06, 'epoch': 0.35}
+{'loss': 7.05, 'grad_norm': 3.271165132522583, 'learning_rate': 5.4e-06, 'epoch': 0.7}
+{'loss': 6.1443, 'grad_norm': 8.471902847290039, 'learning_rate': 8.400000000000001e-06, 'epoch': 1.0}
+{'eval_loss': 0.9022971987724304, 'eval_runtime': 22.8464, 'eval_samples_per_second': 1.094, 'eval_steps_per_second': 1.094, 'epoch': 1.0}
+
+[GemmaValidationCERCallback] Computing CER on 25 validation samples...
+
+[GemmaValidationCERCallback] Epoch 1.00 CER: 0.7966 (79.66%)
+[GemmaValidationCERCallback] New best CER: 0.7966 (improved by inf)
+[GemmaValidationCERCallback] Saving best CER model to /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/finetune/run_A100_multistage_20251128_061244/best_model_cer
+{'loss': 6.9948, 'grad_norm': 9.548215866088867, 'learning_rate': 1.1400000000000001e-05, 'epoch': 1.35}
+{'loss': 6.9852, 'grad_norm': 3.2843821048736572, 'learning_rate': 1.44e-05, 'epoch': 1.7}
+{'loss': 6.0925, 'grad_norm': 1.2050219774246216, 'learning_rate': 1.74e-05, 'epoch': 2.0}
+{'eval_loss': 0.8997161984443665, 'eval_runtime': 21.0887, 'eval_samples_per_second': 1.185, 'eval_steps_per_second': 1.185, 'epoch': 2.0}
+
+[GemmaValidationCERCallback] Computing CER on 25 validation samples...
+
+[GemmaValidationCERCallback] Epoch 2.00 CER: 0.7965 (79.65%)
+[GemmaValidationCERCallback] New best CER: 0.7965 (improved by 0.0001)
+[GemmaValidationCERCallback] Saving best CER model to /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/finetune/run_A100_multistage_20251128_061244/best_model_cer
+{'loss': 6.9224, 'grad_norm': 4.597677707672119, 'learning_rate': 2.04e-05, 'epoch': 2.35}
+{'loss': 6.8981, 'grad_norm': 3.801250457763672, 'learning_rate': 2.3400000000000003e-05, 'epoch': 2.7}
+{'loss': 6.0422, 'grad_norm': 3.4081904888153076, 'learning_rate': 2.64e-05, 'epoch': 3.0}
+{'eval_loss': 0.9002140760421753, 'eval_runtime': 21.2065, 'eval_samples_per_second': 1.179, 'eval_steps_per_second': 1.179, 'epoch': 3.0}
+
+[GemmaValidationCERCallback] Computing CER on 25 validation samples...
+
+[GemmaValidationCERCallback] Epoch 3.00 CER: 0.7966 (79.66%)
+[GemmaValidationCERCallback] No improvement. Best CER remains 0.7965
+{'loss': 6.8457, 'grad_norm': 2.3552064895629883, 'learning_rate': 2.94e-05, 'epoch': 3.35}
+{'loss': 6.8457, 'grad_norm': 5.769492149353027, 'learning_rate': 2.969294911878742e-05, 'epoch': 3.7}
+{'loss': 5.974, 'grad_norm': 3.1343069076538086, 'learning_rate': 2.8467068093561125e-05, 'epoch': 4.0}
+{'eval_loss': 0.9026827216148376, 'eval_runtime': 21.0936, 'eval_samples_per_second': 1.185, 'eval_steps_per_second': 1.185, 'epoch': 4.0}
+
+[GemmaValidationCERCallback] Computing CER on 25 validation samples...
+
+[GemmaValidationCERCallback] Epoch 4.00 CER: 0.7970 (79.70%)
+[GemmaValidationCERCallback] No improvement. Best CER remains 0.7965
+{'train_runtime': 10358.2667, 'train_samples_per_second': 0.178, 'train_steps_per_second': 0.011, 'train_loss': 6.653280258178711, 'epoch': 4.0}
+10358.2667 seconds used for training.
+172.64 minutes used for training.
+Peak reserved memory = 24.469 GB.
+Peak reserved memory for training = 1.16 GB.
+Peak reserved memory % of max memory = 61.956 %.
+Peak reserved memory for training % of max memory = 2.937 %.
+
+[train_model] Best CER model saved at /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/finetune/run_A100_multistage_20251128_061244/best_model_cer (CER=0.7965).
+
+Saving final Stage 2 trainer model to /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/finetune/run_A100_multistage_20251128_061244...
+Final Stage 2 model (LoRA adapters) saved successfully!
+Best-by-CER model (autoregressive validation) saved at: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/finetune/run_A100_multistage_20251128_061244/best_model_cer
+
+============================================================
+STARTING EVALUATION ON STAIRCASE TEST.JSONL (FINAL IN-MEMORY MODEL)
+============================================================
+Starting evaluation on STAIRCASE test.jsonl with aggressive chunking...
+Loaded 24 test samples
+
+============================================================
+Chunk 1/5 (5 images)
+============================================================
+
+[1/24] Processing: FMIS_FormblätterMielke_gefüllt (83).jpg
+  ✅ CER: 0.0104 (1.04%)
+
+[2/24] Processing: FMIS_FormblätterMielke_gefüllt (45).jpg
+  ✅ CER: 0.0176 (1.76%)
+
+[3/24] Processing: FMIS_FormblätterMielke_gefüllt (27).jpg
+  ✅ CER: 0.0099 (0.99%)
+
+[4/24] Processing: FMIS_FormblätterMielke_gefüllt (130).jpg
+  ✅ CER: 0.0208 (2.08%)
+
+[5/24] Processing: FMIS_FormblätterMielke_gefüllt (129).jpg
+  ✅ CER: 0.0098 (0.98%)
+
+Chunk 1 completed. Cleaning memory...
+
+============================================================
+Chunk 2/5 (5 images)
+============================================================
+
+[6/24] Processing: FMIS_FormblätterMielke_gefüllt (88).jpg
+  ✅ CER: 0.0172 (1.72%)
+
+[7/24] Processing: FMIS_FormblätterMielke_gefüllt (102).jpg
+  ✅ CER: 0.0131 (1.31%)
+
+[8/24] Processing: FMIS_FormblätterMielke_gefüllt (103).jpg
+  ✅ CER: 0.0159 (1.59%)
+
+[9/24] Processing: FMIS_FormblätterMielke_gefüllt (165).jpg
+  ✅ CER: 0.0004 (0.04%)
+
+[10/24] Processing: FMIS_FormblätterMielke_gefüllt (43).jpg
+  ✅ CER: 0.0306 (3.06%)
+
+Chunk 2 completed. Cleaning memory...
+
+============================================================
+Chunk 3/5 (5 images)
+============================================================
+
+[11/24] Processing: FMIS_FormblätterMielke_gefüllt (11).jpg
+  ✅ CER: 0.0064 (0.64%)
+
+[12/24] Processing: FMIS_FormblätterMielke_gefüllt (36).jpg
+  ✅ CER: 0.0698 (6.98%)
+
+[13/24] Processing: FMIS_FormblätterMielke_gefüllt (87).jpg
+  ✅ CER: 0.0140 (1.40%)
+
+[14/24] Processing: FMIS_FormblätterMielke_gefüllt (94).jpg
+  ✅ CER: 0.6102 (61.02%)
+
+[15/24] Processing: FMIS_FormblätterMielke_gefüllt (58).jpg
+  ✅ CER: 0.0507 (5.07%)
+
+Chunk 3 completed. Cleaning memory...
+Saved intermediate results to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/finetune/run_A100_multistage_20251128_061244/test_predictions_chunk_3.jsonl
+
+============================================================
+Chunk 4/5 (5 images)
+============================================================
+
+[16/24] Processing: FMIS_FormblätterMielke_gefüllt (111).jpg
+  ✅ CER: 0.0257 (2.57%)
+
+[17/24] Processing: FMIS_FormblätterMielke_gefüllt (99).jpg
+  ✅ CER: 0.0103 (1.03%)
+
+[18/24] Processing: FMIS_FormblätterMielke_gefüllt (116).jpg
+  ✅ CER: 0.0042 (0.42%)
+
+[19/24] Processing: FMIS_FormblätterMielke_Vorlage3.jpg
+  ✅ CER: 0.0701 (7.01%)
+
+[20/24] Processing: FMIS_FormblätterMielke_gefüllt (132).jpg
+  ✅ CER: 0.0103 (1.03%)
+
+Chunk 4 completed. Cleaning memory...
+
+============================================================
+Chunk 5/5 (4 images)
+============================================================
+
+[21/24] Processing: FMIS_FormblätterMielke_gefüllt (139).jpg
+  ✅ CER: 0.6176 (61.76%)
+
+[22/24] Processing: FMIS_FormblätterMielke_gefüllt (66).jpg
+  ✅ CER: 0.0315 (3.15%)
+
+[23/24] Processing: FMIS_FormblätterMielke_gefüllt (105).jpg
+  ✅ CER: 0.5928 (59.28%)
+
+[24/24] Processing: FMIS_FormblätterMielke_gefüllt (13).jpg
+  ✅ CER: 0.6112 (61.12%)
+
+Chunk 5 completed. Cleaning memory...
+Saved intermediate results to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/finetune/run_A100_multistage_20251128_061244/test_predictions_chunk_5.jsonl
+
+CER evaluation results saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/finetune/run_A100_multistage_20251128_061244/cer_evaluation_results.txt
+
+🎉 Gemma-3 Staircase multi-stage training completed!
+All outputs saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/finetune/run_A100_multistage_20251128_061244
+
+Final TEST CER: 0.1196 (11.96%)
+Best VALIDATION CER (autoregressive, Stage 2): 0.7965 (79.65%)
+Best-by-CER model stored at: /home/vault/iwi5/iwi5298h/models_image_text/gemma/stair/finetune/run_A100_multistage_20251128_061244/best_model_cer
+Cleaned up temporary directory: /tmp/1450952.tinygpu/stair_gemma_aug_k9uo2jse
+Gemma-3 training completed at: Fri Nov 28 10:35:47 AM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Fri Nov 28 10:35:47 AM CET 2025
+= Job-ID             : 1450952 on tinygpu
+= Job-Name           : stair_ms
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 04:23:32
+= Total RAM usage    : 10.5 GiB of requested  GiB (%)   
+= Node list          : tg090
+= Subm/Elig/Start/End: 2025-11-27T16:37:39 / 2025-11-27T16:37:39 / 2025-11-28T06:12:15 / 2025-11-28T10:35:47
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              87.6G   104.9G   209.7G        N/A  27,864      500K   1,000K        N/A    
+    /home/woody           197.4G  1000.0G  1500.0G        N/A     876K   5,000K   7,500K        N/A    
+    /home/vault           885.8G  1048.6G  2097.2G        N/A   6,455      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:01:00.0, 2314174, 25 %, 6 %, 25596 MiB, 15804137 ms

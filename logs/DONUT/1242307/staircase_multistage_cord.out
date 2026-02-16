@@ -1,0 +1,124 @@
+### Starting TaskPrologue of job 1242307 on tg071 at Thu Oct 16 07:11:59 PM CEST 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Failed to initialize NVML: Driver/library version mismatch
+NVML library version: 570.172
+### Finished TaskPrologue
+
+===================================
+DONUT Staircase: Multistage + Contrastive (+Soup optional)
+===================================
+Job ID: 1242307
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/DONUT/1242307
+Data Directory: /home/woody/iwi5/iwi5298h/json_staircase
+Image Directory: /home/woody/iwi5/iwi5298h/staircase_images
+Num Epochs (total): 15
+Batch Size: 2
+Learning Rate: 2e-5
+Max Length: 768
+Predict On: test
+Prediction Batch Size: 1
+Augmentation Factor: 2
+Disable Augmentation: false
+Contrastive Weight: 0.10
+Temperature: 0.07
+Use Model Soup: false
+===================================
+Running command:
+python3 staircase_multistage_cord.py   --data_dir "/home/woody/iwi5/iwi5298h/json_staircase"   --image_dir "/home/woody/iwi5/iwi5298h/staircase_images"   --epochs 15   --batch_size 2   --lr 2e-5   --max_length 768   --predict_on "test"   --prediction_batch_size 1   --augmentation_factor 2   --contrastive_weight 0.10   --temperature 0.07
+===================================
+Using device: cpu
+All output will be saved in: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_cord_contrastive_multistage_20251016_191220
+Checking for model at: /home/vault/iwi5/iwi5298h/models/donut_cord
+Model already exists at /home/vault/iwi5/iwi5298h/models/donut_cord, loading from local cache...
+Loaded 26 original samples from /home/woody/iwi5/iwi5298h/json_staircase/train.jsonl
+Created 78 total samples with 2x augmentation
+Loaded 9 original samples from /home/woody/iwi5/iwi5298h/json_staircase/val.jsonl
+Using 9 samples without augmentation
+Loaded 9 original samples from /home/woody/iwi5/iwi5298h/json_staircase/test.jsonl
+Using 9 samples without augmentation
+
+🔄 Using Contrastive Multi-Stage Training strategy (single model)
+
+============================================================
+STARTING CONTRASTIVE MULTI-STAGE TRAINING
+============================================================
+
+🔒 STAGE 1: Decoder-only (encoder frozen) + contrastive
+✅ Encoder frozen
+Trainable params - Encoder: 0, Decoder: 126,941,184, Total: 126,941,184
+🚀 Training Stage 1...
+{'loss': 3.3092, 'grad_norm': 3.566866874694824, 'learning_rate': 4.8e-05, 'epoch': 0.64}
+{'loss': 0.8847, 'grad_norm': 2.4680426120758057, 'learning_rate': 9.8e-05, 'epoch': 1.28}
+{'loss': 0.3344, 'grad_norm': 1.6519591808319092, 'learning_rate': 4.951556604879048e-06, 'epoch': 1.92}
+{'train_runtime': 931.0853, 'train_samples_per_second': 0.168, 'train_steps_per_second': 0.084, 'train_loss': 1.4617879543548975, 'epoch': 2.0}
+📊 Manual eval after Stage 1
+Stage 1 CER: 54.8562
+
+🔓 STAGE 2: Full model (encoder+decoder) + contrastive
+✅ Encoder unfrozen
+Trainable params - Encoder: 74,180,728, Decoder: 126,941,184, Total: 201,121,912
+🚀 Training Stage 2...
+{'loss': 0.2213, 'grad_norm': 1.918169617652893, 'learning_rate': 1.9200000000000003e-05, 'epoch': 0.64}
+{'loss': 0.1566, 'grad_norm': 2.176919937133789, 'learning_rate': 1.9877900920719825e-05, 'epoch': 1.28}
+{'loss': 0.1095, 'grad_norm': 3.1968846321105957, 'learning_rate': 1.9494322992462718e-05, 'epoch': 1.92}
+{'loss': 0.0914, 'grad_norm': 2.5327601432800293, 'learning_rate': 1.8859215781501727e-05, 'epoch': 2.56}
+{'loss': 0.0673, 'grad_norm': 1.6561256647109985, 'learning_rate': 1.7989404927889315e-05, 'epoch': 3.21}
+{'loss': 0.0529, 'grad_norm': 3.394026041030884, 'learning_rate': 1.6907933980941312e-05, 'epoch': 3.85}
+{'loss': 0.0446, 'grad_norm': 1.3042688369750977, 'learning_rate': 1.5643453915747457e-05, 'epoch': 4.49}
+{'loss': 0.0392, 'grad_norm': 1.373939871788025, 'learning_rate': 1.4229464094404866e-05, 'epoch': 5.13}
+{'loss': 0.0324, 'grad_norm': 1.2365578413009644, 'learning_rate': 1.270342478088342e-05, 'epoch': 5.77}
+{'loss': 0.0252, 'grad_norm': 0.8606601357460022, 'learning_rate': 1.11057647213099e-05, 'epoch': 6.41}
+{'loss': 0.0308, 'grad_norm': 1.364783525466919, 'learning_rate': 9.478810081447595e-06, 'epoch': 7.05}
+{'loss': 0.0187, 'grad_norm': 2.026871919631958, 'learning_rate': 7.865663116600149e-06, 'epoch': 7.69}
+{'loss': 0.0181, 'grad_norm': 0.6685512065887451, 'learning_rate': 6.309060280887151e-06, 'epoch': 8.33}
+{'loss': 0.0209, 'grad_norm': 0.7105001211166382, 'learning_rate': 4.850240027543509e-06, 'epoch': 8.97}
+{'loss': 0.016, 'grad_norm': 0.936759352684021, 'learning_rate': 3.527850295154075e-06, 'epoch': 9.62}
+{'loss': 0.0149, 'grad_norm': 1.1372696161270142, 'learning_rate': 2.3769246233516243e-06, 'epoch': 10.26}
+{'loss': 0.011, 'grad_norm': 1.100118637084961, 'learning_rate': 1.4279540233334666e-06, 'epoch': 10.9}
+{'loss': 0.0134, 'grad_norm': 0.9864516258239746, 'learning_rate': 7.06079191757918e-07, 'epoch': 11.54}
+{'loss': 0.0106, 'grad_norm': 0.4982532560825348, 'learning_rate': 2.304244683733059e-07, 'epoch': 12.18}
+{'loss': 0.0116, 'grad_norm': 0.5888742804527283, 'learning_rate': 1.3591182572219031e-08, 'epoch': 12.82}
+{'train_runtime': 12057.1496, 'train_samples_per_second': 0.084, 'train_steps_per_second': 0.042, 'train_loss': 0.04978639967519151, 'epoch': 13.0}
+📊 Manual eval after Stage 2
+Stage 2 CER: 53.8230
+✅ Contrastive multi-stage training completed!
+✅ Training completed!
+Generating predictions on test set...
+Saving 9 predictions to /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_cord_contrastive_multistage_20251016_191220/test_predictions.jsonl
+Predictions saved successfully!
+CER scores written to /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_cord_contrastive_multistage_20251016_191220/final_CER_scores.txt
+
+All outputs saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_cord_contrastive_multistage_20251016_191220
+
+To view TensorBoard loss curves, run:
+  tensorboard --logdir /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_cord_contrastive_multistage_20251016_191220/tensorboard_logs
+===================================
+Training completed successfully!
+
+Notes:
+- The Python script writes a timestamped output directory under:
+  /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/
+- Check the job output log for the final 'All outputs saved to:' line
+  to see the exact output path (includes tensorboard logs, predictions, CER, etc.)
+Log directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/DONUT/1242307
+Job completed at: Thu Oct 16 10:57:24 PM CEST 2025
+=== JOB_STATISTICS ===
+=== current date     : Thu Oct 16 10:57:24 PM CEST 2025
+= Job-ID             : 1242307 on tinygpu
+= Job-Name           : donut_stair_multistage
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut_multi_stage.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 20:00:00
+= Elapsed runtime    : 03:45:27
+= Total RAM usage    : 16.9 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2025-10-16T19:11:24 / 2025-10-16T19:11:24 / 2025-10-16T19:11:49 / 2025-10-16T22:57:16
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           122.0G  1000.0G  1500.0G        N/A     601K   5,000K   7,500K        N/A    
+    /home/hpc              86.3G   104.9G   209.7G        N/A  32,801      500K   1,000K        N/A    
+    /home/vault           564.2G  1048.6G  2097.2G        N/A   3,749      200K     400K        N/A    
+======================

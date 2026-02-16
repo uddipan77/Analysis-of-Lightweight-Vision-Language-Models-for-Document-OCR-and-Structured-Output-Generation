@@ -1,0 +1,88 @@
+### Starting TaskPrologue of job 1136088 on tg072 at Fri Aug  1 11:58:02 PM CEST 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Fri Aug  1 23:58:02 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.20             Driver Version: 570.133.20     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   30C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+========================================
+Florence-2 OCR Fine-tuning Job Configuration:
+========================================
+Job ID: 1136088
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/Florence2/1136088
+CUDA Device: 0
+Job started at: Fri Aug  1 11:58:04 PM CEST 2025
+========================================
+[2025-08-01 23:58:24,702] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-08-01 23:58:27,841] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Loading datasets...
+Loaded 205 training samples
+Loaded 44 validation samples
+Loaded 45 test samples
+{'loss': 4.3011, 'grad_norm': 1.4151920080184937, 'learning_rate': 8.999999999999999e-05, 'epoch': 0.39}
+{'loss': 3.8845, 'grad_norm': 1.1580791473388672, 'learning_rate': 0.00019, 'epoch': 0.78}
+{'eval_cer': 0.5862340020324742, 'eval_perfect_matches': 0.0, 'eval_loss': 3.077969551086426, 'eval_runtime': 15.6903, 'eval_samples_per_second': 2.804, 'eval_steps_per_second': 1.402, 'epoch': 0.97}
+{'loss': 3.457, 'grad_norm': 1.0415347814559937, 'learning_rate': 0.00029, 'epoch': 1.19}
+{'loss': 2.8675, 'grad_norm': 0.9383302330970764, 'learning_rate': 0.00039000000000000005, 'epoch': 1.58}
+{'loss': 2.4471, 'grad_norm': 0.830612063407898, 'learning_rate': 0.00049, 'epoch': 1.97}
+{'eval_cer': 0.37114981985621937, 'eval_perfect_matches': 0.0, 'eval_loss': 2.116516351699829, 'eval_runtime': 15.756, 'eval_samples_per_second': 2.793, 'eval_steps_per_second': 1.396, 'epoch': 1.97}
+{'loss': 2.2682, 'grad_norm': 0.8704991340637207, 'learning_rate': 0.000455, 'epoch': 2.39}
+{'loss': 2.0664, 'grad_norm': 0.8579638600349426, 'learning_rate': 0.00040500000000000003, 'epoch': 2.78}
+{'eval_cer': 0.2754898037736297, 'eval_perfect_matches': 0.0, 'eval_loss': 1.8691596984863281, 'eval_runtime': 15.7357, 'eval_samples_per_second': 2.796, 'eval_steps_per_second': 1.398, 'epoch': 2.97}
+{'loss': 1.9115, 'grad_norm': 0.7764416933059692, 'learning_rate': 0.000355, 'epoch': 3.19}
+{'loss': 1.9147, 'grad_norm': 0.7048786878585815, 'learning_rate': 0.000305, 'epoch': 3.58}
+{'loss': 1.8853, 'grad_norm': 0.9140844941139221, 'learning_rate': 0.000255, 'epoch': 3.97}
+{'eval_cer': 0.2727572436990627, 'eval_perfect_matches': 0.0, 'eval_loss': 1.7638001441955566, 'eval_runtime': 15.7628, 'eval_samples_per_second': 2.791, 'eval_steps_per_second': 1.396, 'epoch': 3.97}
+{'loss': 1.8768, 'grad_norm': 0.8016356825828552, 'learning_rate': 0.000205, 'epoch': 4.39}
+{'loss': 1.7568, 'grad_norm': 0.935814380645752, 'learning_rate': 0.000155, 'epoch': 4.78}
+{'eval_cer': 0.2682817120270178, 'eval_perfect_matches': 0.0, 'eval_loss': 1.7237441539764404, 'eval_runtime': 15.6794, 'eval_samples_per_second': 2.806, 'eval_steps_per_second': 1.403, 'epoch': 4.97}
+{'loss': 1.7652, 'grad_norm': 0.8425074815750122, 'learning_rate': 0.000105, 'epoch': 5.19}
+{'loss': 1.7546, 'grad_norm': 0.9954469799995422, 'learning_rate': 5.5e-05, 'epoch': 5.58}
+{'loss': 1.8156, 'grad_norm': 0.8773982524871826, 'learning_rate': 5e-06, 'epoch': 5.97}
+{'eval_cer': 0.2566848430186575, 'eval_perfect_matches': 0.0, 'eval_loss': 1.7089531421661377, 'eval_runtime': 15.7394, 'eval_samples_per_second': 2.796, 'eval_steps_per_second': 1.398, 'epoch': 5.97}
+{'train_runtime': 546.437, 'train_samples_per_second': 2.251, 'train_steps_per_second': 0.275, 'train_loss': 2.3981548817952474, 'epoch': 5.97}
+LoRA finetuning pipeline completed successfully!
+Results saved in: /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/lora_run_20250801_235829
+========================================
+Job completed at: Sat Aug  2 12:18:10 AM CEST 2025
+========================================
+=== JOB_STATISTICS ===
+=== current date     : Sat Aug  2 12:18:11 AM CEST 2025
+= Job-ID             : 1136088 on tinygpu
+= Job-Name           : florence2_finetune
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_florence.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 00:20:10
+= Total RAM usage    : 9.9 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-08-01T23:57:22 / 2025-08-01T23:57:22 / 2025-08-01T23:57:23 / 2025-08-02T00:17:33
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody            71.2G  1000.0G  1500.0G        N/A     238K   5,000K   7,500K        N/A    
+!!! /home/hpc             107.5G   104.9G   209.7G  -29402days  32,317      500K   1,000K        N/A !!!
+    /home/vault           521.3G  1048.6G  2097.2G        N/A   1,603      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 4029642, 37 %, 11 %, 32038 MiB, 1186282 ms

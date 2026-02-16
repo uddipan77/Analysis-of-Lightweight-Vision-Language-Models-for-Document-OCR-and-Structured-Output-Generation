@@ -1,0 +1,108 @@
+### Starting TaskPrologue of job 1460667 on tg082 at Mon Dec  8 01:27:43 PM CET 2025
+Running on cores 2-3,18-19,34-35,50-51 with governor powersave
+Mon Dec  8 13:27:43 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3080        On  |   00000000:1B:00.0 Off |                  N/A |
+| 30%   33C    P8             15W /  300W |       1MiB /  10240MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting UI at: Mon Dec  8 01:27:44 PM CET 2025
+new /ui
+INFO:     10.188.82.14:58338 - "GET /ui HTTP/1.1" 307 Temporary Redirect
+INFO:     10.188.82.14:58338 - "GET /ui/ HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58350 - "GET /ui/assets/index-BVoOcrq_.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58338 - "GET /ui/assets/index-BvFm9VBJ.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58338 - "GET /ui/assets/svelte/svelte.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58338 - "GET /ui/assets/Index-CPvJJt91.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58350 - "GET /ui/assets/init-BXnIR-ED.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58358 - "GET /ui/assets/init-DQCSNdur.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58364 - "GET /ui/assets/FullscreenButton-D7OpqaEU.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58370 - "GET /ui/assets/MarkdownCode-DhbjNcA6.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58338 - "GET /ui/assets/MarkdownCode-CqW9htQV.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58350 - "GET /ui/assets/FullscreenButton-BYduS5IX.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58362 - "GET /ui/assets/StreamingBar-Bc_J-1Oe.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58358 - "GET /ui/assets/StreamingBar-Dq7cCzkm.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58364 - "GET /ui/assets/Index-BkyjjaNE.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58370 - "GET /ui/assets/prism-python-Dt5iPx6n.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58338 - "GET /ui/assets/index-CCsXLF_U.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58372 - "GET /manifest.json HTTP/1.1" 404 Not Found
+INFO:     10.188.82.14:58338 - "GET /ui/theme.css?v=2fa39f6df94156f7ef9d84370dbb2657d672827c75f082ac995879c32290c5ca HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58370 - "GET /ui/assets/Blocks-75KIb2my.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58364 - "GET /ui/assets/Blocks-D0rbzfnq.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58338 - "GET /ui/assets/Example-2_XpXLIx.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58370 - "GET /ui/assets/Example-DCK-h4K5.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58364 - "GET /ui/assets/Index-Duw1Ex3_.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58350 - "GET /ui/assets/Index-Ci4eVLjY.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58362 - "GET /ui/assets/Index-CRfssLQd.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58358 - "GET /ui/assets/Index-BCXlnuLP.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58338 - "GET /ui/assets/Index-Bp6-wsMo.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58350 - "GET /ui/assets/Index-B8k0osbz.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58362 - "GET /ui/assets/Image-Ds1uFAjO.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58364 - "GET /ui/assets/ImagePreview-D5bl4ZzZ.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58358 - "GET /ui/assets/Example-D1sBsWPM.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58370 - "GET /ui/assets/ModifyUpload-REHVxGq-.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58338 - "GET /ui/assets/Index-Dko6XNbv.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58370 - "GET /ui/static/fonts/IBMPlexMono/IBMPlexMono-Regular.woff2 HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58350 - "GET /ui/assets/Index-VLJFaMM1.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58362 - "GET /ui/assets/Example-DRnq2kzJ.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58358 - "GET /ui/assets/Index-DMXFGchm.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58364 - "GET /ui/assets/Index-D812IjdW.css HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58364 - "GET /ui/assets/ImagePreview-AieVzSem.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58358 - "GET /ui/assets/Example-CXKuTmQ6.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58362 - "GET /ui/assets/Index-CBM-_yxP.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58338 - "GET /ui/assets/Index-BfRBQxVE.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58350 - "GET /ui/assets/Index-BYNaK3k2.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58362 - "GET /ui/assets/Index-B3LAmjeV.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58370 - "GET /ui/assets/Image-0bVIZe-w.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58358 - "GET /ui/assets/ModifyUpload-DeA0LoIt.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58364 - "GET /ui/assets/Example-BU7VN3ij.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58338 - "GET /ui/assets/Index-cwl6r4yK.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58350 - "GET /ui/assets/Index-BeXoEYFp.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:58362 - "GET /ui/assets/Example-Bdcw8sPw.js HTTP/1.1" 200 OK
+INFO:     10.188.82.14:57856 - "POST /ui/gradio_api/upload?upload_id=roejgdnt2sg HTTP/1.1" 200 OK
+INFO:     10.188.82.14:57856 - "GET /ui/gradio_api/file%3D/scratch/1460667.tinygpu/gradio/ae89b10fd1ba6426ccfc28370203a80b7e34164cc5d62a7a054dfd4d8d9da418/FMIS_FormblatterMielke_gef%C3%BCllt%201.jpg HTTP/1.1" 200 OK
+INFO:     10.188.82.14:57862 - "GET /ui/gradio_api/upload_progress?upload_id=undefined HTTP/1.1" 404 Not Found
+INFO:     10.188.82.14:57862 - "POST /ui/gradio_api/queue/join HTTP/1.1" 200 OK
+INFO:     10.188.82.14:57862 - "GET /ui/gradio_api/queue/data?session_hash=qqdr09piy8 HTTP/1.1" 200 OK
+⏳ Loading model 'phi' (Phi-3.5-Vision (multistage, finetuned))
+   base_model_path     = /home/vault/iwi5/iwi5298h/models/phi_3_5_vision
+   finetuned_model_path= /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/stair/best_model
+=== JOB_STATISTICS ===
+=== current date     : Mon Dec  8 01:36:59 PM CET 2025
+= Job-ID             : 1460667 on tinygpu
+= Job-Name           : phi_stair_ui
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/utils/job_ui.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/utils
+= Queue/Partition    : rtx3080
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 10:20:00
+= Elapsed runtime    : 00:09:16
+= Total RAM usage    : 10.5 GiB of requested  GiB (%)   
+= Node list          : tg082
+= Subm/Elig/Start/End: 2025-12-08T13:27:31 / 2025-12-08T13:27:31 / 2025-12-08T13:27:41 / 2025-12-08T13:36:57
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           208.9G  1000.0G  1500.0G        N/A     939K   5,000K   7,500K        N/A    
+    /home/hpc              88.0G   104.9G   209.7G        N/A  28,277      500K   1,000K        N/A    
+    /home/vault           886.7G  1048.6G  2097.2G        N/A   6,564      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA GeForce RTX 3080, 00000000:1B:00.0, 3412067, 15 %, 7 %, 6194 MiB, 150670 ms

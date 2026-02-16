@@ -1,0 +1,91 @@
+### Starting TaskPrologue of job 1198595 on tg073 at Tue Sep  2 01:49:52 AM CEST 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Tue Sep  2 01:49:52 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.158.01             Driver Version: 570.158.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   42C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+===================================
+DONUT Fine-tuning Configuration:
+===================================
+Job ID: 1198595
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/DONUT/1198595
+Data Directory: /home/woody/iwi5/iwi5298h/json_inven
+Image Directory: /home/woody/iwi5/iwi5298h/inventory_images
+Model Cache Directory: /home/vault/iwi5/iwi5298h/models/donut_base
+Output Directory: /home/vault/iwi5/iwi5298h/models_image/donut_base/inventory/inventory_data_base_20250902_014954
+Num Epochs: 50
+Batch Size: 2
+Learning Rate: 1e-5
+Max Length: 512
+Prediction On: test
+Prediction Batch Size: 2
+Early Stopping Patience: 5
+Early Stopping Threshold: 0.00
+===================================
+[2025-09-02 01:51:16,652] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-02 01:52:07,654] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Using device: cuda
+All output will be saved in: /home/vault/iwi5/iwi5298h/models_image/donut_base/inventory/autoregressive_inventory_data_20250902_015221
+Checking for model at: /home/vault/iwi5/iwi5298h/models/donut_base
+Model already exists at /home/vault/iwi5/iwi5298h/models/donut_base, loading from local cache...
+Loaded 213 samples from /home/woody/iwi5/iwi5298h/json_inven/train.jsonl
+Loaded 47 samples from /home/woody/iwi5/iwi5298h/json_inven/val.jsonl
+Loaded 48 samples from /home/woody/iwi5/iwi5298h/json_inven/test.jsonl
+Starting AUTOREGRESSIVE training...
+================================================================================
+DONUT AUTOREGRESSIVE TRAINING MODE
+================================================================================
+✅ Training uses NO teacher forcing - decoder uses only its own predictions
+✅ Ground truth text used ONLY for loss computation, not as decoder input
+✅ 100% reliance on image features during training
+✅ Model selection based on: eval_cer_string (lower is better)
+================================================================================
+{'loss': 9.1376, 'grad_norm': 13.251259803771973, 'learning_rate': 4.9000000000000005e-06, 'epoch': 0.47}
+{'loss': 6.8851, 'grad_norm': 5.209619045257568, 'learning_rate': 9.9e-06, 'epoch': 0.93}
+===================================
+Training failed with exit code: 1
+Check logs for errors.
+Output directory: /home/vault/iwi5/iwi5298h/models_image/donut_base/inventory/inventory_data_base_20250902_014954
+Log directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/DONUT/1198595
+Job completed at: Tue Sep  2 03:07:31 AM CEST 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Sep  2 03:07:31 AM CEST 2025
+= Job-ID             : 1198595 on tinygpu
+= Job-Name           : donut_base
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 15:00:00
+= Elapsed runtime    : 01:17:47
+= Total RAM usage    : 3.8 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2025-09-01T22:57:58 / 2025-09-01T22:57:58 / 2025-09-02T01:49:38 / 2025-09-02T03:07:25
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody            46.7G  1000.0G  1500.0G        N/A     238K   5,000K   7,500K        N/A    
+    /home/hpc              26.1G   104.9G   209.7G        N/A  32,299      500K   1,000K        N/A    
+    /home/vault           767.0G  1048.6G  2097.2G        N/A   1,975      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 3704369, 79 %, 18 %, 32490 MiB, 4574731 ms

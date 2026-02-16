@@ -1,0 +1,122 @@
+### Starting TaskPrologue of job 1242127 on tg074 at Thu Oct 16 02:04:43 PM CEST 2025
+Running on cores 6-7,14-15,22-23,30-31 with governor ondemand
+Thu Oct 16 14:04:43 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.172.08             Driver Version: 570.172.08     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:AF:00.0 Off |                    0 |
+| N/A   33C    P0             25W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+NANONETS-OCR-S ZERO-SHOT STAIRCASE OCR PROCESSING
+============================================================
+
+Loading test data...
+Loaded 9 test samples
+
+Note: Using ZERO-SHOT learning (no training examples)
+Loading Nanonets-OCR-s model...
+Model found at /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Model loaded successfully!
+
+Processing 9 test images with zero-shot prompting...
+------------------------------------------------------------
+Processing image 1/9: FMIS_FormblätterMielke_gefüllt (6).jpg
+  Resizing from 2482x3544 to 717x1024
+  Processed successfully. CER: 0.1886
+Processing image 2/9: FMIS_FormblätterMielke_gefüllt (31).jpg
+  Resizing from 2484x3542 to 718x1024
+  Processed successfully. CER: 0.6626
+Processing image 3/9: FMIS_FormblätterMielke_gefüllt (32).jpg
+  Resizing from 2500x3544 to 722x1024
+  Processed successfully. CER: 0.6810
+Processing image 4/9: FMIS_FormblätterMielke_gefüllt (5).jpg
+  Resizing from 2492x3550 to 718x1024
+  Processed successfully. CER: 0.2935
+Processing image 5/9: FMIS_FormblätterMielke_gefüllt (40).jpg
+  Resizing from 2484x3538 to 718x1024
+  Processed successfully. CER: 0.3742
+Processing image 6/9: FMIS_FormblätterMielke_gefüllt (9).jpg
+  Resizing from 2496x3546 to 720x1024
+  Processed successfully. CER: 0.3951
+Processing image 7/9: FMIS_FormblätterMielke_gefüllt (13).jpg
+  Resizing from 2482x3538 to 718x1024
+  Processed successfully. CER: 0.1659
+Processing image 8/9: FMIS_FormblätterMielke_gefüllt (20).jpg
+  Resizing from 2476x3544 to 715x1024
+  Processed successfully. CER: 0.6450
+Processing image 9/9: FMIS_FormblätterMielke_gefüllt (17).jpg
+  Resizing from 2478x3540 to 716x1024
+  Processed successfully. CER: 0.6124
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_staircase/run_zeroshot_20251016_141240
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_staircase/run_zeroshot_20251016_141240/predictions_zeroshot.jsonl
+
+============================================================
+NANONETS-OCR-S ZERO-SHOT CER EVALUATION RESULTS
+STAIRCASE DOCUMENTATION DATASET
+============================================================
+
+CER Statistics across 9 images:
+--------------------------------------------------
+Average CER: 0.4465 (44.65%)
+Minimum CER: 0.1659 (16.59%)
+Maximum CER: 0.6810 (68.10%)
+
+Weighted CER: 0.4505 (45.05%)
+Total characters: 11830
+Total errors: 5330
+Perfect matches: 0/9 (0.0%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_staircase/run_zeroshot_20251016_141240/evaluation_summary_zeroshot.json
+
+============================================================
+ZERO-SHOT PROCESSING COMPLETE!
+============================================================
+Model: Nanonets-OCR-s
+Dataset: Staircase Documentation
+Method: Zero-Shot Learning (no training examples)
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_staircase/run_zeroshot_20251016_141240
+Total images processed: 9
+Average CER on test set: 0.4465 (44.65%)
+============================================================
+
+Nano training completed at: Thu Oct 16 02:12:41 PM CEST 2025
+=== JOB_STATISTICS ===
+=== current date     : Thu Oct 16 02:12:42 PM CEST 2025
+= Job-ID             : 1242127 on tinygpu
+= Job-Name           : nano_zero
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nano.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 04:00:00
+= Elapsed runtime    : 00:08:05
+= Total RAM usage    : 8.9 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2025-10-16T14:04:56 / 2025-10-16T14:04:56 / 2025-10-16T14:04:57 / 2025-10-16T14:13:02
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc             100.0G   104.9G   209.7G        N/A  32,033      500K   1,000K        N/A    
+    /home/woody           113.6G  1000.0G  1500.0G        N/A     529K   5,000K   7,500K        N/A    
+    /home/vault           840.7G  1048.6G  2097.2G        N/A   6,100      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:AF:00.0, 1884415, 29 %, 19 %, 8260 MiB, 461486 ms

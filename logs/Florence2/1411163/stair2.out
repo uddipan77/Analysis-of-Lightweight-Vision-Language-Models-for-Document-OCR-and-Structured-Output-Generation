@@ -1,0 +1,314 @@
+### Starting TaskPrologue of job 1411163 on tg072 at Sun Nov 23 07:20:20 PM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Sun Nov 23 19:20:20 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   42C    P0             38W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting Florence 2 inference...
+Job ID: 1411163
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/Florence2/1411163
+Job started at: Sun Nov 23 07:20:22 PM CET 2025
+Dataset: Staircase Dataset
+Loading datasets...
+Loaded 115 training samples
+Loaded 25 validation samples
+Loaded 24 test samples
+Using device: cuda
+Output directory: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20251123_192039
+Loading Florence-2 model...
+Applying LoRA...
+✅ Model with LoRA loaded!
+Trainable params: 11,321,344 (1.44%)
+LoRA modules: 408
+Preparing datasets...
+Train dataset size: 115
+Validation dataset size: 25
+Starting LoRA training...
+{'loss': 8.6794, 'grad_norm': 25.638792037963867, 'learning_rate': 4e-05, 'epoch': 0.69}
+{'eval_cer_token_level': 0.6041818537245917, 'eval_loss': 5.440194129943848, 'eval_runtime': 13.3444, 'eval_samples_per_second': 1.873, 'eval_steps_per_second': 0.974, 'epoch': 1.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.7413 (74.13%)
+
+📊 Epoch 1 - Generation-based Validation CER: 0.7413 (74.13%)
+🎯 New best CER: 0.7413 (improved by inf)
+✅ Model saved to /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20251123_192039/best_model
+
+{'loss': 5.1111, 'grad_norm': 11.12564468383789, 'learning_rate': 8e-05, 'epoch': 1.34}
+{'loss': 2.536, 'grad_norm': 1.1068528890609741, 'learning_rate': 0.00012, 'epoch': 2.0}
+{'eval_cer_token_level': 0.004033825651167122, 'eval_loss': 1.8439302444458008, 'eval_runtime': 12.9029, 'eval_samples_per_second': 1.938, 'eval_steps_per_second': 1.008, 'epoch': 2.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.7605 (76.05%)
+
+📊 Epoch 2 - Generation-based Validation CER: 0.7605 (76.05%)
+   Best CER so far: 0.7413
+
+{'loss': 1.743, 'grad_norm': 1.2081918716430664, 'learning_rate': 0.00016, 'epoch': 2.69}
+{'eval_cer_token_level': 0.000429020449901653, 'eval_loss': 1.6627490520477295, 'eval_runtime': 12.9067, 'eval_samples_per_second': 1.937, 'eval_steps_per_second': 1.007, 'epoch': 3.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.7674 (76.74%)
+
+📊 Epoch 3 - Generation-based Validation CER: 0.7674 (76.74%)
+   Best CER so far: 0.7413
+
+{'loss': 1.5617, 'grad_norm': 0.5745483636856079, 'learning_rate': 0.0002, 'epoch': 3.34}
+{'loss': 1.5085, 'grad_norm': 0.3077334761619568, 'learning_rate': 0.00019130434782608697, 'epoch': 4.0}
+{'eval_cer_token_level': 0.0019008151153450954, 'eval_loss': 1.5872137546539307, 'eval_runtime': 12.907, 'eval_samples_per_second': 1.937, 'eval_steps_per_second': 1.007, 'epoch': 4.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.7628 (76.28%)
+
+📊 Epoch 4 - Generation-based Validation CER: 0.7628 (76.28%)
+   Best CER so far: 0.7413
+
+{'loss': 1.5545, 'grad_norm': 1.83495032787323, 'learning_rate': 0.00018260869565217392, 'epoch': 4.69}
+{'eval_cer_token_level': 0.0005028304149588954, 'eval_loss': 1.563734531402588, 'eval_runtime': 12.9127, 'eval_samples_per_second': 1.936, 'eval_steps_per_second': 1.007, 'epoch': 5.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.7613 (76.13%)
+
+📊 Epoch 5 - Generation-based Validation CER: 0.7613 (76.13%)
+   Best CER so far: 0.7413
+
+{'loss': 1.4564, 'grad_norm': 0.9794424176216125, 'learning_rate': 0.00017391304347826088, 'epoch': 5.34}
+{'loss': 1.4287, 'grad_norm': 0.2224104404449463, 'learning_rate': 0.00016521739130434784, 'epoch': 6.0}
+{'eval_cer_token_level': 0.0004946696010281852, 'eval_loss': 1.4767794609069824, 'eval_runtime': 12.934, 'eval_samples_per_second': 1.933, 'eval_steps_per_second': 1.005, 'epoch': 6.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.7700 (77.00%)
+
+📊 Epoch 6 - Generation-based Validation CER: 0.7700 (77.00%)
+   Best CER so far: 0.7413
+
+{'loss': 1.4918, 'grad_norm': 0.32951489090919495, 'learning_rate': 0.0001565217391304348, 'epoch': 6.69}
+{'eval_cer_token_level': 0.0002394499911300905, 'eval_loss': 1.5104904174804688, 'eval_runtime': 12.8475, 'eval_samples_per_second': 1.946, 'eval_steps_per_second': 1.012, 'epoch': 7.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.7703 (77.03%)
+
+📊 Epoch 7 - Generation-based Validation CER: 0.7703 (77.03%)
+   Best CER so far: 0.7413
+
+{'loss': 1.406, 'grad_norm': 0.4486032724380493, 'learning_rate': 0.00014782608695652173, 'epoch': 7.34}
+{'loss': 1.4009, 'grad_norm': 0.16965323686599731, 'learning_rate': 0.0001391304347826087, 'epoch': 8.0}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.4953193664550781, 'eval_runtime': 12.9263, 'eval_samples_per_second': 1.934, 'eval_steps_per_second': 1.006, 'epoch': 8.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.7746 (77.46%)
+
+📊 Epoch 8 - Generation-based Validation CER: 0.7746 (77.46%)
+   Best CER so far: 0.7413
+
+{'loss': 1.4704, 'grad_norm': 0.7760241031646729, 'learning_rate': 0.00013043478260869567, 'epoch': 8.69}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.4944238662719727, 'eval_runtime': 12.9197, 'eval_samples_per_second': 1.935, 'eval_steps_per_second': 1.006, 'epoch': 9.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.8244 (82.44%)
+
+📊 Epoch 9 - Generation-based Validation CER: 0.8244 (82.44%)
+   Best CER so far: 0.7413
+
+{'loss': 1.3934, 'grad_norm': 0.2566509246826172, 'learning_rate': 0.00012173913043478263, 'epoch': 9.34}
+{'loss': 1.3911, 'grad_norm': 0.17673653364181519, 'learning_rate': 0.00011304347826086956, 'epoch': 10.0}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.490923285484314, 'eval_runtime': 12.9216, 'eval_samples_per_second': 1.935, 'eval_steps_per_second': 1.006, 'epoch': 10.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.8381 (83.81%)
+
+📊 Epoch 10 - Generation-based Validation CER: 0.8381 (83.81%)
+   Best CER so far: 0.7413
+
+{'loss': 1.4621, 'grad_norm': 0.3195454180240631, 'learning_rate': 0.00010434782608695653, 'epoch': 10.69}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.46294367313385, 'eval_runtime': 12.9216, 'eval_samples_per_second': 1.935, 'eval_steps_per_second': 1.006, 'epoch': 11.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.8384 (83.84%)
+
+📊 Epoch 11 - Generation-based Validation CER: 0.8384 (83.84%)
+   Best CER so far: 0.7413
+
+{'loss': 1.3876, 'grad_norm': 0.1623608022928238, 'learning_rate': 9.565217391304348e-05, 'epoch': 11.34}
+{'loss': 1.3856, 'grad_norm': 0.2813306450843811, 'learning_rate': 8.695652173913044e-05, 'epoch': 12.0}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.4788578748703003, 'eval_runtime': 12.8444, 'eval_samples_per_second': 1.946, 'eval_steps_per_second': 1.012, 'epoch': 12.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.8270 (82.70%)
+
+📊 Epoch 12 - Generation-based Validation CER: 0.8270 (82.70%)
+   Best CER so far: 0.7413
+
+{'loss': 1.4572, 'grad_norm': 0.44613587856292725, 'learning_rate': 7.82608695652174e-05, 'epoch': 12.69}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.463504672050476, 'eval_runtime': 12.8544, 'eval_samples_per_second': 1.945, 'eval_steps_per_second': 1.011, 'epoch': 13.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.8595 (85.95%)
+
+📊 Epoch 13 - Generation-based Validation CER: 0.8595 (85.95%)
+   Best CER so far: 0.7413
+
+{'loss': 1.3835, 'grad_norm': 0.38296884298324585, 'learning_rate': 6.956521739130436e-05, 'epoch': 13.34}
+{'loss': 1.3831, 'grad_norm': 0.2622363567352295, 'learning_rate': 6.086956521739131e-05, 'epoch': 14.0}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.4620261192321777, 'eval_runtime': 12.908, 'eval_samples_per_second': 1.937, 'eval_steps_per_second': 1.007, 'epoch': 14.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.8653 (86.53%)
+
+📊 Epoch 14 - Generation-based Validation CER: 0.8653 (86.53%)
+   Best CER so far: 0.7413
+
+{'loss': 1.4547, 'grad_norm': 0.1155475527048111, 'learning_rate': 5.217391304347826e-05, 'epoch': 14.69}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.469048261642456, 'eval_runtime': 12.8641, 'eval_samples_per_second': 1.943, 'eval_steps_per_second': 1.011, 'epoch': 15.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.8408 (84.08%)
+
+📊 Epoch 15 - Generation-based Validation CER: 0.8408 (84.08%)
+   Best CER so far: 0.7413
+
+{'loss': 1.3808, 'grad_norm': 0.19418367743492126, 'learning_rate': 4.347826086956522e-05, 'epoch': 15.34}
+{'loss': 1.3809, 'grad_norm': 0.09452743083238602, 'learning_rate': 3.478260869565218e-05, 'epoch': 16.0}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.4673134088516235, 'eval_runtime': 12.9037, 'eval_samples_per_second': 1.937, 'eval_steps_per_second': 1.007, 'epoch': 16.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.8842 (88.42%)
+
+📊 Epoch 16 - Generation-based Validation CER: 0.8842 (88.42%)
+   Best CER so far: 0.7413
+
+{'loss': 1.4531, 'grad_norm': 0.0898231640458107, 'learning_rate': 2.608695652173913e-05, 'epoch': 16.69}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.464643120765686, 'eval_runtime': 12.8818, 'eval_samples_per_second': 1.941, 'eval_steps_per_second': 1.009, 'epoch': 17.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.9206 (92.06%)
+
+📊 Epoch 17 - Generation-based Validation CER: 0.9206 (92.06%)
+   Best CER so far: 0.7413
+
+{'loss': 1.3797, 'grad_norm': 0.16749373078346252, 'learning_rate': 1.739130434782609e-05, 'epoch': 17.34}
+{'loss': 1.3805, 'grad_norm': 0.08423284441232681, 'learning_rate': 8.695652173913044e-06, 'epoch': 18.0}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.4658160209655762, 'eval_runtime': 12.9765, 'eval_samples_per_second': 1.927, 'eval_steps_per_second': 1.002, 'epoch': 18.0}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.9342 (93.42%)
+
+📊 Epoch 18 - Generation-based Validation CER: 0.9342 (93.42%)
+   Best CER so far: 0.7413
+
+{'loss': 1.4525, 'grad_norm': 0.07714948058128357, 'learning_rate': 0.0, 'epoch': 18.69}
+{'eval_cer_token_level': 0.0, 'eval_loss': 1.4692693948745728, 'eval_runtime': 12.7752, 'eval_samples_per_second': 1.957, 'eval_steps_per_second': 1.018, 'epoch': 18.69}
+
+🔎 Running autoregressive validation CER (generation)...
+🔚 Autoregressive validation CER: 0.9368 (93.68%)
+
+📊 Epoch 18 - Generation-based Validation CER: 0.9368 (93.68%)
+   Best CER so far: 0.7413
+
+{'train_runtime': 13907.3385, 'train_samples_per_second': 0.165, 'train_steps_per_second': 0.02, 'train_loss': 1.8740834270204816, 'epoch': 18.69}
+
+✅ Training completed!
+Best generation-based validation CER: 0.7413
+Best model: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20251123_192039/best_model
+Making predictions on 24 test images...
+[1/24] FMIS_FormblätterMielke_gefüllt (83).jpg
+  ✅ CER: 1.1430
+[2/24] FMIS_FormblätterMielke_gefüllt (45).jpg
+  ✅ CER: 1.4203
+[3/24] FMIS_FormblätterMielke_gefüllt (27).jpg
+  ✅ CER: 0.8466
+[4/24] FMIS_FormblätterMielke_gefüllt (130).jpg
+  ✅ CER: 0.8823
+[5/24] FMIS_FormblätterMielke_gefüllt (129).jpg
+  ✅ CER: 1.3570
+[6/24] FMIS_FormblätterMielke_gefüllt (88).jpg
+  ✅ CER: 0.8310
+[7/24] FMIS_FormblätterMielke_gefüllt (102).jpg
+  ✅ CER: 1.2241
+[8/24] FMIS_FormblätterMielke_gefüllt (103).jpg
+  ✅ CER: 0.8325
+[9/24] FMIS_FormblätterMielke_gefüllt (165).jpg
+  ✅ CER: 0.7627
+[10/24] FMIS_FormblätterMielke_gefüllt (43).jpg
+  ✅ CER: 0.8272
+[11/24] FMIS_FormblätterMielke_gefüllt (11).jpg
+  ✅ CER: 0.7712
+[12/24] FMIS_FormblätterMielke_gefüllt (36).jpg
+  ✅ CER: 0.7669
+[13/24] FMIS_FormblätterMielke_gefüllt (87).jpg
+  ✅ CER: 0.7802
+[14/24] FMIS_FormblätterMielke_gefüllt (94).jpg
+  ✅ CER: 0.7901
+[15/24] FMIS_FormblätterMielke_gefüllt (58).jpg
+  ✅ CER: 0.7169
+[16/24] FMIS_FormblätterMielke_gefüllt (111).jpg
+  ✅ CER: 1.3975
+[17/24] FMIS_FormblätterMielke_gefüllt (99).jpg
+  ✅ CER: 0.7934
+[18/24] FMIS_FormblätterMielke_gefüllt (116).jpg
+  ✅ CER: 1.2903
+[19/24] FMIS_FormblätterMielke_Vorlage3.jpg
+  ✅ CER: 0.6997
+[20/24] FMIS_FormblätterMielke_gefüllt (132).jpg
+  ✅ CER: 0.7899
+[21/24] FMIS_FormblätterMielke_gefüllt (139).jpg
+  ✅ CER: 0.8350
+[22/24] FMIS_FormblätterMielke_gefüllt (66).jpg
+  ✅ CER: 0.8351
+[23/24] FMIS_FormblätterMielke_gefüllt (105).jpg
+  ✅ CER: 0.8581
+[24/24] FMIS_FormblätterMielke_gefüllt (13).jpg
+  ✅ CER: 1.0599
+
+============================================================
+TEST RESULTS (Staircase)
+============================================================
+Average CER: 0.9380 (93.80%)
+Perfect matches: 0/24
+JSON success rate: 0.0%
+============================================================
+
+LoRA finetuning pipeline completed successfully!
+Results saved in: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20251123_192039
+Job completed at: Sun Nov 23 11:24:03 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Sun Nov 23 11:24:03 PM CET 2025
+= Job-ID             : 1411163 on tinygpu
+= Job-Name           : Florence2_stair2
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_florence_inference.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 04:03:45
+= Total RAM usage    : 7.9 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-11-23T19:00:17 / 2025-11-23T19:00:17 / 2025-11-23T19:20:18 / 2025-11-23T23:24:03
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              68.3G   104.9G   209.7G        N/A  27,042      500K   1,000K        N/A    
+    /home/woody           197.4G  1000.0G  1500.0G        N/A     876K   5,000K   7,500K        N/A    
+    /home/vault           957.8G  1048.6G  2097.2G        N/A   6,866      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 66569, 92 %, 35 %, 32490 MiB, 14604644 ms

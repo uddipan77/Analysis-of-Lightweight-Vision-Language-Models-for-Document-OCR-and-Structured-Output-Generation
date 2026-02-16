@@ -1,0 +1,122 @@
+### Starting TaskPrologue of job 1302835 on tg073 at Tue Nov  4 12:00:07 PM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Tue Nov  4 12:00:07 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:3B:00.0 Off |                    0 |
+| N/A   51C    P0             29W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Tue Nov  4 12:00:09 PM CET 2025
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING - SCHMUCK DATASET (MULTI-STAGE)
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Configuration:
+   • Output base directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck
+   • Run directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck/run_20251104_120108_multistage
+   • Training epochs (total): 10
+   • Stage 1 epochs (warm-up): 3
+   • Stage 2 epochs (main): 7
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate (Stage 2 base): 0.0002
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+   • LoRA r=16, alpha=32, dropout=0.1
+
+🔧 Anti-Repetition:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Processor loaded
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.27 GB, Reserved: 2.37 GB
+
+📝 Preparing model for LoRA training...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+
+📊 Loading Schmuck datasets...
+   📁 Training dataset:
+   📊 Loaded 413 valid samples (out of 413 total)
+   🔄 Data augmentation ENABLED
+   📁 Validation dataset:
+   📊 Loaded 88 valid samples (out of 88 total)
+   📊 Validation samples for CER computation: 88
+
+================================================================================
+STAGE 1: WARM-UP TRAINING (NO EVAL, TEACHER FORCING)
+================================================================================
+
+================================================================================
+GPU INFORMATION (STAGE 1)
+================================================================================
+   GPU: Tesla V100-PCIE-32GB
+   Max memory: 31.733 GB
+================================================================================
+
+🚀 Starting Stage 1 (warm-up) training...
+
+{'loss': 2.6885, 'grad_norm': 0.9039191007614136, 'learning_rate': 0.00039912119640437963, 'epoch': 0.39}
+{'loss': 0.533, 'grad_norm': 0.5664454698562622, 'learning_rate': 0.0003691664118518195, 'epoch': 0.77}
+{'loss': 0.2981, 'grad_norm': 0.46571922302246094, 'learning_rate': 0.0003026948387029684, 'epoch': 1.16}
+{'loss': 0.2473, 'grad_norm': 0.541092574596405, 'learning_rate': 0.0002140552377890586, 'epoch': 1.55}
+{'loss': 0.2551, 'grad_norm': 0.6376134753227234, 'learning_rate': 0.00012238162946555002, 'epoch': 1.94}
+{'loss': 0.179, 'grad_norm': 0.35062375664711, 'learning_rate': 4.7462964377923635e-05, 'epoch': 2.32}
+{'loss': 0.1697, 'grad_norm': 0.48695820569992065, 'learning_rate': 5.471418935037398e-06, 'epoch': 2.71}
+{'train_runtime': 11776.6068, 'train_samples_per_second': 0.105, 'train_steps_per_second': 0.006, 'train_loss': 0.5902517493565878, 'epoch': 2.91}
+
+✅ Stage 1 completed.
+
+
+================================================================================
+STAGE 2: MAIN TRAINING WITH CER-BASED BEST MODEL
+================================================================================
+🚀 Starting Stage 2 training with CER-based validation...
+
+Finished at: Tue Nov  4 03:19:05 PM CET 2025
+Exit status: 1
+=== JOB_STATISTICS ===
+=== current date     : Tue Nov  4 03:19:05 PM CET 2025
+= Job-ID             : 1302835 on tinygpu
+= Job-Name           : phi_schmuck_ms
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 03:19:07
+= Total RAM usage    : 10.4 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2025-11-04T11:54:27 / 2025-11-04T11:54:27 / 2025-11-04T11:59:26 / 2025-11-04T15:18:33
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           184.1G  1000.0G  1500.0G        N/A     841K   5,000K   7,500K        N/A    
+    /home/hpc             102.2G   104.9G   209.7G        N/A  30,651      500K   1,000K        N/A    
+    /home/vault           892.5G  1048.6G  2097.2G        N/A   5,409      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 431011, 96 %, 32 %, 9982 MiB, 11890289 ms

@@ -1,0 +1,394 @@
+### Starting TaskPrologue of job 1305766 on tg074 at Tue Nov  4 03:44:09 PM CET 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Tue Nov  4 15:44:09 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:86:00.0 Off |                    0 |
+| N/A   30C    P0             25W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Tue Nov  4 03:44:11 PM CET 2025
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING - SCHMUCK DATASET (MULTI-STAGE)
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Configuration:
+   • Output base directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck
+   • Run directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck/run_20251104_154436_multistage
+   • Training epochs (total): 10
+   • Stage 1 epochs (warm-up): 3
+   • Stage 2 epochs (main): 7
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate (Stage 2 base): 0.0002
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+   • LoRA r=16, alpha=32, dropout=0.1
+
+🔧 Anti-Repetition:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Processor loaded
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.27 GB, Reserved: 2.37 GB
+
+📝 Preparing model for LoRA training...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+
+📊 Loading Schmuck datasets...
+   📁 Training dataset:
+   📊 Loaded 413 valid samples (out of 413 total)
+   🔄 Data augmentation ENABLED
+   📁 Validation dataset:
+   📊 Loaded 88 valid samples (out of 88 total)
+   📊 Validation samples for CER computation: 88
+
+================================================================================
+STAGE 1: WARM-UP TRAINING (NO EVAL, TEACHER FORCING)
+================================================================================
+
+================================================================================
+GPU INFORMATION (STAGE 1)
+================================================================================
+   GPU: Tesla V100-PCIE-32GB
+   Max memory: 31.733 GB
+================================================================================
+
+🚀 Starting Stage 1 (warm-up) training...
+
+{'loss': 2.6869, 'grad_norm': 0.8417184352874756, 'learning_rate': 0.00039912119640437963, 'epoch': 0.39}
+{'loss': 0.5339, 'grad_norm': 0.5714298486709595, 'learning_rate': 0.0003691664118518195, 'epoch': 0.77}
+{'loss': 0.2959, 'grad_norm': 0.5274366140365601, 'learning_rate': 0.0003026948387029684, 'epoch': 1.16}
+{'loss': 0.2455, 'grad_norm': 0.528016984462738, 'learning_rate': 0.0002140552377890586, 'epoch': 1.55}
+{'loss': 0.2517, 'grad_norm': 0.6127708554267883, 'learning_rate': 0.00012238162946555002, 'epoch': 1.94}
+{'loss': 0.1799, 'grad_norm': 0.3385744094848633, 'learning_rate': 4.7462964377923635e-05, 'epoch': 2.32}
+{'loss': 0.1696, 'grad_norm': 0.47275906801223755, 'learning_rate': 5.471418935037398e-06, 'epoch': 2.71}
+{'train_runtime': 11671.5856, 'train_samples_per_second': 0.106, 'train_steps_per_second': 0.006, 'train_loss': 0.5889983789126079, 'epoch': 2.91}
+
+✅ Stage 1 completed.
+
+
+================================================================================
+STAGE 2: MAIN TRAINING WITH CER-BASED BEST MODEL
+================================================================================
+🚀 Starting Stage 2 training with CER-based validation...
+
+{'loss': 0.1746, 'grad_norm': 0.4668312966823578, 'learning_rate': 0.00011111111111111112, 'epoch': 0.39}
+{'loss': 0.1301, 'grad_norm': 0.3383362889289856, 'learning_rate': 0.00019991992951284932, 'epoch': 0.77}
+{'eval_loss': 0.023666338995099068, 'eval_runtime': 318.8257, 'eval_samples_per_second': 0.276, 'eval_steps_per_second': 0.276, 'epoch': 0.97}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 0)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 0): 0.0022 (0.22%)
+   🎯 NEW BEST CER: 0.0022 (improved by inf)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck/run_20251104_154436_multistage/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 0.0836, 'grad_norm': 0.5314063429832458, 'learning_rate': 0.00019713090317615876, 'epoch': 1.16}
+{'loss': 0.0846, 'grad_norm': 0.4969978928565979, 'learning_rate': 0.00019046565819097545, 'epoch': 1.55}
+{'loss': 0.1085, 'grad_norm': 0.42235028743743896, 'learning_rate': 0.000180190185565964, 'epoch': 1.94}
+{'eval_loss': 0.020774438977241516, 'eval_runtime': 325.8481, 'eval_samples_per_second': 0.27, 'eval_steps_per_second': 0.27, 'epoch': 1.98}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 1)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 1): 0.0022 (0.22%)
+   🎯 NEW BEST CER: 0.0022 (improved by 0.0001)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck/run_20251104_154436_multistage/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 0.0776, 'grad_norm': 0.3758978843688965, 'learning_rate': 0.00016671455024759067, 'epoch': 2.32}
+{'loss': 0.0789, 'grad_norm': 0.7174820899963379, 'learning_rate': 0.00015057652659204197, 'epoch': 2.71}
+{'eval_loss': 0.023272307589650154, 'eval_runtime': 320.8717, 'eval_samples_per_second': 0.274, 'eval_steps_per_second': 0.274, 'epoch': 2.98}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 2)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 2): 0.0021 (0.21%)
+   🎯 NEW BEST CER: 0.0021 (improved by 0.0001)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck/run_20251104_154436_multistage/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 0.0581, 'grad_norm': 0.1761503368616104, 'learning_rate': 0.00013242013731709287, 'epoch': 3.1}
+{'loss': 0.0532, 'grad_norm': 0.5665743350982666, 'learning_rate': 0.00011296995238344084, 'epoch': 3.49}
+{'loss': 0.0463, 'grad_norm': 0.37398940324783325, 'learning_rate': 9.30021734642003e-05, 'epoch': 3.87}
+{'eval_loss': 0.023947877809405327, 'eval_runtime': 325.7593, 'eval_samples_per_second': 0.27, 'eval_steps_per_second': 0.27, 'epoch': 3.99}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 3)
+================================================================================
+   Validating 1/30: SCH_1941.jpg   Validating 2/30: SCH_3097.jpg   Validating 3/30: SCH_3217.jpg   Validating 4/30: SCH_2891_185.jpg   Validating 5/30: SCH_1931.jpg   Validating 6/30: SCH_2891_139.jpg   Validating 7/30: SCH_2891_303.jpg   Validating 8/30: SCH_3082_recto.jpg   Validating 9/30: SCH_3192_15.jpg   Validating 10/30: SCH_2969.jpg   Validating 11/30: SCH_2891_24_a.jpg   Validating 12/30: SCH_3028.jpg   Validating 13/30: SCH_3192_34.jpg   Validating 14/30: SCH_2891_194_195.jpg   Validating 15/30: SCH_3138.jpg   Validating 16/30: SCH_2891_216.jpg   Validating 17/30: SCH_3201.jpg   Validating 18/30: SCH_2891_208.jpg   Validating 19/30: SCH_2079.jpg   Validating 20/30: SCH_2891_122.jpg   Validating 21/30: SCH_3192_24.jpg   Validating 22/30: SCH_2891_294.jpg   Validating 23/30: SCH_2891_119.jpg   Validating 24/30: SCH_3049.jpg   Validating 25/30: SCH_2891_269.jpg   Validating 26/30: SCH_2990.jpg   Validating 27/30: SCH_1933.jpg   Validating 28/30: SCH_2891_71.jpg   Validating 29/30: SCH_3121.jpg   Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER (Epoch 3): 0.0020 (0.20%)
+   🎯 NEW BEST CER: 0.0020 (improved by 0.0001)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck/run_20251104_154436_multistage/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'train_runtime': 27868.8416, 'train_samples_per_second': 0.104, 'train_steps_per_second': 0.006, 'train_loss': 0.08794497423669667, 'epoch': 3.99}
+
+✅ Stage 2 completed.
+
+
+================================================================================
+✅ TRAINING COMPLETED (MULTI-STAGE)
+================================================================================
+   🎯 Best Validation CER: 0.0020 (0.20%)
+   💾 Best model saved at: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck/run_20251104_154436_multistage/best_model
+================================================================================
+
+================================================================================
+PHASE 2: EVALUATION ON TEST SET (USING BEST CER MODEL)
+================================================================================
+
+⏳ Loading best model from: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck/run_20251104_154436_multistage/best_model
+   ✅ Best model and processor loaded
+
+📊 Running inference on 89 test samples...
+
+[1/89] Processing SCH_2891_118.jpg
+   ✨ CER: 0.0000 (0.00%)
+[2/89] Processing SCH_2891_225.jpg
+   ✨ CER: 0.0000 (0.00%)
+[3/89] Processing SCH_3071.jpg
+   ✨ CER: 0.0000 (0.00%)
+[4/89] Processing SCH_3213.jpg
+   ✨ CER: 0.0000 (0.00%)
+[5/89] Processing SCH_3129.jpg
+   ✨ CER: 0.0000 (0.00%)
+[6/89] Processing SCH_2984.jpg
+   ✨ CER: 0.0000 (0.00%)
+[7/89] Processing SCH_2891_162.jpg
+   ✅ CER: 0.0028 (0.28%)
+[8/89] Processing SCH_3043.jpg
+   ✨ CER: 0.0000 (0.00%)
+[9/89] Processing SCH_3005.jpg
+   ✨ CER: 0.0000 (0.00%)
+[10/89] Processing SCH_3192_41.jpg
+   ✨ CER: 0.0000 (0.00%)
+[11/89] Processing SCH_2106.jpg
+   ✨ CER: 0.0000 (0.00%)
+[12/89] Processing SCH_2891_143.jpg
+   ✨ CER: 0.0000 (0.00%)
+[13/89] Processing SCH_2892.jpg
+   ✨ CER: 0.0000 (0.00%)
+[14/89] Processing SCH_2891_211.jpg
+   ✨ CER: 0.0000 (0.00%)
+[15/89] Processing SCH_3170.jpg
+   ✅ CER: 0.0027 (0.27%)
+[16/89] Processing SCH_2891_73.jpg
+   ✨ CER: 0.0000 (0.00%)
+[17/89] Processing SCH_2087.jpg
+   ✨ CER: 0.0000 (0.00%)
+[18/89] Processing SCH_2891_222.jpg
+   ✨ CER: 0.0000 (0.00%)
+[19/89] Processing SCH_2891_63.jpg
+   ✨ CER: 0.0000 (0.00%)
+[20/89] Processing SCH_2891_145.jpg
+   ✨ CER: 0.0000 (0.00%)
+[21/89] Processing SCH_2891_292.jpg
+   ✨ CER: 0.0000 (0.00%)
+[22/89] Processing SCH_3030.jpg
+   ✨ CER: 0.0000 (0.00%)
+[23/89] Processing SCH_3220.jpg
+   ✨ CER: 0.0000 (0.00%)
+[24/89] Processing SCH_3179.jpg
+   ✅ CER: 0.0027 (0.27%)
+[25/89] Processing SCH_3239.jpg
+   ✅ CER: 0.0027 (0.27%)
+[26/89] Processing SCH_3192_6.jpg
+   ✨ CER: 0.0000 (0.00%)
+[27/89] Processing SCH_2891_142.jpg
+   ✨ CER: 0.0000 (0.00%)
+[28/89] Processing SCH_2891_53.jpg
+   ✨ CER: 0.0000 (0.00%)
+[29/89] Processing SCH_2891_262_263.jpg
+   ✨ CER: 0.0000 (0.00%)
+[30/89] Processing SCH_2891_282.jpg
+   ✅ CER: 0.0046 (0.46%)
+[31/89] Processing SCH_3218.jpg
+   ✨ CER: 0.0000 (0.00%)
+[32/89] Processing SCH_2891_275.jpg
+   ✨ CER: 0.0000 (0.00%)
+[33/89] Processing SCH_3002.jpg
+   ✅ CER: 0.0029 (0.29%)
+[34/89] Processing SCH_3137_a.jpg
+   ✅ CER: 0.0022 (0.22%)
+[35/89] Processing SCH_3131.jpg
+   ✨ CER: 0.0000 (0.00%)
+[36/89] Processing SCH_3192_36.jpg
+   ✨ CER: 0.0000 (0.00%)
+[37/89] Processing SCH_3165.jpg
+   ✨ CER: 0.0000 (0.00%)
+[38/89] Processing SCH_3192_14.jpg
+   ✅ CER: 0.0025 (0.25%)
+[39/89] Processing SCH_2891_173.jpg
+   ✅ CER: 0.0051 (0.51%)
+[40/89] Processing SCH_2891_72.jpg
+   ✅ CER: 0.0026 (0.26%)
+[41/89] Processing SCH_2067_recto.jpg
+   ✅ CER: 0.0933 (9.33%)
+[42/89] Processing SCH_3192_4.jpg
+   ✨ CER: 0.0000 (0.00%)
+[43/89] Processing SCH_2891_29_30.jpg
+   ✨ CER: 0.0000 (0.00%)
+[44/89] Processing SCH_2891_272.jpg
+   ✨ CER: 0.0000 (0.00%)
+[45/89] Processing SCH_2891_177.jpg
+   ✅ CER: 0.0026 (0.26%)
+[46/89] Processing SCH_3192_13.jpg
+   ✨ CER: 0.0000 (0.00%)
+[47/89] Processing SCH_2891_291.jpg
+   ✨ CER: 0.0000 (0.00%)
+[48/89] Processing SCH_3192_60.jpg
+   ✨ CER: 0.0000 (0.00%)
+[49/89] Processing SCH_3124.jpg
+   ✅ CER: 0.0043 (0.43%)
+[50/89] Processing SCH_3026.jpg
+   ✨ CER: 0.0000 (0.00%)
+[51/89] Processing SCH_2065.jpg
+   ✅ CER: 0.0113 (1.13%)
+[52/89] Processing SCH_2891_138.jpg
+   ✅ CER: 0.0028 (0.28%)
+[53/89] Processing SCH_2891_245.jpg
+   ✨ CER: 0.0000 (0.00%)
+[54/89] Processing SCH_2891_268.jpg
+   ✨ CER: 0.0000 (0.00%)
+[55/89] Processing SCH_3192_32.jpg
+   ✨ CER: 0.0000 (0.00%)
+[56/89] Processing SCH_2891_293.jpg
+   ✅ CER: 0.0053 (0.53%)
+[57/89] Processing SCH_3192_27.jpg
+   ✅ CER: 0.0074 (0.74%)
+[58/89] Processing SCH_3174.jpg
+   ✨ CER: 0.0000 (0.00%)
+[59/89] Processing SCH_2891_235_236.jpg
+   ✅ CER: 0.0025 (0.25%)
+[60/89] Processing SCH_2891_59.jpg
+   ✅ CER: 0.0052 (0.52%)
+[61/89] Processing SCH_3211.jpg
+   ✨ CER: 0.0000 (0.00%)
+[62/89] Processing SCH_3141.jpg
+   ✅ CER: 0.0026 (0.26%)
+[63/89] Processing SCH_2891_241.jpg
+   ✨ CER: 0.0000 (0.00%)
+[64/89] Processing SCH_3171.jpg
+   ✅ CER: 0.0026 (0.26%)
+[65/89] Processing SCH_3215.jpg
+   ✅ CER: 0.0026 (0.26%)
+[66/89] Processing SCH_1938.jpg
+   ✅ CER: 0.0046 (0.46%)
+[67/89] Processing SCH_2891_153_154.jpg
+   ✅ CER: 0.0025 (0.25%)
+[68/89] Processing SCH_2997.jpg
+   ✨ CER: 0.0000 (0.00%)
+[69/89] Processing SCH_2891_64.jpg
+   ✅ CER: 0.0023 (0.23%)
+[70/89] Processing SCH_2944.jpg
+   ✨ CER: 0.0000 (0.00%)
+[71/89] Processing SCH_3173_ab.jpg
+   ✅ CER: 0.0027 (0.27%)
+[72/89] Processing SCH_2891_41.jpg
+   ✨ CER: 0.0000 (0.00%)
+[73/89] Processing SCH_2032.jpg
+   ✅ CER: 0.0125 (1.25%)
+[74/89] Processing SCH_3078.jpg
+   ✅ CER: 0.0027 (0.27%)
+[75/89] Processing SCH_2891_77_78.jpg
+   ✅ CER: 0.0026 (0.26%)
+[76/89] Processing SCH_2891_62.jpg
+   ✨ CER: 0.0000 (0.00%)
+[77/89] Processing SCH_3192_28.jpg
+   ✅ CER: 0.0060 (0.60%)
+[78/89] Processing SCH_2043_recto.jpg
+   ✅ CER: 0.0051 (0.51%)
+[79/89] Processing SCH_2045.jpg
+   ✨ CER: 0.0000 (0.00%)
+[80/89] Processing SCH_2965.jpg
+   ✨ CER: 0.0000 (0.00%)
+[81/89] Processing SCH_3192_22.jpg
+   ✅ CER: 0.0078 (0.78%)
+[82/89] Processing SCH_3133_a.jpg
+   ✨ CER: 0.0000 (0.00%)
+[83/89] Processing SCH_3192_37.jpg
+   ✅ CER: 0.0048 (0.48%)
+[84/89] Processing SCH_3195_9.jpg
+   ✨ CER: 0.0000 (0.00%)
+[85/89] Processing SCH_2891_67_recto.jpg
+   ✨ CER: 0.0000 (0.00%)
+[86/89] Processing SCH_2891_99.jpg
+   ✨ CER: 0.0000 (0.00%)
+[87/89] Processing SCH_2891_150.jpg
+   ✨ CER: 0.0000 (0.00%)
+[88/89] Processing SCH_2025.jpg
+   ✅ CER: 0.0024 (0.24%)
+[89/89] Processing SCH_3192_48.jpg
+   ✅ CER: 0.0024 (0.24%)
+
+================================================================================
+📊 FINAL TEST RESULTS - SCHMUCK DATASET
+================================================================================
+   Total Samples: 89
+   Average CER: 0.0026 (0.26%)
+   Perfect Matches (CER=0): 54/89 (60.7%)
+   Good Matches (CER<0.1): 89/89 (100.0%)
+   Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck/run_20251104_154436_multistage/test_predictions.jsonl
+================================================================================
+
+✅ Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/schmuck/run_20251104_154436_multistage/training_summary.txt
+
+🎉 Fine-tuning and evaluation complete!
+
+Finished at: Wed Nov  5 05:00:31 AM CET 2025
+Exit status: 0
+=== JOB_STATISTICS ===
+=== current date     : Wed Nov  5 05:00:31 AM CET 2025
+= Job-ID             : 1305766 on tinygpu
+= Job-Name           : phi_schmuck_ms
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 13:16:25
+= Total RAM usage    : 10.6 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2025-11-04T15:44:19 / 2025-11-04T15:44:19 / 2025-11-04T15:44:29 / 2025-11-05T05:00:54
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc             102.0G   104.9G   209.7G        N/A  30,672      500K   1,000K        N/A    
+    /home/woody           184.1G  1000.0G  1500.0G        N/A     841K   5,000K   7,500K        N/A    
+    /home/vault           895.9G  1048.6G  2097.2G        N/A   5,567      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 1434350, 75 %, 26 %, 9984 MiB, 47761064 ms

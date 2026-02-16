@@ -1,0 +1,577 @@
+### Starting TaskPrologue of job 1310679 on tg093 at Tue Nov 11 02:52:00 PM CET 2025
+Running on cores 64-95 with governor ondemand
+Tue Nov 11 14:52:00 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:81:00.0 Off |                    0 |
+| N/A   33C    P0             57W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+Created run directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251111_145231
+Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2 does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Created temporary directory for augmented images: /tmp/1310679.tinygpu/augmented_images_ru4035pv
+Model loaded successfully with optimized LoRA adapters!
+============================================================
+STARTING STAIRCASE DATASET TRAINING (NO BUILT-IN EVAL TO AVOID OOM)
+============================================================
+Preparing training and validation datasets...
+Preparing training data with augmentation factor: 2
+Creating augmentation 1/2 for image 1/115: FMIS_FormblätterMielke_gefüllt (10).jpg
+Creating augmentation 2/2 for image 1/115: FMIS_FormblätterMielke_gefüllt (10).jpg
+Creating augmentation 1/2 for image 2/115: FMIS_FormblätterMielke_gefüllt (114).jpg
+Creating augmentation 2/2 for image 2/115: FMIS_FormblätterMielke_gefüllt (114).jpg
+Creating augmentation 1/2 for image 3/115: FMIS_FormblätterMielke_gefüllt (12).jpg
+Creating augmentation 2/2 for image 3/115: FMIS_FormblätterMielke_gefüllt (12).jpg
+Creating augmentation 1/2 for image 4/115: FMIS_FormblätterMielke_gefüllt (123).jpg
+Creating augmentation 2/2 for image 4/115: FMIS_FormblätterMielke_gefüllt (123).jpg
+Creating augmentation 1/2 for image 5/115: FMIS_FormblätterMielke_gefüllt (125).jpg
+Creating augmentation 2/2 for image 5/115: FMIS_FormblätterMielke_gefüllt (125).jpg
+Creating augmentation 1/2 for image 6/115: FMIS_FormblätterMielke_gefüllt (126).jpg
+Creating augmentation 2/2 for image 6/115: FMIS_FormblätterMielke_gefüllt (126).jpg
+Creating augmentation 1/2 for image 7/115: FMIS_FormblätterMielke_gefüllt (134).jpg
+Creating augmentation 2/2 for image 7/115: FMIS_FormblätterMielke_gefüllt (134).jpg
+Creating augmentation 1/2 for image 8/115: FMIS_FormblätterMielke_gefüllt (136).jpg
+Creating augmentation 2/2 for image 8/115: FMIS_FormblätterMielke_gefüllt (136).jpg
+Creating augmentation 1/2 for image 9/115: FMIS_FormblätterMielke_gefüllt (138).jpg
+Creating augmentation 2/2 for image 9/115: FMIS_FormblätterMielke_gefüllt (138).jpg
+Creating augmentation 1/2 for image 10/115: FMIS_FormblätterMielke_gefüllt (14).jpg
+Creating augmentation 2/2 for image 10/115: FMIS_FormblätterMielke_gefüllt (14).jpg
+Creating augmentation 1/2 for image 11/115: FMIS_FormblätterMielke_gefüllt (149).jpg
+Creating augmentation 2/2 for image 11/115: FMIS_FormblätterMielke_gefüllt (149).jpg
+Creating augmentation 1/2 for image 12/115: FMIS_FormblätterMielke_gefüllt (15).jpg
+Creating augmentation 2/2 for image 12/115: FMIS_FormblätterMielke_gefüllt (15).jpg
+Creating augmentation 1/2 for image 13/115: FMIS_FormblätterMielke_gefüllt (152).jpg
+Creating augmentation 2/2 for image 13/115: FMIS_FormblätterMielke_gefüllt (152).jpg
+Creating augmentation 1/2 for image 14/115: FMIS_FormblätterMielke_gefüllt (154).jpg
+Creating augmentation 2/2 for image 14/115: FMIS_FormblätterMielke_gefüllt (154).jpg
+Creating augmentation 1/2 for image 15/115: FMIS_FormblätterMielke_gefüllt (159).jpg
+Creating augmentation 2/2 for image 15/115: FMIS_FormblätterMielke_gefüllt (159).jpg
+Creating augmentation 1/2 for image 16/115: FMIS_FormblätterMielke_gefüllt (160).jpg
+Creating augmentation 2/2 for image 16/115: FMIS_FormblätterMielke_gefüllt (160).jpg
+Creating augmentation 1/2 for image 17/115: FMIS_FormblätterMielke_gefüllt (163).jpg
+Creating augmentation 2/2 for image 17/115: FMIS_FormblätterMielke_gefüllt (163).jpg
+Creating augmentation 1/2 for image 18/115: FMIS_FormblätterMielke_gefüllt (164).jpg
+Creating augmentation 2/2 for image 18/115: FMIS_FormblätterMielke_gefüllt (164).jpg
+Creating augmentation 1/2 for image 19/115: FMIS_FormblätterMielke_gefüllt (18).jpg
+Creating augmentation 2/2 for image 19/115: FMIS_FormblätterMielke_gefüllt (18).jpg
+Creating augmentation 1/2 for image 20/115: FMIS_FormblätterMielke_gefüllt (20).jpg
+Creating augmentation 2/2 for image 20/115: FMIS_FormblätterMielke_gefüllt (20).jpg
+Creating augmentation 1/2 for image 21/115: FMIS_FormblätterMielke_gefüllt (28).jpg
+Creating augmentation 2/2 for image 21/115: FMIS_FormblätterMielke_gefüllt (28).jpg
+Creating augmentation 1/2 for image 22/115: FMIS_FormblätterMielke_gefüllt (29).jpg
+Creating augmentation 2/2 for image 22/115: FMIS_FormblätterMielke_gefüllt (29).jpg
+Creating augmentation 1/2 for image 23/115: FMIS_FormblätterMielke_gefüllt (30).jpg
+Creating augmentation 2/2 for image 23/115: FMIS_FormblätterMielke_gefüllt (30).jpg
+Creating augmentation 1/2 for image 24/115: FMIS_FormblätterMielke_gefüllt (31).jpg
+Creating augmentation 2/2 for image 24/115: FMIS_FormblätterMielke_gefüllt (31).jpg
+Creating augmentation 1/2 for image 25/115: FMIS_FormblätterMielke_gefüllt (33).jpg
+Creating augmentation 2/2 for image 25/115: FMIS_FormblätterMielke_gefüllt (33).jpg
+Creating augmentation 1/2 for image 26/115: FMIS_FormblätterMielke_gefüllt (38).jpg
+Creating augmentation 2/2 for image 26/115: FMIS_FormblätterMielke_gefüllt (38).jpg
+Creating augmentation 1/2 for image 27/115: FMIS_FormblätterMielke_gefüllt (51).jpg
+Creating augmentation 2/2 for image 27/115: FMIS_FormblätterMielke_gefüllt (51).jpg
+Creating augmentation 1/2 for image 28/115: FMIS_FormblätterMielke_gefüllt (52).jpg
+Creating augmentation 2/2 for image 28/115: FMIS_FormblätterMielke_gefüllt (52).jpg
+Creating augmentation 1/2 for image 29/115: FMIS_FormblätterMielke_gefüllt (53).jpg
+Creating augmentation 2/2 for image 29/115: FMIS_FormblätterMielke_gefüllt (53).jpg
+Creating augmentation 1/2 for image 30/115: FMIS_FormblätterMielke_gefüllt (55).jpg
+Creating augmentation 2/2 for image 30/115: FMIS_FormblätterMielke_gefüllt (55).jpg
+Creating augmentation 1/2 for image 31/115: FMIS_FormblätterMielke_gefüllt (56).jpg
+Creating augmentation 2/2 for image 31/115: FMIS_FormblätterMielke_gefüllt (56).jpg
+Creating augmentation 1/2 for image 32/115: FMIS_FormblätterMielke_gefüllt (6).jpg
+Creating augmentation 2/2 for image 32/115: FMIS_FormblätterMielke_gefüllt (6).jpg
+Creating augmentation 1/2 for image 33/115: FMIS_FormblätterMielke_gefüllt (81).jpg
+Creating augmentation 2/2 for image 33/115: FMIS_FormblätterMielke_gefüllt (81).jpg
+Creating augmentation 1/2 for image 34/115: FMIS_FormblätterMielke_gefüllt (85).jpg
+Creating augmentation 2/2 for image 34/115: FMIS_FormblätterMielke_gefüllt (85).jpg
+Creating augmentation 1/2 for image 35/115: FMIS_FormblätterMielke_gefüllt (89).jpg
+Creating augmentation 2/2 for image 35/115: FMIS_FormblätterMielke_gefüllt (89).jpg
+Creating augmentation 1/2 for image 36/115: FMIS_FormblätterMielke_gefüllt (108).jpg
+Creating augmentation 2/2 for image 36/115: FMIS_FormblätterMielke_gefüllt (108).jpg
+Creating augmentation 1/2 for image 37/115: FMIS_FormblätterMielke_gefüllt (65).jpg
+Creating augmentation 2/2 for image 37/115: FMIS_FormblätterMielke_gefüllt (65).jpg
+Creating augmentation 1/2 for image 38/115: FMIS_FormblätterMielke_gefüllt (75).jpg
+Creating augmentation 2/2 for image 38/115: FMIS_FormblätterMielke_gefüllt (75).jpg
+Creating augmentation 1/2 for image 39/115: FMIS_FormblätterMielke_gefüllt (46).jpg
+Creating augmentation 2/2 for image 39/115: FMIS_FormblätterMielke_gefüllt (46).jpg
+Creating augmentation 1/2 for image 40/115: FMIS_FormblätterMielke_gefüllt (157).jpg
+Creating augmentation 2/2 for image 40/115: FMIS_FormblätterMielke_gefüllt (157).jpg
+Creating augmentation 1/2 for image 41/115: FMIS_FormblätterMielke_gefüllt (115).jpg
+Creating augmentation 2/2 for image 41/115: FMIS_FormblätterMielke_gefüllt (115).jpg
+Creating augmentation 1/2 for image 42/115: FMIS_FormblätterMielke_gefüllt (25).jpg
+Creating augmentation 2/2 for image 42/115: FMIS_FormblätterMielke_gefüllt (25).jpg
+Creating augmentation 1/2 for image 43/115: FMIS_FormblätterMielke_gefüllt (4).jpg
+Creating augmentation 2/2 for image 43/115: FMIS_FormblätterMielke_gefüllt (4).jpg
+Creating augmentation 1/2 for image 44/115: FMIS_FormblätterMielke_gefüllt (77).jpg
+Creating augmentation 2/2 for image 44/115: FMIS_FormblätterMielke_gefüllt (77).jpg
+Creating augmentation 1/2 for image 45/115: FMIS_FormblätterMielke_gefüllt (73).jpg
+Creating augmentation 2/2 for image 45/115: FMIS_FormblätterMielke_gefüllt (73).jpg
+Creating augmentation 1/2 for image 46/115: FMIS_FormblätterMielke_gefüllt (155).jpg
+Creating augmentation 2/2 for image 46/115: FMIS_FormblätterMielke_gefüllt (155).jpg
+Creating augmentation 1/2 for image 47/115: FMIS_FormblätterMielke_gefüllt (120).jpg
+Creating augmentation 2/2 for image 47/115: FMIS_FormblätterMielke_gefüllt (120).jpg
+Creating augmentation 1/2 for image 48/115: FMIS_FormblätterMielke_gefüllt (131).jpg
+Creating augmentation 2/2 for image 48/115: FMIS_FormblätterMielke_gefüllt (131).jpg
+Creating augmentation 1/2 for image 49/115: FMIS_FormblätterMielke_gefüllt (59).jpg
+Creating augmentation 2/2 for image 49/115: FMIS_FormblätterMielke_gefüllt (59).jpg
+Creating augmentation 1/2 for image 50/115: FMIS_FormblätterMielke_gefüllt (133).jpg
+Creating augmentation 2/2 for image 50/115: FMIS_FormblätterMielke_gefüllt (133).jpg
+Creating augmentation 1/2 for image 51/115: FMIS_FormblätterMielke_gefüllt (158).jpg
+Creating augmentation 2/2 for image 51/115: FMIS_FormblätterMielke_gefüllt (158).jpg
+Creating augmentation 1/2 for image 52/115: FMIS_FormblätterMielke_gefüllt (26).jpg
+Creating augmentation 2/2 for image 52/115: FMIS_FormblätterMielke_gefüllt (26).jpg
+Creating augmentation 1/2 for image 53/115: FMIS_FormblätterMielke_gefüllt (97).jpg
+Creating augmentation 2/2 for image 53/115: FMIS_FormblätterMielke_gefüllt (97).jpg
+Creating augmentation 1/2 for image 54/115: FMIS_FormblätterMielke_gefüllt (69).jpg
+Creating augmentation 2/2 for image 54/115: FMIS_FormblätterMielke_gefüllt (69).jpg
+Creating augmentation 1/2 for image 55/115: FMIS_FormblätterMielke_gefüllt (117).jpg
+Creating augmentation 2/2 for image 55/115: FMIS_FormblätterMielke_gefüllt (117).jpg
+Creating augmentation 1/2 for image 56/115: FMIS_FormblätterMielke_gefüllt (67).jpg
+Creating augmentation 2/2 for image 56/115: FMIS_FormblätterMielke_gefüllt (67).jpg
+Creating augmentation 1/2 for image 57/115: FMIS_FormblätterMielke_gefüllt (101).jpg
+Creating augmentation 2/2 for image 57/115: FMIS_FormblätterMielke_gefüllt (101).jpg
+Creating augmentation 1/2 for image 58/115: FMIS_FormblätterMielke_gefüllt (32).jpg
+Creating augmentation 2/2 for image 58/115: FMIS_FormblätterMielke_gefüllt (32).jpg
+Creating augmentation 1/2 for image 59/115: FMIS_FormblätterMielke_gefüllt (49).jpg
+Creating augmentation 2/2 for image 59/115: FMIS_FormblätterMielke_gefüllt (49).jpg
+Creating augmentation 1/2 for image 60/115: FMIS_FormblätterMielke_gefüllt (140).jpg
+Creating augmentation 2/2 for image 60/115: FMIS_FormblätterMielke_gefüllt (140).jpg
+Creating augmentation 1/2 for image 61/115: FMIS_FormblätterMielke_gefüllt (92).jpg
+Creating augmentation 2/2 for image 61/115: FMIS_FormblätterMielke_gefüllt (92).jpg
+Creating augmentation 1/2 for image 62/115: FMIS_FormblätterMielke_gefüllt (106).jpg
+Creating augmentation 2/2 for image 62/115: FMIS_FormblätterMielke_gefüllt (106).jpg
+Creating augmentation 1/2 for image 63/115: FMIS_FormblätterMielke_gefüllt (100).jpg
+Creating augmentation 2/2 for image 63/115: FMIS_FormblätterMielke_gefüllt (100).jpg
+Creating augmentation 1/2 for image 64/115: FMIS_FormblätterMielke_gefüllt (60).jpg
+Creating augmentation 2/2 for image 64/115: FMIS_FormblätterMielke_gefüllt (60).jpg
+Creating augmentation 1/2 for image 65/115: FMIS_FormblätterMielke_gefüllt (48).jpg
+Creating augmentation 2/2 for image 65/115: FMIS_FormblätterMielke_gefüllt (48).jpg
+Creating augmentation 1/2 for image 66/115: FMIS_FormblätterMielke_gefüllt (128).jpg
+Creating augmentation 2/2 for image 66/115: FMIS_FormblätterMielke_gefüllt (128).jpg
+Creating augmentation 1/2 for image 67/115: FMIS_FormblätterMielke_gefüllt (64).jpg
+Creating augmentation 2/2 for image 67/115: FMIS_FormblätterMielke_gefüllt (64).jpg
+Creating augmentation 1/2 for image 68/115: FMIS_FormblätterMielke_gefüllt (23).jpg
+Creating augmentation 2/2 for image 68/115: FMIS_FormblätterMielke_gefüllt (23).jpg
+Creating augmentation 1/2 for image 69/115: FMIS_FormblätterMielke_gefüllt (41).jpg
+Creating augmentation 2/2 for image 69/115: FMIS_FormblätterMielke_gefüllt (41).jpg
+Creating augmentation 1/2 for image 70/115: FMIS_FormblätterMielke_gefüllt (68).jpg
+Creating augmentation 2/2 for image 70/115: FMIS_FormblätterMielke_gefüllt (68).jpg
+Creating augmentation 1/2 for image 71/115: FMIS_FormblätterMielke_gefüllt (22).jpg
+Creating augmentation 2/2 for image 71/115: FMIS_FormblätterMielke_gefüllt (22).jpg
+Creating augmentation 1/2 for image 72/115: FMIS_FormblätterMielke_gefüllt (143).jpg
+Creating augmentation 2/2 for image 72/115: FMIS_FormblätterMielke_gefüllt (143).jpg
+Creating augmentation 1/2 for image 73/115: FMIS_FormblätterMielke_gefüllt (40).jpg
+Creating augmentation 2/2 for image 73/115: FMIS_FormblätterMielke_gefüllt (40).jpg
+Creating augmentation 1/2 for image 74/115: FMIS_FormblätterMielke_gefüllt (137).jpg
+Creating augmentation 2/2 for image 74/115: FMIS_FormblätterMielke_gefüllt (137).jpg
+Creating augmentation 1/2 for image 75/115: FMIS_FormblätterMielke_gefüllt (16).jpg
+Creating augmentation 2/2 for image 75/115: FMIS_FormblätterMielke_gefüllt (16).jpg
+Creating augmentation 1/2 for image 76/115: FMIS_FormblätterMielke_gefüllt (24).jpg
+Creating augmentation 2/2 for image 76/115: FMIS_FormblätterMielke_gefüllt (24).jpg
+Creating augmentation 1/2 for image 77/115: FMIS_FormblätterMielke_gefüllt (142).jpg
+Creating augmentation 2/2 for image 77/115: FMIS_FormblätterMielke_gefüllt (142).jpg
+Creating augmentation 1/2 for image 78/115: FMIS_FormblätterMielke_gefüllt (84).jpg
+Creating augmentation 2/2 for image 78/115: FMIS_FormblätterMielke_gefüllt (84).jpg
+Creating augmentation 1/2 for image 79/115: FMIS_FormblätterMielke_gefüllt (145).jpg
+Creating augmentation 2/2 for image 79/115: FMIS_FormblätterMielke_gefüllt (145).jpg
+Creating augmentation 1/2 for image 80/115: FMIS_FormblätterMielke_gefüllt (57).jpg
+Creating augmentation 2/2 for image 80/115: FMIS_FormblätterMielke_gefüllt (57).jpg
+Creating augmentation 1/2 for image 81/115: FMIS_FormblätterMielke_gefüllt (47).jpg
+Creating augmentation 2/2 for image 81/115: FMIS_FormblätterMielke_gefüllt (47).jpg
+Creating augmentation 1/2 for image 82/115: FMIS_FormblätterMielke_gefüllt (19).jpg
+Creating augmentation 2/2 for image 82/115: FMIS_FormblätterMielke_gefüllt (19).jpg
+Creating augmentation 1/2 for image 83/115: FMIS_FormblätterMielke_gefüllt (146).jpg
+Creating augmentation 2/2 for image 83/115: FMIS_FormblätterMielke_gefüllt (146).jpg
+Creating augmentation 1/2 for image 84/115: FMIS_FormblätterMielke_gefüllt (54).jpg
+Creating augmentation 2/2 for image 84/115: FMIS_FormblätterMielke_gefüllt (54).jpg
+Creating augmentation 1/2 for image 85/115: FMIS_FormblätterMielke_gefüllt (121).jpg
+Creating augmentation 2/2 for image 85/115: FMIS_FormblätterMielke_gefüllt (121).jpg
+Creating augmentation 1/2 for image 86/115: FMIS_FormblätterMielke_gefüllt (161).jpg
+Creating augmentation 2/2 for image 86/115: FMIS_FormblätterMielke_gefüllt (161).jpg
+Creating augmentation 1/2 for image 87/115: FMIS_FormblätterMielke_gefüllt (76).jpg
+Creating augmentation 2/2 for image 87/115: FMIS_FormblätterMielke_gefüllt (76).jpg
+Creating augmentation 1/2 for image 88/115: FMIS_FormblätterMielke_gefüllt (122).jpg
+Creating augmentation 2/2 for image 88/115: FMIS_FormblätterMielke_gefüllt (122).jpg
+Creating augmentation 1/2 for image 89/115: FMIS_FormblätterMielke_gefüllt (7).jpg
+Creating augmentation 2/2 for image 89/115: FMIS_FormblätterMielke_gefüllt (7).jpg
+Creating augmentation 1/2 for image 90/115: FMIS_FormblätterMielke_gefüllt (144).jpg
+Creating augmentation 2/2 for image 90/115: FMIS_FormblätterMielke_gefüllt (144).jpg
+Creating augmentation 1/2 for image 91/115: FMIS_FormblätterMielke_gefüllt (79).jpg
+Creating augmentation 2/2 for image 91/115: FMIS_FormblätterMielke_gefüllt (79).jpg
+Creating augmentation 1/2 for image 92/115: FMIS_FormblätterMielke_gefüllt (95).jpg
+Creating augmentation 2/2 for image 92/115: FMIS_FormblätterMielke_gefüllt (95).jpg
+Creating augmentation 1/2 for image 93/115: FMIS_FormblätterMielke_gefüllt (34).jpg
+Creating augmentation 2/2 for image 93/115: FMIS_FormblätterMielke_gefüllt (34).jpg
+Creating augmentation 1/2 for image 94/115: FMIS_FormblätterMielke_Vorlage2.jpg
+Creating augmentation 2/2 for image 94/115: FMIS_FormblätterMielke_Vorlage2.jpg
+Creating augmentation 1/2 for image 95/115: FMIS_FormblätterMielke_gefüllt (17).jpg
+Creating augmentation 2/2 for image 95/115: FMIS_FormblätterMielke_gefüllt (17).jpg
+Creating augmentation 1/2 for image 96/115: FMIS_FormblätterMielke_gefüllt (112).jpg
+Creating augmentation 2/2 for image 96/115: FMIS_FormblätterMielke_gefüllt (112).jpg
+Creating augmentation 1/2 for image 97/115: FMIS_FormblätterMielke_gefüllt (62).jpg
+Creating augmentation 2/2 for image 97/115: FMIS_FormblätterMielke_gefüllt (62).jpg
+Creating augmentation 1/2 for image 98/115: FMIS_FormblätterMielke_gefüllt (3).jpg
+Creating augmentation 2/2 for image 98/115: FMIS_FormblätterMielke_gefüllt (3).jpg
+Creating augmentation 1/2 for image 99/115: FMIS_FormblätterMielke_gefüllt (71).jpg
+Creating augmentation 2/2 for image 99/115: FMIS_FormblätterMielke_gefüllt (71).jpg
+Creating augmentation 1/2 for image 100/115: FMIS_FormblätterMielke_gefüllt (8).jpg
+Creating augmentation 2/2 for image 100/115: FMIS_FormblätterMielke_gefüllt (8).jpg
+Creating augmentation 1/2 for image 101/115: FMIS_FormblätterMielke_gefüllt (44).jpg
+Creating augmentation 2/2 for image 101/115: FMIS_FormblätterMielke_gefüllt (44).jpg
+Creating augmentation 1/2 for image 102/115: FMIS_FormblätterMielke_gefüllt (107).jpg
+Creating augmentation 2/2 for image 102/115: FMIS_FormblätterMielke_gefüllt (107).jpg
+Creating augmentation 1/2 for image 103/115: FMIS_FormblätterMielke_gefüllt (124).jpg
+Creating augmentation 2/2 for image 103/115: FMIS_FormblätterMielke_gefüllt (124).jpg
+Creating augmentation 1/2 for image 104/115: FMIS_FormblätterMielke_gefüllt (153).jpg
+Creating augmentation 2/2 for image 104/115: FMIS_FormblätterMielke_gefüllt (153).jpg
+Creating augmentation 1/2 for image 105/115: FMIS_FormblätterMielke_gefüllt (141).jpg
+Creating augmentation 2/2 for image 105/115: FMIS_FormblätterMielke_gefüllt (141).jpg
+Creating augmentation 1/2 for image 106/115: FMIS_FormblätterMielke_gefüllt (37).jpg
+Creating augmentation 2/2 for image 106/115: FMIS_FormblätterMielke_gefüllt (37).jpg
+Creating augmentation 1/2 for image 107/115: FMIS_FormblätterMielke_gefüllt (109).jpg
+Creating augmentation 2/2 for image 107/115: FMIS_FormblätterMielke_gefüllt (109).jpg
+Creating augmentation 1/2 for image 108/115: FMIS_FormblätterMielke_gefüllt (5).jpg
+Creating augmentation 2/2 for image 108/115: FMIS_FormblätterMielke_gefüllt (5).jpg
+Creating augmentation 1/2 for image 109/115: FMIS_FormblätterMielke_gefüllt (113).jpg
+Creating augmentation 2/2 for image 109/115: FMIS_FormblätterMielke_gefüllt (113).jpg
+Creating augmentation 1/2 for image 110/115: FMIS_FormblätterMielke_gefüllt (35).jpg
+Creating augmentation 2/2 for image 110/115: FMIS_FormblätterMielke_gefüllt (35).jpg
+Creating augmentation 1/2 for image 111/115: FMIS_FormblätterMielke_gefüllt (21).jpg
+Creating augmentation 2/2 for image 111/115: FMIS_FormblätterMielke_gefüllt (21).jpg
+Creating augmentation 1/2 for image 112/115: FMIS_FormblätterMielke_gefüllt (104).jpg
+Creating augmentation 2/2 for image 112/115: FMIS_FormblätterMielke_gefüllt (104).jpg
+Creating augmentation 1/2 for image 113/115: FMIS_FormblätterMielke_gefüllt (135).jpg
+Creating augmentation 2/2 for image 113/115: FMIS_FormblätterMielke_gefüllt (135).jpg
+Creating augmentation 1/2 for image 114/115: FMIS_FormblätterMielke_gefüllt (78).jpg
+Creating augmentation 2/2 for image 114/115: FMIS_FormblätterMielke_gefüllt (78).jpg
+Creating augmentation 1/2 for image 115/115: FMIS_FormblätterMielke_gefüllt (148).jpg
+Creating augmentation 2/2 for image 115/115: FMIS_FormblätterMielke_gefüllt (148).jpg
+Successfully created 230 augmented images
+Total training samples: 345 (original: 115, augmented: 230)
+Training: 345 samples
+Unsloth: Model does not have a default image size - using 512
+GPU = NVIDIA A100-SXM4-40GB. Max memory = 39.494 GB.
+7.854 GB of memory reserved.
+Starting training (no built-in eval to prevent CPU OOM)...
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 1.8578, 'grad_norm': 6.5394721031188965, 'learning_rate': 9e-06, 'epoch': 0.12}
+{'loss': 1.3165, 'grad_norm': 29.467939376831055, 'learning_rate': 1.9e-05, 'epoch': 0.23}
+{'loss': 0.8601, 'grad_norm': 7.302380561828613, 'learning_rate': 2.9e-05, 'epoch': 0.35}
+{'loss': 0.4309, 'grad_norm': 3.194636344909668, 'learning_rate': 3.9000000000000006e-05, 'epoch': 0.46}
+{'loss': 0.1843, 'grad_norm': 1.4391566514968872, 'learning_rate': 4.9e-05, 'epoch': 0.58}
+{'loss': 0.1592, 'grad_norm': 1.7329026460647583, 'learning_rate': 4.999641696161523e-05, 'epoch': 0.7}
+{'loss': 0.1192, 'grad_norm': 1.7448654174804688, 'learning_rate': 4.998403246849019e-05, 'epoch': 0.81}
+{'loss': 0.1163, 'grad_norm': 0.9892817139625549, 'learning_rate': 4.996280666714345e-05, 'epoch': 0.93}
+{'loss': 0.0986, 'grad_norm': 0.6031211018562317, 'learning_rate': 4.9932747068926614e-05, 'epoch': 1.03}
+{'loss': 0.0911, 'grad_norm': 0.8071131110191345, 'learning_rate': 4.989386431128073e-05, 'epoch': 1.15}
+{'loss': 0.0691, 'grad_norm': 0.8346629738807678, 'learning_rate': 4.984617215397197e-05, 'epoch': 1.27}
+{'loss': 0.09, 'grad_norm': 0.8598709106445312, 'learning_rate': 4.978968747422236e-05, 'epoch': 1.38}
+{'loss': 0.0973, 'grad_norm': 3.71443510055542, 'learning_rate': 4.972443026073723e-05, 'epoch': 1.5}
+{'loss': 0.0641, 'grad_norm': 2.332975387573242, 'learning_rate': 4.9650423606631706e-05, 'epoch': 1.61}
+{'loss': 0.0681, 'grad_norm': 0.6761195659637451, 'learning_rate': 4.9567693701258554e-05, 'epoch': 1.73}
+{'loss': 0.0738, 'grad_norm': 1.1197673082351685, 'learning_rate': 4.947626982094028e-05, 'epoch': 1.85}
+{'loss': 0.0732, 'grad_norm': 1.2949652671813965, 'learning_rate': 4.937618431860894e-05, 'epoch': 1.96}
+{'loss': 0.0536, 'grad_norm': 1.1076713800430298, 'learning_rate': 4.9267472612357115e-05, 'epoch': 2.07}
+{'loss': 0.0476, 'grad_norm': 1.7932769060134888, 'learning_rate': 4.915017317290417e-05, 'epoch': 2.19}
+{'loss': 0.0357, 'grad_norm': 0.7784550189971924, 'learning_rate': 4.902432750998236e-05, 'epoch': 2.3}
+{'loss': 0.0455, 'grad_norm': 0.8762021064758301, 'learning_rate': 4.888998015764743e-05, 'epoch': 2.42}
+{'loss': 0.0484, 'grad_norm': 1.0783253908157349, 'learning_rate': 4.8747178658518934e-05, 'epoch': 2.53}
+{'loss': 0.0361, 'grad_norm': 7.0809736251831055, 'learning_rate': 4.859597354695596e-05, 'epoch': 2.65}
+{'loss': 0.0443, 'grad_norm': 1.3861061334609985, 'learning_rate': 4.843641833117412e-05, 'epoch': 2.77}
+{'loss': 0.0296, 'grad_norm': 1.4453980922698975, 'learning_rate': 4.826856947431012e-05, 'epoch': 2.88}
+{'loss': 0.0337, 'grad_norm': 0.7492969632148743, 'learning_rate': 4.8092486374440736e-05, 'epoch': 3.0}
+{'loss': 0.0245, 'grad_norm': 0.33219924569129944, 'learning_rate': 4.790823134356305e-05, 'epoch': 3.1}
+{'loss': 0.0282, 'grad_norm': 0.8021160960197449, 'learning_rate': 4.771586958554363e-05, 'epoch': 3.22}
+{'loss': 0.022, 'grad_norm': 0.5941577553749084, 'learning_rate': 4.751546917304428e-05, 'epoch': 3.34}
+{'loss': 0.0276, 'grad_norm': 1.1441421508789062, 'learning_rate': 4.73071010234326e-05, 'epoch': 3.45}
+{'loss': 0.031, 'grad_norm': 0.7511833906173706, 'learning_rate': 4.709083887368586e-05, 'epoch': 3.57}
+{'loss': 0.0193, 'grad_norm': 0.564795732498169, 'learning_rate': 4.686675925429708e-05, 'epoch': 3.68}
+{'loss': 0.0251, 'grad_norm': 0.29833000898361206, 'learning_rate': 4.663494146219257e-05, 'epoch': 3.8}
+{'loss': 0.0277, 'grad_norm': 2.6385090351104736, 'learning_rate': 4.639546753267042e-05, 'epoch': 3.92}
+{'loss': 0.0254, 'grad_norm': 1.3741323947906494, 'learning_rate': 4.6148422210370025e-05, 'epoch': 4.02}
+{'loss': 0.0191, 'grad_norm': 0.420812726020813, 'learning_rate': 4.589389291928275e-05, 'epoch': 4.14}
+{'loss': 0.0169, 'grad_norm': 0.44432970881462097, 'learning_rate': 4.5631969731814526e-05, 'epoch': 4.26}
+{'loss': 0.0185, 'grad_norm': 0.41224586963653564, 'learning_rate': 4.536274533691113e-05, 'epoch': 4.37}
+{'loss': 0.0215, 'grad_norm': 0.47865015268325806, 'learning_rate': 4.5086315007257585e-05, 'epoch': 4.49}
+{'loss': 0.0184, 'grad_norm': 0.3928728401660919, 'learning_rate': 4.480277656556323e-05, 'epoch': 4.6}
+{'loss': 0.0192, 'grad_norm': 0.7501819133758545, 'learning_rate': 4.4512230349944384e-05, 'epoch': 4.72}
+{'loss': 0.0186, 'grad_norm': 1.2768068313598633, 'learning_rate': 4.4214779178416836e-05, 'epoch': 4.83}
+{'loss': 0.0158, 'grad_norm': 1.0380113124847412, 'learning_rate': 4.3910528312510796e-05, 'epoch': 4.95}
+{'loss': 0.0147, 'grad_norm': 0.23662571609020233, 'learning_rate': 4.359958542002111e-05, 'epoch': 5.06}
+{'loss': 0.0117, 'grad_norm': 0.29486989974975586, 'learning_rate': 4.3282060536905936e-05, 'epoch': 5.17}
+{'loss': 0.0128, 'grad_norm': 0.7518168687820435, 'learning_rate': 4.2958066028347474e-05, 'epoch': 5.29}
+{'loss': 0.014, 'grad_norm': 0.5686530470848083, 'learning_rate': 4.262771654898826e-05, 'epoch': 5.41}
+{'loss': 0.0129, 'grad_norm': 0.9500925540924072, 'learning_rate': 4.2291129002357454e-05, 'epoch': 5.52}
+{'loss': 0.0141, 'grad_norm': 0.45497584342956543, 'learning_rate': 4.1948422499501156e-05, 'epoch': 5.64}
+{'loss': 0.0148, 'grad_norm': 0.6749376058578491, 'learning_rate': 4.159971831683162e-05, 'epoch': 5.75}
+{'loss': 0.0113, 'grad_norm': 0.2976798117160797, 'learning_rate': 4.1245139853210144e-05, 'epoch': 5.87}
+{'loss': 0.0124, 'grad_norm': 0.36225321888923645, 'learning_rate': 4.0884812586278874e-05, 'epoch': 5.99}
+{'loss': 0.0099, 'grad_norm': 0.7847289443016052, 'learning_rate': 4.051886402805702e-05, 'epoch': 6.09}
+{'loss': 0.0109, 'grad_norm': 0.3240090012550354, 'learning_rate': 4.014742367981704e-05, 'epoch': 6.21}
+{'loss': 0.0088, 'grad_norm': 0.5184309482574463, 'learning_rate': 3.9770622986257044e-05, 'epoch': 6.32}
+{'loss': 0.0098, 'grad_norm': 0.40114516019821167, 'learning_rate': 3.938859528898528e-05, 'epoch': 6.44}
+{'loss': 0.0115, 'grad_norm': 0.33812299370765686, 'learning_rate': 3.900147577933344e-05, 'epoch': 6.56}
+{'loss': 0.0102, 'grad_norm': 0.6200641989707947, 'learning_rate': 3.860940145051541e-05, 'epoch': 6.67}
+{'loss': 0.0098, 'grad_norm': 0.17543230950832367, 'learning_rate': 3.8212511049148305e-05, 'epoch': 6.79}
+{'loss': 0.0092, 'grad_norm': 0.92266845703125, 'learning_rate': 3.781094502615304e-05, 'epoch': 6.9}
+{'loss': 0.0072, 'grad_norm': 0.11947052925825119, 'learning_rate': 3.740484548705184e-05, 'epoch': 7.01}
+{'loss': 0.009, 'grad_norm': 0.7559352517127991, 'learning_rate': 3.699435614168011e-05, 'epoch': 7.13}
+{'loss': 0.0077, 'grad_norm': 1.3294801712036133, 'learning_rate': 3.657962225333064e-05, 'epoch': 7.24}
+{'loss': 0.0077, 'grad_norm': 0.3037221133708954, 'learning_rate': 3.616079058734815e-05, 'epoch': 7.36}
+{'loss': 0.0072, 'grad_norm': 0.2792563736438751, 'learning_rate': 3.5738009359192094e-05, 'epoch': 7.48}
+{'loss': 0.0074, 'grad_norm': 6.207653999328613, 'learning_rate': 3.53114281819865e-05, 'epoch': 7.59}
+{'loss': 0.0061, 'grad_norm': 0.1889631152153015, 'learning_rate': 3.488119801357512e-05, 'epoch': 7.71}
+{'loss': 0.006, 'grad_norm': 3.5814132690429688, 'learning_rate': 3.444747110310067e-05, 'epoch': 7.82}
+{'loss': 0.0057, 'grad_norm': 0.1917368471622467, 'learning_rate': 3.4010400937127216e-05, 'epoch': 7.94}
+{'loss': 0.006, 'grad_norm': 0.2756146490573883, 'learning_rate': 3.357014218532451e-05, 'epoch': 8.05}
+{'loss': 0.0041, 'grad_norm': 0.817062497138977, 'learning_rate': 3.312685064573385e-05, 'epoch': 8.16}
+{'loss': 0.005, 'grad_norm': 0.8606258630752563, 'learning_rate': 3.268068318963449e-05, 'epoch': 8.28}
+{'loss': 0.0047, 'grad_norm': 0.38111743330955505, 'learning_rate': 3.223179770603021e-05, 'epoch': 8.39}
+{'loss': 0.0054, 'grad_norm': 0.17583277821540833, 'learning_rate': 3.178035304577594e-05, 'epoch': 8.51}
+{'loss': 0.0053, 'grad_norm': 0.08170293271541595, 'learning_rate': 3.132650896536381e-05, 'epoch': 8.63}
+{'loss': 0.0053, 'grad_norm': 0.1425488144159317, 'learning_rate': 3.0870426070388797e-05, 'epoch': 8.74}
+{'loss': 0.0053, 'grad_norm': 0.28816327452659607, 'learning_rate': 3.041226575871388e-05, 'epoch': 8.86}
+{'loss': 0.0046, 'grad_norm': 0.11558108776807785, 'learning_rate': 2.9952190163354837e-05, 'epoch': 8.97}
+{'loss': 0.0039, 'grad_norm': 0.27891120314598083, 'learning_rate': 2.949036209510489e-05, 'epoch': 9.08}
+{'loss': 0.0033, 'grad_norm': 0.7113939523696899, 'learning_rate': 2.9026944984919457e-05, 'epoch': 9.2}
+{'loss': 0.0028, 'grad_norm': 0.4290388822555542, 'learning_rate': 2.856210282608152e-05, 'epoch': 9.31}
+{'loss': 0.0035, 'grad_norm': 0.13943320512771606, 'learning_rate': 2.809600011616791e-05, 'epoch': 9.43}
+{'loss': 0.0034, 'grad_norm': 0.43614715337753296, 'learning_rate': 2.76288017988372e-05, 'epoch': 9.54}
+{'loss': 0.0037, 'grad_norm': 0.4930717647075653, 'learning_rate': 2.7160673205459725e-05, 'epoch': 9.66}
+{'loss': 0.0023, 'grad_norm': 0.28894931077957153, 'learning_rate': 2.6691779996610343e-05, 'epoch': 9.78}
+{'loss': 0.0026, 'grad_norm': 0.14522556960582733, 'learning_rate': 2.622228810344481e-05, 'epoch': 9.89}
+{'loss': 0.0023, 'grad_norm': 0.13275444507598877, 'learning_rate': 2.5752363668980262e-05, 'epoch': 10.0}
+{'loss': 0.0018, 'grad_norm': 0.0468369796872139, 'learning_rate': 2.528217298930088e-05, 'epoch': 10.12}
+{'loss': 0.002, 'grad_norm': 0.08814962208271027, 'learning_rate': 2.4811882454709227e-05, 'epoch': 10.23}
+{'loss': 0.0017, 'grad_norm': 0.5489844083786011, 'learning_rate': 2.434165849084437e-05, 'epoch': 10.35}
+{'loss': 0.0017, 'grad_norm': 0.025682490319013596, 'learning_rate': 2.3871667499787444e-05, 'epoch': 10.46}
+{'loss': 0.0015, 'grad_norm': 0.20998132228851318, 'learning_rate': 2.3402075801175548e-05, 'epoch': 10.58}
+{'loss': 0.0016, 'grad_norm': 0.37683117389678955, 'learning_rate': 2.2933049573344818e-05, 'epoch': 10.7}
+{'loss': 0.0021, 'grad_norm': 0.13013529777526855, 'learning_rate': 2.246475479452353e-05, 'epoch': 10.81}
+{'loss': 0.0023, 'grad_norm': 0.3976218104362488, 'learning_rate': 2.1997357184095994e-05, 'epoch': 10.93}
+{'loss': 0.0018, 'grad_norm': 0.04332325607538223, 'learning_rate': 2.1531022143958045e-05, 'epoch': 11.03}
+{'loss': 0.0015, 'grad_norm': 0.04810071736574173, 'learning_rate': 2.106591469998489e-05, 'epoch': 11.15}
+{'loss': 0.0045, 'grad_norm': 0.03664011135697365, 'learning_rate': 2.0602199443632037e-05, 'epoch': 11.27}
+{'loss': 0.0019, 'grad_norm': 0.09124328941106796, 'learning_rate': 2.014004047368994e-05, 'epoch': 11.38}
+{'loss': 0.0015, 'grad_norm': 0.025190114974975586, 'learning_rate': 1.9679601338212958e-05, 'epoch': 11.5}
+{'loss': 0.0016, 'grad_norm': 0.05153613165020943, 'learning_rate': 1.9221044976643294e-05, 'epoch': 11.61}
+{'loss': 0.0013, 'grad_norm': 0.21697472035884857, 'learning_rate': 1.87645336621502e-05, 'epoch': 11.73}
+{'loss': 0.0015, 'grad_norm': 0.039051707834005356, 'learning_rate': 1.831022894420507e-05, 'epoch': 11.85}
+{'loss': 0.0014, 'grad_norm': 0.02341114915907383, 'learning_rate': 1.785829159141251e-05, 'epoch': 11.96}
+{'loss': 0.0011, 'grad_norm': 0.041405800729990005, 'learning_rate': 1.7408881534617875e-05, 'epoch': 12.07}
+{'loss': 0.001, 'grad_norm': 0.12343347817659378, 'learning_rate': 1.696215781031119e-05, 'epoch': 12.19}
+{'loss': 0.0016, 'grad_norm': 0.033669088035821915, 'learning_rate': 1.6518278504347534e-05, 'epoch': 12.3}
+{'loss': 0.0013, 'grad_norm': 0.12076563388109207, 'learning_rate': 1.607740069600394e-05, 'epoch': 12.42}
+{'loss': 0.0022, 'grad_norm': 0.03322149068117142, 'learning_rate': 1.5639680402392394e-05, 'epoch': 12.53}
+{'loss': 0.0018, 'grad_norm': 0.041129179298877716, 'learning_rate': 1.5205272523248776e-05, 'epoch': 12.65}
+{'loss': 0.0014, 'grad_norm': 0.025449609383940697, 'learning_rate': 1.4774330786117225e-05, 'epoch': 12.77}
+{'loss': 0.0012, 'grad_norm': 0.06243935599923134, 'learning_rate': 1.43470076919492e-05, 'epoch': 12.88}
+{'loss': 0.0015, 'grad_norm': 0.05203460156917572, 'learning_rate': 1.3923454461136814e-05, 'epoch': 13.0}
+{'loss': 0.0011, 'grad_norm': 0.06341926008462906, 'learning_rate': 1.3503820979999094e-05, 'epoch': 13.1}
+{'loss': 0.0011, 'grad_norm': 0.028470929712057114, 'learning_rate': 1.3088255747740586e-05, 'epoch': 13.22}
+{'loss': 0.0012, 'grad_norm': 0.0426989421248436, 'learning_rate': 1.2676905823900553e-05, 'epoch': 13.34}
+{'loss': 0.0011, 'grad_norm': 0.021624671295285225, 'learning_rate': 1.226991677631191e-05, 'epoch': 13.45}
+{'loss': 0.0011, 'grad_norm': 0.11330939829349518, 'learning_rate': 1.1867432629587874e-05, 'epoch': 13.57}
+{'loss': 0.0011, 'grad_norm': 0.14189046621322632, 'learning_rate': 1.146959581415474e-05, 'epoch': 13.68}
+{'loss': 0.0012, 'grad_norm': 0.04062282666563988, 'learning_rate': 1.1076547115848903e-05, 'epoch': 13.8}
+{'loss': 0.0011, 'grad_norm': 0.02001299150288105, 'learning_rate': 1.0688425626095732e-05, 'epoch': 13.92}
+{'loss': 0.0009, 'grad_norm': 0.3087126910686493, 'learning_rate': 1.0305368692688174e-05, 'epoch': 14.02}
+{'loss': 0.0009, 'grad_norm': 0.013243245892226696, 'learning_rate': 9.927511871182324e-06, 'epoch': 14.14}
+{'loss': 0.0011, 'grad_norm': 0.016361979767680168, 'learning_rate': 9.554988876927249e-06, 'epoch': 14.26}
+{'loss': 0.001, 'grad_norm': 0.0430445559322834, 'learning_rate': 9.187931537746031e-06, 'epoch': 14.37}
+{'loss': 0.001, 'grad_norm': 0.05561714246869087, 'learning_rate': 8.826469747284714e-06, 'epoch': 14.49}
+{'loss': 0.001, 'grad_norm': 0.05684245750308037, 'learning_rate': 8.470731419045822e-06, 'epoch': 14.6}
+{'loss': 0.0011, 'grad_norm': 0.011607534252107143, 'learning_rate': 8.120842441122475e-06, 'epoch': 14.72}
+{'loss': 0.001, 'grad_norm': 0.03202706575393677, 'learning_rate': 7.77692663164937e-06, 'epoch': 14.83}
+{'loss': 0.0011, 'grad_norm': 0.029439814388751984, 'learning_rate': 7.4391056949861845e-06, 'epoch': 14.95}
+{'loss': 0.0011, 'grad_norm': 0.16192442178726196, 'learning_rate': 7.1074991786490605e-06, 'epoch': 15.06}
+{'loss': 0.0011, 'grad_norm': 0.014823216944932938, 'learning_rate': 6.782224431005326e-06, 'epoch': 15.17}
+{'loss': 0.001, 'grad_norm': 0.02373414672911167, 'learning_rate': 6.463396559746424e-06, 'epoch': 15.29}
+{'loss': 0.0008, 'grad_norm': 0.036165282130241394, 'learning_rate': 6.151128391153829e-06, 'epoch': 15.41}
+{'loss': 0.001, 'grad_norm': 0.01697102002799511, 'learning_rate': 5.8455304301722304e-06, 'epoch': 15.52}
+{'loss': 0.0008, 'grad_norm': 0.011194959282875061, 'learning_rate': 5.546710821304266e-06, 'epoch': 15.64}
+{'loss': 0.0011, 'grad_norm': 0.03360999748110771, 'learning_rate': 5.25477531034049e-06, 'epoch': 15.75}
+{'loss': 0.0008, 'grad_norm': 0.024227969348430634, 'learning_rate': 4.969827206938247e-06, 'epoch': 15.87}
+{'loss': 0.001, 'grad_norm': 0.03457822650671005, 'learning_rate': 4.691967348062607e-06, 'epoch': 15.99}
+{'loss': 0.0007, 'grad_norm': 0.025889553129673004, 'learning_rate': 4.421294062302348e-06, 'epoch': 16.09}
+{'loss': 0.0011, 'grad_norm': 0.06473680585622787, 'learning_rate': 4.157903135073618e-06, 'epoch': 16.21}
+{'loss': 0.0009, 'grad_norm': 0.021089473739266396, 'learning_rate': 3.901887774723509e-06, 'epoch': 16.32}
+{'loss': 0.0008, 'grad_norm': 0.02951493300497532, 'learning_rate': 3.6533385795456926e-06, 'epoch': 16.44}
+{'loss': 0.0009, 'grad_norm': 0.02640765905380249, 'learning_rate': 3.4123435057195842e-06, 'epoch': 16.56}
+{'loss': 0.001, 'grad_norm': 0.017925925552845, 'learning_rate': 3.1789878361846298e-06, 'epoch': 16.67}
+{'loss': 0.0009, 'grad_norm': 0.10291925072669983, 'learning_rate': 2.953354150460458e-06, 'epoch': 16.79}
+{'loss': 0.0008, 'grad_norm': 0.013131918385624886, 'learning_rate': 2.735522295423784e-06, 'epoch': 16.9}
+{'loss': 0.001, 'grad_norm': 0.013944712467491627, 'learning_rate': 2.5255693570523624e-06, 'epoch': 17.01}
+{'loss': 0.0011, 'grad_norm': 6.562015533447266, 'learning_rate': 2.3235696331458946e-06, 'epoch': 17.13}
+{'loss': 0.0009, 'grad_norm': 0.029977623373270035, 'learning_rate': 2.129594607033669e-06, 'epoch': 17.24}
+{'loss': 0.0009, 'grad_norm': 0.015045516192913055, 'learning_rate': 1.943712922278135e-06, 'epoch': 17.36}
+{'loss': 0.0009, 'grad_norm': 0.04677240923047066, 'learning_rate': 1.765990358383457e-06, 'epoch': 17.48}
+{'loss': 0.001, 'grad_norm': 0.01683349534869194, 'learning_rate': 1.596489807517554e-06, 'epoch': 17.59}
+{'loss': 0.0008, 'grad_norm': 0.021319862455129623, 'learning_rate': 1.435271252255932e-06, 'epoch': 17.71}
+{'loss': 0.0008, 'grad_norm': 0.04644898325204849, 'learning_rate': 1.2823917443551464e-06, 'epoch': 17.82}
+{'loss': 0.0008, 'grad_norm': 0.026192791759967804, 'learning_rate': 1.1379053845634148e-06, 'epoch': 17.94}
+{'loss': 0.0008, 'grad_norm': 0.05027945712208748, 'learning_rate': 1.001863303475542e-06, 'epoch': 18.05}
+{'loss': 0.0009, 'grad_norm': 0.02065400406718254, 'learning_rate': 8.743136434389149e-07, 'epoch': 18.16}
+{'loss': 0.0008, 'grad_norm': 0.027153903618454933, 'learning_rate': 7.553015415169395e-07, 'epoch': 18.28}
+{'loss': 0.0008, 'grad_norm': 0.013231162913143635, 'learning_rate': 6.448691135160472e-07, 'epoch': 18.39}
+{'loss': 0.0008, 'grad_norm': 0.023941190913319588, 'learning_rate': 5.430554390818049e-07, 'epoch': 18.51}
+{'loss': 0.0009, 'grad_norm': 0.010770995169878006, 'learning_rate': 4.4989654786947164e-07, 'epoch': 18.63}
+{'loss': 0.0009, 'grad_norm': 0.023271700367331505, 'learning_rate': 3.6542540679388726e-07, 'epoch': 18.74}
+{'loss': 0.0009, 'grad_norm': 0.023587336763739586, 'learning_rate': 2.89671908363201e-07, 'epoch': 18.86}
+{'loss': 0.0008, 'grad_norm': 0.025727134197950363, 'learning_rate': 2.2266286010055036e-07, 'epoch': 18.97}
+{'loss': 0.0007, 'grad_norm': 0.045566968619823456, 'learning_rate': 1.644219750574605e-07, 'epoch': 19.08}
+{'loss': 0.001, 'grad_norm': 0.019340310245752335, 'learning_rate': 1.1496986342232063e-07, 'epoch': 19.2}
+{'loss': 0.0008, 'grad_norm': 0.020160987973213196, 'learning_rate': 7.432402522686843e-08, 'epoch': 19.31}
+{'loss': 0.0008, 'grad_norm': 0.019809238612651825, 'learning_rate': 4.249884415331862e-08, 'epoch': 19.43}
+{'loss': 0.0009, 'grad_norm': 0.04450812190771103, 'learning_rate': 1.9505582444279136e-08, 'epoch': 19.54}
+{'loss': 0.0008, 'grad_norm': 0.04252291098237038, 'learning_rate': 5.352376917300284e-09, 'epoch': 19.66}
+{'loss': 0.001, 'grad_norm': 0.05885571613907814, 'learning_rate': 4.4236085422477705e-11, 'epoch': 19.78}
+{'train_runtime': 12393.4878, 'train_samples_per_second': 0.557, 'train_steps_per_second': 0.139, 'train_loss': 0.04046408693782639, 'epoch': 19.78}
+12393.4878 seconds used for training.
+206.56 minutes used for training.
+Peak reserved memory = 9.355 GB.
+Peak reserved memory for training = 1.501 GB.
+Peak reserved memory % of max memory = 23.687 %.
+Peak reserved memory for training % of max memory = 3.801 %.
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251111_145231...
+Saving model in recommended formats...
+Detected local model directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Found HuggingFace hub cache directory: /home/hpc/iwi5/iwi5298h/.cache/huggingface/hub
+Copying safetensors from local directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Copied safetensors index file from local model
+Copied model-00005-of-00005.safetensors from local model directory
+Copied model-00004-of-00005.safetensors from local model directory
+Copied model-00002-of-00005.safetensors from local model directory
+Copied model-00003-of-00005.safetensors from local model directory
+Copied model-00001-of-00005.safetensors from local model directory
+Detected local model directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Found HuggingFace hub cache directory: /home/hpc/iwi5/iwi5298h/.cache/huggingface/hub
+Copying safetensors from local directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Copied safetensors index file from local model
+Copied model-00005-of-00005.safetensors from local model directory
+Copied model-00004-of-00005.safetensors from local model directory
+Copied model-00002-of-00005.safetensors from local model directory
+Copied model-00003-of-00005.safetensors from local model directory
+Copied model-00001-of-00005.safetensors from local model directory
+Best model saved successfully in multiple formats!
+
+============================================================
+STARTING EVALUATION ON STAIRCASE TEST.JSONL
+============================================================
+Starting evaluation on test.jsonl...
+Processing test image 1: FMIS_FormblätterMielke_gefüllt (83).jpg
+  Processed successfully. CER: 1.000
+Processing test image 2: FMIS_FormblätterMielke_gefüllt (45).jpg
+  Processed successfully. CER: 0.314
+Processing test image 3: FMIS_FormblätterMielke_gefüllt (27).jpg
+  Processed successfully. CER: 0.091
+Processing test image 4: FMIS_FormblätterMielke_gefüllt (130).jpg
+  Processed successfully. CER: 0.098
+Processing test image 5: FMIS_FormblätterMielke_gefüllt (129).jpg
+  Processed successfully. CER: 0.106
+Processing test image 6: FMIS_FormblätterMielke_gefüllt (88).jpg
+  Processed successfully. CER: 0.089
+Processing test image 7: FMIS_FormblätterMielke_gefüllt (102).jpg
+  Processed successfully. CER: 0.104
+Processing test image 8: FMIS_FormblätterMielke_gefüllt (103).jpg
+  Processed successfully. CER: 0.098
+Processing test image 9: FMIS_FormblätterMielke_gefüllt (165).jpg
+  Processed successfully. CER: 0.081
+Processing test image 10: FMIS_FormblätterMielke_gefüllt (43).jpg
+  Processed successfully. CER: 0.074
+Processing test image 11: FMIS_FormblätterMielke_gefüllt (11).jpg
+  Processed successfully. CER: 0.288
+Processing test image 12: FMIS_FormblätterMielke_gefüllt (36).jpg
+  Processed successfully. CER: 0.240
+Processing test image 13: FMIS_FormblätterMielke_gefüllt (87).jpg
+  Processed successfully. CER: 1.000
+Processing test image 14: FMIS_FormblätterMielke_gefüllt (94).jpg
+  Processed successfully. CER: 0.135
+Processing test image 15: FMIS_FormblätterMielke_gefüllt (58).jpg
+  Processed successfully. CER: 0.105
+Processing test image 16: FMIS_FormblätterMielke_gefüllt (111).jpg
+  Processed successfully. CER: 0.101
+Processing test image 17: FMIS_FormblätterMielke_gefüllt (99).jpg
+  Processed successfully. CER: 0.281
+Processing test image 18: FMIS_FormblätterMielke_gefüllt (116).jpg
+  Processed successfully. CER: 0.083
+Processing test image 19: FMIS_FormblätterMielke_Vorlage3.jpg
+  Processed successfully. CER: 0.127
+Processing test image 20: FMIS_FormblätterMielke_gefüllt (132).jpg
+  Processed successfully. CER: 0.299
+Processing test image 21: FMIS_FormblätterMielke_gefüllt (139).jpg
+  Processed successfully. CER: 0.307
+Processing test image 22: FMIS_FormblätterMielke_gefüllt (66).jpg
+  Processed successfully. CER: 0.111
+Processing test image 23: FMIS_FormblätterMielke_gefüllt (105).jpg
+  Processed successfully. CER: 0.097
+Processing test image 24: FMIS_FormblätterMielke_gefüllt (13).jpg
+  Processed successfully. CER: 0.104
+CER evaluation results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251111_145231/cer_evaluation_results.txt
+
+Evaluation completed!
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251111_145231/test_predictions.jsonl
+CER results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251111_145231/cer_evaluation_results.txt
+All files saved in: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251111_145231
+
+============================================================
+FINAL RESULTS SUMMARY - STAIRCASE DATASET
+============================================================
+Average CER: 0.2222 (22.22%)
+Median CER: 0.1054 (10.54%)
+Perfect matches: 0/24 (0.00%)
+Total images processed: 24
+
+Staircase dataset training and evaluation completed successfully!
+Model saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251111_145231
+Cleaned up temporary directory: /tmp/1310679.tinygpu/augmented_images_ru4035pv
+=== JOB_STATISTICS ===
+=== current date     : Tue Nov 11 06:56:12 PM CET 2025
+= Job-ID             : 1310679 on tinygpu
+= Job-Name           : staircase
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 04:04:13
+= Total RAM usage    : 66.9 GiB of requested  GiB (%)   
+= Node list          : tg093
+= Subm/Elig/Start/End: 2025-11-11T11:20:39 / 2025-11-11T11:20:39 / 2025-11-11T14:51:59 / 2025-11-11T18:56:12
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc             102.1G   104.9G   209.7G        N/A  30,716      500K   1,000K        N/A    
+    /home/woody           184.5G  1000.0G  1500.0G        N/A     841K   5,000K   7,500K        N/A    
+    /home/vault          1036.6G  1048.6G  2097.2G        N/A   6,035      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:81:00.0, 3329578, 37 %, 14 %, 18688 MiB, 14644185 ms

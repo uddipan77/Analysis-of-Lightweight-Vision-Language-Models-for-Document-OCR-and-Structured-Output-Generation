@@ -1,0 +1,49 @@
+### Starting TaskPrologue of job 1516443 on tg082 at Fri Jan 23 04:27:47 PM CET 2026
+Running on cores 14-15,30-31,46-47,62-63 with governor powersave
+Fri Jan 23 16:27:47 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3080        On  |   00000000:DB:00.0 Off |                  N/A |
+| 30%   39C    P8             21W /  300W |       1MiB /  10240MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting UI at: Fri Jan 23 04:27:49 PM CET 2026
+⏳ Loading Phi-3.5-Vision staircase model for inference...
+✅ Model loaded on device: cuda:0
+=== JOB_STATISTICS ===
+=== current date     : Fri Jan 23 08:27:51 PM CET 2026
+= Job-ID             : 1516443 on tinygpu
+= Job-Name           : phi_stair_ui
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi_ui.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : rtx3080
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 04:00:00
+= Elapsed runtime    : 04:00:03
+= Total RAM usage    : 9.7 GiB of requested  GiB (%)   
+= Node list          : tg082
+= Subm/Elig/Start/End: 2026-01-23T14:39:51 / 2026-01-23T14:39:51 / 2026-01-23T16:27:46 / 2026-01-23T20:27:49
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.1G   104.9G   209.7G        N/A  29,152      500K   1,000K        N/A    
+    /home/woody           219.6G  1000.0G  1500.0G        N/A   1,017K   5,000K   7,500K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA GeForce RTX 3080, 00000000:DB:00.0, 1665003, 0 %, 0 %, 2874 MiB, 14383339 ms

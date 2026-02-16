@@ -1,0 +1,349 @@
+### Starting TaskPrologue of job 1473039 on tg074 at Tue Dec 23 09:11:16 PM CET 2025
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Tue Dec 23 21:11:16 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   32C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+DONUT-BASE ZERO-SHOT (SCHMUCK) - OCR
+============================================================
+
+Loading test data...
+Loaded 89 test samples
+Loading Donut-base...
+❌ No known task tokens found (DocVQA/CORD). Will still generate, but expect poor output.
+
+Processing 89 images...
+------------------------------------------------------------
+[1/89] SCH_2891_118.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[2/89] SCH_2891_225.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[3/89] SCH_3071.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[4/89] SCH_3213.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[5/89] SCH_3129.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[6/89] SCH_2984.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[7/89] SCH_2891_162.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[8/89] SCH_3043.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[9/89] SCH_3005.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[10/89] SCH_3192_41.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[11/89] SCH_2106.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[12/89] SCH_2891_143.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[13/89] SCH_2892.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[14/89] SCH_2891_211.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[15/89] SCH_3170.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[16/89] SCH_2891_73.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[17/89] SCH_2087.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[18/89] SCH_2891_222.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[19/89] SCH_2891_63.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[20/89] SCH_2891_145.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[21/89] SCH_2891_292.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[22/89] SCH_3030.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[23/89] SCH_3220.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[24/89] SCH_3179.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[25/89] SCH_3239.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[26/89] SCH_3192_6.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[27/89] SCH_2891_142.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[28/89] SCH_2891_53.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[29/89] SCH_2891_262_263.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[30/89] SCH_2891_282.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[31/89] SCH_3218.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[32/89] SCH_2891_275.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[33/89] SCH_3002.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[34/89] SCH_3137_a.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[35/89] SCH_3131.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[36/89] SCH_3192_36.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[37/89] SCH_3165.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[38/89] SCH_3192_14.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[39/89] SCH_2891_173.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[40/89] SCH_2891_72.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[41/89] SCH_2067_recto.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[42/89] SCH_3192_4.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[43/89] SCH_2891_29_30.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[44/89] SCH_2891_272.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[45/89] SCH_2891_177.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[46/89] SCH_3192_13.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[47/89] SCH_2891_291.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[48/89] SCH_3192_60.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[49/89] SCH_3124.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[50/89] SCH_3026.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[51/89] SCH_2065.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[52/89] SCH_2891_138.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[53/89] SCH_2891_245.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[54/89] SCH_2891_268.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[55/89] SCH_3192_32.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[56/89] SCH_2891_293.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[57/89] SCH_3192_27.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[58/89] SCH_3174.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[59/89] SCH_2891_235_236.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[60/89] SCH_2891_59.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[61/89] SCH_3211.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[62/89] SCH_3141.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[63/89] SCH_2891_241.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[64/89] SCH_3171.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[65/89] SCH_3215.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[66/89] SCH_1938.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[67/89] SCH_2891_153_154.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[68/89] SCH_2997.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[69/89] SCH_2891_64.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[70/89] SCH_2944.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[71/89] SCH_3173_ab.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[72/89] SCH_2891_41.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[73/89] SCH_2032.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[74/89] SCH_3078.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[75/89] SCH_2891_77_78.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[76/89] SCH_2891_62.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[77/89] SCH_3192_28.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[78/89] SCH_2043_recto.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[79/89] SCH_2045.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[80/89] SCH_2965.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[81/89] SCH_3192_22.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[82/89] SCH_3133_a.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[83/89] SCH_3192_37.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[84/89] SCH_3195_9.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[85/89] SCH_2891_67_recto.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[86/89] SCH_2891_99.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[87/89] SCH_2891_150.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[88/89] SCH_2025.jpg
+  Resizing from 3508x2480 -> 1280x904
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+[89/89] SCH_3192_48.jpg
+  Resizing from 2339x1654 -> 1280x905
+  ❌ Error: Input type (float) and bias type (c10::Half) should be the same
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_schmuck/donut_base_zeroshot_20251223_211313
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_schmuck/donut_base_zeroshot_20251223_211313/predictions_zeroshot.jsonl
+
+============================================================
+DONUT-BASE ZERO-SHOT CER EVALUATION RESULTS (SCHMUCK)
+============================================================
+Images: 89
+Average CER:  1.0000 (100.00%)
+Min CER:      1.0000 (100.00%)
+Max CER:      1.0000 (100.00%)
+Weighted CER: 1.0000 (100.00%)
+Perfect: 0/89 (0.0%)
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_schmuck/donut_base_zeroshot_20251223_211313/evaluation_summary_zeroshot.json
+
+============================================================
+DONUT-BASE ZERO-SHOT OCR COMPLETE!
+============================================================
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/zero_shot_schmuck/donut_base_zeroshot_20251223_211313
+Total images processed: 89
+Average CER: 1.0000 (100.00%)
+============================================================
+
+DONUT zero-shot inference completed at: Tue Dec 23 09:13:15 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Dec 23 09:13:15 PM CET 2025
+= Job-ID             : 1473039 on tinygpu
+= Job-Name           : donutbase_zero_schmuck
+= Job-Command        : ./job_donut_shots.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 02:30:00
+= Elapsed runtime    : 00:02:03
+= Total RAM usage    : 2.0 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2025-12-23T16:09:57 / 2025-12-23T16:09:57 / 2025-12-23T21:11:12 / 2025-12-23T21:13:15
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.4G   104.9G   209.7G        N/A  29,079      500K   1,000K        N/A    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/vault           959.0G  1048.6G  2097.2G        N/A   7,441      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 4086794, 0 %, 0 %, 820 MiB, 91853 ms

@@ -1,0 +1,270 @@
+### Starting TaskPrologue of job 1526212 on tg074 at Sat Feb  7 01:33:16 PM CET 2026
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Sat Feb  7 13:33:16 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   32C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Sat Feb  7 01:33:20 PM CET 2026
+================================================================================
+🚀 Phi-3.5-Vision few-shot (Code-1 style) Inference
+================================================================================
+✅ Train samples: 215
+✅ Test samples:  47
+✅ Using 1 example: ['inventarbuch-156.jpg']
+📍 Device: cuda
+✅ Model and processor loaded
+
+================================================================================
+RUNNING 1-SHOT INFERENCE (CODE-1 STYLE)
+================================================================================
+
+[1/47] inventarbuch-036.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8182
+
+[2/47] inventarbuch-100.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8149
+
+[3/47] inventarbuch-190.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7843
+
+[4/47] inventarbuch-153.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8246
+
+[5/47] inventarbuch-041.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: True | CER: 2.9199
+
+[6/47] inventarbuch-198.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7750
+
+[7/47] inventarbuch-065.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8523
+
+[8/47] inventarbuch-242.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7510
+
+[9/47] inventarbuch-023.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: True | CER: 0.7049
+
+[10/47] inventarbuch-137.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8436
+
+[11/47] inventarbuch-180.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7540
+
+[12/47] inventarbuch-188.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7492
+
+[13/47] inventarbuch-051.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8090
+
+[14/47] inventarbuch-199.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: True | CER: 7.3262
+
+[15/47] inventarbuch-296.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8074
+
+[16/47] inventarbuch-302.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.4421
+
+[17/47] inventarbuch-176.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7678
+
+[18/47] inventarbuch-112.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7585
+
+[19/47] inventarbuch-081.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7496
+
+[20/47] inventarbuch-290.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7789
+
+[21/47] inventarbuch-178.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.6551
+
+[22/47] inventarbuch-299.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.6925
+
+[23/47] inventarbuch-083.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8366
+
+[24/47] inventarbuch-004.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7653
+
+[25/47] inventarbuch-145.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8368
+
+[26/47] inventarbuch-236.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7592
+
+[27/47] inventarbuch-114.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8199
+
+[28/47] inventarbuch-220.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7477
+
+[29/47] inventarbuch-301.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: True | CER: 7.3262
+
+[30/47] inventarbuch-103.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7846
+
+[31/47] inventarbuch-014.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8262
+
+[32/47] inventarbuch-265.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8064
+
+[33/47] inventarbuch-121.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7988
+
+[34/47] inventarbuch-113.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7843
+
+[35/47] inventarbuch-049.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: True | CER: 0.4716
+
+[36/47] inventarbuch-016.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8258
+
+[37/47] inventarbuch-017.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: True | CER: 4.6209
+
+[38/47] inventarbuch-223.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7583
+
+[39/47] inventarbuch-046.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: True | CER: 0.6822
+
+[40/47] inventarbuch-286.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7930
+
+[41/47] inventarbuch-054.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8422
+
+[42/47] inventarbuch-073.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: True | CER: 0.4869
+
+[43/47] inventarbuch-116.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: True | CER: 3.3165
+
+[44/47] inventarbuch-127.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7787
+
+[45/47] inventarbuch-143.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.7558
+
+[46/47] inventarbuch-013.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8386
+
+[47/47] inventarbuch-059.jpg
+  🧠 seq_len=4819, model_max=131072, max_new_tokens=1024
+  ✅ JSON parsed: False | CER: 0.8567
+
+📊 FINAL RESULTS
+{
+  "timestamp": "20260207_133345",
+  "total_samples": 47,
+  "average_cer": 1.223367038785981,
+  "perfect_matches": 0,
+  "perfect_match_rate": 0.0,
+  "valid_json_parsed": 9,
+  "json_parsed_rate": 0.19148936170212766,
+  "json_like_outputs": 47,
+  "json_like_rate": 1.0,
+  "few_shot_examples": [
+    "inventarbuch-156.jpg"
+  ]
+}
+
+💾 Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20260207_133345/predictions.jsonl
+💾 Metrics saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20260207_133345/metrics.json
+📂 Output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20260207_133345
+Finished at: Sat Feb  7 01:54:35 PM CET 2026
+Exit status: 0
+=== JOB_STATISTICS ===
+=== current date     : Sat Feb  7 01:54:35 PM CET 2026
+= Job-ID             : 1526212 on tinygpu
+= Job-Name           : few_inven_new
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 05:00:00
+= Elapsed runtime    : 00:21:21
+= Total RAM usage    : 9.6 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2026-02-07T13:32:45 / 2026-02-07T13:32:45 / 2026-02-07T13:33:14 / 2026-02-07T13:54:35
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.3G   104.9G   209.7G        N/A  29,957      500K   1,000K        N/A    
+    /home/vault           910.0G  1048.6G  2097.2G        N/A   9,292      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 2507517, 67 %, 38 %, 19260 MiB, 1249564 ms

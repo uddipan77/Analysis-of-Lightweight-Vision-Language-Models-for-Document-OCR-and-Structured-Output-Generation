@@ -1,0 +1,102 @@
+### Starting TaskPrologue of job 1526305 on tg073 at Sat Feb  7 08:31:20 PM CET 2026
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Sat Feb  7 20:31:20 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   44C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Job started at: Sat Feb  7 08:31:22 PM CET 2026
+Using device: cuda
+Output dir: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_cord_20260207_203141
+TensorBoard logs: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_cord_20260207_203141/tensorboard_logs
+Loading model from local cache: /home/vault/iwi5/iwi5298h/models/donut_cord
+Loaded 215 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/train.jsonl
+Loaded 46 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/val.jsonl
+Loaded 47 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/test.jsonl
+
+Starting training...
+Best model selection based on: eval_gen_cer_string (AUTOREGRESSIVE, lower is better)
+
+{'loss': 5.5599, 'grad_norm': 10.950936317443848, 'learning_rate': 4.9000000000000005e-06, 'epoch': 0.23}
+{'loss': 3.2556, 'grad_norm': 7.277818202972412, 'learning_rate': 9.9e-06, 'epoch': 0.47}
+{'loss': 1.8189, 'grad_norm': 9.037999153137207, 'learning_rate': 9.801870282347686e-06, 'epoch': 0.7}
+{'loss': 1.2287, 'grad_norm': 7.098407745361328, 'learning_rate': 9.20768366137214e-06, 'epoch': 0.93}
+{'eval_loss': 0.9296253323554993, 'eval_runtime': 9.4846, 'eval_samples_per_second': 4.85, 'eval_steps_per_second': 4.85, 'epoch': 1.0}
+{'eval_gen_cer_string': 32.25310095776417, 'eval_gen_cer_structured': 32.25310095776417, 'epoch': 1.0}
+
+[Autoreg Val CER] cer_string=32.2531% | cer_structured=32.2531%
+
+{'loss': 0.9134, 'grad_norm': 7.196631908416748, 'learning_rate': 8.266375690498475e-06, 'epoch': 1.16}
+{'loss': 0.7497, 'grad_norm': 5.376507759094238, 'learning_rate': 7.0556014692578554e-06, 'epoch': 1.4}
+{'loss': 0.6969, 'grad_norm': 5.483231067657471, 'learning_rate': 5.675246258977617e-06, 'epoch': 1.63}
+{'loss': 0.6482, 'grad_norm': 4.532784461975098, 'learning_rate': 4.239185246694781e-06, 'epoch': 1.86}
+{'eval_loss': 0.6217749714851379, 'eval_runtime': 9.4455, 'eval_samples_per_second': 4.87, 'eval_steps_per_second': 4.87, 'epoch': 2.0}
+{'eval_gen_cer_string': 18.30428638718794, 'eval_gen_cer_structured': 18.30428638718794, 'epoch': 2.0}
+
+[Autoreg Val CER] cer_string=18.3043% | cer_structured=18.3043%
+
+{'loss': 0.5782, 'grad_norm': 4.856566429138184, 'learning_rate': 2.865889181932639e-06, 'epoch': 2.09}
+{'loss': 0.4855, 'grad_norm': 3.408259868621826, 'learning_rate': 1.6686508932814871e-06, 'epoch': 2.33}
+{'loss': 0.5675, 'grad_norm': 5.569437026977539, 'learning_rate': 7.462389680097831e-07, 'epoch': 2.56}
+{'loss': 0.522, 'grad_norm': 9.136032104492188, 'learning_rate': 1.7474963825633185e-07, 'epoch': 2.79}
+{'eval_loss': 0.593878448009491, 'eval_runtime': 9.4339, 'eval_samples_per_second': 4.876, 'eval_steps_per_second': 4.876, 'epoch': 3.0}
+{'eval_gen_cer_string': 22.107081174438687, 'eval_gen_cer_structured': 22.107081174438687, 'epoch': 3.0}
+
+[Autoreg Val CER] cer_string=22.1071% | cer_structured=22.1071%
+
+{'train_runtime': 734.6656, 'train_samples_per_second': 0.878, 'train_steps_per_second': 0.878, 'train_loss': 1.3582840586817542, 'epoch': 3.0}
+
+Saved final model to: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_cord_20260207_203141/final_model
+✅ Note: trainer.model is the BEST model (restored by load_best_model_at_end).
+
+Generating predictions on test set using BEST model...
+
+TEST CER (string): 20.5946%
+TEST CER (structured): 20.5946%
+Predictions saved: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_cord_20260207_203141/test_predictions.jsonl
+Scores saved: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_cord_20260207_203141/final_CER_scores.txt
+
+All outputs saved in: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_cord_20260207_203141
+To view TensorBoard:
+  tensorboard --logdir /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory
+Job completed at: Sat Feb  7 08:45:57 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Sat Feb  7 08:45:58 PM CET 2026
+= Job-ID             : 1526305 on tinygpu
+= Job-Name           : inven_new_cord
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut_inven.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 00:14:38
+= Total RAM usage    : 8.6 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2026-02-07T17:12:12 / 2026-02-07T17:12:12 / 2026-02-07T20:31:19 / 2026-02-07T20:45:57
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              91.4G   104.9G   209.7G        N/A  30,026      500K   1,000K        N/A    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/vault           954.9G  1048.6G  2097.2G        N/A   9,522      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 343244, 48 %, 22 %, 6896 MiB, 860829 ms

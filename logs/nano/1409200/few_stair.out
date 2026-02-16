@@ -1,0 +1,134 @@
+### Starting TaskPrologue of job 1409200 on tg071 at Sat Nov 22 02:03:03 PM CET 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Sat Nov 22 14:03:04 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   32C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+NANONETS-OCR-S FEW-SHOT STAIRCASE OCR (SCHEMA PROMPT + EXAMPLES)
+============================================================
+Loading train.jsonl ...
+Loaded 115 train samples.
+
+Selecting fixed few-shot examples (8) and (149)...
+  ✓ Found in train.jsonl: FMIS_FormblätterMielke_gefüllt (8).jpg
+  ✓ Found in train.jsonl: FMIS_FormblätterMielke_gefüllt (149).jpg
+
+Few-shot examples selected:
+  - FMIS_FormblätterMielke_gefüllt (8).jpg
+  - FMIS_FormblätterMielke_gefüllt (149).jpg
+
+Loading test.jsonl ...
+Loaded 24 test samples.
+Loading Nanonets-OCR-s...
+Model loaded.
+
+Building few-shot messages ...
+  Few-shot example: FMIS_FormblätterMielke_gefüllt (8).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (8).jpg
+  Few-shot example: FMIS_FormblätterMielke_gefüllt (149).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (149).jpg
+Few-shot conversation length: 5 messages (2 example images).
+[1/24] FMIS_FormblätterMielke_gefüllt (83).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (83).jpg
+  CER: 0.2207
+[2/24] FMIS_FormblätterMielke_gefüllt (45).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (45).jpg
+  CER: 0.4137
+[3/24] FMIS_FormblätterMielke_gefüllt (27).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (27).jpg
+  CER: 0.4132
+[4/24] FMIS_FormblätterMielke_gefüllt (130).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (130).jpg
+  CER: 0.3427
+[5/24] FMIS_FormblätterMielke_gefüllt (129).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (129).jpg
+  CER: 0.5733
+[6/24] FMIS_FormblätterMielke_gefüllt (88).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (88).jpg
+  CER: 0.1921
+[7/24] FMIS_FormblätterMielke_gefüllt (102).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (102).jpg
+  CER: 0.4350
+[8/24] FMIS_FormblätterMielke_gefüllt (103).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (103).jpg
+  CER: 0.3528
+[9/24] FMIS_FormblätterMielke_gefüllt (165).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (165).jpg
+  CER: 0.3799
+[10/24] FMIS_FormblätterMielke_gefüllt (43).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (43).jpg
+  CER: 0.3805
+[11/24] FMIS_FormblätterMielke_gefüllt (11).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (11).jpg
+  CER: 0.3414
+[12/24] FMIS_FormblätterMielke_gefüllt (36).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (36).jpg
+  CER: 0.2812
+[13/24] FMIS_FormblätterMielke_gefüllt (87).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (87).jpg
+  CER: 0.3747
+[14/24] FMIS_FormblätterMielke_gefüllt (94).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (94).jpg
+  CER: 0.3860
+[15/24] FMIS_FormblätterMielke_gefüllt (58).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (58).jpg
+  CER: 0.0918
+[16/24] FMIS_FormblätterMielke_gefüllt (111).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (111).jpg
+  CER: 0.4276
+[17/24] FMIS_FormblätterMielke_gefüllt (99).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (99).jpg
+  CER: 0.3808
+[18/24] FMIS_FormblätterMielke_gefüllt (116).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (116).jpg
+  CER: 0.2663
+[19/24] FMIS_FormblätterMielke_Vorlage3.jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_Vorlage3.jpg
+  CER: 0.1183
+[20/24] FMIS_FormblätterMielke_gefüllt (132).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (132).jpg
+  CER: 0.3917
+[21/24] FMIS_FormblätterMielke_gefüllt (139).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (139).jpg
+  CER: 0.3025
+[22/24] FMIS_FormblätterMielke_gefüllt (66).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (66).jpg
+  CER: 0.2530
+[23/24] FMIS_FormblätterMielke_gefüllt (105).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (105).jpg
+  CER: 0.4179
+[24/24] FMIS_FormblätterMielke_gefüllt (13).jpg -> /home/woody/iwi5/iwi5298h/staircase_images/FMIS_FormblätterMielke_gefüllt (13).jpg
+  CER: 0.2655
+
+Predictions saved -> /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_staircase/few_shot_schema_20251122_140322/predictions_fewshot.jsonl
+
+============================================================
+NANONETS-OCR-S FEW-SHOT CER EVALUATION RESULTS (SCHEMA PROMPT + EXAMPLES)
+STAIRCASE DOCUMENTATION DATASET
+============================================================
+Average CER:  0.3334 (33.34%)
+Minimum CER:  0.0918 (9.18%)
+Maximum CER:  0.5733 (57.33%)
+Weighted CER: 0.3322 (33.22%)
+Perfect:      0/24
+Summary saved -> /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_staircase/few_shot_schema_20251122_140322/evaluation_summary_fewshot.json
+
+DONE. Outputs in: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/shots_staircase/few_shot_schema_20251122_140322
+Nano training completed at: Sat Nov 22 02:29:37 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Sat Nov 22 02:29:38 PM CET 2025
+= Job-ID             : 1409200 on tinygpu
+= Job-Name           : few_stair2
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nano.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 04:00:00
+= Elapsed runtime    : 00:26:36
+= Total RAM usage    : 9.2 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2025-11-22T14:03:00 / 2025-11-22T14:03:00 / 2025-11-22T14:03:01 / 2025-11-22T14:29:37
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           197.4G  1000.0G  1500.0G        N/A     876K   5,000K   7,500K        N/A    
+    /home/hpc              68.3G   104.9G   209.7G        N/A  26,911      500K   1,000K        N/A    
+    /home/vault           937.4G  1048.6G  2097.2G        N/A   6,761      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 3567822, 48 %, 41 %, 14622 MiB, 1576059 ms

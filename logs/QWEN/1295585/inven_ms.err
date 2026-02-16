@@ -1,0 +1,6 @@
+Unsloth: KwargsForCausalLM cannot be inherited from TransformersKwargs since it's of type = <class 'type'>
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/multi/inven.py", line 774, in <module>
+    InventoryOCRFinetune.train_model = _attach_methods_to_class.__closure__[0].cell_contents
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable

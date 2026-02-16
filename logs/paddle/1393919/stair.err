@@ -1,0 +1,18 @@
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Training epoch 1:   0%|          | 0/115 [00:00<?, ?it/s]Training epoch 1:   0%|          | 0/115 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/paddleocr/stair.py", line 827, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/paddleocr/stair.py", line 767, in main
+    best_val_cer = train(
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/paddleocr/stair.py", line 583, in train
+    outputs = model(**batch)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/PaddleOCR_hyphen_VL/modeling_paddleocr_vl.py", line 2378, in forward
+    raise ValueError(
+ValueError: Image features and image tokens do not match: tokens: 444, features 3550
+[W1118 14:52:28.948757870 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

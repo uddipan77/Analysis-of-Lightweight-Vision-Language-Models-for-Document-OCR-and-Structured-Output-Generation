@@ -1,0 +1,146 @@
+### Starting TaskPrologue of job 1302627 on tg072 at Tue Nov  4 11:58:25 AM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Tue Nov  4 11:58:25 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:3B:00.0 Off |                    0 |
+| N/A   33C    P0             28W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+============================================================
+NANONETS-OCR-S FINETUNING WITH UNSLOTH (MULTI-STAGE, CER-BASED)
+============================================================
+Model: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Output: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/schmuck/run_20251104_115906_unsloth_multistage
+============================================================
+
+============================================================
+LOADING NANONETS-OCR-S WITH UNSLOTH
+============================================================
+Model path: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+✓ Model directory verified
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.10.7: Fast Qwen2_5_Vl patching. Transformers: 4.56.2.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.8.0+cu128. CUDA: 7.0. CUDA Toolkit: 12.8. Triton: 3.4.0
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.32.post2. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to fast eager.
+
+✅ Model loaded successfully!
+Applying LoRA adaptors...
+Unsloth: Making `model.base_model.model.model` require gradients
+✅ LoRA applied successfully!
+============================================================
+
+
+============================================================
+PHASE 1+2: MULTI-STAGE TRAINING
+============================================================
+
+Preparing datasets...
+Found 413 valid samples out of 413 total
+Found 88 valid samples out of 88 total
+Training: 413 samples, Validation: 88 samples
+
+
+===== STAGE 1: Warm-up training (no eval, teacher forcing) =====
+
+Unsloth: Model does not have a default image size - using 512
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 0.6367, 'grad_norm': 1.2278707027435303, 'learning_rate': 1.8e-05, 'epoch': 0.19}
+{'loss': 0.3742, 'grad_norm': 0.5314388871192932, 'learning_rate': 3.8e-05, 'epoch': 0.39}
+{'loss': 0.1785, 'grad_norm': 0.5696766376495361, 'learning_rate': 5.8e-05, 'epoch': 0.58}
+{'loss': nan, 'grad_norm': 0.0637432262301445, 'learning_rate': 7.6e-05, 'epoch': 0.77}
+{'loss': nan, 'grad_norm': 0.05701160430908203, 'learning_rate': 9.6e-05, 'epoch': 0.97}
+{'loss': nan, 'grad_norm': 0.04215686023235321, 'learning_rate': 9.964234631709187e-05, 'epoch': 1.15}
+{'loss': nan, 'grad_norm': 0.049617230892181396, 'learning_rate': 9.819814303479267e-05, 'epoch': 1.35}
+{'loss': nan, 'grad_norm': 0.055352870374917984, 'learning_rate': 9.597638862757255e-05, 'epoch': 1.54}
+{'loss': nan, 'grad_norm': 0.05851341038942337, 'learning_rate': 9.253400328436699e-05, 'epoch': 1.73}
+{'loss': nan, 'grad_norm': 0.04693104326725006, 'learning_rate': 8.814147859311332e-05, 'epoch': 1.93}
+{'loss': nan, 'grad_norm': 0.05451742559671402, 'learning_rate': 8.289693629698564e-05, 'epoch': 2.12}
+{'loss': nan, 'grad_norm': 0.05254402011632919, 'learning_rate': 7.691753080453412e-05, 'epoch': 2.31}
+{'loss': nan, 'grad_norm': 0.030786091461777687, 'learning_rate': 7.033683215379002e-05, 'epoch': 2.5}
+{'loss': nan, 'grad_norm': 0.048298679292201996, 'learning_rate': 6.330184227833376e-05, 'epoch': 2.7}
+{'loss': nan, 'grad_norm': 0.06909964978694916, 'learning_rate': 5.596971122701221e-05, 'epoch': 2.89}
+{'loss': nan, 'grad_norm': 0.04041207209229469, 'learning_rate': 4.925202964923683e-05, 'epoch': 3.08}
+{'loss': nan, 'grad_norm': 0.030798381194472313, 'learning_rate': 4.180910442924312e-05, 'epoch': 3.27}
+{'loss': nan, 'grad_norm': 0.0662359744310379, 'learning_rate': 3.4549150281252636e-05, 'epoch': 3.46}
+{'loss': nan, 'grad_norm': 0.054260652512311935, 'learning_rate': 2.8305813044122097e-05, 'epoch': 3.66}
+{'loss': nan, 'grad_norm': 0.05258099362254143, 'learning_rate': 2.1833997096818898e-05, 'epoch': 3.85}
+{'loss': nan, 'grad_norm': 0.04255618900060654, 'learning_rate': 1.599136311145402e-05, 'epoch': 4.04}
+{'loss': nan, 'grad_norm': 0.04806085303425789, 'learning_rate': 1.090842587659851e-05, 'epoch': 4.23}
+{'loss': nan, 'grad_norm': 0.036077629774808884, 'learning_rate': 6.698729810778065e-06, 'epoch': 4.43}
+{'loss': nan, 'grad_norm': 0.03791795298457146, 'learning_rate': 3.4563125677897932e-06, 'epoch': 4.62}
+{'loss': nan, 'grad_norm': 0.03395603597164154, 'learning_rate': 1.2536043909088191e-06, 'epoch': 4.81}
+{'loss': nan, 'grad_norm': 0.06829442828893661, 'learning_rate': 2.012853002380466e-07, 'epoch': 5.0}
+{'train_runtime': 1823.7734, 'train_samples_per_second': 1.132, 'train_steps_per_second': 0.143, 'train_loss': nan, 'epoch': 5.0}
+
+===== STAGE 2: Main training (eval each epoch, CER-based best model) =====
+
+Unsloth: Model does not have a default image size - using 512
+
+============================================================
+GPU INFORMATION
+============================================================
+GPU: Tesla V100-PCIE-32GB
+Max memory: 31.733 GB
+Reserved: 6.867 GB
+
+✅ UNSLOTH OPTIMIZATIONS:
+   • 4-bit quantization
+   • LoRA rank 16 (RSLoRA)
+   • Gradient checkpointing
+   • Stage 2 Batch size: 2, Grad accum: 4
+============================================================
+
+Starting Stage 2 training with CER-based evaluation...
+{'loss': 0.0032, 'grad_norm': 0.036084458231925964, 'learning_rate': 9e-06, 'epoch': 0.19}
+{'loss': 0.0035, 'grad_norm': 0.03538115322589874, 'learning_rate': 1.9e-05, 'epoch': 0.39}
+{'loss': 0.0032, 'grad_norm': 0.03892455995082855, 'learning_rate': 2.9e-05, 'epoch': 0.58}
+{'loss': nan, 'grad_norm': 0.03658895194530487, 'learning_rate': 3.8e-05, 'epoch': 0.77}
+{'loss': nan, 'grad_norm': 0.06293905526399612, 'learning_rate': 4.8e-05, 'epoch': 0.97}
+Nano training completed at: Tue Nov  4 12:44:16 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Nov  4 12:44:17 PM CET 2025
+= Job-ID             : 1302627 on tinygpu
+= Job-Name           : schmuck_ms
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nano.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:45:53
+= Total RAM usage    : 20.7 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-11-04T11:47:33 / 2025-11-04T11:47:33 / 2025-11-04T11:57:15 / 2025-11-04T12:43:08
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           184.1G  1000.0G  1500.0G        N/A     841K   5,000K   7,500K        N/A    
+    /home/hpc             102.1G   104.9G   209.7G        N/A  30,599      500K   1,000K        N/A    
+    /home/vault           871.9G  1048.6G  2097.2G        N/A   5,184      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 2291128, 31 %, 14 %, 7440 MiB, 2739964 ms

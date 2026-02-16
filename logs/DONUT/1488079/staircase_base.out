@@ -1,0 +1,84 @@
+### Starting TaskPrologue of job 1488079 on tg071 at Tue Jan 13 06:44:11 PM CET 2026
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Tue Jan 13 18:44:11 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   32C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+===================================
+DONUT Staircase Dataset Fine-tuning Configuration:
+===================================
+Job ID: 1488079
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/DONUT/1488079
+Data Directory: /home/woody/iwi5/iwi5298h/json_staircase
+Image Directory: /home/woody/iwi5/iwi5298h/staircase_images
+Model Cache Directory: /home/vault/iwi5/iwi5298h/models/donut_base
+Output Directory: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_base/donut_base_20260113_184419
+Num Epochs: 30
+Batch Size: 2
+Learning Rate: 2e-5
+Max Length: 768
+Prediction On: test
+Prediction Batch Size: 1
+Early Stopping Patience: 10
+Early Stopping Threshold: 0.005
+Augmentation Factor: 3
+Disable Augmentation: false
+===================================
+Running command: python3 staircase_base.py     --data_dir "/home/woody/iwi5/iwi5298h/json_staircase"     --image_dir "/home/woody/iwi5/iwi5298h/staircase_images"     --epochs 30     --batch_size 2     --lr 2e-5     --max_length 768     --predict_on "test"     --prediction_batch_size 1     --early_stopping_patience 10     --early_stopping_threshold 0.005     --augmentation_factor 3
+===================================
+===================================
+Training failed with exit code: 1
+Check logs for errors.
+Output directory: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_base/donut_base_20260113_184419
+Log directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/DONUT/1488079
+
+Key files generated:
+- Model: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_base/donut_base_20260113_184419/final_model/
+- CER scores: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_base/donut_base_20260113_184419/final_CER_scores.txt
+- Training summary: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_base/donut_base_20260113_184419/training_summary.txt
+- Predictions: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_base/donut_base_20260113_184419/*_predictions.jsonl
+- TensorBoard logs: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_base/donut_base_20260113_184419/tensorboard_logs/
+
+To view training curves:
+tensorboard --logdir /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase/donut_base/donut_base_20260113_184419/tensorboard_logs/
+Job completed at: Tue Jan 13 06:46:54 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Tue Jan 13 06:46:54 PM CET 2026
+= Job-ID             : 1488079 on tinygpu
+= Job-Name           : donut_base_stair
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut_staircase.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 20:00:00
+= Elapsed runtime    : 00:02:48
+= Total RAM usage    : 1.1 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2026-01-13T18:12:42 / 2026-01-13T18:12:42 / 2026-01-13T18:44:06 / 2026-01-13T18:46:54
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.3G   104.9G   209.7G        N/A  29,169      500K   1,000K        N/A    
+    /home/vault          1047.7G  1048.6G  2097.2G        N/A   7,999      200K     400K        N/A    
+    /home/woody           219.6G  1000.0G  1500.0G        N/A   1,017K   5,000K   7,500K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]

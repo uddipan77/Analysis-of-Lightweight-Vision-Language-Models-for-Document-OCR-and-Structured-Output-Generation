@@ -1,0 +1,59 @@
+### Starting TaskPrologue of job 1524668 on tg072 at Wed Feb  4 10:09:02 PM CET 2026
+Running on cores 6-7,14-15,22-23,30-31 with governor ondemand
+Wed Feb  4 22:09:02 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:AF:00.0 Off |                    0 |
+| N/A   29C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+PaddleOCR-VL INFERENCE - INVENTORY DATASET (TEST)
+============================================================
+Model HF name:   PaddlePaddle/PaddleOCR-VL
+Local model dir: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Test JSONL:      /home/woody/iwi5/iwi5298h/updated_json_inven/test.jsonl
+Images dir:      /home/woody/iwi5/iwi5298h/inventory_images
+Output dir:      /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/inven/run_inference_20260204_220946
+Device:          cuda
+============================================================
+Loading model from local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Loaded 47 test samples.
+=== JOB_STATISTICS ===
+=== current date     : Wed Feb  4 11:09:02 PM CET 2026
+= Job-ID             : 1524668 on tinygpu
+= Job-Name           : inven
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_paddle.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 01:00:00
+= Elapsed runtime    : 01:00:01
+= Total RAM usage    : 6.5 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2026-02-04T22:08:34 / 2026-02-04T22:08:34 / 2026-02-04T22:08:59 / 2026-02-04T23:09:00
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.3G   104.9G   209.7G        N/A  29,787      500K   1,000K        N/A    
+    /home/vault           855.9G  1048.6G  2097.2G        N/A   9,015      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:AF:00.0, 2232137, 81 %, 23 %, 2766 MiB, 3553816 ms

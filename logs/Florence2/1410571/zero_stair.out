@@ -1,0 +1,589 @@
+### Starting TaskPrologue of job 1410571 on tg072 at Sun Nov 23 05:22:43 PM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Sun Nov 23 17:22:43 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   34C    P0             29W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+========================================
+Florence-2 OCR Fine-tuning Job Configuration:
+========================================
+Job ID: 1410571
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/Florence2/1410571
+CUDA Device: 0
+Job started at: Sun Nov 23 05:22:45 PM CET 2025
+========================================
+============================================================
+FLORENCE-2 LARGE ZERO-SHOT OCR EVALUATION
+Staircase Dataset
+============================================================
+
+📁 Output directory: /home/vault/iwi5/iwi5298h/models_image_text/florence2/shots_stair/run_zeroshot_20251123_172303
+
+Loading test data...
+✅ Loaded 24 test samples
+
+============================================================
+Loading Florence-2-large model from local cache...
+============================================================
+Device: cuda
+Dtype: torch.float16
+⏳ Loading model (this may take a bit)...
+⏳ Loading processor...
+✅ Model loaded successfully!
+Model parameters: 0.78B
+============================================================
+
+============================================================
+Processing 24 test images with Florence-2 zero-shot OCR...
+============================================================
+
+
+────────────────────────────────────────────────────────────
+[1/24] FMIS_FormblätterMielke_gefüllt (83).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7516 (75.16%)
+  📏 Lengths: GT=1441, Pred=729
+  📝 Preview: INNENTREPPE
+Name des Hauses
+Adresse
+Rendelen Pfl. 6
+Bauherr
+Baumeister
+f. de fabrieli
+Baumeister
+Bau...
+  📈 Running Avg CER: 0.7516 (75.16%)
+
+────────────────────────────────────────────────────────────
+[2/24] FMIS_FormblätterMielke_gefüllt (45).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7602 (76.02%)
+  📏 Lengths: GT=1368, Pred=643
+  📝 Preview: freilaud münterum,
+INNENTREPPE
+Name des Hauses
+Adresse
+Bauherr
+Baumeister
+Bauseit
+MATERIAL
+TREPPENTY...
+  📈 Running Avg CER: 0.7559 (75.59%)
+
+────────────────────────────────────────────────────────────
+[3/24] FMIS_FormblätterMielke_gefüllt (27).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7865 (78.65%)
+  📏 Lengths: GT=1382, Pred=775
+  📝 Preview: Name des Hauses
+Schlops
+InnENTREPPE
+Inneque C
+Address
+Bauherr
+Baumeister
+Baumeister
+Bauseit
+MATERIAL...
+  📈 Running Avg CER: 0.7661 (76.61%)
+
+────────────────────────────────────────────────────────────
+[4/24] FMIS_FormblätterMielke_gefüllt (130).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.8059 (80.59%)
+  📏 Lengths: GT=1453, Pred=808
+  📝 Preview: NENTREPPE
+Adresse
+Dührenne sth 26
+Denten, Bagnera
+Greifr.fr. 1.
+Gres,frührer flons Ring Schuenens
+NE...
+  📈 Running Avg CER: 0.7761 (77.61%)
+
+────────────────────────────────────────────────────────────
+[5/24] FMIS_FormblätterMielke_gefüllt (129).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.8016 (80.16%)
+  📏 Lengths: GT=1406, Pred=674
+  📝 Preview: NENTREPPE
+Adresse
+Adrennen KW. 6
+N 1885-1800
+Bauern
+Baumoster
+Beauzeit
+MATERIAL
+TIPELENTYP (Laufform...
+  📈 Running Avg CER: 0.7812 (78.12%)
+
+────────────────────────────────────────────────────────────
+[6/24] FMIS_FormblätterMielke_gefüllt (88).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7665 (76.65%)
+  📏 Lengths: GT=1426, Pred=711
+  📝 Preview: INNENTREPEPE
+Name des Hauses
+Warzen haus
+Adresse
+Oleuth 25
+Bauherr
+M. Pedech
+Baumeister
+Jut. Frischw...
+  📈 Running Avg CER: 0.7787 (77.87%)
+
+────────────────────────────────────────────────────────────
+[7/24] FMIS_FormblätterMielke_gefüllt (102).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7752 (77.52%)
+  📏 Lengths: GT=1361, Pred=581
+  📝 Preview: NENTREPPE
+Adresse
+Griesmühlstr. 2
+Ingolstadt
+Eauherr
+Baunoister
+Bauzeit
+MATERIAL
+TUBELITY (Laufform)...
+  📈 Running Avg CER: 0.7782 (77.82%)
+
+────────────────────────────────────────────────────────────
+[8/24] FMIS_FormblätterMielke_gefüllt (103).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7584 (75.84%)
+  📏 Lengths: GT=1403, Pred=709
+  📝 Preview: INNENTREPPE
+Name des Hauses
+NEUE WELT
+Adresse
+GRIES MOHLSTR. 12
+Baumeister
+Bauzeit
+MATERIAL
+HOLZ
+ENL...
+  📈 Running Avg CER: 0.7757 (77.57%)
+
+────────────────────────────────────────────────────────────
+[9/24] FMIS_FormblätterMielke_gefüllt (165).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7366 (73.66%)
+  📏 Lengths: GT=1382, Pred=647
+  📝 Preview: INNENTREPEPE
+Name des Hauses Oper
+Adresse
+Opening 2
+Bauherr
+Baumeister August v. Siccardsburg
+Baueze...
+  📈 Running Avg CER: 0.7714 (77.14%)
+
+────────────────────────────────────────────────────────────
+[10/24] FMIS_FormblätterMielke_gefüllt (43).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7802 (78.02%)
+  📏 Lengths: GT=1406, Pred=620
+  📝 Preview: Rathaus
+INNENTREPPE
+Adresse
+Baumeister
+Bauzeit
+1845
+WATERIAL
+Werkzeiten
+TRIFFERENTY (Lauform)
+LAUF:
+...
+  📈 Running Avg CER: 0.7723 (77.23%)
+
+────────────────────────────────────────────────────────────
+[11/24] FMIS_FormblätterMielke_gefüllt (11).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7634 (76.34%)
+  📏 Lengths: GT=1403, Pred=623
+  📝 Preview: INNENTREPPE
+Name des Hauses
+Residenz
+Address
+Residenzpl. 1
+Baumeister
+Bauzeit
+MATERIAL
+Ste
+TREPPENTY...
+  📈 Running Avg CER: 0.7715 (77.15%)
+
+────────────────────────────────────────────────────────────
+[12/24] FMIS_FormblätterMielke_gefüllt (36).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7080 (70.80%)
+  📏 Lengths: GT=1394, Pred=765
+  📝 Preview: Kathedrale
+NDELTREPPE
+Bauherr
+Baummeister
+Lorenzu Gafa
+Lorenzo Gafä
+Bauseit
+1699-1702
++ 158+
++
+Lage ...
+  📈 Running Avg CER: 0.7662 (76.62%)
+
+────────────────────────────────────────────────────────────
+[13/24] FMIS_FormblätterMielke_gefüllt (87).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7445 (74.45%)
+  📏 Lengths: GT=1401, Pred=696
+  📝 Preview: INNENTREPEPE
+Name des Hauses,
+luesuerhais,
+Adresse
+Widmanungare 2
+Bauherr
+Baumeister
+Bauezeit
+4.16.7...
+  📈 Running Avg CER: 0.7645 (76.45%)
+
+────────────────────────────────────────────────────────────
+[14/24] FMIS_FormblätterMielke_gefüllt (94).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7308 (73.08%)
+  📏 Lengths: GT=1482, Pred=704
+  📝 Preview: INNENTREPPE
+Name des Hauses Schlofs
+Adresse
+Martinstr. 6
+Bauherr
+Eugel
+Baumeister
+Baumelst
+4775 n 17...
+  📈 Running Avg CER: 0.7621 (76.21%)
+
+────────────────────────────────────────────────────────────
+[15/24] FMIS_FormblätterMielke_gefüllt (58).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.6642 (66.42%)
+  📏 Lengths: GT=1459, Pred=760
+  📝 Preview: WENDELTREPPE
+Name des Hauses
+hütterbädall
+WENDETREPEPE
+Adresse
+Bauherr
+Bilchf Morit v. fühlen
+Baumei...
+  📈 Running Avg CER: 0.7556 (75.56%)
+
+────────────────────────────────────────────────────────────
+[16/24] FMIS_FormblätterMielke_gefüllt (111).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.8163 (81.63%)
+  📏 Lengths: GT=1361, Pred=634
+  📝 Preview: 10
+NENTREPPE
+Hame ues nausch
+Adresse
+Havela 6 Wendelfreppe
+Bauheiser
+Baumaster
+Bauszeit
+MATERIAL
+163...
+  📈 Running Avg CER: 0.7594 (75.94%)
+
+────────────────────────────────────────────────────────────
+[17/24] FMIS_FormblätterMielke_gefüllt (99).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7502 (75.02%)
+  📏 Lengths: GT=1389, Pred=640
+  📝 Preview: INNENTREPE
+Name des Hauses
+Adresse
+GOLDKNOPF GASSE 2.
+Baumeister
+Bauzeit
+MATERIAL HOLZ
+TREPPENTYP (L...
+  📈 Running Avg CER: 0.7588 (75.88%)
+
+────────────────────────────────────────────────────────────
+[18/24] FMIS_FormblätterMielke_gefüllt (116).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7830 (78.30%)
+  📏 Lengths: GT=1378, Pred=580
+  📝 Preview: NENTREPPE
+Adresse
+Kanalstr. 18
+Eouherr
+Baunister
+Bauzelt
+WATERIAL
+TREBEUTIP (Laufform)
+1
+LAUFE:
+1.Ar...
+  📈 Running Avg CER: 0.7602 (76.02%)
+
+────────────────────────────────────────────────────────────
+[19/24] FMIS_FormblätterMielke_Vorlage3.jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.6615 (66.15%)
+  📏 Lengths: GT=1412, Pred=630
+  📝 Preview: WENDELTREPPE
+Name des Hauses
+Adresse
+Baumeister
+Bauzeit
+Gesamt
+Lage am/im Hause
+6
+8
+4
+0
+aufen
+cm
+GEH...
+  📈 Running Avg CER: 0.7550 (75.50%)
+
+────────────────────────────────────────────────────────────
+[20/24] FMIS_FormblätterMielke_gefüllt (132).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7804 (78.04%)
+  📏 Lengths: GT=1366, Pred=606
+  📝 Preview: INNENTREPPE
+Name des Hauses
+dutch 27.
+Adresse
+Baumeister
+Bauzeit
+MATERIAL
+TREPENTYP (Lauffform)
+1.4m...
+  📈 Running Avg CER: 0.7562 (75.62%)
+
+────────────────────────────────────────────────────────────
+[21/24] FMIS_FormblätterMielke_gefüllt (139).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7425 (74.25%)
+  📏 Lengths: GT=1491, Pred=697
+  📝 Preview: INNENTREPPE
+Name des Hauses Thevenienstr. 27
+Adresse
+I H.D.19.94.
+Baumeister
+Bauzeit
+MATERIAL
+TREPPE...
+  📈 Running Avg CER: 0.7556 (75.56%)
+
+────────────────────────────────────────────────────────────
+[22/24] FMIS_FormblätterMielke_gefüllt (66).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7710 (77.10%)
+  📏 Lengths: GT=1419, Pred=739
+  📝 Preview: INNENTREPPE
+Name des Hauses luttooldt. 18
+Adresse
+Bauherr
+Baumeister
+Bauezeit
+1748
+Tughlft ulle
+MATE...
+  📈 Running Avg CER: 0.7563 (75.63%)
+
+────────────────────────────────────────────────────────────
+[23/24] FMIS_FormblätterMielke_gefüllt (105).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7809 (78.09%)
+  📏 Lengths: GT=1438, Pred=612
+  📝 Preview: NENTREPPE
+adresse
+Harderstr. 13
+Ingolstach
+Eauherr
+Bauzeit
+Neikau 1869
+MATERIAL
+TUBELENTY (Lauform)
+...
+  📈 Running Avg CER: 0.7574 (75.74%)
+
+────────────────────────────────────────────────────────────
+[24/24] FMIS_FormblätterMielke_gefüllt (13).jpg
+────────────────────────────────────────────────────────────
+  🔄 Processing with Florence-2...
+  ⚠️  JSON parse failed - using raw output for CER
+  ✅ Processed successfully!
+  📊 CER: 0.7262 (72.62%)
+  📏 Lengths: GT=1552, Pred=1043
+  📝 Preview: chem. Domdechantei
+INNENTREPPE
+Name des Hauses
+Adresse
+Caritasverband
+Residenzpl. 14
+Residentenzpl ....
+  📈 Running Avg CER: 0.7561 (75.61%)
+
+============================================================
+Processing complete!
+============================================================
+
+💾 Saving predictions to /home/vault/iwi5/iwi5298h/models_image_text/florence2/shots_stair/run_zeroshot_20251123_172303/test_predictions_zeroshot.jsonl...
+✅ Predictions saved successfully!
+
+============================================================
+FLORENCE-2 ZERO-SHOT EVALUATION RESULTS
+Staircase Dataset
+============================================================
+
+CER Statistics across 24 images:
+--------------------------------------------------
+Average CER:  0.7561 (75.61%)
+Minimum CER:  0.6615 (66.15%)
+Maximum CER:  0.8163 (81.63%)
+
+Weighted CER:  0.7556 (75.56%)
+Total characters: 33973
+Total errors:     25670
+
+Perfect matches: 0/24 (0.0%)
+JSON parse success: 0/24 (0.0%)
+JSON parse failures: 24
+
+✅ Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/shots_stair/run_zeroshot_20251123_172303/evaluation_summary_zeroshot.json
+✅ Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/shots_stair/run_zeroshot_20251123_172303/test_predictions_zeroshot.jsonl
+
+============================================================
+EVALUATION COMPLETED SUCCESSFULLY!
+============================================================
+Model:   Florence-2-large
+Dataset: Staircase Dataset
+Method:  Zero-Shot OCR
+Images:  24 processed
+Avg CER: 0.7561 (75.61%)
+JSON success rate: 0.0%
+
+All outputs saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/shots_stair/run_zeroshot_20251123_172303
+============================================================
+
+========================================
+Job completed at: Sun Nov 23 05:27:04 PM CET 2025
+========================================
+=== JOB_STATISTICS ===
+=== current date     : Sun Nov 23 05:27:04 PM CET 2025
+= Job-ID             : 1410571 on tinygpu
+= Job-Name           : zero_stair
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_florence.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 04:00:00
+= Elapsed runtime    : 00:04:22
+= Total RAM usage    : 3.4 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-11-23T17:22:41 / 2025-11-23T17:22:41 / 2025-11-23T17:22:42 / 2025-11-23T17:27:04
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              68.3G   104.9G   209.7G        N/A  26,992      500K   1,000K        N/A    
+    /home/woody           197.4G  1000.0G  1500.0G        N/A     876K   5,000K   7,500K        N/A    
+    /home/vault           945.0G  1048.6G  2097.2G        N/A   6,798      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 64401, 43 %, 10 %, 12082 MiB, 241860 ms

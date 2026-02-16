@@ -1,0 +1,4 @@
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/inference/zero_stair_p1.py", line 432
+    print(f"  raw preview: {response[:160].replace('\\n',' ')}")
+                                                               ^
+SyntaxError: f-string expression part cannot include a backslash

@@ -1,0 +1,4 @@
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/phivision/shots/few_inven_new.py", line 197
+    print(f"{'='*80}"))
+                      ^
+SyntaxError: unmatched ')'

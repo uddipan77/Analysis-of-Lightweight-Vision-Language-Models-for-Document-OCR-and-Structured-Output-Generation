@@ -1,0 +1,68 @@
+### Starting TaskPrologue of job 1411128 on tg072 at Sun Nov 23 06:50:17 PM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Sun Nov 23 18:50:17 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   40C    P0             46W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting Florence 2 inference...
+Job ID: 1411128
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/Florence2/1411128
+Job started at: Sun Nov 23 06:50:19 PM CET 2025
+Dataset: Staircase Dataset
+Loading datasets...
+Loaded 115 training samples
+Loaded 25 validation samples
+Loaded 24 test samples
+Using device: cuda
+Output directory: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20251123_185035
+Loading Florence-2 model...
+Applying LoRA...
+✅ Model with LoRA loaded!
+Trainable params: 11,321,344 (1.44%)
+LoRA modules: 408
+Preparing datasets...
+Train dataset size: 115
+Validation dataset size: 25
+Starting LoRA training...
+Job completed at: Sun Nov 23 06:51:02 PM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Sun Nov 23 06:51:02 PM CET 2025
+= Job-ID             : 1411128 on tinygpu
+= Job-Name           : Florence2_stair2
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_florence_inference.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:00:46
+= Total RAM usage    : 5.3 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-11-23T18:30:32 / 2025-11-23T18:30:32 / 2025-11-23T18:50:16 / 2025-11-23T18:51:02
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              68.3G   104.9G   209.7G        N/A  27,014      500K   1,000K        N/A    
+    /home/woody           197.4G  1000.0G  1500.0G        N/A     876K   5,000K   7,500K        N/A    
+    /home/vault           957.7G  1048.6G  2097.2G        N/A   6,841      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 65813, 2 %, 0 %, 13852 MiB, 27063 ms

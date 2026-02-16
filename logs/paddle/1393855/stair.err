@@ -1,0 +1,59 @@
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+A new version of the following files was downloaded from https://huggingface.co/PaddlePaddle/PaddleOCR-VL:
+- configuration_paddleocr_vl.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/PaddlePaddle/PaddleOCR-VL:
+- modeling_paddleocr_vl.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+Training epoch 1:   0%|          | 0/115 [00:00<?, ?it/s]Training epoch 1:   0%|          | 0/115 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/paddleocr/stair.py", line 758, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/paddleocr/stair.py", line 705, in main
+    best_val_cer = train(
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/paddleocr/stair.py", line 533, in train
+    outputs = model(**batch)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/PaddlePaddle/PaddleOCR_hyphen_VL/a877c8c901cd7c08fbd25784ed172baadd314c52/modeling_paddleocr_vl.py", line 2357, in forward
+    vision_outputs = self.visual(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/PaddlePaddle/PaddleOCR_hyphen_VL/a877c8c901cd7c08fbd25784ed172baadd314c52/modeling_paddleocr_vl.py", line 1925, in forward
+    return self.vision_model(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/PaddlePaddle/PaddleOCR_hyphen_VL/a877c8c901cd7c08fbd25784ed172baadd314c52/modeling_paddleocr_vl.py", line 1765, in forward
+    encoder_outputs: BaseModelOutput = self.encoder(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/PaddlePaddle/PaddleOCR_hyphen_VL/a877c8c901cd7c08fbd25784ed172baadd314c52/modeling_paddleocr_vl.py", line 1680, in forward
+    layer_outputs = encoder_layer(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/PaddlePaddle/PaddleOCR_hyphen_VL/a877c8c901cd7c08fbd25784ed172baadd314c52/modeling_paddleocr_vl.py", line 1408, in forward
+    hidden_states = self.mlp(hidden_states)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/PaddlePaddle/PaddleOCR_hyphen_VL/a877c8c901cd7c08fbd25784ed172baadd314c52/modeling_paddleocr_vl.py", line 1363, in forward
+    hidden_states = self.fc2(hidden_states)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/paddleocr/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 64.00 MiB. GPU 0 has a total capacity of 9.64 GiB of which 34.12 MiB is free. Including non-PyTorch memory, this process has 9.60 GiB memory in use. Of the allocated memory 9.30 GiB is allocated by PyTorch, and 45.68 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[W1118 12:40:36.081300091 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

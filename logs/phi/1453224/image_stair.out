@@ -1,0 +1,68 @@
+### Starting TaskPrologue of job 1453224 on tg072 at Mon Dec  1 09:46:51 PM CET 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Mon Dec  1 21:46:51 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   31C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Mon Dec  1 09:46:53 PM CET 2025
+Starting occlusion-based saliency visualization for Phi-3.5-Vision...
+
+Using device: cuda
+
+Loading processor and fine-tuned Phi-3.5-Vision best_model...
+
+Loaded 24 test samples
+Visualizing occlusion saliency for 1 sample(s)... (outputs: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/stair/saliency_vis)
+
+[1/1] FMIS_FormblätterMielke_gefüllt (58).jpg
+   Computing baseline loss for FMIS_FormblätterMielke_gefüllt (58).jpg...
+   Baseline loss: 0.1410
+   Occlusion grid: 8x8 = 64 forward passes...
+      Patch (1,1) loss=0.1454, Δ=0.0044      Patch (1,2) loss=0.2258, Δ=0.0848      Patch (1,3) loss=0.2729, Δ=0.1319      Patch (1,4) loss=0.2591, Δ=0.1181      Patch (1,5) loss=0.1656, Δ=0.0246      Patch (1,6) loss=0.1416, Δ=0.0006      Patch (1,7) loss=0.1381, Δ=0.0000      Patch (1,8) loss=0.1491, Δ=0.0081      Patch (2,1) loss=0.1458, Δ=0.0048      Patch (2,2) loss=0.2111, Δ=0.0701      Patch (2,3) loss=0.2157, Δ=0.0747      Patch (2,4) loss=0.1783, Δ=0.0373      Patch (2,5) loss=0.1394, Δ=0.0000      Patch (2,6) loss=0.1458, Δ=0.0048      Patch (2,7) loss=0.1435, Δ=0.0025      Patch (2,8) loss=0.1692, Δ=0.0282      Patch (3,1) loss=0.1629, Δ=0.0220      Patch (3,2) loss=0.2777, Δ=0.1367      Patch (3,3) loss=0.2129, Δ=0.0720      Patch (3,4) loss=0.1922, Δ=0.0512      Patch (3,5) loss=0.1694, Δ=0.0285      Patch (3,6) loss=0.1990, Δ=0.0580      Patch (3,7) loss=0.1724, Δ=0.0314      Patch (3,8) loss=0.1322, Δ=0.0000      Patch (4,1) loss=0.1430, Δ=0.0020      Patch (4,2) loss=0.2042, Δ=0.0632      Patch (4,3) loss=0.3029, Δ=0.1619      Patch (4,4) loss=0.3074, Δ=0.1664      Patch (4,5) loss=0.1878, Δ=0.0468      Patch (4,6) loss=0.1518, Δ=0.0108      Patch (4,7) loss=0.1377, Δ=0.0000      Patch (4,8) loss=0.1410, Δ=0.0000      Patch (5,1) loss=0.1490, Δ=0.0080      Patch (5,2) loss=0.2583, Δ=0.1173      Patch (5,3) loss=0.2026, Δ=0.0616      Patch (5,4) loss=0.1646, Δ=0.0236      Patch (5,5) loss=0.2133, Δ=0.0723      Patch (5,6) loss=0.2009, Δ=0.0599      Patch (5,7) loss=0.1979, Δ=0.0569      Patch (5,8) loss=0.1413, Δ=0.0003      Patch (6,1) loss=0.1470, Δ=0.0060      Patch (6,2) loss=0.2536, Δ=0.1126      Patch (6,3) loss=0.1456, Δ=0.0046      Patch (6,4) loss=0.1430, Δ=0.0020      Patch (6,5) loss=0.1407, Δ=0.0000      Patch (6,6) loss=0.1471, Δ=0.0061      Patch (6,7) loss=0.1390, Δ=0.0000      Patch (6,8) loss=0.1597, Δ=0.0187      Patch (7,1) loss=0.1429, Δ=0.0019      Patch (7,2) loss=0.2100, Δ=0.0690      Patch (7,3) loss=0.2009, Δ=0.0600      Patch (7,4) loss=0.2036, Δ=0.0626      Patch (7,5) loss=0.1873, Δ=0.0463      Patch (7,6) loss=0.1397, Δ=0.0000      Patch (7,7) loss=0.1409, Δ=0.0000      Patch (7,8) loss=0.1442, Δ=0.0032      Patch (8,1) loss=0.1439, Δ=0.0029      Patch (8,2) loss=0.2315, Δ=0.0905      Patch (8,3) loss=0.2199, Δ=0.0789      Patch (8,4) loss=0.1656, Δ=0.0246      Patch (8,5) loss=0.1435, Δ=0.0025      Patch (8,6) loss=0.1509, Δ=0.0100      Patch (8,7) loss=0.1643, Δ=0.0233      Patch (8,8) loss=0.1404, Δ=0.0000
+   Occlusion passes completed.
+   ✅ Saved visualization to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/stair/saliency_vis/phi3_stair_occlusion_saliency_01_FMIS_FormblätterMielke_gefüllt (58).png
+
+Done! You can now drop the PNG into your thesis/paper.
+Finished at: Mon Dec  1 09:53:43 PM CET 2025
+Exit status: 0
+=== JOB_STATISTICS ===
+=== current date     : Mon Dec  1 09:53:43 PM CET 2025
+= Job-ID             : 1453224 on tinygpu
+= Job-Name           : phi_image_stair
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 01:00:00
+= Elapsed runtime    : 00:06:53
+= Total RAM usage    : 9.9 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-12-01T21:46:46 / 2025-12-01T21:46:46 / 2025-12-01T21:46:50 / 2025-12-01T21:53:43
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              87.9G   104.9G   209.7G        N/A  28,150      500K   1,000K        N/A    
+    /home/woody           197.6G  1000.0G  1500.0G        N/A     878K   5,000K   7,500K        N/A    
+    /home/vault           886.7G  1048.6G  2097.2G        N/A   6,522      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 4031426, 67 %, 19 %, 7916 MiB, 397136 ms

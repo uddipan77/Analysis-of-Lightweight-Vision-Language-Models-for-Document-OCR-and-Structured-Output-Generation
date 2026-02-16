@@ -1,0 +1,872 @@
+### Starting TaskPrologue of job 1465985 on tg097 at Tue Dec 16 01:03:40 AM CET 2025
+Running on cores 32-63 with governor ondemand
+Tue Dec 16 01:03:40 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:41:00.0 Off |                    0 |
+| N/A   44C    P0             62W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+[NEW RUN] Created run directory: /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset
+Saved training config to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/training_config.json
+
+================================================================================
+GEMMA-3 MULTI-DATASET (inventory + schmuck + staircase) - MULTI-STAGE + RESUME
+================================================================================
+
+Loading Gemma-3 vision model with Unsloth (multi-dataset)...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Gemma3 patching. Transformers: 4.51.3.
+   \\   /|    NVIDIA A100-SXM4-40GB. Num GPUs = 1. Max memory: 39.494 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Gemma3 does not support SDPA - switching to eager!
+Base Gemma-3 model loaded. Applying LoRA (QLoRA style)...
+Unsloth: Making `base_model.model.vision_tower.vision_model` require gradients
+LoRA adapters attached (A100-optimized).
+
+[TRAIN] Starting (or resuming) multi-stage training...
+Preparing multi-dataset TRAIN and VAL splits...
+[inventory] Prepared 213 samples from /home/woody/iwi5/iwi5298h/json_inven/train.jsonl
+[inventory] Prepared 47 samples from /home/woody/iwi5/iwi5298h/json_inven/val.jsonl
+[schmuck] Prepared 413 samples from /home/woody/iwi5/iwi5298h/json_schmuck/train.jsonl
+[schmuck] Prepared 88 samples from /home/woody/iwi5/iwi5298h/json_schmuck/val.jsonl
+[staircase] Prepared 115 samples from /home/woody/iwi5/iwi5298h/json_staircase/train.jsonl
+[staircase] Prepared 25 samples from /home/woody/iwi5/iwi5298h/json_staircase/val.jsonl
+Multi-dataset TRAIN size: 741, VAL size: 160 (inv: 213/47, schmuck: 413/88, stair: 115/25)
+
+===== STAGE 1: Warm-up training (no eval, teacher forcing) =====
+
+{'loss': 37.2267, 'grad_norm': 511.0540466308594, 'learning_rate': 0.0, 'epoch': 0.02}
+{'loss': 36.5052, 'grad_norm': 1038.935791015625, 'learning_rate': 8.1e-06, 'epoch': 0.22}
+{'loss': 20.5492, 'grad_norm': 120.47187805175781, 'learning_rate': 1.7100000000000002e-05, 'epoch': 0.43}
+{'loss': 11.9325, 'grad_norm': 50.01264190673828, 'learning_rate': 2.61e-05, 'epoch': 0.65}
+{'loss': 5.4908, 'grad_norm': 24.44894790649414, 'learning_rate': 3.5100000000000006e-05, 'epoch': 0.86}
+{'loss': 3.566, 'grad_norm': 22.150850296020508, 'learning_rate': 4.41e-05, 'epoch': 1.06}
+{'loss': 3.3973, 'grad_norm': 28.083051681518555, 'learning_rate': 5.31e-05, 'epoch': 1.28}
+{'loss': 3.8253, 'grad_norm': 25.922502517700195, 'learning_rate': 6.21e-05, 'epoch': 1.5}
+{'loss': 3.3353, 'grad_norm': 19.53473472595215, 'learning_rate': 7.110000000000001e-05, 'epoch': 1.71}
+{'loss': 3.6124, 'grad_norm': 20.331134796142578, 'learning_rate': 8.010000000000001e-05, 'epoch': 1.93}
+{'loss': 2.864, 'grad_norm': 77.22357177734375, 'learning_rate': 8.910000000000001e-05, 'epoch': 2.13}
+{'loss': 2.8723, 'grad_norm': 19.984638214111328, 'learning_rate': 8.747474986387654e-05, 'epoch': 2.35}
+{'loss': 2.3797, 'grad_norm': 17.003448486328125, 'learning_rate': 7.910872754154539e-05, 'epoch': 2.56}
+{'loss': 2.0008, 'grad_norm': 14.091436386108398, 'learning_rate': 6.602708827228779e-05, 'epoch': 2.78}
+{'loss': 2.5726, 'grad_norm': 17.872711181640625, 'learning_rate': 5.0038401424648856e-05, 'epoch': 2.99}
+{'loss': 1.4805, 'grad_norm': 29.118497848510742, 'learning_rate': 3.3353142970386565e-05, 'epoch': 3.19}
+{'loss': 1.6015, 'grad_norm': 9.128524780273438, 'learning_rate': 1.8278091649192437e-05, 'epoch': 3.41}
+{'loss': 1.34, 'grad_norm': 12.657525062561035, 'learning_rate': 6.8974110347272144e-06, 'epoch': 3.63}
+{'loss': 1.4862, 'grad_norm': 14.660591125488281, 'learning_rate': 7.845087045020277e-07, 'epoch': 3.84}
+{'train_runtime': 4700.4138, 'train_samples_per_second': 0.631, 'train_steps_per_second': 0.039, 'train_loss': 6.0528949654620625, 'epoch': 3.93}
+Stage 1 completed and flagged as done.
+
+===== STAGE 2: Main training (eval each epoch, CER-based) =====
+
+GPU = NVIDIA A100-SXM4-40GB | Max mem = 39.494 GB | Start reserved = 11.695 GB
+[START] No Stage 2 checkpoint found. Starting from scratch.
+{'loss': 39.8696, 'grad_norm': 334.4114074707031, 'learning_rate': 0.0, 'epoch': 0.02}
+{'loss': 40.5724, 'grad_norm': 239.4901123046875, 'learning_rate': 1.2000000000000002e-06, 'epoch': 0.11}
+{'loss': 36.846, 'grad_norm': 235.5361785888672, 'learning_rate': 2.7e-06, 'epoch': 0.22}
+{'loss': 32.3694, 'grad_norm': 152.41934204101562, 'learning_rate': 4.2000000000000004e-06, 'epoch': 0.32}
+{'loss': 27.1844, 'grad_norm': 74.69921875, 'learning_rate': 5.7000000000000005e-06, 'epoch': 0.43}
+{'loss': 23.7086, 'grad_norm': 57.161590576171875, 'learning_rate': 7.2e-06, 'epoch': 0.54}
+{'loss': 20.7744, 'grad_norm': 37.409568786621094, 'learning_rate': 8.7e-06, 'epoch': 0.65}
+{'loss': 18.6673, 'grad_norm': 54.15975570678711, 'learning_rate': 1.02e-05, 'epoch': 0.76}
+{'loss': 17.7681, 'grad_norm': 32.89533615112305, 'learning_rate': 1.1700000000000001e-05, 'epoch': 0.86}
+{'loss': 16.7274, 'grad_norm': 9.604203224182129, 'learning_rate': 1.32e-05, 'epoch': 0.97}
+{'eval_loss': 1.162376046180725, 'eval_cer': 0.008282208588957056, 'eval_cer_percentage': 0.8282208588957056, 'eval_runtime': 96.4752, 'eval_samples_per_second': 1.658, 'eval_steps_per_second': 1.658, 'epoch': 1.0}
+{'loss': 13.9721, 'grad_norm': 24.460914611816406, 'learning_rate': 1.47e-05, 'epoch': 1.06}
+{'loss': 16.0816, 'grad_norm': 13.160493850708008, 'learning_rate': 1.62e-05, 'epoch': 1.17}
+{'loss': 15.9865, 'grad_norm': 14.442943572998047, 'learning_rate': 1.77e-05, 'epoch': 1.28}
+{'loss': 15.6467, 'grad_norm': 12.21487045288086, 'learning_rate': 1.9200000000000003e-05, 'epoch': 1.39}
+{'loss': 16.1025, 'grad_norm': 22.608102798461914, 'learning_rate': 2.07e-05, 'epoch': 1.5}
+{'loss': 15.5372, 'grad_norm': 12.472085952758789, 'learning_rate': 2.22e-05, 'epoch': 1.6}
+{'loss': 15.3772, 'grad_norm': 15.84300422668457, 'learning_rate': 2.37e-05, 'epoch': 1.71}
+{'loss': 15.6574, 'grad_norm': 17.626848220825195, 'learning_rate': 2.52e-05, 'epoch': 1.82}
+{'loss': 15.1258, 'grad_norm': 10.702898025512695, 'learning_rate': 2.6700000000000002e-05, 'epoch': 1.93}
+{'eval_loss': 1.1026264429092407, 'eval_cer': 0.005214723926380368, 'eval_cer_percentage': 0.5214723926380368, 'eval_runtime': 95.0866, 'eval_samples_per_second': 1.683, 'eval_steps_per_second': 1.683, 'epoch': 2.0}
+{'loss': 13.1071, 'grad_norm': 7.370944023132324, 'learning_rate': 2.8199999999999998e-05, 'epoch': 2.02}
+{'loss': 15.1542, 'grad_norm': 12.824702262878418, 'learning_rate': 2.97e-05, 'epoch': 2.13}
+{'loss': 15.2968, 'grad_norm': 16.997779846191406, 'learning_rate': 2.9992815537990055e-05, 'epoch': 2.24}
+{'loss': 14.6701, 'grad_norm': 22.30663299560547, 'learning_rate': 2.9963640455849925e-05, 'epoch': 2.35}
+{'loss': 14.8555, 'grad_norm': 13.080979347229004, 'learning_rate': 2.9912069357315394e-05, 'epoch': 2.45}
+{'loss': 14.5101, 'grad_norm': 39.04676055908203, 'learning_rate': 2.983817942862812e-05, 'epoch': 2.56}
+{'loss': 14.8472, 'grad_norm': 11.190154075622559, 'learning_rate': 2.9742081260526968e-05, 'epoch': 2.67}
+{'loss': 14.3005, 'grad_norm': 9.190875053405762, 'learning_rate': 2.9623918682727355e-05, 'epoch': 2.78}
+{'loss': 15.0386, 'grad_norm': 18.50641441345215, 'learning_rate': 2.948386854865191e-05, 'epoch': 2.89}
+{'loss': 14.6838, 'grad_norm': 18.295557022094727, 'learning_rate': 2.932214047073472e-05, 'epoch': 2.99}
+{'eval_loss': 1.1047208309173584, 'eval_cer': 0.005214723926380368, 'eval_cer_percentage': 0.5214723926380368, 'eval_runtime': 95.1894, 'eval_samples_per_second': 1.681, 'eval_steps_per_second': 1.681, 'epoch': 3.0}
+{'loss': 12.405, 'grad_norm': 11.626571655273438, 'learning_rate': 2.9138976506695307e-05, 'epoch': 3.09}
+{'loss': 14.219, 'grad_norm': 11.098115921020508, 'learning_rate': 2.8934650797251875e-05, 'epoch': 3.19}
+{'loss': 14.4236, 'grad_norm': 16.40085220336914, 'learning_rate': 2.8709469155816066e-05, 'epoch': 3.3}
+{'loss': 14.2921, 'grad_norm': 12.339559555053711, 'learning_rate': 2.8463768610783365e-05, 'epoch': 3.41}
+{'loss': 14.2784, 'grad_norm': 17.416902542114258, 'learning_rate': 2.819791690110412e-05, 'epoch': 3.52}
+{'loss': 14.2499, 'grad_norm': 10.359004974365234, 'learning_rate': 2.7912311925890248e-05, 'epoch': 3.63}
+{'loss': 14.4664, 'grad_norm': 13.8473539352417, 'learning_rate': 2.7607381148881345e-05, 'epoch': 3.73}
+{'loss': 14.2059, 'grad_norm': 10.54932689666748, 'learning_rate': 2.728358095866154e-05, 'epoch': 3.84}
+{'loss': 14.2818, 'grad_norm': 19.557283401489258, 'learning_rate': 2.6941395985584656e-05, 'epoch': 3.95}
+{'eval_loss': 1.1162517070770264, 'eval_cer': 0.005828220858895706, 'eval_cer_percentage': 0.5828220858895705, 'eval_runtime': 95.1008, 'eval_samples_per_second': 1.682, 'eval_steps_per_second': 1.682, 'epoch': 4.0}
+{'train_runtime': 5173.8505, 'train_samples_per_second': 1.575, 'train_steps_per_second': 0.098, 'train_loss': 17.39298684546288, 'epoch': 4.0}
+Train runtime = 5173.85 seconds
+Peak reserved memory = 11.713 GB (training: 0.018 GB, 29.658% total, 0.046% training).
+Saving best Stage 2 model to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/best_model...
+[TRAIN] Training marked as complete.
+
+[EVAL] Starting TEST evaluation on all 3 datasets...
+
+=== TEST EVAL (inventory) ===
+[inventory] Loaded 48 test samples
+
+============================================================
+[inventory] Chunk 1/10 (5 images)
+============================================================
+
+[inventory] [1/48] inventarbuch-022.jpg
+  ✅ CER: 0.2761 (27.61%)
+
+[inventory] [2/48] inventarbuch-099.jpg
+  ✅ CER: 0.2000 (20.00%)
+
+[inventory] [3/48] inventarbuch-245.jpg
+  ✅ CER: 0.2978 (29.78%)
+
+[inventory] [4/48] inventarbuch-263.jpg
+  ✅ CER: 0.1775 (17.75%)
+
+[inventory] [5/48] inventarbuch-033.jpg
+  ✅ CER: 0.3700 (37.00%)
+
+[inventory] Chunk 1 done. Cleaning memory...
+
+============================================================
+[inventory] Chunk 2/10 (5 images)
+============================================================
+
+[inventory] [6/48] inventarbuch-143.jpg
+  ✅ CER: 0.1751 (17.51%)
+
+[inventory] [7/48] inventarbuch-244.jpg
+  ✅ CER: 0.3728 (37.28%)
+
+[inventory] [8/48] inventarbuch-024.jpg
+  ✅ CER: 0.0512 (5.12%)
+
+[inventory] [9/48] inventarbuch-141.jpg
+  ✅ CER: 0.1222 (12.22%)
+
+[inventory] [10/48] inventarbuch-183.jpg
+  ✅ CER: 0.3868 (38.68%)
+
+[inventory] Chunk 2 done. Cleaning memory...
+
+============================================================
+[inventory] Chunk 3/10 (5 images)
+============================================================
+
+[inventory] [11/48] inventarbuch-191.jpg
+  ✅ CER: 0.2156 (21.56%)
+
+[inventory] [12/48] inventarbuch-051.jpg
+  ✅ CER: 0.1173 (11.73%)
+
+[inventory] [13/48] inventarbuch-203.jpg
+  ✅ CER: 0.2847 (28.47%)
+
+[inventory] [14/48] inventarbuch-296.jpg
+  ✅ CER: 0.2225 (22.25%)
+
+[inventory] [15/48] inventarbuch-302.jpg
+  ✅ CER: 0.0738 (7.38%)
+
+[inventory] Chunk 3 done. Cleaning memory...
+[inventory] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_inventory_chunk_3.jsonl
+
+============================================================
+[inventory] Chunk 4/10 (5 images)
+============================================================
+
+[inventory] [16/48] inventarbuch-179.jpg
+  ✅ CER: 0.2545 (25.45%)
+
+[inventory] [17/48] inventarbuch-114.jpg
+  ✅ CER: 0.2567 (25.67%)
+
+[inventory] [18/48] inventarbuch-082.jpg
+  ✅ CER: 0.3473 (34.73%)
+
+[inventory] [19/48] inventarbuch-287.jpg
+  ✅ CER: 0.2980 (29.80%)
+
+[inventory] [20/48] inventarbuch-181.jpg
+  ✅ CER: 0.2718 (27.18%)
+
+[inventory] Chunk 4 done. Cleaning memory...
+
+============================================================
+[inventory] Chunk 5/10 (5 images)
+============================================================
+
+[inventory] [21/48] inventarbuch-299.jpg
+  ✅ CER: 0.2419 (24.19%)
+
+[inventory] [22/48] inventarbuch-084.jpg
+  ✅ CER: 0.4262 (42.62%)
+
+[inventory] [23/48] inventarbuch-004.jpg
+  ✅ CER: 0.1764 (17.64%)
+
+[inventory] [24/48] inventarbuch-148.jpg
+  ✅ CER: 0.0974 (9.74%)
+
+[inventory] [25/48] inventarbuch-238.jpg
+  ✅ CER: 0.2776 (27.76%)
+
+[inventory] Chunk 5 done. Cleaning memory...
+
+============================================================
+[inventory] Chunk 6/10 (5 images)
+============================================================
+
+[inventory] [26/48] inventarbuch-116.jpg
+  ✅ CER: 0.1254 (12.54%)
+
+[inventory] [27/48] inventarbuch-223.jpg
+  ✅ CER: 0.2250 (22.50%)
+
+[inventory] [28/48] inventarbuch-104.jpg
+  ✅ CER: 0.2958 (29.58%)
+
+[inventory] [29/48] inventarbuch-015.jpg
+  ✅ CER: 0.2400 (24.00%)
+
+[inventory] [30/48] inventarbuch-272.jpg
+  ✅ CER: 0.2543 (25.43%)
+
+[inventory] Chunk 6 done. Cleaning memory...
+[inventory] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_inventory_chunk_6.jsonl
+
+============================================================
+[inventory] Chunk 7/10 (5 images)
+============================================================
+
+[inventory] [31/48] inventarbuch-124.jpg
+  ✅ CER: 0.1662 (16.62%)
+
+[inventory] [32/48] inventarbuch-115.jpg
+  ✅ CER: 0.2356 (23.56%)
+
+[inventory] [33/48] inventarbuch-049.jpg
+  ✅ CER: 0.0260 (2.60%)
+
+[inventory] [34/48] inventarbuch-017.jpg
+  ✅ CER: 0.0608 (6.08%)
+
+[inventory] [35/48] inventarbuch-018.jpg
+  ✅ CER: 0.2300 (23.00%)
+
+[inventory] Chunk 7 done. Cleaning memory...
+
+============================================================
+[inventory] Chunk 8/10 (5 images)
+============================================================
+
+[inventory] [36/48] inventarbuch-225.jpg
+  ✅ CER: 0.3789 (37.89%)
+
+[inventory] [37/48] inventarbuch-046.jpg
+  ✅ CER: 0.3563 (35.63%)
+
+[inventory] [38/48] inventarbuch-294.jpg
+  ✅ CER: 0.1542 (15.42%)
+
+[inventory] [39/48] inventarbuch-054.jpg
+  ✅ CER: 0.3546 (35.46%)
+
+[inventory] [40/48] inventarbuch-073.jpg
+  ✅ CER: 0.3257 (32.57%)
+
+[inventory] Chunk 8 done. Cleaning memory...
+
+============================================================
+[inventory] Chunk 9/10 (5 images)
+============================================================
+
+[inventory] [41/48] inventarbuch-118.jpg
+  ✅ CER: 0.1907 (19.07%)
+
+[inventory] [42/48] inventarbuch-130.jpg
+  ✅ CER: 0.1696 (16.96%)
+
+[inventory] [43/48] inventarbuch-146.jpg
+  ✅ CER: 0.2942 (29.42%)
+
+[inventory] [44/48] inventarbuch-014.jpg
+  ✅ CER: 0.2261 (22.61%)
+
+[inventory] [45/48] inventarbuch-059.jpg
+  ✅ CER: 0.2224 (22.24%)
+
+[inventory] Chunk 9 done. Cleaning memory...
+[inventory] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_inventory_chunk_9.jsonl
+
+============================================================
+[inventory] Chunk 10/10 (3 images)
+============================================================
+
+[inventory] [46/48] inventarbuch-256.jpg
+  ✅ CER: 0.2382 (23.82%)
+
+[inventory] [47/48] inventarbuch-260.jpg
+  ✅ CER: 0.2042 (20.42%)
+
+[inventory] [48/48] inventarbuch-279.jpg
+  ✅ CER: 0.3810 (38.10%)
+
+[inventory] Chunk 10 done. Cleaning memory...
+[inventory] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_inventory_chunk_10.jsonl
+[inventory] CER results saved to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/cer_results_inventory.txt
+[inventory] Predictions saved to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_inventory.jsonl
+
+=== TEST EVAL (schmuck) ===
+[schmuck] Loaded 89 test samples
+
+============================================================
+[schmuck] Chunk 1/18 (5 images)
+============================================================
+
+[schmuck] [1/89] SCH_2891_118.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [2/89] SCH_2891_225.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [3/89] SCH_3071.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [4/89] SCH_3213.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [5/89] SCH_3129.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] Chunk 1 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 2/18 (5 images)
+============================================================
+
+[schmuck] [6/89] SCH_2984.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [7/89] SCH_2891_162.jpg
+  ✅ CER: 0.0025 (0.25%)
+
+[schmuck] [8/89] SCH_3043.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [9/89] SCH_3005.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [10/89] SCH_3192_41.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] Chunk 2 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 3/18 (5 images)
+============================================================
+
+[schmuck] [11/89] SCH_2106.jpg
+  ✅ CER: 0.0023 (0.23%)
+
+[schmuck] [12/89] SCH_2891_143.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [13/89] SCH_2892.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [14/89] SCH_2891_211.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [15/89] SCH_3170.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] Chunk 3 done. Cleaning memory...
+[schmuck] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_schmuck_chunk_3.jsonl
+
+============================================================
+[schmuck] Chunk 4/18 (5 images)
+============================================================
+
+[schmuck] [16/89] SCH_2891_73.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [17/89] SCH_2087.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [18/89] SCH_2891_222.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [19/89] SCH_2891_63.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [20/89] SCH_2891_145.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] Chunk 4 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 5/18 (5 images)
+============================================================
+
+[schmuck] [21/89] SCH_2891_292.jpg
+  ✅ CER: 0.0025 (0.25%)
+
+[schmuck] [22/89] SCH_3030.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [23/89] SCH_3220.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [24/89] SCH_3179.jpg
+  ✅ CER: 0.0025 (0.25%)
+
+[schmuck] [25/89] SCH_3239.jpg
+  ✅ CER: 0.0025 (0.25%)
+
+[schmuck] Chunk 5 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 6/18 (5 images)
+============================================================
+
+[schmuck] [26/89] SCH_3192_6.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [27/89] SCH_2891_142.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [28/89] SCH_2891_53.jpg
+  ✅ CER: 0.0050 (0.50%)
+
+[schmuck] [29/89] SCH_2891_262_263.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [30/89] SCH_2891_282.jpg
+  ✅ CER: 0.0021 (0.21%)
+
+[schmuck] Chunk 6 done. Cleaning memory...
+[schmuck] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_schmuck_chunk_6.jsonl
+
+============================================================
+[schmuck] Chunk 7/18 (5 images)
+============================================================
+
+[schmuck] [31/89] SCH_3218.jpg
+  ✅ CER: 0.0457 (4.57%)
+
+[schmuck] [32/89] SCH_2891_275.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [33/89] SCH_3002.jpg
+  ✅ CER: 0.0053 (0.53%)
+
+[schmuck] [34/89] SCH_3137_a.jpg
+  ✅ CER: 0.0041 (0.41%)
+
+[schmuck] [35/89] SCH_3131.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] Chunk 7 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 8/18 (5 images)
+============================================================
+
+[schmuck] [36/89] SCH_3192_36.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [37/89] SCH_3165.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [38/89] SCH_3192_14.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [39/89] SCH_2891_173.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [40/89] SCH_2891_72.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] Chunk 8 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 9/18 (5 images)
+============================================================
+
+[schmuck] [41/89] SCH_2067_recto.jpg
+  ✅ CER: 0.0885 (8.85%)
+
+[schmuck] [42/89] SCH_3192_4.jpg
+  ✅ CER: 0.0021 (0.21%)
+
+[schmuck] [43/89] SCH_2891_29_30.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [44/89] SCH_2891_272.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [45/89] SCH_2891_177.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] Chunk 9 done. Cleaning memory...
+[schmuck] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_schmuck_chunk_9.jsonl
+
+============================================================
+[schmuck] Chunk 10/18 (5 images)
+============================================================
+
+[schmuck] [46/89] SCH_3192_13.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [47/89] SCH_2891_291.jpg
+  ✅ CER: 0.0023 (0.23%)
+
+[schmuck] [48/89] SCH_3192_60.jpg
+  ✅ CER: 0.0024 (0.24%)
+
+[schmuck] [49/89] SCH_3124.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [50/89] SCH_3026.jpg
+  ✅ CER: 0.0025 (0.25%)
+
+[schmuck] Chunk 10 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 11/18 (5 images)
+============================================================
+
+[schmuck] [51/89] SCH_2065.jpg
+  ✅ CER: 0.0063 (0.63%)
+
+[schmuck] [52/89] SCH_2891_138.jpg
+  ✅ CER: 0.0025 (0.25%)
+
+[schmuck] [53/89] SCH_2891_245.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [54/89] SCH_2891_268.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [55/89] SCH_3192_32.jpg
+  ✅ CER: 0.0022 (0.22%)
+
+[schmuck] Chunk 11 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 12/18 (5 images)
+============================================================
+
+[schmuck] [56/89] SCH_2891_293.jpg
+  ✅ CER: 0.0073 (0.73%)
+
+[schmuck] [57/89] SCH_3192_27.jpg
+  ✅ CER: 0.0069 (0.69%)
+
+[schmuck] [58/89] SCH_3174.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [59/89] SCH_2891_235_236.jpg
+  ✅ CER: 0.0023 (0.23%)
+
+[schmuck] [60/89] SCH_2891_59.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] Chunk 12 done. Cleaning memory...
+[schmuck] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_schmuck_chunk_12.jsonl
+
+============================================================
+[schmuck] Chunk 13/18 (5 images)
+============================================================
+
+[schmuck] [61/89] SCH_3211.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [62/89] SCH_3141.jpg
+  ✅ CER: 0.0024 (0.24%)
+
+[schmuck] [63/89] SCH_2891_241.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [64/89] SCH_3171.jpg
+  ✅ CER: 0.0024 (0.24%)
+
+[schmuck] [65/89] SCH_3215.jpg
+  ✅ CER: 0.0024 (0.24%)
+
+[schmuck] Chunk 13 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 14/18 (5 images)
+============================================================
+
+[schmuck] [66/89] SCH_1938.jpg
+  ✅ CER: 0.0022 (0.22%)
+
+[schmuck] [67/89] SCH_2891_153_154.jpg
+  ✅ CER: 0.0023 (0.23%)
+
+[schmuck] [68/89] SCH_2997.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [69/89] SCH_2891_64.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [70/89] SCH_2944.jpg
+  ✅ CER: 0.0020 (0.20%)
+
+[schmuck] Chunk 14 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 15/18 (5 images)
+============================================================
+
+[schmuck] [71/89] SCH_3173_ab.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [72/89] SCH_2891_41.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [73/89] SCH_2032.jpg
+  ✅ CER: 0.0138 (1.38%)
+
+[schmuck] [74/89] SCH_3078.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [75/89] SCH_2891_77_78.jpg
+  ✅ CER: 0.0024 (0.24%)
+
+[schmuck] Chunk 15 done. Cleaning memory...
+[schmuck] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_schmuck_chunk_15.jsonl
+
+============================================================
+[schmuck] Chunk 16/18 (5 images)
+============================================================
+
+[schmuck] [76/89] SCH_2891_62.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [77/89] SCH_3192_28.jpg
+  ✅ CER: 0.0037 (0.37%)
+
+[schmuck] [78/89] SCH_2043_recto.jpg
+  ✅ CER: 0.0094 (0.94%)
+
+[schmuck] [79/89] SCH_2045.jpg
+  ✅ CER: 0.0023 (0.23%)
+
+[schmuck] [80/89] SCH_2965.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] Chunk 16 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 17/18 (5 images)
+============================================================
+
+[schmuck] [81/89] SCH_3192_22.jpg
+  ✅ CER: 0.0143 (1.43%)
+
+[schmuck] [82/89] SCH_3133_a.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [83/89] SCH_3192_37.jpg
+  ✅ CER: 0.0022 (0.22%)
+
+[schmuck] [84/89] SCH_3195_9.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [85/89] SCH_2891_67_recto.jpg
+  ✅ CER: 0.0023 (0.23%)
+
+[schmuck] Chunk 17 done. Cleaning memory...
+
+============================================================
+[schmuck] Chunk 18/18 (4 images)
+============================================================
+
+[schmuck] [86/89] SCH_2891_99.jpg
+  ✅ CER: 0.0024 (0.24%)
+
+[schmuck] [87/89] SCH_2891_150.jpg
+  ✅ CER: 0.0000 (0.00%)
+
+[schmuck] [88/89] SCH_2025.jpg
+  ✅ CER: 0.0045 (0.45%)
+
+[schmuck] [89/89] SCH_3192_48.jpg
+  ✅ CER: 0.0393 (3.93%)
+
+[schmuck] Chunk 18 done. Cleaning memory...
+[schmuck] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_schmuck_chunk_18.jsonl
+[schmuck] CER results saved to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/cer_results_schmuck.txt
+[schmuck] Predictions saved to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_schmuck.jsonl
+
+=== TEST EVAL (staircase) ===
+[staircase] Loaded 24 test samples
+
+============================================================
+[staircase] Chunk 1/5 (5 images)
+============================================================
+
+[staircase] [1/24] FMIS_FormblätterMielke_gefüllt (83).jpg
+  ✅ CER: 0.0204 (2.04%)
+
+[staircase] [2/24] FMIS_FormblätterMielke_gefüllt (45).jpg
+  ✅ CER: 0.0226 (2.26%)
+
+[staircase] [3/24] FMIS_FormblätterMielke_gefüllt (27).jpg
+  ✅ CER: 0.0061 (0.61%)
+
+[staircase] [4/24] FMIS_FormblätterMielke_gefüllt (130).jpg
+  ✅ CER: 0.6019 (60.19%)
+
+[staircase] [5/24] FMIS_FormblätterMielke_gefüllt (129).jpg
+  ✅ CER: 0.0301 (3.01%)
+
+[staircase] Chunk 1 done. Cleaning memory...
+
+============================================================
+[staircase] Chunk 2/5 (5 images)
+============================================================
+
+[staircase] [6/24] FMIS_FormblätterMielke_gefüllt (88).jpg
+  ✅ CER: 0.0139 (1.39%)
+
+[staircase] [7/24] FMIS_FormblätterMielke_gefüllt (102).jpg
+  ✅ CER: 0.0146 (1.46%)
+
+[staircase] [8/24] FMIS_FormblätterMielke_gefüllt (103).jpg
+  ✅ CER: 0.0223 (2.23%)
+
+[staircase] [9/24] FMIS_FormblätterMielke_gefüllt (165).jpg
+  ✅ CER: 0.0046 (0.46%)
+
+[staircase] [10/24] FMIS_FormblätterMielke_gefüllt (43).jpg
+  ✅ CER: 0.0049 (0.49%)
+
+[staircase] Chunk 2 done. Cleaning memory...
+
+============================================================
+[staircase] Chunk 3/5 (5 images)
+============================================================
+
+[staircase] [11/24] FMIS_FormblätterMielke_gefüllt (11).jpg
+  ✅ CER: 0.0064 (0.64%)
+
+[staircase] [12/24] FMIS_FormblätterMielke_gefüllt (36).jpg
+  ✅ CER: 0.0522 (5.22%)
+
+[staircase] [13/24] FMIS_FormblätterMielke_gefüllt (87).jpg
+  ✅ CER: 0.0106 (1.06%)
+
+[staircase] [14/24] FMIS_FormblätterMielke_gefüllt (94).jpg
+  ✅ CER: 0.6138 (61.38%)
+
+[staircase] [15/24] FMIS_FormblätterMielke_gefüllt (58).jpg
+  ✅ CER: 0.0369 (3.69%)
+
+[staircase] Chunk 3 done. Cleaning memory...
+[staircase] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_staircase_chunk_3.jsonl
+
+============================================================
+[staircase] Chunk 4/5 (5 images)
+============================================================
+
+[staircase] [16/24] FMIS_FormblätterMielke_gefüllt (111).jpg
+  ✅ CER: 0.0253 (2.53%)
+
+[staircase] [17/24] FMIS_FormblätterMielke_gefüllt (99).jpg
+  ✅ CER: 0.0163 (1.63%)
+
+[staircase] [18/24] FMIS_FormblätterMielke_gefüllt (116).jpg
+  ✅ CER: 0.0229 (2.29%)
+
+[staircase] [19/24] FMIS_FormblätterMielke_Vorlage3.jpg
+  ✅ CER: 0.0444 (4.44%)
+
+[staircase] [20/24] FMIS_FormblätterMielke_gefüllt (132).jpg
+  ✅ CER: 0.0107 (1.07%)
+
+[staircase] Chunk 4 done. Cleaning memory...
+
+============================================================
+[staircase] Chunk 5/5 (4 images)
+============================================================
+
+[staircase] [21/24] FMIS_FormblätterMielke_gefüllt (139).jpg
+  ✅ CER: 0.6180 (61.80%)
+
+[staircase] [22/24] FMIS_FormblätterMielke_gefüllt (66).jpg
+  ✅ CER: 0.0352 (3.52%)
+
+[staircase] [23/24] FMIS_FormblätterMielke_gefüllt (105).jpg
+  ✅ CER: 0.5928 (59.28%)
+
+[staircase] [24/24] FMIS_FormblätterMielke_gefüllt (13).jpg
+  ✅ CER: 0.6126 (61.26%)
+
+[staircase] Chunk 5 done. Cleaning memory...
+[staircase] Saved intermediate predictions to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_staircase_chunk_5.jsonl
+[staircase] CER results saved to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/cer_results_staircase.txt
+[staircase] Predictions saved to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/test_predictions_staircase.jsonl
+
+[EVAL] Global CER summary saved to /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset/cer_results_global.txt
+[EVAL] Evaluation marked as complete.
+
+🎉 Multi-dataset Gemma-3 finetuning finished.
+All outputs are in: /home/vault/iwi5/iwi5298h/models_image_text/gemma/multidataset/run_20251216_010403_gemma3_multidataset
+Gemma-3 training completed at: Tue Dec 16 06:19:14 AM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Tue Dec 16 06:19:14 AM CET 2025
+= Job-ID             : 1465985 on tinygpu
+= Job-Name           : multidataset
+= Job-Command        : ./job_gemma2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 05:15:37
+= Total RAM usage    : 8.2 GiB of requested  GiB (%)   
+= Node list          : tg097
+= Subm/Elig/Start/End: 2025-12-15T16:22:50 / 2025-12-15T16:22:50 / 2025-12-16T01:03:37 / 2025-12-16T06:19:14
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/hpc              88.1G   104.9G   209.7G        N/A  28,743      500K   1,000K        N/A    
+    /home/vault           959.0G  1048.6G  2097.2G        N/A   7,054      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:41:00.0, 3532024, 27 %, 7 %, 12536 MiB, 18928397 ms

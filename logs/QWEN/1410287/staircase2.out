@@ -1,0 +1,614 @@
+### Starting TaskPrologue of job 1410287 on tg072 at Sun Nov 23 04:25:02 PM CET 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Sun Nov 23 16:25:02 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   30C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+Created run directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616
+Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2 patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2 does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Created temporary directory for augmented images: /tmp/1410287.tinygpu/augmented_images_lkx0itxx
+Model loaded successfully with LoRA (r=16, no offload)!
+============================================================
+STARTING STAIRCASE DATASET TRAINING (BEST MODEL BY VALIDATION CER)
+============================================================
+Preparing training and validation datasets...
+Preparing training data with augmentation factor: 1
+Creating augmentation 1/1 for image 1/115: FMIS_FormblätterMielke_gefüllt (10).jpg
+Creating augmentation 1/1 for image 2/115: FMIS_FormblätterMielke_gefüllt (114).jpg
+Creating augmentation 1/1 for image 3/115: FMIS_FormblätterMielke_gefüllt (12).jpg
+Creating augmentation 1/1 for image 4/115: FMIS_FormblätterMielke_gefüllt (123).jpg
+Creating augmentation 1/1 for image 5/115: FMIS_FormblätterMielke_gefüllt (125).jpg
+Creating augmentation 1/1 for image 6/115: FMIS_FormblätterMielke_gefüllt (126).jpg
+Creating augmentation 1/1 for image 7/115: FMIS_FormblätterMielke_gefüllt (134).jpg
+Creating augmentation 1/1 for image 8/115: FMIS_FormblätterMielke_gefüllt (136).jpg
+Creating augmentation 1/1 for image 9/115: FMIS_FormblätterMielke_gefüllt (138).jpg
+Creating augmentation 1/1 for image 10/115: FMIS_FormblätterMielke_gefüllt (14).jpg
+Creating augmentation 1/1 for image 11/115: FMIS_FormblätterMielke_gefüllt (149).jpg
+Creating augmentation 1/1 for image 12/115: FMIS_FormblätterMielke_gefüllt (15).jpg
+Creating augmentation 1/1 for image 13/115: FMIS_FormblätterMielke_gefüllt (152).jpg
+Creating augmentation 1/1 for image 14/115: FMIS_FormblätterMielke_gefüllt (154).jpg
+Creating augmentation 1/1 for image 15/115: FMIS_FormblätterMielke_gefüllt (159).jpg
+Creating augmentation 1/1 for image 16/115: FMIS_FormblätterMielke_gefüllt (160).jpg
+Creating augmentation 1/1 for image 17/115: FMIS_FormblätterMielke_gefüllt (163).jpg
+Creating augmentation 1/1 for image 18/115: FMIS_FormblätterMielke_gefüllt (164).jpg
+Creating augmentation 1/1 for image 19/115: FMIS_FormblätterMielke_gefüllt (18).jpg
+Creating augmentation 1/1 for image 20/115: FMIS_FormblätterMielke_gefüllt (20).jpg
+Creating augmentation 1/1 for image 21/115: FMIS_FormblätterMielke_gefüllt (28).jpg
+Creating augmentation 1/1 for image 22/115: FMIS_FormblätterMielke_gefüllt (29).jpg
+Creating augmentation 1/1 for image 23/115: FMIS_FormblätterMielke_gefüllt (30).jpg
+Creating augmentation 1/1 for image 24/115: FMIS_FormblätterMielke_gefüllt (31).jpg
+Creating augmentation 1/1 for image 25/115: FMIS_FormblätterMielke_gefüllt (33).jpg
+Creating augmentation 1/1 for image 26/115: FMIS_FormblätterMielke_gefüllt (38).jpg
+Creating augmentation 1/1 for image 27/115: FMIS_FormblätterMielke_gefüllt (51).jpg
+Creating augmentation 1/1 for image 28/115: FMIS_FormblätterMielke_gefüllt (52).jpg
+Creating augmentation 1/1 for image 29/115: FMIS_FormblätterMielke_gefüllt (53).jpg
+Creating augmentation 1/1 for image 30/115: FMIS_FormblätterMielke_gefüllt (55).jpg
+Creating augmentation 1/1 for image 31/115: FMIS_FormblätterMielke_gefüllt (56).jpg
+Creating augmentation 1/1 for image 32/115: FMIS_FormblätterMielke_gefüllt (6).jpg
+Creating augmentation 1/1 for image 33/115: FMIS_FormblätterMielke_gefüllt (81).jpg
+Creating augmentation 1/1 for image 34/115: FMIS_FormblätterMielke_gefüllt (85).jpg
+Creating augmentation 1/1 for image 35/115: FMIS_FormblätterMielke_gefüllt (89).jpg
+Creating augmentation 1/1 for image 36/115: FMIS_FormblätterMielke_gefüllt (108).jpg
+Creating augmentation 1/1 for image 37/115: FMIS_FormblätterMielke_gefüllt (65).jpg
+Creating augmentation 1/1 for image 38/115: FMIS_FormblätterMielke_gefüllt (75).jpg
+Creating augmentation 1/1 for image 39/115: FMIS_FormblätterMielke_gefüllt (46).jpg
+Creating augmentation 1/1 for image 40/115: FMIS_FormblätterMielke_gefüllt (157).jpg
+Creating augmentation 1/1 for image 41/115: FMIS_FormblätterMielke_gefüllt (115).jpg
+Creating augmentation 1/1 for image 42/115: FMIS_FormblätterMielke_gefüllt (25).jpg
+Creating augmentation 1/1 for image 43/115: FMIS_FormblätterMielke_gefüllt (4).jpg
+Creating augmentation 1/1 for image 44/115: FMIS_FormblätterMielke_gefüllt (77).jpg
+Creating augmentation 1/1 for image 45/115: FMIS_FormblätterMielke_gefüllt (73).jpg
+Creating augmentation 1/1 for image 46/115: FMIS_FormblätterMielke_gefüllt (155).jpg
+Creating augmentation 1/1 for image 47/115: FMIS_FormblätterMielke_gefüllt (120).jpg
+Creating augmentation 1/1 for image 48/115: FMIS_FormblätterMielke_gefüllt (131).jpg
+Creating augmentation 1/1 for image 49/115: FMIS_FormblätterMielke_gefüllt (59).jpg
+Creating augmentation 1/1 for image 50/115: FMIS_FormblätterMielke_gefüllt (133).jpg
+Creating augmentation 1/1 for image 51/115: FMIS_FormblätterMielke_gefüllt (158).jpg
+Creating augmentation 1/1 for image 52/115: FMIS_FormblätterMielke_gefüllt (26).jpg
+Creating augmentation 1/1 for image 53/115: FMIS_FormblätterMielke_gefüllt (97).jpg
+Creating augmentation 1/1 for image 54/115: FMIS_FormblätterMielke_gefüllt (69).jpg
+Creating augmentation 1/1 for image 55/115: FMIS_FormblätterMielke_gefüllt (117).jpg
+Creating augmentation 1/1 for image 56/115: FMIS_FormblätterMielke_gefüllt (67).jpg
+Creating augmentation 1/1 for image 57/115: FMIS_FormblätterMielke_gefüllt (101).jpg
+Creating augmentation 1/1 for image 58/115: FMIS_FormblätterMielke_gefüllt (32).jpg
+Creating augmentation 1/1 for image 59/115: FMIS_FormblätterMielke_gefüllt (49).jpg
+Creating augmentation 1/1 for image 60/115: FMIS_FormblätterMielke_gefüllt (140).jpg
+Creating augmentation 1/1 for image 61/115: FMIS_FormblätterMielke_gefüllt (92).jpg
+Creating augmentation 1/1 for image 62/115: FMIS_FormblätterMielke_gefüllt (106).jpg
+Creating augmentation 1/1 for image 63/115: FMIS_FormblätterMielke_gefüllt (100).jpg
+Creating augmentation 1/1 for image 64/115: FMIS_FormblätterMielke_gefüllt (60).jpg
+Creating augmentation 1/1 for image 65/115: FMIS_FormblätterMielke_gefüllt (48).jpg
+Creating augmentation 1/1 for image 66/115: FMIS_FormblätterMielke_gefüllt (128).jpg
+Creating augmentation 1/1 for image 67/115: FMIS_FormblätterMielke_gefüllt (64).jpg
+Creating augmentation 1/1 for image 68/115: FMIS_FormblätterMielke_gefüllt (23).jpg
+Creating augmentation 1/1 for image 69/115: FMIS_FormblätterMielke_gefüllt (41).jpg
+Creating augmentation 1/1 for image 70/115: FMIS_FormblätterMielke_gefüllt (68).jpg
+Creating augmentation 1/1 for image 71/115: FMIS_FormblätterMielke_gefüllt (22).jpg
+Creating augmentation 1/1 for image 72/115: FMIS_FormblätterMielke_gefüllt (143).jpg
+Creating augmentation 1/1 for image 73/115: FMIS_FormblätterMielke_gefüllt (40).jpg
+Creating augmentation 1/1 for image 74/115: FMIS_FormblätterMielke_gefüllt (137).jpg
+Creating augmentation 1/1 for image 75/115: FMIS_FormblätterMielke_gefüllt (16).jpg
+Creating augmentation 1/1 for image 76/115: FMIS_FormblätterMielke_gefüllt (24).jpg
+Creating augmentation 1/1 for image 77/115: FMIS_FormblätterMielke_gefüllt (142).jpg
+Creating augmentation 1/1 for image 78/115: FMIS_FormblätterMielke_gefüllt (84).jpg
+Creating augmentation 1/1 for image 79/115: FMIS_FormblätterMielke_gefüllt (145).jpg
+Creating augmentation 1/1 for image 80/115: FMIS_FormblätterMielke_gefüllt (57).jpg
+Creating augmentation 1/1 for image 81/115: FMIS_FormblätterMielke_gefüllt (47).jpg
+Creating augmentation 1/1 for image 82/115: FMIS_FormblätterMielke_gefüllt (19).jpg
+Creating augmentation 1/1 for image 83/115: FMIS_FormblätterMielke_gefüllt (146).jpg
+Creating augmentation 1/1 for image 84/115: FMIS_FormblätterMielke_gefüllt (54).jpg
+Creating augmentation 1/1 for image 85/115: FMIS_FormblätterMielke_gefüllt (121).jpg
+Creating augmentation 1/1 for image 86/115: FMIS_FormblätterMielke_gefüllt (161).jpg
+Creating augmentation 1/1 for image 87/115: FMIS_FormblätterMielke_gefüllt (76).jpg
+Creating augmentation 1/1 for image 88/115: FMIS_FormblätterMielke_gefüllt (122).jpg
+Creating augmentation 1/1 for image 89/115: FMIS_FormblätterMielke_gefüllt (7).jpg
+Creating augmentation 1/1 for image 90/115: FMIS_FormblätterMielke_gefüllt (144).jpg
+Creating augmentation 1/1 for image 91/115: FMIS_FormblätterMielke_gefüllt (79).jpg
+Creating augmentation 1/1 for image 92/115: FMIS_FormblätterMielke_gefüllt (95).jpg
+Creating augmentation 1/1 for image 93/115: FMIS_FormblätterMielke_gefüllt (34).jpg
+Creating augmentation 1/1 for image 94/115: FMIS_FormblätterMielke_Vorlage2.jpg
+Creating augmentation 1/1 for image 95/115: FMIS_FormblätterMielke_gefüllt (17).jpg
+Creating augmentation 1/1 for image 96/115: FMIS_FormblätterMielke_gefüllt (112).jpg
+Creating augmentation 1/1 for image 97/115: FMIS_FormblätterMielke_gefüllt (62).jpg
+Creating augmentation 1/1 for image 98/115: FMIS_FormblätterMielke_gefüllt (3).jpg
+Creating augmentation 1/1 for image 99/115: FMIS_FormblätterMielke_gefüllt (71).jpg
+Creating augmentation 1/1 for image 100/115: FMIS_FormblätterMielke_gefüllt (8).jpg
+Creating augmentation 1/1 for image 101/115: FMIS_FormblätterMielke_gefüllt (44).jpg
+Creating augmentation 1/1 for image 102/115: FMIS_FormblätterMielke_gefüllt (107).jpg
+Creating augmentation 1/1 for image 103/115: FMIS_FormblätterMielke_gefüllt (124).jpg
+Creating augmentation 1/1 for image 104/115: FMIS_FormblätterMielke_gefüllt (153).jpg
+Creating augmentation 1/1 for image 105/115: FMIS_FormblätterMielke_gefüllt (141).jpg
+Creating augmentation 1/1 for image 106/115: FMIS_FormblätterMielke_gefüllt (37).jpg
+Creating augmentation 1/1 for image 107/115: FMIS_FormblätterMielke_gefüllt (109).jpg
+Creating augmentation 1/1 for image 108/115: FMIS_FormblätterMielke_gefüllt (5).jpg
+Creating augmentation 1/1 for image 109/115: FMIS_FormblätterMielke_gefüllt (113).jpg
+Creating augmentation 1/1 for image 110/115: FMIS_FormblätterMielke_gefüllt (35).jpg
+Creating augmentation 1/1 for image 111/115: FMIS_FormblätterMielke_gefüllt (21).jpg
+Creating augmentation 1/1 for image 112/115: FMIS_FormblätterMielke_gefüllt (104).jpg
+Creating augmentation 1/1 for image 113/115: FMIS_FormblätterMielke_gefüllt (135).jpg
+Creating augmentation 1/1 for image 114/115: FMIS_FormblätterMielke_gefüllt (78).jpg
+Creating augmentation 1/1 for image 115/115: FMIS_FormblätterMielke_gefüllt (148).jpg
+Successfully created 115 augmented images
+Total training samples: 230 (original: 115, augmented: 115)
+Validation samples: 25
+Training: 230 samples, Validation (raw): 25 records
+Unsloth: Model does not have a default image size - using 512
+GPU = Tesla V100-PCIE-32GB. Max memory = 31.733 GB.
+7.854 GB of memory reserved.
+Starting training (best model tracked by CER callback)...
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 3.5042, 'grad_norm': 8.541001319885254, 'learning_rate': 7.000000000000001e-06, 'epoch': 0.17}
+{'loss': 2.7057, 'grad_norm': 3.930863618850708, 'learning_rate': 1.6000000000000003e-05, 'epoch': 0.35}
+{'loss': 1.7637, 'grad_norm': 6.386356830596924, 'learning_rate': 2.6000000000000002e-05, 'epoch': 0.52}
+{'loss': 1.4059, 'grad_norm': 2.5260627269744873, 'learning_rate': 3.5e-05, 'epoch': 0.7}
+{'loss': 0.9831, 'grad_norm': 1.3684029579162598, 'learning_rate': 4.5e-05, 'epoch': 0.87}
+{'eval_loss': 0.2644452750682831, 'eval_runtime': 28.8403, 'eval_samples_per_second': 0.867, 'eval_steps_per_second': 0.867, 'epoch': 1.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 1)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 1): 0.7894 (78.94%)
+   🎯 NEW BEST CER: 0.7894 (improved by inf)
+   💾 Saved best-by-CER state_dict to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616/best_model_cer/pytorch_model_best_cer.bin
+================================================================================
+
+{'loss': 0.4199, 'grad_norm': 0.8961629271507263, 'learning_rate': 4.9997404092249336e-05, 'epoch': 1.03}
+{'loss': 0.2226, 'grad_norm': 0.881373941898346, 'learning_rate': 4.997664006472579e-05, 'epoch': 1.21}
+{'loss': 0.1372, 'grad_norm': 0.5689113736152649, 'learning_rate': 4.993512925726319e-05, 'epoch': 1.38}
+{'loss': 0.1458, 'grad_norm': 0.7395468354225159, 'learning_rate': 4.987290615070385e-05, 'epoch': 1.56}
+{'loss': 0.1088, 'grad_norm': 0.4764460623264313, 'learning_rate': 4.9790022430506463e-05, 'epoch': 1.73}
+{'loss': 0.1086, 'grad_norm': 0.4792325496673584, 'learning_rate': 4.968654694381379e-05, 'epoch': 1.9}
+{'eval_loss': 0.0858411118388176, 'eval_runtime': 27.4785, 'eval_samples_per_second': 0.91, 'eval_steps_per_second': 0.91, 'epoch': 2.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 2)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 2): 0.2677 (26.77%)
+   🎯 NEW BEST CER: 0.2677 (improved by 0.5217)
+   💾 Saved best-by-CER state_dict to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616/best_model_cer/pytorch_model_best_cer.bin
+================================================================================
+
+{'loss': 0.0777, 'grad_norm': 0.362489253282547, 'learning_rate': 4.956256564226487e-05, 'epoch': 2.07}
+{'loss': 0.0789, 'grad_norm': 0.3502276837825775, 'learning_rate': 4.941818151059956e-05, 'epoch': 2.24}
+{'loss': 0.0781, 'grad_norm': 0.5595636367797852, 'learning_rate': 4.9253514481114535e-05, 'epoch': 2.42}
+{'loss': 0.0745, 'grad_norm': 0.36499446630477905, 'learning_rate': 4.906870133404187e-05, 'epoch': 2.59}
+{'loss': 0.0715, 'grad_norm': 0.4395672678947449, 'learning_rate': 4.8863895583932836e-05, 'epoch': 2.77}
+{'loss': 0.0538, 'grad_norm': 1.9287071228027344, 'learning_rate': 4.86392673521415e-05, 'epoch': 2.94}
+{'eval_loss': 0.0791434720158577, 'eval_runtime': 26.6168, 'eval_samples_per_second': 0.939, 'eval_steps_per_second': 0.939, 'epoch': 3.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 3)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 3): 0.2583 (25.83%)
+   🎯 NEW BEST CER: 0.2583 (improved by 0.0094)
+   💾 Saved best-by-CER state_dict to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616/best_model_cer/pytorch_model_best_cer.bin
+================================================================================
+
+{'loss': 0.062, 'grad_norm': 0.3689035177230835, 'learning_rate': 4.839500322551386e-05, 'epoch': 3.1}
+{'loss': 0.0523, 'grad_norm': 7.847387790679932, 'learning_rate': 4.813130610139994e-05, 'epoch': 3.28}
+{'loss': 0.0518, 'grad_norm': 0.5174767374992371, 'learning_rate': 4.784839501911771e-05, 'epoch': 3.45}
+{'loss': 0.0528, 'grad_norm': 1.8546634912490845, 'learning_rate': 4.75465049780086e-05, 'epoch': 3.63}
+{'loss': 0.0413, 'grad_norm': 0.31694966554641724, 'learning_rate': 4.722588674223594e-05, 'epoch': 3.8}
+{'loss': 0.0366, 'grad_norm': 0.47539034485816956, 'learning_rate': 4.688680663248837e-05, 'epoch': 3.97}
+{'eval_loss': 0.07914570719003677, 'eval_runtime': 27.2256, 'eval_samples_per_second': 0.918, 'eval_steps_per_second': 0.918, 'epoch': 4.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 4)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 4): 0.2733 (27.33%)
+   📊 No improvement. Best CER remains: 0.2583
+================================================================================
+
+{'loss': 0.0344, 'grad_norm': 0.5108093023300171, 'learning_rate': 4.652954630476127e-05, 'epoch': 4.14}
+{'loss': 0.0291, 'grad_norm': 0.5367538332939148, 'learning_rate': 4.615440251639995e-05, 'epoch': 4.31}
+{'loss': 0.0316, 'grad_norm': 0.2867359519004822, 'learning_rate': 4.576168687959895e-05, 'epoch': 4.49}
+{'loss': 0.0273, 'grad_norm': 0.28330501914024353, 'learning_rate': 4.535172560256218e-05, 'epoch': 4.66}
+{'loss': 0.0292, 'grad_norm': 0.32353317737579346, 'learning_rate': 4.492485921853894e-05, 'epoch': 4.83}
+{'loss': 0.0238, 'grad_norm': 0.30346161127090454, 'learning_rate': 4.448144230296093e-05, 'epoch': 5.0}
+{'eval_loss': 0.08773773908615112, 'eval_runtime': 27.5872, 'eval_samples_per_second': 0.906, 'eval_steps_per_second': 0.906, 'epoch': 5.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 5)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 5): 0.3874 (38.74%)
+   📊 No improvement. Best CER remains: 0.2583
+================================================================================
+
+{'loss': 0.018, 'grad_norm': 1.1036286354064941, 'learning_rate': 4.402184317891501e-05, 'epoch': 5.17}
+{'loss': 0.0203, 'grad_norm': 0.3948330879211426, 'learning_rate': 4.354644361119672e-05, 'epoch': 5.35}
+{'loss': 0.014, 'grad_norm': 0.258510559797287, 'learning_rate': 4.305563848919824e-05, 'epoch': 5.52}
+{'loss': 0.016, 'grad_norm': 0.22890779376029968, 'learning_rate': 4.254983549889467e-05, 'epoch': 5.7}
+{'loss': 0.0164, 'grad_norm': 0.4261626601219177, 'learning_rate': 4.2029454784200676e-05, 'epoch': 5.87}
+{'eval_loss': 0.09153621643781662, 'eval_runtime': 27.3346, 'eval_samples_per_second': 0.915, 'eval_steps_per_second': 0.915, 'epoch': 6.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 6)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 6): 0.2541 (25.41%)
+   🎯 NEW BEST CER: 0.2541 (improved by 0.0042)
+   💾 Saved best-by-CER state_dict to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616/best_model_cer/pytorch_model_best_cer.bin
+================================================================================
+
+{'loss': 0.0166, 'grad_norm': 0.18396545946598053, 'learning_rate': 4.149492859797912e-05, 'epoch': 6.03}
+{'loss': 0.0111, 'grad_norm': 0.6703438758850098, 'learning_rate': 4.094670094299131e-05, 'epoch': 6.21}
+{'loss': 0.0095, 'grad_norm': 0.35264745354652405, 'learning_rate': 4.0385227203087325e-05, 'epoch': 6.38}
+{'loss': 0.0101, 'grad_norm': 0.34833353757858276, 'learning_rate': 3.9810973764942595e-05, 'epoch': 6.56}
+{'loss': 0.0068, 'grad_norm': 0.2116323858499527, 'learning_rate': 3.9224417630655064e-05, 'epoch': 6.73}
+{'loss': 0.0116, 'grad_norm': 0.3351418673992157, 'learning_rate': 3.862604602152465e-05, 'epoch': 6.9}
+{'eval_loss': 0.10407672822475433, 'eval_runtime': 27.3867, 'eval_samples_per_second': 0.913, 'eval_steps_per_second': 0.913, 'epoch': 7.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 7)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 7): 0.1888 (18.88%)
+   🎯 NEW BEST CER: 0.1888 (improved by 0.0654)
+   💾 Saved best-by-CER state_dict to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616/best_model_cer/pytorch_model_best_cer.bin
+================================================================================
+
+{'loss': 0.0077, 'grad_norm': 0.3710569143295288, 'learning_rate': 3.8016355973344175e-05, 'epoch': 7.07}
+{'loss': 0.0076, 'grad_norm': 0.1746779829263687, 'learning_rate': 3.739585392353787e-05, 'epoch': 7.24}
+{'loss': 0.0058, 'grad_norm': 0.38058632612228394, 'learning_rate': 3.676505529049052e-05, 'epoch': 7.42}
+{'loss': 0.0053, 'grad_norm': 0.3592853844165802, 'learning_rate': 3.612448404541648e-05, 'epoch': 7.59}
+{'loss': 0.0066, 'grad_norm': 0.21251820027828217, 'learning_rate': 3.5474672277124445e-05, 'epoch': 7.77}
+{'loss': 0.0051, 'grad_norm': 0.13119597733020782, 'learning_rate': 3.4816159750039226e-05, 'epoch': 7.94}
+{'eval_loss': 0.11035650968551636, 'eval_runtime': 27.7978, 'eval_samples_per_second': 0.899, 'eval_steps_per_second': 0.899, 'epoch': 8.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 8)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 8): 0.2306 (23.06%)
+   📊 No improvement. Best CER remains: 0.1888
+================================================================================
+
+{'loss': 0.0036, 'grad_norm': 0.39268723130226135, 'learning_rate': 3.41494934558479e-05, 'epoch': 8.1}
+{'loss': 0.0038, 'grad_norm': 0.4390384554862976, 'learning_rate': 3.347522715914262e-05, 'epoch': 8.28}
+{'loss': 0.0049, 'grad_norm': 0.41922900080680847, 'learning_rate': 3.279392093743747e-05, 'epoch': 8.45}
+{'loss': 0.0027, 'grad_norm': 0.2759808301925659, 'learning_rate': 3.2106140715941626e-05, 'epoch': 8.63}
+{'loss': 0.0029, 'grad_norm': 0.46840864419937134, 'learning_rate': 3.141245779747503e-05, 'epoch': 8.8}
+{'loss': 0.0033, 'grad_norm': 0.19429458677768707, 'learning_rate': 3.071344838791723e-05, 'epoch': 8.97}
+{'eval_loss': 0.11540380120277405, 'eval_runtime': 27.6326, 'eval_samples_per_second': 0.905, 'eval_steps_per_second': 0.905, 'epoch': 9.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 9)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 9): 0.1730 (17.30%)
+   🎯 NEW BEST CER: 0.1730 (improved by 0.0158)
+   💾 Saved best-by-CER state_dict to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616/best_model_cer/pytorch_model_best_cer.bin
+================================================================================
+
+{'loss': 0.0018, 'grad_norm': 0.10747241973876953, 'learning_rate': 3.0009693117583527e-05, 'epoch': 9.14}
+{'loss': 0.0013, 'grad_norm': 0.19783702492713928, 'learning_rate': 2.9301776558925877e-05, 'epoch': 9.31}
+{'loss': 0.0016, 'grad_norm': 0.11997631937265396, 'learning_rate': 2.8590286740959372e-05, 'epoch': 9.49}
+{'loss': 0.0019, 'grad_norm': 0.7302001714706421, 'learning_rate': 2.7875814660817507e-05, 'epoch': 9.66}
+{'loss': 0.0023, 'grad_norm': 0.2857710123062134, 'learning_rate': 2.715895379284194e-05, 'epoch': 9.83}
+{'loss': 0.0015, 'grad_norm': 0.07759051769971848, 'learning_rate': 2.644029959561461e-05, 'epoch': 10.0}
+{'eval_loss': 0.12495541572570801, 'eval_runtime': 27.1078, 'eval_samples_per_second': 0.922, 'eval_steps_per_second': 0.922, 'epoch': 10.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 10)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 10): 0.2216 (22.16%)
+   📊 No improvement. Best CER remains: 0.1730
+================================================================================
+
+{'loss': 0.0008, 'grad_norm': 0.05933355540037155, 'learning_rate': 2.5720449017341664e-05, 'epoch': 10.17}
+{'loss': 0.0007, 'grad_norm': 0.22784622013568878, 'learning_rate': 2.5e-05, 'epoch': 10.35}
+{'loss': 0.0014, 'grad_norm': 0.41032058000564575, 'learning_rate': 2.4279550982658345e-05, 'epoch': 10.52}
+{'loss': 0.0011, 'grad_norm': 0.07510924339294434, 'learning_rate': 2.3559700404385395e-05, 'epoch': 10.7}
+{'loss': 0.001, 'grad_norm': 0.2353041023015976, 'learning_rate': 2.284104620715807e-05, 'epoch': 10.87}
+{'eval_loss': 0.13206256926059723, 'eval_runtime': 27.2116, 'eval_samples_per_second': 0.919, 'eval_steps_per_second': 0.919, 'epoch': 11.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 11)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 11): 0.1969 (19.69%)
+   📊 No improvement. Best CER remains: 0.1730
+================================================================================
+
+{'loss': 0.0009, 'grad_norm': 0.019222520291805267, 'learning_rate': 2.21241853391825e-05, 'epoch': 11.03}
+{'loss': 0.0005, 'grad_norm': 0.03057154454290867, 'learning_rate': 2.140971325904063e-05, 'epoch': 11.21}
+{'loss': 0.0006, 'grad_norm': 0.031081385910511017, 'learning_rate': 2.0698223441074132e-05, 'epoch': 11.38}
+{'loss': 0.0006, 'grad_norm': 0.021298836916685104, 'learning_rate': 1.999030688241649e-05, 'epoch': 11.56}
+{'loss': 0.0004, 'grad_norm': 0.04265014827251434, 'learning_rate': 1.9286551612082778e-05, 'epoch': 11.73}
+{'loss': 0.0007, 'grad_norm': 0.03499994054436684, 'learning_rate': 1.8587542202524988e-05, 'epoch': 11.9}
+{'eval_loss': 0.13367301225662231, 'eval_runtime': 27.4954, 'eval_samples_per_second': 0.909, 'eval_steps_per_second': 0.909, 'epoch': 12.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 12)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 12): 0.1314 (13.14%)
+   🎯 NEW BEST CER: 0.1314 (improved by 0.0416)
+   💾 Saved best-by-CER state_dict to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616/best_model_cer/pytorch_model_best_cer.bin
+================================================================================
+
+{'loss': 0.0005, 'grad_norm': 0.032043639570474625, 'learning_rate': 1.789385928405838e-05, 'epoch': 12.07}
+{'loss': 0.0003, 'grad_norm': 0.04273438826203346, 'learning_rate': 1.7206079062562538e-05, 'epoch': 12.24}
+{'loss': 0.0004, 'grad_norm': 0.019169382750988007, 'learning_rate': 1.6524772840857387e-05, 'epoch': 12.42}
+{'loss': 0.0003, 'grad_norm': 0.06271249800920486, 'learning_rate': 1.5850506544152105e-05, 'epoch': 12.59}
+{'loss': 0.0003, 'grad_norm': 0.017608817666769028, 'learning_rate': 1.5183840249960784e-05, 'epoch': 12.77}
+{'loss': 0.0004, 'grad_norm': 0.03194134309887886, 'learning_rate': 1.452532772287557e-05, 'epoch': 12.94}
+{'eval_loss': 0.13688793778419495, 'eval_runtime': 27.2838, 'eval_samples_per_second': 0.916, 'eval_steps_per_second': 0.916, 'epoch': 13.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 13)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 13): 0.2404 (24.04%)
+   📊 No improvement. Best CER remains: 0.1314
+================================================================================
+
+{'loss': 0.0002, 'grad_norm': 0.012852020561695099, 'learning_rate': 1.3875515954583523e-05, 'epoch': 13.1}
+{'loss': 0.0003, 'grad_norm': 0.010129738599061966, 'learning_rate': 1.3234944709509492e-05, 'epoch': 13.28}
+{'loss': 0.0002, 'grad_norm': 0.01580667868256569, 'learning_rate': 1.2604146076462131e-05, 'epoch': 13.45}
+{'loss': 0.0003, 'grad_norm': 0.035020310431718826, 'learning_rate': 1.1983644026655836e-05, 'epoch': 13.63}
+{'loss': 0.0003, 'grad_norm': 0.03142818436026573, 'learning_rate': 1.1373953978475355e-05, 'epoch': 13.8}
+{'loss': 0.0002, 'grad_norm': 0.01286908145993948, 'learning_rate': 1.0775582369344947e-05, 'epoch': 13.97}
+{'eval_loss': 0.1385682374238968, 'eval_runtime': 26.9739, 'eval_samples_per_second': 0.927, 'eval_steps_per_second': 0.927, 'epoch': 14.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 14)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 14): 0.2698 (26.98%)
+   📊 No improvement. Best CER remains: 0.1314
+================================================================================
+
+{'loss': 0.0002, 'grad_norm': 0.006827740464359522, 'learning_rate': 1.018902623505741e-05, 'epoch': 14.14}
+{'loss': 0.0003, 'grad_norm': 0.008882267400622368, 'learning_rate': 9.614772796912683e-06, 'epoch': 14.31}
+{'loss': 0.0002, 'grad_norm': 0.013858622871339321, 'learning_rate': 9.0532990570087e-06, 'epoch': 14.49}
+{'loss': 0.0002, 'grad_norm': 0.008536262437701225, 'learning_rate': 8.505071402020892e-06, 'epoch': 14.66}
+{'loss': 0.0003, 'grad_norm': 0.01478948537260294, 'learning_rate': 7.970545215799327e-06, 'epoch': 14.83}
+{'loss': 0.0002, 'grad_norm': 0.005628806073218584, 'learning_rate': 7.450164501105341e-06, 'epoch': 15.0}
+{'eval_loss': 0.14004117250442505, 'eval_runtime': 27.0591, 'eval_samples_per_second': 0.924, 'eval_steps_per_second': 0.924, 'epoch': 15.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 15)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 15): 0.2026 (20.26%)
+   📊 No improvement. Best CER remains: 0.1314
+================================================================================
+
+{'loss': 0.0002, 'grad_norm': 0.013052052818238735, 'learning_rate': 6.944361510801764e-06, 'epoch': 15.17}
+{'loss': 0.0002, 'grad_norm': 0.009360063821077347, 'learning_rate': 6.453556388803289e-06, 'epoch': 15.35}
+{'loss': 0.0003, 'grad_norm': 0.01337687112390995, 'learning_rate': 5.978156821084988e-06, 'epoch': 15.52}
+{'loss': 0.0003, 'grad_norm': 0.009984858334064484, 'learning_rate': 5.518557697039081e-06, 'epoch': 15.7}
+{'loss': 0.0002, 'grad_norm': 0.01274844165891409, 'learning_rate': 5.07514078146106e-06, 'epoch': 15.87}
+{'eval_loss': 0.140980526804924, 'eval_runtime': 27.6084, 'eval_samples_per_second': 0.906, 'eval_steps_per_second': 0.906, 'epoch': 16.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 16)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 16): 0.2696 (26.96%)
+   📊 No improvement. Best CER remains: 0.1314
+================================================================================
+
+{'loss': 0.0002, 'grad_norm': 0.013963806442916393, 'learning_rate': 4.64827439743783e-06, 'epoch': 16.03}
+{'loss': 0.0003, 'grad_norm': 0.055780041962862015, 'learning_rate': 4.23831312040105e-06, 'epoch': 16.21}
+{'loss': 0.0002, 'grad_norm': 0.010046589188277721, 'learning_rate': 3.8455974836000495e-06, 'epoch': 16.38}
+{'loss': 0.0002, 'grad_norm': 0.015264999121427536, 'learning_rate': 3.470453695238729e-06, 'epoch': 16.56}
+{'loss': 0.0002, 'grad_norm': 0.00904923491179943, 'learning_rate': 3.1131933675116353e-06, 'epoch': 16.73}
+{'loss': 0.0002, 'grad_norm': 0.008737003430724144, 'learning_rate': 2.774113257764066e-06, 'epoch': 16.9}
+{'eval_loss': 0.14114932715892792, 'eval_runtime': 27.4032, 'eval_samples_per_second': 0.912, 'eval_steps_per_second': 0.912, 'epoch': 17.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 17)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 17): 0.2643 (26.43%)
+   📊 No improvement. Best CER remains: 0.1314
+================================================================================
+
+{'loss': 0.0003, 'grad_norm': 0.006940056104212999, 'learning_rate': 2.453495021991406e-06, 'epoch': 17.07}
+{'loss': 0.0002, 'grad_norm': 0.011340091936290264, 'learning_rate': 2.1516049808822934e-06, 'epoch': 17.24}
+{'loss': 0.0002, 'grad_norm': 0.015438980422914028, 'learning_rate': 1.868693898600063e-06, 'epoch': 17.42}
+{'loss': 0.0002, 'grad_norm': 0.010297934524714947, 'learning_rate': 1.6049967744861449e-06, 'epoch': 17.59}
+{'loss': 0.0002, 'grad_norm': 0.013563067652285099, 'learning_rate': 1.360732647858498e-06, 'epoch': 17.77}
+{'loss': 0.0002, 'grad_norm': 0.017568618059158325, 'learning_rate': 1.136104416067163e-06, 'epoch': 17.94}
+{'eval_loss': 0.14147938787937164, 'eval_runtime': 27.3539, 'eval_samples_per_second': 0.914, 'eval_steps_per_second': 0.914, 'epoch': 18.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 18)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 18): 0.2985 (29.85%)
+   📊 No improvement. Best CER remains: 0.1314
+================================================================================
+
+{'loss': 0.0002, 'grad_norm': 0.006970189977437258, 'learning_rate': 9.312986659581302e-07, 'epoch': 18.1}
+{'loss': 0.0002, 'grad_norm': 0.007539917249232531, 'learning_rate': 7.464855188854619e-07, 'epoch': 18.28}
+{'loss': 0.0002, 'grad_norm': 0.008001025766134262, 'learning_rate': 5.818184894004486e-07, 'epoch': 18.45}
+{'loss': 0.0002, 'grad_norm': 0.011896333657205105, 'learning_rate': 4.3743435773513364e-07, 'epoch': 18.63}
+{'loss': 0.0002, 'grad_norm': 0.005852720234543085, 'learning_rate': 3.1345305618620814e-07, 'epoch': 18.8}
+{'loss': 0.0002, 'grad_norm': 0.015455206856131554, 'learning_rate': 2.0997756949353299e-07, 'epoch': 18.97}
+{'eval_loss': 0.1416141539812088, 'eval_runtime': 27.3002, 'eval_samples_per_second': 0.916, 'eval_steps_per_second': 0.916, 'epoch': 19.0}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 19)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 19): 0.2640 (26.40%)
+   📊 No improvement. Best CER remains: 0.1314
+================================================================================
+
+{'loss': 0.0003, 'grad_norm': 0.010463302955031395, 'learning_rate': 1.2709384929615599e-07, 'epoch': 19.14}
+{'loss': 0.0002, 'grad_norm': 0.009201033040881157, 'learning_rate': 6.487074273681115e-08, 'epoch': 19.31}
+{'loss': 0.0002, 'grad_norm': 0.014906620606780052, 'learning_rate': 2.3359935274214206e-08, 'epoch': 19.49}
+{'loss': 0.0002, 'grad_norm': 0.014845741912722588, 'learning_rate': 2.5959077506715334e-09, 'epoch': 19.66}
+{'eval_loss': 0.1413426697254181, 'eval_runtime': 27.2017, 'eval_samples_per_second': 0.919, 'eval_steps_per_second': 0.919, 'epoch': 19.66}
+
+================================================================================
+🔍 Qwen CER Callback: COMPUTING CER ON VALIDATION SUBSET (Epoch 19)
+================================================================================
+   Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER (Epoch 19): 0.2690 (26.90%)
+   📊 No improvement. Best CER remains: 0.1314
+================================================================================
+
+{'train_runtime': 64430.6174, 'train_samples_per_second': 0.071, 'train_steps_per_second': 0.018, 'train_loss': 0.11098455300385116, 'epoch': 19.66}
+64430.6174 seconds used for training.
+1073.84 minutes used for training.
+Peak reserved memory = 17.414 GB.
+Peak reserved memory for training = 9.56 GB (30.126 % of max).
+Loading best-by-CER weights from /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616/best_model_cer/pytorch_model_best_cer.bin ...
+Loaded state_dict has 3093 keys; 3093 of them match the current model and will be loaded.
+[WARN] Unexpected keys when loading best CER weights (1780):
+  (showing first 10) ['base_model.model.visual.blocks.0.attn.qkv.weight.absmax', 'base_model.model.visual.blocks.0.attn.qkv.weight.quant_map', 'base_model.model.visual.blocks.0.attn.qkv.weight.nested_absmax', 'base_model.model.visual.blocks.0.attn.qkv.weight.nested_quant_map', 'base_model.model.visual.blocks.0.attn.qkv.weight.quant_state.bitsandbytes__nf4', 'base_model.model.visual.blocks.0.attn.proj.weight.absmax', 'base_model.model.visual.blocks.0.attn.proj.weight.quant_map', 'base_model.model.visual.blocks.0.attn.proj.weight.nested_absmax', 'base_model.model.visual.blocks.0.attn.proj.weight.nested_quant_map', 'base_model.model.visual.blocks.0.attn.proj.weight.quant_state.bitsandbytes__nf4']
+Restored best validation CER = 0.1314 (13.14%)
+Saving best-by-CER model to /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616...
+Saving model in recommended formats...
+Detected local model directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Found HuggingFace hub cache directory: /home/hpc/iwi5/iwi5298h/.cache/huggingface/hub
+Copying safetensors from local directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Copied safetensors index file from local model
+Copied model-00005-of-00005.safetensors from local model directory
+Copied model-00004-of-00005.safetensors from local model directory
+Copied model-00002-of-00005.safetensors from local model directory
+Copied model-00003-of-00005.safetensors from local model directory
+Copied model-00001-of-00005.safetensors from local model directory
+Detected local model directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Found HuggingFace hub cache directory: /home/hpc/iwi5/iwi5298h/.cache/huggingface/hub
+Copying safetensors from local directory: /home/vault/iwi5/iwi5298h/models/qwen7b
+Copied safetensors index file from local model
+Copied model-00005-of-00005.safetensors from local model directory
+Copied model-00004-of-00005.safetensors from local model directory
+Copied model-00002-of-00005.safetensors from local model directory
+Copied model-00003-of-00005.safetensors from local model directory
+Copied model-00001-of-00005.safetensors from local model directory
+Best model saved successfully in multiple formats!
+
+============================================================
+STARTING EVALUATION ON STAIRCASE TEST.JSONL (BEST-BY-CER WEIGHTS)
+============================================================
+Starting evaluation on test.jsonl...
+Processing test image 1: FMIS_FormblätterMielke_gefüllt (83).jpg
+  Processed successfully. CER: 0.071
+Processing test image 2: FMIS_FormblätterMielke_gefüllt (45).jpg
+  Processed successfully. CER: 0.064
+Processing test image 3: FMIS_FormblätterMielke_gefüllt (27).jpg
+  Processed successfully. CER: 0.056
+Processing test image 4: FMIS_FormblätterMielke_gefüllt (130).jpg
+  Processed successfully. CER: 0.078
+Processing test image 5: FMIS_FormblätterMielke_gefüllt (129).jpg
+  Processed successfully. CER: 0.040
+Processing test image 6: FMIS_FormblätterMielke_gefüllt (88).jpg
+  Processed successfully. CER: 0.069
+Processing test image 7: FMIS_FormblätterMielke_gefüllt (102).jpg
+  Processed successfully. CER: 0.071
+Processing test image 8: FMIS_FormblätterMielke_gefüllt (103).jpg
+  Processed successfully. CER: 0.078
+Processing test image 9: FMIS_FormblätterMielke_gefüllt (165).jpg
+  Processed successfully. CER: 0.037
+Processing test image 10: FMIS_FormblätterMielke_gefüllt (43).jpg
+  Processed successfully. CER: 0.107
+Processing test image 11: FMIS_FormblätterMielke_gefüllt (11).jpg
+  Processed successfully. CER: 0.046
+Processing test image 12: FMIS_FormblätterMielke_gefüllt (36).jpg
+  Processed successfully. CER: 0.093
+Processing test image 13: FMIS_FormblätterMielke_gefüllt (87).jpg
+  Processed successfully. CER: 0.079
+Processing test image 14: FMIS_FormblätterMielke_gefüllt (94).jpg
+  Processed successfully. CER: 0.094
+Processing test image 15: FMIS_FormblätterMielke_gefüllt (58).jpg
+  Processed successfully. CER: 0.090
+Processing test image 16: FMIS_FormblätterMielke_gefüllt (111).jpg
+  Processed successfully. CER: 0.040
+Processing test image 17: FMIS_FormblätterMielke_gefüllt (99).jpg
+  Processed successfully. CER: 0.056
+Processing test image 18: FMIS_FormblätterMielke_gefüllt (116).jpg
+  Processed successfully. CER: 0.031
+Processing test image 19: FMIS_FormblätterMielke_Vorlage3.jpg
+  Processed successfully. CER: 0.085
+Processing test image 20: FMIS_FormblätterMielke_gefüllt (132).jpg
+  Processed successfully. CER: 0.055
+Processing test image 21: FMIS_FormblätterMielke_gefüllt (139).jpg
+  Processed successfully. CER: 0.091
+Processing test image 22: FMIS_FormblätterMielke_gefüllt (66).jpg
+  Processed successfully. CER: 0.082
+Processing test image 23: FMIS_FormblätterMielke_gefüllt (105).jpg
+  Processed successfully. CER: 0.134
+Processing test image 24: FMIS_FormblätterMielke_gefüllt (13).jpg
+  Processed successfully. CER: 0.175
+CER evaluation results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616/cer_evaluation_test_results.txt
+
+Evaluation completed!
+TEST predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616/test_predictions.jsonl
+TEST CER results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616/cer_evaluation_test_results.txt
+All files saved in: /home/vault/iwi5/iwi5298h/models_image_text/qwen/stair/run_20251123_162616
+
+============================================================
+FINAL RESULTS SUMMARY - STAIRCASE DATASET (TEST SPLIT)
+============================================================
+Average CER: 0.0759 (7.59%)
+Median CER: 0.0746 (7.46%)
+Perfect matches: 0/24 (0.00%)
+Total images processed: 24
+
+Staircase dataset training and evaluation completed!
+Cleaned up temporary directory: /tmp/1410287.tinygpu/augmented_images_lkx0itxx
+=== JOB_STATISTICS ===
+=== current date     : Mon Nov 24 11:32:23 AM CET 2025
+= Job-ID             : 1410287 on tinygpu
+= Job-Name           : staircase2
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 19:07:25
+= Total RAM usage    : 20.7 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-11-23T16:24:56 / 2025-11-23T16:24:56 / 2025-11-23T16:24:57 / 2025-11-24T11:32:22
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              68.1G   104.9G   209.7G        N/A  27,044      500K   1,000K        N/A    
+    /home/woody           197.4G  1000.0G  1500.0G        N/A     876K   5,000K   7,500K        N/A    
+    /home/vault          1023.1G  1048.6G  2097.2G        N/A   6,936      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 63305, 54 %, 28 %, 18242 MiB, 68791679 ms

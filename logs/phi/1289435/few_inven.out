@@ -1,0 +1,479 @@
+### Starting TaskPrologue of job 1289435 on tg071 at Fri Oct 24 09:57:41 PM CEST 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Fri Oct 24 21:57:41 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:86:00.0 Off |                    0 |
+| N/A   31C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Fri Oct 24 09:57:44 PM CEST 2025
+================================================================================
+🚀 Phi-3.5-Vision Few-Shot Inference on Inventory Dataset
+================================================================================
+
+📂 Loading training data...
+✅ Loaded 213 training samples
+  ✅ Found: inventarbuch-265.jpg
+  ✅ Found: inventarbuch-026.jpg
+
+📂 Loading test data from: /home/woody/iwi5/iwi5298h/json_inven/test.jsonl
+✅ Loaded 48 test samples
+
+⏳ Loading model from: /home/vault/iwi5/iwi5298h/models/phi_3_5_vision
+📍 Device: cuda
+✅ Model and processor loaded
+
+📸 Loading few-shot example images...
+  ✅ Loaded: inventarbuch-265.jpg
+  ✅ Loaded: inventarbuch-026.jpg
+
+================================================================================
+RUNNING FEW-SHOT INFERENCE
+================================================================================
+
+────────────────────────────────────────────────────────────
+[1/48] inventarbuch-022.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.7633 (76.33%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorische Sammlung der K. Univerifität Erlangen", "inventory_number": "1-Inr.Eo 16", "measurements": {"length": "12,...
+
+────────────────────────────────────────────────────────────
+[2/48] inventarbuch-099.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.7253 (72.53%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch(e) Sammlung der K. Univerifatit Erlangen", "inventory_number": "1-fr.May 28", "measurements": {"length": "1...
+
+────────────────────────────────────────────────────────────
+[3/48] inventarbuch-245.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.8071 (80.71%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifd-prähistorifch", "inventory_number": "S 474", "measurements": {"length": "5,04", "breadth": "3,86", "depth": "0,95"}...
+
+────────────────────────────────────────────────────────────
+[4/48] inventarbuch-263.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.9885 (98.85%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifd-prähistorifch", "inventory_number": "1-fr.May 28.22", "measurements": {"length": "12,4", "breadth": "3,4", "depth": "2,7"}...
+
+────────────────────────────────────────────────────────────
+[5/48] inventarbuch-033.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.7234 (72.34%)
+  📝 Prediction (first 150 chars): {"heading": "", "inventory_number": "", "measurements": {"length": "", "breadth": "", "depth": ""}, "Material": "", "Fundort": "", "Fundzeit": "", "ma...
+
+────────────────────────────────────────────────────────────
+[6/48] inventarbuch-143.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.7472 (74.72%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorische Sammlung der K. Univerifität Erlangen", "inventory_number": "J=fr.Mo 100", "measurements": {"length": "5,1...
+
+────────────────────────────────────────────────────────────
+[7/48] inventarbuch-244.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.6647 (66.47%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifd-prähistorifch", "inventory_number": "J=fr.S193", "measurements": {"length": "8,65", "breadth": "4,80", "depth": "0,77"}, "...
+
+────────────────────────────────────────────────────────────
+[8/48] inventarbuch-024.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.1418 (14.18%)
+  📝 Prediction (first 150 chars): {"heading": "", "inventory_number": "", "measurements": {"length": "", "breadth": "", "depth": ""}, "Material": "", "Fundort": "", "Fundzeit": "", "ma...
+
+────────────────────────────────────────────────────────────
+[9/48] inventarbuch-141.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.7833 (78.33%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorische Sammlung der K. Univerifität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,...
+
+────────────────────────────────────────────────────────────
+[10/48] inventarbuch-183.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.6442 (64.42%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch der Sammlung der K. Univerifatift Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": ...
+
+────────────────────────────────────────────────────────────
+[11/48] inventarbuch-191.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.6812 (68.12%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch(die Sammlung der K. Univerifitafc Erlangen", "inventory_number": "J=fr.May 446", "measurements": {"length":...
+
+────────────────────────────────────────────────────────────
+[12/48] inventarbuch-051.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.2460 (24.60%)
+  📝 Prediction (first 150 chars): {"heading": "", "inventory_number": "", "measurements": {"length": "", "breadth": "", "depth": ""}, "Material": "", "Fundort": "", "Fundzeit": "", "ma...
+
+────────────────────────────────────────────────────────────
+[13/48] inventarbuch-203.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.6788 (67.88%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch(the Sammlung der K. Univerifitafc Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": ...
+
+────────────────────────────────────────────────────────────
+[14/48] inventarbuch-296.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.7849 (78.49%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorische Sammlung der K. Univerifität Erlangen", "inventory_number": "1-fr.May 1968", "measurements": {"length": "1...
+
+────────────────────────────────────────────────────────────
+[15/48] inventarbuch-302.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 2.3647 (236.47%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch Sammlung der K. Univerifitat Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[16/48] inventarbuch-179.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.7045 (70.45%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch der Sammlung der K. Univerifitfch Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": ...
+
+────────────────────────────────────────────────────────────
+[17/48] inventarbuch-114.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.8187 (81.87%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch-Sammlung der K. Univerifitfch Erlangen", "inventory_number": "1-Mr.Nat.28.28", "measurements": {"length": "...
+
+────────────────────────────────────────────────────────────
+[18/48] inventarbuch-082.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.8147 (81.47%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch Sammlung der K. Univerifchat Erlangen", "inventory_number": "J=fr.Ch.52", "measurements": {"length": "9,45"...
+
+────────────────────────────────────────────────────────────
+[19/48] inventarbuch-287.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.6743 (67.43%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch(the Sammlung der K. Univerifitfcr Erlangen", "inventory_number": "J=fr.May 22.8", "measurements": {"length"...
+
+────────────────────────────────────────────────────────────
+[20/48] inventarbuch-181.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.8107 (81.07%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifd-prähistorifch der Sammlungen der K. Univerifitat Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": ...
+
+────────────────────────────────────────────────────────────
+[21/48] inventarbuch-299.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.8603 (86.03%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch Sammlung der K. Univerifitfch Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,...
+
+────────────────────────────────────────────────────────────
+[22/48] inventarbuch-084.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.6250 (62.50%)
+  📝 Prediction (first 150 chars): {"heading": "", "inventory_number": "", "measurements": {"length": "", "breadth": "", "depth": ""}, "Material": "", "Fundort": "", "Fundzeit": "", "ma...
+
+────────────────────────────────────────────────────────────
+[23/48] inventarbuch-004.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.4322 (43.22%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch-Sammlung der K. Univerifitafch Erlangen", "inventory_number": "J=fr.Bo 2", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[24/48] inventarbuch-148.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.7856 (78.56%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch(e) Sammlung der K. Univerifitafi Erlangen", "inventory_number": "1-fr.No. 105", "measurements": {"length": ...
+
+────────────────────────────────────────────────────────────
+[25/48] inventarbuch-238.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.7659 (76.59%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch-Sammlung der K. Univerifitafcr Erlangen", "inventory_number": "J=fr.S.87216", "measurements": {"length": "1...
+
+────────────────────────────────────────────────────────────
+[26/48] inventarbuch-116.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 8.2475 (824.75%)
+  📝 Prediction (first 150 chars): {"heading": "", "inventory_number": "", "measurements": {"length": "", "breadth": "", "depth": ""}, "Material": "", "Fundort": "", "Fundzeit": "", "ma...
+
+────────────────────────────────────────────────────────────
+[27/48] inventarbuch-223.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.7002 (70.02%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch-Sammlung der K. Univerifitifch Erlangen", "inventory_number": "J=fr.S 1472", "measurements": {"length": "8,...
+
+────────────────────────────────────────────────────────────
+[28/48] inventarbuch-104.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.8438 (84.38%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch(the Sammlung der K. Univerifitafc Erlangen", "inventory_number": "1-fr.Ach 674.1.4", "measurements": {"leng...
+
+────────────────────────────────────────────────────────────
+[29/48] inventarbuch-015.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.5613 (56.13%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorische Sammlung der K. Univerifität Erlangen", "inventory_number": "1-Mr. Eo to", "measurements": {"length": "12,...
+
+────────────────────────────────────────────────────────────
+[30/48] inventarbuch-272.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.5763 (57.63%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch-Sammlung der K. Univerifitifch Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12...
+
+────────────────────────────────────────────────────────────
+[31/48] inventarbuch-124.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.5484 (54.84%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch der Sammlung der K. Univerifatit Erlangen", "inventory_number": "1-fr.Mi 84", "measurements": {"length": "C...
+
+────────────────────────────────────────────────────────────
+[32/48] inventarbuch-115.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.5599 (55.99%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch-Sammlung der K. Univerifitafc Erlangen", "inventory_number": "J=fr.Mi.242", "measurements": {"length": "12,...
+
+────────────────────────────────────────────────────────────
+[33/48] inventarbuch-049.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.2161 (21.61%)
+  📝 Prediction (first 150 chars): {"heading": "Nach Präußen rugebing", "inventory_number": "", "measurements": {"length": "", "breadth": "", "depth": ""}, "Material": "", "Fundort": ""...
+
+────────────────────────────────────────────────────────────
+[34/48] inventarbuch-017.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 2.8528 (285.28%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[35/48] inventarbuch-018.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.4988 (49.88%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch der Sammlung der K. Univerifitafcr Erlangen", "inventory_number": "J=fr.Bot12", "measurements": {"length": ...
+
+────────────────────────────────────────────────────────────
+[36/48] inventarbuch-225.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.5420 (54.20%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch-Sammlung der K. Univerifitifch Erlangen", "inventory_number": "J=fr.S1424-49", "measurements": {"length": "...
+
+────────────────────────────────────────────────────────────
+[37/48] inventarbuch-046.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.5652 (56.52%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorische Sammlung der K. Univerifität Erlangen", "inventory_number": "1-Mr. Eo 29", "measurements": {"length": "10,...
+
+────────────────────────────────────────────────────────────
+[38/48] inventarbuch-294.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.6748 (67.48%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch der Sammlungen der K. Univerifitafcr Erlangen", "inventory_number": "1-11-1944 a.b.", "measurements": {"len...
+
+────────────────────────────────────────────────────────────
+[39/48] inventarbuch-054.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.8293 (82.93%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch-Sammlung der K. Univerifitafcr Erlangen", "inventory_number": "1-Mr. E 033", "measurements": {"length": "C ...
+
+────────────────────────────────────────────────────────────
+[40/48] inventarbuch-073.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.5016 (50.16%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch-Sammlung der K. Univerifitafch Erlangen", "inventory_number": "J=fr.Ch47", "measurements": {"length": "17",...
+
+────────────────────────────────────────────────────────────
+[41/48] inventarbuch-118.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.7935 (79.35%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifd-prähistorifor(t)e Sammlung der K. Univerifit(at) Erlangen", "inventory_number": "J=fr.No.M9", "measurements": {"length": "...
+
+────────────────────────────────────────────────────────────
+[42/48] inventarbuch-130.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.6051 (60.51%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch der Sammlung der K. Univerifatit Erlangen", "inventory_number": "1-Mr.89", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[43/48] inventarbuch-146.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.5670 (56.70%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch der Sammlung der K. Univerifitafcr Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length":...
+
+────────────────────────────────────────────────────────────
+[44/48] inventarbuch-014.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.8129 (81.29%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch-Sammlung der K. Univerifitafcr Erlangen", "inventory_number": "J=fr.EOQ", "measurements": {"length": "14", ...
+
+────────────────────────────────────────────────────────────
+[45/48] inventarbuch-059.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ⚠️ JSON parse failed - using raw output
+  📊 CER: 0.8546 (85.46%)
+  📝 Prediction (first 150 chars): {"heading": "", "inventory_number": "", "measurements": {"length": "", "breadth": "", "depth": ""}...
+
+────────────────────────────────────────────────────────────
+[46/48] inventarbuch-256.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.5603 (56.03%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorische Sammlung der K. Univerfität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[47/48] inventarbuch-260.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.7124 (71.24%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch Sammlung der K. Univerifitfch Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,...
+
+────────────────────────────────────────────────────────────
+[48/48] inventarbuch-279.jpg
+────────────────────────────────────────────────────────────
+  🔄 Generating (few-shot with 2 examples)...
+  ✅ Valid JSON parsed
+  📊 CER: 0.5702 (57.02%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologifch-prähistorifch-Sammlung der K. Univerifitat Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+
+================================================================================
+📊 FINAL RESULTS
+================================================================================
+  Total Samples: 48
+  Average CER: 0.9006 (90.06%)
+  Perfect Matches: 0/48 (0.00%)
+  Valid JSON Parsed: 35/48 (72.92%)
+  JSON-like Outputs: 48/48 (100.00%)
+
+  Few-shot examples used:
+    - inventarbuch-265.jpg
+    - inventarbuch-026.jpg
+================================================================================
+
+💾 Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20251024_215821/predictions.jsonl
+💾 Metrics saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20251024_215821/metrics.json
+
+📂 Output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/few_shot_20251024_215821
+
+✅ Few-shot inference complete!
+Finished at: Fri Oct 24 10:20:24 PM CEST 2025
+Exit status: 0
+=== JOB_STATISTICS ===
+=== current date     : Fri Oct 24 10:20:24 PM CEST 2025
+= Job-ID             : 1289435 on tinygpu
+= Job-Name           : few_inven
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 12:00:00
+= Elapsed runtime    : 00:22:43
+= Total RAM usage    : 10.2 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2025-10-24T21:57:24 / 2025-10-24T21:57:24 / 2025-10-24T21:57:25 / 2025-10-24T22:20:08
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           183.8G  1000.0G  1500.0G        N/A     833K   5,000K   7,500K        N/A    
+    /home/hpc             101.7G   104.9G   209.7G        N/A  29,853      500K   1,000K        N/A    
+    /home/vault           849.3G  1048.6G  2097.2G        N/A   4,524      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 3465001, 65 %, 38 %, 18280 MiB, 1321443 ms

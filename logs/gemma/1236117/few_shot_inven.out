@@ -1,0 +1,190 @@
+### Starting TaskPrologue of job 1236117 on tg072 at Wed Oct  8 07:19:34 PM CEST 2025
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Wed Oct  8 19:19:34 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.158.01             Driver Version: 570.158.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   41C    P0             29W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+GEMMA 3 FEW-SHOT INVENTORY OCR PROCESSING
+============================================================
+
+Loading test data...
+Loaded 48 test samples
+Loading few-shot examples...
+Using 3 few-shot examples
+Loading Gemma 3 4B model from Unsloth...
+Gemma 3 model loaded successfully!
+Creating few-shot messages with images...
+Created few-shot conversation with 7 messages
+
+Processing 48 test images with Gemma 3...
+------------------------------------------------------------
+Processing image 1/48: inventarbuch-022.jpg
+  Processed successfully. CER: 0.3534
+Processing image 2/48: inventarbuch-099.jpg
+  Processed successfully. CER: 0.2864
+Processing image 3/48: inventarbuch-245.jpg
+  Processed successfully. CER: 0.3592
+Processing image 4/48: inventarbuch-263.jpg
+  Processed successfully. CER: 0.1793
+Processing image 5/48: inventarbuch-033.jpg
+  Processed successfully. CER: 0.3857
+Processing image 6/48: inventarbuch-143.jpg
+  Processed successfully. CER: 0.1963
+Processing image 7/48: inventarbuch-244.jpg
+  Processed successfully. CER: 0.4727
+Processing image 8/48: inventarbuch-024.jpg
+  Processed successfully. CER: 0.0700
+Processing image 9/48: inventarbuch-141.jpg
+  Processed successfully. CER: 0.2242
+Processing image 10/48: inventarbuch-183.jpg
+  Processed successfully. CER: 0.4972
+Processing image 11/48: inventarbuch-191.jpg
+  Processed successfully. CER: 0.2750
+Processing image 12/48: inventarbuch-051.jpg
+  Processed successfully. CER: 0.4502
+Processing image 13/48: inventarbuch-203.jpg
+  Processed successfully. CER: 0.2060
+Processing image 14/48: inventarbuch-296.jpg
+  Processed successfully. CER: 0.2420
+Processing image 15/48: inventarbuch-302.jpg
+  Processed successfully. CER: 0.0968
+Processing image 16/48: inventarbuch-179.jpg
+  Processed successfully. CER: 0.3154
+Processing image 17/48: inventarbuch-114.jpg
+  Processed successfully. CER: 0.3383
+Processing image 18/48: inventarbuch-082.jpg
+  Processed successfully. CER: 0.3573
+Processing image 19/48: inventarbuch-287.jpg
+  Processed successfully. CER: 0.3489
+Processing image 20/48: inventarbuch-181.jpg
+  Processed successfully. CER: 0.2403
+Processing image 21/48: inventarbuch-299.jpg
+  Processed successfully. CER: 0.3358
+Processing image 22/48: inventarbuch-084.jpg
+  Processed successfully. CER: 0.5253
+Processing image 23/48: inventarbuch-004.jpg
+  Processed successfully. CER: 0.3262
+Processing image 24/48: inventarbuch-148.jpg
+  Processed successfully. CER: 0.1459
+Processing image 25/48: inventarbuch-238.jpg
+  Processed successfully. CER: 0.3368
+Processing image 26/48: inventarbuch-116.jpg
+  Processed successfully. CER: 0.1949
+Processing image 27/48: inventarbuch-223.jpg
+  Processed successfully. CER: 0.2567
+Processing image 28/48: inventarbuch-104.jpg
+  Processed successfully. CER: 0.3111
+Processing image 29/48: inventarbuch-015.jpg
+  Processed successfully. CER: 0.3251
+Processing image 30/48: inventarbuch-272.jpg
+  Processed successfully. CER: 0.2878
+Processing image 31/48: inventarbuch-124.jpg
+  Processed successfully. CER: 0.2273
+Processing image 32/48: inventarbuch-115.jpg
+  Processed successfully. CER: 0.2698
+Processing image 33/48: inventarbuch-049.jpg
+  Processed successfully. CER: 0.4862
+Processing image 34/48: inventarbuch-017.jpg
+  Processed successfully. CER: 0.3568
+Processing image 35/48: inventarbuch-018.jpg
+  Processed successfully. CER: 0.3008
+Processing image 36/48: inventarbuch-225.jpg
+  Processed successfully. CER: 0.3699
+Processing image 37/48: inventarbuch-046.jpg
+  Processed successfully. CER: 0.3402
+Processing image 38/48: inventarbuch-294.jpg
+  Processed successfully. CER: 0.1859
+Processing image 39/48: inventarbuch-054.jpg
+  Processed successfully. CER: 0.3874
+Processing image 40/48: inventarbuch-073.jpg
+  Processed successfully. CER: 0.3795
+Processing image 41/48: inventarbuch-118.jpg
+  Processed successfully. CER: 0.2477
+Processing image 42/48: inventarbuch-130.jpg
+  Processed successfully. CER: 0.2875
+Processing image 43/48: inventarbuch-146.jpg
+  Processed successfully. CER: 0.3384
+Processing image 44/48: inventarbuch-014.jpg
+  Processed successfully. CER: 0.4033
+Processing image 45/48: inventarbuch-059.jpg
+  Processed successfully. CER: 0.2607
+Processing image 46/48: inventarbuch-256.jpg
+  Processed successfully. CER: 0.2506
+Processing image 47/48: inventarbuch-260.jpg
+  Processed successfully. CER: 0.2515
+Processing image 48/48: inventarbuch-279.jpg
+  Processed successfully. CER: 0.3918
+
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/few_zero_inven/run_fewshot_20251008_195337
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/few_zero_inven/run_fewshot_20251008_195337/predictions_fewshot.jsonl
+
+============================================================
+GEMMA 3 FEW-SHOT CER EVALUATION RESULTS
+============================================================
+
+CER Statistics across 48 images:
+--------------------------------------------------
+Average CER: 0.3057 (30.57%)
+Minimum CER: 0.0700 (7.00%)
+Maximum CER: 0.5253 (52.53%)
+
+Weighted CER: 0.3113 (31.13%)
+Total characters: 33277
+Total errors: 10360
+Perfect matches: 0/48 (0.0%)
+
+Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/few_zero_inven/run_fewshot_20251008_195337/evaluation_summary_fewshot.json
+
+============================================================
+GEMMA 3 FEW-SHOT PROCESSING COMPLETE!
+============================================================
+Model: Gemma 3 4B (Unsloth)
+Method: Few-Shot Learning (3 training examples)
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/few_zero_inven/run_fewshot_20251008_195337
+Total images processed: 48
+Average CER on test set: 0.3057 (30.57%)
+============================================================
+
+Gemma-3 training completed at: Wed Oct  8 07:53:50 PM CEST 2025
+=== JOB_STATISTICS ===
+=== current date     : Wed Oct  8 07:53:50 PM CEST 2025
+= Job-ID             : 1236117 on tinygpu
+= Job-Name           : gemma_few_shot_inven
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 01:00:00
+= Elapsed runtime    : 00:34:18
+= Total RAM usage    : 5.9 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-10-08T19:12:43 / 2025-10-08T19:12:43 / 2025-10-08T19:19:07 / 2025-10-08T19:53:25
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              84.2G   104.9G   209.7G        N/A  29,380      500K   1,000K        N/A    
+    /home/woody           103.5G  1000.0G  1500.0G        N/A     450K   5,000K   7,500K        N/A    
+    /home/vault           932.6G  1048.6G  2097.2G        N/A   4,909      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 2322191, 33 %, 12 %, 16084 MiB, 1817114 ms

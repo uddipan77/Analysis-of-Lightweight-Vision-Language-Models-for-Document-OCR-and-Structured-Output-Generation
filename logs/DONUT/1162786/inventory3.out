@@ -1,0 +1,126 @@
+### Starting TaskPrologue of job 1162786 on tg072 at Thu Aug  7 02:57:42 PM CEST 2025
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Thu Aug  7 14:57:42 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.20             Driver Version: 570.133.20     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   35C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+===================================
+DONUT Fine-tuning Configuration:
+===================================
+Job ID: 1162786
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/DONUT/1162786
+Data Directory: /home/woody/iwi5/iwi5298h/json_inventory_images
+Image Directory: /home/woody/iwi5/iwi5298h/inventory_images
+Model Cache Directory: /home/vault/iwi5/iwi5298h/models/donut_cord
+Output Directory: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_cord_20250807_145744
+Num Epochs: 50
+Batch Size: 2
+Learning Rate: 1e-5
+Max Length: 512
+Prediction On: test
+Prediction Batch Size: 2
+Early Stopping Patience: 5
+Early Stopping Threshold: 0.00
+===================================
+[2025-08-07 14:58:04,390] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-08-07 14:58:07,462] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Using device: cuda
+All output will be saved in: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_20250807_145809
+Checking for model at: /home/vault/iwi5/iwi5298h/models/donut_cord
+Model already exists at /home/vault/iwi5/iwi5298h/models/donut_cord, loading from local cache...
+Loaded 205 samples from /home/woody/iwi5/iwi5298h/json_inventory_images/train.jsonl
+Loaded 44 samples from /home/woody/iwi5/iwi5298h/json_inventory_images/val.jsonl
+Loaded 45 samples from /home/woody/iwi5/iwi5298h/json_inventory_images/test.jsonl
+Starting training...
+Model selection based on: eval_cer_string (lower is better)
+{'loss': 6.0818, 'grad_norm': 10.543129920959473, 'learning_rate': 4.9000000000000005e-06, 'epoch': 0.49}
+{'loss': 3.6303, 'grad_norm': 5.194869518280029, 'learning_rate': 9.9e-06, 'epoch': 0.97}
+{'eval_loss': 2.613151788711548, 'eval_cer_string': 75.12125335845633, 'eval_cer_structured': 75.12125335845633, 'eval_runtime': 122.9434, 'eval_samples_per_second': 0.358, 'eval_steps_per_second': 0.179, 'epoch': 1.0}
+{'loss': 2.3719, 'grad_norm': 4.827713966369629, 'learning_rate': 9.997677180149737e-06, 'epoch': 1.46}
+{'loss': 1.9202, 'grad_norm': 6.81884241104126, 'learning_rate': 9.99052039791093e-06, 'epoch': 1.94}
+{'eval_loss': 1.8263198137283325, 'eval_cer_string': 38.20789280854182, 'eval_cer_structured': 38.20789280854182, 'eval_runtime': 80.8947, 'eval_samples_per_second': 0.544, 'eval_steps_per_second': 0.272, 'epoch': 2.0}
+{'loss': 1.7358, 'grad_norm': 4.561235427856445, 'learning_rate': 9.978535609494795e-06, 'epoch': 2.43}
+{'loss': 1.6013, 'grad_norm': 4.84877872467041, 'learning_rate': 9.961734409410098e-06, 'epoch': 2.91}
+{'eval_loss': 1.6406219005584717, 'eval_cer_string': 31.885271642415997, 'eval_cer_structured': 31.885271642415997, 'eval_runtime': 88.9269, 'eval_samples_per_second': 0.495, 'eval_steps_per_second': 0.247, 'epoch': 3.0}
+{'loss': 1.4214, 'grad_norm': 5.829941272735596, 'learning_rate': 9.940133051732834e-06, 'epoch': 3.4}
+{'loss': 1.4299, 'grad_norm': 4.045830249786377, 'learning_rate': 9.913752434381454e-06, 'epoch': 3.88}
+{'eval_loss': 1.5511447191238403, 'eval_cer_string': 30.943159216999895, 'eval_cer_structured': 30.943159216999895, 'eval_runtime': 87.3257, 'eval_samples_per_second': 0.504, 'eval_steps_per_second': 0.252, 'epoch': 4.0}
+{'loss': 1.2952, 'grad_norm': 4.3879618644714355, 'learning_rate': 9.88261807889948e-06, 'epoch': 4.37}
+{'loss': 1.2645, 'grad_norm': 4.353907585144043, 'learning_rate': 9.846760105765058e-06, 'epoch': 4.85}
+{'eval_loss': 1.5041884183883667, 'eval_cer_string': 32.13650162252695, 'eval_cer_structured': 32.13650162252695, 'eval_runtime': 88.135, 'eval_samples_per_second': 0.499, 'eval_steps_per_second': 0.25, 'epoch': 5.0}
+{'loss': 1.1297, 'grad_norm': 3.5809872150421143, 'learning_rate': 9.80621320525135e-06, 'epoch': 5.34}
+{'loss': 1.2059, 'grad_norm': 3.989511251449585, 'learning_rate': 9.761016603865918e-06, 'epoch': 5.83}
+{'eval_loss': 1.4745937585830688, 'eval_cer_string': 30.018493317980386, 'eval_cer_structured': 30.018493317980386, 'eval_runtime': 86.8436, 'eval_samples_per_second': 0.507, 'eval_steps_per_second': 0.253, 'epoch': 6.0}
+{'loss': 1.088, 'grad_norm': 3.5683183670043945, 'learning_rate': 9.71121402640163e-06, 'epoch': 6.31}
+{'loss': 1.071, 'grad_norm': 5.1411027908325195, 'learning_rate': 9.656853653635732e-06, 'epoch': 6.8}
+{'eval_loss': 1.4770197868347168, 'eval_cer_string': 33.93349384137618, 'eval_cer_structured': 33.93349384137618, 'eval_runtime': 84.0098, 'eval_samples_per_second': 0.524, 'eval_steps_per_second': 0.262, 'epoch': 7.0}
+{'loss': 1.0127, 'grad_norm': 2.65878963470459, 'learning_rate': 9.597988075718067e-06, 'epoch': 7.28}
+{'loss': 1.0119, 'grad_norm': 4.403274059295654, 'learning_rate': 9.534674241293496e-06, 'epoch': 7.77}
+{'eval_loss': 1.4867751598358154, 'eval_cer_string': 30.957116438117172, 'eval_cer_structured': 30.957116438117172, 'eval_runtime': 84.7499, 'eval_samples_per_second': 0.519, 'eval_steps_per_second': 0.26, 'epoch': 8.0}
+{'loss': 0.8839, 'grad_norm': 4.2410125732421875, 'learning_rate': 9.466973402407768e-06, 'epoch': 8.25}
+{'loss': 0.889, 'grad_norm': 4.852013111114502, 'learning_rate': 9.394951055250113e-06, 'epoch': 8.74}
+{'eval_loss': 1.494843602180481, 'eval_cer_string': 31.546809030322066, 'eval_cer_structured': 31.546809030322066, 'eval_runtime': 85.0615, 'eval_samples_per_second': 0.517, 'eval_steps_per_second': 0.259, 'epoch': 9.0}
+{'loss': 0.8676, 'grad_norm': 4.064080715179443, 'learning_rate': 9.318676876789918e-06, 'epoch': 9.22}
+{'loss': 0.7797, 'grad_norm': 5.398317337036133, 'learning_rate': 9.238224657368753e-06, 'epoch': 9.71}
+{'eval_loss': 1.514073133468628, 'eval_cer_string': 30.468613699012526, 'eval_cer_structured': 30.468613699012526, 'eval_runtime': 87.3608, 'eval_samples_per_second': 0.504, 'eval_steps_per_second': 0.252, 'epoch': 10.0}
+{'loss': 0.7589, 'grad_norm': 5.1016035079956055, 'learning_rate': 9.153672229312985e-06, 'epoch': 10.19}
+{'loss': 0.7753, 'grad_norm': 4.268559455871582, 'learning_rate': 9.065101391636022e-06, 'epoch': 10.68}
+{'eval_loss': 1.5642681121826172, 'eval_cer_string': 30.527931888760946, 'eval_cer_structured': 30.527931888760946, 'eval_runtime': 84.6166, 'eval_samples_per_second': 0.52, 'eval_steps_per_second': 0.26, 'epoch': 11.0}
+{'train_runtime': 2634.8826, 'train_samples_per_second': 3.89, 'train_steps_per_second': 1.955, 'train_loss': 1.5308746597141896, 'epoch': 11.0}
+Saving final model and processor...
+Model and processor saved.
+Generating predictions on test set...
+Saving 45 predictions to /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_20250807_145809/test_predictions.jsonl
+Predictions saved successfully!
+CER scores written to /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_20250807_145809/final_CER_scores.txt
+
+All outputs saved to: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_20250807_145809
+
+To view TensorBoard loss curves, run:
+  tensorboard --logdir /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_20250807_145809/tensorboard_logs
+===================================
+Training completed successfully!
+Output directory: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_cord_20250807_145744
+Log directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/DONUT/1162786
+Job completed at: Thu Aug  7 03:43:53 PM CEST 2025
+=== JOB_STATISTICS ===
+=== current date     : Thu Aug  7 03:43:53 PM CEST 2025
+= Job-ID             : 1162786 on tinygpu
+= Job-Name           : donut_inventory
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut3.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 15:00:00
+= Elapsed runtime    : 00:46:14
+= Total RAM usage    : 9.1 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-08-07T14:56:57 / 2025-08-07T14:56:57 / 2025-08-07T14:56:58 / 2025-08-07T15:43:12
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody            71.2G  1000.0G  1500.0G        N/A     238K   5,000K   7,500K        N/A    
+    /home/hpc              26.0G   104.9G   209.7G        N/A  31,940      500K   1,000K        N/A    
+    /home/vault           427.4G  1048.6G  2097.2G        N/A   1,317      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 2203601, 47 %, 21 %, 13916 MiB, 2748958 ms

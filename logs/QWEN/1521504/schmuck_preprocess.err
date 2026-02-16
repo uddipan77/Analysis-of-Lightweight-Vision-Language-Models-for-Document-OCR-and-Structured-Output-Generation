@@ -1,0 +1,13 @@
+Unsloth: KwargsForCausalLM cannot be inherited from TransformersKwargs since it's of type = <class 'type'>
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [01:00<04:03, 60.94s/it]Loading checkpoint shards:  40%|████      | 2/5 [02:01<03:02, 60.77s/it]Loading checkpoint shards:  60%|██████    | 3/5 [02:46<01:46, 53.37s/it]Loading checkpoint shards:  80%|████████  | 4/5 [03:29<00:49, 49.46s/it]Loading checkpoint shards: 100%|██████████| 5/5 [03:40<00:00, 35.51s/it]Loading checkpoint shards: 100%|██████████| 5/5 [03:40<00:00, 44.08s/it]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/schmuck_preprocess.py", line 1008, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/schmuck_preprocess.py", line 963, in main
+    trainer = finetuner.train_model(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/schmuck_preprocess.py", line 659, in train_model
+    EarlyStoppingCallback(
+    ^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'EarlyStoppingCallback' is not defined

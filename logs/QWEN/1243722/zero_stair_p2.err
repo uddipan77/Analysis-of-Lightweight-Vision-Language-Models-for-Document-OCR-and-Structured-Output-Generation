@@ -1,0 +1,4 @@
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/inference/zero_stair_p2.py", line 74
+    if s.startswith("```
+                    ^
+SyntaxError: unterminated string literal (detected at line 74)

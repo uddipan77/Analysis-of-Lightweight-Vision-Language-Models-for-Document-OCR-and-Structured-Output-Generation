@@ -1,0 +1,44 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Using EarlyStoppingCallback without load_best_model_at_end=True. Once training is finished, the best model will not be loaded automatically.
+  0%|          | 0/520 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/finetune_with_image_text/schmuck.py", line 662, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/finetune_with_image_text/schmuck.py", line 649, in main
+    trainer_obj.train(train_data, val_data, images_dir)
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/finetune_with_image_text/schmuck.py", line 469, in train
+    trainer.train()
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/trainer.py", line 2328, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/trainer.py", line 2623, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches, args.device)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/transformers/trainer.py", line 5581, in get_batch_samples
+    batch_samples.append(next(epoch_iterator))
+                         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/accelerate/data_loader.py", line 567, in __iter__
+    current_batch = next(dataloader_iter)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/global_env1/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/florence2/finetune_with_image_text/schmuck.py", line 215, in __getitem__
+    inputs = self.processor(
+             ^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/processing_florence2.py", line 268, in __call__
+    text = self._construct_prompts(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/.cache/huggingface/modules/transformers_modules/microsoft/Florence-2-large/21a599d414c4d928c9032694c424fb94458e3594/processing_florence2.py", line 147, in _construct_prompts
+    assert _text == task_token, f"Task token {task_token} should be the only token in the text."
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError: Task token <OCR> should be the only token in the text.
+  0%|          | 0/520 [00:00<?, ?it/s]

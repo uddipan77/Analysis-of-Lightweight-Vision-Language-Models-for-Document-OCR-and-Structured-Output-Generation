@@ -1,0 +1,215 @@
+### Starting TaskPrologue of job 1462153 on tg073 at Fri Dec 12 01:34:54 PM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Fri Dec 12 13:34:54 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   34C    P0             25W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Fri Dec 12 01:34:55 PM CET 2025
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING - MULTI-DATASET (INVENTORY + SCHMUCK + STAIRCASE)
+Single base model, multi-stage training, 4-bit QLoRA, CER-based selection
+================================================================================
+
+🆕 Starting NEW run, directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/general/run_20251212_133535_multi_dataset
+
+📂 Configuration:
+   • Output base directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/general
+   • Run directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/general/run_20251212_133535_multi_dataset
+   • Total epochs: 16 (Stage1: 5, Stage2: 11)
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate (base): 0.0002
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+   • LoRA r=16, alpha=32, dropout=0.1
+
+🔧 Anti-Repetition:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Processor loaded
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.27 GB, Reserved: 2.37 GB
+
+📝 Preparing model for LoRA training...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+
+📊 Loading datasets for ALL THREE domains...
+
+   📁 INVENTORY train/val:
+   [inventory] Loaded 213 valid samples (out of 213 total)
+   [inventory] Data augmentation ENABLED
+   [inventory] Loaded 47 valid samples (out of 47 total)
+
+   📁 SCHMUCK train/val:
+   [schmuck] Loaded 413 valid samples (out of 413 total)
+   [schmuck] Data augmentation ENABLED
+   [schmuck] Loaded 88 valid samples (out of 88 total)
+
+   📁 STAIRCASE train/val:
+   [staircase] Loaded 115 valid samples (out of 115 total)
+   [staircase] Data augmentation ENABLED
+   [staircase] Loaded 25 valid samples (out of 25 total)
+
+================================================================================
+GPU INFORMATION
+================================================================================
+   GPU: Tesla V100-PCIE-32GB
+   Max memory: 31.733 GB
+================================================================================
+
+
+================================================================================
+STAGE 1: WARM-UP TRAINING (no eval, teacher forcing, all datasets)
+================================================================================
+🚀 Starting Stage 1 training...
+
+{'loss': 11.2796, 'grad_norm': 2.8006649017333984, 'learning_rate': 0.00026086956521739134, 'epoch': 0.22}
+{'loss': 8.3928, 'grad_norm': 5.347254276275635, 'learning_rate': 0.0005217391304347827, 'epoch': 0.43}
+{'loss': 8.1535, 'grad_norm': 2.3508107662200928, 'learning_rate': 0.0005983086328672076, 'epoch': 0.65}
+{'loss': 6.3942, 'grad_norm': 4.897589206695557, 'learning_rate': 0.0005900702642778619, 'epoch': 0.86}
+{'loss': 6.2045, 'grad_norm': 2.051582098007202, 'learning_rate': 0.0005751633904516359, 'epoch': 1.08}
+{'loss': 5.2312, 'grad_norm': 2.8825316429138184, 'learning_rate': 0.0005539307096186403, 'epoch': 1.3}
+{'loss': 5.3807, 'grad_norm': 5.533828258514404, 'learning_rate': 0.0005268603457293956, 'epoch': 1.51}
+{'loss': 5.0609, 'grad_norm': 4.170734405517578, 'learning_rate': 0.0004945746268388268, 'epoch': 1.73}
+{'loss': 4.3791, 'grad_norm': 3.019688606262207, 'learning_rate': 0.00045781577823512135, 'epoch': 1.94}
+{'loss': 4.0092, 'grad_norm': 4.439753532409668, 'learning_rate': 0.00041742885921805187, 'epoch': 2.16}
+{'loss': 3.0299, 'grad_norm': 2.444587469100952, 'learning_rate': 0.00037434233579787003, 'epoch': 2.38}
+{'loss': 3.4439, 'grad_norm': 4.032957553863525, 'learning_rate': 0.00032954673593435063, 'epoch': 2.59}
+{'loss': 2.9701, 'grad_norm': 4.014979839324951, 'learning_rate': 0.00028407187801657524, 'epoch': 2.81}
+{'loss': 2.8628, 'grad_norm': 3.2249622344970703, 'learning_rate': 0.00023896319608420993, 'epoch': 3.02}
+{'loss': 2.1555, 'grad_norm': 2.9674153327941895, 'learning_rate': 0.0001952577060562895, 'epoch': 3.24}
+{'loss': 1.7351, 'grad_norm': 3.173996925354004, 'learning_rate': 0.00015396016548649535, 'epoch': 3.45}
+{'loss': 1.5248, 'grad_norm': 4.154141426086426, 'learning_rate': 0.00011601997491488507, 'epoch': 3.67}
+{'loss': 1.6538, 'grad_norm': 3.147594928741455, 'learning_rate': 8.230935183726028e-05, 'epoch': 3.89}
+{'loss': 1.3891, 'grad_norm': 3.4805221557617188, 'learning_rate': 5.3603279056809346e-05, 'epoch': 4.1}
+{'loss': 0.8527, 'grad_norm': 2.959033727645874, 'learning_rate': 3.05616883908912e-05, 'epoch': 4.32}
+{'loss': 0.9251, 'grad_norm': 2.8719871044158936, 'learning_rate': 1.3714289316636332e-05, 'epoch': 4.53}
+{'loss': 1.4219, 'grad_norm': 3.765498399734497, 'learning_rate': 3.44839133381093e-06, 'epoch': 4.75}
+{'loss': 0.9245, 'grad_norm': 2.8923661708831787, 'learning_rate': 0.0, 'epoch': 4.97}
+{'train_runtime': 37942.8588, 'train_samples_per_second': 0.098, 'train_steps_per_second': 0.006, 'train_loss': 3.8858623711959175, 'epoch': 4.97}
+
+✅ Stage 1 (warm-up) completed!
+
+
+================================================================================
+STAGE 2: MAIN TRAINING (CER-based best model across ALL datasets)
+================================================================================
+🚀 Starting Stage 2 training...
+
+{'loss': 1.0256, 'grad_norm': 3.83156156539917, 'learning_rate': 3.9215686274509805e-05, 'epoch': 0.22}
+{'loss': 0.9159, 'grad_norm': 4.090962886810303, 'learning_rate': 7.843137254901961e-05, 'epoch': 0.43}
+{'loss': 0.912, 'grad_norm': 2.4822092056274414, 'learning_rate': 0.00011764705882352942, 'epoch': 0.65}
+{'loss': 0.9383, 'grad_norm': 4.686310291290283, 'learning_rate': 0.00015686274509803922, 'epoch': 0.86}
+{'eval_loss': 0.5201407670974731, 'eval_runtime': 611.6713, 'eval_samples_per_second': 0.262, 'eval_steps_per_second': 0.262, 'epoch': 0.99}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 0)
+================================================================================
+
+--- Dataset: inventory ---
+   [inventory] Validating 1/30: inventarbuch-064.jpg   [inventory] Validating 2/30: inventarbuch-194.jpg   [inventory] Validating 3/30: inventarbuch-142.jpg   [inventory] Validating 4/30: inventarbuch-045.jpg   [inventory] Validating 5/30: inventarbuch-232.jpg   [inventory] Validating 6/30: inventarbuch-161.jpg   [inventory] Validating 7/30: inventarbuch-020.jpg   [inventory] Validating 8/30: inventarbuch-171.jpg   [inventory] Validating 9/30: inventarbuch-283.jpg   [inventory] Validating 10/30: inventarbuch-187.jpg   [inventory] Validating 11/30: inventarbuch-070.jpg   [inventory] Validating 12/30: inventarbuch-178.jpg   [inventory] Validating 13/30: inventarbuch-055.jpg   [inventory] Validating 14/30: inventarbuch-093.jpg   [inventory] Validating 15/30: inventarbuch-097.jpg   [inventory] Validating 16/30: inventarbuch-043.jpg   [inventory] Validating 17/30: inventarbuch-096.jpg   [inventory] Validating 18/30: inventarbuch-222.jpg   [inventory] Validating 19/30: inventarbuch-168.jpg   [inventory] Validating 20/30: inventarbuch-120.jpg   [inventory] Validating 21/30: inventarbuch-303.jpg   [inventory] Validating 22/30: inventarbuch-100.jpg   [inventory] Validating 23/30: inventarbuch-027.jpg   [inventory] Validating 24/30: inventarbuch-230.jpg   [inventory] Validating 25/30: inventarbuch-061.jpg   [inventory] Validating 26/30: inventarbuch-227.jpg   [inventory] Validating 27/30: inventarbuch-266.jpg   [inventory] Validating 28/30: inventarbuch-076.jpg   [inventory] Validating 29/30: inventarbuch-206.jpg   [inventory] Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER [inventory] (Epoch 0): 0.3034 (30.34%)
+
+--- Dataset: schmuck ---
+   [schmuck] Validating 1/30: SCH_1941.jpg   [schmuck] Validating 2/30: SCH_3097.jpg   [schmuck] Validating 3/30: SCH_3217.jpg   [schmuck] Validating 4/30: SCH_2891_185.jpg   [schmuck] Validating 5/30: SCH_1931.jpg   [schmuck] Validating 6/30: SCH_2891_139.jpg   [schmuck] Validating 7/30: SCH_2891_303.jpg   [schmuck] Validating 8/30: SCH_3082_recto.jpg   [schmuck] Validating 9/30: SCH_3192_15.jpg   [schmuck] Validating 10/30: SCH_2969.jpg   [schmuck] Validating 11/30: SCH_2891_24_a.jpg   [schmuck] Validating 12/30: SCH_3028.jpg   [schmuck] Validating 13/30: SCH_3192_34.jpg   [schmuck] Validating 14/30: SCH_2891_194_195.jpg   [schmuck] Validating 15/30: SCH_3138.jpg   [schmuck] Validating 16/30: SCH_2891_216.jpg   [schmuck] Validating 17/30: SCH_3201.jpg   [schmuck] Validating 18/30: SCH_2891_208.jpg   [schmuck] Validating 19/30: SCH_2079.jpg   [schmuck] Validating 20/30: SCH_2891_122.jpg   [schmuck] Validating 21/30: SCH_3192_24.jpg   [schmuck] Validating 22/30: SCH_2891_294.jpg   [schmuck] Validating 23/30: SCH_2891_119.jpg   [schmuck] Validating 24/30: SCH_3049.jpg   [schmuck] Validating 25/30: SCH_2891_269.jpg   [schmuck] Validating 26/30: SCH_2990.jpg   [schmuck] Validating 27/30: SCH_1933.jpg   [schmuck] Validating 28/30: SCH_2891_71.jpg   [schmuck] Validating 29/30: SCH_3121.jpg   [schmuck] Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER [schmuck] (Epoch 0): 0.0025 (0.25%)
+
+--- Dataset: staircase ---
+   [staircase] Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   [staircase] Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   [staircase] Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   [staircase] Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   [staircase] Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   [staircase] Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   [staircase] Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   [staircase] Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   [staircase] Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   [staircase] Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   [staircase] Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   [staircase] Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   [staircase] Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   [staircase] Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   [staircase] Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   [staircase] Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   [staircase] Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   [staircase] Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   [staircase] Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   [staircase] Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   [staircase] Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   [staircase] Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   [staircase] Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   [staircase] Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   [staircase] Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER [staircase] (Epoch 0): 0.0705 (7.05%)
+
+--------------------------------------------------------------------------------
+🌐 Global Validation CER (all datasets combined): 0.1287 (12.87%)
+   • inventory: 0.3034 (30.34%)
+   • schmuck: 0.0025 (0.25%)
+   • staircase: 0.0705 (7.05%)
+--------------------------------------------------------------------------------
+   🎯 NEW BEST GLOBAL CER: 0.1287 (improved by inf)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/general/run_20251212_133535_multi_dataset/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 0.7446, 'grad_norm': 1.1588644981384277, 'learning_rate': 0.000196078431372549, 'epoch': 1.08}
+{'loss': 0.5611, 'grad_norm': 2.7083213329315186, 'learning_rate': 0.00019980698448650804, 'epoch': 1.3}
+{'loss': 0.6759, 'grad_norm': 8.068887710571289, 'learning_rate': 0.0001991407269051487, 'epoch': 1.51}
+{'loss': 0.6777, 'grad_norm': 5.497401237487793, 'learning_rate': 0.00019800201861164664, 'epoch': 1.73}
+{'loss': 0.6616, 'grad_norm': 2.701658010482788, 'learning_rate': 0.00019639628606958533, 'epoch': 1.94}
+{'eval_loss': 0.5497891902923584, 'eval_runtime': 614.0213, 'eval_samples_per_second': 0.261, 'eval_steps_per_second': 0.261, 'epoch': 1.99}
+
+================================================================================
+🔍 MULTI-DATASET CER VALIDATION (Epoch 1)
+================================================================================
+
+--- Dataset: inventory ---
+   [inventory] Validating 1/30: inventarbuch-064.jpg   [inventory] Validating 2/30: inventarbuch-194.jpg   [inventory] Validating 3/30: inventarbuch-142.jpg   [inventory] Validating 4/30: inventarbuch-045.jpg   [inventory] Validating 5/30: inventarbuch-232.jpg   [inventory] Validating 6/30: inventarbuch-161.jpg   [inventory] Validating 7/30: inventarbuch-020.jpg   [inventory] Validating 8/30: inventarbuch-171.jpg   [inventory] Validating 9/30: inventarbuch-283.jpg   [inventory] Validating 10/30: inventarbuch-187.jpg   [inventory] Validating 11/30: inventarbuch-070.jpg   [inventory] Validating 12/30: inventarbuch-178.jpg   [inventory] Validating 13/30: inventarbuch-055.jpg   [inventory] Validating 14/30: inventarbuch-093.jpg   [inventory] Validating 15/30: inventarbuch-097.jpg   [inventory] Validating 16/30: inventarbuch-043.jpg   [inventory] Validating 17/30: inventarbuch-096.jpg   [inventory] Validating 18/30: inventarbuch-222.jpg   [inventory] Validating 19/30: inventarbuch-168.jpg   [inventory] Validating 20/30: inventarbuch-120.jpg   [inventory] Validating 21/30: inventarbuch-303.jpg   [inventory] Validating 22/30: inventarbuch-100.jpg   [inventory] Validating 23/30: inventarbuch-027.jpg   [inventory] Validating 24/30: inventarbuch-230.jpg   [inventory] Validating 25/30: inventarbuch-061.jpg   [inventory] Validating 26/30: inventarbuch-227.jpg   [inventory] Validating 27/30: inventarbuch-266.jpg   [inventory] Validating 28/30: inventarbuch-076.jpg   [inventory] Validating 29/30: inventarbuch-206.jpg   [inventory] Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER [inventory] (Epoch 1): 0.3184 (31.84%)
+
+--- Dataset: schmuck ---
+   [schmuck] Validating 1/30: SCH_1941.jpg   [schmuck] Validating 2/30: SCH_3097.jpg   [schmuck] Validating 3/30: SCH_3217.jpg   [schmuck] Validating 4/30: SCH_2891_185.jpg   [schmuck] Validating 5/30: SCH_1931.jpg   [schmuck] Validating 6/30: SCH_2891_139.jpg   [schmuck] Validating 7/30: SCH_2891_303.jpg   [schmuck] Validating 8/30: SCH_3082_recto.jpg   [schmuck] Validating 9/30: SCH_3192_15.jpg   [schmuck] Validating 10/30: SCH_2969.jpg   [schmuck] Validating 11/30: SCH_2891_24_a.jpg   [schmuck] Validating 12/30: SCH_3028.jpg   [schmuck] Validating 13/30: SCH_3192_34.jpg   [schmuck] Validating 14/30: SCH_2891_194_195.jpg   [schmuck] Validating 15/30: SCH_3138.jpg   [schmuck] Validating 16/30: SCH_2891_216.jpg   [schmuck] Validating 17/30: SCH_3201.jpg   [schmuck] Validating 18/30: SCH_2891_208.jpg   [schmuck] Validating 19/30: SCH_2079.jpg   [schmuck] Validating 20/30: SCH_2891_122.jpg   [schmuck] Validating 21/30: SCH_3192_24.jpg   [schmuck] Validating 22/30: SCH_2891_294.jpg   [schmuck] Validating 23/30: SCH_2891_119.jpg   [schmuck] Validating 24/30: SCH_3049.jpg   [schmuck] Validating 25/30: SCH_2891_269.jpg   [schmuck] Validating 26/30: SCH_2990.jpg   [schmuck] Validating 27/30: SCH_1933.jpg   [schmuck] Validating 28/30: SCH_2891_71.jpg   [schmuck] Validating 29/30: SCH_3121.jpg   [schmuck] Validating 30/30: SCH_2891_61.jpg
+   ✅ Validation CER [schmuck] (Epoch 1): 0.0024 (0.24%)
+
+--- Dataset: staircase ---
+   [staircase] Validating 1/25: FMIS_FormblätterMielke_gefüllt (150).jpg   [staircase] Validating 2/25: FMIS_FormblätterMielke_gefüllt (110).jpg   [staircase] Validating 3/25: FMIS_FormblätterMielke_gefüllt (156).jpg   [staircase] Validating 4/25: FMIS_FormblätterMielke_gefüllt (82).jpg   [staircase] Validating 5/25: FMIS_FormblätterMielke_gefüllt (93).jpg   [staircase] Validating 6/25: FMIS_FormblätterMielke_gefüllt (74).jpg   [staircase] Validating 7/25: FMIS_FormblätterMielke_gefüllt (80).jpg   [staircase] Validating 8/25: FMIS_FormblätterMielke_gefüllt (118).jpg   [staircase] Validating 9/25: FMIS_FormblätterMielke_gefüllt (91).jpg   [staircase] Validating 10/25: FMIS_FormblätterMielke_gefüllt (147).jpg   [staircase] Validating 11/25: FMIS_FormblätterMielke_gefüllt (86).jpg   [staircase] Validating 12/25: FMIS_FormblätterMielke_gefüllt (72).jpg   [staircase] Validating 13/25: FMIS_FormblätterMielke_gefüllt (119).jpg   [staircase] Validating 14/25: FMIS_FormblätterMielke_gefüllt (1).jpg   [staircase] Validating 15/25: FMIS_FormblätterMielke_gefüllt (98).jpg   [staircase] Validating 16/25: FMIS_FormblätterMielke_gefüllt (90).jpg   [staircase] Validating 17/25: FMIS_FormblätterMielke_gefüllt (2).jpg   [staircase] Validating 18/25: FMIS_FormblätterMielke_gefüllt (96).jpg   [staircase] Validating 19/25: FMIS_FormblätterMielke_gefüllt (162).jpg   [staircase] Validating 20/25: FMIS_FormblätterMielke_gefüllt (9).jpg   [staircase] Validating 21/25: FMIS_FormblätterMielke_gefüllt (61).jpg   [staircase] Validating 22/25: FMIS_FormblätterMielke_gefüllt (50).jpg   [staircase] Validating 23/25: FMIS_FormblätterMielke_gefüllt (63).jpg   [staircase] Validating 24/25: FMIS_FormblätterMielke_gefüllt (127).jpg   [staircase] Validating 25/25: FMIS_FormblätterMielke_gefüllt (39).jpg
+   ✅ Validation CER [staircase] (Epoch 1): 0.0523 (5.23%)
+
+--------------------------------------------------------------------------------
+🌐 Global Validation CER (all datasets combined): 0.1286 (12.86%)
+   • inventory: 0.3184 (31.84%)
+   • schmuck: 0.0024 (0.24%)
+   • staircase: 0.0523 (5.23%)
+--------------------------------------------------------------------------------
+   🎯 NEW BEST GLOBAL CER: 0.1286 (improved by 0.0000)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/general/run_20251212_133535_multi_dataset/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 0.4349, 'grad_norm': 4.97210168838501, 'learning_rate': 0.0001943311813257743, 'epoch': 2.16}
+{'loss': 0.2901, 'grad_norm': 1.9261785745620728, 'learning_rate': 0.0001918165455447614, 'epoch': 2.38}
+{'loss': 0.3864, 'grad_norm': 2.599243402481079, 'learning_rate': 0.00018886436211120193, 'epoch': 2.59}
+{'loss': 0.3926, 'grad_norm': 3.9185476303100586, 'learning_rate': 0.0001854886995235738, 'epoch': 2.81}
+=== JOB_STATISTICS ===
+=== current date     : Sat Dec 13 01:35:03 PM CET 2025
+= Job-ID             : 1462153 on tinygpu
+= Job-Name           : phi_multidataset
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:08
+= Total RAM usage    : 10.6 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2025-12-10T12:05:00 / 2025-12-10T12:05:00 / 2025-12-12T13:34:53 / 2025-12-13T13:35:01
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/hpc              88.1G   104.9G   209.7G        N/A  28,639      500K   1,000K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 90173, 83 %, 30 %, 11062 MiB, 86375067 ms

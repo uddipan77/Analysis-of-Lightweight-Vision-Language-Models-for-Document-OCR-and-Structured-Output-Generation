@@ -1,0 +1,9 @@
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/pydantic/_internal/_fields.py:198: UserWarning: Field name "json" in "PredictionResponse" shadows an attribute in parent "BaseModel"
+  warnings.warn(
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr_backup/lib/python3.10/site-packages/pydantic/_internal/_fields.py:198: UserWarning: Field name "json" in "BatchPredictionItem" shadows an attribute in parent "BaseModel"
+  warnings.warn(
+INFO:     Started server process [1882958]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+slurmstepd: error: *** JOB 1461575 ON tg074 CANCELLED AT 2025-12-10T00:43:39 DUE TO TIME LIMIT ***

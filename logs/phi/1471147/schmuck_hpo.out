@@ -1,0 +1,403 @@
+### Starting TaskPrologue of job 1471147 on tg073 at Fri Dec 19 09:24:42 PM CET 2025
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Fri Dec 19 21:24:42 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   29C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Fri Dec 19 09:24:44 PM CET 2025
+   ✅ Processor loaded
+
+📊 Loading SCHMUCK datasets...
+   📁 Training dataset:
+   📊 Loaded 413 valid samples (out of 413 total)
+   📁 Validation dataset (for length / sanity check):
+   📊 Loaded 88 valid samples (out of 88 total)
+   📊 Raw validation samples for CER computation: 88
+
+================================================================================
+🔎 Starting / Resuming Optuna HPO (Phi-3.5-Vision, SCHMUCK, FAST MODE)
+================================================================================
+   • Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+   • Study name: phi_schmuck
+   • Target total trials: 30
+   • Run directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_schmuck/run_20251219_212458
+   • Completed trials so far: 0
+   • Remaining trials to run: 30
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - SCHMUCK DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_schmuck/run_20251219_212458/trials/trial_1
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00010894653829887865
+   • Weight decay: 0.09507143064099162
+   • LoRA r=8, alpha=32, dropout=0.052058449429580246
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.27 GB, Reserved: 2.37 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 12,582,912 / 4,159,204,352 (0.30%)
+🚀 Starting QLoRA training on SCHMUCK dataset (HPO trial)...
+
+================================================================================
+{'loss': 3.3644, 'grad_norm': 2.401470899581909, 'learning_rate': 5.3144652828721296e-05, 'epoch': 0.39}
+{'loss': 1.3857, 'grad_norm': 1.3607609272003174, 'learning_rate': 0.00010628930565744259, 'epoch': 0.77}
+{'loss': 0.7266, 'grad_norm': 2.2847394943237305, 'learning_rate': 0.00010822763465322797, 'epoch': 1.16}
+{'loss': 0.4997, 'grad_norm': 2.220660448074341, 'learning_rate': 0.00010593898829775509, 'epoch': 1.55}
+{'loss': 0.488, 'grad_norm': 1.9083143472671509, 'learning_rate': 0.00010214552177945636, 'epoch': 1.94}
+{'loss': 0.3128, 'grad_norm': 2.1713755130767822, 'learning_rate': 9.69581532978286e-05, 'epoch': 2.32}
+{'loss': 0.2575, 'grad_norm': 1.884153962135315, 'learning_rate': 9.052855773106918e-05, 'epoch': 2.71}
+{'loss': 0.1908, 'grad_norm': 1.0225821733474731, 'learning_rate': 8.304473177305104e-05, 'epoch': 3.1}
+{'loss': 0.1111, 'grad_norm': 1.6536595821380615, 'learning_rate': 7.472549704684815e-05, 'epoch': 3.49}
+{'loss': 0.1084, 'grad_norm': 2.037959337234497, 'learning_rate': 6.581410191977068e-05, 'epoch': 3.87}
+{'loss': 0.0589, 'grad_norm': 3.0684866905212402, 'learning_rate': 5.65711090981803e-05, 'epoch': 4.26}
+{'loss': 0.0499, 'grad_norm': 1.302027702331543, 'learning_rate': 4.72667769636358e-05, 'epoch': 4.65}
+{'loss': 0.0421, 'grad_norm': 1.461206316947937, 'learning_rate': 3.8173157414554104e-05, 'epoch': 5.04}
+{'loss': 0.0161, 'grad_norm': 0.673467218875885, 'learning_rate': 2.9556141266743908e-05, 'epoch': 5.42}
+{'loss': 0.0147, 'grad_norm': 0.1712731420993805, 'learning_rate': 2.1667683799509655e-05, 'epoch': 5.81}
+{'loss': 0.0137, 'grad_norm': 0.24155285954475403, 'learning_rate': 1.4738437766698608e-05, 'epoch': 6.2}
+{'loss': 0.007, 'grad_norm': 0.22490361332893372, 'learning_rate': 8.971009278084676e-06, 'epoch': 6.59}
+{'loss': 0.0062, 'grad_norm': 0.18829885125160217, 'learning_rate': 4.534033744208042e-06, 'epoch': 6.97}
+{'loss': 0.004, 'grad_norm': 0.1505787968635559, 'learning_rate': 1.557245099731114e-06, 'epoch': 7.36}
+{'loss': 0.0044, 'grad_norm': 0.16199837625026703, 'learning_rate': 1.276824776303744e-07, 'epoch': 7.75}
+{'train_runtime': 15698.035, 'train_samples_per_second': 0.21, 'train_steps_per_second': 0.026, 'train_loss': 0.37566345156736525, 'epoch': 7.9}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON SCHMUCK VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: SCH_3195_2.jpg   Evaluating 2/20: SCH_3138.jpg   Evaluating 3/20: SCH_2891_185.jpg   Evaluating 4/20: SCH_3195_3.jpg   Evaluating 5/20: SCH_3164.jpg   Evaluating 6/20: SCH_3121.jpg   Evaluating 7/20: SCH_2891_208.jpg   Evaluating 8/20: SCH_2891_194_195.jpg   Evaluating 9/20: SCH_2989.jpg   Evaluating 10/20: SCH_2891_42.jpg   Evaluating 11/20: SCH_3028.jpg   Evaluating 12/20: SCH_3195_1.jpg   Evaluating 13/20: SCH_3137_b.jpg   Evaluating 14/20: SCH_1931.jpg   Evaluating 15/20: SCH_2891_71.jpg   Evaluating 16/20: SCH_2891_61.jpg   Evaluating 17/20: SCH_2891_101.jpg   Evaluating 18/20: SCH_2891_159.jpg   Evaluating 19/20: SCH_3146.jpg   Evaluating 20/20: SCH_2990.jpg
+   ✅ Validation CER (HPO objective): 0.0189 (1.89%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - SCHMUCK DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_schmuck/run_20251219_212458/trials/trial_2
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 7.775553771054393e-05
+   • Weight decay: 0.018182496720710064
+   • LoRA r=24, alpha=32, dropout=0.08663618432936918
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on SCHMUCK dataset (HPO trial)...
+
+================================================================================
+{'loss': 6.1893, 'grad_norm': 1.8544803857803345, 'learning_rate': 7.775553771054393e-05, 'epoch': 0.77}
+{'loss': 2.1915, 'grad_norm': 1.929447889328003, 'learning_rate': 7.541092136119124e-05, 'epoch': 1.55}
+{'loss': 1.3642, 'grad_norm': 1.254059076309204, 'learning_rate': 6.865986764771712e-05, 'epoch': 2.32}
+{'loss': 0.8969, 'grad_norm': 1.3948856592178345, 'learning_rate': 5.831665328290794e-05, 'epoch': 3.1}
+{'loss': 0.6092, 'grad_norm': 1.9244130849838257, 'learning_rate': 4.5628822568746086e-05, 'epoch': 3.87}
+{'loss': 0.4172, 'grad_norm': 1.8589560985565186, 'learning_rate': 3.212671514179785e-05, 'epoch': 4.65}
+{'loss': 0.2933, 'grad_norm': 1.616514801979065, 'learning_rate': 1.9438884427635992e-05, 'epoch': 5.42}
+{'loss': 0.2222, 'grad_norm': 1.402435064315796, 'learning_rate': 9.09567006282681e-06, 'epoch': 6.2}
+{'loss': 0.1859, 'grad_norm': 0.8953477144241333, 'learning_rate': 2.3446163493526896e-06, 'epoch': 6.97}
+{'loss': 0.1528, 'grad_norm': 0.9497730135917664, 'learning_rate': 0.0, 'epoch': 7.75}
+{'train_runtime': 15456.9984, 'train_samples_per_second': 0.214, 'train_steps_per_second': 0.013, 'train_loss': 1.252232048511505, 'epoch': 7.75}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON SCHMUCK VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: SCH_3195_2.jpg   Evaluating 2/20: SCH_3138.jpg   Evaluating 3/20: SCH_2891_185.jpg   Evaluating 4/20: SCH_3195_3.jpg   Evaluating 5/20: SCH_3164.jpg   Evaluating 6/20: SCH_3121.jpg   Evaluating 7/20: SCH_2891_208.jpg   Evaluating 8/20: SCH_2891_194_195.jpg   Evaluating 9/20: SCH_2989.jpg   Evaluating 10/20: SCH_2891_42.jpg   Evaluating 11/20: SCH_3028.jpg   Evaluating 12/20: SCH_3195_1.jpg   Evaluating 13/20: SCH_3137_b.jpg   Evaluating 14/20: SCH_1931.jpg   Evaluating 15/20: SCH_2891_71.jpg   Evaluating 16/20: SCH_2891_61.jpg   Evaluating 17/20: SCH_2891_101.jpg   Evaluating 18/20: SCH_2891_159.jpg   Evaluating 19/20: SCH_3146.jpg   Evaluating 20/20: SCH_2990.jpg
+   ✅ Validation CER (HPO objective): 0.0189 (1.89%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - SCHMUCK DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_schmuck/run_20251219_212458/trials/trial_3
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 7.57344363711383e-05
+   • Weight decay: 0.05142344384136116
+   • LoRA r=24, alpha=48, dropout=0.08046137691733707
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on SCHMUCK dataset (HPO trial)...
+
+================================================================================
+{'loss': 5.8133, 'grad_norm': 1.875941276550293, 'learning_rate': 7.57344363711383e-05, 'epoch': 0.77}
+{'loss': 1.9125, 'grad_norm': 2.4635050296783447, 'learning_rate': 7.345076368423843e-05, 'epoch': 1.55}
+{'loss': 1.1903, 'grad_norm': 1.5846308469772339, 'learning_rate': 6.68751902529983e-05, 'epoch': 2.32}
+{'loss': 0.7454, 'grad_norm': 1.6597598791122437, 'learning_rate': 5.680082727835372e-05, 'epoch': 3.1}
+{'loss': 0.4791, 'grad_norm': 2.4835445880889893, 'learning_rate': 4.444279161680928e-05, 'epoch': 3.87}
+{'loss': 0.293, 'grad_norm': 2.2095530033111572, 'learning_rate': 3.1291644754329024e-05, 'epoch': 4.65}
+{'loss': 0.1827, 'grad_norm': 1.3837262392044067, 'learning_rate': 1.893360909278458e-05, 'epoch': 5.42}
+{'loss': 0.1231, 'grad_norm': 1.3502593040466309, 'learning_rate': 8.859246118139997e-06, 'epoch': 6.2}
+{'loss': 0.09, 'grad_norm': 0.9201477766036987, 'learning_rate': 2.2836726868998675e-06, 'epoch': 6.97}
+{'loss': 0.0689, 'grad_norm': 0.9828730821609497, 'learning_rate': 0.0, 'epoch': 7.75}
+{'train_runtime': 15457.7126, 'train_samples_per_second': 0.214, 'train_steps_per_second': 0.013, 'train_loss': 1.0898405760526657, 'epoch': 7.75}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON SCHMUCK VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: SCH_3195_2.jpg   Evaluating 2/20: SCH_3138.jpg   Evaluating 3/20: SCH_2891_185.jpg   Evaluating 4/20: SCH_3195_3.jpg   Evaluating 5/20: SCH_3164.jpg   Evaluating 6/20: SCH_3121.jpg   Evaluating 7/20: SCH_2891_208.jpg   Evaluating 8/20: SCH_2891_194_195.jpg   Evaluating 9/20: SCH_2989.jpg   Evaluating 10/20: SCH_2891_42.jpg   Evaluating 11/20: SCH_3028.jpg   Evaluating 12/20: SCH_3195_1.jpg   Evaluating 13/20: SCH_3137_b.jpg   Evaluating 14/20: SCH_1931.jpg   Evaluating 15/20: SCH_2891_71.jpg   Evaluating 16/20: SCH_2891_61.jpg   Evaluating 17/20: SCH_2891_101.jpg   Evaluating 18/20: SCH_2891_159.jpg   Evaluating 19/20: SCH_3146.jpg   Evaluating 20/20: SCH_2990.jpg
+   ✅ Validation CER (HPO objective): 0.0189 (1.89%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - SCHMUCK DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_schmuck/run_20251219_212458/trials/trial_4
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.0001248726459555529
+   • Weight decay: 0.012203823484477884
+   • LoRA r=24, alpha=16, dropout=0.0684854455525527
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on SCHMUCK dataset (HPO trial)...
+
+================================================================================
+{'loss': 3.5973, 'grad_norm': 1.320239543914795, 'learning_rate': 6.091348583197702e-05, 'epoch': 0.39}
+{'loss': 1.6486, 'grad_norm': 0.5634453296661377, 'learning_rate': 0.00012182697166395404, 'epoch': 0.77}
+{'loss': 0.8832, 'grad_norm': 0.8916171193122864, 'learning_rate': 0.00012404865097763795, 'epoch': 1.16}
+{'loss': 0.5906, 'grad_norm': 0.8700917959213257, 'learning_rate': 0.00012142544393933436, 'epoch': 1.55}
+{'loss': 0.5611, 'grad_norm': 0.7513566017150879, 'learning_rate': 0.00011707743794593386, 'epoch': 1.94}
+{'loss': 0.3888, 'grad_norm': 0.7772772908210754, 'learning_rate': 0.00011113176552750177, 'epoch': 2.32}
+{'loss': 0.3066, 'grad_norm': 0.8379571437835693, 'learning_rate': 0.00010376227381733144, 'epoch': 2.71}
+{'loss': 0.2323, 'grad_norm': 0.5589349865913391, 'learning_rate': 9.518444138832075e-05, 'epoch': 3.1}
+{'loss': 0.1547, 'grad_norm': 0.7143607139587402, 'learning_rate': 8.564907781636073e-05, 'epoch': 3.49}
+{'loss': 0.1457, 'grad_norm': 0.9235596060752869, 'learning_rate': 7.54349901909163e-05, 'epoch': 3.87}
+{'loss': 0.0815, 'grad_norm': 0.8179336786270142, 'learning_rate': 6.484083099869117e-05, 'epoch': 4.26}
+{'loss': 0.0696, 'grad_norm': 0.7283408641815186, 'learning_rate': 5.417636574232417e-05, 'epoch': 4.65}
+{'loss': 0.059, 'grad_norm': 0.6181778311729431, 'learning_rate': 4.375341562258951e-05, 'epoch': 5.04}
+{'loss': 0.0254, 'grad_norm': 0.40365004539489746, 'learning_rate': 3.3876740113480104e-05, 'epoch': 5.42}
+{'loss': 0.0237, 'grad_norm': 0.18564671277999878, 'learning_rate': 2.4835126017041032e-05, 'epoch': 5.81}
+{'loss': 0.0205, 'grad_norm': 0.15104489028453827, 'learning_rate': 1.6892943547503686e-05, 'epoch': 6.2}
+{'loss': 0.0125, 'grad_norm': 0.33506977558135986, 'learning_rate': 1.028241633867295e-05, 'epoch': 6.59}
+{'loss': 0.015, 'grad_norm': 0.18030641973018646, 'learning_rate': 5.196831393924594e-06, 'epoch': 6.97}
+{'loss': 0.0089, 'grad_norm': 0.09658884257078171, 'learning_rate': 1.7848875149321247e-06, 'epoch': 7.36}
+{'loss': 0.01, 'grad_norm': 0.11114441603422165, 'learning_rate': 1.4634745695292688e-07, 'epoch': 7.75}
+{'train_runtime': 15789.7488, 'train_samples_per_second': 0.209, 'train_steps_per_second': 0.026, 'train_loss': 0.4333086383949016, 'epoch': 7.9}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON SCHMUCK VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: SCH_3195_2.jpg   Evaluating 2/20: SCH_3138.jpg   Evaluating 3/20: SCH_2891_185.jpg   Evaluating 4/20: SCH_3195_3.jpg   Evaluating 5/20: SCH_3164.jpg   Evaluating 6/20: SCH_3121.jpg   Evaluating 7/20: SCH_2891_208.jpg   Evaluating 8/20: SCH_2891_194_195.jpg   Evaluating 9/20: SCH_2989.jpg   Evaluating 10/20: SCH_2891_42.jpg   Evaluating 11/20: SCH_3028.jpg   Evaluating 12/20: SCH_3195_1.jpg   Evaluating 13/20: SCH_3137_b.jpg   Evaluating 14/20: SCH_1931.jpg   Evaluating 15/20: SCH_2891_71.jpg   Evaluating 16/20: SCH_2891_61.jpg   Evaluating 17/20: SCH_2891_101.jpg   Evaluating 18/20: SCH_2891_159.jpg   Evaluating 19/20: SCH_3146.jpg   Evaluating 20/20: SCH_2990.jpg
+   ✅ Validation CER (HPO objective): 0.0178 (1.78%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - SCHMUCK DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_schmuck/run_20251219_212458/trials/trial_5
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00035271350713048864
+   • Weight decay: 0.08948273504276488
+   • LoRA r=16, alpha=48, dropout=0.13287375091519293
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on SCHMUCK dataset (HPO trial)...
+
+================================================================================
+{'loss': 2.508, 'grad_norm': 1.778470754623413, 'learning_rate': 0.00017205536933194567, 'epoch': 0.39}
+{'loss': 0.7826, 'grad_norm': 1.0435887575149536, 'learning_rate': 0.00034411073866389135, 'epoch': 0.77}
+{'loss': 0.473, 'grad_norm': 1.6876639127731323, 'learning_rate': 0.00035038606258653513, 'epoch': 1.16}
+{'loss': 0.3292, 'grad_norm': 1.0872949361801147, 'learning_rate': 0.0003429765891399744, 'epoch': 1.55}
+{'loss': 0.3273, 'grad_norm': 1.3933768272399902, 'learning_rate': 0.0003306952729940625, 'epoch': 1.94}
+{'loss': 0.21, 'grad_norm': 1.1702284812927246, 'learning_rate': 0.0003139012108925784, 'epoch': 2.32}
+{'loss': 0.141, 'grad_norm': 0.9074235558509827, 'learning_rate': 0.000293085448985936, 'epoch': 2.71}
+{'loss': 0.1206, 'grad_norm': 0.6318275332450867, 'learning_rate': 0.00026885662499920873, 'epoch': 3.1}
+{'loss': 0.0601, 'grad_norm': 0.5979890823364258, 'learning_rate': 0.00024192317210811333, 'epoch': 3.49}
+{'loss': 0.066, 'grad_norm': 0.9318535327911377, 'learning_rate': 0.000213072604868664, 'epoch': 3.87}
+{'loss': 0.0311, 'grad_norm': 0.38739508390426636, 'learning_rate': 0.00018314849286483518, 'epoch': 4.26}
+{'loss': 0.0394, 'grad_norm': 1.5037600994110107, 'learning_rate': 0.00015302579534801213, 'epoch': 4.65}
+{'loss': 0.0272, 'grad_norm': 0.45229417085647583, 'learning_rate': 0.00012358527806541767, 'epoch': 5.04}
+{'loss': 0.0096, 'grad_norm': 0.04511864855885506, 'learning_rate': 9.568776031082674e-05, 'epoch': 5.42}
+{'loss': 0.0095, 'grad_norm': 0.0492187924683094, 'learning_rate': 7.01489451950598e-05, 'epoch': 5.81}
+{'loss': 0.01, 'grad_norm': 0.025279054418206215, 'learning_rate': 4.7715569080823365e-05, 'epoch': 6.2}
+{'loss': 0.0037, 'grad_norm': 0.06622662395238876, 'learning_rate': 2.9043567555059868e-05, 'epoch': 6.59}
+{'loss': 0.0032, 'grad_norm': 0.06671296805143356, 'learning_rate': 1.4678896349881174e-05, 'epoch': 6.97}
+{'loss': 0.002, 'grad_norm': 0.01656782440841198, 'learning_rate': 5.041567994396588e-06, 'epoch': 7.36}
+{'loss': 0.0021, 'grad_norm': 0.018435386940836906, 'learning_rate': 4.1337095411486833e-07, 'epoch': 7.75}
+{'train_runtime': 15775.5908, 'train_samples_per_second': 0.209, 'train_steps_per_second': 0.026, 'train_loss': 0.2527590279499361, 'epoch': 7.9}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON SCHMUCK VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 20 validation samples for CER
+   Evaluating 1/20: SCH_3195_2.jpg   Evaluating 2/20: SCH_3138.jpg   Evaluating 3/20: SCH_2891_185.jpg   Evaluating 4/20: SCH_3195_3.jpg   Evaluating 5/20: SCH_3164.jpg   Evaluating 6/20: SCH_3121.jpg   Evaluating 7/20: SCH_2891_208.jpg   Evaluating 8/20: SCH_2891_194_195.jpg   Evaluating 9/20: SCH_2989.jpg   Evaluating 10/20: SCH_2891_42.jpg   Evaluating 11/20: SCH_3028.jpg   Evaluating 12/20: SCH_3195_1.jpg   Evaluating 13/20: SCH_3137_b.jpg   Evaluating 14/20: SCH_1931.jpg   Evaluating 15/20: SCH_2891_71.jpg   Evaluating 16/20: SCH_2891_61.jpg   Evaluating 17/20: SCH_2891_101.jpg   Evaluating 18/20: SCH_2891_159.jpg   Evaluating 19/20: SCH_3146.jpg   Evaluating 20/20: SCH_2990.jpg
+   ✅ Validation CER (HPO objective): 0.0666 (6.66%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - SCHMUCK DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_schmuck/run_20251219_212458/trials/trial_6
+   • Training epochs: 8
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00015455156354021832
+   • Weight decay: 0.014092422497476265
+   • LoRA r=24, alpha=48, dropout=0.12290071680409873
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on SCHMUCK dataset (HPO trial)...
+
+================================================================================
+=== JOB_STATISTICS ===
+=== current date     : Sat Dec 20 09:24:45 PM CET 2025
+= Job-ID             : 1471147 on tinygpu
+= Job-Name           : schmuck_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:06
+= Total RAM usage    : 10.1 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2025-12-19T21:24:36 / 2025-12-19T21:24:36 / 2025-12-19T21:24:37 / 2025-12-20T21:24:43
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.6G   104.9G   209.7G        N/A  29,018      500K   1,000K        N/A    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/vault           959.0G  1048.6G  2097.2G        N/A   7,301      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 2170147, 93 %, 26 %, 5632 MiB, 86389745 ms

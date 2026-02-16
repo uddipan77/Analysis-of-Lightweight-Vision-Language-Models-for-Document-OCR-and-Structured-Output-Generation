@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/phivision/shots/few_inven_new.py", line 139, in <module>
+    raise RuntimeError(f"❌ Required few-shot example not found in train.jsonl: {timg}")
+RuntimeError: ❌ Required few-shot example not found in train.jsonl: inventarbuch-265.jpg

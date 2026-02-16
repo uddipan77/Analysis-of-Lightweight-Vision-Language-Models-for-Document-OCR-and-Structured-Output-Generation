@@ -1,0 +1,64 @@
+### Starting TaskPrologue of job 1457217 on tg071 at Fri Dec  5 07:23:25 PM CET 2025
+Running on cores 0-1,8-9,17-18,24-25 with governor ondemand
+Fri Dec  5 19:23:25 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   30C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting UI at: Fri Dec  5 07:23:27 PM CET 2025
+new /ui
+INFO:     10.188.82.14:44472 - "GET /ui/ HTTP/1.1" 200 OK
+INFO:     10.188.82.14:44474 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     10.188.82.14:44472 - "GET /ui/theme.css?v=2fa39f6df94156f7ef9d84370dbb2657d672827c75f082ac995879c32290c5ca HTTP/1.1" 200 OK
+INFO:     10.188.82.14:44476 - "GET /manifest.json HTTP/1.1" 404 Not Found
+INFO:     10.188.82.14:38106 - "POST /ui/gradio_api/upload?upload_id=xsg2nmb9xb HTTP/1.1" 200 OK
+INFO:     10.188.82.14:38106 - "GET /ui/gradio_api/file%3D/scratch/1457217.tinygpu/gradio/ae89b10fd1ba6426ccfc28370203a80b7e34164cc5d62a7a054dfd4d8d9da418/FMIS_FormblatterMielke_gef%C3%BCllt%201.jpg HTTP/1.1" 200 OK
+INFO:     10.188.82.14:38110 - "GET /ui/gradio_api/upload_progress?upload_id=undefined HTTP/1.1" 404 Not Found
+INFO:     10.188.82.14:38110 - "POST /ui/gradio_api/queue/join HTTP/1.1" 200 OK
+INFO:     10.188.82.14:38110 - "GET /ui/gradio_api/queue/data?session_hash=gio913hdna8 HTTP/1.1" 200 OK
+⏳ Loading model 'phi' (Phi-3.5-Vision (multistage, finetuned))
+   base_model_path     = /home/vault/iwi5/iwi5298h/models/phi_3_5_vision
+   finetuned_model_path= /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/stair/best_model
+✅ Model 'phi' loaded on device: cuda:0
+INFO:     10.188.82.14:60388 - "POST /ui/gradio_api/queue/join HTTP/1.1" 200 OK
+INFO:     10.188.82.14:60388 - "GET /ui/gradio_api/queue/data?session_hash=gio913hdna8 HTTP/1.1" 200 OK
+=== JOB_STATISTICS ===
+=== current date     : Fri Dec  5 08:15:34 PM CET 2025
+= Job-ID             : 1457217 on tinygpu
+= Job-Name           : phi_stair_ui
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/utils/job_ui.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/utils
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 01:20:00
+= Elapsed runtime    : 00:52:09
+= Total RAM usage    : 10.1 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2025-12-05T19:23:00 / 2025-12-05T19:23:00 / 2025-12-05T19:23:22 / 2025-12-05T20:15:31
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.2G   104.9G   209.7G        N/A  28,342      500K   1,000K        N/A    
+    /home/woody           208.9G  1000.0G  1500.0G        N/A     939K   5,000K   7,500K        N/A    
+    /home/vault           886.7G  1048.6G  2097.2G        N/A   6,532      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 3931376, 0 %, 0 %, 2986 MiB, 3109444 ms

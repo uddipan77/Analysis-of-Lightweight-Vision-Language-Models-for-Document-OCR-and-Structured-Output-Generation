@@ -1,0 +1,241 @@
+### Starting TaskPrologue of job 1526203 on tg071 at Sat Feb  7 03:16:09 PM CET 2026
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Sat Feb  7 15:16:09 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   34C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+========================================
+Florence-2 OCR Fine-tuning Job Configuration:
+========================================
+Job ID: 1526203
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/Florence2/1526203
+CUDA Device: 0
+Job started at: Sat Feb  7 03:16:19 PM CET 2026
+========================================
+Dataset: Staircase Dataset
+Loading datasets...
+Loaded 115 training samples
+Loaded 25 validation samples
+Loaded 24 test samples
+
+============================================================
+Florence-2 Staircase LoRA Fine-tuning
+============================================================
+Dataset: Staircase Dataset
+Device: cuda
+Output dir: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648
+TensorBoard logs: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/logs
+============================================================
+
+⏳ Loading Florence-2-large base model...
+✅ Model loaded. Trainable params: 11,321,344 / 787,786,752 (1.44%)
+
+📂 Preparing datasets...
+✅ Train dataset: 115
+✅ Val dataset:   25
+
+============================================================
+STARTING LoRA TRAINING (AUTOREGRESSIVE VAL CER)
+============================================================
+
+{'loss': 3.038, 'grad_norm': 2.431826114654541, 'learning_rate': 8.999999999999999e-05, 'epoch': 0.69}
+{'eval_loss': 1.6968376636505127, 'eval_runtime': 15.01, 'eval_samples_per_second': 1.666, 'eval_steps_per_second': 0.866, 'epoch': 1.0}
+{'eval_cer': 0.8045895754671945, 'epoch': 1.0}
+
+📊 Epoch 1 - Validation CER (generate): 0.8046 (80.46%)
+🎯 New best CER: 0.8046 (improved by inf)
+✅ Best model saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/models/best_model
+
+{'loss': 2.0107, 'grad_norm': 1.7125978469848633, 'learning_rate': 0.00019, 'epoch': 1.34}
+{'loss': 1.1859, 'grad_norm': 1.8317729234695435, 'learning_rate': 0.00029, 'epoch': 2.0}
+{'eval_loss': 0.6828610897064209, 'eval_runtime': 12.5608, 'eval_samples_per_second': 1.99, 'eval_steps_per_second': 1.035, 'epoch': 2.0}
+{'eval_cer': 0.5858901754748013, 'epoch': 2.0}
+
+📊 Epoch 2 - Validation CER (generate): 0.5859 (58.59%)
+🎯 New best CER: 0.5859 (improved by 0.2187)
+✅ Best model saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/models/best_model
+
+{'loss': 0.6055, 'grad_norm': 1.795003890991211, 'learning_rate': 0.00039000000000000005, 'epoch': 2.69}
+{'eval_loss': 0.29732224345207214, 'eval_runtime': 12.5305, 'eval_samples_per_second': 1.995, 'eval_steps_per_second': 1.037, 'epoch': 3.0}
+{'eval_cer': 0.5204416393249055, 'epoch': 3.0}
+
+📊 Epoch 3 - Validation CER (generate): 0.5204 (52.04%)
+🎯 New best CER: 0.5204 (improved by 0.0654)
+✅ Best model saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/models/best_model
+
+{'loss': 0.3808, 'grad_norm': 1.7964905500411987, 'learning_rate': 0.00049, 'epoch': 3.34}
+{'loss': 0.2436, 'grad_norm': 1.3710906505584717, 'learning_rate': 0.000455, 'epoch': 4.0}
+{'eval_loss': 0.20003700256347656, 'eval_runtime': 12.7021, 'eval_samples_per_second': 1.968, 'eval_steps_per_second': 1.023, 'epoch': 4.0}
+{'eval_cer': 0.5109997691650794, 'epoch': 4.0}
+
+📊 Epoch 4 - Validation CER (generate): 0.5110 (51.10%)
+🎯 New best CER: 0.5110 (improved by 0.0094)
+✅ Best model saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/models/best_model
+
+{'loss': 0.1836, 'grad_norm': 0.5999802350997925, 'learning_rate': 0.00040500000000000003, 'epoch': 4.69}
+{'eval_loss': 0.18091237545013428, 'eval_runtime': 12.6169, 'eval_samples_per_second': 1.981, 'eval_steps_per_second': 1.03, 'epoch': 5.0}
+{'eval_cer': 0.4151004008748892, 'epoch': 5.0}
+
+📊 Epoch 5 - Validation CER (generate): 0.4151 (41.51%)
+🎯 New best CER: 0.4151 (improved by 0.0959)
+✅ Best model saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/models/best_model
+
+{'loss': 0.1459, 'grad_norm': 0.49697184562683105, 'learning_rate': 0.000355, 'epoch': 5.34}
+{'loss': 0.1241, 'grad_norm': 0.8203824162483215, 'learning_rate': 0.000305, 'epoch': 6.0}
+{'eval_loss': 0.1647760421037674, 'eval_runtime': 12.5932, 'eval_samples_per_second': 1.985, 'eval_steps_per_second': 1.032, 'epoch': 6.0}
+{'eval_cer': 0.5053385658509596, 'epoch': 6.0}
+
+📊 Epoch 6 - Validation CER (generate): 0.5053 (50.53%)
+   Best CER so far: 0.4151
+
+{'loss': 0.1123, 'grad_norm': 0.4268527030944824, 'learning_rate': 0.000255, 'epoch': 6.69}
+{'eval_loss': 0.13802115619182587, 'eval_runtime': 12.5782, 'eval_samples_per_second': 1.988, 'eval_steps_per_second': 1.034, 'epoch': 7.0}
+{'eval_cer': 0.4627604866898256, 'epoch': 7.0}
+
+📊 Epoch 7 - Validation CER (generate): 0.4628 (46.28%)
+   Best CER so far: 0.4151
+
+{'loss': 0.1061, 'grad_norm': 0.7080064415931702, 'learning_rate': 0.000205, 'epoch': 7.34}
+{'loss': 0.0859, 'grad_norm': 0.5268719792366028, 'learning_rate': 0.000155, 'epoch': 8.0}
+{'eval_loss': 0.14060890674591064, 'eval_runtime': 12.0932, 'eval_samples_per_second': 2.067, 'eval_steps_per_second': 1.075, 'epoch': 8.0}
+{'eval_cer': 0.4524294839142573, 'epoch': 8.0}
+
+📊 Epoch 8 - Validation CER (generate): 0.4524 (45.24%)
+   Best CER so far: 0.4151
+
+{'loss': 0.0769, 'grad_norm': 0.41930094361305237, 'learning_rate': 0.000105, 'epoch': 8.69}
+{'eval_loss': 0.13374844193458557, 'eval_runtime': 12.5865, 'eval_samples_per_second': 1.986, 'eval_steps_per_second': 1.033, 'epoch': 9.0}
+{'eval_cer': 0.458636996455196, 'epoch': 9.0}
+
+📊 Epoch 9 - Validation CER (generate): 0.4586 (45.86%)
+   Best CER so far: 0.4151
+
+{'loss': 0.0744, 'grad_norm': 0.2808031737804413, 'learning_rate': 5.5e-05, 'epoch': 9.34}
+{'loss': 0.0761, 'grad_norm': 0.3615070581436157, 'learning_rate': 5e-06, 'epoch': 10.0}
+{'eval_loss': 0.13553442060947418, 'eval_runtime': 12.8982, 'eval_samples_per_second': 1.938, 'eval_steps_per_second': 1.008, 'epoch': 10.0}
+{'eval_cer': 0.45344163908572865, 'epoch': 10.0}
+
+📊 Epoch 10 - Validation CER (generate): 0.4534 (45.34%)
+   Best CER so far: 0.4151
+
+{'train_runtime': 9172.8111, 'train_samples_per_second': 0.125, 'train_steps_per_second': 0.016, 'train_loss': 0.5633188434441885, 'epoch': 10.0}
+
+============================================================
+TRAINING COMPLETED
+============================================================
+Best validation CER (generate): 0.4151
+Best model dir:  /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/models/best_model
+Final model dir: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/models/final_model
+TensorBoard logs: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/logs
+============================================================
+
+✅ Loading BEST model from: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/models/best_model
+Making predictions on 24 test images...
+[1/24] FMIS_FormblätterMielke_gefüllt (83).jpg
+  ✅ CER: 0.6280
+[2/24] FMIS_FormblätterMielke_gefüllt (45).jpg
+  ✅ CER: 0.6352
+[3/24] FMIS_FormblätterMielke_gefüllt (27).jpg
+  ✅ CER: 0.6954
+[4/24] FMIS_FormblätterMielke_gefüllt (130).jpg
+  ✅ CER: 0.6118
+[5/24] FMIS_FormblätterMielke_gefüllt (129).jpg
+  ✅ CER: 0.6600
+[6/24] FMIS_FormblätterMielke_gefüllt (88).jpg
+  ✅ CER: 0.5631
+[7/24] FMIS_FormblätterMielke_gefüllt (102).jpg
+  ✅ CER: 0.6267
+[8/24] FMIS_FormblätterMielke_gefüllt (103).jpg
+  ✅ CER: 0.6393
+[9/24] FMIS_FormblätterMielke_gefüllt (165).jpg
+  ✅ CER: 0.5999
+[10/24] FMIS_FormblätterMielke_gefüllt (43).jpg
+  ✅ CER: 0.5974
+[11/24] FMIS_FormblätterMielke_gefüllt (11).jpg
+  ✅ CER: 0.5845
+[12/24] FMIS_FormblätterMielke_gefüllt (36).jpg
+  ✅ CER: 0.5316
+[13/24] FMIS_FormblätterMielke_gefüllt (87).jpg
+  ✅ CER: 0.5710
+[14/24] FMIS_FormblätterMielke_gefüllt (94).jpg
+  ✅ CER: 0.6275
+[15/24] FMIS_FormblätterMielke_gefüllt (58).jpg
+  ✅ CER: 0.5805
+[16/24] FMIS_FormblätterMielke_gefüllt (111).jpg
+  ✅ CER: 0.6730
+[17/24] FMIS_FormblätterMielke_gefüllt (99).jpg
+  ✅ CER: 0.6782
+[18/24] FMIS_FormblätterMielke_gefüllt (116).jpg
+  ✅ CER: 0.5392
+[19/24] FMIS_FormblätterMielke_Vorlage3.jpg
+  ✅ CER: 0.5949
+[20/24] FMIS_FormblätterMielke_gefüllt (132).jpg
+  ✅ CER: 0.6347
+[21/24] FMIS_FormblätterMielke_gefüllt (139).jpg
+  ✅ CER: 0.6157
+[22/24] FMIS_FormblätterMielke_gefüllt (66).jpg
+  ✅ CER: 0.6603
+[23/24] FMIS_FormblätterMielke_gefüllt (105).jpg
+  ✅ CER: 0.6161
+[24/24] FMIS_FormblätterMielke_gefüllt (13).jpg
+  ✅ CER: 0.5876
+
+============================================================
+TEST RESULTS (BEST MODEL LOADED)
+============================================================
+Average CER: 0.6147 (61.47%)
+Perfect matches: 0/24
+JSON success rate: 0.0%
+Predictions saved: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/predictions/test_predictions_lora.jsonl
+Metrics saved: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/metrics/test_cer_metrics_lora.json
+============================================================
+
+Pipeline completed successfully!
+Run directory: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648
+TensorBoard logs: /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase/lora_run_20260207_152648/logs
+To launch TensorBoard:
+  tensorboard --logdir /home/vault/iwi5/iwi5298h/models_image_text/florence2/staircase
+========================================
+Job completed at: Sat Feb  7 06:17:54 PM CET 2026
+========================================
+=== JOB_STATISTICS ===
+=== current date     : Sat Feb  7 06:17:54 PM CET 2026
+= Job-ID             : 1526203 on tinygpu
+= Job-Name           : florence_stair_new
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_florence.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 03:01:49
+= Total RAM usage    : 7.7 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2026-02-07T13:17:54 / 2026-02-07T13:17:54 / 2026-02-07T15:16:05 / 2026-02-07T18:17:54
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              91.4G   104.9G   209.7G        N/A  30,020      500K   1,000K        N/A    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/vault           936.3G  1048.6G  2097.2G        N/A   9,454      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 2066528, 69 %, 21 %, 32490 MiB, 10299719 ms

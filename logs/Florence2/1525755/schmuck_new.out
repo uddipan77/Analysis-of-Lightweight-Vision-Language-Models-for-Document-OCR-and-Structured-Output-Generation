@@ -1,0 +1,444 @@
+### Starting TaskPrologue of job 1525755 on tg074 at Fri Feb  6 11:46:48 PM CET 2026
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Fri Feb  6 23:46:48 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   51C    P0             30W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting Florence 2 inference...
+Job ID: 1525755
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/Florence2/1525755
+Job started at: Fri Feb  6 11:46:51 PM CET 2026
+============================================================
+FLORENCE-2 SCHMUCK FULL-FT (NO LoRA)
+Autoregressive val CER + Chunked test + TensorBoard
+============================================================
+
+📂 Loading datasets...
+✅ Train: 413 samples
+✅ Validation: 88 samples
+
+============================================================
+Florence-2 Schmuck Full-FT Fine-tuning (NO LoRA)
+============================================================
+Device: cuda
+Output: /home/vault/iwi5/iwi5298h/models_image_text/florence2/schmuck/fullft_run_20260206_234726
+Task prompt: <OCR> only
+TensorBoard logs: /home/vault/iwi5/iwi5298h/models_image_text/florence2/schmuck/fullft_run_20260206_234726/logs
+============================================================
+
+⏳ Loading Florence-2-large model (FULL FT)...
+✅ Model loaded successfully! Total params: 776,465,408
+
+📂 Preparing datasets...
+✅ Train: 413 samples
+✅ Validation: 88 samples
+
+============================================================
+STARTING TRAINING (FULL FT, NO LoRA)
+============================================================
+Model selection: lowest validation CER (AUTOREGRESSIVE generate())
+============================================================
+
+{'loss': 1.1003, 'grad_norm': 8.472800254821777, 'learning_rate': 9e-06, 'epoch': 0.19}
+{'loss': 0.213, 'grad_norm': 4.145857810974121, 'learning_rate': 1.9e-05, 'epoch': 0.39}
+{'loss': 0.1346, 'grad_norm': 4.223868370056152, 'learning_rate': 2.9e-05, 'epoch': 0.58}
+{'loss': 0.0917, 'grad_norm': 4.93761682510376, 'learning_rate': 3.9000000000000006e-05, 'epoch': 0.77}
+{'loss': 0.0819, 'grad_norm': 3.395385980606079, 'learning_rate': 4.9e-05, 'epoch': 0.97}
+{'eval_loss': 0.20840749144554138, 'eval_runtime': 24.8204, 'eval_samples_per_second': 3.545, 'eval_steps_per_second': 1.773, 'epoch': 1.0}
+{'eval_cer': 0.12550773267861132, 'epoch': 1.0}
+
+📊 Epoch 1 - Validation CER (generate): 0.1255 (12.55%)
+🎯 New best CER: 0.1255 (improved by inf)
+✅ Best model saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/schmuck/fullft_run_20260206_234726/models/best_model
+
+{'loss': 0.0847, 'grad_norm': 5.241624355316162, 'learning_rate': 4.9042553191489364e-05, 'epoch': 1.15}
+{'loss': 0.0691, 'grad_norm': 2.4231014251708984, 'learning_rate': 4.797872340425532e-05, 'epoch': 1.35}
+{'loss': 0.1096, 'grad_norm': 7.27050256729126, 'learning_rate': 4.691489361702128e-05, 'epoch': 1.54}
+{'loss': 0.092, 'grad_norm': 2.7634005546569824, 'learning_rate': 4.585106382978724e-05, 'epoch': 1.73}
+{'loss': 0.0715, 'grad_norm': 3.403175115585327, 'learning_rate': 4.47872340425532e-05, 'epoch': 1.93}
+{'eval_loss': 0.2176467925310135, 'eval_runtime': 23.3674, 'eval_samples_per_second': 3.766, 'eval_steps_per_second': 1.883, 'epoch': 2.0}
+{'eval_cer': 0.1559904431633265, 'epoch': 2.0}
+
+📊 Epoch 2 - Validation CER (generate): 0.1560 (15.60%)
+   Best CER so far: 0.1255
+
+{'loss': 0.0684, 'grad_norm': 6.521248817443848, 'learning_rate': 4.372340425531915e-05, 'epoch': 2.12}
+{'loss': 0.073, 'grad_norm': 3.461061477661133, 'learning_rate': 4.265957446808511e-05, 'epoch': 2.31}
+{'loss': 0.0687, 'grad_norm': 3.1850831508636475, 'learning_rate': 4.1595744680851066e-05, 'epoch': 2.5}
+{'loss': 0.0552, 'grad_norm': 2.061859130859375, 'learning_rate': 4.0531914893617024e-05, 'epoch': 2.7}
+{'loss': 0.0495, 'grad_norm': 1.9364701509475708, 'learning_rate': 3.946808510638298e-05, 'epoch': 2.89}
+{'eval_loss': 0.28630301356315613, 'eval_runtime': 23.7094, 'eval_samples_per_second': 3.712, 'eval_steps_per_second': 1.856, 'epoch': 3.0}
+{'eval_cer': 0.14847947135749326, 'epoch': 3.0}
+
+📊 Epoch 3 - Validation CER (generate): 0.1485 (14.85%)
+   Best CER so far: 0.1255
+
+{'loss': 0.0596, 'grad_norm': 3.5500149726867676, 'learning_rate': 3.840425531914894e-05, 'epoch': 3.08}
+{'loss': 0.0377, 'grad_norm': 5.616133689880371, 'learning_rate': 3.73404255319149e-05, 'epoch': 3.27}
+{'loss': 0.0578, 'grad_norm': 4.578174114227295, 'learning_rate': 3.627659574468085e-05, 'epoch': 3.46}
+{'loss': 0.0381, 'grad_norm': 1.1573959589004517, 'learning_rate': 3.521276595744681e-05, 'epoch': 3.66}
+{'loss': 0.0359, 'grad_norm': 1.605891466140747, 'learning_rate': 3.414893617021277e-05, 'epoch': 3.85}
+{'eval_loss': 0.06118166074156761, 'eval_runtime': 23.5307, 'eval_samples_per_second': 3.74, 'eval_steps_per_second': 1.87, 'epoch': 4.0}
+{'eval_cer': 0.13254401258843077, 'epoch': 4.0}
+
+📊 Epoch 4 - Validation CER (generate): 0.1325 (13.25%)
+   Best CER so far: 0.1255
+
+{'loss': 0.0397, 'grad_norm': 0.9360754489898682, 'learning_rate': 3.3085106382978726e-05, 'epoch': 4.04}
+{'loss': 0.0219, 'grad_norm': 1.198137640953064, 'learning_rate': 3.2021276595744685e-05, 'epoch': 4.23}
+{'loss': 0.0395, 'grad_norm': 7.513025760650635, 'learning_rate': 3.0957446808510636e-05, 'epoch': 4.43}
+{'loss': 0.0274, 'grad_norm': 0.9397211670875549, 'learning_rate': 2.9893617021276598e-05, 'epoch': 4.62}
+{'loss': 0.0303, 'grad_norm': 0.935524046421051, 'learning_rate': 2.8829787234042553e-05, 'epoch': 4.81}
+{'loss': 0.0291, 'grad_norm': 1.5332062244415283, 'learning_rate': 2.776595744680851e-05, 'epoch': 5.0}
+{'eval_loss': 0.08251827210187912, 'eval_runtime': 23.291, 'eval_samples_per_second': 3.778, 'eval_steps_per_second': 1.889, 'epoch': 5.0}
+{'eval_cer': 0.13268514096195452, 'epoch': 5.0}
+
+📊 Epoch 5 - Validation CER (generate): 0.1327 (13.27%)
+   Best CER so far: 0.1255
+
+{'loss': 0.0205, 'grad_norm': 3.1665215492248535, 'learning_rate': 2.6702127659574473e-05, 'epoch': 5.19}
+{'loss': 0.0247, 'grad_norm': 2.6284830570220947, 'learning_rate': 2.5638297872340428e-05, 'epoch': 5.39}
+{'loss': 0.0188, 'grad_norm': 20.313854217529297, 'learning_rate': 2.4574468085106383e-05, 'epoch': 5.58}
+{'loss': 0.0239, 'grad_norm': 1.1562477350234985, 'learning_rate': 2.351063829787234e-05, 'epoch': 5.77}
+{'loss': 0.0267, 'grad_norm': 0.9224987626075745, 'learning_rate': 2.2446808510638297e-05, 'epoch': 5.97}
+{'eval_loss': 0.13425157964229584, 'eval_runtime': 23.2835, 'eval_samples_per_second': 3.779, 'eval_steps_per_second': 1.89, 'epoch': 6.0}
+{'eval_cer': 0.1615899937578335, 'epoch': 6.0}
+
+📊 Epoch 6 - Validation CER (generate): 0.1616 (16.16%)
+   Best CER so far: 0.1255
+
+{'loss': 0.0201, 'grad_norm': 0.41531726717948914, 'learning_rate': 2.1382978723404255e-05, 'epoch': 6.15}
+{'loss': 0.0141, 'grad_norm': 0.7630398869514465, 'learning_rate': 2.0319148936170213e-05, 'epoch': 6.35}
+{'loss': 0.0136, 'grad_norm': 1.2830920219421387, 'learning_rate': 1.9255319148936172e-05, 'epoch': 6.54}
+{'loss': 0.0183, 'grad_norm': 1.58291757106781, 'learning_rate': 1.819148936170213e-05, 'epoch': 6.73}
+{'loss': 0.0114, 'grad_norm': 0.930700421333313, 'learning_rate': 1.7127659574468085e-05, 'epoch': 6.93}
+{'eval_loss': 0.1548546701669693, 'eval_runtime': 24.2732, 'eval_samples_per_second': 3.625, 'eval_steps_per_second': 1.813, 'epoch': 7.0}
+{'eval_cer': 0.11362945454356305, 'epoch': 7.0}
+
+📊 Epoch 7 - Validation CER (generate): 0.1136 (11.36%)
+🎯 New best CER: 0.1136 (improved by 0.0119)
+✅ Best model saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/schmuck/fullft_run_20260206_234726/models/best_model
+
+{'loss': 0.0086, 'grad_norm': 0.9957376718521118, 'learning_rate': 1.6063829787234044e-05, 'epoch': 7.12}
+{'loss': 0.0071, 'grad_norm': 0.40687286853790283, 'learning_rate': 1.5e-05, 'epoch': 7.31}
+{'loss': 0.0107, 'grad_norm': 0.7712283730506897, 'learning_rate': 1.3936170212765959e-05, 'epoch': 7.5}
+{'loss': 0.0106, 'grad_norm': 0.5656953454017639, 'learning_rate': 1.2872340425531915e-05, 'epoch': 7.7}
+{'loss': 0.0076, 'grad_norm': 0.7117281556129456, 'learning_rate': 1.1808510638297874e-05, 'epoch': 7.89}
+{'eval_loss': 0.13025595247745514, 'eval_runtime': 23.5582, 'eval_samples_per_second': 3.735, 'eval_steps_per_second': 1.868, 'epoch': 8.0}
+{'eval_cer': 0.11666086009136802, 'epoch': 8.0}
+
+📊 Epoch 8 - Validation CER (generate): 0.1167 (11.67%)
+   Best CER so far: 0.1136
+
+{'loss': 0.0106, 'grad_norm': 0.2599143087863922, 'learning_rate': 1.074468085106383e-05, 'epoch': 8.08}
+{'loss': 0.0055, 'grad_norm': 1.544220209121704, 'learning_rate': 9.680851063829787e-06, 'epoch': 8.27}
+{'loss': 0.0043, 'grad_norm': 0.6496381759643555, 'learning_rate': 8.617021276595746e-06, 'epoch': 8.46}
+{'loss': 0.0065, 'grad_norm': 0.3434741497039795, 'learning_rate': 7.5531914893617024e-06, 'epoch': 8.66}
+{'loss': 0.0028, 'grad_norm': 2.3933820724487305, 'learning_rate': 6.489361702127659e-06, 'epoch': 8.85}
+{'eval_loss': 0.14965008199214935, 'eval_runtime': 23.3492, 'eval_samples_per_second': 3.769, 'eval_steps_per_second': 1.884, 'epoch': 9.0}
+{'eval_cer': 0.12492424114781478, 'epoch': 9.0}
+
+📊 Epoch 9 - Validation CER (generate): 0.1249 (12.49%)
+   Best CER so far: 0.1136
+
+{'loss': 0.0044, 'grad_norm': 0.09388993680477142, 'learning_rate': 5.4255319148936176e-06, 'epoch': 9.04}
+{'loss': 0.0051, 'grad_norm': 0.6118372082710266, 'learning_rate': 4.361702127659575e-06, 'epoch': 9.23}
+{'loss': 0.003, 'grad_norm': 0.056534621864557266, 'learning_rate': 3.297872340425532e-06, 'epoch': 9.43}
+{'loss': 0.0017, 'grad_norm': 0.12815150618553162, 'learning_rate': 2.2340425531914894e-06, 'epoch': 9.62}
+{'loss': 0.0044, 'grad_norm': 0.2300311177968979, 'learning_rate': 1.1702127659574467e-06, 'epoch': 9.81}
+{'loss': 0.0034, 'grad_norm': 0.14398428797721863, 'learning_rate': 1.0638297872340426e-07, 'epoch': 10.0}
+{'eval_loss': 0.11908571422100067, 'eval_runtime': 23.1052, 'eval_samples_per_second': 3.809, 'eval_steps_per_second': 1.904, 'epoch': 10.0}
+{'eval_cer': 0.11698350167720216, 'epoch': 10.0}
+
+📊 Epoch 10 - Validation CER (generate): 0.1170 (11.70%)
+   Best CER so far: 0.1136
+
+{'train_runtime': 7811.8488, 'train_samples_per_second': 0.529, 'train_steps_per_second': 0.067, 'train_loss': 0.05901468214220726, 'epoch': 10.0}
+
+============================================================
+TRAINING COMPLETED
+============================================================
+Best validation CER: 0.1136 (11.36%)
+Best model dir: /home/vault/iwi5/iwi5298h/models_image_text/florence2/schmuck/fullft_run_20260206_234726/models/best_model
+Final model dir: /home/vault/iwi5/iwi5298h/models_image_text/florence2/schmuck/fullft_run_20260206_234726/models/final_model
+TensorBoard logs: /home/vault/iwi5/iwi5298h/models_image_text/florence2/schmuck/fullft_run_20260206_234726/logs
+============================================================
+
+✅ Loading BEST model from: /home/vault/iwi5/iwi5298h/models_image_text/florence2/schmuck/fullft_run_20260206_234726/models/best_model
+
+============================================================
+STARTING CHUNKED TEST EVALUATION (generate())
+============================================================
+📊 Dataset: 89 samples, 5 chunks of size 20
+
+────────────────────────────────────────────────────────────
+Processing chunk 1/5
+────────────────────────────────────────────────────────────
+[Chunk 1] 1/20: SCH_2891_118.jpg
+  ✅ CER: 0.1129 (11.29%)
+[Chunk 1] 2/20: SCH_2891_225.jpg
+  ✅ CER: 0.1076 (10.76%)
+[Chunk 1] 3/20: SCH_3071.jpg
+  ✅ CER: 0.1524 (15.24%)
+[Chunk 1] 4/20: SCH_3213.jpg
+  ✅ CER: 0.1322 (13.22%)
+[Chunk 1] 5/20: SCH_3129.jpg
+  ✅ CER: 0.1039 (10.39%)
+[Chunk 1] 6/20: SCH_2984.jpg
+  ✅ CER: 0.1279 (12.79%)
+[Chunk 1] 7/20: SCH_2891_162.jpg
+  ✅ CER: 0.1084 (10.84%)
+[Chunk 1] 8/20: SCH_3043.jpg
+  ✅ CER: 0.0979 (9.79%)
+[Chunk 1] 9/20: SCH_3005.jpg
+  ✅ CER: 0.1503 (15.03%)
+[Chunk 1] 10/20: SCH_3192_41.jpg
+  ✅ CER: 0.1026 (10.26%)
+[Chunk 1] 11/20: SCH_2106.jpg
+  ✅ CER: 0.0992 (9.92%)
+[Chunk 1] 12/20: SCH_2891_143.jpg
+  ✅ CER: 0.1057 (10.57%)
+[Chunk 1] 13/20: SCH_2892.jpg
+  ✅ CER: 0.1008 (10.08%)
+[Chunk 1] 14/20: SCH_2891_211.jpg
+  ✅ CER: 0.1023 (10.23%)
+[Chunk 1] 15/20: SCH_3170.jpg
+  ✅ CER: 0.1128 (11.28%)
+[Chunk 1] 16/20: SCH_2891_73.jpg
+  ✅ CER: 0.1074 (10.74%)
+[Chunk 1] 17/20: SCH_2087.jpg
+  ✅ CER: 0.0958 (9.58%)
+[Chunk 1] 18/20: SCH_2891_222.jpg
+  ✅ CER: 0.1060 (10.60%)
+[Chunk 1] 19/20: SCH_2891_63.jpg
+  ✅ CER: 0.1038 (10.38%)
+[Chunk 1] 20/20: SCH_2891_145.jpg
+  ✅ CER: 0.1018 (10.18%)
+✓ Chunk 1 completed
+
+
+────────────────────────────────────────────────────────────
+Processing chunk 2/5
+────────────────────────────────────────────────────────────
+[Chunk 2] 1/20: SCH_2891_292.jpg
+  ✅ CER: 0.1199 (11.99%)
+[Chunk 2] 2/20: SCH_3030.jpg
+  ✅ CER: 0.1182 (11.82%)
+[Chunk 2] 3/20: SCH_3220.jpg
+  ✅ CER: 0.1180 (11.80%)
+[Chunk 2] 4/20: SCH_3179.jpg
+  ✅ CER: 0.1124 (11.24%)
+[Chunk 2] 5/20: SCH_3239.jpg
+  ✅ CER: 0.1144 (11.44%)
+[Chunk 2] 6/20: SCH_3192_6.jpg
+  ✅ CER: 0.1091 (10.91%)
+[Chunk 2] 7/20: SCH_2891_142.jpg
+  ✅ CER: 0.1178 (11.78%)
+[Chunk 2] 8/20: SCH_2891_53.jpg
+  ✅ CER: 0.1045 (10.45%)
+[Chunk 2] 9/20: SCH_2891_262_263.jpg
+  ✅ CER: 0.0962 (9.62%)
+[Chunk 2] 10/20: SCH_2891_282.jpg
+  ✅ CER: 0.0970 (9.70%)
+[Chunk 2] 11/20: SCH_3218.jpg
+  ✅ CER: 0.1270 (12.70%)
+[Chunk 2] 12/20: SCH_2891_275.jpg
+  ✅ CER: 0.1104 (11.04%)
+[Chunk 2] 13/20: SCH_3002.jpg
+  ✅ CER: 0.1302 (13.02%)
+[Chunk 2] 14/20: SCH_3137_a.jpg
+  ✅ CER: 0.1812 (18.12%)
+[Chunk 2] 15/20: SCH_3131.jpg
+  ✅ CER: 0.1197 (11.97%)
+[Chunk 2] 16/20: SCH_3192_36.jpg
+  ✅ CER: 0.1024 (10.24%)
+[Chunk 2] 17/20: SCH_3165.jpg
+  ✅ CER: 0.1036 (10.36%)
+[Chunk 2] 18/20: SCH_3192_14.jpg
+  ✅ CER: 0.1024 (10.24%)
+[Chunk 2] 19/20: SCH_2891_173.jpg
+  ✅ CER: 0.1247 (12.47%)
+[Chunk 2] 20/20: SCH_2891_72.jpg
+  ✅ CER: 0.1053 (10.53%)
+✓ Chunk 2 completed
+
+
+────────────────────────────────────────────────────────────
+Processing chunk 3/5
+────────────────────────────────────────────────────────────
+[Chunk 3] 1/20: SCH_2067_recto.jpg
+  ✅ CER: 0.1705 (17.05%)
+[Chunk 3] 2/20: SCH_3192_4.jpg
+  ✅ CER: 0.0985 (9.85%)
+[Chunk 3] 3/20: SCH_2891_29_30.jpg
+  ✅ CER: 0.1003 (10.03%)
+[Chunk 3] 4/20: SCH_2891_272.jpg
+  ✅ CER: 0.1137 (11.37%)
+[Chunk 3] 5/20: SCH_2891_177.jpg
+  ✅ CER: 0.1036 (10.36%)
+[Chunk 3] 6/20: SCH_3192_13.jpg
+  ✅ CER: 0.1050 (10.50%)
+[Chunk 3] 7/20: SCH_2891_291.jpg
+  ✅ CER: 0.1008 (10.08%)
+[Chunk 3] 8/20: SCH_3192_60.jpg
+  ✅ CER: 0.1086 (10.86%)
+[Chunk 3] 9/20: SCH_3124.jpg
+  ✅ CER: 0.1241 (12.41%)
+[Chunk 3] 10/20: SCH_3026.jpg
+  ✅ CER: 0.1152 (11.52%)
+[Chunk 3] 11/20: SCH_2065.jpg
+  ✅ CER: 0.0878 (8.78%)
+[Chunk 3] 12/20: SCH_2891_138.jpg
+  ✅ CER: 0.1155 (11.55%)
+[Chunk 3] 13/20: SCH_2891_245.jpg
+  ✅ CER: 0.1132 (11.32%)
+[Chunk 3] 14/20: SCH_2891_268.jpg
+  ✅ CER: 0.1045 (10.45%)
+[Chunk 3] 15/20: SCH_3192_32.jpg
+  ✅ CER: 0.1085 (10.85%)
+[Chunk 3] 16/20: SCH_2891_293.jpg
+  ✅ CER: 0.1246 (12.46%)
+[Chunk 3] 17/20: SCH_3192_27.jpg
+  ✅ CER: 0.1183 (11.83%)
+[Chunk 3] 18/20: SCH_3174.jpg
+  ✅ CER: 0.1305 (13.05%)
+[Chunk 3] 19/20: SCH_2891_235_236.jpg
+  ✅ CER: 0.1016 (10.16%)
+[Chunk 3] 20/20: SCH_2891_59.jpg
+  ✅ CER: 0.1048 (10.48%)
+✓ Chunk 3 completed
+
+
+────────────────────────────────────────────────────────────
+Processing chunk 4/5
+────────────────────────────────────────────────────────────
+[Chunk 4] 1/20: SCH_3211.jpg
+  ✅ CER: 0.1368 (13.68%)
+[Chunk 4] 2/20: SCH_3141.jpg
+  ✅ CER: 0.1023 (10.23%)
+[Chunk 4] 3/20: SCH_2891_241.jpg
+  ✅ CER: 0.1225 (12.25%)
+[Chunk 4] 4/20: SCH_3171.jpg
+  ✅ CER: 0.1232 (12.32%)
+[Chunk 4] 5/20: SCH_3215.jpg
+  ✅ CER: 0.1282 (12.82%)
+[Chunk 4] 6/20: SCH_1938.jpg
+  ✅ CER: 0.1025 (10.25%)
+[Chunk 4] 7/20: SCH_2891_153_154.jpg
+  ✅ CER: 0.1033 (10.33%)
+[Chunk 4] 8/20: SCH_2997.jpg
+  ✅ CER: 0.1142 (11.42%)
+[Chunk 4] 9/20: SCH_2891_64.jpg
+  ✅ CER: 0.0950 (9.50%)
+[Chunk 4] 10/20: SCH_2944.jpg
+  ✅ CER: 0.0984 (9.84%)
+[Chunk 4] 11/20: SCH_3173_ab.jpg
+  ✅ CER: 0.1098 (10.98%)
+[Chunk 4] 12/20: SCH_2891_41.jpg
+  ✅ CER: 0.1045 (10.45%)
+[Chunk 4] 13/20: SCH_2032.jpg
+  ✅ CER: 0.1162 (11.62%)
+[Chunk 4] 14/20: SCH_3078.jpg
+  ✅ CER: 0.1047 (10.47%)
+[Chunk 4] 15/20: SCH_2891_77_78.jpg
+  ✅ CER: 0.1056 (10.56%)
+[Chunk 4] 16/20: SCH_2891_62.jpg
+  ✅ CER: 0.1135 (11.35%)
+[Chunk 4] 17/20: SCH_3192_28.jpg
+  ✅ CER: 0.0894 (8.94%)
+[Chunk 4] 18/20: SCH_2043_recto.jpg
+  ✅ CER: 0.1524 (15.24%)
+[Chunk 4] 19/20: SCH_2045.jpg
+  ✅ CER: 0.0973 (9.73%)
+[Chunk 4] 20/20: SCH_2965.jpg
+  ✅ CER: 0.1141 (11.41%)
+✓ Chunk 4 completed
+
+
+────────────────────────────────────────────────────────────
+Processing chunk 5/5
+────────────────────────────────────────────────────────────
+[Chunk 5] 1/9: SCH_3192_22.jpg
+  ✅ CER: 0.1236 (12.36%)
+[Chunk 5] 2/9: SCH_3133_a.jpg
+  ✅ CER: 0.1129 (11.29%)
+[Chunk 5] 3/9: SCH_3192_37.jpg
+  ✅ CER: 0.1016 (10.16%)
+[Chunk 5] 4/9: SCH_3195_9.jpg
+  ✅ CER: 0.1254 (12.54%)
+[Chunk 5] 5/9: SCH_2891_67_recto.jpg
+  ✅ CER: 0.1013 (10.13%)
+[Chunk 5] 6/9: SCH_2891_99.jpg
+  ✅ CER: 0.1069 (10.69%)
+[Chunk 5] 7/9: SCH_2891_150.jpg
+  ✅ CER: 0.1011 (10.11%)
+[Chunk 5] 8/9: SCH_2025.jpg
+  ✅ CER: 0.1029 (10.29%)
+[Chunk 5] 9/9: SCH_3192_48.jpg
+  ✅ CER: 0.1018 (10.18%)
+✓ Chunk 5 completed
+
+
+============================================================
+TEST EVALUATION RESULTS
+============================================================
+Total images: 89
+Average CER: 0.1124 (11.24%)
+Min CER: 0.0878
+Max CER: 0.1812
+Perfect matches: 0/89 (0.0%)
+JSON success rate: 0.0%
+
+✅ Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/schmuck/fullft_run_20260206_234726/predictions/test_predictions_chunked.jsonl
+============================================================
+
+============================================================
+FLORENCE-2 SCHMUCK PIPELINE COMPLETE!
+============================================================
+All outputs saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/schmuck/fullft_run_20260206_234726
+To launch TensorBoard:
+  tensorboard --logdir /home/vault/iwi5/iwi5298h/models_image_text/florence2/schmuck
+============================================================
+
+Job completed at: Sat Feb  7 02:07:22 AM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Sat Feb  7 02:07:23 AM CET 2026
+= Job-ID             : 1525755 on tinygpu
+= Job-Name           : Florence2_schmuck_new
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_florence_inference.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 02:20:37
+= Total RAM usage    : 9.3 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2026-02-06T16:08:06 / 2026-02-06T16:08:06 / 2026-02-06T23:46:45 / 2026-02-07T02:07:22
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              91.4G   104.9G   209.7G        N/A  29,940      500K   1,000K        N/A    
+    /home/vault           910.0G  1048.6G  2097.2G        N/A   9,285      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 2455348, 87 %, 23 %, 32490 MiB, 8402279 ms

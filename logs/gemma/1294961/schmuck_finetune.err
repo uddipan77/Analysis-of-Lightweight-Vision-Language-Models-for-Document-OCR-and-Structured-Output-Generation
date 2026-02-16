@@ -1,0 +1,149 @@
+Unsloth: KwargsForCausalLM cannot be inherited from TransformersKwargs since it's of type = <class 'type'>
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Unsloth: Dropout = 0 is supported for fast patching. You are using dropout = 0.05.
+Unsloth will patch all other layers, except LoRA matrices, causing a performance hit.
+  0%|          | 0/375 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+  0%|          | 1/375 [00:19<2:04:17, 19.94s/it]                                                   0%|          | 1/375 [00:19<2:04:17, 19.94s/it]  1%|          | 2/375 [00:36<1:53:05, 18.19s/it]  1%|          | 3/375 [00:53<1:49:16, 17.63s/it]  1%|          | 4/375 [01:10<1:47:29, 17.39s/it]  1%|▏         | 5/375 [01:27<1:45:46, 17.15s/it]                                                   1%|▏         | 5/375 [01:27<1:45:46, 17.15s/it]  2%|▏         | 6/375 [01:44<1:45:13, 17.11s/it]  2%|▏         | 7/375 [02:01<1:43:54, 16.94s/it]  2%|▏         | 8/375 [02:18<1:43:36, 16.94s/it]  2%|▏         | 9/375 [02:35<1:43:41, 17.00s/it]  3%|▎         | 10/375 [02:52<1:43:19, 16.98s/it]                                                    3%|▎         | 10/375 [02:52<1:43:19, 16.98s/it]  3%|▎         | 11/375 [03:09<1:43:17, 17.03s/it]  3%|▎         | 12/375 [03:26<1:43:36, 17.13s/it]  3%|▎         | 13/375 [03:43<1:42:38, 17.01s/it]  4%|▎         | 14/375 [04:00<1:42:14, 16.99s/it]  4%|▍         | 15/375 [04:17<1:42:35, 17.10s/it]                                                    4%|▍         | 15/375 [04:17<1:42:35, 17.10s/it]  4%|▍         | 16/375 [04:34<1:41:14, 16.92s/it]  5%|▍         | 17/375 [04:51<1:41:16, 16.97s/it]  5%|▍         | 18/375 [05:08<1:41:04, 16.99s/it]  5%|▌         | 19/375 [05:25<1:40:36, 16.96s/it]  5%|▌         | 20/375 [05:41<1:39:53, 16.88s/it]                                                    5%|▌         | 20/375 [05:42<1:39:53, 16.88s/it]  6%|▌         | 21/375 [05:59<1:40:00, 16.95s/it]  6%|▌         | 22/375 [06:16<1:39:55, 16.98s/it]  6%|▌         | 23/375 [06:33<1:40:27, 17.12s/it]  6%|▋         | 24/375 [06:50<1:39:28, 17.00s/it]  7%|▋         | 25/375 [07:07<1:39:53, 17.13s/it]                                                    7%|▋         | 25/375 [07:07<1:39:53, 17.13s/it]Unsloth: Not an error, but Gemma3ForConditionalGeneration does not accept `num_items_in_batch`.
+Using gradient accumulation will be very slightly less accurate.
+Read more on gradient accumulation issues here: https://unsloth.ai/blog/gradient
+
+  0%|          | 0/88 [00:00<?, ?it/s][A
+  2%|▏         | 2/88 [00:00<00:26,  3.30it/s][A
+  3%|▎         | 3/88 [00:01<00:35,  2.38it/s][A
+  5%|▍         | 4/88 [00:01<00:45,  1.85it/s][A
+  6%|▌         | 5/88 [00:02<00:46,  1.79it/s][A
+  7%|▋         | 6/88 [00:03<00:46,  1.77it/s][A
+  8%|▊         | 7/88 [00:03<00:46,  1.74it/s][A
+  9%|▉         | 8/88 [00:04<00:46,  1.73it/s][A
+ 10%|█         | 9/88 [00:04<00:45,  1.72it/s][A
+ 11%|█▏        | 10/88 [00:05<00:45,  1.71it/s][A
+ 12%|█▎        | 11/88 [00:06<00:45,  1.71it/s][A
+ 14%|█▎        | 12/88 [00:06<00:44,  1.71it/s][A
+ 15%|█▍        | 13/88 [00:07<00:43,  1.71it/s][A
+ 16%|█▌        | 14/88 [00:07<00:43,  1.70it/s][A
+ 17%|█▋        | 15/88 [00:08<00:42,  1.71it/s][A
+ 18%|█▊        | 16/88 [00:08<00:41,  1.72it/s][A
+ 19%|█▉        | 17/88 [00:09<00:40,  1.73it/s][A
+ 20%|██        | 18/88 [00:10<00:43,  1.62it/s][A
+ 22%|██▏       | 19/88 [00:10<00:41,  1.66it/s][A
+ 23%|██▎       | 20/88 [00:11<00:40,  1.69it/s][A
+ 24%|██▍       | 21/88 [00:11<00:39,  1.68it/s][A
+ 25%|██▌       | 22/88 [00:12<00:38,  1.70it/s][A
+ 26%|██▌       | 23/88 [00:13<00:37,  1.72it/s][A
+ 27%|██▋       | 24/88 [00:13<00:37,  1.73it/s][A
+ 28%|██▊       | 25/88 [00:14<00:36,  1.72it/s][A
+ 30%|██▉       | 26/88 [00:15<00:38,  1.60it/s][A
+ 31%|███       | 27/88 [00:15<00:37,  1.63it/s][A
+ 32%|███▏      | 28/88 [00:16<00:36,  1.66it/s][A
+ 33%|███▎      | 29/88 [00:16<00:35,  1.66it/s][A
+ 34%|███▍      | 30/88 [00:17<00:34,  1.69it/s][A
+ 35%|███▌      | 31/88 [00:17<00:33,  1.69it/s][A
+ 36%|███▋      | 32/88 [00:18<00:32,  1.70it/s][A
+ 38%|███▊      | 33/88 [00:19<00:32,  1.71it/s][A
+ 39%|███▊      | 34/88 [00:19<00:31,  1.72it/s][A
+ 40%|███▉      | 35/88 [00:20<00:30,  1.72it/s][A
+ 41%|████      | 36/88 [00:20<00:30,  1.73it/s][A
+ 42%|████▏     | 37/88 [00:21<00:29,  1.73it/s][A
+ 43%|████▎     | 38/88 [00:21<00:29,  1.72it/s][A
+ 44%|████▍     | 39/88 [00:22<00:30,  1.61it/s][A
+ 45%|████▌     | 40/88 [00:23<00:29,  1.65it/s][A
+ 47%|████▋     | 41/88 [00:23<00:28,  1.68it/s][A
+ 48%|████▊     | 42/88 [00:24<00:29,  1.57it/s][A
+ 49%|████▉     | 43/88 [00:25<00:27,  1.62it/s][A
+ 50%|█████     | 44/88 [00:25<00:26,  1.66it/s][A
+ 51%|█████     | 45/88 [00:26<00:25,  1.68it/s][A
+ 52%|█████▏    | 46/88 [00:26<00:25,  1.67it/s][A
+ 53%|█████▎    | 47/88 [00:27<00:24,  1.69it/s][A
+ 55%|█████▍    | 48/88 [00:28<00:23,  1.70it/s][A
+ 56%|█████▌    | 49/88 [00:28<00:22,  1.72it/s][A
+ 57%|█████▋    | 50/88 [00:29<00:22,  1.71it/s][A
+ 58%|█████▊    | 51/88 [00:29<00:21,  1.72it/s][A
+ 59%|█████▉    | 52/88 [00:30<00:20,  1.73it/s][A
+ 60%|██████    | 53/88 [00:30<00:20,  1.71it/s][A
+ 61%|██████▏   | 54/88 [00:31<00:19,  1.72it/s][A
+ 62%|██████▎   | 55/88 [00:32<00:19,  1.72it/s][A
+ 64%|██████▎   | 56/88 [00:32<00:18,  1.72it/s][A
+ 65%|██████▍   | 57/88 [00:33<00:17,  1.73it/s][A
+ 66%|██████▌   | 58/88 [00:33<00:17,  1.74it/s][A
+ 67%|██████▋   | 59/88 [00:34<00:18,  1.60it/s][A
+ 68%|██████▊   | 60/88 [00:35<00:17,  1.63it/s][A
+ 69%|██████▉   | 61/88 [00:35<00:17,  1.56it/s][A
+ 70%|███████   | 62/88 [00:36<00:16,  1.61it/s][A
+ 72%|███████▏  | 63/88 [00:37<00:15,  1.65it/s][A
+ 73%|███████▎  | 64/88 [00:37<00:14,  1.68it/s][A
+ 74%|███████▍  | 65/88 [00:38<00:13,  1.69it/s][A
+ 75%|███████▌  | 66/88 [00:38<00:12,  1.70it/s][A
+ 76%|███████▌  | 67/88 [00:39<00:12,  1.72it/s][A
+ 77%|███████▋  | 68/88 [00:39<00:11,  1.73it/s][A
+ 78%|███████▊  | 69/88 [00:40<00:10,  1.74it/s][A
+ 80%|███████▉  | 70/88 [00:41<00:10,  1.73it/s][A
+ 81%|████████  | 71/88 [00:41<00:10,  1.69it/s][A
+ 82%|████████▏ | 72/88 [00:42<00:09,  1.70it/s][A
+ 83%|████████▎ | 73/88 [00:42<00:08,  1.72it/s][A
+ 84%|████████▍ | 74/88 [00:43<00:08,  1.71it/s][A
+ 85%|████████▌ | 75/88 [00:43<00:07,  1.71it/s][A
+ 86%|████████▋ | 76/88 [00:44<00:06,  1.72it/s][A
+ 88%|████████▊ | 77/88 [00:45<00:06,  1.73it/s][A
+ 89%|████████▊ | 78/88 [00:45<00:05,  1.74it/s][A
+ 90%|████████▉ | 79/88 [00:46<00:05,  1.74it/s][A
+ 91%|█████████ | 80/88 [00:46<00:04,  1.72it/s][A
+ 92%|█████████▏| 81/88 [00:47<00:04,  1.73it/s][A
+ 93%|█████████▎| 82/88 [00:47<00:03,  1.74it/s][A
+ 94%|█████████▍| 83/88 [00:48<00:02,  1.73it/s][A
+ 95%|█████████▌| 84/88 [00:49<00:02,  1.73it/s][A
+ 97%|█████████▋| 85/88 [00:49<00:01,  1.72it/s][A
+ 98%|█████████▊| 86/88 [00:50<00:01,  1.71it/s][A
+ 99%|█████████▉| 87/88 [00:50<00:00,  1.71it/s][A
+100%|██████████| 88/88 [00:51<00:00,  1.88it/s][ATraceback (most recent call last):
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/numpy/core/fromnumeric.py", line 59, in _wrapfunc
+    return bound(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^
+TypeError: argmax() got an unexpected keyword argument 'axis'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/finetune/schmuck.py", line 617, in <module>
+    main()
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/finetune/schmuck.py", line 589, in main
+    trainer = finetuner.train_model(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/finetune/schmuck.py", line 317, in train_model
+    trainer_stats = trainer.train()
+                    ^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 2661, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 3096, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 3045, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 4154, in evaluate
+    output = eval_loop(
+             ^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/transformers/trainer.py", line 4389, in evaluation_loop
+    metrics = self.compute_metrics(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/finetune/schmuck.py", line 197, in compute_metrics_for_trainer
+    predicted_token_ids = np.argmax(predictions, axis=-1)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/numpy/core/fromnumeric.py", line 1229, in argmax
+    return _wrapfunc(a, 'argmax', axis=axis, out=out, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/numpy/core/fromnumeric.py", line 68, in _wrapfunc
+    return _wrapit(obj, method, *args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/numpy/core/fromnumeric.py", line 45, in _wrapit
+    result = getattr(asarray(obj), method)(*args, **kwds)
+                     ^^^^^^^^^^^^
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/qwen_vision/lib/python3.11/site-packages/torch/_tensor.py", line 1225, in __array__
+    return self.numpy()
+           ^^^^^^^^^^^^
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+  7%|▋         | 25/375 [08:12<1:54:48, 19.68s/it]
+
+                                               [A

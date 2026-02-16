@@ -1,0 +1,99 @@
+### Starting TaskPrologue of job 1460523 on tg097 at Mon Dec  8 07:33:03 AM CET 2025
+Running on cores 32-63 with governor ondemand
+Mon Dec  8 07:33:03 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:41:00.0 Off |                    0 |
+| N/A   45C    P0             62W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Mon Dec  8 07:33:04 AM CET 2025
+   ✅ Processor loaded
+
+📊 Loading STAIRCASE datasets...
+   📁 Training dataset:
+   📊 Loaded 115 valid samples (out of 115 total)
+   📁 Validation dataset:
+   📊 Loaded 25 valid samples (out of 25 total)
+   📊 Raw validation samples for CER computation: 25
+
+================================================================================
+🔎 Starting / Resuming Optuna HPO (hyperparameters only, FAST MODE)
+================================================================================
+   • Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+   • Study name: phi_vision_stair
+   • Target total trials: 25
+   • Completed trials so far: 0
+   • Remaining trials to run: 25
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_0
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00010894653829887865
+   • Weight decay: 0.09507143064099162
+   • LoRA r=8, alpha=32, dropout=0.052058449429580246
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.27 GB, Reserved: 2.37 GB
+
+📝 Preparing model for LoRA training (no gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 12,582,912 / 4,159,204,352 (0.30%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+Finished at: Mon Dec  8 07:34:01 AM CET 2025
+Exit status: 1
+=== JOB_STATISTICS ===
+=== current date     : Mon Dec  8 07:34:01 AM CET 2025
+= Job-ID             : 1460523 on tinygpu
+= Job-Name           : phi_stair_with_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:01:24
+= Total RAM usage    : 10.9 GiB of requested  GiB (%)   
+= Node list          : tg097
+= Subm/Elig/Start/End: 2025-12-08T02:46:18 / 2025-12-08T02:46:18 / 2025-12-08T07:32:37 / 2025-12-08T07:34:01
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              87.9G   104.9G   209.7G        N/A  28,263      500K   1,000K        N/A    
+    /home/woody           208.9G  1000.0G  1500.0G        N/A     939K   5,000K   7,500K        N/A    
+    /home/vault           886.7G  1048.6G  2097.2G        N/A   6,548      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:41:00.0, 449713, 2 %, 0 %, 40430 MiB, 44169 ms

@@ -1,0 +1,568 @@
+### Starting TaskPrologue of job 1474279 on tg073 at Fri Dec 26 12:16:48 AM CET 2025
+Running on cores 6-7,14-15,22-23,30-31 with governor ondemand
+Fri Dec 26 00:16:48 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:AF:00.0 Off |                    0 |
+| N/A   35C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+============================================================
+NANONETS-OCR-S FINETUNING - STAIRCASE DATASET
+WITH DATA AUGMENTATION (NO ROTATION) - MULTI-STAGE VERSION
+BEST MODEL BY VALIDATION CER + TENSORBOARD CER CURVE
+============================================================
+Model: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Output: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/stair/run_20251226_001728_unsloth_aug_fixed_multistage_evalcer
+Augmentation: 2x
+✅ CUDA debugging enabled
+✅ Greedy decoding for stable inference
+✅ Gradient clipping for training stability
+✅ Multi-stage training (warm-up + main, best by eval_cer)
+============================================================
+
+============================================================
+LOADING NANONETS-OCR-S WITH UNSLOTH FOR STAIRCASE DATASET
+============================================================
+Model path: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Augmentation factor: 2
+Created temporary directory: /tmp/1474279.tinygpu/augmented_staircase_w_zmuhfp
+✓ Model directory verified
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.10.7: Fast Qwen2_5_Vl patching. Transformers: 4.56.2.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.8.0+cu128. CUDA: 7.0. CUDA Toolkit: 12.8. Triton: 3.4.0
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.32.post2. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to fast eager.
+
+✅ Model loaded successfully!
+Applying LoRA adaptors...
+Unsloth: Making `model.base_model.model.model` require gradients
+✅ LoRA applied successfully!
+============================================================
+
+
+============================================================
+PHASE 1: MULTI-STAGE TRAINING WITH DATA AUGMENTATION
+============================================================
+
+Preparing datasets...
+Preparing training data with augmentation factor: 2
+Creating augmentation 1/2 for image 1/115: FMIS_FormblätterMielke_gefüllt (10).jpg
+Creating augmentation 2/2 for image 1/115: FMIS_FormblätterMielke_gefüllt (10).jpg
+Creating augmentation 1/2 for image 2/115: FMIS_FormblätterMielke_gefüllt (114).jpg
+Creating augmentation 2/2 for image 2/115: FMIS_FormblätterMielke_gefüllt (114).jpg
+Creating augmentation 1/2 for image 3/115: FMIS_FormblätterMielke_gefüllt (12).jpg
+Creating augmentation 2/2 for image 3/115: FMIS_FormblätterMielke_gefüllt (12).jpg
+Creating augmentation 1/2 for image 4/115: FMIS_FormblätterMielke_gefüllt (123).jpg
+Creating augmentation 2/2 for image 4/115: FMIS_FormblätterMielke_gefüllt (123).jpg
+Creating augmentation 1/2 for image 5/115: FMIS_FormblätterMielke_gefüllt (125).jpg
+Creating augmentation 2/2 for image 5/115: FMIS_FormblätterMielke_gefüllt (125).jpg
+Creating augmentation 1/2 for image 6/115: FMIS_FormblätterMielke_gefüllt (126).jpg
+Creating augmentation 2/2 for image 6/115: FMIS_FormblätterMielke_gefüllt (126).jpg
+Creating augmentation 1/2 for image 7/115: FMIS_FormblätterMielke_gefüllt (134).jpg
+Creating augmentation 2/2 for image 7/115: FMIS_FormblätterMielke_gefüllt (134).jpg
+Creating augmentation 1/2 for image 8/115: FMIS_FormblätterMielke_gefüllt (136).jpg
+Creating augmentation 2/2 for image 8/115: FMIS_FormblätterMielke_gefüllt (136).jpg
+Creating augmentation 1/2 for image 9/115: FMIS_FormblätterMielke_gefüllt (138).jpg
+Creating augmentation 2/2 for image 9/115: FMIS_FormblätterMielke_gefüllt (138).jpg
+Creating augmentation 1/2 for image 10/115: FMIS_FormblätterMielke_gefüllt (14).jpg
+Creating augmentation 2/2 for image 10/115: FMIS_FormblätterMielke_gefüllt (14).jpg
+Creating augmentation 1/2 for image 11/115: FMIS_FormblätterMielke_gefüllt (149).jpg
+Creating augmentation 2/2 for image 11/115: FMIS_FormblätterMielke_gefüllt (149).jpg
+Creating augmentation 1/2 for image 12/115: FMIS_FormblätterMielke_gefüllt (15).jpg
+Creating augmentation 2/2 for image 12/115: FMIS_FormblätterMielke_gefüllt (15).jpg
+Creating augmentation 1/2 for image 13/115: FMIS_FormblätterMielke_gefüllt (152).jpg
+Creating augmentation 2/2 for image 13/115: FMIS_FormblätterMielke_gefüllt (152).jpg
+Creating augmentation 1/2 for image 14/115: FMIS_FormblätterMielke_gefüllt (154).jpg
+Creating augmentation 2/2 for image 14/115: FMIS_FormblätterMielke_gefüllt (154).jpg
+Creating augmentation 1/2 for image 15/115: FMIS_FormblätterMielke_gefüllt (159).jpg
+Creating augmentation 2/2 for image 15/115: FMIS_FormblätterMielke_gefüllt (159).jpg
+Creating augmentation 1/2 for image 16/115: FMIS_FormblätterMielke_gefüllt (160).jpg
+Creating augmentation 2/2 for image 16/115: FMIS_FormblätterMielke_gefüllt (160).jpg
+Creating augmentation 1/2 for image 17/115: FMIS_FormblätterMielke_gefüllt (163).jpg
+Creating augmentation 2/2 for image 17/115: FMIS_FormblätterMielke_gefüllt (163).jpg
+Creating augmentation 1/2 for image 18/115: FMIS_FormblätterMielke_gefüllt (164).jpg
+Creating augmentation 2/2 for image 18/115: FMIS_FormblätterMielke_gefüllt (164).jpg
+Creating augmentation 1/2 for image 19/115: FMIS_FormblätterMielke_gefüllt (18).jpg
+Creating augmentation 2/2 for image 19/115: FMIS_FormblätterMielke_gefüllt (18).jpg
+Creating augmentation 1/2 for image 20/115: FMIS_FormblätterMielke_gefüllt (20).jpg
+Creating augmentation 2/2 for image 20/115: FMIS_FormblätterMielke_gefüllt (20).jpg
+Creating augmentation 1/2 for image 21/115: FMIS_FormblätterMielke_gefüllt (28).jpg
+Creating augmentation 2/2 for image 21/115: FMIS_FormblätterMielke_gefüllt (28).jpg
+Creating augmentation 1/2 for image 22/115: FMIS_FormblätterMielke_gefüllt (29).jpg
+Creating augmentation 2/2 for image 22/115: FMIS_FormblätterMielke_gefüllt (29).jpg
+Creating augmentation 1/2 for image 23/115: FMIS_FormblätterMielke_gefüllt (30).jpg
+Creating augmentation 2/2 for image 23/115: FMIS_FormblätterMielke_gefüllt (30).jpg
+Creating augmentation 1/2 for image 24/115: FMIS_FormblätterMielke_gefüllt (31).jpg
+Creating augmentation 2/2 for image 24/115: FMIS_FormblätterMielke_gefüllt (31).jpg
+Creating augmentation 1/2 for image 25/115: FMIS_FormblätterMielke_gefüllt (33).jpg
+Creating augmentation 2/2 for image 25/115: FMIS_FormblätterMielke_gefüllt (33).jpg
+Creating augmentation 1/2 for image 26/115: FMIS_FormblätterMielke_gefüllt (38).jpg
+Creating augmentation 2/2 for image 26/115: FMIS_FormblätterMielke_gefüllt (38).jpg
+Creating augmentation 1/2 for image 27/115: FMIS_FormblätterMielke_gefüllt (51).jpg
+Creating augmentation 2/2 for image 27/115: FMIS_FormblätterMielke_gefüllt (51).jpg
+Creating augmentation 1/2 for image 28/115: FMIS_FormblätterMielke_gefüllt (52).jpg
+Creating augmentation 2/2 for image 28/115: FMIS_FormblätterMielke_gefüllt (52).jpg
+Creating augmentation 1/2 for image 29/115: FMIS_FormblätterMielke_gefüllt (53).jpg
+Creating augmentation 2/2 for image 29/115: FMIS_FormblätterMielke_gefüllt (53).jpg
+Creating augmentation 1/2 for image 30/115: FMIS_FormblätterMielke_gefüllt (55).jpg
+Creating augmentation 2/2 for image 30/115: FMIS_FormblätterMielke_gefüllt (55).jpg
+Creating augmentation 1/2 for image 31/115: FMIS_FormblätterMielke_gefüllt (56).jpg
+Creating augmentation 2/2 for image 31/115: FMIS_FormblätterMielke_gefüllt (56).jpg
+Creating augmentation 1/2 for image 32/115: FMIS_FormblätterMielke_gefüllt (6).jpg
+Creating augmentation 2/2 for image 32/115: FMIS_FormblätterMielke_gefüllt (6).jpg
+Creating augmentation 1/2 for image 33/115: FMIS_FormblätterMielke_gefüllt (81).jpg
+Creating augmentation 2/2 for image 33/115: FMIS_FormblätterMielke_gefüllt (81).jpg
+Creating augmentation 1/2 for image 34/115: FMIS_FormblätterMielke_gefüllt (85).jpg
+Creating augmentation 2/2 for image 34/115: FMIS_FormblätterMielke_gefüllt (85).jpg
+Creating augmentation 1/2 for image 35/115: FMIS_FormblätterMielke_gefüllt (89).jpg
+Creating augmentation 2/2 for image 35/115: FMIS_FormblätterMielke_gefüllt (89).jpg
+Creating augmentation 1/2 for image 36/115: FMIS_FormblätterMielke_gefüllt (108).jpg
+Creating augmentation 2/2 for image 36/115: FMIS_FormblätterMielke_gefüllt (108).jpg
+Creating augmentation 1/2 for image 37/115: FMIS_FormblätterMielke_gefüllt (65).jpg
+Creating augmentation 2/2 for image 37/115: FMIS_FormblätterMielke_gefüllt (65).jpg
+Creating augmentation 1/2 for image 38/115: FMIS_FormblätterMielke_gefüllt (75).jpg
+Creating augmentation 2/2 for image 38/115: FMIS_FormblätterMielke_gefüllt (75).jpg
+Creating augmentation 1/2 for image 39/115: FMIS_FormblätterMielke_gefüllt (46).jpg
+Creating augmentation 2/2 for image 39/115: FMIS_FormblätterMielke_gefüllt (46).jpg
+Creating augmentation 1/2 for image 40/115: FMIS_FormblätterMielke_gefüllt (157).jpg
+Creating augmentation 2/2 for image 40/115: FMIS_FormblätterMielke_gefüllt (157).jpg
+Creating augmentation 1/2 for image 41/115: FMIS_FormblätterMielke_gefüllt (115).jpg
+Creating augmentation 2/2 for image 41/115: FMIS_FormblätterMielke_gefüllt (115).jpg
+Creating augmentation 1/2 for image 42/115: FMIS_FormblätterMielke_gefüllt (25).jpg
+Creating augmentation 2/2 for image 42/115: FMIS_FormblätterMielke_gefüllt (25).jpg
+Creating augmentation 1/2 for image 43/115: FMIS_FormblätterMielke_gefüllt (4).jpg
+Creating augmentation 2/2 for image 43/115: FMIS_FormblätterMielke_gefüllt (4).jpg
+Creating augmentation 1/2 for image 44/115: FMIS_FormblätterMielke_gefüllt (77).jpg
+Creating augmentation 2/2 for image 44/115: FMIS_FormblätterMielke_gefüllt (77).jpg
+Creating augmentation 1/2 for image 45/115: FMIS_FormblätterMielke_gefüllt (73).jpg
+Creating augmentation 2/2 for image 45/115: FMIS_FormblätterMielke_gefüllt (73).jpg
+Creating augmentation 1/2 for image 46/115: FMIS_FormblätterMielke_gefüllt (155).jpg
+Creating augmentation 2/2 for image 46/115: FMIS_FormblätterMielke_gefüllt (155).jpg
+Creating augmentation 1/2 for image 47/115: FMIS_FormblätterMielke_gefüllt (120).jpg
+Creating augmentation 2/2 for image 47/115: FMIS_FormblätterMielke_gefüllt (120).jpg
+Creating augmentation 1/2 for image 48/115: FMIS_FormblätterMielke_gefüllt (131).jpg
+Creating augmentation 2/2 for image 48/115: FMIS_FormblätterMielke_gefüllt (131).jpg
+Creating augmentation 1/2 for image 49/115: FMIS_FormblätterMielke_gefüllt (59).jpg
+Creating augmentation 2/2 for image 49/115: FMIS_FormblätterMielke_gefüllt (59).jpg
+Creating augmentation 1/2 for image 50/115: FMIS_FormblätterMielke_gefüllt (133).jpg
+Creating augmentation 2/2 for image 50/115: FMIS_FormblätterMielke_gefüllt (133).jpg
+Creating augmentation 1/2 for image 51/115: FMIS_FormblätterMielke_gefüllt (158).jpg
+Creating augmentation 2/2 for image 51/115: FMIS_FormblätterMielke_gefüllt (158).jpg
+Creating augmentation 1/2 for image 52/115: FMIS_FormblätterMielke_gefüllt (26).jpg
+Creating augmentation 2/2 for image 52/115: FMIS_FormblätterMielke_gefüllt (26).jpg
+Creating augmentation 1/2 for image 53/115: FMIS_FormblätterMielke_gefüllt (97).jpg
+Creating augmentation 2/2 for image 53/115: FMIS_FormblätterMielke_gefüllt (97).jpg
+Creating augmentation 1/2 for image 54/115: FMIS_FormblätterMielke_gefüllt (69).jpg
+Creating augmentation 2/2 for image 54/115: FMIS_FormblätterMielke_gefüllt (69).jpg
+Creating augmentation 1/2 for image 55/115: FMIS_FormblätterMielke_gefüllt (117).jpg
+Creating augmentation 2/2 for image 55/115: FMIS_FormblätterMielke_gefüllt (117).jpg
+Creating augmentation 1/2 for image 56/115: FMIS_FormblätterMielke_gefüllt (67).jpg
+Creating augmentation 2/2 for image 56/115: FMIS_FormblätterMielke_gefüllt (67).jpg
+Creating augmentation 1/2 for image 57/115: FMIS_FormblätterMielke_gefüllt (101).jpg
+Creating augmentation 2/2 for image 57/115: FMIS_FormblätterMielke_gefüllt (101).jpg
+Creating augmentation 1/2 for image 58/115: FMIS_FormblätterMielke_gefüllt (32).jpg
+Creating augmentation 2/2 for image 58/115: FMIS_FormblätterMielke_gefüllt (32).jpg
+Creating augmentation 1/2 for image 59/115: FMIS_FormblätterMielke_gefüllt (49).jpg
+Creating augmentation 2/2 for image 59/115: FMIS_FormblätterMielke_gefüllt (49).jpg
+Creating augmentation 1/2 for image 60/115: FMIS_FormblätterMielke_gefüllt (140).jpg
+Creating augmentation 2/2 for image 60/115: FMIS_FormblätterMielke_gefüllt (140).jpg
+Creating augmentation 1/2 for image 61/115: FMIS_FormblätterMielke_gefüllt (92).jpg
+Creating augmentation 2/2 for image 61/115: FMIS_FormblätterMielke_gefüllt (92).jpg
+Creating augmentation 1/2 for image 62/115: FMIS_FormblätterMielke_gefüllt (106).jpg
+Creating augmentation 2/2 for image 62/115: FMIS_FormblätterMielke_gefüllt (106).jpg
+Creating augmentation 1/2 for image 63/115: FMIS_FormblätterMielke_gefüllt (100).jpg
+Creating augmentation 2/2 for image 63/115: FMIS_FormblätterMielke_gefüllt (100).jpg
+Creating augmentation 1/2 for image 64/115: FMIS_FormblätterMielke_gefüllt (60).jpg
+Creating augmentation 2/2 for image 64/115: FMIS_FormblätterMielke_gefüllt (60).jpg
+Creating augmentation 1/2 for image 65/115: FMIS_FormblätterMielke_gefüllt (48).jpg
+Creating augmentation 2/2 for image 65/115: FMIS_FormblätterMielke_gefüllt (48).jpg
+Creating augmentation 1/2 for image 66/115: FMIS_FormblätterMielke_gefüllt (128).jpg
+Creating augmentation 2/2 for image 66/115: FMIS_FormblätterMielke_gefüllt (128).jpg
+Creating augmentation 1/2 for image 67/115: FMIS_FormblätterMielke_gefüllt (64).jpg
+Creating augmentation 2/2 for image 67/115: FMIS_FormblätterMielke_gefüllt (64).jpg
+Creating augmentation 1/2 for image 68/115: FMIS_FormblätterMielke_gefüllt (23).jpg
+Creating augmentation 2/2 for image 68/115: FMIS_FormblätterMielke_gefüllt (23).jpg
+Creating augmentation 1/2 for image 69/115: FMIS_FormblätterMielke_gefüllt (41).jpg
+Creating augmentation 2/2 for image 69/115: FMIS_FormblätterMielke_gefüllt (41).jpg
+Creating augmentation 1/2 for image 70/115: FMIS_FormblätterMielke_gefüllt (68).jpg
+Creating augmentation 2/2 for image 70/115: FMIS_FormblätterMielke_gefüllt (68).jpg
+Creating augmentation 1/2 for image 71/115: FMIS_FormblätterMielke_gefüllt (22).jpg
+Creating augmentation 2/2 for image 71/115: FMIS_FormblätterMielke_gefüllt (22).jpg
+Creating augmentation 1/2 for image 72/115: FMIS_FormblätterMielke_gefüllt (143).jpg
+Creating augmentation 2/2 for image 72/115: FMIS_FormblätterMielke_gefüllt (143).jpg
+Creating augmentation 1/2 for image 73/115: FMIS_FormblätterMielke_gefüllt (40).jpg
+Creating augmentation 2/2 for image 73/115: FMIS_FormblätterMielke_gefüllt (40).jpg
+Creating augmentation 1/2 for image 74/115: FMIS_FormblätterMielke_gefüllt (137).jpg
+Creating augmentation 2/2 for image 74/115: FMIS_FormblätterMielke_gefüllt (137).jpg
+Creating augmentation 1/2 for image 75/115: FMIS_FormblätterMielke_gefüllt (16).jpg
+Creating augmentation 2/2 for image 75/115: FMIS_FormblätterMielke_gefüllt (16).jpg
+Creating augmentation 1/2 for image 76/115: FMIS_FormblätterMielke_gefüllt (24).jpg
+Creating augmentation 2/2 for image 76/115: FMIS_FormblätterMielke_gefüllt (24).jpg
+Creating augmentation 1/2 for image 77/115: FMIS_FormblätterMielke_gefüllt (142).jpg
+Creating augmentation 2/2 for image 77/115: FMIS_FormblätterMielke_gefüllt (142).jpg
+Creating augmentation 1/2 for image 78/115: FMIS_FormblätterMielke_gefüllt (84).jpg
+Creating augmentation 2/2 for image 78/115: FMIS_FormblätterMielke_gefüllt (84).jpg
+Creating augmentation 1/2 for image 79/115: FMIS_FormblätterMielke_gefüllt (145).jpg
+Creating augmentation 2/2 for image 79/115: FMIS_FormblätterMielke_gefüllt (145).jpg
+Creating augmentation 1/2 for image 80/115: FMIS_FormblätterMielke_gefüllt (57).jpg
+Creating augmentation 2/2 for image 80/115: FMIS_FormblätterMielke_gefüllt (57).jpg
+Creating augmentation 1/2 for image 81/115: FMIS_FormblätterMielke_gefüllt (47).jpg
+Creating augmentation 2/2 for image 81/115: FMIS_FormblätterMielke_gefüllt (47).jpg
+Creating augmentation 1/2 for image 82/115: FMIS_FormblätterMielke_gefüllt (19).jpg
+Creating augmentation 2/2 for image 82/115: FMIS_FormblätterMielke_gefüllt (19).jpg
+Creating augmentation 1/2 for image 83/115: FMIS_FormblätterMielke_gefüllt (146).jpg
+Creating augmentation 2/2 for image 83/115: FMIS_FormblätterMielke_gefüllt (146).jpg
+Creating augmentation 1/2 for image 84/115: FMIS_FormblätterMielke_gefüllt (54).jpg
+Creating augmentation 2/2 for image 84/115: FMIS_FormblätterMielke_gefüllt (54).jpg
+Creating augmentation 1/2 for image 85/115: FMIS_FormblätterMielke_gefüllt (121).jpg
+Creating augmentation 2/2 for image 85/115: FMIS_FormblätterMielke_gefüllt (121).jpg
+Creating augmentation 1/2 for image 86/115: FMIS_FormblätterMielke_gefüllt (161).jpg
+Creating augmentation 2/2 for image 86/115: FMIS_FormblätterMielke_gefüllt (161).jpg
+Creating augmentation 1/2 for image 87/115: FMIS_FormblätterMielke_gefüllt (76).jpg
+Creating augmentation 2/2 for image 87/115: FMIS_FormblätterMielke_gefüllt (76).jpg
+Creating augmentation 1/2 for image 88/115: FMIS_FormblätterMielke_gefüllt (122).jpg
+Creating augmentation 2/2 for image 88/115: FMIS_FormblätterMielke_gefüllt (122).jpg
+Creating augmentation 1/2 for image 89/115: FMIS_FormblätterMielke_gefüllt (7).jpg
+Creating augmentation 2/2 for image 89/115: FMIS_FormblätterMielke_gefüllt (7).jpg
+Creating augmentation 1/2 for image 90/115: FMIS_FormblätterMielke_gefüllt (144).jpg
+Creating augmentation 2/2 for image 90/115: FMIS_FormblätterMielke_gefüllt (144).jpg
+Creating augmentation 1/2 for image 91/115: FMIS_FormblätterMielke_gefüllt (79).jpg
+Creating augmentation 2/2 for image 91/115: FMIS_FormblätterMielke_gefüllt (79).jpg
+Creating augmentation 1/2 for image 92/115: FMIS_FormblätterMielke_gefüllt (95).jpg
+Creating augmentation 2/2 for image 92/115: FMIS_FormblätterMielke_gefüllt (95).jpg
+Creating augmentation 1/2 for image 93/115: FMIS_FormblätterMielke_gefüllt (34).jpg
+Creating augmentation 2/2 for image 93/115: FMIS_FormblätterMielke_gefüllt (34).jpg
+Creating augmentation 1/2 for image 94/115: FMIS_FormblätterMielke_Vorlage2.jpg
+Creating augmentation 2/2 for image 94/115: FMIS_FormblätterMielke_Vorlage2.jpg
+Creating augmentation 1/2 for image 95/115: FMIS_FormblätterMielke_gefüllt (17).jpg
+Creating augmentation 2/2 for image 95/115: FMIS_FormblätterMielke_gefüllt (17).jpg
+Creating augmentation 1/2 for image 96/115: FMIS_FormblätterMielke_gefüllt (112).jpg
+Creating augmentation 2/2 for image 96/115: FMIS_FormblätterMielke_gefüllt (112).jpg
+Creating augmentation 1/2 for image 97/115: FMIS_FormblätterMielke_gefüllt (62).jpg
+Creating augmentation 2/2 for image 97/115: FMIS_FormblätterMielke_gefüllt (62).jpg
+Creating augmentation 1/2 for image 98/115: FMIS_FormblätterMielke_gefüllt (3).jpg
+Creating augmentation 2/2 for image 98/115: FMIS_FormblätterMielke_gefüllt (3).jpg
+Creating augmentation 1/2 for image 99/115: FMIS_FormblätterMielke_gefüllt (71).jpg
+Creating augmentation 2/2 for image 99/115: FMIS_FormblätterMielke_gefüllt (71).jpg
+Creating augmentation 1/2 for image 100/115: FMIS_FormblätterMielke_gefüllt (8).jpg
+Creating augmentation 2/2 for image 100/115: FMIS_FormblätterMielke_gefüllt (8).jpg
+Creating augmentation 1/2 for image 101/115: FMIS_FormblätterMielke_gefüllt (44).jpg
+Creating augmentation 2/2 for image 101/115: FMIS_FormblätterMielke_gefüllt (44).jpg
+Creating augmentation 1/2 for image 102/115: FMIS_FormblätterMielke_gefüllt (107).jpg
+Creating augmentation 2/2 for image 102/115: FMIS_FormblätterMielke_gefüllt (107).jpg
+Creating augmentation 1/2 for image 103/115: FMIS_FormblätterMielke_gefüllt (124).jpg
+Creating augmentation 2/2 for image 103/115: FMIS_FormblätterMielke_gefüllt (124).jpg
+Creating augmentation 1/2 for image 104/115: FMIS_FormblätterMielke_gefüllt (153).jpg
+Creating augmentation 2/2 for image 104/115: FMIS_FormblätterMielke_gefüllt (153).jpg
+Creating augmentation 1/2 for image 105/115: FMIS_FormblätterMielke_gefüllt (141).jpg
+Creating augmentation 2/2 for image 105/115: FMIS_FormblätterMielke_gefüllt (141).jpg
+Creating augmentation 1/2 for image 106/115: FMIS_FormblätterMielke_gefüllt (37).jpg
+Creating augmentation 2/2 for image 106/115: FMIS_FormblätterMielke_gefüllt (37).jpg
+Creating augmentation 1/2 for image 107/115: FMIS_FormblätterMielke_gefüllt (109).jpg
+Creating augmentation 2/2 for image 107/115: FMIS_FormblätterMielke_gefüllt (109).jpg
+Creating augmentation 1/2 for image 108/115: FMIS_FormblätterMielke_gefüllt (5).jpg
+Creating augmentation 2/2 for image 108/115: FMIS_FormblätterMielke_gefüllt (5).jpg
+Creating augmentation 1/2 for image 109/115: FMIS_FormblätterMielke_gefüllt (113).jpg
+Creating augmentation 2/2 for image 109/115: FMIS_FormblätterMielke_gefüllt (113).jpg
+Creating augmentation 1/2 for image 110/115: FMIS_FormblätterMielke_gefüllt (35).jpg
+Creating augmentation 2/2 for image 110/115: FMIS_FormblätterMielke_gefüllt (35).jpg
+Creating augmentation 1/2 for image 111/115: FMIS_FormblätterMielke_gefüllt (21).jpg
+Creating augmentation 2/2 for image 111/115: FMIS_FormblätterMielke_gefüllt (21).jpg
+Creating augmentation 1/2 for image 112/115: FMIS_FormblätterMielke_gefüllt (104).jpg
+Creating augmentation 2/2 for image 112/115: FMIS_FormblätterMielke_gefüllt (104).jpg
+Creating augmentation 1/2 for image 113/115: FMIS_FormblätterMielke_gefüllt (135).jpg
+Creating augmentation 2/2 for image 113/115: FMIS_FormblätterMielke_gefüllt (135).jpg
+Creating augmentation 1/2 for image 114/115: FMIS_FormblätterMielke_gefüllt (78).jpg
+Creating augmentation 2/2 for image 114/115: FMIS_FormblätterMielke_gefüllt (78).jpg
+Creating augmentation 1/2 for image 115/115: FMIS_FormblätterMielke_gefüllt (148).jpg
+Creating augmentation 2/2 for image 115/115: FMIS_FormblätterMielke_gefüllt (148).jpg
+Successfully created 230 augmented images
+Total training samples: 345 (original: 115, augmented: 230)
+Found 25 valid samples out of 25 total
+Training: 345 samples, Validation: 25 samples
+
+
+============================================================
+STAGE 1: WARM-UP TRAINING (NO EVAL, TEACHER FORCING)
+============================================================
+
+Unsloth: Model does not have a default image size - using 512
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 0.407, 'grad_norm': 0.32041725516319275, 'learning_rate': 2.7000000000000002e-05, 'epoch': 0.23}
+{'loss': 0.2936, 'grad_norm': 0.2633591592311859, 'learning_rate': 5.7e-05, 'epoch': 0.46}
+{'loss': 0.1561, 'grad_norm': 0.2057882398366928, 'learning_rate': 8.7e-05, 'epoch': 0.69}
+{'loss': 0.0684, 'grad_norm': 0.13413983583450317, 'learning_rate': 0.00011700000000000001, 'epoch': 0.92}
+{'loss': 0.0635, 'grad_norm': 0.14659574627876282, 'learning_rate': 0.00014700000000000002, 'epoch': 1.14}
+{'loss': 0.038, 'grad_norm': 0.0997278243303299, 'learning_rate': 0.0001489650560515052, 'epoch': 1.37}
+{'loss': 0.0347, 'grad_norm': 0.08485522866249084, 'learning_rate': 0.00014542412704612927, 'epoch': 1.6}
+{'loss': 0.0311, 'grad_norm': 0.09618493914604187, 'learning_rate': 0.00013948498885862795, 'epoch': 1.83}
+{'loss': 0.038, 'grad_norm': 0.14083139598369598, 'learning_rate': 0.0001313498917167655, 'epoch': 2.05}
+{'loss': 0.027, 'grad_norm': 0.0724363774061203, 'learning_rate': 0.00012129586659673449, 'epoch': 2.28}
+{'loss': 0.0239, 'grad_norm': 0.0751209706068039, 'learning_rate': 0.0001096652912655235, 'epoch': 2.51}
+{'loss': 0.0222, 'grad_norm': 0.06898979842662811, 'learning_rate': 9.685423101669936e-05, 'epoch': 2.74}
+{'loss': 0.0179, 'grad_norm': 0.08090914785861969, 'learning_rate': 8.329895114186256e-05, 'epoch': 2.97}
+{'loss': 0.0208, 'grad_norm': 0.11985018849372864, 'learning_rate': 6.946106043938446e-05, 'epoch': 3.18}
+{'loss': 0.0165, 'grad_norm': 0.07943451404571533, 'learning_rate': 5.581179168041733e-05, 'epoch': 3.42}
+{'loss': 0.0153, 'grad_norm': 0.06092354282736778, 'learning_rate': 4.281595434205433e-05, 'epoch': 3.65}
+{'loss': 0.014, 'grad_norm': 0.05453667789697647, 'learning_rate': 3.0916106078064525e-05, 'epoch': 3.88}
+{'loss': 0.0127, 'grad_norm': 0.05590922012925148, 'learning_rate': 2.0517481948783203e-05, 'epoch': 4.09}
+{'loss': 0.0112, 'grad_norm': 0.0755617544054985, 'learning_rate': 1.1974194627158056e-05, 'epoch': 4.32}
+{'loss': 0.0107, 'grad_norm': 0.08750507235527039, 'learning_rate': 5.577175516383284e-06, 'epoch': 4.55}
+{'loss': 0.0118, 'grad_norm': 0.08938074111938477, 'learning_rate': 1.5442674298975586e-06, 'epoch': 4.79}
+{'loss': 0.0137, 'grad_norm': 0.7444087266921997, 'learning_rate': 1.2806215646046782e-08, 'epoch': 5.0}
+{'train_runtime': 2230.3361, 'train_samples_per_second': 0.773, 'train_steps_per_second': 0.099, 'train_loss': 0.06127445149150762, 'epoch': 5.0}
+
+============================================================
+STAGE 2: MAIN TRAINING (EVAL EACH EPOCH, BEST MODEL BY EVAL_CER)
+============================================================
+
+Unsloth: Model does not have a default image size - using 512
+
+============================================================
+GPU INFORMATION (STAGE 2)
+============================================================
+GPU: Tesla V100-PCIE-32GB
+Max memory: 31.733 GB
+Reserved before Stage 2: 10.48 GB
+
+✅ UNSLOTH OPTIMIZATIONS:
+   • 4-bit quantization
+   • LoRA rank 16 (RSLoRA)
+   • Gradient checkpointing
+   • Gradient clipping: 1.0
+   • Data augmentation: 2x
+   • Model selection: eval_cer (Stage 2)
+   • Batch size: 2, Grad accum: 4
+============================================================
+
+Starting Stage 2 training...
+{'loss': 0.0113, 'grad_norm': 0.062459833920001984, 'learning_rate': 9e-06, 'epoch': 0.23}
+{'loss': 0.0105, 'grad_norm': 0.06813161075115204, 'learning_rate': 1.9e-05, 'epoch': 0.46}
+{'loss': 0.0083, 'grad_norm': 0.07457970827817917, 'learning_rate': 2.9e-05, 'epoch': 0.69}
+{'loss': 0.0097, 'grad_norm': 0.11628594249486923, 'learning_rate': 3.9000000000000006e-05, 'epoch': 0.92}
+{'eval_loss': 0.1534205824136734, 'eval_runtime': 21.7964, 'eval_samples_per_second': 1.147, 'eval_steps_per_second': 0.596, 'epoch': 1.0}
+
+================================================================================
+🔍 COMPUTING VALIDATION CER (Epoch 1)
+================================================================================
+
+   ✅ Validation CER (Epoch 1): 0.2193 (21.93%)
+   🎯 NEW BEST CER: 0.2193 (improved by inf)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/stair/run_20251226_001728_unsloth_aug_fixed_multistage_evalcer/best_model
+   ✅ Best model + tokenizer saved.
+================================================================================
+
+{'loss': 0.0088, 'grad_norm': 0.07806510478258133, 'learning_rate': 4.9e-05, 'epoch': 1.14}
+{'loss': 0.0073, 'grad_norm': 0.10728920996189117, 'learning_rate': 4.9973149192508185e-05, 'epoch': 1.37}
+{'loss': 0.008, 'grad_norm': 0.07804740965366364, 'learning_rate': 4.9880405632845825e-05, 'epoch': 1.6}
+{'loss': 0.0081, 'grad_norm': 0.08661877363920212, 'learning_rate': 4.972168371018725e-05, 'epoch': 1.83}
+{'eval_loss': 0.16201123595237732, 'eval_runtime': 19.4198, 'eval_samples_per_second': 1.287, 'eval_steps_per_second': 0.669, 'epoch': 2.0}
+
+================================================================================
+🔍 COMPUTING VALIDATION CER (Epoch 2)
+================================================================================
+
+   ✅ Validation CER (Epoch 2): 0.2493 (24.93%)
+   📊 No improvement. Best CER remains: 0.2193
+================================================================================
+
+{'loss': 0.0076, 'grad_norm': 0.07603053003549576, 'learning_rate': 4.949740432653795e-05, 'epoch': 2.05}
+{'loss': 0.0058, 'grad_norm': 0.07416416704654694, 'learning_rate': 4.920816223050475e-05, 'epoch': 2.28}
+{'loss': 0.0059, 'grad_norm': 0.16714859008789062, 'learning_rate': 4.8854724440129376e-05, 'epoch': 2.51}
+{'loss': 0.0061, 'grad_norm': 0.09603800624608994, 'learning_rate': 4.8438028208894496e-05, 'epoch': 2.74}
+{'loss': 0.0052, 'grad_norm': 0.10553180426359177, 'learning_rate': 4.795917854029601e-05, 'epoch': 2.97}
+{'eval_loss': 0.17743246257305145, 'eval_runtime': 20.644, 'eval_samples_per_second': 1.211, 'eval_steps_per_second': 0.63, 'epoch': 3.0}
+
+================================================================================
+🔍 COMPUTING VALIDATION CER (Epoch 3)
+================================================================================
+
+   ✅ Validation CER (Epoch 3): 0.2075 (20.75%)
+   🎯 NEW BEST CER: 0.2075 (improved by 0.0119)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/stair/run_20251226_001728_unsloth_aug_fixed_multistage_evalcer/best_model
+   ✅ Best model + tokenizer saved.
+================================================================================
+
+{'loss': 0.0061, 'grad_norm': 0.07482391595840454, 'learning_rate': 4.741944525757242e-05, 'epoch': 3.18}
+{'loss': 0.0049, 'grad_norm': 0.07779670506715775, 'learning_rate': 4.68202596363618e-05, 'epoch': 3.42}
+{'loss': 0.0045, 'grad_norm': 0.1039731577038765, 'learning_rate': 4.6163210609216236e-05, 'epoch': 3.65}
+{'loss': 0.0044, 'grad_norm': 0.047136154025793076, 'learning_rate': 4.545004055203823e-05, 'epoch': 3.88}
+{'eval_loss': 0.18556158244609833, 'eval_runtime': 20.8292, 'eval_samples_per_second': 1.2, 'eval_steps_per_second': 0.624, 'epoch': 4.0}
+
+================================================================================
+🔍 COMPUTING VALIDATION CER (Epoch 4)
+================================================================================
+
+   ✅ Validation CER (Epoch 4): 0.2469 (24.69%)
+   📊 No improvement. Best CER remains: 0.2075
+================================================================================
+
+{'loss': 0.005, 'grad_norm': 0.03774494677782059, 'learning_rate': 4.468264066361307e-05, 'epoch': 4.09}
+{'loss': 0.004, 'grad_norm': 0.055890414863824844, 'learning_rate': 4.386304595048966e-05, 'epoch': 4.32}
+{'loss': 0.0036, 'grad_norm': 0.09808234870433807, 'learning_rate': 4.299342983050892e-05, 'epoch': 4.55}
+{'loss': 0.0036, 'grad_norm': 0.1236002966761589, 'learning_rate': 4.207609836929045e-05, 'epoch': 4.79}
+{'loss': 0.0044, 'grad_norm': 0.18243305385112762, 'learning_rate': 4.1113484164961044e-05, 'epoch': 5.0}
+{'eval_loss': 0.2020217478275299, 'eval_runtime': 20.7652, 'eval_samples_per_second': 1.204, 'eval_steps_per_second': 0.626, 'epoch': 5.0}
+
+================================================================================
+🔍 COMPUTING VALIDATION CER (Epoch 5)
+================================================================================
+
+   ✅ Validation CER (Epoch 5): 0.2125 (21.25%)
+   📊 No improvement. Best CER remains: 0.2075
+================================================================================
+
+{'loss': 0.0036, 'grad_norm': 0.1314876824617386, 'learning_rate': 4.0108139897341734e-05, 'epoch': 5.23}
+{'loss': 0.0035, 'grad_norm': 0.05041813105344772, 'learning_rate': 3.9062731558699875e-05, 'epoch': 5.46}
+{'loss': 0.0034, 'grad_norm': 0.054687533527612686, 'learning_rate': 3.7980031384016824e-05, 'epoch': 5.69}
+{'loss': 0.0031, 'grad_norm': 0.03788144886493683, 'learning_rate': 3.6862910499519205e-05, 'epoch': 5.92}
+{'eval_loss': 0.20592646300792694, 'eval_runtime': 20.6541, 'eval_samples_per_second': 1.21, 'eval_steps_per_second': 0.629, 'epoch': 6.0}
+
+================================================================================
+🔍 COMPUTING VALIDATION CER (Epoch 6)
+================================================================================
+
+   ✅ Validation CER (Epoch 6): 0.2116 (21.16%)
+   📊 No improvement. Best CER remains: 0.2075
+================================================================================
+
+{'train_runtime': 19398.0321, 'train_samples_per_second': 0.267, 'train_steps_per_second': 0.034, 'train_loss': 0.005998564735901627, 'epoch': 6.0}
+
+============================================================
+STAGE 2 TRAINING COMPLETED
+============================================================
+Runtime: 323.3 min
+Peak memory: 31.275 GB
+Training memory (Stage 2): 20.795 GB
+============================================================
+
+
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/stair/run_20251226_001728_unsloth_aug_fixed_multistage_evalcer...
+✅ Model saved!
+
+============================================================
+PHASE 2: EVALUATION (TEST SET)
+============================================================
+
+Starting evaluation on test set...
+Loaded 24 test samples
+Processing test image 1/24: FMIS_FormblätterMielke_gefüllt (83).jpg
+  Processed successfully. CER: 0.151
+Processing test image 2/24: FMIS_FormblätterMielke_gefüllt (45).jpg
+  Processed successfully. CER: 1.000
+Processing test image 3/24: FMIS_FormblätterMielke_gefüllt (27).jpg
+  Processed successfully. CER: 0.111
+Processing test image 4/24: FMIS_FormblätterMielke_gefüllt (130).jpg
+  Processed successfully. CER: 0.140
+Processing test image 5/24: FMIS_FormblätterMielke_gefüllt (129).jpg
+  Processed successfully. CER: 0.124
+Processing test image 6/24: FMIS_FormblätterMielke_gefüllt (88).jpg
+  Processed successfully. CER: 0.109
+Processing test image 7/24: FMIS_FormblätterMielke_gefüllt (102).jpg
+  Processed successfully. CER: 0.116
+Processing test image 8/24: FMIS_FormblätterMielke_gefüllt (103).jpg
+  Processed successfully. CER: 0.351
+Processing test image 9/24: FMIS_FormblätterMielke_gefüllt (165).jpg
+  Processed successfully. CER: 0.081
+Processing test image 10/24: FMIS_FormblätterMielke_gefüllt (43).jpg
+  Processed successfully. CER: 0.124
+Processing test image 11/24: FMIS_FormblätterMielke_gefüllt (11).jpg
+  Processed successfully. CER: 0.102
+Processing test image 12/24: FMIS_FormblätterMielke_gefüllt (36).jpg
+  Processed successfully. CER: 0.149
+Processing test image 13/24: FMIS_FormblätterMielke_gefüllt (87).jpg
+  Processed successfully. CER: 0.123
+Processing test image 14/24: FMIS_FormblätterMielke_gefüllt (94).jpg
+  Processed successfully. CER: 0.136
+Processing test image 15/24: FMIS_FormblätterMielke_gefüllt (58).jpg
+  Processed successfully. CER: 0.285
+Processing test image 16/24: FMIS_FormblätterMielke_gefüllt (111).jpg
+  Processed successfully. CER: 0.107
+Processing test image 17/24: FMIS_FormblätterMielke_gefüllt (99).jpg
+  Processed successfully. CER: 0.114
+Processing test image 18/24: FMIS_FormblätterMielke_gefüllt (116).jpg
+  Processed successfully. CER: 0.102
+Processing test image 19/24: FMIS_FormblätterMielke_Vorlage3.jpg
+  Processed successfully. CER: 0.267
+Processing test image 20/24: FMIS_FormblätterMielke_gefüllt (132).jpg
+  Processed successfully. CER: 0.118
+Processing test image 21/24: FMIS_FormblätterMielke_gefüllt (139).jpg
+  Processed successfully. CER: 0.133
+Processing test image 22/24: FMIS_FormblätterMielke_gefüllt (66).jpg
+  Processed successfully. CER: 0.120
+Processing test image 23/24: FMIS_FormblätterMielke_gefüllt (105).jpg
+  Processed successfully. CER: 0.118
+Processing test image 24/24: FMIS_FormblätterMielke_gefüllt (13).jpg
+  Processed successfully. CER: 0.103
+
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/stair/run_20251226_001728_unsloth_aug_fixed_multistage_evalcer/cer_evaluation_results.txt
+
+============================================================
+FINAL RESULTS
+============================================================
+Model: Nanonets-OCR-s (finetuned, best eval_cer)
+Dataset: Staircase
+
+Metrics:
+  Avg CER: 0.1785 (17.85%)
+  Weighted CER: 0.1775 (17.75%)
+  Median: 0.1213 | Std: 0.1826
+
+Accuracy:
+  Perfect: 0/24 (0.00%)
+  Parsing: 18/24 (75.00%)
+
+Best Validation CER: 0.2075
+Best model saved at: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/stair/run_20251226_001728_unsloth_aug_fixed_multistage_evalcer/best_model
+
+Saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/multistage/stair/run_20251226_001728_unsloth_aug_fixed_multistage_evalcer
+============================================================
+
+Cleaned up temporary directory: /tmp/1474279.tinygpu/augmented_staircase_w_zmuhfp
+Nano training completed at: Fri Dec 26 07:05:58 AM CET 2025
+=== JOB_STATISTICS ===
+=== current date     : Fri Dec 26 07:05:58 AM CET 2025
+= Job-ID             : 1474279 on tinygpu
+= Job-Name           : ms_stair_eval_cer
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nano.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 06:49:11
+= Total RAM usage    : 13.6 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2025-12-26T00:16:46 / 2025-12-26T00:16:46 / 2025-12-26T00:16:47 / 2025-12-26T07:05:58
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.4G   104.9G   209.7G        N/A  29,233      500K   1,000K        N/A    
+    /home/woody           219.6G  1000.0G  1500.0G        N/A   1,017K   5,000K   7,500K        N/A    
+    /home/vault           960.6G  1048.6G  2097.2G        N/A   7,588      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:AF:00.0, 1063874, 41 %, 15 %, 32490 MiB, 24539841 ms

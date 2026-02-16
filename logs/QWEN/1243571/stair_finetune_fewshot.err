@@ -1,0 +1,45 @@
+Unsloth: KwargsForCausalLM cannot be inherited from TransformersKwargs since it's of type = <class 'type'>
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:39<02:36, 39.20s/it]Loading checkpoint shards:  40%|████      | 2/5 [01:19<01:59, 39.93s/it]Loading checkpoint shards:  60%|██████    | 3/5 [02:00<01:20, 40.15s/it]Loading checkpoint shards:  80%|████████  | 4/5 [02:40<00:40, 40.23s/it]Loading checkpoint shards: 100%|██████████| 5/5 [02:50<00:00, 29.25s/it]Loading checkpoint shards: 100%|██████████| 5/5 [02:50<00:00, 34.04s/it]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+  0%|          | 0/180 [00:00<?, ?it/s]Unsloth: Not an error, but Qwen2_5_VLForConditionalGeneration does not accept `num_items_in_batch`.
+Using gradient accumulation will be very slightly less accurate.
+Read more on gradient accumulation issues here: https://unsloth.ai/blog/gradient
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+  1%|          | 1/180 [00:20<1:01:47, 20.71s/it]  1%|          | 2/180 [00:39<58:41, 19.78s/it]    2%|▏         | 3/180 [00:59<58:32, 19.84s/it]  2%|▏         | 4/180 [01:18<56:57, 19.42s/it]  3%|▎         | 5/180 [01:35<54:00, 18.52s/it]  3%|▎         | 6/180 [01:53<53:03, 18.30s/it]  4%|▍         | 7/180 [02:11<53:02, 18.40s/it]  4%|▍         | 8/180 [02:29<52:19, 18.25s/it]  5%|▌         | 9/180 [02:48<52:26, 18.40s/it]
+  0%|          | 0/5 [00:00<?, ?it/s][A
+ 40%|████      | 2/5 [00:02<00:03,  1.01s/it][A
+ 60%|██████    | 3/5 [00:07<00:05,  2.81s/it][A
+ 80%|████████  | 4/5 [00:08<00:02,  2.36s/it][A
+100%|██████████| 5/5 [00:15<00:00,  3.80s/it][A                                               
+                                             [A  5%|▌         | 9/180 [03:21<52:26, 18.40s/it]
+100%|██████████| 5/5 [00:20<00:00,  3.80s/it][A
+                                             [A  6%|▌         | 10/180 [03:48<1:28:33, 31.26s/it]                                                    6%|▌         | 10/180 [03:48<1:28:33, 31.26s/it]  6%|▌         | 11/180 [04:06<1:16:14, 27.07s/it]  7%|▋         | 12/180 [04:24<1:08:12, 24.36s/it]  7%|▋         | 13/180 [04:40<1:01:06, 21.95s/it]  8%|▊         | 14/180 [04:58<57:19, 20.72s/it]    8%|▊         | 15/180 [05:16<54:56, 19.98s/it]  9%|▉         | 16/180 [05:34<52:44, 19.30s/it]  9%|▉         | 17/180 [05:53<52:07, 19.18s/it] 10%|█         | 18/180 [06:10<49:50, 18.46s/it]
+  0%|          | 0/5 [00:00<?, ?it/s][A
+ 40%|████      | 2/5 [00:01<00:02,  1.04it/s][A
+ 60%|██████    | 3/5 [00:06<00:04,  2.26s/it][A
+ 80%|████████  | 4/5 [00:07<00:02,  2.01s/it][A
+100%|██████████| 5/5 [00:13<00:00,  3.23s/it][A                                                
+                                             [A 10%|█         | 18/180 [06:39<49:50, 18.46s/it]
+100%|██████████| 5/5 [00:18<00:00,  3.23s/it][A
+                                             [A 11%|█         | 19/180 [07:06<1:19:37, 29.68s/it] 11%|█         | 20/180 [07:24<1:09:55, 26.22s/it]                                                   11%|█         | 20/180 [07:24<1:09:55, 26.22s/it] 12%|█▏        | 21/180 [07:42<1:02:51, 23.72s/it] 12%|█▏        | 22/180 [08:00<57:55, 22.00s/it]   13%|█▎        | 23/180 [08:17<54:02, 20.65s/it] 13%|█▎        | 24/180 [08:35<51:25, 19.78s/it] 14%|█▍        | 25/180 [08:54<50:32, 19.56s/it] 14%|█▍        | 26/180 [09:11<48:10, 18.77s/it] 15%|█▌        | 27/180 [09:29<47:32, 18.64s/it]
+  0%|          | 0/5 [00:00<?, ?it/s][A
+ 40%|████      | 2/5 [00:01<00:02,  1.01it/s][A
+ 60%|██████    | 3/5 [00:06<00:04,  2.29s/it][A
+ 80%|████████  | 4/5 [00:07<00:02,  2.03s/it][A
+100%|██████████| 5/5 [00:13<00:00,  3.22s/it][A                                                
+                                             [A 15%|█▌        | 27/180 [09:58<47:32, 18.64s/it]
+100%|██████████| 5/5 [00:18<00:00,  3.22s/it][A
+                                             [A 16%|█▌        | 28/180 [10:24<1:14:36, 29.45s/it] 16%|█▌        | 29/180 [10:41<1:04:31, 25.64s/it] 17%|█▋        | 30/180 [10:58<58:02, 23.22s/it]                                                   17%|█▋        | 30/180 [10:58<58:02, 23.22s/it] 17%|█▋        | 31/180 [11:15<53:07, 21.39s/it] 18%|█▊        | 32/180 [11:33<50:08, 20.33s/it] 18%|█▊        | 33/180 [11:51<47:41, 19.47s/it] 19%|█▉        | 34/180 [12:10<46:56, 19.29s/it] 19%|█▉        | 35/180 [12:28<46:04, 19.07s/it] 20%|██        | 36/180 [12:47<45:44, 19.06s/it]
+  0%|          | 0/5 [00:00<?, ?it/s][A
+ 40%|████      | 2/5 [00:01<00:02,  1.02it/s][A
+ 60%|██████    | 3/5 [00:06<00:04,  2.30s/it][A
+ 80%|████████  | 4/5 [00:07<00:02,  2.04s/it][A
+100%|██████████| 5/5 [00:13<00:00,  3.25s/it][A                                                
+                                             [A 20%|██        | 36/180 [13:17<45:44, 19.06s/it]
+100%|██████████| 5/5 [00:18<00:00,  3.25s/it][A
+                                             [A                                                 20%|██        | 36/180 [13:28<45:44, 19.06s/it] 20%|██        | 36/180 [13:28<53:52, 22.45s/it]
+Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Unsloth: Merging weights into 16bit:   0%|          | 0/5 [00:00<?, ?it/s]Unsloth: Merging weights into 16bit:  20%|██        | 1/5 [00:29<01:59, 29.81s/it]Unsloth: Merging weights into 16bit:  40%|████      | 2/5 [02:24<03:58, 79.53s/it]Unsloth: Merging weights into 16bit:  60%|██████    | 3/5 [04:46<03:36, 108.26s/it]Unsloth: Merging weights into 16bit:  80%|████████  | 4/5 [07:06<02:00, 120.76s/it]Unsloth: Merging weights into 16bit: 100%|██████████| 5/5 [09:27<00:00, 127.97s/it]Unsloth: Merging weights into 16bit: 100%|██████████| 5/5 [09:27<00:00, 113.46s/it]
+Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
+Unsloth: Merging weights into 16bit:   0%|          | 0/5 [00:00<?, ?it/s]Unsloth: Merging weights into 16bit:  20%|██        | 1/5 [00:38<02:34, 38.61s/it]Unsloth: Merging weights into 16bit:  40%|████      | 2/5 [02:58<04:54, 98.30s/it]Unsloth: Merging weights into 16bit:  60%|██████    | 3/5 [05:18<03:54, 117.44s/it]Unsloth: Merging weights into 16bit:  80%|████████  | 4/5 [07:39<02:06, 126.45s/it]Unsloth: Merging weights into 16bit: 100%|██████████| 5/5 [09:59<00:00, 131.35s/it]Unsloth: Merging weights into 16bit: 100%|██████████| 5/5 [09:59<00:00, 119.84s/it]

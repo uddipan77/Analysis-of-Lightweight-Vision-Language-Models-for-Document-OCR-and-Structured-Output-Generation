@@ -1,0 +1,823 @@
+### Starting TaskPrologue of job 1471138 on tg074 at Fri Dec 19 08:31:53 PM CET 2025
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Fri Dec 19 20:31:53 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   35C    P0             25W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+================================================================================
+[HPO] Starting / Resuming Optuna HPO for Qwen SCHMUCK OCR
+================================================================================
+[HPO]   Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+[HPO]   Study name: qwen_schmuck
+[HPO]   HPO run folder: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233
+[HPO]   Target COMPLETE trials: 30
+[HPO]   Completed trials so far: 0
+[HPO]   Remaining trials to run: 30
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #0
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_000
+[HPO]   • num_epochs: 9
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00011844319751820385
+[HPO]   • weight_decay: 0.08927180304353628
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.0902
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=8, alpha=64, dropout=0.0902)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 3.8515, 'grad_norm': 52.14488983154297, 'learning_rate': 2.1535126821491608e-05, 'epoch': 0.77}
+{'loss': 1.3325, 'grad_norm': 3.5784852504730225, 'learning_rate': 0.00011844319751820385, 'epoch': 1.62}
+{'loss': 0.0616, 'grad_norm': 0.893721878528595, 'learning_rate': 0.00011536421803441743, 'epoch': 2.46}
+{'loss': 0.0194, 'grad_norm': 2.241938591003418, 'learning_rate': 0.0001064474369195779, 'epoch': 3.31}
+{'loss': 0.0139, 'grad_norm': 0.8535139560699463, 'learning_rate': 9.262003569830718e-05, 'epoch': 4.15}
+{'loss': 0.0098, 'grad_norm': 1.168869137763977, 'learning_rate': 7.531981022774032e-05, 'epoch': 4.93}
+{'loss': 0.0066, 'grad_norm': 1.0535898208618164, 'learning_rate': 5.63456663261897e-05, 'epoch': 5.77}
+{'loss': 0.0045, 'grad_norm': 0.7077509164810181, 'learning_rate': 3.767056659579399e-05, 'epoch': 6.62}
+{'loss': 0.0027, 'grad_norm': 0.196868434548378, 'learning_rate': 2.1236378535316646e-05, 'epoch': 7.46}
+{'loss': 0.0023, 'grad_norm': 0.18902194499969482, 'learning_rate': 8.751955972791797e-06, 'epoch': 8.31}
+{'train_runtime': 5284.6165, 'train_samples_per_second': 0.703, 'train_steps_per_second': 0.02, 'train_loss': 0.4912839859931005, 'epoch': 8.93}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0020 (0.20%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #1
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_001
+[HPO]   • num_epochs: 9
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 8.152843673110742e-05
+[HPO]   • weight_decay: 0.015199348301309814
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.0209
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=32, alpha=64, dropout=0.0209)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 3.616, 'grad_norm': 19.17103385925293, 'learning_rate': 2.223502819939293e-05, 'epoch': 0.77}
+{'loss': 0.7823, 'grad_norm': 1.0720878839492798, 'learning_rate': 8.1442947081911e-05, 'epoch': 1.62}
+{'loss': 0.0282, 'grad_norm': 0.5741066336631775, 'learning_rate': 7.848829145082814e-05, 'epoch': 2.46}
+{'loss': 0.0157, 'grad_norm': 0.46441346406936646, 'learning_rate': 7.161102482955927e-05, 'epoch': 3.31}
+{'loss': 0.0096, 'grad_norm': 3.290921449661255, 'learning_rate': 6.152625668070267e-05, 'epoch': 4.15}
+{'loss': 0.0052, 'grad_norm': 3.0930097103118896, 'learning_rate': 4.928261773627823e-05, 'epoch': 4.93}
+{'loss': 0.0037, 'grad_norm': 0.5597925186157227, 'learning_rate': 3.615322165436586e-05, 'epoch': 5.77}
+{'loss': 0.0028, 'grad_norm': 0.08685910701751709, 'learning_rate': 2.35032845729207e-05, 'epoch': 6.62}
+{'loss': 0.0019, 'grad_norm': 0.20640480518341064, 'learning_rate': 1.2648167696674535e-05, 'epoch': 7.46}
+{'loss': 0.0018, 'grad_norm': 0.2664584517478943, 'learning_rate': 4.7166038817605575e-06, 'epoch': 8.31}
+{'train_runtime': 5248.9331, 'train_samples_per_second': 0.708, 'train_steps_per_second': 0.021, 'train_loss': 0.413728715248268, 'epoch': 8.93}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0024 (0.24%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #2
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_002
+[HPO]   • num_epochs: 9
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 4
+[HPO]   • learning_rate: 7.918515779559379e-05
+[HPO]   • weight_decay: 0.032676417657817626
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.1448
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=32, alpha=64, dropout=0.1448)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 3.9002, 'grad_norm': 72.69767761230469, 'learning_rate': 5.164249421451769e-06, 'epoch': 0.19}
+{'loss': 1.7107, 'grad_norm': 14.501738548278809, 'learning_rate': 2.2378414159624332e-05, 'epoch': 0.39}
+{'loss': 0.4996, 'grad_norm': 3.022008180618286, 'learning_rate': 3.787116242397964e-05, 'epoch': 0.58}
+{'loss': 0.0318, 'grad_norm': 6.280640125274658, 'learning_rate': 5.50853271621522e-05, 'epoch': 0.77}
+{'loss': 0.0328, 'grad_norm': 1.9132894277572632, 'learning_rate': 7.229949190032476e-05, 'epoch': 0.97}
+{'loss': 0.022, 'grad_norm': 0.7843277454376221, 'learning_rate': 7.914392806014227e-05, 'epoch': 1.17}
+{'loss': 0.0208, 'grad_norm': 1.3910903930664062, 'learning_rate': 7.889227946511528e-05, 'epoch': 1.37}
+{'loss': 0.0228, 'grad_norm': 4.463075160980225, 'learning_rate': 7.841334132425878e-05, 'epoch': 1.56}
+{'loss': 0.018, 'grad_norm': 0.6235065460205078, 'learning_rate': 7.77098835729907e-05, 'epoch': 1.75}
+{'loss': 0.0175, 'grad_norm': 1.6008458137512207, 'learning_rate': 7.678597465433955e-05, 'epoch': 1.95}
+{'loss': 0.0112, 'grad_norm': 1.1122379302978516, 'learning_rate': 7.564695798913241e-05, 'epoch': 2.15}
+{'loss': 0.0119, 'grad_norm': 0.8185352683067322, 'learning_rate': 7.42994210723575e-05, 'epoch': 2.35}
+{'loss': 0.0094, 'grad_norm': 0.8496246933937073, 'learning_rate': 7.27511573744327e-05, 'epoch': 2.54}
+{'loss': 0.0118, 'grad_norm': 0.7343149781227112, 'learning_rate': 7.101112126772332e-05, 'epoch': 2.73}
+{'loss': 0.0104, 'grad_norm': 0.8199124932289124, 'learning_rate': 6.908937623899169e-05, 'epoch': 2.93}
+{'loss': 0.0067, 'grad_norm': 0.16006362438201904, 'learning_rate': 6.699703668729106e-05, 'epoch': 3.14}
+{'loss': 0.0058, 'grad_norm': 1.5192924737930298, 'learning_rate': 6.474620364391589e-05, 'epoch': 3.33}
+{'loss': 0.008, 'grad_norm': 1.002913475036621, 'learning_rate': 6.234989478617115e-05, 'epoch': 3.52}
+{'loss': 0.007, 'grad_norm': 0.7248868942260742, 'learning_rate': 5.982196914972584e-05, 'epoch': 3.71}
+{'loss': 0.0078, 'grad_norm': 0.5913841128349304, 'learning_rate': 5.7177046974976296e-05, 'epoch': 3.91}
+{'loss': 0.0062, 'grad_norm': 0.7861576676368713, 'learning_rate': 5.443042515098721e-05, 'epoch': 4.12}
+{'loss': 0.0027, 'grad_norm': 0.8115836977958679, 'learning_rate': 5.15979887460397e-05, 'epoch': 4.31}
+{'loss': 0.0036, 'grad_norm': 0.8991916179656982, 'learning_rate': 4.869611913644906e-05, 'epoch': 4.5}
+{'loss': 0.003, 'grad_norm': 0.5200432538986206, 'learning_rate': 4.5741599264988376e-05, 'epoch': 4.7}
+{'loss': 0.0037, 'grad_norm': 0.24112486839294434, 'learning_rate': 4.275151657685529e-05, 'epoch': 4.89}
+{'loss': 0.0031, 'grad_norm': 0.1292041540145874, 'learning_rate': 3.974316419455121e-05, 'epoch': 5.1}
+{'loss': 0.003, 'grad_norm': 0.2957123816013336, 'learning_rate': 3.6733940903227105e-05, 'epoch': 5.29}
+{'loss': 0.0015, 'grad_norm': 1.1621211767196655, 'learning_rate': 3.374125052493027e-05, 'epoch': 5.48}
+{'loss': 0.0031, 'grad_norm': 0.403613418340683, 'learning_rate': 3.078240126372007e-05, 'epoch': 5.68}
+{'loss': 0.002, 'grad_norm': 0.440849632024765, 'learning_rate': 2.7874505603789763e-05, 'epoch': 5.87}
+{'loss': 0.0017, 'grad_norm': 0.49677059054374695, 'learning_rate': 2.5034381339532805e-05, 'epoch': 6.08}
+{'loss': 0.0015, 'grad_norm': 0.14146609604358673, 'learning_rate': 2.2278454309945514e-05, 'epoch': 6.27}
+{'loss': 0.0013, 'grad_norm': 0.45688337087631226, 'learning_rate': 1.9622663399901114e-05, 'epoch': 6.46}
+{'loss': 0.0011, 'grad_norm': 0.10571996122598648, 'learning_rate': 1.7082368357719496e-05, 'epoch': 6.66}
+{'loss': 0.0011, 'grad_norm': 0.07758607715368271, 'learning_rate': 1.4672260962169349e-05, 'epoch': 6.85}
+{'loss': 0.0006, 'grad_norm': 0.07302073389291763, 'learning_rate': 1.2406280052667467e-05, 'epoch': 7.06}
+{'loss': 0.0005, 'grad_norm': 0.10233234614133835, 'learning_rate': 1.029753091409752e-05, 'epoch': 7.25}
+{'loss': 0.0004, 'grad_norm': 0.35088595747947693, 'learning_rate': 8.358209482485881e-06, 'epoch': 7.44}
+{'loss': 0.0008, 'grad_norm': 0.31095778942108154, 'learning_rate': 6.59953180989008e-06, 'epoch': 7.64}
+{'loss': 0.0009, 'grad_norm': 0.021829502657055855, 'learning_rate': 5.031669196439505e-06, 'epoch': 7.83}
+{'loss': 0.0005, 'grad_norm': 0.032314371317625046, 'learning_rate': 3.663689364691556e-06, 'epoch': 8.04}
+{'loss': 0.0002, 'grad_norm': 0.008908103220164776, 'learning_rate': 2.5035040165211557e-06, 'epoch': 8.23}
+{'loss': 0.0005, 'grad_norm': 0.025087391957640648, 'learning_rate': 1.557823075847756e-06, 'epoch': 8.43}
+{'loss': 0.0003, 'grad_norm': 0.07567549496889114, 'learning_rate': 8.321158818368469e-07, 'epoch': 8.62}
+{'loss': 0.0004, 'grad_norm': 0.1479320526123047, 'learning_rate': 3.305795570148411e-07, 'epoch': 8.81}
+{'train_runtime': 5504.7259, 'train_samples_per_second': 0.675, 'train_steps_per_second': 0.083, 'train_loss': 0.1396560789484628, 'epoch': 8.99}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0026 (0.26%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #3
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_003
+[HPO]   • num_epochs: 9
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00013775979824755377
+[HPO]   • weight_decay: 0.01324458134009936
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.0780
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=32, alpha=32, dropout=0.0780)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 3.1144, 'grad_norm': 8.291388511657715, 'learning_rate': 5.0094472090019554e-05, 'epoch': 0.77}
+{'loss': 0.6407, 'grad_norm': 0.9148285984992981, 'learning_rate': 0.00013743492077330078, 'epoch': 1.62}
+{'loss': 0.0508, 'grad_norm': 0.20764751732349396, 'learning_rate': 0.00013174418019264918, 'epoch': 2.46}
+{'loss': 0.0139, 'grad_norm': 0.693063497543335, 'learning_rate': 0.00011951670856353722, 'epoch': 3.31}
+{'loss': 0.0095, 'grad_norm': 0.1562926173210144, 'learning_rate': 0.00010202393844008284, 'epoch': 4.15}
+{'loss': 0.005, 'grad_norm': 0.7319383025169373, 'learning_rate': 8.108479674939576e-05, 'epoch': 4.93}
+{'loss': 0.0038, 'grad_norm': 0.2260967493057251, 'learning_rate': 5.8876569786497285e-05, 'epoch': 5.77}
+{'loss': 0.0025, 'grad_norm': 0.18806208670139313, 'learning_rate': 3.7708505414424124e-05, 'epoch': 6.62}
+{'loss': 0.0018, 'grad_norm': 0.10612472146749496, 'learning_rate': 1.9781693684061397e-05, 'epoch': 7.46}
+{'loss': 0.0017, 'grad_norm': 0.1962508112192154, 'learning_rate': 6.960193880671266e-06, 'epoch': 8.31}
+{'train_runtime': 5482.0832, 'train_samples_per_second': 0.678, 'train_steps_per_second': 0.02, 'train_loss': 0.35600469286415587, 'epoch': 8.93}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0076 (0.76%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #4
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_004
+[HPO]   • num_epochs: 6
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 0.000434979656425666
+[HPO]   • weight_decay: 0.07849235338159358
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.0583
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=16, alpha=64, dropout=0.0583)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 3.0275, 'grad_norm': nan, 'learning_rate': 8.69959312851332e-05, 'epoch': 0.39}
+{'loss': 0.4696, 'grad_norm': 6.855226516723633, 'learning_rate': 0.0003479837251405328, 'epoch': 0.77}
+{'loss': 0.0684, 'grad_norm': 1.607928991317749, 'learning_rate': 0.00043210042431902977, 'epoch': 1.19}
+{'loss': 0.0374, 'grad_norm': 1.676819920539856, 'learning_rate': 0.000418181273716952, 'epoch': 1.58}
+{'loss': 0.1037, 'grad_norm': 3.9963269233703613, 'learning_rate': 0.0003934427953407028, 'epoch': 1.97}
+{'loss': 0.1483, 'grad_norm': 12.229677200317383, 'learning_rate': 0.0003592186469628621, 'epoch': 2.39}
+{'loss': 0.1072, 'grad_norm': 16.912532806396484, 'learning_rate': 0.00031735386128106994, 'epoch': 2.77}
+{'loss': 0.0282, 'grad_norm': 6.395887851715088, 'learning_rate': 0.00027010537972772765, 'epoch': 3.19}
+{'loss': 0.0212, 'grad_norm': 1.0443949699401855, 'learning_rate': 0.00022002038017318953, 'epoch': 3.58}
+{'loss': 0.019, 'grad_norm': 6.165646076202393, 'learning_rate': 0.00016979895790745952, 'epoch': 3.97}
+{'loss': 0.0145, 'grad_norm': 0.7062400579452515, 'learning_rate': 0.00012214856280421394, 'epoch': 4.39}
+{'loss': 0.0099, 'grad_norm': 1.2331664562225342, 'learning_rate': 7.963803999731373e-05, 'epoch': 4.77}
+{'loss': 0.0086, 'grad_norm': 0.45559296011924744, 'learning_rate': 4.4559142774717584e-05, 'epoch': 5.19}
+{'loss': 0.0048, 'grad_norm': 21.343894958496094, 'learning_rate': 1.8802983565529807e-05, 'epoch': 5.58}
+{'loss': 0.0043, 'grad_norm': 0.24874986708164215, 'learning_rate': 3.758083579451035e-06, 'epoch': 5.97}
+{'train_runtime': 3603.0261, 'train_samples_per_second': 0.688, 'train_steps_per_second': 0.042, 'train_loss': 0.2715121841430664, 'epoch': 5.97}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0046 (0.46%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #5
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_005
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00017444803725696098
+[HPO]   • weight_decay: 0.013833249975219963
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.1223
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=32, alpha=16, dropout=0.1223)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 2.7478, 'grad_norm': 5.098789215087891, 'learning_rate': 0.00017444803725696098, 'epoch': 0.77}
+{'loss': 0.2894, 'grad_norm': 0.2955136299133301, 'learning_rate': 0.00016009862305503087, 'epoch': 1.62}
+{'loss': 0.0264, 'grad_norm': 0.25467219948768616, 'learning_rate': 0.0001217716875198441, 'epoch': 2.46}
+{'loss': 0.016, 'grad_norm': 2.9284677505493164, 'learning_rate': 7.207772674485847e-05, 'epoch': 3.31}
+{'loss': 0.0132, 'grad_norm': 0.18862591683864594, 'learning_rate': 2.7367265223379118e-05, 'epoch': 4.15}
+{'loss': 0.01, 'grad_norm': 0.2576201856136322, 'learning_rate': 2.3511347106785506e-06, 'epoch': 4.93}
+{'train_runtime': 2988.3396, 'train_samples_per_second': 0.691, 'train_steps_per_second': 0.02, 'train_loss': 0.5171154071887334, 'epoch': 4.93}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0029 (0.29%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #6
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_006
+[HPO]   • num_epochs: 5
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 0.00011413943879952569
+[HPO]   • weight_decay: 0.013057771348997228
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.1094
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=8, alpha=64, dropout=0.1094)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 3.8724, 'grad_norm': 56.76953125, 'learning_rate': 1.755991366146549e-05, 'epoch': 0.39}
+{'loss': 1.2123, 'grad_norm': 4.042118549346924, 'learning_rate': 0.00010535948196879295, 'epoch': 0.77}
+{'loss': 0.0483, 'grad_norm': 1.9073299169540405, 'learning_rate': 0.00011233052970108236, 'epoch': 1.19}
+{'loss': 0.0265, 'grad_norm': 5.425558567047119, 'learning_rate': 0.00010622458940845868, 'epoch': 1.58}
+{'loss': 0.0204, 'grad_norm': 2.5019075870513916, 'learning_rate': 9.62764411970743e-05, 'epoch': 1.97}
+{'loss': 0.0137, 'grad_norm': 1.0811381340026855, 'learning_rate': 8.32636856145052e-05, 'epoch': 2.39}
+{'loss': 0.0113, 'grad_norm': 1.9816237688064575, 'learning_rate': 6.820346933483267e-05, 'epoch': 2.77}
+{'loss': 0.0083, 'grad_norm': 0.2777591347694397, 'learning_rate': 5.386979470931709e-05, 'epoch': 3.19}
+{'loss': 0.0059, 'grad_norm': 0.5272541642189026, 'learning_rate': 3.8220786010364587e-05, 'epoch': 3.58}
+{'loss': 0.0066, 'grad_norm': 6.007037162780762, 'learning_rate': 2.4045110902084273e-05, 'epoch': 3.97}
+{'loss': 0.0044, 'grad_norm': 2.837697982788086, 'learning_rate': 1.245081607741178e-05, 'epoch': 4.39}
+{'loss': 0.0036, 'grad_norm': 9.774748802185059, 'learning_rate': 4.344173720159636e-06, 'epoch': 4.77}
+{'train_runtime': 3037.822, 'train_samples_per_second': 0.68, 'train_steps_per_second': 0.041, 'train_loss': 0.41884764468669894, 'epoch': 4.97}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0027 (0.27%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #7
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_007
+[HPO]   • num_epochs: 8
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 0.00025835376300116367
+[HPO]   • weight_decay: 0.057648106701146694
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.0162
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=16, alpha=16, dropout=0.0162)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 3.5001, 'grad_norm': 6.039412498474121, 'learning_rate': 6.458844075029092e-05, 'epoch': 0.39}
+{'loss': 0.8692, 'grad_norm': 1.2725998163223267, 'learning_rate': 0.00019376532225087275, 'epoch': 0.77}
+{'loss': 0.0416, 'grad_norm': 0.24000950157642365, 'learning_rate': 0.00025786220596748713, 'epoch': 1.19}
+{'loss': 0.0269, 'grad_norm': 0.4184976816177368, 'learning_rate': 0.0002539521675014764, 'epoch': 1.58}
+{'loss': 0.0184, 'grad_norm': 0.28344255685806274, 'learning_rate': 0.00024625089510966976, 'epoch': 1.97}
+{'loss': 0.0124, 'grad_norm': 0.21344444155693054, 'learning_rate': 0.00023499238805666032, 'epoch': 2.39}
+{'loss': 0.0092, 'grad_norm': 0.1933247447013855, 'learning_rate': 0.00022051873038217432, 'epoch': 2.77}
+{'loss': 0.0074, 'grad_norm': 0.3845970928668976, 'learning_rate': 0.00020326969685062693, 'epoch': 3.19}
+{'loss': 0.0055, 'grad_norm': 0.4006754159927368, 'learning_rate': 0.00018376939061744206, 'epoch': 3.58}
+{'loss': 0.0059, 'grad_norm': 0.15473437309265137, 'learning_rate': 0.0001626103186198839, 'epoch': 3.97}
+{'loss': 0.0046, 'grad_norm': 0.14205852150917053, 'learning_rate': 0.0001404353885535913, 'epoch': 4.39}
+{'loss': 0.0037, 'grad_norm': 0.19953887164592743, 'learning_rate': 0.00011791837444757239, 'epoch': 4.77}
+{'loss': 0.0038, 'grad_norm': 0.08173849433660507, 'learning_rate': 9.574344438127976e-05, 'epoch': 5.19}
+{'loss': 0.0025, 'grad_norm': 0.12846200168132782, 'learning_rate': 7.458437238372165e-05, 'epoch': 5.58}
+{'loss': 0.0022, 'grad_norm': 0.0633544772863388, 'learning_rate': 5.508406615053677e-05, 'epoch': 5.97}
+{'loss': 0.0017, 'grad_norm': 0.07262860983610153, 'learning_rate': 3.7835032618989344e-05, 'epoch': 6.39}
+{'loss': 0.0012, 'grad_norm': 0.23012615740299225, 'learning_rate': 2.3361374944503365e-05, 'epoch': 6.77}
+{'loss': 0.0012, 'grad_norm': 0.039524611085653305, 'learning_rate': 1.210286789149395e-05, 'epoch': 7.19}
+{'loss': 0.0013, 'grad_norm': 0.044228482991456985, 'learning_rate': 4.401595499687278e-06, 'epoch': 7.58}
+{'loss': 0.0012, 'grad_norm': 4.232592582702637, 'learning_rate': 4.915570336765236e-07, 'epoch': 7.97}
+{'train_runtime': 4843.553, 'train_samples_per_second': 0.682, 'train_steps_per_second': 0.041, 'train_loss': 0.22599332100711764, 'epoch': 7.97}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0028 (0.28%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #8
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_008
+[HPO]   • num_epochs: 9
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00040414431890810175
+[HPO]   • weight_decay: 0.017753837036522245
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 32
+[HPO]   • lora_dropout: 0.1395
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=16, alpha=32, dropout=0.1395)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 2.9469, 'grad_norm': 10.831012725830078, 'learning_rate': 0.00018370196314004624, 'epoch': 0.77}
+{'loss': 0.2359, 'grad_norm': 1.5721428394317627, 'learning_rate': 0.0004024509746669191, 'epoch': 1.62}
+{'loss': 0.0251, 'grad_norm': 0.20764948427677155, 'learning_rate': 0.0003837252790201555, 'epoch': 2.46}
+{'loss': 0.0118, 'grad_norm': 0.5458836555480957, 'learning_rate': 0.0003461109940739051, 'epoch': 3.31}
+{'loss': 0.0472, 'grad_norm': 0.4212629199028015, 'learning_rate': 0.000293519314867596, 'epoch': 4.15}
+{'loss': 0.0085, 'grad_norm': 0.9095790982246399, 'learning_rate': 0.0002314188104600536, 'epoch': 4.93}
+{'loss': 0.0052, 'grad_norm': 0.286112517118454, 'learning_rate': 0.0001662667931498328, 'epoch': 5.77}
+{'loss': 0.0035, 'grad_norm': 0.11852060258388519, 'learning_rate': 0.00010483787655185683, 'epoch': 6.62}
+{'loss': 0.0025, 'grad_norm': 0.18048296868801117, 'learning_rate': 5.351954016277906e-05, 'epoch': 7.46}
+{'loss': 0.002, 'grad_norm': 0.06831364333629608, 'learning_rate': 1.7647948766895566e-05, 'epoch': 8.31}
+{'train_runtime': 5330.5427, 'train_samples_per_second': 0.697, 'train_steps_per_second': 0.02, 'train_loss': 0.30459435024574677, 'epoch': 8.93}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0029 (0.29%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #9
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_009
+[HPO]   • num_epochs: 8
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 8
+[HPO]   • learning_rate: 7.683163288062515e-05
+[HPO]   • weight_decay: 0.07808345085542412
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 16
+[HPO]   • lora_dropout: 0.0641
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=32, alpha=16, dropout=0.0641)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 3.7465, 'grad_norm': 11.061532020568848, 'learning_rate': 1.920790822015629e-05, 'epoch': 0.39}
+{'loss': 1.5891, 'grad_norm': 3.5590922832489014, 'learning_rate': 5.7623724660468866e-05, 'epoch': 0.77}
+{'loss': 0.3251, 'grad_norm': 0.5844776034355164, 'learning_rate': 7.668544910101767e-05, 'epoch': 1.19}
+{'loss': 0.0369, 'grad_norm': 0.7126846313476562, 'learning_rate': 7.552264567799067e-05, 'epoch': 1.58}
+{'loss': 0.0261, 'grad_norm': 0.5161333084106445, 'learning_rate': 7.351041105099208e-05, 'epoch': 1.97}
+{'loss': 0.0211, 'grad_norm': 0.2951880395412445, 'learning_rate': 7.026397164970938e-05, 'epoch': 2.39}
+{'loss': 0.0162, 'grad_norm': 0.7786738276481628, 'learning_rate': 6.60498421683333e-05, 'epoch': 2.77}
+{'loss': 0.0128, 'grad_norm': 0.17794166505336761, 'learning_rate': 6.099606679870304e-05, 'epoch': 3.19}
+{'loss': 0.0102, 'grad_norm': 4.003910064697266, 'learning_rate': 5.52562019480911e-05, 'epoch': 3.58}
+{'loss': 0.0099, 'grad_norm': 0.3569521903991699, 'learning_rate': 4.900465050547154e-05, 'epoch': 3.97}
+{'loss': 0.0082, 'grad_norm': 0.4473671317100525, 'learning_rate': 4.243136269799071e-05, 'epoch': 4.39}
+{'loss': 0.0054, 'grad_norm': 0.5208808183670044, 'learning_rate': 3.573606454943478e-05, 'epoch': 4.77}
+{'loss': 0.0068, 'grad_norm': 0.41063767671585083, 'learning_rate': 2.9122189306063284e-05, 'epoch': 5.19}
+{'loss': 0.0049, 'grad_norm': 0.4517769515514374, 'learning_rate': 2.279069622036371e-05, 'epoch': 5.58}
+{'loss': 0.0037, 'grad_norm': 0.10884274542331696, 'learning_rate': 1.6933964505854943e-05, 'epoch': 5.97}
+{'loss': 0.0037, 'grad_norm': 0.06702099740505219, 'learning_rate': 1.1729947992033081e-05, 'epoch': 6.39}
+{'loss': 0.0034, 'grad_norm': 0.7610276937484741, 'learning_rate': 7.336768087311207e-06, 'epoch': 6.77}
+{'loss': 0.0029, 'grad_norm': 0.20929542183876038, 'learning_rate': 3.887909340037981e-06, 'epoch': 7.19}
+{'loss': 0.0034, 'grad_norm': 0.14203977584838867, 'learning_rate': 1.4881635780425564e-06, 'epoch': 7.58}
+{'loss': 0.0034, 'grad_norm': 0.2278173714876175, 'learning_rate': 2.1044586197323943e-07, 'epoch': 7.97}
+{'train_runtime': 4754.7886, 'train_samples_per_second': 0.695, 'train_steps_per_second': 0.042, 'train_loss': 0.29197599132545293, 'epoch': 7.97}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0029 (0.29%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #10
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_010
+[HPO]   • num_epochs: 10
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 9.642542830233731e-05
+[HPO]   • weight_decay: 0.06797722182037162
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.1208
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=8, alpha=64, dropout=0.1208)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 3.8893, 'grad_norm': 53.480865478515625, 'learning_rate': 1.6070904717056216e-05, 'epoch': 0.77}
+{'loss': 1.4587, 'grad_norm': 6.693774700164795, 'learning_rate': 9.642542830233731e-05, 'epoch': 1.62}
+{'loss': 0.0673, 'grad_norm': 3.456777334213257, 'learning_rate': 9.439998866825278e-05, 'epoch': 2.46}
+{'loss': 0.0202, 'grad_norm': 0.48379260301589966, 'learning_rate': 8.849384917960606e-05, 'epoch': 3.31}
+{'loss': 0.0138, 'grad_norm': 0.695044219493866, 'learning_rate': 7.920324943689874e-05, 'epoch': 4.15}
+{'loss': 0.008, 'grad_norm': 1.465140700340271, 'learning_rate': 6.730879469227629e-05, 'epoch': 4.93}
+{'loss': 0.0061, 'grad_norm': 0.7056019306182861, 'learning_rate': 5.380986863486455e-05, 'epoch': 5.77}
+{'loss': 0.0043, 'grad_norm': 0.7684124112129211, 'learning_rate': 3.984066419844159e-05, 'epoch': 6.62}
+{'loss': 0.0032, 'grad_norm': 0.3459323048591614, 'learning_rate': 2.657488756488494e-05, 'epoch': 7.46}
+{'loss': 0.0026, 'grad_norm': 0.5304161906242371, 'learning_rate': 1.5127142225973612e-05, 'epoch': 8.31}
+{'loss': 0.0016, 'grad_norm': 0.3433578908443451, 'learning_rate': 6.459278910859098e-06, 'epoch': 9.15}
+{'loss': 0.0013, 'grad_norm': 0.9555871486663818, 'learning_rate': 1.2995799496427113e-06, 'epoch': 9.93}
+{'train_runtime': 6040.8122, 'train_samples_per_second': 0.684, 'train_steps_per_second': 0.02, 'train_loss': 0.4563783343260487, 'epoch': 9.93}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0026 (0.26%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #11
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_011
+[HPO]   • num_epochs: 7
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 5.30586963945972e-05
+[HPO]   • weight_decay: 0.019016205523189212
+[HPO]   • lora_r: 32
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.0503
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=32, alpha=64, dropout=0.0503)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 3.527, 'grad_norm': 10.186446189880371, 'learning_rate': 2.3581642842043198e-05, 'epoch': 0.77}
+{'loss': 0.7189, 'grad_norm': 2.0046567916870117, 'learning_rate': 5.247896648551794e-05, 'epoch': 1.62}
+{'loss': 0.0287, 'grad_norm': 0.6912752985954285, 'learning_rate': 4.862620581302279e-05, 'epoch': 2.46}
+{'loss': 0.0165, 'grad_norm': 0.7307405471801758, 'learning_rate': 4.074448381473893e-05, 'epoch': 3.31}
+{'loss': 0.0117, 'grad_norm': 0.5078827738761902, 'learning_rate': 3.0404835727746737e-05, 'epoch': 4.15}
+{'loss': 0.0063, 'grad_norm': 0.8243517875671387, 'learning_rate': 1.939508063904114e-05, 'epoch': 4.93}
+{'loss': 0.0053, 'grad_norm': 0.2715390920639038, 'learning_rate': 9.618905223944316e-06, 'epoch': 5.77}
+{'loss': 0.004, 'grad_norm': 0.1503230631351471, 'learning_rate': 2.7666990254919757e-06, 'epoch': 6.62}
+{'train_runtime': 4264.0427, 'train_samples_per_second': 0.678, 'train_steps_per_second': 0.02, 'train_loss': 0.5143005117729661, 'epoch': 6.93}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0029 (0.29%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #12
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_012
+[HPO]   • num_epochs: 9
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 8.931839192709148e-05
+[HPO]   • weight_decay: 0.011948833607131894
+[HPO]   • lora_r: 16
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.0034
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=16, alpha=64, dropout=0.0034)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 3.7499, 'grad_norm': 19.87649154663086, 'learning_rate': 2.435956143466131e-05, 'epoch': 0.77}
+{'loss': 1.0455, 'grad_norm': 2.0818581581115723, 'learning_rate': 8.929497126232578e-05, 'epoch': 1.62}
+{'loss': 0.0368, 'grad_norm': 1.0566980838775635, 'learning_rate': 8.651409386077304e-05, 'epoch': 2.46}
+{'loss': 0.0167, 'grad_norm': 0.5032913088798523, 'learning_rate': 7.938107553017347e-05, 'epoch': 3.31}
+{'loss': 0.0114, 'grad_norm': 0.21298278868198395, 'learning_rate': 6.863761921531672e-05, 'epoch': 4.15}
+{'loss': 0.0061, 'grad_norm': 0.36391279101371765, 'learning_rate': 5.540084712402955e-05, 'epoch': 4.93}
+{'loss': 0.0046, 'grad_norm': 0.185066357254982, 'learning_rate': 4.104714052782792e-05, 'epoch': 5.77}
+{'loss': 0.0028, 'grad_norm': 0.5010280609130859, 'learning_rate': 2.7069021379919056e-05, 'epoch': 6.62}
+{'loss': 0.002, 'grad_norm': 1.5242009162902832, 'learning_rate': 1.4919957434640427e-05, 'epoch': 7.46}
+{'loss': 0.0019, 'grad_norm': 0.09887838363647461, 'learning_rate': 5.863228286549514e-06, 'epoch': 8.31}
+{'train_runtime': 5446.659, 'train_samples_per_second': 0.682, 'train_steps_per_second': 0.02, 'train_loss': 0.4517068697001647, 'epoch': 8.93}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0028 (0.28%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #13
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_013
+[HPO]   • num_epochs: 10
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.000226015474147145
+[HPO]   • weight_decay: 0.09504743251827598
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.0486
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=8, alpha=64, dropout=0.0486)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+{'loss': 3.6697, 'grad_norm': nan, 'learning_rate': 5.650386853678625e-05, 'epoch': 0.77}
+{'loss': 0.8708, 'grad_norm': 4.786174774169922, 'learning_rate': 0.000226015474147145, 'epoch': 1.62}
+{'loss': 0.0327, 'grad_norm': 1.8409733772277832, 'learning_rate': 0.00022126796400056121, 'epoch': 2.46}
+{'loss': 0.0165, 'grad_norm': 0.5855358242988586, 'learning_rate': 0.00020742432399390015, 'epoch': 3.31}
+{'loss': 0.0127, 'grad_norm': 0.788062572479248, 'learning_rate': 0.00018564771026317907, 'epoch': 4.15}
+{'loss': 0.009, 'grad_norm': 1.6313239336013794, 'learning_rate': 0.00015776781513428766, 'epoch': 4.93}
+{'loss': 0.006, 'grad_norm': 0.38077840209007263, 'learning_rate': 0.00012612713458914137, 'epoch': 5.77}
+{'loss': 0.0047, 'grad_norm': 0.6921204924583435, 'learning_rate': 9.338414946848304e-05, 'epoch': 6.62}
+{'loss': 0.0029, 'grad_norm': 0.26407355070114136, 'learning_rate': 6.228995731864379e-05, 'epoch': 7.46}
+{'loss': 0.0025, 'grad_norm': 0.2095007598400116, 'learning_rate': 3.5457122492364914e-05, 'epoch': 8.31}
+{'loss': 0.0016, 'grad_norm': 1.4666277170181274, 'learning_rate': 1.5140165943666192e-05, 'epoch': 9.15}
+{'loss': 0.0013, 'grad_norm': 0.567834198474884, 'learning_rate': 3.0461381782993903e-06, 'epoch': 9.93}
+{'train_runtime': 6061.5395, 'train_samples_per_second': 0.681, 'train_steps_per_second': 0.02, 'train_loss': 0.3858784430194646, 'epoch': 9.93}
+
+[HPO] === Running validation CER evaluation (one-shot, post-training) ===
+[HPO] Using 30 validation samples for CER
+[HPO]   Val sample 1/30: SCH_1941.jpg[HPO]   Val sample 2/30: SCH_3097.jpg[HPO]   Val sample 3/30: SCH_3217.jpg[HPO]   Val sample 4/30: SCH_2891_185.jpg[HPO]   Val sample 5/30: SCH_1931.jpg[HPO]   Val sample 6/30: SCH_2891_139.jpg[HPO]   Val sample 7/30: SCH_2891_303.jpg[HPO]   Val sample 8/30: SCH_3082_recto.jpg[HPO]   Val sample 9/30: SCH_3192_15.jpg[HPO]   Val sample 10/30: SCH_2969.jpg[HPO]   Val sample 11/30: SCH_2891_24_a.jpg[HPO]   Val sample 12/30: SCH_3028.jpg[HPO]   Val sample 13/30: SCH_3192_34.jpg[HPO]   Val sample 14/30: SCH_2891_194_195.jpg[HPO]   Val sample 15/30: SCH_3138.jpg[HPO]   Val sample 16/30: SCH_2891_216.jpg[HPO]   Val sample 17/30: SCH_3201.jpg[HPO]   Val sample 18/30: SCH_2891_208.jpg[HPO]   Val sample 19/30: SCH_2079.jpg[HPO]   Val sample 20/30: SCH_2891_122.jpg[HPO]   Val sample 21/30: SCH_3192_24.jpg[HPO]   Val sample 22/30: SCH_2891_294.jpg[HPO]   Val sample 23/30: SCH_2891_119.jpg[HPO]   Val sample 24/30: SCH_3049.jpg[HPO]   Val sample 25/30: SCH_2891_269.jpg[HPO]   Val sample 26/30: SCH_2990.jpg[HPO]   Val sample 27/30: SCH_1933.jpg[HPO]   Val sample 28/30: SCH_2891_71.jpg[HPO]   Val sample 29/30: SCH_3121.jpg[HPO]   Val sample 30/30: SCH_2891_61.jpg
+[HPO]   ✅ Validation CER (post-training): 0.0024 (0.24%)
+
+
+================================================================================
+[HPO] Qwen SCHMUCK OCR HPO TRIAL
+================================================================================
+[HPO] Trial #14
+[HPO] Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/schmuck/hpo_run_20251219_203233/trial_014
+[HPO]   • num_epochs: 9
+[HPO]   • batch_size: 2
+[HPO]   • grad_accum: 16
+[HPO]   • learning_rate: 0.00014534155586510427
+[HPO]   • weight_decay: 0.08153550812048883
+[HPO]   • lora_r: 8
+[HPO]   • lora_alpha: 64
+[HPO]   • lora_dropout: 0.0330
+[HPO] Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+[HPO] Model loaded with LoRA (r=8, alpha=64, dropout=0.0330)
+[HPO] Training samples (with valid images): 413
+[HPO] Training samples: 413
+Unsloth: Model does not have a default image size - using 512
+[HPO] Starting training for this trial (no eval during training)...
+
+=== JOB_STATISTICS ===
+=== current date     : Sat Dec 20 08:32:15 PM CET 2025
+= Job-ID             : 1471138 on tinygpu
+= Job-Name           : schmuck_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:22
+= Total RAM usage    : 20.7 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2025-12-19T20:31:50 / 2025-12-19T20:31:50 / 2025-12-19T20:31:51 / 2025-12-20T20:32:13
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/hpc              88.7G   104.9G   209.7G        N/A  29,018      500K   1,000K        N/A    
+    /home/vault           959.0G  1048.6G  2097.2G        N/A   7,295      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 3976419, 55 %, 25 %, 18506 MiB, 86410974 ms

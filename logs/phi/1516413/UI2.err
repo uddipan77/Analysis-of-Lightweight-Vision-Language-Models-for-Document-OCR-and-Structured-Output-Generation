@@ -1,0 +1,13 @@
+Could not locate the processing_phi3_v.py inside /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/stair/best_model.
+Traceback (most recent call last):
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/UI/stair_ui_phi2.py", line 264, in <module>
+    processor = AutoProcessor.from_pretrained(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/models/auto/processing_auto.py", line 318, in from_pretrained
+    processor_class = get_class_from_dynamic_module(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/dynamic_module_utils.py", line 540, in get_class_from_dynamic_module
+    final_module = get_cached_module_file(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/dynamic_module_utils.py", line 344, in get_cached_module_file
+    resolved_module_file = cached_file(
+  File "/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/utils/hub.py", line 374, in cached_file
+    raise EnvironmentError(
+OSError: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/stair/best_model does not appear to have a file named processing_phi3_v.py. Checkout 'https://huggingface.co//home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/stair/best_model/tree/None' for available files.

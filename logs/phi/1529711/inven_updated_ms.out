@@ -1,0 +1,127 @@
+### Starting TaskPrologue of job 1529711 on tg073 at Fri Feb 13 04:44:26 PM CET 2026
+Running on cores 2-3,10-11,18-19,26-27 with governor ondemand
+Fri Feb 13 16:44:26 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:3B:00.0 Off |                    0 |
+| N/A   34C    P0             25W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Fri Feb 13 04:44:28 PM CET 2026
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING WITH QLORA 4-BIT - INVENTORY DATASET
+BitsAndBytes + PEFT (Memory-Optimized)
+================================================================================
+
+📂 Configuration:
+   • Output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/finetune/run_20260213_164439
+   • Training epochs: 10 (Stage1: 3, Stage2: 7)
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 0.0002
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+   • LoRA r=16, alpha=32, dropout=0.1
+
+🔧 Anti-Repetition:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Processor loaded
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.27 GB, Reserved: 2.37 GB
+
+📝 Preparing model for LoRA training...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+
+📊 Loading datasets...
+   📁 Training dataset:
+   📊 Loaded 215 valid samples (out of 215 total)
+   🔄 Data augmentation ENABLED
+   📁 Validation dataset:
+   📊 Loaded 46 valid samples (out of 46 total)
+   📊 Validation samples for CER computation: 46
+
+================================================================================
+GPU INFORMATION
+================================================================================
+   GPU: Tesla V100-PCIE-32GB
+   Max memory: 31.733 GB
+================================================================================
+
+
+================================================================================
+STAGE 1: WARM-UP TRAINING (no eval, teacher forcing, higher LR)
+================================================================================
+🚀 Starting Stage 1 training...
+
+{'loss': 15.73, 'grad_norm': 6.293771743774414, 'learning_rate': 0.0005575346380805599, 'epoch': 0.74}
+{'loss': 7.4014, 'grad_norm': 5.716669082641602, 'learning_rate': 0.0003402699797452967, 'epoch': 1.49}
+{'loss': 5.2156, 'grad_norm': 3.800947904586792, 'learning_rate': 9.268120530394061e-05, 'epoch': 2.23}
+{'train_runtime': 6491.3571, 'train_samples_per_second': 0.099, 'train_steps_per_second': 0.006, 'train_loss': 8.296960879594852, 'epoch': 2.9}
+
+✅ Stage 1 (warm-up) completed!
+
+
+================================================================================
+STAGE 2: MAIN TRAINING (eval each epoch, CER-based best model)
+================================================================================
+Total epochs: 10 -> Stage1: 3, Stage2: 7
+🚀 Starting Stage 2 training (best model tracked by CER callback)...
+
+================================================================================
+{'loss': 3.9416, 'grad_norm': 4.835935592651367, 'learning_rate': 0.0002, 'epoch': 0.74}
+{'eval_loss': 0.42909684777259827, 'eval_runtime': 176.2377, 'eval_samples_per_second': 0.261, 'eval_steps_per_second': 0.261, 'epoch': 0.97}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 0)
+================================================================================
+   Validating 1/30: inventarbuch-259.jpg   Validating 2/30: inventarbuch-015.jpg   Validating 3/30: inventarbuch-203.jpg   Validating 4/30: inventarbuch-201.jpg   Validating 5/30: inventarbuch-085.jpg   Validating 6/30: inventarbuch-179.jpg   Validating 7/30: inventarbuch-058.jpg   Validating 8/30: inventarbuch-281.jpg   Validating 9/30: inventarbuch-272.jpg   Validating 10/30: inventarbuch-167.jpg   Validating 11/30: inventarbuch-071.jpg   Validating 12/30: inventarbuch-251.jpg   Validating 13/30: inventarbuch-120.jpg   Validating 14/30: inventarbuch-245.jpg   Validating 15/30: inventarbuch-064.jpg   Validating 16/30: inventarbuch-191.jpg   Validating 17/30: inventarbuch-138.jpg   Validating 18/30: inventarbuch-045.jpg   Validating 19/30: inventarbuch-248.jpg   Validating 20/30: inventarbuch-159.jpg   Validating 21/30: inventarbuch-019.jpg   Validating 22/30: inventarbuch-169.jpg   Validating 23/30: inventarbuch-282.jpg   Validating 24/30: inventarbuch-184.jpg   Validating 25/30: inventarbuch-070.jpg   Validating 26/30: inventarbuch-175.jpg   Validating 27/30: inventarbuch-055.jpg   Validating 28/30: inventarbuch-092.jpg   Validating 29/30: inventarbuch-096.jpg   Validating 30/30: inventarbuch-042.jpg
+   ✅ Validation CER (Epoch 0): 0.2329 (23.29%)
+   🎯 NEW BEST CER: 0.2329 (improved by inf)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/finetune/run_20260213_164439/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 2.5134, 'grad_norm': 6.027997970581055, 'learning_rate': 0.00019257239692688907, 'epoch': 1.49}
+=== JOB_STATISTICS ===
+=== current date     : Fri Feb 13 09:44:25 PM CET 2026
+= Job-ID             : 1529711 on tinygpu
+= Job-Name           : inven_updated_ms
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi3.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 05:00:00
+= Elapsed runtime    : 05:00:03
+= Total RAM usage    : 6.0 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2026-02-13T16:12:54 / 2026-02-13T16:12:54 / 2026-02-13T16:44:20 / 2026-02-13T21:44:23
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:3B:00.0, 50067, 80 %, 29 %, 10504 MiB, 17987325 ms

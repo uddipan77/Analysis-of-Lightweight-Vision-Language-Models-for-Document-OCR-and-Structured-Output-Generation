@@ -1,0 +1,71 @@
+### Starting TaskPrologue of job 1525301 on tg071 at Fri Feb  6 08:36:23 AM CET 2026
+Running on cores 6-7,14-15,22-23,30-31 with governor ondemand
+Fri Feb  6 08:36:23 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:AF:00.0 Off |                    0 |
+| N/A   30C    P0             25W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+
+============================================================
+PADDLEOCR-VL FINETUNING - SCHMUCK DATASET
+CER-BASED MODEL SELECTION (STRIPPED TEXT + deterministic decoding)
+============================================================
+Model: PaddlePaddle/PaddleOCR-VL
+Local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Output run dir: /home/vault/iwi5/iwi5298h/models_image_text/paddleocr/schmuck/run_20260206_083652_cer
+Prompt task: ocr -> 'OCR:'
+CER computed on: prediction_stripped vs ground_truth
+============================================================
+
+Using device: cuda
+Loading PaddleOCR-VL from local cache: /home/vault/iwi5/iwi5298h/models/PaddleOCR-VL
+Enabled gradient checkpointing on model.
+Disabled use_cache for training.
+Loaded 413 samples from /home/woody/iwi5/iwi5298h/json_schmuck/train.jsonl (image key = 'file_name')
+Loaded 88 samples from /home/woody/iwi5/iwi5298h/json_schmuck/val.jsonl (image key = 'file_name')
+Loaded 89 samples from /home/woody/iwi5/iwi5298h/json_schmuck/test.jsonl (image key = 'file_name')
+
+============================================================
+Epoch 1/10
+============================================================
+Paddle training completed at: Fri Feb  6 08:38:00 AM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Fri Feb  6 08:38:00 AM CET 2026
+= Job-ID             : 1525301 on tinygpu
+= Job-Name           : schmuck_updated
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_paddle2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:01:51
+= Total RAM usage    : 4.3 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2026-02-05T13:32:12 / 2026-02-05T13:32:12 / 2026-02-06T08:36:09 / 2026-02-06T08:38:00
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              91.2G   104.9G   209.7G        N/A  29,863      500K   1,000K        N/A    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/vault           855.9G  1048.6G  2097.2G        N/A   9,034      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:AF:00.0, 1744848, 27 %, 12 %, 32486 MiB, 67613 ms

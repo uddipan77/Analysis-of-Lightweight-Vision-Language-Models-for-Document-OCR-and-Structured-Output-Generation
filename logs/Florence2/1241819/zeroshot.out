@@ -1,0 +1,194 @@
+### Starting TaskPrologue of job 1241819 on tg074 at Wed Oct 15 02:39:57 AM CEST 2025
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Wed Oct 15 02:39:57 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.172.08             Driver Version: 570.172.08     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   35C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting Florence 2 inference...
+Job ID: 1241819
+Log Directory: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/logs/Florence2/1241819
+Job started at: Wed Oct 15 02:39:59 AM CEST 2025
+============================================================
+FLORENCE-2 LARGE ZERO-SHOT OCR EVALUATION
+============================================================
+
+Loading test data...
+Loaded 48 test samples
+
+Initializing Florence-2 OCR processor...
+Loading Florence-2-large model from local cache...
+Using device: cuda, dtype: torch.float16
+Model loaded successfully on cuda!
+Model parameters: 0.78B
+
+============================================================
+Processing 48 test images with Florence-2 zero-shot OCR...
+Using fair CER calculation (text values only, no JSON keys)
+Extracting clean text from Florence-2's structured output
+============================================================
+
+Processing image 1/48: inventarbuch-022.jpg
+  ✓ Processed successfully. Fair CER: 0.582
+Processing image 2/48: inventarbuch-099.jpg
+  ✓ Processed successfully. Fair CER: 0.451
+Processing image 3/48: inventarbuch-245.jpg
+  ✓ Processed successfully. Fair CER: 0.609
+Processing image 4/48: inventarbuch-263.jpg
+  ✓ Processed successfully. Fair CER: 0.477
+Processing image 5/48: inventarbuch-033.jpg
+  ✓ Processed successfully. Fair CER: 0.531
+Processing image 6/48: inventarbuch-143.jpg
+  ✓ Processed successfully. Fair CER: 0.397
+Processing image 7/48: inventarbuch-244.jpg
+  ✓ Processed successfully. Fair CER: 0.647
+Processing image 8/48: inventarbuch-024.jpg
+  ✓ Processed successfully. Fair CER: 0.327
+Processing image 9/48: inventarbuch-141.jpg
+  ✓ Processed successfully. Fair CER: 0.425
+Processing image 10/48: inventarbuch-183.jpg
+  ✓ Processed successfully. Fair CER: 0.666
+Processing image 11/48: inventarbuch-191.jpg
+  ✓ Processed successfully. Fair CER: 0.500
+Processing image 12/48: inventarbuch-051.jpg
+  ✓ Processed successfully. Fair CER: 0.356
+Processing image 13/48: inventarbuch-203.jpg
+  ✓ Processed successfully. Fair CER: 0.506
+Processing image 14/48: inventarbuch-296.jpg
+  ✓ Processed successfully. Fair CER: 0.615
+Processing image 15/48: inventarbuch-302.jpg
+  ✓ Processed successfully. Fair CER: 0.547
+Processing image 16/48: inventarbuch-179.jpg
+  ✓ Processed successfully. Fair CER: 0.526
+Processing image 17/48: inventarbuch-114.jpg
+  ✓ Processed successfully. Fair CER: 0.549
+Processing image 18/48: inventarbuch-082.jpg
+  ✓ Processed successfully. Fair CER: 0.590
+Processing image 19/48: inventarbuch-287.jpg
+  ✓ Processed successfully. Fair CER: 0.617
+Processing image 20/48: inventarbuch-181.jpg
+  ✓ Processed successfully. Fair CER: 0.606
+Processing image 21/48: inventarbuch-299.jpg
+  ✓ Processed successfully. Fair CER: 0.488
+Processing image 22/48: inventarbuch-084.jpg
+  ✓ Processed successfully. Fair CER: 0.614
+Processing image 23/48: inventarbuch-004.jpg
+  ✓ Processed successfully. Fair CER: 0.481
+Processing image 24/48: inventarbuch-148.jpg
+  ✓ Processed successfully. Fair CER: 0.334
+Processing image 25/48: inventarbuch-238.jpg
+  ✓ Processed successfully. Fair CER: 0.508
+Processing image 26/48: inventarbuch-116.jpg
+  ✓ Processed successfully. Fair CER: 0.439
+Processing image 27/48: inventarbuch-223.jpg
+  ✓ Processed successfully. Fair CER: 0.529
+Processing image 28/48: inventarbuch-104.jpg
+  ✓ Processed successfully. Fair CER: 0.494
+Processing image 29/48: inventarbuch-015.jpg
+  ✓ Processed successfully. Fair CER: 0.529
+Processing image 30/48: inventarbuch-272.jpg
+  ✓ Processed successfully. Fair CER: 0.517
+Processing image 31/48: inventarbuch-124.jpg
+  ✓ Processed successfully. Fair CER: 0.439
+Processing image 32/48: inventarbuch-115.jpg
+  ✓ Processed successfully. Fair CER: 0.467
+Processing image 33/48: inventarbuch-049.jpg
+  ✓ Processed successfully. Fair CER: 0.417
+Processing image 34/48: inventarbuch-017.jpg
+  ✓ Processed successfully. Fair CER: 0.368
+Processing image 35/48: inventarbuch-018.jpg
+  ✓ Processed successfully. Fair CER: 0.510
+Processing image 36/48: inventarbuch-225.jpg
+  ✓ Processed successfully. Fair CER: 0.632
+Processing image 37/48: inventarbuch-046.jpg
+  ✓ Processed successfully. Fair CER: 0.541
+Processing image 38/48: inventarbuch-294.jpg
+  ✓ Processed successfully. Fair CER: 0.408
+Processing image 39/48: inventarbuch-054.jpg
+  ✓ Processed successfully. Fair CER: 0.593
+Processing image 40/48: inventarbuch-073.jpg
+  ✓ Processed successfully. Fair CER: 0.551
+Processing image 41/48: inventarbuch-118.jpg
+  ✓ Processed successfully. Fair CER: 0.440
+Processing image 42/48: inventarbuch-130.jpg
+  ✓ Processed successfully. Fair CER: 0.474
+Processing image 43/48: inventarbuch-146.jpg
+  ✓ Processed successfully. Fair CER: 0.509
+Processing image 44/48: inventarbuch-014.jpg
+  ✓ Processed successfully. Fair CER: 0.538
+Processing image 45/48: inventarbuch-059.jpg
+  ✓ Processed successfully. Fair CER: 0.438
+Processing image 46/48: inventarbuch-256.jpg
+  ✓ Processed successfully. Fair CER: 0.466
+Processing image 47/48: inventarbuch-260.jpg
+  ✓ Processed successfully. Fair CER: 0.467
+Processing image 48/48: inventarbuch-279.jpg
+  ✓ Processed successfully. Fair CER: 0.545
+
+============================================================
+Saving predictions to /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/test_predictions_fair_cer_zero_shot_florence2_large.jsonl...
+✓ Predictions saved successfully!
+
+============================================================
+FLORENCE-2 FAIR CER EVALUATION RESULTS (Clean Text Only)
+============================================================
+
+Fair CER Statistics across 48 images:
+--------------------------------------------------
+Average CER: 0.5055 (50.55%)
+Minimum CER: 0.3265 (32.65%)
+Maximum CER: 0.6661 (66.61%)
+
+Weighted CER: 0.5183 (51.83%)
+Total characters: 26954
+Total errors: 13971
+Perfect matches: 0/48 (0.0%)
+
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/test_predictions_fair_cer_zero_shot_florence2_large.jsonl
+Total images processed: 48
+Summary statistics saved to: /home/vault/iwi5/iwi5298h/models_image_text/florence2/inventory/fair_cer_evaluation_summary_zero_shot_florence2.json
+
+============================================================
+EVALUATION COMPLETED SUCCESSFULLY!
+============================================================
+Job completed at: Wed Oct 15 02:43:31 AM CEST 2025
+=== JOB_STATISTICS ===
+=== current date     : Wed Oct 15 02:43:31 AM CEST 2025
+= Job-ID             : 1241819 on tinygpu
+= Job-Name           : Florence2_zero_shot
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_florence_inference.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 00:03:34
+= Total RAM usage    : 3.2 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2025-10-15T02:40:16 / 2025-10-15T02:40:16 / 2025-10-15T02:40:17 / 2025-10-15T02:43:51
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           113.4G  1000.0G  1500.0G        N/A     525K   5,000K   7,500K        N/A    
+!!! /home/hpc             116.2G   104.9G   209.7G  -29328days  31,711      500K   1,000K        N/A !!!
+    /home/vault           785.0G  1048.6G  2097.2G        N/A   4,751      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 1295460, 23 %, 6 %, 2302 MiB, 198269 ms

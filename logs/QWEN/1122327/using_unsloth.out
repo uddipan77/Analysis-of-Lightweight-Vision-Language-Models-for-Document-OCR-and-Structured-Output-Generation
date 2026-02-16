@@ -1,0 +1,262 @@
+### Starting TaskPrologue of job 1122327 on tg081 at Mon Jul 14 10:14:02 PM CEST 2025
+Running on cores 8-9,24-25,40-41,56-57 with governor powersave
+Mon Jul 14 22:14:02 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.57.08              Driver Version: 575.57.08      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3080        On  |   00000000:B1:00.0 Off |                  N/A |
+| 30%   33C    P8             17W /  300W |      33MiB /  10240MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+Created run directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250714_221620
+Loading Qwen2.5-VL model with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2 patching. Transformers: 4.52.4.
+   \\   /|    NVIDIA GeForce RTX 3080. Num GPUs = 1. Max memory: 9.644 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 8.6. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2 does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.model` require gradients
+Model loaded successfully with optimized LoRA adapters!
+============================================================
+STARTING TRAINING WITH VALIDATION MONITORING
+============================================================
+Preparing training and validation datasets...
+Training: 205 samples, Validation: 44 samples
+Unsloth: Model does not have a default image size - using 512
+[2025-07-14 22:17:42,446] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/hpc/iwi5/iwi5298h/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+[2025-07-14 22:17:55,130] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+GPU = NVIDIA GeForce RTX 3080. Max memory = 9.644 GB.
+6.812 GB of memory reserved.
+Starting training with early stopping...
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 3.6628, 'grad_norm': 8.285548210144043, 'learning_rate': 9e-06, 'epoch': 0.39}
+{'loss': 2.6218, 'grad_norm': 2.5226094722747803, 'learning_rate': 1.9e-05, 'epoch': 0.78}
+{'loss': 1.5326, 'grad_norm': 1.7690348625183105, 'learning_rate': 2.9e-05, 'epoch': 1.16}
+{'loss': 1.0293, 'grad_norm': 1.1490697860717773, 'learning_rate': 3.9000000000000006e-05, 'epoch': 1.54}
+{'loss': 0.9995, 'grad_norm': 1.0876487493515015, 'learning_rate': 4.9e-05, 'epoch': 1.93}
+{'loss': 0.8078, 'grad_norm': 1.2052758932113647, 'learning_rate': 4.995477609279375e-05, 'epoch': 2.31}
+{'loss': 0.8891, 'grad_norm': 1.4581502676010132, 'learning_rate': 4.9798656583866297e-05, 'epoch': 2.7}
+{'loss': 0.7811, 'grad_norm': 1.52980637550354, 'learning_rate': 4.9531780254669804e-05, 'epoch': 3.08}
+{'loss': 0.6203, 'grad_norm': 1.79762864112854, 'learning_rate': 4.915533903967569e-05, 'epoch': 3.47}
+{'loss': 0.6318, 'grad_norm': 1.9423295259475708, 'learning_rate': 4.867101421673261e-05, 'epoch': 3.85}
+{'loss': 0.4503, 'grad_norm': 2.0113842487335205, 'learning_rate': 4.808096889807147e-05, 'epoch': 4.23}
+{'loss': 0.4285, 'grad_norm': 2.3582663536071777, 'learning_rate': 4.738783836932108e-05, 'epoch': 4.62}
+{'loss': 0.373, 'grad_norm': 1.8839002847671509, 'learning_rate': 4.659471831968285e-05, 'epoch': 5.0}
+{'loss': 0.2049, 'grad_norm': 3.2714245319366455, 'learning_rate': 4.570515101583128e-05, 'epoch': 5.39}
+{'loss': 0.2466, 'grad_norm': 2.8850443363189697, 'learning_rate': 4.4723109481291124e-05, 'epoch': 5.78}
+{'loss': 0.1792, 'grad_norm': 1.8651421070098877, 'learning_rate': 4.365297975194984e-05, 'epoch': 6.16}
+{'loss': 0.1037, 'grad_norm': 2.3659627437591553, 'learning_rate': 4.2499541286956616e-05, 'epoch': 6.54}
+{'loss': 0.1155, 'grad_norm': 2.365715742111206, 'learning_rate': 4.126794562249756e-05, 'epoch': 6.93}
+{'loss': 0.0537, 'grad_norm': 1.478571891784668, 'learning_rate': 3.996369336378454e-05, 'epoch': 7.31}
+{'loss': 0.05, 'grad_norm': 1.6984424591064453, 'learning_rate': 3.859260961801702e-05, 'epoch': 7.7}
+{'eval_loss': 1.4500937461853027, 'eval_runtime': 21.1475, 'eval_samples_per_second': 2.081, 'eval_steps_per_second': 1.04, 'epoch': 7.7}
+{'loss': 0.057, 'grad_norm': 1.1555652618408203, 'learning_rate': 3.7160817978039256e-05, 'epoch': 8.08}
+{'loss': 0.0296, 'grad_norm': 1.1830086708068848, 'learning_rate': 3.567471317288807e-05, 'epoch': 8.47}
+{'loss': 0.034, 'grad_norm': 1.4738694429397583, 'learning_rate': 3.414093250738072e-05, 'epoch': 8.85}
+{'loss': 0.0233, 'grad_norm': 0.8019130825996399, 'learning_rate': 3.2566326218300284e-05, 'epoch': 9.23}
+{'loss': 0.0244, 'grad_norm': 1.0494098663330078, 'learning_rate': 3.095792687957528e-05, 'epoch': 9.62}
+{'loss': 0.023, 'grad_norm': 1.2876132726669312, 'learning_rate': 2.9322917993097338e-05, 'epoch': 10.0}
+{'loss': 0.0139, 'grad_norm': 0.7417353987693787, 'learning_rate': 2.766860190545791e-05, 'epoch': 10.39}
+{'loss': 0.0166, 'grad_norm': 1.1987853050231934, 'learning_rate': 2.600236719389573e-05, 'epoch': 10.78}
+{'loss': 0.0137, 'grad_norm': 0.6221211552619934, 'learning_rate': 2.433165566711728e-05, 'epoch': 11.16}
+{'loss': 0.0143, 'grad_norm': 0.8527402281761169, 'learning_rate': 2.2663929128372537e-05, 'epoch': 11.54}
+{'loss': 0.0119, 'grad_norm': 0.4980166554450989, 'learning_rate': 2.1006636049230326e-05, 'epoch': 11.93}
+{'loss': 0.0087, 'grad_norm': 0.23675595223903656, 'learning_rate': 1.9367178302896085e-05, 'epoch': 12.31}
+{'loss': 0.0075, 'grad_norm': 0.22219668328762054, 'learning_rate': 1.775287810564939e-05, 'epoch': 12.7}
+{'loss': 0.0068, 'grad_norm': 0.1502271294593811, 'learning_rate': 1.6170945314048474e-05, 'epoch': 13.08}
+{'loss': 0.0046, 'grad_norm': 0.6162090301513672, 'learning_rate': 1.462844522396066e-05, 'epoch': 13.47}
+{'loss': 0.0055, 'grad_norm': 1.343292474746704, 'learning_rate': 1.313226701523586e-05, 'epoch': 13.85}
+{'loss': 0.0032, 'grad_norm': 0.17253150045871735, 'learning_rate': 1.168909298295704e-05, 'epoch': 14.23}
+{'loss': 0.0035, 'grad_norm': 0.5525349974632263, 'learning_rate': 1.0305368692688174e-05, 'epoch': 14.62}
+{'loss': 0.0039, 'grad_norm': 0.3419329822063446, 'learning_rate': 8.987274193013792e-06, 'epoch': 15.0}
+{'loss': 0.0026, 'grad_norm': 0.32154250144958496, 'learning_rate': 7.740696413941745e-06, 'epoch': 15.39}
+{'eval_loss': 1.7470654249191284, 'eval_runtime': 20.5885, 'eval_samples_per_second': 2.137, 'eval_steps_per_second': 1.069, 'epoch': 15.39}
+{'loss': 0.0027, 'grad_norm': 0.6432234644889832, 'learning_rate': 6.571202874444729e-06, 'epoch': 15.78}
+{'loss': 0.0021, 'grad_norm': 0.17114140093326569, 'learning_rate': 5.484016816569015e-06, 'epoch': 16.16}
+{'loss': 0.0018, 'grad_norm': 0.13995733857154846, 'learning_rate': 4.483993877167511e-06, 'epoch': 16.54}
+{'loss': 0.0016, 'grad_norm': 0.12165845930576324, 'learning_rate': 3.575600401446841e-06, 'epoch': 16.93}
+{'loss': 0.0016, 'grad_norm': 0.09454823285341263, 'learning_rate': 2.7628934951854507e-06, 'epoch': 17.31}
+{'loss': 0.0015, 'grad_norm': 0.10518966615200043, 'learning_rate': 2.049502904714298e-06, 'epoch': 17.7}
+{'loss': 0.0016, 'grad_norm': 0.07946299761533737, 'learning_rate': 1.438614805588634e-06, 'epoch': 18.08}
+{'loss': 0.0013, 'grad_norm': 0.08088010549545288, 'learning_rate': 9.329575723544925e-07, 'epoch': 18.47}
+{'loss': 0.0015, 'grad_norm': 0.059914279729127884, 'learning_rate': 5.347895929656649e-07, 'epoch': 18.85}
+{'loss': 0.0013, 'grad_norm': 0.03933700919151306, 'learning_rate': 2.458891822748444e-07, 'epoch': 19.23}
+{'loss': 0.0013, 'grad_norm': 0.049923308193683624, 'learning_rate': 6.754663964781971e-08, 'epoch': 19.62}
+{'loss': 0.0015, 'grad_norm': 0.09173563867807388, 'learning_rate': 5.584861732743641e-10, 'epoch': 20.0}
+{'train_runtime': 4569.7202, 'train_samples_per_second': 0.897, 'train_steps_per_second': 0.114, 'train_loss': 0.30979167468344365, 'epoch': 20.0}
+4569.7202 seconds used for training.
+76.16 minutes used for training.
+Peak reserved memory = 8.811 GB.
+Peak reserved memory for training = 1.999 GB.
+Peak reserved memory % of max memory = 91.363 %.
+Peak reserved memory for training % of max memory = 20.728 %.
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250714_221620...
+Saving model in recommended formats...
+Found HuggingFace hub cache directory: /home/hpc/iwi5/iwi5298h/.cache/huggingface/hub
+Checking cache directory for required files...
+Cache check failed: model-00001-of-00004.safetensors not found in local cache.
+Not all required files found in cache. Will proceed with downloading.
+Downloading safetensors index for unsloth/qwen2.5-vl-7b-instruct...
+Found HuggingFace hub cache directory: /home/hpc/iwi5/iwi5298h/.cache/huggingface/hub
+Checking cache directory for required files...
+Cache check failed: model-00001-of-00004.safetensors not found in local cache.
+Not all required files found in cache. Will proceed with downloading.
+Downloading safetensors index for unsloth/qwen2.5-vl-7b-instruct...
+Model saved successfully in multiple formats!
+
+============================================================
+STARTING EVALUATION ON TEST.JSONL
+============================================================
+Starting evaluation on test.jsonl...
+Loaded 45 test samples
+Processing test image 1/45: inventarbuch-022.jpg
+  Processed successfully. CER: 0.375
+Processing test image 2/45: inventarbuch-099.jpg
+  Processed successfully. CER: 0.290
+Processing test image 3/45: inventarbuch-245.jpg
+  Processed successfully. CER: 0.378
+Processing test image 4/45: inventarbuch-263.jpg
+  Processed successfully. CER: 0.315
+Processing test image 5/45: inventarbuch-033.jpg
+  Processed successfully. CER: 0.445
+Processing test image 6/45: inventarbuch-143.jpg
+  Processed successfully. CER: 0.269
+Processing test image 7/45: inventarbuch-244.jpg
+  Processed successfully. CER: 0.507
+Processing test image 8/45: inventarbuch-024.jpg
+  Processed successfully. CER: 0.387
+Processing test image 9/45: inventarbuch-141.jpg
+  Processed successfully. CER: 0.193
+Processing test image 10/45: inventarbuch-183.jpg
+  Processed successfully. CER: 0.482
+Processing test image 11/45: inventarbuch-191.jpg
+  Processed successfully. CER: 0.350
+Processing test image 12/45: inventarbuch-051.jpg
+  Processed successfully. CER: 0.351
+Processing test image 13/45: inventarbuch-203.jpg
+  Processed successfully. CER: 0.310
+Processing test image 14/45: inventarbuch-296.jpg
+  Processed successfully. CER: 0.408
+Processing test image 15/45: inventarbuch-302.jpg
+  Processed successfully. CER: 0.343
+Processing test image 16/45: inventarbuch-179.jpg
+  Processed successfully. CER: 0.365
+Processing test image 17/45: inventarbuch-114.jpg
+  Processed successfully. CER: 0.308
+Processing test image 18/45: inventarbuch-082.jpg
+  Processed successfully. CER: 0.378
+Processing test image 19/45: inventarbuch-287.jpg
+  Processed successfully. CER: 0.450
+Processing test image 20/45: inventarbuch-181.jpg
+  Processed successfully. CER: 0.404
+Processing test image 21/45: inventarbuch-299.jpg
+  Processed successfully. CER: 0.375
+Processing test image 22/45: inventarbuch-084.jpg
+  Processed successfully. CER: 0.487
+Processing test image 23/45: inventarbuch-004.jpg
+  Processed successfully. CER: 0.325
+Processing test image 24/45: inventarbuch-148.jpg
+  Processed successfully. CER: 0.206
+Processing test image 25/45: inventarbuch-238.jpg
+  Processed successfully. CER: 0.325
+Processing test image 26/45: inventarbuch-116.jpg
+  Processed successfully. CER: 0.368
+Processing test image 27/45: inventarbuch-223.jpg
+  Processed successfully. CER: 0.296
+Processing test image 28/45: inventarbuch-104.jpg
+  Processed successfully. CER: 0.353
+Processing test image 29/45: inventarbuch-015.jpg
+  Processed successfully. CER: 0.293
+Processing test image 30/45: inventarbuch-272.jpg
+  Processed successfully. CER: 0.326
+Processing test image 31/45: inventarbuch-124.jpg
+  Processed successfully. CER: 0.242
+Processing test image 32/45: inventarbuch-115.jpg
+  Processed successfully. CER: 1.000
+Processing test image 33/45: inventarbuch-049.jpg
+  Processed successfully. CER: 0.453
+Processing test image 34/45: inventarbuch-017.jpg
+  Processed successfully. CER: 0.432
+Processing test image 35/45: inventarbuch-018.jpg
+  Processed successfully. CER: 0.303
+Processing test image 36/45: inventarbuch-225.jpg
+  Processed successfully. CER: 0.455
+Processing test image 37/45: inventarbuch-046.jpg
+  Processed successfully. CER: 0.297
+Processing test image 38/45: inventarbuch-294.jpg
+  Processed successfully. CER: 0.239
+Processing test image 39/45: inventarbuch-054.jpg
+  Processed successfully. CER: 0.404
+Processing test image 40/45: inventarbuch-073.jpg
+  Processed successfully. CER: 0.736
+Processing test image 41/45: inventarbuch-118.jpg
+  Processed successfully. CER: 0.295
+Processing test image 42/45: inventarbuch-130.jpg
+  Processed successfully. CER: 0.282
+Processing test image 43/45: inventarbuch-146.jpg
+  Processed successfully. CER: 0.336
+Processing test image 44/45: inventarbuch-014.jpg
+  Processed successfully. CER: 0.334
+Processing test image 45/45: inventarbuch-059.jpg
+  Processed successfully. CER: 0.319
+CER evaluation results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250714_221620/cer_evaluation_results.txt
+
+Evaluation completed!
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250714_221620/test_predictions.jsonl
+CER results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250714_221620/cer_evaluation_results.txt
+All files saved in: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250714_221620
+
+============================================================
+FINAL RESULTS SUMMARY
+============================================================
+Average CER: 0.3731 (37.31%)
+Median CER: 0.3498 (34.98%)
+Perfect matches: 0/45 (0.00%)
+Total images processed: 45
+
+Training and evaluation completed successfully!
+All outputs saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/inventory_dataset/run_20250714_221620
+=== JOB_STATISTICS ===
+=== current date     : Mon Jul 14 11:57:33 PM CEST 2025
+= Job-ID             : 1122327 on tinygpu
+= Job-Name           : qwen_finetune
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : rtx3080
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 05:00:00
+= Elapsed runtime    : 01:43:39
+= Total RAM usage    : 42.4 GiB of requested  GiB (%)   
+= Node list          : tg081
+= Subm/Elig/Start/End: 2025-07-14T22:13:53 / 2025-07-14T22:13:53 / 2025-07-14T22:13:54 / 2025-07-14T23:57:33
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+!!! /home/hpc             127.0G   104.9G   209.7G  -29420days  29,438      500K   1,000K        N/A !!!
+    /home/woody            68.4G  1000.0G  1500.0G        N/A     207K   5,000K   7,500K        N/A    
+    /home/vault           854.8G  1048.6G  2097.2G        N/A   1,917      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA GeForce RTX 3080, 00000000:B1:00.0, 2724916, 52 %, 25 %, 9320 MiB, 6191287 ms

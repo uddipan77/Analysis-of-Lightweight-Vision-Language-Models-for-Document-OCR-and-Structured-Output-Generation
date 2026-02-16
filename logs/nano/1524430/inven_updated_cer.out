@@ -1,0 +1,549 @@
+### Starting TaskPrologue of job 1524430 on tg072 at Wed Feb  4 11:42:34 AM CET 2026
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Wed Feb  4 11:42:34 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   30C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+============================================================
+NANONETS-OCR-S FINETUNING - INVENTORY DATASET
+CER-BASED MODEL SELECTION
+============================================================
+Model: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Output: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/inven/run_20260204_114348_unsloth_cer
+Augmentation: 1x
+============================================================
+
+============================================================
+LOADING NANONETS-OCR-S WITH UNSLOTH FOR INVENTORY DATASET
+============================================================
+Model path: /home/vault/iwi5/iwi5298h/models/Nanonets-OCR-s
+Augmentation factor: 1
+Created temporary directory: /tmp/1524430.tinygpu/augmented_inventory_s47t2x9z
+✓ Model directory verified
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.10.7: Fast Qwen2_5_Vl patching. Transformers: 4.56.2.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.8.0+cu128. CUDA: 7.0. CUDA Toolkit: 12.8. Triton: 3.4.0
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.32.post2. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to fast eager.
+
+✅ Model loaded successfully!
+Applying LoRA adaptors...
+Unsloth: Making `model.base_model.model.model` require gradients
+✅ LoRA applied successfully!
+============================================================
+
+
+============================================================
+PHASE 1: TRAINING WITH CER-BASED MODEL SELECTION
+============================================================
+
+Preparing datasets...
+Preparing training data with augmentation factor: 1
+Creating augmentation 1/1 for image 1/215: inventarbuch-043.jpg
+Creating augmentation 1/1 for image 2/215: inventarbuch-141.jpg
+Creating augmentation 1/1 for image 3/215: inventarbuch-156.jpg
+Creating augmentation 1/1 for image 4/215: inventarbuch-181.jpg
+Creating augmentation 1/1 for image 5/215: inventarbuch-205.jpg
+Creating augmentation 1/1 for image 6/215: inventarbuch-221.jpg
+Creating augmentation 1/1 for image 7/215: inventarbuch-267.jpg
+Creating augmentation 1/1 for image 8/215: inventarbuch-075.jpg
+Creating augmentation 1/1 for image 9/215: inventarbuch-269.jpg
+Creating augmentation 1/1 for image 10/215: inventarbuch-162.jpg
+Creating augmentation 1/1 for image 11/215: inventarbuch-197.jpg
+Creating augmentation 1/1 for image 12/215: inventarbuch-250.jpg
+Creating augmentation 1/1 for image 13/215: inventarbuch-038.jpg
+Creating augmentation 1/1 for image 14/215: inventarbuch-124.jpg
+Creating augmentation 1/1 for image 15/215: inventarbuch-033.jpg
+Creating augmentation 1/1 for image 16/215: inventarbuch-287.jpg
+Creating augmentation 1/1 for image 17/215: inventarbuch-020.jpg
+Creating augmentation 1/1 for image 18/215: inventarbuch-237.jpg
+Creating augmentation 1/1 for image 19/215: inventarbuch-224.jpg
+Creating augmentation 1/1 for image 20/215: inventarbuch-234.jpg
+Creating augmentation 1/1 for image 21/215: inventarbuch-150.jpg
+Creating augmentation 1/1 for image 22/215: inventarbuch-292.jpg
+Creating augmentation 1/1 for image 23/215: inventarbuch-006.jpg
+Creating augmentation 1/1 for image 24/215: inventarbuch-109.jpg
+Creating augmentation 1/1 for image 25/215: inventarbuch-154.jpg
+Creating augmentation 1/1 for image 26/215: inventarbuch-183.jpg
+Creating augmentation 1/1 for image 27/215: inventarbuch-025.jpg
+Creating augmentation 1/1 for image 28/215: inventarbuch-256.jpg
+Creating augmentation 1/1 for image 29/215: inventarbuch-002.jpg
+Creating augmentation 1/1 for image 30/215: inventarbuch-200.jpg
+Creating augmentation 1/1 for image 31/215: inventarbuch-194.jpg
+Creating augmentation 1/1 for image 32/215: inventarbuch-057.jpg
+Creating augmentation 1/1 for image 33/215: inventarbuch-218.jpg
+Creating augmentation 1/1 for image 34/215: inventarbuch-182.jpg
+Creating augmentation 1/1 for image 35/215: inventarbuch-174.jpg
+Creating augmentation 1/1 for image 36/215: inventarbuch-147.jpg
+Creating augmentation 1/1 for image 37/215: inventarbuch-151.jpg
+Creating augmentation 1/1 for image 38/215: inventarbuch-018.jpg
+Creating augmentation 1/1 for image 39/215: inventarbuch-261.jpg
+Creating augmentation 1/1 for image 40/215: inventarbuch-277.jpg
+Creating augmentation 1/1 for image 41/215: inventarbuch-257.jpg
+Creating augmentation 1/1 for image 42/215: inventarbuch-280.jpg
+Creating augmentation 1/1 for image 43/215: inventarbuch-035.jpg
+Creating augmentation 1/1 for image 44/215: inventarbuch-039.jpg
+Creating augmentation 1/1 for image 45/215: inventarbuch-215.jpg
+Creating augmentation 1/1 for image 46/215: inventarbuch-091.jpg
+Creating augmentation 1/1 for image 47/215: inventarbuch-300.jpg
+Creating augmentation 1/1 for image 48/215: inventarbuch-189.jpg
+Creating augmentation 1/1 for image 49/215: inventarbuch-101.jpg
+Creating augmentation 1/1 for image 50/215: inventarbuch-050.jpg
+Creating augmentation 1/1 for image 51/215: inventarbuch-133.jpg
+Creating augmentation 1/1 for image 52/215: inventarbuch-274.jpg
+Creating augmentation 1/1 for image 53/215: inventarbuch-142.jpg
+Creating augmentation 1/1 for image 54/215: inventarbuch-306.jpg
+Creating augmentation 1/1 for image 55/215: inventarbuch-285.jpg
+Creating augmentation 1/1 for image 56/215: inventarbuch-048.jpg
+Creating augmentation 1/1 for image 57/215: inventarbuch-204.jpg
+Creating augmentation 1/1 for image 58/215: inventarbuch-254.jpg
+Creating augmentation 1/1 for image 59/215: inventarbuch-107.jpg
+Creating augmentation 1/1 for image 60/215: inventarbuch-270.jpg
+Creating augmentation 1/1 for image 61/215: inventarbuch-117.jpg
+Creating augmentation 1/1 for image 62/215: inventarbuch-136.jpg
+Creating augmentation 1/1 for image 63/215: inventarbuch-243.jpg
+Creating augmentation 1/1 for image 64/215: inventarbuch-007.jpg
+Creating augmentation 1/1 for image 65/215: inventarbuch-289.jpg
+Creating augmentation 1/1 for image 66/215: inventarbuch-027.jpg
+Creating augmentation 1/1 for image 67/215: inventarbuch-187.jpg
+Creating augmentation 1/1 for image 68/215: inventarbuch-105.jpg
+Creating augmentation 1/1 for image 69/215: inventarbuch-283.jpg
+Creating augmentation 1/1 for image 70/215: inventarbuch-102.jpg
+Creating augmentation 1/1 for image 71/215: inventarbuch-157.jpg
+Creating augmentation 1/1 for image 72/215: inventarbuch-115.jpg
+Creating augmentation 1/1 for image 73/215: inventarbuch-275.jpg
+Creating augmentation 1/1 for image 74/215: inventarbuch-122.jpg
+Creating augmentation 1/1 for image 75/215: inventarbuch-239.jpg
+Creating augmentation 1/1 for image 76/215: inventarbuch-031.jpg
+Creating augmentation 1/1 for image 77/215: inventarbuch-067.jpg
+Creating augmentation 1/1 for image 78/215: inventarbuch-108.jpg
+Creating augmentation 1/1 for image 79/215: inventarbuch-044.jpg
+Creating augmentation 1/1 for image 80/215: inventarbuch-135.jpg
+Creating augmentation 1/1 for image 81/215: inventarbuch-088.jpg
+Creating augmentation 1/1 for image 82/215: inventarbuch-284.jpg
+Creating augmentation 1/1 for image 83/215: inventarbuch-008.jpg
+Creating augmentation 1/1 for image 84/215: inventarbuch-010.jpg
+Creating augmentation 1/1 for image 85/215: inventarbuch-232.jpg
+Creating augmentation 1/1 for image 86/215: inventarbuch-160.jpg
+Creating augmentation 1/1 for image 87/215: inventarbuch-244.jpg
+Creating augmentation 1/1 for image 88/215: inventarbuch-163.jpg
+Creating augmentation 1/1 for image 89/215: inventarbuch-279.jpg
+Creating augmentation 1/1 for image 90/215: inventarbuch-158.jpg
+Creating augmentation 1/1 for image 91/215: inventarbuch-278.jpg
+Creating augmentation 1/1 for image 92/215: inventarbuch-233.jpg
+Creating augmentation 1/1 for image 93/215: inventarbuch-253.jpg
+Creating augmentation 1/1 for image 94/215: inventarbuch-134.jpg
+Creating augmentation 1/1 for image 95/215: inventarbuch-032.jpg
+Creating augmentation 1/1 for image 96/215: inventarbuch-297.jpg
+Creating augmentation 1/1 for image 97/215: inventarbuch-308.jpg
+Creating augmentation 1/1 for image 98/215: inventarbuch-068.jpg
+Creating augmentation 1/1 for image 99/215: inventarbuch-185.jpg
+Creating augmentation 1/1 for image 100/215: inventarbuch-276.jpg
+Creating augmentation 1/1 for image 101/215: inventarbuch-247.jpg
+Creating augmentation 1/1 for image 102/215: inventarbuch-087.jpg
+Creating augmentation 1/1 for image 103/215: inventarbuch-053.jpg
+Creating augmentation 1/1 for image 104/215: inventarbuch-165.jpg
+Creating augmentation 1/1 for image 105/215: inventarbuch-093.jpg
+Creating augmentation 1/1 for image 106/215: inventarbuch-252.jpg
+Creating augmentation 1/1 for image 107/215: inventarbuch-090.jpg
+Creating augmentation 1/1 for image 108/215: inventarbuch-126.jpg
+Creating augmentation 1/1 for image 109/215: inventarbuch-098.jpg
+Creating augmentation 1/1 for image 110/215: inventarbuch-226.jpg
+Creating augmentation 1/1 for image 111/215: inventarbuch-207.jpg
+Creating augmentation 1/1 for image 112/215: inventarbuch-217.jpg
+Creating augmentation 1/1 for image 113/215: inventarbuch-079.jpg
+Creating augmentation 1/1 for image 114/215: inventarbuch-206.jpg
+Creating augmentation 1/1 for image 115/215: inventarbuch-034.jpg
+Creating augmentation 1/1 for image 116/215: inventarbuch-022.jpg
+Creating augmentation 1/1 for image 117/215: inventarbuch-072.jpg
+Creating augmentation 1/1 for image 118/215: inventarbuch-062.jpg
+Creating augmentation 1/1 for image 119/215: inventarbuch-086.jpg
+Creating augmentation 1/1 for image 120/215: inventarbuch-304.jpg
+Creating augmentation 1/1 for image 121/215: inventarbuch-172.jpg
+Creating augmentation 1/1 for image 122/215: inventarbuch-258.jpg
+Creating augmentation 1/1 for image 123/215: inventarbuch-161.jpg
+Creating augmentation 1/1 for image 124/215: inventarbuch-170.jpg
+Creating augmentation 1/1 for image 125/215: inventarbuch-214.jpg
+Creating augmentation 1/1 for image 126/215: inventarbuch-106.jpg
+Creating augmentation 1/1 for image 127/215: inventarbuch-230.jpg
+Creating augmentation 1/1 for image 128/215: inventarbuch-246.jpg
+Creating augmentation 1/1 for image 129/215: inventarbuch-125.jpg
+Creating augmentation 1/1 for image 130/215: inventarbuch-011.jpg
+Creating augmentation 1/1 for image 131/215: inventarbuch-123.jpg
+Creating augmentation 1/1 for image 132/215: inventarbuch-074.jpg
+Creating augmentation 1/1 for image 133/215: inventarbuch-288.jpg
+Creating augmentation 1/1 for image 134/215: inventarbuch-193.jpg
+Creating augmentation 1/1 for image 135/215: inventarbuch-216.jpg
+Creating augmentation 1/1 for image 136/215: inventarbuch-063.jpg
+Creating augmentation 1/1 for image 137/215: inventarbuch-080.jpg
+Creating augmentation 1/1 for image 138/215: inventarbuch-186.jpg
+Creating augmentation 1/1 for image 139/215: inventarbuch-235.jpg
+Creating augmentation 1/1 for image 140/215: inventarbuch-005.jpg
+Creating augmentation 1/1 for image 141/215: inventarbuch-305.jpg
+Creating augmentation 1/1 for image 142/215: inventarbuch-084.jpg
+Creating augmentation 1/1 for image 143/215: inventarbuch-293.jpg
+Creating augmentation 1/1 for image 144/215: inventarbuch-255.jpg
+Creating augmentation 1/1 for image 145/215: inventarbuch-140.jpg
+Creating augmentation 1/1 for image 146/215: inventarbuch-229.jpg
+Creating augmentation 1/1 for image 147/215: inventarbuch-097.jpg
+Creating augmentation 1/1 for image 148/215: inventarbuch-177.jpg
+Creating augmentation 1/1 for image 149/215: inventarbuch-052.jpg
+Creating augmentation 1/1 for image 150/215: inventarbuch-149.jpg
+Creating augmentation 1/1 for image 151/215: inventarbuch-078.jpg
+Creating augmentation 1/1 for image 152/215: inventarbuch-028.jpg
+Creating augmentation 1/1 for image 153/215: inventarbuch-131.jpg
+Creating augmentation 1/1 for image 154/215: inventarbuch-047.jpg
+Creating augmentation 1/1 for image 155/215: inventarbuch-130.jpg
+Creating augmentation 1/1 for image 156/215: inventarbuch-231.jpg
+Creating augmentation 1/1 for image 157/215: inventarbuch-001.jpg
+Creating augmentation 1/1 for image 158/215: inventarbuch-249.jpg
+Creating augmentation 1/1 for image 159/215: inventarbuch-241.jpg
+Creating augmentation 1/1 for image 160/215: inventarbuch-295.jpg
+Creating augmentation 1/1 for image 161/215: inventarbuch-077.jpg
+Creating augmentation 1/1 for image 162/215: inventarbuch-238.jpg
+Creating augmentation 1/1 for image 163/215: inventarbuch-089.jpg
+Creating augmentation 1/1 for image 164/215: inventarbuch-210.jpg
+Creating augmentation 1/1 for image 165/215: inventarbuch-192.jpg
+Creating augmentation 1/1 for image 166/215: inventarbuch-030.jpg
+Creating augmentation 1/1 for image 167/215: inventarbuch-003.jpg
+Creating augmentation 1/1 for image 168/215: inventarbuch-144.jpg
+Creating augmentation 1/1 for image 169/215: inventarbuch-066.jpg
+Creating augmentation 1/1 for image 170/215: inventarbuch-271.jpg
+Creating augmentation 1/1 for image 171/215: inventarbuch-294.jpg
+Creating augmentation 1/1 for image 172/215: inventarbuch-260.jpg
+Creating augmentation 1/1 for image 173/215: inventarbuch-227.jpg
+Creating augmentation 1/1 for image 174/215: inventarbuch-263.jpg
+Creating augmentation 1/1 for image 175/215: inventarbuch-209.jpg
+Creating augmentation 1/1 for image 176/215: inventarbuch-155.jpg
+Creating augmentation 1/1 for image 177/215: inventarbuch-110.jpg
+Creating augmentation 1/1 for image 178/215: inventarbuch-266.jpg
+Creating augmentation 1/1 for image 179/215: inventarbuch-164.jpg
+Creating augmentation 1/1 for image 180/215: inventarbuch-040.jpg
+Creating augmentation 1/1 for image 181/215: inventarbuch-029.jpg
+Creating augmentation 1/1 for image 182/215: inventarbuch-307.jpg
+Creating augmentation 1/1 for image 183/215: inventarbuch-024.jpg
+Creating augmentation 1/1 for image 184/215: inventarbuch-128.jpg
+Creating augmentation 1/1 for image 185/215: inventarbuch-132.jpg
+Creating augmentation 1/1 for image 186/215: inventarbuch-195.jpg
+Creating augmentation 1/1 for image 187/215: inventarbuch-222.jpg
+Creating augmentation 1/1 for image 188/215: inventarbuch-094.jpg
+Creating augmentation 1/1 for image 189/215: inventarbuch-211.jpg
+Creating augmentation 1/1 for image 190/215: inventarbuch-264.jpg
+Creating augmentation 1/1 for image 191/215: inventarbuch-111.jpg
+Creating augmentation 1/1 for image 192/215: inventarbuch-152.jpg
+Creating augmentation 1/1 for image 193/215: inventarbuch-196.jpg
+Creating augmentation 1/1 for image 194/215: inventarbuch-139.jpg
+Creating augmentation 1/1 for image 195/215: inventarbuch-146.jpg
+Creating augmentation 1/1 for image 196/215: inventarbuch-268.jpg
+Creating augmentation 1/1 for image 197/215: inventarbuch-262.jpg
+Creating augmentation 1/1 for image 198/215: inventarbuch-069.jpg
+Creating augmentation 1/1 for image 199/215: inventarbuch-037.jpg
+Creating augmentation 1/1 for image 200/215: inventarbuch-119.jpg
+Creating augmentation 1/1 for image 201/215: inventarbuch-168.jpg
+Creating augmentation 1/1 for image 202/215: inventarbuch-291.jpg
+Creating augmentation 1/1 for image 203/215: inventarbuch-129.jpg
+Creating augmentation 1/1 for image 204/215: inventarbuch-171.jpg
+Creating augmentation 1/1 for image 205/215: inventarbuch-208.jpg
+Creating augmentation 1/1 for image 206/215: inventarbuch-213.jpg
+Creating augmentation 1/1 for image 207/215: inventarbuch-273.jpg
+Creating augmentation 1/1 for image 208/215: inventarbuch-148.jpg
+Creating augmentation 1/1 for image 209/215: inventarbuch-056.jpg
+Creating augmentation 1/1 for image 210/215: inventarbuch-298.jpg
+Creating augmentation 1/1 for image 211/215: inventarbuch-240.jpg
+Creating augmentation 1/1 for image 212/215: inventarbuch-104.jpg
+Creating augmentation 1/1 for image 213/215: inventarbuch-082.jpg
+Creating augmentation 1/1 for image 214/215: inventarbuch-212.jpg
+Creating augmentation 1/1 for image 215/215: inventarbuch-009.jpg
+Successfully created 215 augmented images
+Total training samples: 430 (original: 215, augmented: 215)
+Found 46 valid samples out of 46 total
+Training: 430 samples, Validation: 46 samples
+
+Unsloth: Model does not have a default image size - using 512
+
+============================================================
+GPU INFORMATION
+============================================================
+GPU: Tesla V100-PCIE-32GB
+Max memory: 31.733 GB
+Reserved: 3.594 GB
+
+✅ UNSLOTH OPTIMIZATIONS:
+   • 4-bit quantization
+   • LoRA rank 16 (RSLoRA)
+   • Gradient checkpointing
+   • Data augmentation: 1x
+   • Model selection: eval_cer_jiwer (best CER)
+   • Batch size: 2, Grad accum: 4
+============================================================
+
+Starting training with CER-based model selection...
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 0.5299, 'grad_norm': 0.9002675414085388, 'learning_rate': 9e-06, 'epoch': 0.19}
+{'loss': 0.3839, 'grad_norm': 0.6267040371894836, 'learning_rate': 1.9e-05, 'epoch': 0.37}
+{'loss': 0.2053, 'grad_norm': 0.4064478278160095, 'learning_rate': 2.9e-05, 'epoch': 0.56}
+{'loss': 0.0951, 'grad_norm': 0.26914116740226746, 'learning_rate': 3.9000000000000006e-05, 'epoch': 0.74}
+{'loss': 0.0679, 'grad_norm': 0.1917610615491867, 'learning_rate': 4.9e-05, 'epoch': 0.93}
+{'eval_loss': 0.27320340275764465, 'eval_runtime': 16.9854, 'eval_samples_per_second': 2.708, 'eval_steps_per_second': 1.354, 'epoch': 1.0}
+
+============================================================
+Computing CER on validation set (Epoch 1.0)...
+============================================================
+Validating 1/30Validating 2/30Validating 3/30Validating 4/30Validating 5/30Validating 6/30Validating 7/30Validating 8/30Validating 9/30Validating 10/30Validating 11/30Validating 12/30Validating 13/30Validating 14/30Validating 15/30Validating 16/30Validating 17/30Validating 18/30Validating 19/30Validating 20/30Validating 21/30Validating 22/30Validating 23/30Validating 24/30Validating 25/30Validating 26/30Validating 27/30Validating 28/30Validating 29/30Validating 30/30
+✅ Validation CER (Epoch 1.0): 0.1466 (14.66%)
+🎯 New best CER: 0.1466
+{'loss': 0.0623, 'grad_norm': 0.25373131036758423, 'learning_rate': 4.998270113931927e-05, 'epoch': 1.11}
+{'loss': 0.0504, 'grad_norm': 0.1605919450521469, 'learning_rate': 4.99229333433282e-05, 'epoch': 1.3}
+{'loss': 0.0452, 'grad_norm': 0.20073750615119934, 'learning_rate': 4.982058513379235e-05, 'epoch': 1.48}
+{'loss': 0.0434, 'grad_norm': 0.1635185182094574, 'learning_rate': 4.967583137091085e-05, 'epoch': 1.67}
+{'loss': 0.0404, 'grad_norm': 0.14614257216453552, 'learning_rate': 4.948891936405941e-05, 'epoch': 1.86}
+{'eval_loss': 0.21018946170806885, 'eval_runtime': 16.7626, 'eval_samples_per_second': 2.744, 'eval_steps_per_second': 1.372, 'epoch': 2.0}
+
+============================================================
+Computing CER on validation set (Epoch 2.0)...
+============================================================
+Validating 1/30Validating 2/30Validating 3/30Validating 4/30Validating 5/30Validating 6/30Validating 7/30Validating 8/30Validating 9/30Validating 10/30Validating 11/30Validating 12/30Validating 13/30Validating 14/30Validating 15/30Validating 16/30Validating 17/30Validating 18/30Validating 19/30Validating 20/30Validating 21/30Validating 22/30Validating 23/30Validating 24/30Validating 25/30Validating 26/30Validating 27/30Validating 28/30Validating 29/30Validating 30/30
+✅ Validation CER (Epoch 2.0): 0.2227 (22.27%)
+{'loss': 0.0461, 'grad_norm': 0.13482004404067993, 'learning_rate': 4.9260168449266335e-05, 'epoch': 2.04}
+{'loss': 0.0255, 'grad_norm': 0.1841747760772705, 'learning_rate': 4.8989969443632366e-05, 'epoch': 2.22}
+{'loss': 0.0268, 'grad_norm': 0.4114454388618469, 'learning_rate': 4.8678783977626155e-05, 'epoch': 2.41}
+{'loss': 0.0275, 'grad_norm': 0.1519467681646347, 'learning_rate': 4.832714370639633e-05, 'epoch': 2.6}
+{'loss': 0.026, 'grad_norm': 0.17260368168354034, 'learning_rate': 4.793564940144769e-05, 'epoch': 2.78}
+{'loss': 0.0251, 'grad_norm': 0.21179303526878357, 'learning_rate': 4.750496992423307e-05, 'epoch': 2.97}
+{'eval_loss': 0.2096514254808426, 'eval_runtime': 16.9102, 'eval_samples_per_second': 2.72, 'eval_steps_per_second': 1.36, 'epoch': 3.0}
+
+============================================================
+Computing CER on validation set (Epoch 3.0)...
+============================================================
+Validating 1/30Validating 2/30Validating 3/30Validating 4/30Validating 5/30Validating 6/30Validating 7/30Validating 8/30Validating 9/30Validating 10/30Validating 11/30Validating 12/30Validating 13/30Validating 14/30Validating 15/30Validating 16/30Validating 17/30Validating 18/30Validating 19/30Validating 20/30Validating 21/30Validating 22/30Validating 23/30Validating 24/30Validating 25/30Validating 26/30Validating 27/30Validating 28/30Validating 29/30Validating 30/30
+✅ Validation CER (Epoch 3.0): 0.0791 (7.91%)
+🎯 New best CER: 0.0791
+{'loss': 0.0179, 'grad_norm': 0.20576469600200653, 'learning_rate': 4.703584108341481e-05, 'epoch': 3.15}
+{'loss': 0.0157, 'grad_norm': 0.15791146457195282, 'learning_rate': 4.652906437774799e-05, 'epoch': 3.33}
+{'loss': 0.0149, 'grad_norm': 0.27705585956573486, 'learning_rate': 4.598550562673329e-05, 'epoch': 3.52}
+{'loss': 0.0146, 'grad_norm': 0.16190434992313385, 'learning_rate': 4.5406093491378815e-05, 'epoch': 3.71}
+{'loss': 0.013, 'grad_norm': 0.16405527293682098, 'learning_rate': 4.479181788759842e-05, 'epoch': 3.89}
+{'eval_loss': 0.23072537779808044, 'eval_runtime': 16.932, 'eval_samples_per_second': 2.717, 'eval_steps_per_second': 1.358, 'epoch': 4.0}
+
+============================================================
+Computing CER on validation set (Epoch 4.0)...
+============================================================
+Validating 1/30Validating 2/30Validating 3/30Validating 4/30Validating 5/30Validating 6/30Validating 7/30Validating 8/30Validating 9/30Validating 10/30Validating 11/30Validating 12/30Validating 13/30Validating 14/30Validating 15/30Validating 16/30Validating 17/30Validating 18/30Validating 19/30Validating 20/30Validating 21/30Validating 22/30Validating 23/30Validating 24/30Validating 25/30Validating 26/30Validating 27/30Validating 28/30Validating 29/30Validating 30/30
+✅ Validation CER (Epoch 4.0): 0.1185 (11.85%)
+{'loss': 0.0108, 'grad_norm': 0.1335330754518509, 'learning_rate': 4.414372829495693e-05, 'epoch': 4.07}
+{'loss': 0.0084, 'grad_norm': 0.1369912326335907, 'learning_rate': 4.3462931963651934e-05, 'epoch': 4.26}
+{'loss': 0.0074, 'grad_norm': 0.1319248378276825, 'learning_rate': 4.275059202279537e-05, 'epoch': 4.45}
+{'loss': 0.0079, 'grad_norm': 0.12869614362716675, 'learning_rate': 4.200792549322698e-05, 'epoch': 4.63}
+{'loss': 0.0076, 'grad_norm': 0.1480778604745865, 'learning_rate': 4.123620120825459e-05, 'epoch': 4.82}
+{'loss': 0.0093, 'grad_norm': 0.22241738438606262, 'learning_rate': 4.0436737645873715e-05, 'epoch': 5.0}
+{'eval_loss': 0.23987792432308197, 'eval_runtime': 17.1193, 'eval_samples_per_second': 2.687, 'eval_steps_per_second': 1.344, 'epoch': 5.0}
+
+============================================================
+Computing CER on validation set (Epoch 5.0)...
+============================================================
+Validating 1/30Validating 2/30Validating 3/30Validating 4/30Validating 5/30Validating 6/30Validating 7/30Validating 8/30Validating 9/30Validating 10/30Validating 11/30Validating 12/30Validating 13/30Validating 14/30Validating 15/30Validating 16/30Validating 17/30Validating 18/30Validating 19/30Validating 20/30Validating 21/30Validating 22/30Validating 23/30Validating 24/30Validating 25/30Validating 26/30Validating 27/30Validating 28/30Validating 29/30Validating 30/30
+✅ Validation CER (Epoch 5.0): 0.0806 (8.06%)
+{'loss': 0.0044, 'grad_norm': 0.08422856032848358, 'learning_rate': 3.961090067617e-05, 'epoch': 5.19}
+{'loss': 0.0049, 'grad_norm': 0.09116379916667938, 'learning_rate': 3.876010122775309e-05, 'epoch': 5.37}
+{'loss': 0.0055, 'grad_norm': 0.1671963781118393, 'learning_rate': 3.788579287720878e-05, 'epoch': 5.56}
+{'loss': 0.0044, 'grad_norm': 0.09823933988809586, 'learning_rate': 3.698946936568782e-05, 'epoch': 5.74}
+{'loss': 0.0046, 'grad_norm': 0.15725021064281464, 'learning_rate': 3.6072662046874146e-05, 'epoch': 5.93}
+{'eval_loss': 0.26441076397895813, 'eval_runtime': 16.8155, 'eval_samples_per_second': 2.736, 'eval_steps_per_second': 1.368, 'epoch': 6.0}
+
+============================================================
+Computing CER on validation set (Epoch 6.0)...
+============================================================
+Validating 1/30Validating 2/30Validating 3/30Validating 4/30Validating 5/30Validating 6/30Validating 7/30Validating 8/30Validating 9/30Validating 10/30Validating 11/30Validating 12/30Validating 13/30Validating 14/30Validating 15/30Validating 16/30Validating 17/30Validating 18/30Validating 19/30Validating 20/30Validating 21/30Validating 22/30Validating 23/30Validating 24/30Validating 25/30Validating 26/30Validating 27/30Validating 28/30Validating 29/30Validating 30/30
+✅ Validation CER (Epoch 6.0): 0.1413 (14.13%)
+{'train_runtime': 9474.4352, 'train_samples_per_second': 0.681, 'train_steps_per_second': 0.085, 'train_loss': 0.05724185282065545, 'epoch': 6.0}
+
+============================================================
+TRAINING COMPLETED
+============================================================
+Runtime: 157.91 min
+Peak memory: 9.307 GB
+Training memory: 5.713 GB
+Best validation CER: 0.0791 (7.91%)
+============================================================
+
+
+Saving best model (selected by CER) to /home/vault/iwi5/iwi5298h/models_image_text/nanonets/inven/run_20260204_114348_unsloth_cer...
+✅ Best model saved (CER-based selection)!
+
+============================================================
+PHASE 2: EVALUATION
+============================================================
+
+Starting evaluation on test set...
+Loaded 47 test samples
+
+Processing chunk 1/3 (20 images)
+Processing test image 1/47: inventarbuch-036.jpg
+  Processed successfully. CER: 0.194
+Processing test image 2/47: inventarbuch-100.jpg
+  Processed successfully. CER: 0.136
+Processing test image 3/47: inventarbuch-190.jpg
+  Processed successfully. CER: 0.169
+Processing test image 4/47: inventarbuch-153.jpg
+  Processed successfully. CER: 0.241
+Processing test image 5/47: inventarbuch-041.jpg
+  Processed successfully. CER: 0.333
+Processing test image 6/47: inventarbuch-198.jpg
+  Processed successfully. CER: 0.149
+Processing test image 7/47: inventarbuch-065.jpg
+  Processed successfully. CER: 0.224
+Processing test image 8/47: inventarbuch-242.jpg
+  Processed successfully. CER: 0.181
+Processing test image 9/47: inventarbuch-023.jpg
+  Processed successfully. CER: 0.290
+Processing test image 10/47: inventarbuch-137.jpg
+  Processed successfully. CER: 0.168
+Processing test image 11/47: inventarbuch-180.jpg
+  Processed successfully. CER: 0.225
+Processing test image 12/47: inventarbuch-188.jpg
+  Processed successfully. CER: 0.195
+Processing test image 13/47: inventarbuch-051.jpg
+  Processed successfully. CER: 0.302
+Processing test image 14/47: inventarbuch-199.jpg
+  Processed successfully. CER: 0.567
+Processing test image 15/47: inventarbuch-296.jpg
+  Processed successfully. CER: 0.191
+Processing test image 16/47: inventarbuch-302.jpg
+  Processed successfully. CER: 0.331
+Processing test image 17/47: inventarbuch-176.jpg
+  Processed successfully. CER: 0.127
+Processing test image 18/47: inventarbuch-112.jpg
+  Processed successfully. CER: 0.169
+Processing test image 19/47: inventarbuch-081.jpg
+  Processed successfully. CER: 0.239
+Processing test image 20/47: inventarbuch-290.jpg
+  Processed successfully. CER: 0.200
+
+Processing chunk 2/3 (20 images)
+Processing test image 21/47: inventarbuch-178.jpg
+  Processed successfully. CER: 0.257
+Processing test image 22/47: inventarbuch-299.jpg
+  Processed successfully. CER: 0.255
+Processing test image 23/47: inventarbuch-083.jpg
+  Processed successfully. CER: 0.224
+Processing test image 24/47: inventarbuch-004.jpg
+  Processed successfully. CER: 0.202
+Processing test image 25/47: inventarbuch-145.jpg
+  Processed successfully. CER: 0.142
+Processing test image 26/47: inventarbuch-236.jpg
+  Processed successfully. CER: 0.152
+Processing test image 27/47: inventarbuch-114.jpg
+  Processed successfully. CER: 0.156
+Processing test image 28/47: inventarbuch-220.jpg
+  Processed successfully. CER: 0.149
+Processing test image 29/47: inventarbuch-301.jpg
+  Processed successfully. CER: 0.567
+Processing test image 30/47: inventarbuch-103.jpg
+  Processed successfully. CER: 0.175
+Processing test image 31/47: inventarbuch-014.jpg
+  Processed successfully. CER: 0.275
+Processing test image 32/47: inventarbuch-265.jpg
+  Processed successfully. CER: 0.138
+Processing test image 33/47: inventarbuch-121.jpg
+  Processed successfully. CER: 0.144
+Processing test image 34/47: inventarbuch-113.jpg
+  Processed successfully. CER: 0.155
+Processing test image 35/47: inventarbuch-049.jpg
+  Processed successfully. CER: 0.449
+Processing test image 36/47: inventarbuch-016.jpg
+  Processed successfully. CER: 0.164
+Processing test image 37/47: inventarbuch-017.jpg
+  Processed successfully. CER: 0.398
+Processing test image 38/47: inventarbuch-223.jpg
+  Processed successfully. CER: 0.134
+Processing test image 39/47: inventarbuch-046.jpg
+  Processed successfully. CER: 0.257
+Processing test image 40/47: inventarbuch-286.jpg
+  Processed successfully. CER: 0.171
+
+Processing chunk 3/3 (7 images)
+Processing test image 41/47: inventarbuch-054.jpg
+  Processed successfully. CER: 0.210
+Processing test image 42/47: inventarbuch-073.jpg
+  Processed successfully. CER: 0.219
+Processing test image 43/47: inventarbuch-116.jpg
+  Processed successfully. CER: 0.327
+Processing test image 44/47: inventarbuch-127.jpg
+  Processed successfully. CER: 0.171
+Processing test image 45/47: inventarbuch-143.jpg
+  Processed successfully. CER: 0.126
+Processing test image 46/47: inventarbuch-013.jpg
+  Processed successfully. CER: 0.311
+Processing test image 47/47: inventarbuch-059.jpg
+  Processed successfully. CER: 0.249
+
+Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/inven/run_20260204_114348_unsloth_cer/cer_evaluation_results.txt
+
+============================================================
+FINAL RESULTS - CER-BASED MODEL SELECTION
+============================================================
+Model: Nanonets-OCR-s (finetuned, best CER checkpoint)
+Dataset: Inventory (Anthropological-Prehistoric)
+
+Metrics:
+  Avg CER: 0.2300 (23.00%)
+  Weighted CER: 0.2016 (20.16%)
+  Median: 0.2005 | Std: 0.1012
+
+Accuracy:
+  Perfect: 0/47 (0.00%)
+  Parsing: 0/47 (0.00%)
+
+Saved to: /home/vault/iwi5/iwi5298h/models_image_text/nanonets/inven/run_20260204_114348_unsloth_cer
+============================================================
+
+Cleaned up temporary directory: /tmp/1524430.tinygpu/augmented_inventory_s47t2x9z
+Nano training completed at: Wed Feb  4 02:53:33 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Wed Feb  4 02:53:33 PM CET 2026
+= Job-ID             : 1524430 on tinygpu
+= Job-Name           : inven_updated_cer
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_nano.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 03:11:09
+= Total RAM usage    : 11.9 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2026-02-04T11:42:21 / 2026-02-04T11:42:21 / 2026-02-04T11:42:24 / 2026-02-04T14:53:33
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/hpc              88.4G   104.9G   209.7G        N/A  29,535      500K   1,000K        N/A    
+    /home/vault           855.7G  1048.6G  2097.2G        N/A   8,936      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 1543639, 25 %, 9 %, 9938 MiB, 11438409 ms

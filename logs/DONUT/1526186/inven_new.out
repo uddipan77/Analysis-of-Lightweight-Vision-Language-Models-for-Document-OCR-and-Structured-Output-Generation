@@ -1,0 +1,61 @@
+### Starting TaskPrologue of job 1526186 on tg071 at Sat Feb  7 03:03:56 PM CET 2026
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Sat Feb  7 15:03:56 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   33C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Job started at: Sat Feb  7 03:04:07 PM CET 2026
+Using device: cuda
+Output dir: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_20260207_151430
+TensorBoard logs: /home/vault/iwi5/iwi5298h/models_image_text/donut/inventory/inventory_data_20260207_151430/tensorboard_logs
+Loading model from local cache: /home/vault/iwi5/iwi5298h/models/donut_base
+Loaded 215 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/train.jsonl
+Loaded 46 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/val.jsonl
+Loaded 47 samples from /home/woody/iwi5/iwi5298h/updated_json_inven/test.jsonl
+
+Starting training...
+Best model selection based on: eval_gen_cer_string (AUTOREGRESSIVE, lower is better)
+
+Job completed at: Sat Feb  7 03:15:59 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Sat Feb  7 03:15:59 PM CET 2026
+= Job-ID             : 1526186 on tinygpu
+= Job-Name           : inven_new
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut_inven.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:12:19
+= Total RAM usage    : 2.2 GiB of requested  GiB (%)   
+= Node list          : tg071
+= Subm/Elig/Start/End: 2026-02-07T12:38:33 / 2026-02-07T12:38:33 / 2026-02-07T15:03:40 / 2026-02-07T15:15:59
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              91.3G   104.9G   209.7G        N/A  29,984      500K   1,000K        N/A    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+    /home/vault           910.0G  1048.6G  2097.2G        N/A   9,307      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 2029151, 98 %, 45 %, 15286 MiB, 53989979 ms
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 2066283, 0 %, 0 %, 1094 MiB, 241899 ms

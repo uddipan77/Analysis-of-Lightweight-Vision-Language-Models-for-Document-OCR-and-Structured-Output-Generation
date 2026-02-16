@@ -1,0 +1,476 @@
+### Starting TaskPrologue of job 1409246 on tg072 at Sat Nov 22 03:57:13 PM CET 2025
+Running on cores 6-7,14-15,22-23,30-31 with governor ondemand
+Sat Nov 22 15:57:13 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:AF:00.0 Off |                    0 |
+| N/A   30C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Sat Nov 22 03:57:18 PM CET 2025
+================================================================================
+🚀 Phi-3.5-Vision One-Shot Inference on Inventory Dataset
+================================================================================
+
+📂 Loading training data from: /home/woody/iwi5/iwi5298h/json_inven/train.jsonl
+✅ Loaded 213 training samples
+  ✅ Found one-shot example: inventarbuch-265.jpg
+
+📂 Loading test data from: /home/woody/iwi5/iwi5298h/json_inven/test.jsonl
+✅ Loaded 48 test samples
+
+⏳ Loading model from: /home/vault/iwi5/iwi5298h/models/phi_3_5_vision
+📍 Device: cuda
+✅ Model and processor loaded
+
+📸 Loading one-shot example image...
+  ✅ Loaded: inventarbuch-265.jpg from /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-265.jpg
+
+================================================================================
+RUNNING ONE-SHOT INFERENCE
+================================================================================
+
+────────────────────────────────────────────────────────────
+[1/48] inventarbuch-022.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-022.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6947 (69.47%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Eo 16", "measurements": {"length": "17,5"...
+
+────────────────────────────────────────────────────────────
+[2/48] inventarbuch-099.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-099.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5938 (59.38%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.59585410489", "measurements": {"length": ...
+
+────────────────────────────────────────────────────────────
+[3/48] inventarbuch-245.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-245.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.4129 (41.29%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.S1974c", "measurements": {"length": "5,04...
+
+────────────────────────────────────────────────────────────
+[4/48] inventarbuch-263.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-263.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.9038 (90.38%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[5/48] inventarbuch-033.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-033.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.8137 (81.37%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[6/48] inventarbuch-143.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-143.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5922 (59.22%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mo 100", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[7/48] inventarbuch-244.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-244.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6000 (60.00%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.S193", "measurements": {"length": "8,65",...
+
+────────────────────────────────────────────────────────────
+[8/48] inventarbuch-024.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-024.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 2.5057 (250.57%)
+  📝 Prediction (first 150 chars): {"heading": "Brechung einer starken flau pyramidalen Spitze dantelt", "inventory_number": "Nach Dientz dem Drit-Strohgewebe pagding", "measurements": ...
+
+────────────────────────────────────────────────────────────
+[9/48] inventarbuch-141.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-141.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.4446 (44.46%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[10/48] inventarbuch-183.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-183.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6291 (62.91%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[11/48] inventarbuch-191.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-191.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6827 (68.27%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[12/48] inventarbuch-051.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-051.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.7023 (70.23%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[13/48] inventarbuch-203.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-203.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6613 (66.13%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[14/48] inventarbuch-296.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-296.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6088 (60.88%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[15/48] inventarbuch-302.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-302.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 2.3383 (233.83%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[16/48] inventarbuch-179.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-179.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6900 (69.00%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[17/48] inventarbuch-114.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-114.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5929 (59.29%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[18/48] inventarbuch-082.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-082.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5611 (56.11%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[19/48] inventarbuch-287.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-287.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6743 (67.43%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[20/48] inventarbuch-181.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-181.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.7918 (79.18%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[21/48] inventarbuch-299.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-299.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.9365 (93.65%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[22/48] inventarbuch-084.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-084.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.7525 (75.25%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[23/48] inventarbuch-004.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-004.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.3905 (39.05%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Bo 2", "measurements": {"length": "12,5",...
+
+────────────────────────────────────────────────────────────
+[24/48] inventarbuch-148.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-148.jpg
+  ⚠️ JSON parse failed – using raw JSON-like string
+  📊 CER: 3.8370 (383.70%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Spike", "measurements": {"length": "5,9",...
+
+────────────────────────────────────────────────────────────
+[25/48] inventarbuch-238.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-238.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.7486 (74.86%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.S.487146", "measurements": {"length": "12...
+
+────────────────────────────────────────────────────────────
+[26/48] inventarbuch-116.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-116.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 2.0780 (207.80%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[27/48] inventarbuch-223.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-223.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6423 (64.23%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.S 1472", "measurements": {"length": "8,36...
+
+────────────────────────────────────────────────────────────
+[28/48] inventarbuch-104.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-104.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5691 (56.91%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[29/48] inventarbuch-015.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-015.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5185 (51.85%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Eo 10", "measurements": {"length": "12,4"...
+
+────────────────────────────────────────────────────────────
+[30/48] inventarbuch-272.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-272.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5444 (54.44%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[31/48] inventarbuch-124.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-124.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5054 (50.54%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[32/48] inventarbuch-115.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-115.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5700 (57.00%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[33/48] inventarbuch-049.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-049.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 3.2211 (322.11%)
+  📝 Prediction (first 150 chars): {"heading": "Nach Prüf des Gravuren geprobte", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4", "breadth": "3,4", "depth": "2,7"}...
+
+────────────────────────────────────────────────────────────
+[34/48] inventarbuch-017.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-017.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 2.8485 (284.85%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[35/48] inventarbuch-018.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-018.jpg
+  ⚠️ JSON parse failed – using raw JSON-like string
+  📊 CER: 3.0061 (300.61%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Bot12", "measurements": {"length": "9,45"...
+
+────────────────────────────────────────────────────────────
+[36/48] inventarbuch-225.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-225.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5802 (58.02%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.S1424-42", "measurements": {"length": "12...
+
+────────────────────────────────────────────────────────────
+[37/48] inventarbuch-046.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-046.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6254 (62.54%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Eo 29", "measurements": {"length": "10,5"...
+
+────────────────────────────────────────────────────────────
+[38/48] inventarbuch-294.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-294.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6334 (63.34%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[39/48] inventarbuch-054.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-054.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5634 (56.34%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "1-fr.E 033", "measurements": {"length": "12,38...
+
+────────────────────────────────────────────────────────────
+[40/48] inventarbuch-073.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-073.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5647 (56.47%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Ch47", "measurements": {"length": "17,5",...
+
+────────────────────────────────────────────────────────────
+[41/48] inventarbuch-118.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-118.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5856 (58.56%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.M9", "measurements": {"length": "12,4", "...
+
+────────────────────────────────────────────────────────────
+[42/48] inventarbuch-130.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-130.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.6104 (61.04%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[43/48] inventarbuch-146.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-146.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5553 (55.53%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[44/48] inventarbuch-014.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-014.jpg
+  ⚠️ JSON parse failed – using raw JSON-like string
+  📊 CER: 1.9758 (197.58%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.E09", "measurements": {"length": "12,4", ...
+
+────────────────────────────────────────────────────────────
+[45/48] inventarbuch-059.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-059.jpg
+  ⚠️ JSON parse failed – using raw JSON-like string
+  📊 CER: 2.7626 (276.26%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[46/48] inventarbuch-256.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-256.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5567 (55.67%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[47/48] inventarbuch-260.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-260.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.3909 (39.09%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+────────────────────────────────────────────────────────────
+[48/48] inventarbuch-279.jpg
+────────────────────────────────────────────────────────────
+  Resolved path: /home/woody/iwi5/iwi5298h/inventory_images/inventarbuch-279.jpg
+  ✅ Valid JSON parsed
+  📊 CER: 0.5628 (56.28%)
+  📝 Prediction (first 150 chars): {"heading": "Anthropologisch-prähistorische Sammlung der K. Universität Erlangen", "inventory_number": "J=fr.Mag212", "measurements": {"length": "12,4...
+
+
+================================================================================
+📊 FINAL RESULTS
+================================================================================
+  Total Samples       : 48
+  Average CER         : 1.0131 (101.31%)
+  Weighted CER        : 0.8864 (88.64%)
+  Perfect Matches     : 0/48 (0.00%)
+  Valid JSON Parsed   : 44/48 (91.67%)
+  JSON-like Outputs   : 48/48 (100.00%)
+
+  One-shot example    : inventarbuch-265.jpg
+================================================================================
+
+💾 Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/one_shot_20251122_155750/predictions.jsonl
+💾 Metrics saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/one_shot_20251122_155750/metrics.json
+
+📂 Output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/inven/one_shot_20251122_155750
+
+✅ One-shot inference complete!
+Finished at: Sat Nov 22 04:13:25 PM CET 2025
+Exit status: 0
+=== JOB_STATISTICS ===
+=== current date     : Sat Nov 22 04:13:25 PM CET 2025
+= Job-ID             : 1409246 on tinygpu
+= Job-Name           : phi_few_inven
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 06:00:00
+= Elapsed runtime    : 00:16:17
+= Total RAM usage    : 9.0 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-11-22T15:57:07 / 2025-11-22T15:57:07 / 2025-11-22T15:57:08 / 2025-11-22T16:13:25
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              68.3G   104.9G   209.7G        N/A  26,954      500K   1,000K        N/A    
+    /home/woody           197.4G  1000.0G  1500.0G        N/A     876K   5,000K   7,500K        N/A    
+    /home/vault           957.6G  1048.6G  2097.2G        N/A   6,803      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:AF:00.0, 2195297, 54 %, 32 %, 11500 MiB, 934063 ms

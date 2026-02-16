@@ -1,0 +1,380 @@
+### Starting TaskPrologue of job 1391917 on tg094 at Mon Nov 17 06:05:44 PM CET 2025
+Running on cores 96-127 with governor ondemand
+Mon Nov 17 18:05:44 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:C1:00.0 Off |                    0 |
+| N/A   31C    P0             53W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Mon Nov 17 06:05:46 PM CET 2025
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING WITH QLORA 4-BIT - INVENTORY DATASET
+Multi-stage training: warm-up + CER-based main training
+================================================================================
+
+📂 Configuration:
+   • Base output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/inven
+   • Total epochs: 16 (Stage1: 5, Stage2: 11)
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate (base): 0.0002
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+   • LoRA r=16, alpha=32, dropout=0.1
+
+🔧 Anti-Repetition:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Processor loaded
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.27 GB, Reserved: 2.37 GB
+
+📝 Preparing model for LoRA training...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+
+📊 Loading datasets...
+   📁 Training dataset:
+   📊 Loaded 213 valid samples (out of 213 total)
+   🔄 Data augmentation ENABLED
+   📁 Validation dataset:
+   📊 Loaded 47 valid samples (out of 47 total)
+
+================================================================================
+GPU INFORMATION
+================================================================================
+   GPU: NVIDIA A100-SXM4-40GB
+   Max memory: 39.494 GB
+================================================================================
+
+
+================================================================================
+STAGE 1: WARM-UP TRAINING (no eval, teacher forcing)
+================================================================================
+🚀 Starting Stage 1 training...
+
+{'loss': 27.2687, 'grad_norm': 6.755061626434326, 'learning_rate': 0.0005960479567624579, 'epoch': 0.75}
+{'loss': 19.7938, 'grad_norm': 5.845402717590332, 'learning_rate': 0.000528648616538291, 'epoch': 1.5}
+{'loss': 16.1504, 'grad_norm': 6.470724105834961, 'learning_rate': 0.000395790459040794, 'epoch': 2.25}
+{'loss': 13.7342, 'grad_norm': 9.396392822265625, 'learning_rate': 0.0002355088679366928, 'epoch': 3.0}
+{'loss': 10.1813, 'grad_norm': 9.888850212097168, 'learning_rate': 9.369016234397297e-05, 'epoch': 3.76}
+{'loss': 9.6103, 'grad_norm': 7.3927507400512695, 'learning_rate': 1.0935002244233128e-05, 'epoch': 4.51}
+{'train_runtime': 1697.3791, 'train_samples_per_second': 0.627, 'train_steps_per_second': 0.038, 'train_loss': 15.61070051926833, 'epoch': 4.88}
+
+✅ Stage 1 (warm-up) completed!
+
+
+================================================================================
+STAGE 2: MAIN TRAINING (eval each epoch, CER-based best model)
+================================================================================
+   📊 Validation samples for CER computation: 47
+🚀 Starting Stage 2 training...
+
+================================================================================
+{'loss': 8.9695, 'grad_norm': 8.956779479980469, 'learning_rate': 0.00013333333333333334, 'epoch': 0.75}
+{'eval_loss': 1.3796616792678833, 'eval_runtime': 26.5818, 'eval_samples_per_second': 1.768, 'eval_steps_per_second': 1.768, 'epoch': 0.98}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 0)
+================================================================================
+   Validating 1/30: inventarbuch-064.jpg   Validating 2/30: inventarbuch-194.jpg   Validating 3/30: inventarbuch-142.jpg   Validating 4/30: inventarbuch-045.jpg   Validating 5/30: inventarbuch-232.jpg   Validating 6/30: inventarbuch-161.jpg   Validating 7/30: inventarbuch-020.jpg   Validating 8/30: inventarbuch-171.jpg   Validating 9/30: inventarbuch-283.jpg   Validating 10/30: inventarbuch-187.jpg   Validating 11/30: inventarbuch-070.jpg   Validating 12/30: inventarbuch-178.jpg   Validating 13/30: inventarbuch-055.jpg   Validating 14/30: inventarbuch-093.jpg   Validating 15/30: inventarbuch-097.jpg   Validating 16/30: inventarbuch-043.jpg   Validating 17/30: inventarbuch-096.jpg   Validating 18/30: inventarbuch-222.jpg   Validating 19/30: inventarbuch-168.jpg   Validating 20/30: inventarbuch-120.jpg   Validating 21/30: inventarbuch-303.jpg   Validating 22/30: inventarbuch-100.jpg   Validating 23/30: inventarbuch-027.jpg   Validating 24/30: inventarbuch-230.jpg   Validating 25/30: inventarbuch-061.jpg   Validating 26/30: inventarbuch-227.jpg   Validating 27/30: inventarbuch-266.jpg   Validating 28/30: inventarbuch-076.jpg   Validating 29/30: inventarbuch-206.jpg   Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER (Epoch 0): 0.3263 (32.63%)
+   🎯 NEW BEST CER: 0.3263 (improved by inf)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/inven/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 7.5274, 'grad_norm': 12.79928970336914, 'learning_rate': 0.000199247953459871, 'epoch': 1.5}
+{'eval_loss': 1.5034737586975098, 'eval_runtime': 26.5701, 'eval_samples_per_second': 1.769, 'eval_steps_per_second': 1.769, 'epoch': 1.95}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 1)
+================================================================================
+   Validating 1/30: inventarbuch-064.jpg   Validating 2/30: inventarbuch-194.jpg   Validating 3/30: inventarbuch-142.jpg   Validating 4/30: inventarbuch-045.jpg   Validating 5/30: inventarbuch-232.jpg   Validating 6/30: inventarbuch-161.jpg   Validating 7/30: inventarbuch-020.jpg   Validating 8/30: inventarbuch-171.jpg   Validating 9/30: inventarbuch-283.jpg   Validating 10/30: inventarbuch-187.jpg   Validating 11/30: inventarbuch-070.jpg   Validating 12/30: inventarbuch-178.jpg   Validating 13/30: inventarbuch-055.jpg   Validating 14/30: inventarbuch-093.jpg   Validating 15/30: inventarbuch-097.jpg   Validating 16/30: inventarbuch-043.jpg   Validating 17/30: inventarbuch-096.jpg   Validating 18/30: inventarbuch-222.jpg   Validating 19/30: inventarbuch-168.jpg   Validating 20/30: inventarbuch-120.jpg   Validating 21/30: inventarbuch-303.jpg   Validating 22/30: inventarbuch-100.jpg   Validating 23/30: inventarbuch-027.jpg   Validating 24/30: inventarbuch-230.jpg   Validating 25/30: inventarbuch-061.jpg   Validating 26/30: inventarbuch-227.jpg   Validating 27/30: inventarbuch-266.jpg   Validating 28/30: inventarbuch-076.jpg   Validating 29/30: inventarbuch-206.jpg   Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER (Epoch 1): 0.3176 (31.76%)
+   🎯 NEW BEST CER: 0.3176 (improved by 0.0087)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/inven/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 5.9021, 'grad_norm': 11.662485122680664, 'learning_rate': 0.0001932992798834739, 'epoch': 2.25}
+{'eval_loss': 1.589243769645691, 'eval_runtime': 26.5808, 'eval_samples_per_second': 1.768, 'eval_steps_per_second': 1.768, 'epoch': 2.93}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 2)
+================================================================================
+   Validating 1/30: inventarbuch-064.jpg   Validating 2/30: inventarbuch-194.jpg   Validating 3/30: inventarbuch-142.jpg   Validating 4/30: inventarbuch-045.jpg   Validating 5/30: inventarbuch-232.jpg   Validating 6/30: inventarbuch-161.jpg   Validating 7/30: inventarbuch-020.jpg   Validating 8/30: inventarbuch-171.jpg   Validating 9/30: inventarbuch-283.jpg   Validating 10/30: inventarbuch-187.jpg   Validating 11/30: inventarbuch-070.jpg   Validating 12/30: inventarbuch-178.jpg   Validating 13/30: inventarbuch-055.jpg   Validating 14/30: inventarbuch-093.jpg   Validating 15/30: inventarbuch-097.jpg   Validating 16/30: inventarbuch-043.jpg   Validating 17/30: inventarbuch-096.jpg   Validating 18/30: inventarbuch-222.jpg   Validating 19/30: inventarbuch-168.jpg   Validating 20/30: inventarbuch-120.jpg   Validating 21/30: inventarbuch-303.jpg   Validating 22/30: inventarbuch-100.jpg   Validating 23/30: inventarbuch-027.jpg   Validating 24/30: inventarbuch-230.jpg   Validating 25/30: inventarbuch-061.jpg   Validating 26/30: inventarbuch-227.jpg   Validating 27/30: inventarbuch-266.jpg   Validating 28/30: inventarbuch-076.jpg   Validating 29/30: inventarbuch-206.jpg   Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER (Epoch 2): 0.5038 (50.38%)
+   📊 No improvement. Best CER remains: 0.3176
+================================================================================
+
+{'loss': 5.0864, 'grad_norm': 13.526528358459473, 'learning_rate': 0.00018175848131515837, 'epoch': 3.0}
+{'loss': 3.0869, 'grad_norm': 13.874799728393555, 'learning_rate': 0.00016531728429537766, 'epoch': 3.76}
+{'eval_loss': 1.7278789281845093, 'eval_runtime': 26.6563, 'eval_samples_per_second': 1.763, 'eval_steps_per_second': 1.763, 'epoch': 3.98}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 3)
+================================================================================
+   Validating 1/30: inventarbuch-064.jpg   Validating 2/30: inventarbuch-194.jpg   Validating 3/30: inventarbuch-142.jpg   Validating 4/30: inventarbuch-045.jpg   Validating 5/30: inventarbuch-232.jpg   Validating 6/30: inventarbuch-161.jpg   Validating 7/30: inventarbuch-020.jpg   Validating 8/30: inventarbuch-171.jpg   Validating 9/30: inventarbuch-283.jpg   Validating 10/30: inventarbuch-187.jpg   Validating 11/30: inventarbuch-070.jpg   Validating 12/30: inventarbuch-178.jpg   Validating 13/30: inventarbuch-055.jpg   Validating 14/30: inventarbuch-093.jpg   Validating 15/30: inventarbuch-097.jpg   Validating 16/30: inventarbuch-043.jpg   Validating 17/30: inventarbuch-096.jpg   Validating 18/30: inventarbuch-222.jpg   Validating 19/30: inventarbuch-168.jpg   Validating 20/30: inventarbuch-120.jpg   Validating 21/30: inventarbuch-303.jpg   Validating 22/30: inventarbuch-100.jpg   Validating 23/30: inventarbuch-027.jpg   Validating 24/30: inventarbuch-230.jpg   Validating 25/30: inventarbuch-061.jpg   Validating 26/30: inventarbuch-227.jpg   Validating 27/30: inventarbuch-266.jpg   Validating 28/30: inventarbuch-076.jpg   Validating 29/30: inventarbuch-206.jpg   Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER (Epoch 3): 0.5172 (51.72%)
+   📊 No improvement. Best CER remains: 0.3176
+================================================================================
+
+{'loss': 2.8168, 'grad_norm': 8.797609329223633, 'learning_rate': 0.00014496113296546067, 'epoch': 4.51}
+{'eval_loss': 1.821882724761963, 'eval_runtime': 26.6102, 'eval_samples_per_second': 1.766, 'eval_steps_per_second': 1.766, 'epoch': 4.96}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 4)
+================================================================================
+   Validating 1/30: inventarbuch-064.jpg   Validating 2/30: inventarbuch-194.jpg   Validating 3/30: inventarbuch-142.jpg   Validating 4/30: inventarbuch-045.jpg   Validating 5/30: inventarbuch-232.jpg   Validating 6/30: inventarbuch-161.jpg   Validating 7/30: inventarbuch-020.jpg   Validating 8/30: inventarbuch-171.jpg   Validating 9/30: inventarbuch-283.jpg   Validating 10/30: inventarbuch-187.jpg   Validating 11/30: inventarbuch-070.jpg   Validating 12/30: inventarbuch-178.jpg   Validating 13/30: inventarbuch-055.jpg   Validating 14/30: inventarbuch-093.jpg   Validating 15/30: inventarbuch-097.jpg   Validating 16/30: inventarbuch-043.jpg   Validating 17/30: inventarbuch-096.jpg   Validating 18/30: inventarbuch-222.jpg   Validating 19/30: inventarbuch-168.jpg   Validating 20/30: inventarbuch-120.jpg   Validating 21/30: inventarbuch-303.jpg   Validating 22/30: inventarbuch-100.jpg   Validating 23/30: inventarbuch-027.jpg   Validating 24/30: inventarbuch-230.jpg   Validating 25/30: inventarbuch-061.jpg   Validating 26/30: inventarbuch-227.jpg   Validating 27/30: inventarbuch-266.jpg   Validating 28/30: inventarbuch-076.jpg   Validating 29/30: inventarbuch-206.jpg   Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER (Epoch 4): 0.3074 (30.74%)
+   🎯 NEW BEST CER: 0.3074 (improved by 0.0102)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/inven/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 2.1807, 'grad_norm': 11.582999229431152, 'learning_rate': 0.00012191012401568698, 'epoch': 5.26}
+{'eval_loss': 1.8547219038009644, 'eval_runtime': 26.5745, 'eval_samples_per_second': 1.769, 'eval_steps_per_second': 1.769, 'epoch': 5.93}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 5)
+================================================================================
+   Validating 1/30: inventarbuch-064.jpg   Validating 2/30: inventarbuch-194.jpg   Validating 3/30: inventarbuch-142.jpg   Validating 4/30: inventarbuch-045.jpg   Validating 5/30: inventarbuch-232.jpg   Validating 6/30: inventarbuch-161.jpg   Validating 7/30: inventarbuch-020.jpg   Validating 8/30: inventarbuch-171.jpg   Validating 9/30: inventarbuch-283.jpg   Validating 10/30: inventarbuch-187.jpg   Validating 11/30: inventarbuch-070.jpg   Validating 12/30: inventarbuch-178.jpg   Validating 13/30: inventarbuch-055.jpg   Validating 14/30: inventarbuch-093.jpg   Validating 15/30: inventarbuch-097.jpg   Validating 16/30: inventarbuch-043.jpg   Validating 17/30: inventarbuch-096.jpg   Validating 18/30: inventarbuch-222.jpg   Validating 19/30: inventarbuch-168.jpg   Validating 20/30: inventarbuch-120.jpg   Validating 21/30: inventarbuch-303.jpg   Validating 22/30: inventarbuch-100.jpg   Validating 23/30: inventarbuch-027.jpg   Validating 24/30: inventarbuch-230.jpg   Validating 25/30: inventarbuch-061.jpg   Validating 26/30: inventarbuch-227.jpg   Validating 27/30: inventarbuch-266.jpg   Validating 28/30: inventarbuch-076.jpg   Validating 29/30: inventarbuch-206.jpg   Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER (Epoch 5): 0.3063 (30.63%)
+   🎯 NEW BEST CER: 0.3063 (improved by 0.0012)
+   💾 Saving best model to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/inven/best_model
+   ✅ Model and tokenizer saved successfully
+================================================================================
+
+{'loss': 1.6256, 'grad_norm': 14.85850715637207, 'learning_rate': 9.754587714770878e-05, 'epoch': 6.01}
+{'loss': 0.9319, 'grad_norm': 7.1441216468811035, 'learning_rate': 7.332872425251018e-05, 'epoch': 6.76}
+{'eval_loss': 1.9084607362747192, 'eval_runtime': 26.654, 'eval_samples_per_second': 1.763, 'eval_steps_per_second': 1.763, 'epoch': 6.99}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 6)
+================================================================================
+   Validating 1/30: inventarbuch-064.jpg   Validating 2/30: inventarbuch-194.jpg   Validating 3/30: inventarbuch-142.jpg   Validating 4/30: inventarbuch-045.jpg   Validating 5/30: inventarbuch-232.jpg   Validating 6/30: inventarbuch-161.jpg   Validating 7/30: inventarbuch-020.jpg   Validating 8/30: inventarbuch-171.jpg   Validating 9/30: inventarbuch-283.jpg   Validating 10/30: inventarbuch-187.jpg   Validating 11/30: inventarbuch-070.jpg   Validating 12/30: inventarbuch-178.jpg   Validating 13/30: inventarbuch-055.jpg   Validating 14/30: inventarbuch-093.jpg   Validating 15/30: inventarbuch-097.jpg   Validating 16/30: inventarbuch-043.jpg   Validating 17/30: inventarbuch-096.jpg   Validating 18/30: inventarbuch-222.jpg   Validating 19/30: inventarbuch-168.jpg   Validating 20/30: inventarbuch-120.jpg   Validating 21/30: inventarbuch-303.jpg   Validating 22/30: inventarbuch-100.jpg   Validating 23/30: inventarbuch-027.jpg   Validating 24/30: inventarbuch-230.jpg   Validating 25/30: inventarbuch-061.jpg   Validating 26/30: inventarbuch-227.jpg   Validating 27/30: inventarbuch-266.jpg   Validating 28/30: inventarbuch-076.jpg   Validating 29/30: inventarbuch-206.jpg   Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER (Epoch 6): 0.3363 (33.63%)
+   📊 No improvement. Best CER remains: 0.3063
+================================================================================
+
+{'loss': 0.8635, 'grad_norm': 12.312641143798828, 'learning_rate': 5.071018077702161e-05, 'epoch': 7.51}
+{'eval_loss': 1.9200483560562134, 'eval_runtime': 26.6123, 'eval_samples_per_second': 1.766, 'eval_steps_per_second': 1.766, 'epoch': 7.96}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 7)
+================================================================================
+   Validating 1/30: inventarbuch-064.jpg   Validating 2/30: inventarbuch-194.jpg   Validating 3/30: inventarbuch-142.jpg   Validating 4/30: inventarbuch-045.jpg   Validating 5/30: inventarbuch-232.jpg   Validating 6/30: inventarbuch-161.jpg   Validating 7/30: inventarbuch-020.jpg   Validating 8/30: inventarbuch-171.jpg   Validating 9/30: inventarbuch-283.jpg   Validating 10/30: inventarbuch-187.jpg   Validating 11/30: inventarbuch-070.jpg   Validating 12/30: inventarbuch-178.jpg   Validating 13/30: inventarbuch-055.jpg   Validating 14/30: inventarbuch-093.jpg   Validating 15/30: inventarbuch-097.jpg   Validating 16/30: inventarbuch-043.jpg   Validating 17/30: inventarbuch-096.jpg   Validating 18/30: inventarbuch-222.jpg   Validating 19/30: inventarbuch-168.jpg   Validating 20/30: inventarbuch-120.jpg   Validating 21/30: inventarbuch-303.jpg   Validating 22/30: inventarbuch-100.jpg   Validating 23/30: inventarbuch-027.jpg   Validating 24/30: inventarbuch-230.jpg   Validating 25/30: inventarbuch-061.jpg   Validating 26/30: inventarbuch-227.jpg   Validating 27/30: inventarbuch-266.jpg   Validating 28/30: inventarbuch-076.jpg   Validating 29/30: inventarbuch-206.jpg   Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER (Epoch 7): 0.3224 (32.24%)
+   📊 No improvement. Best CER remains: 0.3063
+================================================================================
+
+{'loss': 1.0091, 'grad_norm': 15.789570808410645, 'learning_rate': 3.104594552629331e-05, 'epoch': 8.26}
+{'eval_loss': 1.9173548221588135, 'eval_runtime': 26.5771, 'eval_samples_per_second': 1.768, 'eval_steps_per_second': 1.768, 'epoch': 8.94}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 8)
+================================================================================
+   Validating 1/30: inventarbuch-064.jpg   Validating 2/30: inventarbuch-194.jpg   Validating 3/30: inventarbuch-142.jpg   Validating 4/30: inventarbuch-045.jpg   Validating 5/30: inventarbuch-232.jpg   Validating 6/30: inventarbuch-161.jpg   Validating 7/30: inventarbuch-020.jpg   Validating 8/30: inventarbuch-171.jpg   Validating 9/30: inventarbuch-283.jpg   Validating 10/30: inventarbuch-187.jpg   Validating 11/30: inventarbuch-070.jpg   Validating 12/30: inventarbuch-178.jpg   Validating 13/30: inventarbuch-055.jpg   Validating 14/30: inventarbuch-093.jpg   Validating 15/30: inventarbuch-097.jpg   Validating 16/30: inventarbuch-043.jpg   Validating 17/30: inventarbuch-096.jpg   Validating 18/30: inventarbuch-222.jpg   Validating 19/30: inventarbuch-168.jpg   Validating 20/30: inventarbuch-120.jpg   Validating 21/30: inventarbuch-303.jpg   Validating 22/30: inventarbuch-100.jpg   Validating 23/30: inventarbuch-027.jpg   Validating 24/30: inventarbuch-230.jpg   Validating 25/30: inventarbuch-061.jpg   Validating 26/30: inventarbuch-227.jpg   Validating 27/30: inventarbuch-266.jpg   Validating 28/30: inventarbuch-076.jpg   Validating 29/30: inventarbuch-206.jpg   Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER (Epoch 8): 0.4019 (40.19%)
+   📊 No improvement. Best CER remains: 0.3063
+================================================================================
+
+{'loss': 0.6823, 'grad_norm': 7.871917724609375, 'learning_rate': 1.551464347502929e-05, 'epoch': 9.01}
+{'loss': 1.0108, 'grad_norm': 12.513978004455566, 'learning_rate': 5.047181940696333e-06, 'epoch': 9.77}
+{'eval_loss': 1.9271416664123535, 'eval_runtime': 26.801, 'eval_samples_per_second': 1.754, 'eval_steps_per_second': 1.754, 'epoch': 9.99}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 9)
+================================================================================
+   Validating 1/30: inventarbuch-064.jpg   Validating 2/30: inventarbuch-194.jpg   Validating 3/30: inventarbuch-142.jpg   Validating 4/30: inventarbuch-045.jpg   Validating 5/30: inventarbuch-232.jpg   Validating 6/30: inventarbuch-161.jpg   Validating 7/30: inventarbuch-020.jpg   Validating 8/30: inventarbuch-171.jpg   Validating 9/30: inventarbuch-283.jpg   Validating 10/30: inventarbuch-187.jpg   Validating 11/30: inventarbuch-070.jpg   Validating 12/30: inventarbuch-178.jpg   Validating 13/30: inventarbuch-055.jpg   Validating 14/30: inventarbuch-093.jpg   Validating 15/30: inventarbuch-097.jpg   Validating 16/30: inventarbuch-043.jpg   Validating 17/30: inventarbuch-096.jpg   Validating 18/30: inventarbuch-222.jpg   Validating 19/30: inventarbuch-168.jpg   Validating 20/30: inventarbuch-120.jpg   Validating 21/30: inventarbuch-303.jpg   Validating 22/30: inventarbuch-100.jpg   Validating 23/30: inventarbuch-027.jpg   Validating 24/30: inventarbuch-230.jpg   Validating 25/30: inventarbuch-061.jpg   Validating 26/30: inventarbuch-227.jpg   Validating 27/30: inventarbuch-266.jpg   Validating 28/30: inventarbuch-076.jpg   Validating 29/30: inventarbuch-206.jpg   Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER (Epoch 9): 0.4614 (46.14%)
+   📊 No improvement. Best CER remains: 0.3063
+================================================================================
+
+{'loss': 0.8929, 'grad_norm': 10.275738716125488, 'learning_rate': 2.709543321309793e-07, 'epoch': 10.52}
+{'eval_loss': 1.923467755317688, 'eval_runtime': 26.6376, 'eval_samples_per_second': 1.764, 'eval_steps_per_second': 1.764, 'epoch': 10.74}
+
+================================================================================
+🔍 COMPUTING CER ON VALIDATION SET (Epoch 10)
+================================================================================
+   Validating 1/30: inventarbuch-064.jpg   Validating 2/30: inventarbuch-194.jpg   Validating 3/30: inventarbuch-142.jpg   Validating 4/30: inventarbuch-045.jpg   Validating 5/30: inventarbuch-232.jpg   Validating 6/30: inventarbuch-161.jpg   Validating 7/30: inventarbuch-020.jpg   Validating 8/30: inventarbuch-171.jpg   Validating 9/30: inventarbuch-283.jpg   Validating 10/30: inventarbuch-187.jpg   Validating 11/30: inventarbuch-070.jpg   Validating 12/30: inventarbuch-178.jpg   Validating 13/30: inventarbuch-055.jpg   Validating 14/30: inventarbuch-093.jpg   Validating 15/30: inventarbuch-097.jpg   Validating 16/30: inventarbuch-043.jpg   Validating 17/30: inventarbuch-096.jpg   Validating 18/30: inventarbuch-222.jpg   Validating 19/30: inventarbuch-168.jpg   Validating 20/30: inventarbuch-120.jpg   Validating 21/30: inventarbuch-303.jpg   Validating 22/30: inventarbuch-100.jpg   Validating 23/30: inventarbuch-027.jpg   Validating 24/30: inventarbuch-230.jpg   Validating 25/30: inventarbuch-061.jpg   Validating 26/30: inventarbuch-227.jpg   Validating 27/30: inventarbuch-266.jpg   Validating 28/30: inventarbuch-076.jpg   Validating 29/30: inventarbuch-206.jpg   Validating 30/30: inventarbuch-060.jpg
+   ✅ Validation CER (Epoch 10): 0.3306 (33.06%)
+   📊 No improvement. Best CER remains: 0.3063
+================================================================================
+
+{'train_runtime': 30467.9312, 'train_samples_per_second': 0.077, 'train_steps_per_second': 0.005, 'train_loss': 2.9953809968241445, 'epoch': 10.74}
+
+================================================================================
+✅ TRAINING COMPLETED (Stage 1 + Stage 2)!
+================================================================================
+   🎯 Best Validation CER (Stage 2): 0.3063 (30.63%)
+   💾 Best model saved at: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/inven/best_model
+================================================================================
+
+================================================================================
+PHASE 2: EVALUATION ON TEST SET
+================================================================================
+
+⏳ Loading best model from: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/inven/best_model
+   ✅ Best model and processor loaded
+
+📊 Running inference on 48 test samples...
+
+[1/48] Processing inventarbuch-022.jpg
+   ❌ CER: 0.3291 (32.91%)
+[2/48] Processing inventarbuch-099.jpg
+   ⚠️ CER: 0.2434 (24.34%)
+[3/48] Processing inventarbuch-245.jpg
+   ❌ CER: 0.4229 (42.29%)
+[4/48] Processing inventarbuch-263.jpg
+   ⚠️ CER: 0.1846 (18.46%)
+[5/48] Processing inventarbuch-033.jpg
+   ❌ CER: 0.4323 (43.23%)
+[6/48] Processing inventarbuch-143.jpg
+   ⚠️ CER: 0.2332 (23.32%)
+[7/48] Processing inventarbuch-244.jpg
+   ❌ CER: 0.4173 (41.73%)
+[8/48] Processing inventarbuch-024.jpg
+   ✅ CER: 0.0843 (8.43%)
+[9/48] Processing inventarbuch-141.jpg
+   ⚠️ CER: 0.2092 (20.92%)
+[10/48] Processing inventarbuch-183.jpg
+   ❌ CER: 0.4876 (48.76%)
+[11/48] Processing inventarbuch-191.jpg
+   ⚠️ CER: 0.2591 (25.91%)
+[12/48] Processing inventarbuch-051.jpg
+   ⚠️ CER: 0.1068 (10.68%)
+[13/48] Processing inventarbuch-203.jpg
+   ❌ CER: 0.3067 (30.67%)
+[14/48] Processing inventarbuch-296.jpg
+   ❌ CER: 0.4780 (47.80%)
+[15/48] Processing inventarbuch-302.jpg
+   ✅ CER: 0.0338 (3.38%)
+[16/48] Processing inventarbuch-179.jpg
+   ❌ CER: 0.3042 (30.42%)
+[17/48] Processing inventarbuch-114.jpg
+   ❌ CER: 0.3315 (33.15%)
+[18/48] Processing inventarbuch-082.jpg
+   ❌ CER: 0.4095 (40.95%)
+[19/48] Processing inventarbuch-287.jpg
+   ❌ CER: 0.3414 (34.14%)
+[20/48] Processing inventarbuch-181.jpg
+   ❌ CER: 0.3044 (30.44%)
+[21/48] Processing inventarbuch-299.jpg
+   ❌ CER: 0.3085 (30.85%)
+[22/48] Processing inventarbuch-084.jpg
+   ❌ CER: 0.8787 (87.87%)
+[23/48] Processing inventarbuch-004.jpg
+   ❌ CER: 0.3055 (30.55%)
+[24/48] Processing inventarbuch-148.jpg
+   ⚠️ CER: 0.1425 (14.25%)
+[25/48] Processing inventarbuch-238.jpg
+   ⚠️ CER: 0.2991 (29.91%)
+[26/48] Processing inventarbuch-116.jpg
+   ⚠️ CER: 0.2136 (21.36%)
+[27/48] Processing inventarbuch-223.jpg
+   ⚠️ CER: 0.2755 (27.55%)
+[28/48] Processing inventarbuch-104.jpg
+   ❌ CER: 0.3483 (34.83%)
+[29/48] Processing inventarbuch-015.jpg
+   ❌ CER: 0.3414 (34.14%)
+[30/48] Processing inventarbuch-272.jpg
+   ❌ CER: 0.4260 (42.60%)
+[31/48] Processing inventarbuch-124.jpg
+   ⚠️ CER: 0.2218 (22.18%)
+[32/48] Processing inventarbuch-115.jpg
+   ⚠️ CER: 0.2745 (27.45%)
+[33/48] Processing inventarbuch-049.jpg
+   ✅ CER: 0.0452 (4.52%)
+[34/48] Processing inventarbuch-017.jpg
+   ✅ CER: 0.0606 (6.06%)
+[35/48] Processing inventarbuch-018.jpg
+   ❌ CER: 0.3627 (36.27%)
+[36/48] Processing inventarbuch-225.jpg
+   ❌ CER: 0.4074 (40.74%)
+[37/48] Processing inventarbuch-046.jpg
+   ❌ CER: 0.4091 (40.91%)
+[38/48] Processing inventarbuch-294.jpg
+   ⚠️ CER: 0.2839 (28.39%)
+[39/48] Processing inventarbuch-054.jpg
+   ❌ CER: 0.4419 (44.19%)
+[40/48] Processing inventarbuch-073.jpg
+   ❌ CER: 0.4118 (41.18%)
+[41/48] Processing inventarbuch-118.jpg
+   ⚠️ CER: 0.2601 (26.01%)
+[42/48] Processing inventarbuch-130.jpg
+   ⚠️ CER: 0.2926 (29.26%)
+[43/48] Processing inventarbuch-146.jpg
+   ⚠️ CER: 0.2809 (28.09%)
+[44/48] Processing inventarbuch-014.jpg
+   ❌ CER: 0.3799 (37.99%)
+[45/48] Processing inventarbuch-059.jpg
+   ❌ CER: 0.3205 (32.05%)
+[46/48] Processing inventarbuch-256.jpg
+   ❌ CER: 0.3473 (34.73%)
+[47/48] Processing inventarbuch-260.jpg
+   ⚠️ CER: 0.2699 (26.99%)
+[48/48] Processing inventarbuch-279.jpg
+   ❌ CER: 0.3559 (35.59%)
+
+================================================================================
+📊 FINAL TEST RESULTS - INVENTORY DATASET (MULTI-STAGE)
+================================================================================
+   Total Samples: 48
+   Average CER: 0.3101 (31.01%)
+   Perfect Matches (CER=0): 0/48 (0.0%)
+   Good Matches (CER<0.1): 4/48 (8.3%)
+   Results saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/inven/test_predictions.jsonl
+================================================================================
+
+✅ Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/phi/multistage/inven/training_summary.txt
+
+🎉 Multi-stage fine-tuning and evaluation complete!
+
+Finished at: Tue Nov 18 04:09:00 AM CET 2025
+Exit status: 0
+=== JOB_STATISTICS ===
+=== current date     : Tue Nov 18 04:09:00 AM CET 2025
+= Job-ID             : 1391917 on tinygpu
+= Job-Name           : phi_inven2_with_ms
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : a100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 10:03:17
+= Total RAM usage    : 10.8 GiB of requested  GiB (%)   
+= Node list          : tg094
+= Subm/Elig/Start/End: 2025-11-17T17:34:12 / 2025-11-17T17:34:12 / 2025-11-17T18:05:43 / 2025-11-18T04:09:00
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           184.8G  1000.0G  1500.0G        N/A     847K   5,000K   7,500K        N/A    
+    /home/hpc             102.6G   104.9G   209.7G        N/A  31,501      500K   1,000K        N/A    
+    /home/vault           605.5G  1048.6G  2097.2G        N/A   6,097      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:C1:00.0, 674039, 41 %, 19 %, 10420 MiB, 36181813 ms

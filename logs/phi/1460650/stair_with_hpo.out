@@ -1,0 +1,953 @@
+### Starting TaskPrologue of job 1460650 on tg072 at Mon Dec  8 01:37:13 PM CET 2025
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Mon Dec  8 13:37:13 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   36C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Starting training at: Mon Dec  8 01:37:15 PM CET 2025
+   ✅ Processor loaded
+
+📊 Loading STAIRCASE datasets...
+   📁 Training dataset:
+   📊 Loaded 115 valid samples (out of 115 total)
+   📁 Validation dataset:
+   📊 Loaded 25 valid samples (out of 25 total)
+   📊 Raw validation samples for CER computation: 25
+
+================================================================================
+🔎 Starting / Resuming Optuna HPO (hyperparameters only, FAST MODE)
+================================================================================
+   • Storage: sqlite:////home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
+   • Study name: phi_vision_stair
+   • Target total trials: 25
+   • Completed trials so far: 0
+   • Remaining trials to run: 25
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_1
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00010894653829887865
+   • Weight decay: 0.09507143064099162
+   • LoRA r=8, alpha=32, dropout=0.052058449429580246
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.27 GB, Reserved: 2.37 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 12,582,912 / 4,159,204,352 (0.30%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 6.4232, 'grad_norm': 2.8208794593811035, 'learning_rate': 9.789568276316097e-05, 'epoch': 1.39}
+{'loss': 2.5385, 'grad_norm': 3.0189740657806396, 'learning_rate': 5.040247664794325e-05, 'epoch': 2.78}
+{'loss': 1.5925, 'grad_norm': 2.1186769008636475, 'learning_rate': 6.633669010398784e-06, 'epoch': 4.17}
+{'train_runtime': 3769.0386, 'train_samples_per_second': 0.153, 'train_steps_per_second': 0.019, 'train_loss': 3.224277237483433, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.1580 (15.80%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_2
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 7.775553771054393e-05
+   • Weight decay: 0.018182496720710064
+   • LoRA r=24, alpha=32, dropout=0.08663618432936918
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 13.2165, 'grad_norm': 2.900418281555176, 'learning_rate': 3.690864217644885e-05, 'epoch': 2.78}
+{'train_runtime': 3783.6366, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.009, 'train_loss': 11.227937970842634, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.7707 (77.07%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_3
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 7.57344363711383e-05
+   • Weight decay: 0.05142344384136116
+   • LoRA r=24, alpha=48, dropout=0.08046137691733707
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 12.3837, 'grad_norm': 3.472454309463501, 'learning_rate': 3.594927505823589e-05, 'epoch': 2.78}
+{'train_runtime': 3788.5133, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.009, 'train_loss': 10.101915849958147, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.6260 (62.60%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_4
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.0001248726459555529
+   • Weight decay: 0.012203823484477884
+   • LoRA r=24, alpha=16, dropout=0.0684854455525527
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 6.9018, 'grad_norm': 1.0157837867736816, 'learning_rate': 0.00011220634565483156, 'epoch': 1.39}
+{'loss': 3.2105, 'grad_norm': 1.0948591232299805, 'learning_rate': 5.777045071845501e-05, 'epoch': 2.78}
+{'loss': 2.0058, 'grad_norm': 0.9215613603591919, 'learning_rate': 7.603397176781856e-06, 'epoch': 4.17}
+{'train_runtime': 3783.9876, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.018, 'train_loss': 3.7235726765223913, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.4495 (44.95%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_5
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00035271350713048864
+   • Weight decay: 0.08948273504276488
+   • LoRA r=16, alpha=48, dropout=0.13287375091519293
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 4.3388, 'grad_norm': 2.6823136806488037, 'learning_rate': 0.0003169364547004026, 'epoch': 1.39}
+{'loss': 1.1357, 'grad_norm': 1.4394906759262085, 'learning_rate': 0.00016317759686671567, 'epoch': 2.78}
+{'loss': 0.6185, 'grad_norm': 1.34928560256958, 'learning_rate': 2.147644797470977e-05, 'epoch': 4.17}
+{'train_runtime': 3778.6925, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.019, 'train_loss': 1.8033386979784285, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.0667 (6.67%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_6
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00015455156354021832
+   • Weight decay: 0.014092422497476265
+   • LoRA r=24, alpha=48, dropout=0.12290071680409873
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 5.4728, 'grad_norm': 3.4675004482269287, 'learning_rate': 0.0001388748194401277, 'epoch': 1.39}
+{'loss': 1.6743, 'grad_norm': 1.6640504598617554, 'learning_rate': 7.15009553664648e-05, 'epoch': 2.78}
+{'loss': 1.0848, 'grad_norm': 1.3563169240951538, 'learning_rate': 9.41052312054946e-06, 'epoch': 4.17}
+{'train_runtime': 3782.4014, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.019, 'train_loss': 2.4927618435450962, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.0877 (8.77%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_7
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00010536510747050651
+   • Weight decay: 0.011586905952512973
+   • LoRA r=8, alpha=48, dropout=0.13872127425763264
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 12,582,912 / 4,159,204,352 (0.30%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 6.0571, 'grad_norm': 4.442912578582764, 'learning_rate': 9.467752988114203e-05, 'epoch': 1.39}
+{'loss': 2.1532, 'grad_norm': 3.3482649326324463, 'learning_rate': 4.8745581564245954e-05, 'epoch': 2.78}
+{'loss': 1.3637, 'grad_norm': 2.7069506645202637, 'learning_rate': 6.415598504717525e-06, 'epoch': 4.17}
+{'train_runtime': 3767.9719, 'train_samples_per_second': 0.153, 'train_steps_per_second': 0.019, 'train_loss': 2.915036814553397, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.1174 (11.74%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_8
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 0.00022034044893314196
+   • Weight decay: 0.07607850486168975
+   • LoRA r=16, alpha=16, dropout=0.11364104112637803
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 11.4653, 'grad_norm': 2.6124186515808105, 'learning_rate': 0.00010459019416656476, 'epoch': 2.78}
+{'train_runtime': 3782.4839, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.009, 'train_loss': 8.78351331438337, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.6492 (64.92%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_9
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.000330053391284861
+   • Weight decay: 0.024929222914887497
+   • LoRA r=16, alpha=48, dropout=0.11334037565104234
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 4.4234, 'grad_norm': 2.4764270782470703, 'learning_rate': 0.0002965748392985952, 'epoch': 1.39}
+{'loss': 1.1617, 'grad_norm': 1.4384845495224, 'learning_rate': 0.0001526942352328133, 'epoch': 2.78}
+{'loss': 0.647, 'grad_norm': 1.3295037746429443, 'learning_rate': 2.0096691347245326e-05, 'epoch': 4.17}
+{'train_runtime': 3789.7594, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.018, 'train_loss': 1.848089463370187, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.0647 (6.47%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_10
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 7.369865403760211e-05
+   • Weight decay: 0.08925589984899779
+   • LoRA r=24, alpha=64, dropout=0.13607305832563432
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 11.7737, 'grad_norm': 4.110904693603516, 'learning_rate': 3.4982939233032865e-05, 'epoch': 2.78}
+{'train_runtime': 3795.5109, 'train_samples_per_second': 0.151, 'train_steps_per_second': 0.009, 'train_loss': 9.334896414620536, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.7677 (76.77%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_11
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.0002433421209610726
+   • Weight decay: 0.013790491263951125
+   • LoRA r=16, alpha=32, dropout=0.09392343121788088
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 5.2214, 'grad_norm': 2.699780225753784, 'learning_rate': 0.00021865901797785806, 'epoch': 1.39}
+{'loss': 1.5033, 'grad_norm': 1.3580646514892578, 'learning_rate': 0.00011257857074406634, 'epoch': 2.78}
+{'loss': 0.9607, 'grad_norm': 1.225948452949524, 'learning_rate': 1.4816910311695463e-05, 'epoch': 4.17}
+{'train_runtime': 3786.1063, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.018, 'train_loss': 2.3167697361537387, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.0755 (7.55%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_12
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.0003038675080581377
+   • Weight decay: 0.08881074010069345
+   • LoRA r=16, alpha=48, dropout=0.12657290779035493
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 4.521, 'grad_norm': 2.5674352645874023, 'learning_rate': 0.0002730450883100513, 'epoch': 1.39}
+{'loss': 1.2007, 'grad_norm': 1.492414951324463, 'learning_rate': 0.00014057973037153977, 'epoch': 2.78}
+{'loss': 0.69, 'grad_norm': 1.3588104248046875, 'learning_rate': 1.8502253517614687e-05, 'epoch': 4.17}
+{'train_runtime': 3780.5975, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.019, 'train_loss': 1.9071942465645926, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.0628 (6.28%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_13
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00023570150081932348
+   • Weight decay: 0.03587719994884511
+   • LoRA r=16, alpha=64, dropout=0.14674983485513796
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 4.5613, 'grad_norm': 3.1033716201782227, 'learning_rate': 0.00021179341456181827, 'epoch': 1.39}
+{'loss': 1.2214, 'grad_norm': 1.8282424211502075, 'learning_rate': 0.0001090437528023174, 'epoch': 2.78}
+{'loss': 0.7201, 'grad_norm': 1.6689149141311646, 'learning_rate': 1.4351678962026487e-05, 'epoch': 4.17}
+{'train_runtime': 3775.3195, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.019, 'train_loss': 1.9390621594020299, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.0599 (5.99%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_14
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.0001451697307570706
+   • Weight decay: 0.0341472685595576
+   • LoRA r=16, alpha=64, dropout=0.14000011288071654
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 5.2278, 'grad_norm': 4.368066310882568, 'learning_rate': 0.00013044462110416545, 'epoch': 1.39}
+{'loss': 1.5433, 'grad_norm': 2.0935795307159424, 'learning_rate': 6.716059159583936e-05, 'epoch': 2.78}
+{'loss': 1.0046, 'grad_norm': 1.8898411989212036, 'learning_rate': 8.839270702931792e-06, 'epoch': 4.17}
+{'train_runtime': 3776.1474, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.019, 'train_loss': 2.350256211417062, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.0799 (7.99%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_15
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.0002114266176422809
+   • Weight decay: 0.07602259715928086
+   • LoRA r=24, alpha=64, dropout=0.14457555005931286
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 37,748,736 / 4,184,370,176 (0.90%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 4.7132, 'grad_norm': 2.5765559673309326, 'learning_rate': 0.00018998082372856723, 'epoch': 1.39}
+{'loss': 1.2746, 'grad_norm': 1.5912326574325562, 'learning_rate': 9.781334335960605e-05, 'epoch': 2.78}
+{'loss': 0.778, 'grad_norm': 1.3734827041625977, 'learning_rate': 1.2873600422065611e-05, 'epoch': 4.17}
+{'train_runtime': 3778.8786, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.019, 'train_loss': 2.0242588996887205, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.0676 (6.76%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_16
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00014780941217420315
+   • Weight decay: 0.08650103596401361
+   • LoRA r=16, alpha=48, dropout=0.10583424850905859
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 5.5268, 'grad_norm': 4.429451942443848, 'learning_rate': 0.00013281654974588603, 'epoch': 1.39}
+{'loss': 1.7136, 'grad_norm': 2.210050582885742, 'learning_rate': 6.83818004847353e-05, 'epoch': 2.78}
+{'loss': 1.1124, 'grad_norm': 1.6648814678192139, 'learning_rate': 8.999998827822916e-06, 'epoch': 4.17}
+{'train_runtime': 3774.3387, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.019, 'train_loss': 2.5308240481785367, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.0896 (8.96%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_17
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.0003706598265286153
+   • Weight decay: 0.02553006473821913
+   • LoRA r=16, alpha=16, dropout=0.1457948162380466
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 5.328, 'grad_norm': 1.9030163288116455, 'learning_rate': 0.000333062411688092, 'epoch': 1.39}
+{'loss': 1.5243, 'grad_norm': 0.9109789133071899, 'learning_rate': 0.00017148019150170206, 'epoch': 2.78}
+{'loss': 0.971, 'grad_norm': 0.8440369963645935, 'learning_rate': 2.2569185244759375e-05, 'epoch': 4.17}
+{'train_runtime': 3782.2747, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.019, 'train_loss': 2.358241789681571, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.0733 (7.33%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_18
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 8
+   • Learning rate: 0.00020666642941740985
+   • Weight decay: 0.06330864604489518
+   • LoRA r=16, alpha=64, dropout=0.11207520946346364
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.35 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+{'loss': 4.724, 'grad_norm': 3.1838579177856445, 'learning_rate': 0.00018570347922885946, 'epoch': 1.39}
+{'loss': 1.2802, 'grad_norm': 1.8768118619918823, 'learning_rate': 9.561111390293734e-05, 'epoch': 2.78}
+{'loss': 0.7846, 'grad_norm': 1.7011175155639648, 'learning_rate': 1.258375630582243e-05, 'epoch': 4.17}
+{'train_runtime': 3781.4667, 'train_samples_per_second': 0.152, 'train_steps_per_second': 0.019, 'train_loss': 2.031829036985125, 'epoch': 4.87}
+================================================================================
+✅ TRAINING FINISHED FOR THIS TRIAL
+================================================================================
+
+================================================================================
+🔍 RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)
+================================================================================
+   • Using 10 validation samples for CER
+   Evaluating 1/10: FMIS_FormblätterMielke_gefüllt (61).jpg   Evaluating 2/10: FMIS_FormblätterMielke_gefüllt (82).jpg   Evaluating 3/10: FMIS_FormblätterMielke_gefüllt (150).jpg   Evaluating 4/10: FMIS_FormblätterMielke_gefüllt (91).jpg   Evaluating 5/10: FMIS_FormblätterMielke_gefüllt (118).jpg   Evaluating 6/10: FMIS_FormblätterMielke_gefüllt (39).jpg   Evaluating 7/10: FMIS_FormblätterMielke_gefüllt (93).jpg   Evaluating 8/10: FMIS_FormblätterMielke_gefüllt (127).jpg   Evaluating 9/10: FMIS_FormblätterMielke_gefüllt (156).jpg   Evaluating 10/10: FMIS_FormblätterMielke_gefüllt (1).jpg
+   ✅ Validation CER (HPO objective): 0.0648 (6.48%)
+================================================================================
+
+
+================================================================================
+PHI-3.5-VISION FINE-TUNING (HPO TRIAL) - STAIRCASE DATASET
+BitsAndBytes QLoRA 4-bit (Memory-Optimized)
+================================================================================
+
+📂 Trial output directory: /home/vault/iwi5/iwi5298h/models_image_text/phi/hpo_stair/trials/trial_19
+   • Training epochs: 5
+   • Batch size: 1
+   • Gradient accumulation: 16
+   • Learning rate: 0.000313730673946075
+   • Weight decay: 0.048263408161061755
+   • LoRA r=16, alpha=64, dropout=0.14089587377703072
+
+🛡️  Memory Optimization:
+   • 4-bit NF4 Quantization: True
+   • Nested Quantization: True
+
+🔧 Anti-Repetition for eval:
+   • First-JSON extraction: enabled
+   • Using temperature=0.0 for deterministic generation
+
+⏳ Loading Phi-3.5-Vision with 4-bit quantization...
+   ✅ Model loaded with 4-bit quantization
+   📊 GPU Memory - Allocated: 2.28 GB, Reserved: 2.39 GB
+
+📝 Preparing model for LoRA training (WITH gradient checkpointing)...
+   ✅ LoRA applied successfully
+   📊 Trainable params: 25,165,824 / 4,171,787,264 (0.60%)
+🚀 Starting QLoRA training on STAIRCASE dataset (HPO trial)...
+
+================================================================================
+=== JOB_STATISTICS ===
+=== current date     : Tue Dec  9 01:37:31 PM CET 2025
+= Job-ID             : 1460650 on tinygpu
+= Job-Name           : phi_stair_with_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_phi.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:17
+= Total RAM usage    : 10.7 GiB of requested  GiB (%)   
+= Node list          : tg072
+= Subm/Elig/Start/End: 2025-12-08T12:55:09 / 2025-12-08T12:55:09 / 2025-12-08T13:37:12 / 2025-12-09T13:37:29
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc              88.1G   104.9G   209.7G        N/A  28,463      500K   1,000K        N/A    
+    /home/woody           219.5G  1000.0G  1500.0G        N/A   1,015K   5,000K   7,500K        N/A    
+    /home/vault           921.0G  1048.6G  2097.2G        N/A   6,691      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 3301927, 83 %, 26 %, 7134 MiB, 86366422 ms

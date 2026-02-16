@@ -1,0 +1,195 @@
+### Starting TaskPrologue of job 1304786 on tg073 at Tue Nov  4 01:27:59 PM CET 2025
+Running on cores 6-7,14-15,22-23,30-31 with governor ondemand
+Tue Nov  4 13:27:59 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:AF:00.0 Off |                    0 |
+| N/A   28C    P0             26W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+Created run directory: /home/vault/iwi5/iwi5298h/models_image_text/qwen/multi/schmuck/run_20251104_132831
+Loading Qwen2.5-VL model from /home/vault/iwi5/iwi5298h/models/qwen7b with Unsloth...
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2 patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2 does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with optimized LoRA adapters!
+============================================================
+STARTING MULTI-STAGE TRAINING FOR SCHMUCK DATASET (TEACHER FORCING)
+============================================================
+Preparing training and validation datasets...
+Found 413 valid samples out of 413 total
+Found 88 valid samples out of 88 total
+Training: 413 samples, Validation: 88 samples
+
+===== STAGE 1: Warm-up training (no eval, teacher forcing) =====
+
+Unsloth: Model does not have a default image size - using 512
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 3.6309, 'grad_norm': nan, 'learning_rate': 1.5000000000000002e-05, 'epoch': 0.19}
+{'loss': 1.4861, 'grad_norm': 2.272632122039795, 'learning_rate': 4.200000000000001e-05, 'epoch': 0.39}
+{'loss': 0.202, 'grad_norm': 1.1711716651916504, 'learning_rate': 7.2e-05, 'epoch': 0.58}
+{'loss': 0.0313, 'grad_norm': 0.8040627837181091, 'learning_rate': 0.00010200000000000001, 'epoch': 0.77}
+{'loss': 0.0316, 'grad_norm': 0.8103454113006592, 'learning_rate': 0.000132, 'epoch': 0.97}
+{'loss': 0.0186, 'grad_norm': 0.23882973194122314, 'learning_rate': 0.00014985913364508286, 'epoch': 1.17}
+{'loss': 0.0175, 'grad_norm': 0.5522057414054871, 'learning_rate': 0.00014828045789574745, 'epoch': 1.37}
+{'loss': 0.0202, 'grad_norm': 0.9645426869392395, 'learning_rate': 0.0001449841503229717, 'epoch': 1.56}
+{'loss': 0.0181, 'grad_norm': 0.3668210804462433, 'learning_rate': 0.00014004747358244076, 'epoch': 1.75}
+{'loss': 0.0155, 'grad_norm': 0.23518197238445282, 'learning_rate': 0.00013358613919281943, 'epoch': 1.95}
+{'loss': 0.0102, 'grad_norm': 0.19684171676635742, 'learning_rate': 0.00012575159535582736, 'epoch': 2.15}
+{'loss': 0.0077, 'grad_norm': 0.11993490159511566, 'learning_rate': 0.00011672747713875226, 'epoch': 2.35}
+{'loss': 0.0073, 'grad_norm': 0.5585156679153442, 'learning_rate': 0.00010672530222411442, 'epoch': 2.54}
+{'loss': 0.0083, 'grad_norm': 0.20494110882282257, 'learning_rate': 9.59795131144626e-05, 'epoch': 2.73}
+{'loss': 0.0096, 'grad_norm': 0.5653350949287415, 'learning_rate': 8.474198199881853e-05, 'epoch': 2.93}
+{'loss': 0.0047, 'grad_norm': 0.22352752089500427, 'learning_rate': 7.327610708204323e-05, 'epoch': 3.14}
+{'loss': 0.0048, 'grad_norm': 0.11739471554756165, 'learning_rate': 6.185063875416092e-05, 'epoch': 3.33}
+{'loss': 0.0046, 'grad_norm': 0.7483127117156982, 'learning_rate': 5.073338030899932e-05, 'epoch': 3.52}
+{'loss': 0.0046, 'grad_norm': 0.12166699022054672, 'learning_rate': 4.0184910861961655e-05, 'epoch': 3.71}
+{'loss': 0.0049, 'grad_norm': 0.11902714520692825, 'learning_rate': 3.045247759641844e-05, 'epoch': 3.91}
+{'loss': 0.0035, 'grad_norm': 0.10929649323225021, 'learning_rate': 2.1764200499285977e-05, 'epoch': 4.12}
+{'loss': 0.0018, 'grad_norm': 0.07125499844551086, 'learning_rate': 1.432372542187895e-05, 'epoch': 4.31}
+{'loss': 0.0023, 'grad_norm': 25.726476669311523, 'learning_rate': 8.305450793757499e-06, 'epoch': 4.5}
+{'loss': 0.0027, 'grad_norm': 0.09985911101102829, 'learning_rate': 3.850439871351744e-06, 'epoch': 4.7}
+{'loss': 0.0016, 'grad_norm': 0.06247089430689812, 'learning_rate': 1.0631143347907463e-06, 'epoch': 4.89}
+{'train_runtime': 2960.5767, 'train_samples_per_second': 0.697, 'train_steps_per_second': 0.086, 'train_loss': 0.21772247378659598, 'epoch': 4.99}
+
+===== STAGE 2: Main training (eval each epoch, CER-based best model) =====
+
+Unsloth: Model does not have a default image size - using 512
+GPU = Tesla V100-PCIE-32GB. Max memory = 31.733 GB.
+10.602 GB of memory reserved.
+{'loss': 0.0018, 'grad_norm': 0.08035709708929062, 'learning_rate': 9e-06, 'epoch': 0.19}
+{'loss': 0.0025, 'grad_norm': 0.1978909969329834, 'learning_rate': 1.8e-05, 'epoch': 0.39}
+{'loss': 0.0019, 'grad_norm': 0.0842454805970192, 'learning_rate': 2.8000000000000003e-05, 'epoch': 0.58}
+{'loss': 0.0018, 'grad_norm': 0.12749791145324707, 'learning_rate': 3.8e-05, 'epoch': 0.77}
+{'loss': 0.0034, 'grad_norm': 0.12468765676021576, 'learning_rate': 4.8e-05, 'epoch': 0.97}
+{'eval_loss': 0.017962897196412086, 'eval_runtime': 50.4677, 'eval_samples_per_second': 1.744, 'eval_steps_per_second': 0.872, 'epoch': 0.99}
+
+[ValidationCERCallback] Computing CER on 30 validation samples...
+
+[ValidationCERCallback] Epoch 0.99 CER: 0.0028 (0.28%)
+[ValidationCERCallback] New best CER: 0.0028 (improved by inf)
+[ValidationCERCallback] Saving best CER model to /home/vault/iwi5/iwi5298h/models_image_text/qwen/multi/schmuck/run_20251104_132831/best_model_cer
+{'loss': 0.0018, 'grad_norm': 0.09868817031383514, 'learning_rate': 4.99626950870707e-05, 'epoch': 1.17}
+{'loss': 0.0029, 'grad_norm': 0.39631012082099915, 'learning_rate': 4.981133466728004e-05, 'epoch': 1.37}
+{'loss': 0.0031, 'grad_norm': 0.4038131833076477, 'learning_rate': 4.9544292351888966e-05, 'epoch': 1.56}
+{'loss': 0.0044, 'grad_norm': 0.2541601359844208, 'learning_rate': 4.920606424301423e-05, 'epoch': 1.75}
+{'loss': 0.0024, 'grad_norm': 0.12728384137153625, 'learning_rate': 4.877641290737884e-05, 'epoch': 1.95}
+{'eval_loss': 0.018042244017124176, 'eval_runtime': 49.0153, 'eval_samples_per_second': 1.795, 'eval_steps_per_second': 0.898, 'epoch': 1.99}
+
+[ValidationCERCallback] Computing CER on 30 validation samples...
+
+[ValidationCERCallback] Epoch 1.99 CER: 0.0065 (0.65%)
+[ValidationCERCallback] No improvement. Best CER remains 0.0028
+{'loss': 0.0023, 'grad_norm': 0.10821979492902756, 'learning_rate': 4.819378296439961e-05, 'epoch': 2.15}
+{'loss': 0.0022, 'grad_norm': 0.2380964756011963, 'learning_rate': 4.750301289855128e-05, 'epoch': 2.35}
+{'loss': 0.0019, 'grad_norm': 0.12048673629760742, 'learning_rate': 4.6707323398753346e-05, 'epoch': 2.54}
+{'loss': 0.0032, 'grad_norm': 0.3001314401626587, 'learning_rate': 4.581042433675921e-05, 'epoch': 2.73}
+{'loss': 0.0024, 'grad_norm': 0.14503487944602966, 'learning_rate': 4.4816497470021454e-05, 'epoch': 2.93}
+{'eval_loss': 0.01978873275220394, 'eval_runtime': 48.2329, 'eval_samples_per_second': 1.824, 'eval_steps_per_second': 0.912, 'epoch': 2.99}
+
+[ValidationCERCallback] Computing CER on 30 validation samples...
+
+[ValidationCERCallback] Epoch 2.99 CER: 0.0056 (0.56%)
+[ValidationCERCallback] No improvement. Best CER remains 0.0028
+{'loss': 0.0009, 'grad_norm': 0.05570612847805023, 'learning_rate': 4.373017694440827e-05, 'epoch': 3.14}
+{'loss': 0.0011, 'grad_norm': 0.10323987901210785, 'learning_rate': 4.2556527687676186e-05, 'epoch': 3.33}
+{'loss': 0.0016, 'grad_norm': 0.10233574360609055, 'learning_rate': 4.130102179443877e-05, 'epoch': 3.52}
+{'loss': 0.0014, 'grad_norm': 0.11159691214561462, 'learning_rate': 3.996951301273557e-05, 'epoch': 3.71}
+{'loss': 0.0009, 'grad_norm': 0.018517401069402695, 'learning_rate': 3.856820945115655e-05, 'epoch': 3.91}
+{'eval_loss': 0.020511681213974953, 'eval_runtime': 50.2093, 'eval_samples_per_second': 1.753, 'eval_steps_per_second': 0.876, 'epoch': 3.99}
+
+[ValidationCERCallback] Computing CER on 30 validation samples...
+
+[ValidationCERCallback] Epoch 3.99 CER: 0.0054 (0.54%)
+[ValidationCERCallback] No improvement. Best CER remains 0.0028
+{'train_runtime': 5860.7869, 'train_samples_per_second': 0.705, 'train_steps_per_second': 0.087, 'train_loss': 0.0021964914448486237, 'epoch': 3.99}
+5860.7869 seconds used for training.
+97.68 minutes used for training.
+Peak reserved memory = 18.131 GB.
+Peak reserved memory for training = 7.529 GB.
+Peak reserved memory % of max memory = 57.136 %.
+Peak reserved memory for training % of max memory = 23.726 %.
+
+[train_model] Best CER model saved at /home/vault/iwi5/iwi5298h/models_image_text/qwen/multi/schmuck/run_20251104_132831/best_model_cer (CER=0.0028).
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/qwen/multi/schmuck/run_20251104_132831...
+Model saved successfully!
+
+============================================================
+STARTING EVALUATION ON SCHMUCK TEST SET
+============================================================
+Starting evaluation on test.jsonl...
+Dataset: 89 samples, 5 chunks of size 20
+
+Processing test chunk 1/5
+Processing 1/20 in chunk 1Processing 2/20 in chunk 1Processing 3/20 in chunk 1Processing 4/20 in chunk 1Processing 5/20 in chunk 1Processing 6/20 in chunk 1Processing 7/20 in chunk 1Processing 8/20 in chunk 1Processing 9/20 in chunk 1Processing 10/20 in chunk 1Processing 11/20 in chunk 1Processing 12/20 in chunk 1Processing 13/20 in chunk 1Processing 14/20 in chunk 1Processing 15/20 in chunk 1Processing 16/20 in chunk 1Processing 17/20 in chunk 1Processing 18/20 in chunk 1Processing 19/20 in chunk 1Processing 20/20 in chunk 1
+Processing test chunk 2/5
+Processing 1/20 in chunk 2Processing 2/20 in chunk 2Processing 3/20 in chunk 2Processing 4/20 in chunk 2Processing 5/20 in chunk 2Processing 6/20 in chunk 2Processing 7/20 in chunk 2Processing 8/20 in chunk 2Processing 9/20 in chunk 2Processing 10/20 in chunk 2Processing 11/20 in chunk 2Processing 12/20 in chunk 2Processing 13/20 in chunk 2Processing 14/20 in chunk 2Processing 15/20 in chunk 2Processing 16/20 in chunk 2Processing 17/20 in chunk 2Processing 18/20 in chunk 2Processing 19/20 in chunk 2Processing 20/20 in chunk 2
+Processing test chunk 3/5
+Processing 1/20 in chunk 3Processing 2/20 in chunk 3Processing 3/20 in chunk 3Processing 4/20 in chunk 3Processing 5/20 in chunk 3Processing 6/20 in chunk 3Processing 7/20 in chunk 3Processing 8/20 in chunk 3Processing 9/20 in chunk 3Processing 10/20 in chunk 3Processing 11/20 in chunk 3Processing 12/20 in chunk 3Processing 13/20 in chunk 3Processing 14/20 in chunk 3Processing 15/20 in chunk 3Processing 16/20 in chunk 3Processing 17/20 in chunk 3Processing 18/20 in chunk 3Processing 19/20 in chunk 3Processing 20/20 in chunk 3
+Processing test chunk 4/5
+Processing 1/20 in chunk 4Processing 2/20 in chunk 4Processing 3/20 in chunk 4Processing 4/20 in chunk 4Processing 5/20 in chunk 4Processing 6/20 in chunk 4Processing 7/20 in chunk 4Processing 8/20 in chunk 4Processing 9/20 in chunk 4Processing 10/20 in chunk 4Processing 11/20 in chunk 4Processing 12/20 in chunk 4Processing 13/20 in chunk 4Processing 14/20 in chunk 4Processing 15/20 in chunk 4Processing 16/20 in chunk 4Processing 17/20 in chunk 4Processing 18/20 in chunk 4Processing 19/20 in chunk 4Processing 20/20 in chunk 4
+Processing test chunk 5/5
+Processing 1/9 in chunk 5Processing 2/9 in chunk 5Processing 3/9 in chunk 5Processing 4/9 in chunk 5Processing 5/9 in chunk 5Processing 6/9 in chunk 5Processing 7/9 in chunk 5Processing 8/9 in chunk 5Processing 9/9 in chunk 5CER evaluation results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/multi/schmuck/run_20251104_132831/cer_evaluation_results.txt
+
+Evaluation completed!
+Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/multi/schmuck/run_20251104_132831/test_predictions.jsonl
+CER results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/multi/schmuck/run_20251104_132831/cer_evaluation_results.txt
+All files saved in: /home/vault/iwi5/iwi5298h/models_image_text/qwen/multi/schmuck/run_20251104_132831
+
+============================================================
+FINAL RESULTS SUMMARY - SCHMUCK DATASET
+============================================================
+Average CER: 0.0070 (0.70%)
+Median CER: 0.0031 (0.31%)
+Perfect matches: 3/89 (3.37%)
+Total images processed: 89
+
+Schmuck dataset multi-stage training and evaluation completed successfully!
+All outputs saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/multi/schmuck/run_20251104_132831
+=== JOB_STATISTICS ===
+=== current date     : Tue Nov  4 04:38:28 PM CET 2025
+= Job-ID             : 1304786 on tinygpu
+= Job-Name           : schmuck_ms
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 03:10:31
+= Total RAM usage    : 19.3 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2025-11-04T13:27:18 / 2025-11-04T13:27:18 / 2025-11-04T13:27:26 / 2025-11-04T16:37:57
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           184.1G  1000.0G  1500.0G        N/A     841K   5,000K   7,500K        N/A    
+    /home/hpc             102.1G   104.9G   209.7G        N/A  30,659      500K   1,000K        N/A    
+    /home/vault           893.3G  1048.6G  2097.2G        N/A   5,440      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:AF:00.0, 433103, 54 %, 26 %, 18976 MiB, 11420722 ms

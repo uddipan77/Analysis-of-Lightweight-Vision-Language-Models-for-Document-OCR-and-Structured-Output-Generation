@@ -1,0 +1,53 @@
+### Starting TaskPrologue of job 1531230 on tg083 at Sat Feb 14 05:19:22 PM CET 2026
+Running on cores 2-3,18-19,34-35,50-51 with governor powersave
+Sat Feb 14 17:19:22 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.16             Driver Version: 580.126.16     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3080        On  |   00000000:1B:00.0 Off |                  N/A |
+| 30%   35C    P8             20W /  300W |       1MiB /  10240MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Loading from cache: /home/vault/iwi5/iwi5298h/models/donut_base
+Loaded 24 samples from /home/woody/iwi5/iwi5298h/json_staircase/test.jsonl
+
+Saved: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase_infer_base/run_20260214_171933/predictions_test.jsonl
+Saved: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase_infer_base/run_20260214_171933/cer_scores.txt
+CER string: 90.0656% | CER structured: 90.0656%
+Output dir: /home/vault/iwi5/iwi5298h/models_image_text/donut/staircase_infer_base/run_20260214_171933
+DONUT zero-shot inference completed at: Sat Feb 14 05:21:20 PM CET 2026
+=== JOB_STATISTICS ===
+=== current date     : Sat Feb 14 05:21:20 PM CET 2026
+= Job-ID             : 1531230 on tinygpu
+= Job-Name           : donutbase_zero_stair_base
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_donut_shots2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : rtx3080
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 01:00:00
+= Elapsed runtime    : 00:01:59
+= Total RAM usage    : 1.8 GiB of requested  GiB (%)   
+= Node list          : tg083
+= Subm/Elig/Start/End: 2026-02-14T17:19:13 / 2026-02-14T17:19:13 / 2026-02-14T17:19:21 / 2026-02-14T17:21:20
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA GeForce RTX 3080, 00000000:1B:00.0, 173659, 50 %, 31 %, 9866 MiB, 107920 ms

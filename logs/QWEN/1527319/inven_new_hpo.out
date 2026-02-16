@@ -1,0 +1,1376 @@
+### Starting TaskPrologue of job 1527319 on tg073 at Thu Feb 12 03:23:48 PM CET 2026
+Running on cores 0-1,8-9,16-17,24-25 with governor ondemand
+Thu Feb 12 15:23:48 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:18:00.0 Off |                    0 |
+| N/A   39C    P0             28W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+============================================================
+QWEN2.5-VL INVENTORY FINE-TUNING + OPTUNA HPO
+============================================================
+Config saved to /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/new_inven/training_config.json
+
+============================================================
+PHASE 1: OPTUNA HPO (minimize validation CER)
+============================================================
+Completed trials: 0/20
+Remaining trials: 20
+
+================================================================================
+OPTUNA TRIAL 0 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  2.11e-04
+  • weight_decay:   0.0697
+  • grad_accum:     8
+  • lora_r:         32
+  • lora_alpha:     32
+  • lora_dropout:   0.1402
+  • warmup_ratio:   0.0534
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=32, alpha=32, dropout=0.1402367506273414
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+Unsloth: Will smartly offload gradients to save VRAM!
+{'loss': 2.7524, 'grad_norm': 5.830437660217285, 'learning_rate': 3.3681136596198225e-05, 'epoch': 0.37}
+{'loss': 0.9685, 'grad_norm': 6.11943244934082, 'learning_rate': 6.736227319239645e-05, 'epoch': 0.74}
+{'eval_loss': 0.1869841068983078, 'eval_runtime': 30.6774, 'eval_samples_per_second': 1.499, 'eval_steps_per_second': 1.499, 'epoch': 1.0}
+{'loss': 0.2149, 'grad_norm': 3.282771110534668, 'learning_rate': 0.00010946369393764422, 'epoch': 1.11}
+{'loss': 0.1232, 'grad_norm': 1.351422905921936, 'learning_rate': 0.000151565114682892, 'epoch': 1.48}
+{'loss': 0.1211, 'grad_norm': 1.6463134288787842, 'learning_rate': 0.00019366653542813979, 'epoch': 1.86}
+{'eval_loss': 0.10937993228435516, 'eval_runtime': 29.3583, 'eval_samples_per_second': 1.567, 'eval_steps_per_second': 1.567, 'epoch': 2.0}
+{'loss': 0.0747, 'grad_norm': 1.41707181930542, 'learning_rate': 0.0002075989397098336, 'epoch': 2.22}
+{'loss': 0.0671, 'grad_norm': 1.749571442604065, 'learning_rate': 0.00019040546403870798, 'epoch': 2.6}
+{'loss': 0.0645, 'grad_norm': 3.11342453956604, 'learning_rate': 0.00016024838164285503, 'epoch': 2.97}
+{'eval_loss': 0.10755471885204315, 'eval_runtime': 29.2199, 'eval_samples_per_second': 1.574, 'eval_steps_per_second': 1.574, 'epoch': 3.0}
+{'loss': 0.0337, 'grad_norm': 0.8304274678230286, 'learning_rate': 0.00012171883494241073, 'epoch': 3.33}
+{'loss': 0.0617, 'grad_norm': 0.7072270512580872, 'learning_rate': 8.068259815130714e-05, 'epoch': 3.71}
+{'eval_loss': 0.26922038197517395, 'eval_runtime': 29.1337, 'eval_samples_per_second': 1.579, 'eval_steps_per_second': 1.579, 'epoch': 4.0}
+{'loss': 0.2327, 'grad_norm': 1.8955233097076416, 'learning_rate': 4.6777811528385415e-05, 'epoch': 4.07}
+{'loss': 0.0205, 'grad_norm': 0.7523426413536072, 'learning_rate': 1.773842190202567e-05, 'epoch': 4.45}
+{'loss': 0.0168, 'grad_norm': 0.6811585426330566, 'learning_rate': 2.0224174856138834e-06, 'epoch': 4.82}
+{'eval_loss': 0.1036003902554512, 'eval_runtime': 28.7119, 'eval_samples_per_second': 1.602, 'eval_steps_per_second': 1.602, 'epoch': 4.82}
+{'train_runtime': 2308.347, 'train_samples_per_second': 0.466, 'train_steps_per_second': 0.056, 'train_loss': 0.3655080890426269, 'epoch': 4.82}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0513
+  ✅ Trial 0 validation CER (fixed subset) = 0.0513
+[I 2026-02-12 16:31:14,043] Trial 0 finished with value: 0.0512890529086498 and parameters: {'learning_rate': 0.00021050710372623888, 'weight_decay': 0.06974561412485879, 'gradient_accumulation_steps': 8, 'lora_r': 32, 'lora_alpha': 32, 'lora_dropout': 0.1402367506273414, 'warmup_ratio': 0.053387755131264064, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 1 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  1.33e-05
+  • weight_decay:   0.0285
+  • grad_accum:     8
+  • lora_r:         64
+  • lora_alpha:     16
+  • lora_dropout:   0.1627
+  • warmup_ratio:   0.1135
+  • max_seq_length: 1024
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 1024
+  • LoRA: r=64, alpha=16, dropout=0.16274759025603472
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 4.2435, 'grad_norm': 22.169038772583008, 'learning_rate': 2.3927773327429243e-06, 'epoch': 0.37}
+{'loss': 2.7581, 'grad_norm': nan, 'learning_rate': 5.051418813568396e-06, 'epoch': 0.74}
+{'eval_loss': 1.6942031383514404, 'eval_runtime': 29.9202, 'eval_samples_per_second': 1.537, 'eval_steps_per_second': 1.537, 'epoch': 1.0}
+{'loss': 1.7682, 'grad_norm': 2.0827765464782715, 'learning_rate': 7.444196146311321e-06, 'epoch': 1.11}
+{'loss': 1.4225, 'grad_norm': 2.3289239406585693, 'learning_rate': 1.0102837627136793e-05, 'epoch': 1.48}
+{'loss': 1.0548, 'grad_norm': 1.786615252494812, 'learning_rate': 1.2495614959879716e-05, 'epoch': 1.86}
+{'eval_loss': 0.6163473725318909, 'eval_runtime': 31.1904, 'eval_samples_per_second': 1.475, 'eval_steps_per_second': 1.475, 'epoch': 2.0}
+{'loss': 0.5646, 'grad_norm': 2.181739091873169, 'learning_rate': 1.3043662239747065e-05, 'epoch': 2.22}
+{'loss': 0.2784, 'grad_norm': 1.6150532960891724, 'learning_rate': 1.1866294122148924e-05, 'epoch': 2.6}
+{'loss': 0.2023, 'grad_norm': 1.4445791244506836, 'learning_rate': 9.894275454704292e-06, 'epoch': 2.97}
+{'eval_loss': 0.20691652595996857, 'eval_runtime': 30.2834, 'eval_samples_per_second': 1.519, 'eval_steps_per_second': 1.519, 'epoch': 3.0}
+{'loss': 0.172, 'grad_norm': 16.58783531188965, 'learning_rate': 7.4278282031378734e-06, 'epoch': 3.33}
+{'loss': 0.1709, 'grad_norm': 0.9072714447975159, 'learning_rate': 4.842446603100646e-06, 'epoch': 3.71}
+{'eval_loss': 0.18849660456180573, 'eval_runtime': 31.2279, 'eval_samples_per_second': 1.473, 'eval_steps_per_second': 1.473, 'epoch': 4.0}
+{'loss': 0.1705, 'grad_norm': 4.421643257141113, 'learning_rate': 2.531731566655712e-06, 'epoch': 4.07}
+{'loss': 0.1545, 'grad_norm': 0.5806863903999329, 'learning_rate': 8.474685114178474e-07, 'epoch': 4.45}
+{'loss': 0.1581, 'grad_norm': 0.7746479511260986, 'learning_rate': 4.607121966440065e-08, 'epoch': 4.82}
+{'eval_loss': 0.18619537353515625, 'eval_runtime': 31.3816, 'eval_samples_per_second': 1.466, 'eval_steps_per_second': 1.466, 'epoch': 4.82}
+{'train_runtime': 2337.5968, 'train_samples_per_second': 0.46, 'train_steps_per_second': 0.056, 'train_loss': 1.0091166542126582, 'epoch': 4.82}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0990
+  ✅ Trial 1 validation CER (fixed subset) = 0.0990
+[I 2026-02-12 17:34:33,940] Trial 1 finished with value: 0.09897854110852641 and parameters: {'learning_rate': 1.3293207404127358e-05, 'weight_decay': 0.028472208724553662, 'gradient_accumulation_steps': 8, 'lora_r': 64, 'lora_alpha': 16, 'lora_dropout': 0.16274759025603472, 'warmup_ratio': 0.11347053399157221, 'max_seq_length': 1024}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 2 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  4.93e-05
+  • weight_decay:   0.0606
+  • grad_accum:     4
+  • lora_r:         8
+  • lora_alpha:     128
+  • lora_dropout:   0.0112
+  • warmup_ratio:   0.1274
+  • max_seq_length: 1024
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 1024
+  • LoRA: r=8, alpha=128, dropout=0.011191423127842182
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 4.0518, 'grad_norm': 84.02307891845703, 'learning_rate': 4.928937549060468e-06, 'epoch': 0.19}
+{'loss': 1.644, 'grad_norm': 26.190093994140625, 'learning_rate': 1.380102513736931e-05, 'epoch': 0.37}
+{'loss': 0.7752, 'grad_norm': 12.936059951782227, 'learning_rate': 2.3658900235490245e-05, 'epoch': 0.56}
+{'loss': 0.2489, 'grad_norm': 12.56850528717041, 'learning_rate': 3.2530987823799086e-05, 'epoch': 0.74}
+{'loss': 0.1665, 'grad_norm': 8.011553764343262, 'learning_rate': 4.238886292192002e-05, 'epoch': 0.93}
+{'eval_loss': 0.1513943374156952, 'eval_runtime': 28.2266, 'eval_samples_per_second': 1.63, 'eval_steps_per_second': 1.63, 'epoch': 1.0}
+{'loss': 0.1185, 'grad_norm': 4.561929225921631, 'learning_rate': 4.926570053830168e-05, 'epoch': 1.11}
+{'loss': 0.1027, 'grad_norm': 9.290323257446289, 'learning_rate': 4.884607669286555e-05, 'epoch': 1.3}
+{'loss': 0.094, 'grad_norm': 11.555291175842285, 'learning_rate': 4.791064225925888e-05, 'epoch': 1.48}
+{'loss': 0.0973, 'grad_norm': 7.7880096435546875, 'learning_rate': 4.6479334398379274e-05, 'epoch': 1.67}
+{'loss': 0.1105, 'grad_norm': 77.26866912841797, 'learning_rate': 4.458265895231594e-05, 'epoch': 1.86}
+{'eval_loss': 0.10397060960531235, 'eval_runtime': 29.1272, 'eval_samples_per_second': 1.579, 'eval_steps_per_second': 1.579, 'epoch': 2.0}
+{'loss': 0.076, 'grad_norm': 2.7637484073638916, 'learning_rate': 4.226104026528821e-05, 'epoch': 2.04}
+{'loss': 0.0424, 'grad_norm': 3.1239442825317383, 'learning_rate': 3.9563959608931285e-05, 'epoch': 2.22}
+{'loss': 0.051, 'grad_norm': 3.964543104171753, 'learning_rate': 3.6548900574898254e-05, 'epoch': 2.41}
+{'loss': 0.0512, 'grad_norm': 11.62191104888916, 'learning_rate': 3.3280123911904114e-05, 'epoch': 2.6}
+{'loss': 0.0455, 'grad_norm': 26.972639083862305, 'learning_rate': 2.9827297919433258e-05, 'epoch': 2.78}
+{'loss': 0.0373, 'grad_norm': 2.3413608074188232, 'learning_rate': 2.6264013588890593e-05, 'epoch': 2.97}
+{'eval_loss': 0.10562106966972351, 'eval_runtime': 30.3494, 'eval_samples_per_second': 1.516, 'eval_steps_per_second': 1.516, 'epoch': 3.0}
+{'loss': 0.0186, 'grad_norm': 1.5425877571105957, 'learning_rate': 2.2666216139384767e-05, 'epoch': 3.15}
+{'loss': 0.0195, 'grad_norm': 2.158935785293579, 'learning_rate': 1.9110586377235167e-05, 'epoch': 3.33}
+{'loss': 0.0209, 'grad_norm': 8.878007888793945, 'learning_rate': 1.5672906377714597e-05, 'epoch': 3.52}
+{'loss': 0.0212, 'grad_norm': 3.809576988220215, 'learning_rate': 1.2426444321683973e-05, 'epoch': 3.71}
+{'loss': 0.0241, 'grad_norm': nan, 'learning_rate': 9.440392911521757e-06, 'epoch': 3.89}
+{'eval_loss': 0.10660489648580551, 'eval_runtime': 30.028, 'eval_samples_per_second': 1.532, 'eval_steps_per_second': 1.532, 'epoch': 4.0}
+{'loss': 0.0236, 'grad_norm': 1.255049705505371, 'learning_rate': 7.028335225316475e-06, 'epoch': 4.07}
+{'loss': 0.0115, 'grad_norm': 1.6359926462173462, 'learning_rate': 4.706716538288742e-06, 'epoch': 4.26}
+{'loss': 0.0074, 'grad_norm': 1.1466312408447266, 'learning_rate': 2.8100410922254e-06, 'epoch': 4.45}
+{'loss': 0.0078, 'grad_norm': 1.4047902822494507, 'learning_rate': 1.378733231345797e-06, 'epoch': 4.63}
+{'loss': 0.0122, 'grad_norm': 2.8864989280700684, 'learning_rate': 4.43298797739122e-07, 'epoch': 4.82}
+{'eval_loss': 0.11408945918083191, 'eval_runtime': 29.8893, 'eval_samples_per_second': 1.539, 'eval_steps_per_second': 1.539, 'epoch': 4.91}
+{'train_runtime': 2362.7667, 'train_samples_per_second': 0.455, 'train_steps_per_second': 0.112, 'train_loss': 0.2974553260811657, 'epoch': 4.91}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0546
+  ✅ Trial 2 validation CER (fixed subset) = 0.0546
+[I 2026-02-12 18:39:19,066] Trial 2 finished with value: 0.05461339757084875 and parameters: {'learning_rate': 4.9289375490604676e-05, 'weight_decay': 0.06064062276297219, 'gradient_accumulation_steps': 4, 'lora_r': 8, 'lora_alpha': 128, 'lora_dropout': 0.011191423127842182, 'warmup_ratio': 0.12744353189096905, 'max_seq_length': 1024}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 3 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  2.79e-05
+  • weight_decay:   0.0632
+  • grad_accum:     4
+  • lora_r:         16
+  • lora_alpha:     16
+  • lora_dropout:   0.1224
+  • warmup_ratio:   0.0873
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=16, alpha=16, dropout=0.12235197725515912
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 4.2315, 'grad_norm': nan, 'learning_rate': 5.024686272472047e-06, 'epoch': 0.19}
+{'loss': 2.81, 'grad_norm': 6.749276161193848, 'learning_rate': 1.0049372544944094e-05, 'epoch': 0.37}
+{'loss': 1.7405, 'grad_norm': 1.979134440422058, 'learning_rate': 1.563235729213526e-05, 'epoch': 0.56}
+{'loss': 1.3583, 'grad_norm': 2.1493587493896484, 'learning_rate': 2.0657043564607304e-05, 'epoch': 0.74}
+{'loss': 0.8894, 'grad_norm': 2.0085384845733643, 'learning_rate': 2.6240028311798465e-05, 'epoch': 0.93}
+{'eval_loss': 0.3888069987297058, 'eval_runtime': 30.3766, 'eval_samples_per_second': 1.514, 'eval_steps_per_second': 1.514, 'epoch': 1.0}
+{'loss': 0.3554, 'grad_norm': 1.3481416702270508, 'learning_rate': 2.7841975181414464e-05, 'epoch': 1.11}
+{'loss': 0.1975, 'grad_norm': 0.9532509446144104, 'learning_rate': 2.7486510585642607e-05, 'epoch': 1.3}
+{'loss': 0.1769, 'grad_norm': 2.1088502407073975, 'learning_rate': 2.684269780491464e-05, 'epoch': 1.48}
+{'loss': 0.1737, 'grad_norm': 2.259424924850464, 'learning_rate': 2.602794698539167e-05, 'epoch': 1.67}
+{'loss': 0.177, 'grad_norm': 4.113986015319824, 'learning_rate': 2.487892181445093e-05, 'epoch': 1.86}
+{'eval_loss': 0.16123837232589722, 'eval_runtime': 29.5483, 'eval_samples_per_second': 1.557, 'eval_steps_per_second': 1.557, 'epoch': 2.0}
+{'loss': 0.1387, 'grad_norm': 0.582541823387146, 'learning_rate': 2.3497124686046212e-05, 'epoch': 2.04}
+{'loss': 0.1213, 'grad_norm': 1.8620989322662354, 'learning_rate': 2.191200620696207e-05, 'epoch': 2.22}
+{'loss': 0.1394, 'grad_norm': 4.864068984985352, 'learning_rate': 2.015735042557639e-05, 'epoch': 2.41}
+{'loss': 0.1292, 'grad_norm': 4.131547451019287, 'learning_rate': 1.827055478352338e-05, 'epoch': 2.6}
+{'loss': 0.1302, 'grad_norm': 1.108062505722046, 'learning_rate': 1.629183305415274e-05, 'epoch': 2.78}
+{'loss': 0.1018, 'grad_norm': 1.1707720756530762, 'learning_rate': 1.4263358255767829e-05, 'epoch': 2.97}
+{'eval_loss': 0.13616640865802765, 'eval_runtime': 30.438, 'eval_samples_per_second': 1.511, 'eval_steps_per_second': 1.511, 'epoch': 3.0}
+{'loss': 0.0878, 'grad_norm': 4.833800315856934, 'learning_rate': 1.2430917397589064e-05, 'epoch': 3.15}
+{'loss': 0.0919, 'grad_norm': 2.2635254859924316, 'learning_rate': 1.0427153828107348e-05, 'epoch': 3.33}
+{'loss': 0.0966, 'grad_norm': 1.5186951160430908, 'learning_rate': 8.498632645350399e-06, 'epoch': 3.52}
+{'loss': 0.0876, 'grad_norm': 0.7747129201889038, 'learning_rate': 6.686456930126196e-06, 'epoch': 3.71}
+{'loss': 0.092, 'grad_norm': 0.733059823513031, 'learning_rate': 5.029250061595476e-06, 'epoch': 3.89}
+{'eval_loss': 0.1307528167963028, 'eval_runtime': 30.6741, 'eval_samples_per_second': 1.5, 'eval_steps_per_second': 1.5, 'epoch': 4.0}
+{'loss': 0.0985, 'grad_norm': 0.9178205132484436, 'learning_rate': 3.5623325270008984e-06, 'epoch': 4.07}
+{'loss': 0.0822, 'grad_norm': 0.8072147965431213, 'learning_rate': 2.316969126803155e-06, 'epoch': 4.26}
+{'loss': 0.0736, 'grad_norm': 0.7506129741668701, 'learning_rate': 1.3197026197395092e-06, 'epoch': 4.45}
+{'loss': 0.0715, 'grad_norm': 0.6565361618995667, 'learning_rate': 5.917880100035644e-07, 'epoch': 4.63}
+{'loss': 0.0908, 'grad_norm': 1.6513690948486328, 'learning_rate': 1.4873953373272468e-07, 'epoch': 4.82}
+{'eval_loss': 0.12995830178260803, 'eval_runtime': 30.4669, 'eval_samples_per_second': 1.51, 'eval_steps_per_second': 1.51, 'epoch': 4.91}
+{'train_runtime': 2373.9779, 'train_samples_per_second': 0.453, 'train_steps_per_second': 0.112, 'train_loss': 0.5198529138879956, 'epoch': 4.91}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0672
+  ✅ Trial 3 validation CER (fixed subset) = 0.0672
+[I 2026-02-12 19:43:38,230] Trial 3 finished with value: 0.06717048916067159 and parameters: {'learning_rate': 2.7914923735955817e-05, 'weight_decay': 0.06322840273224493, 'gradient_accumulation_steps': 4, 'lora_r': 16, 'lora_alpha': 16, 'lora_dropout': 0.12235197725515912, 'warmup_ratio': 0.08728673166782944, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 4 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  4.38e-04
+  • weight_decay:   0.0452
+  • grad_accum:     8
+  • lora_r:         64
+  • lora_alpha:     16
+  • lora_dropout:   0.1250
+  • warmup_ratio:   0.0062
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=64, alpha=16, dropout=0.12496032388331545
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 2.5289, 'grad_norm': 2.805758476257324, 'learning_rate': 7.000221407064059e-05, 'epoch': 0.37}
+{'loss': 0.5699, 'grad_norm': 1.1708389520645142, 'learning_rate': 0.00015750498165894132, 'epoch': 0.74}
+{'eval_loss': 0.1620103418827057, 'eval_runtime': 30.9756, 'eval_samples_per_second': 1.485, 'eval_steps_per_second': 1.485, 'epoch': 1.0}
+{'loss': 0.1454, 'grad_norm': 0.6465944647789001, 'learning_rate': 0.0002450077492472421, 'epoch': 1.11}
+{'loss': 0.1004, 'grad_norm': 1.7377504110336304, 'learning_rate': 0.00033251051683554284, 'epoch': 1.48}
+{'loss': 0.1473, 'grad_norm': 2.5710418224334717, 'learning_rate': 0.0004200132844238436, 'epoch': 1.86}
+{'eval_loss': 0.12886223196983337, 'eval_runtime': 30.8979, 'eval_samples_per_second': 1.489, 'eval_steps_per_second': 1.489, 'epoch': 2.0}
+{'loss': 0.1516, 'grad_norm': 1.7597178220748901, 'learning_rate': 0.00042680711224253636, 'epoch': 2.22}
+{'loss': 2.0128, 'grad_norm': 36.37260818481445, 'learning_rate': 0.00039573498405519347, 'epoch': 2.6}
+{'loss': 0.5284, 'grad_norm': 10.797276496887207, 'learning_rate': 0.0003402917514179827, 'epoch': 2.97}
+{'eval_loss': 0.18028461933135986, 'eval_runtime': 30.7051, 'eval_samples_per_second': 1.498, 'eval_steps_per_second': 1.498, 'epoch': 3.0}
+{'loss': 0.0921, 'grad_norm': 1.733874797821045, 'learning_rate': 0.00026143427673601193, 'epoch': 3.33}
+{'loss': 0.1163, 'grad_norm': 1.78616201877594, 'learning_rate': 0.00017607956120549182, 'epoch': 3.71}
+{'eval_loss': 0.10626058280467987, 'eval_runtime': 30.0779, 'eval_samples_per_second': 1.529, 'eval_steps_per_second': 1.529, 'epoch': 4.0}
+{'loss': 0.0475, 'grad_norm': 0.6318296194076538, 'learning_rate': 9.722208652352107e-05, 'epoch': 4.07}
+{'loss': 0.0244, 'grad_norm': 0.7780783772468567, 'learning_rate': 3.686718836564148e-05, 'epoch': 4.45}
+{'loss': 0.0234, 'grad_norm': 0.6720172762870789, 'learning_rate': 4.2033528578762385e-06, 'epoch': 4.82}
+{'eval_loss': 0.10853318870067596, 'eval_runtime': 29.4853, 'eval_samples_per_second': 1.56, 'eval_steps_per_second': 1.56, 'epoch': 4.82}
+{'train_runtime': 2340.8975, 'train_samples_per_second': 0.459, 'train_steps_per_second': 0.056, 'train_loss': 0.49910867638312856, 'epoch': 4.82}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0735
+  ✅ Trial 4 validation CER (fixed subset) = 0.0735
+[I 2026-02-12 20:47:43,066] Trial 4 finished with value: 0.07352994400894307 and parameters: {'learning_rate': 0.0004375138379415037, 'weight_decay': 0.04519094898091236, 'gradient_accumulation_steps': 8, 'lora_r': 64, 'lora_alpha': 16, 'lora_dropout': 0.12496032388331545, 'warmup_ratio': 0.006169909045000477, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 5 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  2.54e-04
+  • weight_decay:   0.0542
+  • grad_accum:     16
+  • lora_r:         32
+  • lora_alpha:     128
+  • lora_dropout:   0.0607
+  • warmup_ratio:   0.1193
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=32, alpha=128, dropout=0.0607300309477703
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 3.0393, 'grad_norm': 10.076372146606445, 'learning_rate': 3.044490933168101e-05, 'epoch': 0.74}
+{'eval_loss': 0.24086931347846985, 'eval_runtime': 30.0433, 'eval_samples_per_second': 1.531, 'eval_steps_per_second': 1.531, 'epoch': 1.0}
+{'loss': 0.2991, 'grad_norm': 4.036991596221924, 'learning_rate': 8.11864248844827e-05, 'epoch': 1.45}
+{'eval_loss': 0.11905466020107269, 'eval_runtime': 30.3349, 'eval_samples_per_second': 1.516, 'eval_steps_per_second': 1.516, 'epoch': 2.0}
+{'loss': 0.1044, 'grad_norm': 2.2263715267181396, 'learning_rate': 0.0001319279404372844, 'epoch': 2.15}
+{'loss': 0.0723, 'grad_norm': 2.6995973587036133, 'learning_rate': 0.00018266945599008607, 'epoch': 2.89}
+{'eval_loss': 0.12132064253091812, 'eval_runtime': 29.6027, 'eval_samples_per_second': 1.554, 'eval_steps_per_second': 1.554, 'epoch': 3.0}
+{'loss': 0.0484, 'grad_norm': 2.517143726348877, 'learning_rate': 0.00023341097154288778, 'epoch': 3.6}
+{'eval_loss': 0.187781423330307, 'eval_runtime': 30.2238, 'eval_samples_per_second': 1.522, 'eval_steps_per_second': 1.522, 'epoch': 4.0}
+{'loss': 0.0773, 'grad_norm': 3.775730609893799, 'learning_rate': 0.0001660537654473953, 'epoch': 4.3}
+{'eval_loss': 0.12789182364940643, 'eval_runtime': 29.5377, 'eval_samples_per_second': 1.557, 'eval_steps_per_second': 1.557, 'epoch': 4.67}
+{'train_runtime': 2249.9395, 'train_samples_per_second': 0.478, 'train_steps_per_second': 0.029, 'train_loss': 0.5634287359622808, 'epoch': 4.67}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0724
+  ✅ Trial 5 validation CER (fixed subset) = 0.0724
+[I 2026-02-12 21:50:00,044] Trial 5 finished with value: 0.07238294933389941 and parameters: {'learning_rate': 0.00025370757776400845, 'weight_decay': 0.054188974419276295, 'gradient_accumulation_steps': 16, 'lora_r': 32, 'lora_alpha': 128, 'lora_dropout': 0.0607300309477703, 'warmup_ratio': 0.1193193410618761, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 6 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  3.43e-05
+  • weight_decay:   0.0605
+  • grad_accum:     4
+  • lora_r:         8
+  • lora_alpha:     16
+  • lora_dropout:   0.1942
+  • warmup_ratio:   0.1136
+  • max_seq_length: 1024
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 1024
+  • LoRA: r=8, alpha=16, dropout=0.19418096228560394
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 4.3332, 'grad_norm': nan, 'learning_rate': 4.797006453384053e-06, 'epoch': 0.19}
+{'loss': 3.2827, 'grad_norm': 12.737975120544434, 'learning_rate': 1.0964586179163548e-05, 'epoch': 0.37}
+{'loss': 1.9544, 'grad_norm': 3.325775384902954, 'learning_rate': 1.7132165904943044e-05, 'epoch': 0.56}
+{'loss': 1.5043, 'grad_norm': 4.992358684539795, 'learning_rate': 2.398503226692026e-05, 'epoch': 0.74}
+{'loss': 1.1214, 'grad_norm': 4.485433578491211, 'learning_rate': 3.083789862889748e-05, 'epoch': 0.93}
+{'eval_loss': 0.6281778812408447, 'eval_runtime': 29.4689, 'eval_samples_per_second': 1.561, 'eval_steps_per_second': 1.561, 'epoch': 1.0}
+{'loss': 0.571, 'grad_norm': 2.483233690261841, 'learning_rate': 3.4218628051022725e-05, 'epoch': 1.11}
+{'loss': 0.2455, 'grad_norm': 1.0223758220672607, 'learning_rate': 3.3854459775044065e-05, 'epoch': 1.3}
+{'loss': 0.1959, 'grad_norm': 1.3776867389678955, 'learning_rate': 3.32216012334948e-05, 'epoch': 1.48}
+{'loss': 0.1888, 'grad_norm': 1.8229087591171265, 'learning_rate': 3.219318077664894e-05, 'epoch': 1.67}
+{'loss': 0.1843, 'grad_norm': 1.855135202407837, 'learning_rate': 3.084376093599697e-05, 'epoch': 1.86}
+{'eval_loss': 0.16335225105285645, 'eval_runtime': 29.54, 'eval_samples_per_second': 1.557, 'eval_steps_per_second': 1.557, 'epoch': 2.0}
+{'loss': 0.1459, 'grad_norm': 0.9238056540489197, 'learning_rate': 2.9202102252646806e-05, 'epoch': 2.04}
+{'loss': 0.1231, 'grad_norm': 1.4496140480041504, 'learning_rate': 2.7303193831267998e-05, 'epoch': 2.22}
+{'loss': 0.136, 'grad_norm': 1.9227423667907715, 'learning_rate': 2.518750760807194e-05, 'epoch': 2.41}
+{'loss': 0.1332, 'grad_norm': 1.7511574029922485, 'learning_rate': 2.2900135761756974e-05, 'epoch': 2.6}
+{'loss': 0.1367, 'grad_norm': 1.0967533588409424, 'learning_rate': 2.048982965200615e-05, 'epoch': 2.78}
+{'loss': 0.1023, 'grad_norm': 1.490178108215332, 'learning_rate': 1.800796076889533e-05, 'epoch': 2.97}
+{'eval_loss': 0.13812701404094696, 'eval_runtime': 29.9345, 'eval_samples_per_second': 1.537, 'eval_steps_per_second': 1.537, 'epoch': 3.0}
+{'loss': 0.0882, 'grad_norm': 1.8756155967712402, 'learning_rate': 1.5507425838770817e-05, 'epoch': 3.15}
+{'loss': 0.0888, 'grad_norm': 7.080228805541992, 'learning_rate': 1.3041519422363934e-05, 'epoch': 3.33}
+{'loss': 0.0989, 'grad_norm': 1.7218254804611206, 'learning_rate': 1.0662798033756435e-05, 'epoch': 3.52}
+{'loss': 0.0883, 'grad_norm': 1.3309540748596191, 'learning_rate': 8.421959989528827e-06, 'epoch': 3.71}
+{'loss': 0.0919, 'grad_norm': 0.8178011178970337, 'learning_rate': 6.366764862162354e-06, 'epoch': 3.89}
+{'eval_loss': 0.1313699185848236, 'eval_runtime': 29.6432, 'eval_samples_per_second': 1.552, 'eval_steps_per_second': 1.552, 'epoch': 4.0}
+{'loss': 0.0991, 'grad_norm': 1.3006647825241089, 'learning_rate': 4.541015567669354e-06, 'epoch': 4.07}
+{'loss': 0.081, 'grad_norm': 1.343731164932251, 'learning_rate': 2.983624782486913e-06, 'epoch': 4.26}
+{'loss': 0.0724, 'grad_norm': 0.5977820158004761, 'learning_rate': 1.727785587336836e-06, 'epoch': 4.45}
+{'loss': 0.0693, 'grad_norm': 1.3999086618423462, 'learning_rate': 8.002640143382529e-07, 'epoch': 4.63}
+{'loss': 0.0945, 'grad_norm': 2.900874614715576, 'learning_rate': 2.2082857550283988e-07, 'epoch': 4.82}
+{'eval_loss': 0.13071903586387634, 'eval_runtime': 30.3075, 'eval_samples_per_second': 1.518, 'eval_steps_per_second': 1.518, 'epoch': 4.91}
+{'train_runtime': 2358.302, 'train_samples_per_second': 0.456, 'train_steps_per_second': 0.112, 'train_loss': 0.5759000611755083, 'epoch': 4.91}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0648
+  ✅ Trial 6 validation CER (fixed subset) = 0.0648
+[I 2026-02-12 22:51:46,348] Trial 6 finished with value: 0.06482828629067235 and parameters: {'learning_rate': 3.426433180988609e-05, 'weight_decay': 0.060531000884387065, 'gradient_accumulation_steps': 4, 'lora_r': 8, 'lora_alpha': 16, 'lora_dropout': 0.19418096228560394, 'warmup_ratio': 0.11364089407833866, 'max_seq_length': 1024}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 7 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  4.53e-05
+  • weight_decay:   0.0369
+  • grad_accum:     4
+  • lora_r:         32
+  • lora_alpha:     16
+  • lora_dropout:   0.0158
+  • warmup_ratio:   0.1799
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=32, alpha=16, dropout=0.015762920184680864
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 4.179, 'grad_norm': nan, 'learning_rate': 6.336435210865087e-06, 'epoch': 0.19}
+{'loss': 2.3453, 'grad_norm': 7.248241424560547, 'learning_rate': 1.448328048197734e-05, 'epoch': 0.37}
+{'loss': 1.4833, 'grad_norm': 2.680859088897705, 'learning_rate': 2.353533078321318e-05, 'epoch': 0.56}
+{'loss': 0.9128, 'grad_norm': 2.587780714035034, 'learning_rate': 3.2587381084449016e-05, 'epoch': 0.74}
+{'loss': 0.3234, 'grad_norm': 1.5868536233901978, 'learning_rate': 4.1639431385684856e-05, 'epoch': 0.93}
+{'eval_loss': 0.20574751496315002, 'eval_runtime': 30.4335, 'eval_samples_per_second': 1.511, 'eval_steps_per_second': 1.511, 'epoch': 1.0}
+{'loss': 0.1756, 'grad_norm': 1.3290350437164307, 'learning_rate': 4.5173334632143626e-05, 'epoch': 1.11}
+{'loss': 0.1512, 'grad_norm': 0.8435072898864746, 'learning_rate': 4.464459187129258e-05, 'epoch': 1.3}
+{'loss': 0.1313, 'grad_norm': 0.9142453670501709, 'learning_rate': 4.364664898555226e-05, 'epoch': 1.48}
+{'loss': 0.1327, 'grad_norm': 3.4025957584381104, 'learning_rate': 4.220077539495342e-05, 'epoch': 1.67}
+{'loss': 0.1379, 'grad_norm': 1.82241952419281, 'learning_rate': 4.033778738482595e-05, 'epoch': 1.86}
+{'eval_loss': 0.13196121156215668, 'eval_runtime': 30.3014, 'eval_samples_per_second': 1.518, 'eval_steps_per_second': 1.518, 'epoch': 2.0}
+{'loss': 0.1054, 'grad_norm': 0.8146286606788635, 'learning_rate': 3.809739131017866e-05, 'epoch': 2.04}
+{'loss': 0.0754, 'grad_norm': 0.8704290986061096, 'learning_rate': 3.5527337323678525e-05, 'epoch': 2.22}
+{'loss': 0.0936, 'grad_norm': 2.687159776687622, 'learning_rate': 3.2682401664048006e-05, 'epoch': 2.41}
+{'loss': 0.0887, 'grad_norm': 0.7239115238189697, 'learning_rate': 2.9623219195636435e-05, 'epoch': 2.6}
+{'loss': 0.0901, 'grad_norm': 1.2185992002487183, 'learning_rate': 2.6740590532149434e-05, 'epoch': 2.78}
+{'loss': 0.07, 'grad_norm': 1.2107398509979248, 'learning_rate': 2.3456623727641656e-05, 'epoch': 2.97}
+{'eval_loss': 0.11539870500564575, 'eval_runtime': 29.9811, 'eval_samples_per_second': 1.534, 'eval_steps_per_second': 1.534, 'epoch': 3.0}
+{'loss': 0.0482, 'grad_norm': 0.6594448685646057, 'learning_rate': 2.0155041553730935e-05, 'epoch': 3.15}
+{'loss': 0.0485, 'grad_norm': 1.3716657161712646, 'learning_rate': 1.690621150241156e-05, 'epoch': 3.33}
+{'loss': 0.0583, 'grad_norm': 0.7603418827056885, 'learning_rate': 1.377937674577041e-05, 'epoch': 3.52}
+{'loss': 0.0464, 'grad_norm': 0.8108610510826111, 'learning_rate': 1.0841180337990424e-05, 'epoch': 3.71}
+{'loss': 0.0525, 'grad_norm': 0.46326446533203125, 'learning_rate': 8.154244834353099e-06, 'epoch': 3.89}
+{'eval_loss': 0.1144411489367485, 'eval_runtime': 30.839, 'eval_samples_per_second': 1.492, 'eval_steps_per_second': 1.492, 'epoch': 4.0}
+{'loss': 0.0562, 'grad_norm': 0.41558992862701416, 'learning_rate': 5.775837600194787e-06, 'epoch': 4.07}
+{'loss': 0.0385, 'grad_norm': 0.46639612317085266, 'learning_rate': 3.756650256439345e-06, 'epoch': 4.26}
+{'loss': 0.0327, 'grad_norm': 0.3113681674003601, 'learning_rate': 2.139718275706354e-06, 'epoch': 4.45}
+{'loss': 0.0321, 'grad_norm': 0.29169121384620667, 'learning_rate': 9.595037559283342e-07, 'epoch': 4.63}
+{'loss': 0.0433, 'grad_norm': 0.8575055003166199, 'learning_rate': 2.411609205646442e-07, 'epoch': 4.82}
+{'eval_loss': 0.1172364354133606, 'eval_runtime': 30.4787, 'eval_samples_per_second': 1.509, 'eval_steps_per_second': 1.509, 'epoch': 4.91}
+{'train_runtime': 2366.4468, 'train_samples_per_second': 0.454, 'train_steps_per_second': 0.112, 'train_loss': 0.4138269044318289, 'epoch': 4.91}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0804
+  ✅ Trial 7 validation CER (fixed subset) = 0.0804
+[I 2026-02-12 23:58:02,563] Trial 7 finished with value: 0.0803573699368538 and parameters: {'learning_rate': 4.526025150617919e-05, 'weight_decay': 0.036944892836059964, 'gradient_accumulation_steps': 4, 'lora_r': 32, 'lora_alpha': 16, 'lora_dropout': 0.015762920184680864, 'warmup_ratio': 0.1799069153193209, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 8 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  2.35e-05
+  • weight_decay:   0.0273
+  • grad_accum:     8
+  • lora_r:         16
+  • lora_alpha:     64
+  • lora_dropout:   0.0547
+  • warmup_ratio:   0.1467
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=16, alpha=64, dropout=0.05469829927009338
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 4.1774, 'grad_norm': 77.68448638916016, 'learning_rate': 2.814659599269608e-06, 'epoch': 0.37}
+{'loss': 2.1238, 'grad_norm': 12.573837280273438, 'learning_rate': 7.03664899817402e-06, 'epoch': 0.74}
+{'eval_loss': 1.2711048126220703, 'eval_runtime': 30.1296, 'eval_samples_per_second': 1.527, 'eval_steps_per_second': 1.527, 'epoch': 1.0}
+{'loss': 1.3761, 'grad_norm': 13.477313995361328, 'learning_rate': 1.1727748330290034e-05, 'epoch': 1.11}
+{'loss': 0.7256, 'grad_norm': 4.8105058670043945, 'learning_rate': 1.6418847662406048e-05, 'epoch': 1.48}
+{'loss': 0.2491, 'grad_norm': 3.9160807132720947, 'learning_rate': 2.1109946994522063e-05, 'epoch': 1.86}
+{'eval_loss': 0.18334892392158508, 'eval_runtime': 29.8877, 'eval_samples_per_second': 1.539, 'eval_steps_per_second': 1.539, 'epoch': 2.0}
+{'loss': 0.1518, 'grad_norm': 3.2176458835601807, 'learning_rate': 2.3230151264912064e-05, 'epoch': 2.22}
+{'loss': 0.1396, 'grad_norm': 5.155675888061523, 'learning_rate': 2.147901468765811e-05, 'epoch': 2.6}
+{'loss': 0.1189, 'grad_norm': 3.5412955284118652, 'learning_rate': 1.824333620294452e-05, 'epoch': 2.97}
+{'eval_loss': 0.13766467571258545, 'eval_runtime': 29.5412, 'eval_samples_per_second': 1.557, 'eval_steps_per_second': 1.557, 'epoch': 3.0}
+{'loss': 0.0868, 'grad_norm': 2.533867359161377, 'learning_rate': 1.4015718528570429e-05, 'epoch': 3.33}
+{'loss': 0.087, 'grad_norm': 2.097801685333252, 'learning_rate': 9.439778132009641e-06, 'epoch': 3.71}
+{'eval_loss': 0.12639321386814117, 'eval_runtime': 29.8711, 'eval_samples_per_second': 1.54, 'eval_steps_per_second': 1.54, 'epoch': 4.0}
+{'loss': 0.089, 'grad_norm': 2.783630132675171, 'learning_rate': 5.212160457635552e-06, 'epoch': 4.07}
+{'loss': 0.0666, 'grad_norm': 1.2659354209899902, 'learning_rate': 1.976481972921956e-06, 'epoch': 4.45}
+{'loss': 0.0716, 'grad_norm': 3.608592987060547, 'learning_rate': 2.2534539566800553e-07, 'epoch': 4.82}
+{'eval_loss': 0.12559667229652405, 'eval_runtime': 29.8977, 'eval_samples_per_second': 1.539, 'eval_steps_per_second': 1.539, 'epoch': 4.82}
+{'train_runtime': 2311.3197, 'train_samples_per_second': 0.465, 'train_steps_per_second': 0.056, 'train_loss': 0.7279482016196618, 'epoch': 4.82}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0621
+  ✅ Trial 8 validation CER (fixed subset) = 0.0621
+[I 2026-02-13 01:01:43,695] Trial 8 finished with value: 0.062115141262746996 and parameters: {'learning_rate': 2.345549666058007e-05, 'weight_decay': 0.027313246686940663, 'gradient_accumulation_steps': 8, 'lora_r': 16, 'lora_alpha': 64, 'lora_dropout': 0.05469829927009338, 'warmup_ratio': 0.1466763857966977, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 9 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  9.22e-05
+  • weight_decay:   0.0119
+  • grad_accum:     8
+  • lora_r:         64
+  • lora_alpha:     16
+  • lora_dropout:   0.1346
+  • warmup_ratio:   0.1224
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=64, alpha=16, dropout=0.13457456398582876
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 3.267, 'grad_norm': 3.5634496212005615, 'learning_rate': 1.6604372355621114e-05, 'epoch': 0.37}
+{'loss': 1.4097, 'grad_norm': 1.721425175666809, 'learning_rate': 3.5053674972977905e-05, 'epoch': 0.74}
+{'eval_loss': 0.3295021951198578, 'eval_runtime': 31.7083, 'eval_samples_per_second': 1.451, 'eval_steps_per_second': 1.451, 'epoch': 1.0}
+{'loss': 0.5269, 'grad_norm': 1.329060435295105, 'learning_rate': 5.1658047328599026e-05, 'epoch': 1.11}
+{'loss': 0.1734, 'grad_norm': 2.159426212310791, 'learning_rate': 7.010734994595581e-05, 'epoch': 1.48}
+{'loss': 0.1537, 'grad_norm': 0.6906687617301941, 'learning_rate': 8.85566525633126e-05, 'epoch': 1.86}
+{'eval_loss': 0.13686373829841614, 'eval_runtime': 30.031, 'eval_samples_per_second': 1.532, 'eval_steps_per_second': 1.532, 'epoch': 2.0}
+{'loss': 0.1005, 'grad_norm': 1.0986264944076538, 'learning_rate': 8.998908023173801e-05, 'epoch': 2.22}
+{'loss': 0.0941, 'grad_norm': 0.6392996907234192, 'learning_rate': 8.119565597188792e-05, 'epoch': 2.6}
+{'loss': 0.0826, 'grad_norm': 1.2136399745941162, 'learning_rate': 6.706277683114183e-05, 'epoch': 2.97}
+{'eval_loss': 0.11164598912000656, 'eval_runtime': 30.0415, 'eval_samples_per_second': 1.531, 'eval_steps_per_second': 1.531, 'epoch': 3.0}
+{'loss': 0.0478, 'grad_norm': 1.1501632928848267, 'learning_rate': 4.9742045543809933e-05, 'epoch': 3.33}
+{'loss': 0.0508, 'grad_norm': 0.4056291878223419, 'learning_rate': 3.187038643556837e-05, 'epoch': 3.71}
+{'eval_loss': 0.10969357192516327, 'eval_runtime': 30.7098, 'eval_samples_per_second': 1.498, 'eval_steps_per_second': 1.498, 'epoch': 4.0}
+{'loss': 0.0514, 'grad_norm': 0.34660476446151733, 'learning_rate': 1.7568627494912793e-05, 'epoch': 4.07}
+{'loss': 0.031, 'grad_norm': 0.25537917017936707, 'learning_rate': 5.880899376088213e-06, 'epoch': 4.45}
+{'loss': 0.0319, 'grad_norm': 0.33258700370788574, 'learning_rate': 3.1970533810949904e-07, 'epoch': 4.82}
+{'eval_loss': 0.11017083376646042, 'eval_runtime': 31.4446, 'eval_samples_per_second': 1.463, 'eval_steps_per_second': 1.463, 'epoch': 4.82}
+{'train_runtime': 2331.9259, 'train_samples_per_second': 0.461, 'train_steps_per_second': 0.056, 'train_loss': 0.46312881662295413, 'epoch': 4.82}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0516
+  ✅ Trial 9 validation CER (fixed subset) = 0.0516
+[I 2026-02-13 02:05:43,871] Trial 9 finished with value: 0.05155950287928577 and parameters: {'learning_rate': 9.224651308678397e-05, 'weight_decay': 0.011949105063092259, 'gradient_accumulation_steps': 8, 'lora_r': 64, 'lora_alpha': 16, 'lora_dropout': 0.13457456398582876, 'warmup_ratio': 0.1223657795813345, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 10 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  1.27e-04
+  • weight_decay:   0.0936
+  • grad_accum:     16
+  • lora_r:         32
+  • lora_alpha:     32
+  • lora_dropout:   0.1989
+  • warmup_ratio:   0.0500
+  • max_seq_length: 1024
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 1024
+  • LoRA: r=32, alpha=32, dropout=0.19890105622540777
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 3.1331, 'grad_norm': 5.765859127044678, 'learning_rate': 1.7820814676028195e-05, 'epoch': 0.74}
+{'eval_loss': 1.3119163513183594, 'eval_runtime': 30.8462, 'eval_samples_per_second': 1.491, 'eval_steps_per_second': 1.491, 'epoch': 1.0}
+{'loss': 1.1471, 'grad_norm': 5.1189961433410645, 'learning_rate': 4.3279121356068474e-05, 'epoch': 1.45}
+{'eval_loss': 0.19365686178207397, 'eval_runtime': 29.8432, 'eval_samples_per_second': 1.541, 'eval_steps_per_second': 1.541, 'epoch': 2.0}
+{'loss': 0.2811, 'grad_norm': 1.782267451286316, 'learning_rate': 6.873742803610876e-05, 'epoch': 2.15}
+{'loss': 0.1453, 'grad_norm': 1.5803236961364746, 'learning_rate': 9.419573471614903e-05, 'epoch': 2.89}
+{'eval_loss': 0.13793684542179108, 'eval_runtime': 29.9251, 'eval_samples_per_second': 1.537, 'eval_steps_per_second': 1.537, 'epoch': 3.0}
+{'loss': 0.0902, 'grad_norm': 1.9877029657363892, 'learning_rate': 0.00011710821072818529, 'epoch': 3.6}
+{'eval_loss': 0.11513795703649521, 'eval_runtime': 29.3919, 'eval_samples_per_second': 1.565, 'eval_steps_per_second': 1.565, 'epoch': 4.0}
+{'loss': 0.0701, 'grad_norm': 1.5708930492401123, 'learning_rate': 8.331339023045493e-05, 'epoch': 4.3}
+{'eval_loss': 0.11313536018133163, 'eval_runtime': 31.216, 'eval_samples_per_second': 1.474, 'eval_steps_per_second': 1.474, 'epoch': 4.67}
+{'train_runtime': 2245.65, 'train_samples_per_second': 0.479, 'train_steps_per_second': 0.029, 'train_loss': 0.7527278890976539, 'epoch': 4.67}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0557
+  ✅ Trial 10 validation CER (fixed subset) = 0.0557
+[I 2026-02-13 03:07:40,241] Trial 10 finished with value: 0.055711429321331565 and parameters: {'learning_rate': 0.0001272915334002014, 'weight_decay': 0.09361007807155251, 'gradient_accumulation_steps': 16, 'lora_r': 32, 'lora_alpha': 32, 'lora_dropout': 0.19890105622540777, 'warmup_ratio': 0.05004296800260606, 'max_seq_length': 1024}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 11 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  1.17e-04
+  • weight_decay:   0.0140
+  • grad_accum:     8
+  • lora_r:         64
+  • lora_alpha:     32
+  • lora_dropout:   0.1461
+  • warmup_ratio:   0.0640
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=64, alpha=32, dropout=0.14611075118900255
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 2.7818, 'grad_norm': 3.5825653076171875, 'learning_rate': 2.0983475575115068e-05, 'epoch': 0.37}
+{'loss': 0.9686, 'grad_norm': 3.066908597946167, 'learning_rate': 4.1966951150230135e-05, 'epoch': 0.74}
+{'eval_loss': 0.17898188531398773, 'eval_runtime': 29.4747, 'eval_samples_per_second': 1.561, 'eval_steps_per_second': 1.561, 'epoch': 1.0}
+{'loss': 0.2032, 'grad_norm': 3.5369136333465576, 'learning_rate': 6.52819240114691e-05, 'epoch': 1.11}
+{'loss': 0.1154, 'grad_norm': 1.386591911315918, 'learning_rate': 8.859689687270806e-05, 'epoch': 1.48}
+{'loss': 0.1112, 'grad_norm': 2.038271427154541, 'learning_rate': 0.00011191186973394703, 'epoch': 1.86}
+{'eval_loss': 0.11091800034046173, 'eval_runtime': 29.8055, 'eval_samples_per_second': 1.543, 'eval_steps_per_second': 1.543, 'epoch': 2.0}
+{'loss': 0.0718, 'grad_norm': 0.9788781404495239, 'learning_rate': 0.00011372207432041237, 'epoch': 2.22}
+{'loss': 0.0607, 'grad_norm': 0.7015610933303833, 'learning_rate': 0.00010260954328181975, 'epoch': 2.6}
+{'loss': 0.0547, 'grad_norm': 0.6229181289672852, 'learning_rate': 8.474937260481703e-05, 'epoch': 2.97}
+{'eval_loss': 0.10477431863546371, 'eval_runtime': 30.6201, 'eval_samples_per_second': 1.502, 'eval_steps_per_second': 1.502, 'epoch': 3.0}
+{'loss': 0.0251, 'grad_norm': 2.0465641021728516, 'learning_rate': 6.286061137212756e-05, 'epoch': 3.33}
+{'loss': 0.0249, 'grad_norm': 1.9437520503997803, 'learning_rate': 4.027562505931358e-05, 'epoch': 3.71}
+{'eval_loss': 0.1029910296201706, 'eval_runtime': 31.2482, 'eval_samples_per_second': 1.472, 'eval_steps_per_second': 1.472, 'epoch': 4.0}
+{'loss': 0.0232, 'grad_norm': 0.3773959279060364, 'learning_rate': 2.043277309909031e-05, 'epoch': 4.07}
+{'loss': 0.011, 'grad_norm': 0.18480563163757324, 'learning_rate': 6.352949826500777e-06, 'epoch': 4.45}
+{'loss': 0.0114, 'grad_norm': 0.35098525881767273, 'learning_rate': 1.796807008809459e-07, 'epoch': 4.82}
+{'eval_loss': 0.10682637989521027, 'eval_runtime': 31.7106, 'eval_samples_per_second': 1.451, 'eval_steps_per_second': 1.451, 'epoch': 4.82}
+{'train_runtime': 2333.4644, 'train_samples_per_second': 0.461, 'train_steps_per_second': 0.056, 'train_loss': 0.3433165417267726, 'epoch': 4.82}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0529
+  ✅ Trial 11 validation CER (fixed subset) = 0.0529
+[I 2026-02-13 04:12:01,619] Trial 11 finished with value: 0.05292385830654106 and parameters: {'learning_rate': 0.00011657486430619482, 'weight_decay': 0.013974442948478763, 'gradient_accumulation_steps': 8, 'lora_r': 64, 'lora_alpha': 32, 'lora_dropout': 0.14611075118900255, 'warmup_ratio': 0.06402109227835968, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 12 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  1.36e-04
+  • weight_decay:   0.0005
+  • grad_accum:     8
+  • lora_r:         64
+  • lora_alpha:     32
+  • lora_dropout:   0.0827
+  • warmup_ratio:   0.0227
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=64, alpha=32, dropout=0.08273461803549362
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 2.926, 'grad_norm': 5.7118988037109375, 'learning_rate': 1.6350944600236996e-05, 'epoch': 0.37}
+{'loss': 1.1295, 'grad_norm': 4.023373603820801, 'learning_rate': 4.360251893396533e-05, 'epoch': 0.74}
+{'eval_loss': 0.19061586260795593, 'eval_runtime': 31.6221, 'eval_samples_per_second': 1.455, 'eval_steps_per_second': 1.455, 'epoch': 1.0}
+{'loss': 0.2333, 'grad_norm': 1.703450083732605, 'learning_rate': 7.085409326769367e-05, 'epoch': 1.11}
+{'loss': 0.1253, 'grad_norm': 2.314316749572754, 'learning_rate': 9.810566760142199e-05, 'epoch': 1.48}
+{'loss': 0.1193, 'grad_norm': 1.2166154384613037, 'learning_rate': 0.0001253572419351503, 'epoch': 1.86}
+{'eval_loss': 0.12231992930173874, 'eval_runtime': 31.4952, 'eval_samples_per_second': 1.461, 'eval_steps_per_second': 1.461, 'epoch': 2.0}
+{'loss': 0.0748, 'grad_norm': 1.1411516666412354, 'learning_rate': 0.00013437546374831777, 'epoch': 2.22}
+{'loss': 0.0664, 'grad_norm': 1.8181098699569702, 'learning_rate': 0.00012324640273296672, 'epoch': 2.6}
+{'loss': 0.0609, 'grad_norm': 0.9385658502578735, 'learning_rate': 0.00010372620702337842, 'epoch': 2.97}
+{'eval_loss': 0.10918137431144714, 'eval_runtime': 31.2358, 'eval_samples_per_second': 1.473, 'eval_steps_per_second': 1.473, 'epoch': 3.0}
+{'loss': 0.0284, 'grad_norm': 0.9142823815345764, 'learning_rate': 7.878664946532302e-05, 'epoch': 3.33}
+{'loss': 0.0308, 'grad_norm': 2.5949132442474365, 'learning_rate': 5.222455161936219e-05, 'epoch': 3.71}
+{'eval_loss': 0.11026294529438019, 'eval_runtime': 29.8111, 'eval_samples_per_second': 1.543, 'eval_steps_per_second': 1.543, 'epoch': 4.0}
+{'loss': 0.0321, 'grad_norm': 0.6920190453529358, 'learning_rate': 2.8083752096526854e-05, 'epoch': 4.07}
+{'loss': 0.0148, 'grad_norm': 0.8649765849113464, 'learning_rate': 1.0039468787276116e-05, 'epoch': 4.45}
+{'loss': 0.0137, 'grad_norm': 1.1331037282943726, 'learning_rate': 8.38780253607879e-07, 'epoch': 4.82}
+{'eval_loss': 0.11243848502635956, 'eval_runtime': 30.0619, 'eval_samples_per_second': 1.53, 'eval_steps_per_second': 1.53, 'epoch': 4.82}
+{'train_runtime': 2337.651, 'train_samples_per_second': 0.46, 'train_steps_per_second': 0.056, 'train_loss': 0.37347708608095465, 'epoch': 4.82}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0518
+  ✅ Trial 12 validation CER (fixed subset) = 0.0518
+[I 2026-02-13 05:15:36,926] Trial 12 finished with value: 0.05183863450042773 and parameters: {'learning_rate': 0.00013625787166864165, 'weight_decay': 0.0004747891061534226, 'gradient_accumulation_steps': 8, 'lora_r': 64, 'lora_alpha': 32, 'lora_dropout': 0.08273461803549362, 'warmup_ratio': 0.022739259861705212, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 13 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  2.60e-04
+  • weight_decay:   0.0868
+  • grad_accum:     8
+  • lora_r:         32
+  • lora_alpha:     64
+  • lora_dropout:   0.1571
+  • warmup_ratio:   0.0761
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=32, alpha=64, dropout=0.15714801835958736
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 2.7146, 'grad_norm': 10.64393138885498, 'learning_rate': 3.1224833185934394e-05, 'epoch': 0.37}
+{'loss': 0.6323, 'grad_norm': 4.802288055419922, 'learning_rate': 8.32662218291584e-05, 'epoch': 0.74}
+{'eval_loss': 0.16112495958805084, 'eval_runtime': 30.8884, 'eval_samples_per_second': 1.489, 'eval_steps_per_second': 1.489, 'epoch': 1.0}
+{'loss': 0.1499, 'grad_norm': 2.536987066268921, 'learning_rate': 0.00013010347160806, 'epoch': 1.11}
+{'loss': 0.105, 'grad_norm': 3.505833864212036, 'learning_rate': 0.0001769407213869616, 'epoch': 1.48}
+{'loss': 0.1105, 'grad_norm': 2.1115105152130127, 'learning_rate': 0.0002289821100301856, 'epoch': 1.86}
+{'eval_loss': 0.11442496627569199, 'eval_runtime': 30.4769, 'eval_samples_per_second': 1.509, 'eval_steps_per_second': 1.509, 'epoch': 2.0}
+{'loss': 0.0761, 'grad_norm': 4.234130382537842, 'learning_rate': 0.0002586051535862914, 'epoch': 2.22}
+{'loss': 0.0772, 'grad_norm': 3.3219306468963623, 'learning_rate': 0.0002410349170229942, 'epoch': 2.6}
+{'loss': 0.07, 'grad_norm': 2.5652639865875244, 'learning_rate': 0.00020657637349133016, 'epoch': 2.97}
+{'eval_loss': 0.13235004246234894, 'eval_runtime': 28.9936, 'eval_samples_per_second': 1.587, 'eval_steps_per_second': 1.587, 'epoch': 3.0}
+{'loss': 0.038, 'grad_norm': 2.0880284309387207, 'learning_rate': 0.00016047552387652003, 'epoch': 3.33}
+{'loss': 0.0426, 'grad_norm': 1.2742536067962646, 'learning_rate': 0.00010975080462717623, 'epoch': 3.71}
+{'eval_loss': 0.11416248977184296, 'eval_runtime': 29.759, 'eval_samples_per_second': 1.546, 'eval_steps_per_second': 1.546, 'epoch': 4.0}
+{'loss': 0.0406, 'grad_norm': 1.9104503393173218, 'learning_rate': 6.212459442828645e-05, 'epoch': 4.07}
+{'loss': 0.0182, 'grad_norm': 0.6185482144355774, 'learning_rate': 2.4847552049961e-05, 'epoch': 4.45}
+{'loss': 0.0163, 'grad_norm': 0.8319678902626038, 'learning_rate': 3.5947692770693255e-06, 'epoch': 4.82}
+{'eval_loss': 0.11568289250135422, 'eval_runtime': 29.6803, 'eval_samples_per_second': 1.55, 'eval_steps_per_second': 1.55, 'epoch': 4.82}
+{'train_runtime': 2313.4888, 'train_samples_per_second': 0.465, 'train_steps_per_second': 0.056, 'train_loss': 0.3147118415970069, 'epoch': 4.82}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0531
+  ✅ Trial 13 validation CER (fixed subset) = 0.0531
+[I 2026-02-13 06:17:10,433] Trial 13 finished with value: 0.05313455020696692 and parameters: {'learning_rate': 0.00026020694321612, 'weight_decay': 0.08676925152877221, 'gradient_accumulation_steps': 8, 'lora_r': 32, 'lora_alpha': 64, 'lora_dropout': 0.15714801835958736, 'warmup_ratio': 0.07611668180412151, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 14 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  7.77e-05
+  • weight_decay:   0.0728
+  • grad_accum:     8
+  • lora_r:         64
+  • lora_alpha:     32
+  • lora_dropout:   0.1037
+  • warmup_ratio:   0.1647
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=64, alpha=32, dropout=0.10368791792269845
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 3.1326, 'grad_norm': nan, 'learning_rate': 1.2439872329085928e-05, 'epoch': 0.37}
+{'loss': 1.3588, 'grad_norm': 4.207483291625977, 'learning_rate': 2.64347286993076e-05, 'epoch': 0.74}
+{'eval_loss': 0.252530038356781, 'eval_runtime': 31.304, 'eval_samples_per_second': 1.469, 'eval_steps_per_second': 1.469, 'epoch': 1.0}
+{'loss': 0.423, 'grad_norm': 1.7403738498687744, 'learning_rate': 4.198456911066501e-05, 'epoch': 1.11}
+{'loss': 0.1509, 'grad_norm': 1.7794121503829956, 'learning_rate': 5.7534409522022415e-05, 'epoch': 1.48}
+{'loss': 0.1403, 'grad_norm': 2.5980076789855957, 'learning_rate': 7.308424993337983e-05, 'epoch': 1.86}
+{'eval_loss': 0.12924060225486755, 'eval_runtime': 30.6551, 'eval_samples_per_second': 1.501, 'eval_steps_per_second': 1.501, 'epoch': 2.0}
+{'loss': 0.0891, 'grad_norm': 4.293089389801025, 'learning_rate': 7.628966435321722e-05, 'epoch': 2.22}
+{'loss': 0.0839, 'grad_norm': 0.9693768620491028, 'learning_rate': 6.940348339722497e-05, 'epoch': 2.6}
+{'loss': 0.071, 'grad_norm': 2.3466668128967285, 'learning_rate': 5.7869556845585976e-05, 'epoch': 2.97}
+{'eval_loss': 0.10905928909778595, 'eval_runtime': 31.083, 'eval_samples_per_second': 1.48, 'eval_steps_per_second': 1.48, 'epoch': 3.0}
+{'loss': 0.037, 'grad_norm': 0.6055399775505066, 'learning_rate': 4.3443820460482686e-05, 'epoch': 3.33}
+{'loss': 0.0382, 'grad_norm': 0.6107974648475647, 'learning_rate': 2.832246183692111e-05, 'epoch': 3.71}
+{'eval_loss': 0.10686824470758438, 'eval_runtime': 29.8329, 'eval_samples_per_second': 1.542, 'eval_steps_per_second': 1.542, 'epoch': 4.0}
+{'loss': 0.0409, 'grad_norm': 1.0486162900924683, 'learning_rate': 1.6024683855150006e-05, 'epoch': 4.07}
+{'loss': 0.0204, 'grad_norm': 0.37381264567375183, 'learning_rate': 5.7285548183443095e-06, 'epoch': 4.45}
+{'loss': 0.0203, 'grad_norm': 0.8432097434997559, 'learning_rate': 4.786108473614924e-07, 'epoch': 4.82}
+{'eval_loss': 0.10778951644897461, 'eval_runtime': 30.5009, 'eval_samples_per_second': 1.508, 'eval_steps_per_second': 1.508, 'epoch': 4.82}
+{'train_runtime': 2334.6396, 'train_samples_per_second': 0.46, 'train_steps_per_second': 0.056, 'train_loss': 0.43126166268036914, 'epoch': 4.82}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0682
+  ✅ Trial 14 validation CER (fixed subset) = 0.0682
+[I 2026-02-13 07:20:16,215] Trial 14 finished with value: 0.06816758090426772 and parameters: {'learning_rate': 7.774920205678705e-05, 'weight_decay': 0.07280841090822648, 'gradient_accumulation_steps': 8, 'lora_r': 64, 'lora_alpha': 32, 'lora_dropout': 0.10368791792269845, 'warmup_ratio': 0.16468096107139113, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 15 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  2.35e-04
+  • weight_decay:   0.0787
+  • grad_accum:     16
+  • lora_r:         32
+  • lora_alpha:     32
+  • lora_dropout:   0.1200
+  • warmup_ratio:   0.0507
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=32, alpha=32, dropout=0.12004377393847125
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 2.8801, 'grad_norm': 3.1985690593719482, 'learning_rate': 3.76299795789013e-05, 'epoch': 0.74}
+{'eval_loss': 0.7188090682029724, 'eval_runtime': 29.6348, 'eval_samples_per_second': 1.552, 'eval_steps_per_second': 1.552, 'epoch': 1.0}
+{'loss': 0.633, 'grad_norm': 2.538555383682251, 'learning_rate': 8.466745405252792e-05, 'epoch': 1.45}
+{'eval_loss': 0.14588093757629395, 'eval_runtime': 30.5399, 'eval_samples_per_second': 1.506, 'eval_steps_per_second': 1.506, 'epoch': 2.0}
+{'loss': 0.1413, 'grad_norm': 2.0089001655578613, 'learning_rate': 0.00013170492852615458, 'epoch': 2.15}
+{'loss': 0.1031, 'grad_norm': 0.622999906539917, 'learning_rate': 0.0001787424029997812, 'epoch': 2.89}
+{'eval_loss': 0.1103331595659256, 'eval_runtime': 29.5251, 'eval_samples_per_second': 1.558, 'eval_steps_per_second': 1.558, 'epoch': 3.0}
+{'loss': 0.0523, 'grad_norm': 0.7462745308876038, 'learning_rate': 0.0002257798774734078, 'epoch': 3.6}
+{'eval_loss': 0.10391497611999512, 'eval_runtime': 29.6979, 'eval_samples_per_second': 1.549, 'eval_steps_per_second': 1.549, 'epoch': 4.0}
+{'loss': 0.0433, 'grad_norm': 0.39266157150268555, 'learning_rate': 0.00010530179887726741, 'epoch': 4.3}
+{'eval_loss': 0.10720785707235336, 'eval_runtime': 30.4053, 'eval_samples_per_second': 1.513, 'eval_steps_per_second': 1.513, 'epoch': 4.67}
+{'train_runtime': 2238.5312, 'train_samples_per_second': 0.48, 'train_steps_per_second': 0.029, 'train_loss': 0.5946043476462364, 'epoch': 4.67}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0553
+  ✅ Trial 15 validation CER (fixed subset) = 0.0553
+[I 2026-02-13 08:19:57,507] Trial 15 finished with value: 0.05525763779376433 and parameters: {'learning_rate': 0.00023518737236813314, 'weight_decay': 0.078675763786452, 'gradient_accumulation_steps': 16, 'lora_r': 32, 'lora_alpha': 32, 'lora_dropout': 0.12004377393847125, 'warmup_ratio': 0.05072301811244024, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 16 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  4.79e-04
+  • weight_decay:   0.0174
+  • grad_accum:     8
+  • lora_r:         16
+  • lora_alpha:     128
+  • lora_dropout:   0.1753
+  • warmup_ratio:   0.0279
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=16, alpha=128, dropout=0.17527191329809783
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 3.3414, 'grad_norm': 19.89177703857422, 'learning_rate': 3.831283863880284e-05, 'epoch': 0.37}
+{'loss': 0.4689, 'grad_norm': 79.70987701416016, 'learning_rate': 0.00013409493523580996, 'epoch': 0.74}
+{'eval_loss': 0.14684388041496277, 'eval_runtime': 30.794, 'eval_samples_per_second': 1.494, 'eval_steps_per_second': 1.494, 'epoch': 1.0}
+{'loss': 0.1669, 'grad_norm': 11.308309555053711, 'learning_rate': 0.00022987703183281703, 'epoch': 1.11}
+{'loss': 0.3631, 'grad_norm': 5.08319091796875, 'learning_rate': 0.0003065027091104227, 'epoch': 1.48}
+{'loss': 0.1523, 'grad_norm': 13.65385913848877, 'learning_rate': 0.0004022848057074298, 'epoch': 1.86}
+{'eval_loss': 0.9961450695991516, 'eval_runtime': 30.3604, 'eval_samples_per_second': 1.515, 'eval_steps_per_second': 1.515, 'epoch': 2.0}
+{'loss': 0.6643, 'grad_norm': 23.590173721313477, 'learning_rate': 0.0004781723223896609, 'epoch': 2.22}
+{'loss': 1.8027, 'grad_norm': 287.13330078125, 'learning_rate': 0.0004569148844905841, 'epoch': 2.6}
+{'loss': 2.7778, 'grad_norm': 267.48468017578125, 'learning_rate': 0.00040199763793940943, 'epoch': 2.97}
+{'eval_loss': 1.5841141939163208, 'eval_runtime': 30.161, 'eval_samples_per_second': 1.525, 'eval_steps_per_second': 1.525, 'epoch': 3.0}
+{'loss': 1.4318, 'grad_norm': 67.21685028076172, 'learning_rate': 0.00032233478497968837, 'epoch': 3.33}
+{'loss': 0.6604, 'grad_norm': 17.736827850341797, 'learning_rate': 0.00023005427282897828, 'epoch': 3.71}
+{'eval_loss': 0.20050521194934845, 'eval_runtime': 29.6362, 'eval_samples_per_second': 1.552, 'eval_steps_per_second': 1.552, 'epoch': 4.0}
+{'train_runtime': 1914.9507, 'train_samples_per_second': 0.561, 'train_steps_per_second': 0.068, 'train_loss': 1.109286806097737, 'epoch': 4.0}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.2297
+  ✅ Trial 16 validation CER (fixed subset) = 0.2297
+[I 2026-02-13 09:13:17,263] Trial 16 finished with value: 0.22974320862274047 and parameters: {'learning_rate': 0.0004789104829850355, 'weight_decay': 0.017402088847563276, 'gradient_accumulation_steps': 8, 'lora_r': 16, 'lora_alpha': 128, 'lora_dropout': 0.17527191329809783, 'warmup_ratio': 0.02789978548517824, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 17 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  7.58e-05
+  • weight_decay:   0.0996
+  • grad_accum:     8
+  • lora_r:         8
+  • lora_alpha:     64
+  • lora_dropout:   0.1361
+  • warmup_ratio:   0.0938
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=8, alpha=64, dropout=0.13614841991035095
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 4.1112, 'grad_norm': 63.228233337402344, 'learning_rate': 7.5760694535912885e-06, 'epoch': 0.37}
+{'loss': 1.7309, 'grad_norm': nan, 'learning_rate': 2.2728208360773862e-05, 'epoch': 0.74}
+{'eval_loss': 0.681329071521759, 'eval_runtime': 29.5184, 'eval_samples_per_second': 1.558, 'eval_steps_per_second': 1.558, 'epoch': 1.0}
+{'loss': 0.895, 'grad_norm': 10.178926467895508, 'learning_rate': 3.6365133377238184e-05, 'epoch': 1.11}
+{'loss': 0.2329, 'grad_norm': 7.393896579742432, 'learning_rate': 5.151727228442076e-05, 'epoch': 1.48}
+{'loss': 0.1752, 'grad_norm': 11.978750228881836, 'learning_rate': 6.666941119160333e-05, 'epoch': 1.86}
+{'eval_loss': 0.1421918123960495, 'eval_runtime': 29.612, 'eval_samples_per_second': 1.553, 'eval_steps_per_second': 1.553, 'epoch': 2.0}
+{'loss': 0.1065, 'grad_norm': 4.988548278808594, 'learning_rate': 7.529432460221189e-05, 'epoch': 2.22}
+{'loss': 0.1029, 'grad_norm': 8.606420516967773, 'learning_rate': 7.01786527882969e-05, 'epoch': 2.6}
+{'loss': 0.0875, 'grad_norm': 4.1512532234191895, 'learning_rate': 6.014585674377871e-05, 'epoch': 2.97}
+{'eval_loss': 0.11338252574205399, 'eval_runtime': 30.0408, 'eval_samples_per_second': 1.531, 'eval_steps_per_second': 1.531, 'epoch': 3.0}
+{'loss': 0.0469, 'grad_norm': nan, 'learning_rate': 4.6723338718912584e-05, 'epoch': 3.33}
+{'loss': 0.0514, 'grad_norm': 2.5392560958862305, 'learning_rate': 3.3427989835281736e-05, 'epoch': 3.71}
+{'eval_loss': 0.11029567569494247, 'eval_runtime': 29.5197, 'eval_samples_per_second': 1.558, 'eval_steps_per_second': 1.558, 'epoch': 4.0}
+{'loss': 0.052, 'grad_norm': 3.0523979663848877, 'learning_rate': 1.937120495755179e-05, 'epoch': 4.07}
+{'loss': 0.0289, 'grad_norm': 1.0965323448181152, 'learning_rate': 8.132269210788084e-06, 'epoch': 4.45}
+{'loss': 0.027, 'grad_norm': 7.305657386779785, 'learning_rate': 1.422208681229157e-06, 'epoch': 4.82}
+{'eval_loss': 0.11458614468574524, 'eval_runtime': 30.362, 'eval_samples_per_second': 1.515, 'eval_steps_per_second': 1.515, 'epoch': 4.82}
+{'train_runtime': 2317.0425, 'train_samples_per_second': 0.464, 'train_steps_per_second': 0.056, 'train_loss': 0.5883353364009124, 'epoch': 4.82}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0536
+  ✅ Trial 17 validation CER (fixed subset) = 0.0536
+[I 2026-02-13 10:14:12,167] Trial 17 finished with value: 0.053581255377741235 and parameters: {'learning_rate': 7.576069453591288e-05, 'weight_decay': 0.09964797891863218, 'gradient_accumulation_steps': 8, 'lora_r': 8, 'lora_alpha': 64, 'lora_dropout': 0.13614841991035095, 'warmup_ratio': 0.09384106598028391, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 18 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  1.81e-04
+  • weight_decay:   0.0740
+  • grad_accum:     8
+  • lora_r:         64
+  • lora_alpha:     16
+  • lora_dropout:   0.0956
+  • warmup_ratio:   0.1443
+  • max_seq_length: 1024
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 1024
+  • LoRA: r=64, alpha=16, dropout=0.09559691814958156
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 2.9121, 'grad_norm': nan, 'learning_rate': 2.894807486127767e-05, 'epoch': 0.37}
+{'loss': 1.2255, 'grad_norm': 5.66325044631958, 'learning_rate': 6.151465908021505e-05, 'epoch': 0.74}
+{'eval_loss': 0.20761002600193024, 'eval_runtime': 30.1376, 'eval_samples_per_second': 1.526, 'eval_steps_per_second': 1.526, 'epoch': 1.0}
+{'loss': 0.295, 'grad_norm': 1.5319725275039673, 'learning_rate': 9.769975265681215e-05, 'epoch': 1.11}
+{'loss': 0.1365, 'grad_norm': 1.0642075538635254, 'learning_rate': 0.00013388484623340921, 'epoch': 1.48}
+{'loss': 0.1294, 'grad_norm': 0.9369902610778809, 'learning_rate': 0.0001700699398100063, 'epoch': 1.86}
+{'eval_loss': 0.12202051281929016, 'eval_runtime': 31.0177, 'eval_samples_per_second': 1.483, 'eval_steps_per_second': 1.483, 'epoch': 2.0}
+{'loss': 0.0839, 'grad_norm': 0.987592875957489, 'learning_rate': 0.00017752906592739546, 'epoch': 2.22}
+{'loss': 0.0725, 'grad_norm': 0.48028072714805603, 'learning_rate': 0.00016150465051950716, 'epoch': 2.6}
+{'loss': 0.0678, 'grad_norm': 1.3498698472976685, 'learning_rate': 0.00013466474730919364, 'epoch': 2.97}
+{'eval_loss': 0.10645882785320282, 'eval_runtime': 31.586, 'eval_samples_per_second': 1.456, 'eval_steps_per_second': 1.456, 'epoch': 3.0}
+{'loss': 0.0334, 'grad_norm': 0.5554084777832031, 'learning_rate': 0.00010109548825589658, 'epoch': 3.33}
+{'loss': 0.0327, 'grad_norm': 0.33428576588630676, 'learning_rate': 6.590748874438942e-05, 'epoch': 3.71}
+{'eval_loss': 0.10557039827108383, 'eval_runtime': 30.6587, 'eval_samples_per_second': 1.5, 'eval_steps_per_second': 1.5, 'epoch': 4.0}
+{'loss': 0.0339, 'grad_norm': 0.42386630177497864, 'learning_rate': 3.445780272028922e-05, 'epoch': 4.07}
+{'loss': 0.0161, 'grad_norm': 0.10691368579864502, 'learning_rate': 1.1534359788651519e-05, 'epoch': 4.45}
+{'loss': 0.0168, 'grad_norm': 0.1957310438156128, 'learning_rate': 6.27046334290507e-07, 'epoch': 4.82}
+{'eval_loss': 0.10849640518426895, 'eval_runtime': 30.7427, 'eval_samples_per_second': 1.496, 'eval_steps_per_second': 1.496, 'epoch': 4.82}
+{'train_runtime': 2338.3254, 'train_samples_per_second': 0.46, 'train_steps_per_second': 0.056, 'train_loss': 0.3888986772069564, 'epoch': 4.82}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0531
+  ✅ Trial 18 validation CER (fixed subset) = 0.0531
+[I 2026-02-13 11:16:25,326] Trial 18 finished with value: 0.05305858551295469 and parameters: {'learning_rate': 0.00018092546788298544, 'weight_decay': 0.07400141713939641, 'gradient_accumulation_steps': 8, 'lora_r': 64, 'lora_alpha': 16, 'lora_dropout': 0.09559691814958156, 'warmup_ratio': 0.14431732733133965, 'max_seq_length': 1024}. Best is trial 0 with value: 0.0512890529086498.
+
+================================================================================
+OPTUNA TRIAL 19 (qwen_new_inventory_dataset)
+================================================================================
+  • num_epochs:     5 (fixed)
+  • learning_rate:  8.52e-05
+  • weight_decay:   0.0426
+  • grad_accum:     16
+  • lora_r:         32
+  • lora_alpha:     32
+  • lora_dropout:   0.1694
+  • warmup_ratio:   0.1980
+  • max_seq_length: 2048
+  • batch_size:     1 (fixed)
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=32, alpha=32, dropout=0.16940921865246455
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+Preparing training and validation datasets...
+Training: 215 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 3.1368, 'grad_norm': nan, 'learning_rate': 1.3636193311443287e-05, 'epoch': 0.74}
+{'eval_loss': 1.5037078857421875, 'eval_runtime': 28.7812, 'eval_samples_per_second': 1.598, 'eval_steps_per_second': 1.598, 'epoch': 1.0}
+{'loss': 1.3553, 'grad_norm': 3.495316505432129, 'learning_rate': 2.8976910786816986e-05, 'epoch': 1.45}
+{'eval_loss': 0.24985389411449432, 'eval_runtime': 29.8664, 'eval_samples_per_second': 1.54, 'eval_steps_per_second': 1.54, 'epoch': 2.0}
+{'loss': 0.473, 'grad_norm': 1.6223176717758179, 'learning_rate': 4.6022152426121097e-05, 'epoch': 2.15}
+{'loss': 0.1704, 'grad_norm': 2.1747851371765137, 'learning_rate': 6.136286990149479e-05, 'epoch': 2.89}
+{'eval_loss': 0.15257029235363007, 'eval_runtime': 29.705, 'eval_samples_per_second': 1.549, 'eval_steps_per_second': 1.549, 'epoch': 3.0}
+{'loss': 0.1037, 'grad_norm': 1.6394106149673462, 'learning_rate': 7.840811154079891e-05, 'epoch': 3.6}
+{'eval_loss': 0.12262024730443954, 'eval_runtime': 30.1519, 'eval_samples_per_second': 1.526, 'eval_steps_per_second': 1.526, 'epoch': 4.0}
+{'loss': 0.0833, 'grad_norm': 1.0624881982803345, 'learning_rate': 5.5781277447691415e-05, 'epoch': 4.3}
+{'eval_loss': 0.11686217039823532, 'eval_runtime': 31.2767, 'eval_samples_per_second': 1.471, 'eval_steps_per_second': 1.471, 'epoch': 4.67}
+{'train_runtime': 2243.2427, 'train_samples_per_second': 0.479, 'train_steps_per_second': 0.029, 'train_loss': 0.8236579922529367, 'epoch': 4.67}
+Evaluating on validation FIXED subset at epoch 5...
+  Using fixed validation subset size = 46
+Validation CER (fixed subset) at epoch 5: 0.0586
+  ✅ Trial 19 validation CER (fixed subset) = 0.0586
+[I 2026-02-13 12:16:25,746] Trial 19 finished with value: 0.058622021874996946 and parameters: {'learning_rate': 8.522620819652054e-05, 'weight_decay': 0.04263892171975502, 'gradient_accumulation_steps': 16, 'lora_r': 32, 'lora_alpha': 32, 'lora_dropout': 0.16940921865246455, 'warmup_ratio': 0.19803038698747336, 'max_seq_length': 2048}. Best is trial 0 with value: 0.0512890529086498.
+
+============================================================
+OPTUNA DONE
+============================================================
+Best trial #: 0
+Best validation CER: 0.0513
+  learning_rate: 0.00021050710372623888
+  weight_decay: 0.06974561412485879
+  gradient_accumulation_steps: 8
+  lora_r: 32
+  lora_alpha: 32
+  lora_dropout: 0.1402367506273414
+  warmup_ratio: 0.053387755131264064
+  max_seq_length: 2048
+Best params saved to /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/new_inven/best_hyperparameters.json
+
+================================================================================
+TRAINING FINAL QWEN MODEL WITH BEST HYPERPARAMETERS
+================================================================================
+  learning_rate: 0.00021050710372623888
+  weight_decay: 0.06974561412485879
+  gradient_accumulation_steps: 8
+  lora_r: 32
+  lora_alpha: 32
+  lora_dropout: 0.1402367506273414
+  warmup_ratio: 0.053387755131264064
+  max_seq_length: 2048
+================================================================================
+Loading Qwen2.5-VL model with Unsloth...
+  • max_seq_length: 2048
+  • LoRA: r=32, alpha=32, dropout=0.1402367506273414
+Unsloth: WARNING `trust_remote_code` is True.
+Are you certain you want to do remote code execution?
+==((====))==  Unsloth 2025.7.3: Fast Qwen2_5_Vl patching. Transformers: 4.51.3.
+   \\   /|    Tesla V100-PCIE-32GB. Num GPUs = 1. Max memory: 31.733 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu126. CUDA: 7.0. CUDA Toolkit: 12.6. Triton: 3.3.1
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.31.post1. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: Qwen2_5_Vl does not support SDPA - switching to eager!
+Unsloth: Making `model.base_model.model.visual` require gradients
+Model loaded successfully with LoRA adapters!
+📄 Combined dataset saved to /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/new_inven/combined_train_val.jsonl (261 samples)
+Preparing training and validation datasets...
+Training: 261 samples, Validation: 46 samples
+Unsloth: Model does not have a default image size - using 512
+Starting training with early stopping...
+{'loss': 3.2351, 'grad_norm': 4.465225696563721, 'learning_rate': 2.5260852447148665e-05, 'epoch': 0.31}
+{'loss': 1.1682, 'grad_norm': 2.1763205528259277, 'learning_rate': 6.315213111787167e-05, 'epoch': 0.61}
+{'loss': 0.2416, 'grad_norm': 3.432218313217163, 'learning_rate': 0.00010525355186311944, 'epoch': 0.92}
+{'eval_loss': 0.13008925318717957, 'eval_runtime': 29.7971, 'eval_samples_per_second': 1.544, 'eval_steps_per_second': 1.544, 'epoch': 1.0}
+{'loss': 0.1188, 'grad_norm': 1.6607348918914795, 'learning_rate': 0.0001473549726083672, 'epoch': 1.21}
+{'loss': 0.1231, 'grad_norm': 1.8332172632217407, 'learning_rate': 0.00018524625127909022, 'epoch': 1.52}
+{'loss': 0.1031, 'grad_norm': 0.9521905183792114, 'learning_rate': 0.00020982103321968997, 'epoch': 1.83}
+{'eval_loss': 0.051615409553050995, 'eval_runtime': 30.6916, 'eval_samples_per_second': 1.499, 'eval_steps_per_second': 1.499, 'epoch': 2.0}
+{'loss': 0.0737, 'grad_norm': 0.720593273639679, 'learning_rate': 0.00020220508805858937, 'epoch': 2.12}
+{'loss': 0.0579, 'grad_norm': 1.4580820798873901, 'learning_rate': 0.00018673470602791894, 'epoch': 2.43}
+{'loss': 0.0495, 'grad_norm': 0.5892776846885681, 'learning_rate': 0.00016466320547389902, 'epoch': 2.74}
+{'eval_loss': 0.02341436594724655, 'eval_runtime': 29.2689, 'eval_samples_per_second': 1.572, 'eval_steps_per_second': 1.572, 'epoch': 3.0}
+{'loss': 0.0438, 'grad_norm': 0.6013542413711548, 'learning_rate': 0.00013777868810714827, 'epoch': 3.03}
+{'loss': 0.0265, 'grad_norm': 1.0900551080703735, 'learning_rate': 0.00010825917763633962, 'epoch': 3.34}
+{'loss': 0.0232, 'grad_norm': 0.7026945948600769, 'learning_rate': 7.849616924052946e-05, 'epoch': 3.64}
+{'loss': 0.0284, 'grad_norm': 0.50159752368927, 'learning_rate': 5.090088485251974e-05, 'epoch': 3.95}
+{'eval_loss': 0.011320055462419987, 'eval_runtime': 30.2591, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 4.0}
+{'loss': 0.0111, 'grad_norm': 0.30104386806488037, 'learning_rate': 2.7708930297951612e-05, 'epoch': 4.25}
+{'loss': 0.0159, 'grad_norm': 1.0477391481399536, 'learning_rate': 1.0799179806971676e-05, 'epoch': 4.55}
+{'loss': 0.0125, 'grad_norm': 0.418981671333313, 'learning_rate': 1.5415607982006076e-06, 'epoch': 4.86}
+{'eval_loss': 0.007458065636456013, 'eval_runtime': 29.7428, 'eval_samples_per_second': 1.547, 'eval_steps_per_second': 1.547, 'epoch': 4.86}
+{'train_runtime': 2835.7992, 'train_samples_per_second': 0.46, 'train_steps_per_second': 0.056, 'train_loss': 0.33326732721179725, 'epoch': 4.86}
+Saving model to /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/new_inven/final_model...
+Model saved successfully!
+
+============================================================
+PHASE 3: TEST EVALUATION
+============================================================
+Starting evaluation on test.jsonl...
+Loaded 47 test samples
+Processing test image 1/47: inventarbuch-036.jpg
+  Processed successfully. CER: 0.049
+Processing test image 2/47: inventarbuch-100.jpg
+  Processed successfully. CER: 0.028
+Processing test image 3/47: inventarbuch-190.jpg
+  Processed successfully. CER: 0.036
+Processing test image 4/47: inventarbuch-153.jpg
+  Processed successfully. CER: 0.003
+Processing test image 5/47: inventarbuch-041.jpg
+  Processed successfully. CER: 0.045
+Processing test image 6/47: inventarbuch-198.jpg
+  Processed successfully. CER: 0.046
+Processing test image 7/47: inventarbuch-065.jpg
+  Processed successfully. CER: 0.046
+Processing test image 8/47: inventarbuch-242.jpg
+  Processed successfully. CER: 0.054
+Processing test image 9/47: inventarbuch-023.jpg
+  Processed successfully. CER: 0.151
+Processing test image 10/47: inventarbuch-137.jpg
+  Processed successfully. CER: 0.059
+Processing test image 11/47: inventarbuch-180.jpg
+  Processed successfully. CER: 0.044
+Processing test image 12/47: inventarbuch-188.jpg
+  Processed successfully. CER: 0.055
+Processing test image 13/47: inventarbuch-051.jpg
+  Processed successfully. CER: 0.038
+Processing test image 14/47: inventarbuch-199.jpg
+  Processed successfully. CER: 0.000
+Processing test image 15/47: inventarbuch-296.jpg
+  Processed successfully. CER: 0.072
+Processing test image 16/47: inventarbuch-302.jpg
+  Processed successfully. CER: 0.103
+Processing test image 17/47: inventarbuch-176.jpg
+  Processed successfully. CER: 0.003
+Processing test image 18/47: inventarbuch-112.jpg
+  Processed successfully. CER: 0.014
+Processing test image 19/47: inventarbuch-081.jpg
+  Processed successfully. CER: 0.035
+Processing test image 20/47: inventarbuch-290.jpg
+  Processed successfully. CER: 0.050
+Processing test image 21/47: inventarbuch-178.jpg
+  Processed successfully. CER: 0.019
+Processing test image 22/47: inventarbuch-299.jpg
+  Processed successfully. CER: 0.022
+Processing test image 23/47: inventarbuch-083.jpg
+  Processed successfully. CER: 0.068
+Processing test image 24/47: inventarbuch-004.jpg
+  Processed successfully. CER: 0.074
+Processing test image 25/47: inventarbuch-145.jpg
+  Processed successfully. CER: 0.042
+Processing test image 26/47: inventarbuch-236.jpg
+  Processed successfully. CER: 0.056
+Processing test image 27/47: inventarbuch-114.jpg
+  Processed successfully. CER: 0.055
+Processing test image 28/47: inventarbuch-220.jpg
+  Processed successfully. CER: 0.030
+Processing test image 29/47: inventarbuch-301.jpg
+  Processed successfully. CER: 0.014
+Processing test image 30/47: inventarbuch-103.jpg
+  Processed successfully. CER: 0.041
+Processing test image 31/47: inventarbuch-014.jpg
+  Processed successfully. CER: 0.134
+Processing test image 32/47: inventarbuch-265.jpg
+  Processed successfully. CER: 0.015
+Processing test image 33/47: inventarbuch-121.jpg
+  Processed successfully. CER: 0.040
+Processing test image 34/47: inventarbuch-113.jpg
+  Processed successfully. CER: 0.024
+Processing test image 35/47: inventarbuch-049.jpg
+  Processed successfully. CER: 0.000
+Processing test image 36/47: inventarbuch-016.jpg
+  Processed successfully. CER: 0.035
+Processing test image 37/47: inventarbuch-017.jpg
+  Processed successfully. CER: 0.000
+Processing test image 38/47: inventarbuch-223.jpg
+  Processed successfully. CER: 0.006
+Processing test image 39/47: inventarbuch-046.jpg
+  Processed successfully. CER: 0.053
+Processing test image 40/47: inventarbuch-286.jpg
+  Processed successfully. CER: 0.062
+Processing test image 41/47: inventarbuch-054.jpg
+  Processed successfully. CER: 0.047
+Processing test image 42/47: inventarbuch-073.jpg
+  Processed successfully. CER: 0.073
+Processing test image 43/47: inventarbuch-116.jpg
+  Processed successfully. CER: 0.018
+Processing test image 44/47: inventarbuch-127.jpg
+  Processed successfully. CER: 0.063
+Processing test image 45/47: inventarbuch-143.jpg
+  Processed successfully. CER: 0.004
+Processing test image 46/47: inventarbuch-013.jpg
+  Processed successfully. CER: 0.019
+Processing test image 47/47: inventarbuch-059.jpg
+  Processed successfully. CER: 0.027
+CER evaluation results saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/new_inven/cer_evaluation_results.txt
+
+✅ Final summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/new_inven/final_summary.txt
+
+🎉 Qwen HPO pipeline finished.
+
+=== JOB_STATISTICS ===
+=== current date     : Fri Feb 13 01:27:16 PM CET 2026
+= Job-ID             : 1527319 on tinygpu
+= Job-Name           : inven_new_hpo
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_qwen2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 22:03:30
+= Total RAM usage    : 20.7 GiB of requested  GiB (%)   
+= Node list          : tg073
+= Subm/Elig/Start/End: 2026-02-09T13:44:56 / 2026-02-09T13:44:56 / 2026-02-12T15:23:46 / 2026-02-13T13:27:16
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           408.1G  1000.0G  1500.0G        N/A   1,018K   5,000K   7,500K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:18:00.0, 18826, 40 %, 18 %, 14150 MiB, 79395554 ms

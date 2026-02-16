@@ -1,0 +1,295 @@
+### Starting TaskPrologue of job 1288275 on tg074 at Fri Oct 24 12:47:23 PM CEST 2025
+Running on cores 4-5,12-13,20-21,28-29 with governor ondemand
+Fri Oct 24 12:47:23 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:86:00.0 Off |                    0 |
+| N/A   40C    P0             27W /  250W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+============================================================
+GEMMA 3 FEW-SHOT SCHMUCK JEWELRY CATALOG OCR
+V100 / RTX 3080 / A100 Compatible
+============================================================
+
+Loading test data...
+✅ Loaded 89 test samples
+
+Loading few-shot examples...
+  ✅ Found few-shot example: SCH_3051.jpg
+  ✅ Found few-shot example: SCH_3149.jpg
+
+✅ Using 2 few-shot examples
+============================================================
+Loading Gemma 3 4B model from Unsloth (V100 Compatible)
+============================================================
+Detected GPU: Tesla V100-PCIE-32GB
+Compute Capability: 7.0
+✅ Using float16 (V100/Volta compatibility mode)
+Loading model with dtype=torch.float16...
+✅ Gemma 3 model loaded successfully!
+============================================================
+
+
+Creating few-shot messages with images...
+✅ Created few-shot conversation with 5 messages
+
+============================================================
+Processing 89 test images with Gemma 3...
+============================================================
+
+[1/89] Processing: SCH_2891_118.jpg
+  ✅ CER: 0.2790 (27.90%)
+[2/89] Processing: SCH_2891_225.jpg
+  ✅ CER: 0.3314 (33.14%)
+[3/89] Processing: SCH_3071.jpg
+  ✅ CER: 0.3850 (38.50%)
+[4/89] Processing: SCH_3213.jpg
+  ✅ CER: 0.2203 (22.03%)
+[5/89] Processing: SCH_3129.jpg
+  ✅ CER: 0.3175 (31.75%)
+[6/89] Processing: SCH_2984.jpg
+  ✅ CER: 0.2256 (22.56%)
+[7/89] Processing: SCH_2891_162.jpg
+  ✅ CER: 0.3072 (30.72%)
+[8/89] Processing: SCH_3043.jpg
+  ✅ CER: 0.3175 (31.75%)
+[9/89] Processing: SCH_3005.jpg
+  ✅ CER: 0.2484 (24.84%)
+[10/89] Processing: SCH_3192_41.jpg
+  ✅ CER: 0.4511 (45.11%)
+[11/89] Processing: SCH_2106.jpg
+  ✅ CER: 0.3664 (36.64%)
+[12/89] Processing: SCH_2891_143.jpg
+  ✅ CER: 0.3429 (34.29%)
+[13/89] Processing: SCH_2892.jpg
+  ✅ CER: 0.3733 (37.33%)
+[14/89] Processing: SCH_2891_211.jpg
+  ✅ CER: 0.3275 (32.75%)
+[15/89] Processing: SCH_3170.jpg
+  ✅ CER: 0.3175 (31.75%)
+[16/89] Processing: SCH_2891_73.jpg
+  ✅ CER: 0.2945 (29.45%)
+[17/89] Processing: SCH_2087.jpg
+  ✅ CER: 0.3521 (35.21%)
+[18/89] Processing: SCH_2891_222.jpg
+  ✅ CER: 0.3410 (34.10%)
+[19/89] Processing: SCH_2891_63.jpg
+  ✅ CER: 0.4177 (41.77%)
+[20/89] Processing: SCH_2891_145.jpg
+  ✅ CER: 0.3114 (31.14%)
+[21/89] Processing: SCH_2891_292.jpg
+  ✅ CER: 0.3275 (32.75%)
+[22/89] Processing: SCH_3030.jpg
+  ✅ CER: 0.2652 (26.52%)
+[23/89] Processing: SCH_3220.jpg
+  ✅ CER: 0.2857 (28.57%)
+[24/89] Processing: SCH_3179.jpg
+  ✅ CER: 0.3195 (31.95%)
+[25/89] Processing: SCH_3239.jpg
+  ✅ CER: 0.3255 (32.55%)
+[26/89] Processing: SCH_3192_6.jpg
+  ✅ CER: 0.3215 (32.15%)
+[27/89] Processing: SCH_2891_142.jpg
+  ✅ CER: 0.2675 (26.75%)
+[28/89] Processing: SCH_2891_53.jpg
+  ✅ CER: 0.3134 (31.34%)
+[29/89] Processing: SCH_2891_262_263.jpg
+  ✅ CER: 0.3681 (36.81%)
+[30/89] Processing: SCH_2891_282.jpg
+  ✅ CER: 0.4279 (42.79%)
+[31/89] Processing: SCH_3218.jpg
+  ✅ CER: 0.2508 (25.08%)
+[32/89] Processing: SCH_2891_275.jpg
+  ✅ CER: 0.3134 (31.34%)
+[33/89] Processing: SCH_3002.jpg
+  ✅ CER: 0.2698 (26.98%)
+[34/89] Processing: SCH_3137_a.jpg
+  ✅ CER: 0.4588 (45.88%)
+[35/89] Processing: SCH_3131.jpg
+  ✅ CER: 0.2557 (25.57%)
+[36/89] Processing: SCH_3192_36.jpg
+  ✅ CER: 0.3963 (39.63%)
+[37/89] Processing: SCH_3165.jpg
+  ✅ CER: 0.3195 (31.95%)
+[38/89] Processing: SCH_3192_14.jpg
+  ✅ CER: 0.3801 (38.01%)
+[39/89] Processing: SCH_2891_173.jpg
+  ✅ CER: 0.3629 (36.29%)
+[40/89] Processing: SCH_2891_72.jpg
+  ✅ CER: 0.3629 (36.29%)
+[41/89] Processing: SCH_2067_recto.jpg
+  ✅ CER: 0.4057 (40.57%)
+[42/89] Processing: SCH_3192_4.jpg
+  ✅ CER: 0.4335 (43.35%)
+[43/89] Processing: SCH_2891_29_30.jpg
+  ✅ CER: 0.3593 (35.93%)
+[44/89] Processing: SCH_2891_272.jpg
+  ✅ CER: 0.3294 (32.94%)
+[45/89] Processing: SCH_2891_177.jpg
+  ✅ CER: 0.3557 (35.57%)
+[46/89] Processing: SCH_3192_13.jpg
+  ✅ CER: 0.3963 (39.63%)
+[47/89] Processing: SCH_2891_291.jpg
+  ✅ CER: 0.3733 (37.33%)
+[48/89] Processing: SCH_3192_60.jpg
+  ✅ CER: 0.3593 (35.93%)
+[49/89] Processing: SCH_3124.jpg
+  ✅ CER: 0.4713 (47.13%)
+[50/89] Processing: SCH_3026.jpg
+  ✅ CER: 0.3030 (30.30%)
+[51/89] Processing: SCH_2065.jpg
+  ✅ CER: 0.4390 (43.90%)
+[52/89] Processing: SCH_2891_138.jpg
+  ✅ CER: 0.3009 (30.09%)
+[53/89] Processing: SCH_2891_245.jpg
+  ✅ CER: 0.3801 (38.01%)
+[54/89] Processing: SCH_2891_268.jpg
+  ✅ CER: 0.3134 (31.34%)
+[55/89] Processing: SCH_3192_32.jpg
+  ✅ CER: 0.4057 (40.57%)
+[56/89] Processing: SCH_2891_293.jpg
+  ✅ CER: 0.3333 (33.33%)
+[57/89] Processing: SCH_3192_27.jpg
+  ✅ CER: 0.3817 (38.17%)
+[58/89] Processing: SCH_3174.jpg
+  ✅ CER: 0.3995 (39.95%)
+[59/89] Processing: SCH_2891_235_236.jpg
+  ✅ CER: 0.3850 (38.50%)
+[60/89] Processing: SCH_2891_59.jpg
+  ✅ CER: 0.3484 (34.84%)
+[61/89] Processing: SCH_3211.jpg
+  ✅ CER: 0.2508 (25.08%)
+[62/89] Processing: SCH_3141.jpg
+  ✅ CER: 0.3466 (34.66%)
+[63/89] Processing: SCH_2891_241.jpg
+  ✅ CER: 0.3447 (34.47%)
+[64/89] Processing: SCH_3171.jpg
+  ✅ CER: 0.3410 (34.10%)
+[65/89] Processing: SCH_3215.jpg
+  ✅ CER: 0.3447 (34.47%)
+[66/89] Processing: SCH_1938.jpg
+  ✅ CER: 0.4250 (42.50%)
+[67/89] Processing: SCH_2891_153_154.jpg
+  ✅ CER: 0.3750 (37.50%)
+[68/89] Processing: SCH_2997.jpg
+  ✅ CER: 0.2901 (29.01%)
+[69/89] Processing: SCH_2891_64.jpg
+  ✅ CER: 0.4250 (42.50%)
+[70/89] Processing: SCH_2944.jpg
+  ✅ CER: 0.4614 (46.14%)
+[71/89] Processing: SCH_3173_ab.jpg
+  ✅ CER: 0.3175 (31.75%)
+[72/89] Processing: SCH_2891_41.jpg
+  ✅ CER: 0.3503 (35.03%)
+[73/89] Processing: SCH_2032.jpg
+  ✅ CER: 0.3784 (37.84%)
+[74/89] Processing: SCH_3078.jpg
+  ✅ CER: 0.3314 (33.14%)
+[75/89] Processing: SCH_2891_77_78.jpg
+  ✅ CER: 0.3611 (36.11%)
+[76/89] Processing: SCH_2891_62.jpg
+  ✅ CER: 0.2945 (29.45%)
+[77/89] Processing: SCH_3192_28.jpg
+  ✅ CER: 0.5106 (51.06%)
+[78/89] Processing: SCH_2043_recto.jpg
+  ✅ CER: 0.3629 (36.29%)
+[79/89] Processing: SCH_2045.jpg
+  ✅ CER: 0.3784 (37.84%)
+[80/89] Processing: SCH_2965.jpg
+  ✅ CER: 0.3093 (30.93%)
+[81/89] Processing: SCH_3192_22.jpg
+  ✅ CER: 0.3539 (35.39%)
+[82/89] Processing: SCH_3133_a.jpg
+  ✅ CER: 0.2790 (27.90%)
+[83/89] Processing: SCH_3192_37.jpg
+  ✅ CER: 0.4010 (40.10%)
+[84/89] Processing: SCH_3195_9.jpg
+  ✅ CER: 0.2203 (22.03%)
+[85/89] Processing: SCH_2891_67_recto.jpg
+  ✅ CER: 0.3867 (38.67%)
+[86/89] Processing: SCH_2891_99.jpg
+  ✅ CER: 0.3353 (33.53%)
+[87/89] Processing: SCH_2891_150.jpg
+  ✅ CER: 0.3883 (38.83%)
+[88/89] Processing: SCH_2025.jpg
+  ✅ CER: 0.3931 (39.31%)
+[89/89] Processing: SCH_3192_48.jpg
+  ✅ CER: 0.4148 (41.48%)
+
+============================================================
+Saving results to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/few_zero_schmuck/run_fewshot_20251024_161529
+============================================================
+✅ Predictions saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/few_zero_schmuck/run_fewshot_20251024_161529/predictions_fewshot.jsonl
+
+============================================================
+GEMMA 3 FEW-SHOT CER EVALUATION RESULTS
+SCHMUCK JEWELRY CATALOG DATASET
+============================================================
+
+CER Statistics across 89 images:
+--------------------------------------------------
+Average CER:     0.3479 (34.79%)
+Minimum CER:     0.2203 (22.03%)
+Maximum CER:     0.5106 (51.06%)
+
+Weighted CER:    0.3531 (35.31%)
+Total characters: 31651
+Total errors:     11176
+
+Perfect matches:  0/89 (0.0%)
+✅ Summary saved to: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/few_zero_schmuck/run_fewshot_20251024_161529/evaluation_summary_fewshot.json
+
+============================================================
+GEMMA 3 FEW-SHOT PROCESSING COMPLETE!
+============================================================
+Model:   Gemma 3 4B (Unsloth)
+Dataset: Schmuck Jewelry Catalog
+Method:  Few-Shot Learning (2 examples)
+GPU:     Tesla V100-PCIE-32GB
+Dtype:   torch.float16
+
+Results: /home/vault/iwi5/iwi5298h/models_image_text/gemma/schmuck/few_zero_schmuck/run_fewshot_20251024_161529
+Images:  89 processed
+Avg CER: 0.3479 (34.79%)
+============================================================
+
+Gemma-3 training completed at: Fri Oct 24 04:15:43 PM CEST 2025
+=== JOB_STATISTICS ===
+=== current date     : Fri Oct 24 04:15:43 PM CEST 2025
+= Job-ID             : 1288275 on tinygpu
+= Job-Name           : few_shot_schmuck
+= Job-Command        : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles/job_gemma2.sh
+= Initial workdir    : /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/jobfiles
+= Queue/Partition    : v100
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 05:00:00
+= Elapsed runtime    : 03:28:22
+= Total RAM usage    : 6.4 GiB of requested  GiB (%)   
+= Node list          : tg074
+= Subm/Elig/Start/End: 2025-10-24T12:47:43 / 2025-10-24T12:47:43 / 2025-10-24T12:47:44 / 2025-10-24T16:16:06
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody           183.8G  1000.0G  1500.0G        N/A     833K   5,000K   7,500K        N/A    
+    /home/hpc             101.6G   104.9G   209.7G        N/A  29,792      500K   1,000K        N/A    
+    /home/vault           847.3G  1048.6G  2097.2G        N/A   4,497      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+Tesla V100-PCIE-32GB, 00000000:86:00.0, 3112324, 28 %, 6 %, 6626 MiB, 12466514 ms

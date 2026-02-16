@@ -1,0 +1,4 @@
+  File "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/qwen/finetune/staircase.py", line 242
+    augmented_item["image_path"] = augmented_path"
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 242)

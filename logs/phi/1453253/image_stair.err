@@ -1,0 +1,6 @@
+/home/woody/iwi5/iwi5298h/software/private/conda/envs/phi_ocr/lib/python3.10/site-packages/transformers/models/auto/image_processing_auto.py:520: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:49<00:49, 49.15s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:19<00:00, 38.01s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:19<00:00, 39.68s/it]
+You are not running the flash-attention implementation, expect numerical differences.
+/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/Images/phi.py:339: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+  cmap_fn = cm.get_cmap(cmap)
