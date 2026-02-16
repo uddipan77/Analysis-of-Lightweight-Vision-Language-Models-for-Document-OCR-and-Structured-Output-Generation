@@ -96,23 +96,27 @@ Example ground-truth (Inventory dataset):
 Each model is evaluated through a progressive pipeline of experiments:
 
 ```
-Zero-Shot ──► Few-Shot ──► Fine-Tuning ──► HPO (Optuna) ──► Fine-Tuning w/ Best HPs
-                                                │
-                                                ├──► Image Preprocessing Study
-                                                ├──► Multi-Stage Training
-                                                └──► Multi-Dataset Training
+Zero-Shot ──► Few-Shot ──► Fine-Tuning (base hyperparams)
+                                │
+                                ├──► HPO (Optuna) ──► Fine-Tuning w/ Best HPs
+                                │
+                                ├──► Image Preprocessing Study   (uses base hyperparams)
+                                ├──► Multi-Stage Training        (uses base hyperparams)
+                                └──► Multi-Dataset Training      (uses base hyperparams)
 ```
+
+All secondary studies (HPO, Image Preprocessing, Multi-Stage, and Multi-Dataset) are conducted **on top of the base fine-tuning code** using the initial (non-optimized) hyperparameters. Only the "Fine-Tuning w/ Best HPs" branch uses the optimized hyperparameters discovered by Optuna.
 
 | Experiment | Description |
 |---|---|
 | **Zero-Shot** | Inference with no training; the model is prompted with the JSON schema and asked to extract fields from a document image. |
 | **Few-Shot** | One or more labelled examples are included in the prompt as demonstrations before asking the model to process a new image. |
-| **Fine-Tuning** | The model is fine-tuned on the training split using QLoRA (4-bit) or full-parameter training, with CER-based best-model selection on the validation set. |
-| **HPO (Optuna)** | Hyperparameter optimization using Optuna with an SQLite backend. Tunes learning rate, LoRA rank/alpha/dropout, weight decay, gradient accumulation, and epochs. |
-| **Fine-Tuning with Best HPs** | Re-runs fine-tuning using the best hyperparameters found by Optuna. |
-| **Image Preprocessing** | Applies four image preprocessing steps (brightness, contrast, sharpness, rotation) during training to determine whether augmentation benefits VLMs. |
-| **Multi-Stage Training** | Two-stage training: Stage 1 (warm-up) uses teacher forcing only with higher LR; Stage 2 uses evaluation-based best-model selection with generation CER. |
-| **Multi-Dataset Training** | A single model and LoRA adapter is trained on the combined training data of all three datasets, then evaluated per-dataset. |
+| **Fine-Tuning** | The model is fine-tuned on the training split using QLoRA (4-bit) or full-parameter training, with CER-based best-model selection on the validation set. All subsequent experiments branch from this baseline. |
+| **HPO (Optuna)** | A secondary study on top of base fine-tuning. Uses Optuna with an SQLite backend to tune learning rate, LoRA rank/alpha/dropout, weight decay, gradient accumulation, and epochs. The best hyperparameters are then used to re-run the same fine-tuning code. |
+| **Fine-Tuning with Best HPs** | Re-runs the base fine-tuning code using the optimized hyperparameters found by Optuna. This is the **only** experiment that uses non-default hyperparameters. |
+| **Image Preprocessing** | A secondary study on top of base fine-tuning (using base hyperparams). Applies four image preprocessing steps (brightness, contrast, sharpness, rotation) during training to determine whether augmentation benefits VLMs. |
+| **Multi-Stage Training** | A secondary study on top of base fine-tuning (using base hyperparams). Two-stage training: Stage 1 (warm-up) uses teacher forcing only with higher LR; Stage 2 uses evaluation-based best-model selection with generation CER. |
+| **Multi-Dataset Training** | A secondary study on top of base fine-tuning (using base hyperparams). A single model and LoRA adapter is trained on the combined training data of all three datasets, then evaluated per-dataset. |
 
 ---
 
@@ -131,7 +135,8 @@ Uddipan-Thesis/
 │   │   ├── inven_new_base.py           <- Inventory dataset fine-tuning
 │   │   ├── inven_new_cord.py           <- Inventory dataset (CORD-style)
 │   │   ├── schmuck_base.py             <- Schmuck dataset fine-tuning
-│   │   └── schmuck_cord.py             <- Schmuck dataset (CORD-style)
+│   │   ├── schmuck_cord.py             <- Schmuck dataset (CORD-style)
+│   │   └── stair_base_cord.py          <- Staircase dataset (CORD-style)
 │   └── zero_shot/                      <- Zero-shot inference scripts
 │       ├── zero_inven_new.py           <- Inventory zero-shot
 │       ├── zero_inven_cord.py          <- Inventory (CORD) zero-shot
@@ -547,6 +552,25 @@ Each `.sh` file specifies:
 - [Google GenAI](https://ai.google.dev/) — Gemini API for label generation
 - [Groq](https://groq.com/) — Llama-4-Maverick API for label generation
 - [FAU HPC](https://hpc.fau.de/) — High-performance computing cluster at FAU Erlangen-Nürnberg
+
+---
+
+## 👤 Author
+
+**Uddipan Basu Bir**
+
+- Email: [uddipan.bir.basu@fau.de](mailto:uddipan.bir.basu@fau.de) · [uddipanbb95@gmail.com](mailto:uddipanbb95@gmail.com)
+- GitHub: [@uddipan77](https://github.com/uddipan77)
+
+---
+
+## ⚠️ Model Weights & Fine-tuned Checkpoints
+
+This repository contains **only the source code, scripts, and configuration files**. The fine-tuned model weights, LoRA adapters, and trained checkpoints are **not included** due to their large size.
+
+If you need access to the fine-tuned weights or trained model checkpoints, please contact:
+
+> **Uddipan Basu Bir** — [uddipan.bir.basu@fau.de](mailto:uddipan.bir.basu@fau.de) / [uddipanbb95@gmail.com](mailto:uddipanbb95@gmail.com)
 
 ---
 
