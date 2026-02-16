@@ -112,8 +112,8 @@ All secondary studies (HPO, Image Preprocessing, Multi-Stage, and Multi-Dataset)
 | **Zero-Shot** | Inference with no training; the model is prompted with the JSON schema and asked to extract fields from a document image. |
 | **Few-Shot** | One or more labelled examples are included in the prompt as demonstrations before asking the model to process a new image. |
 | **Fine-Tuning** | The model is fine-tuned on the training split using QLoRA (4-bit) or full-parameter training, with CER-based best-model selection on the validation set. All subsequent experiments branch from this baseline. |
-| **HPO (Optuna)** | A secondary study on top of base fine-tuning. Uses Optuna with an SQLite backend to tune learning rate, LoRA rank/alpha/dropout, weight decay, gradient accumulation, and epochs. The best hyperparameters are then used to re-run the same fine-tuning code. |
-| **Fine-Tuning with Best HPs** | Re-runs the base fine-tuning code using the optimized hyperparameters found by Optuna. This is the **only** experiment that uses non-default hyperparameters. |
+| **HPO (Optuna)** | A secondary study on top of base fine-tuning. Uses Optuna with an SQLite backend to tune learning rate, LoRA rank/alpha/dropout, weight decay, gradient accumulation, and epochs. The scripts in the `hpo/` folder **only search for the best hyperparameters** — they do not produce a final trained model. The discovered parameters are exported to a JSON file. |
+| **Fine-Tuning with Best HPs** | Re-runs the base fine-tuning code using the optimized hyperparameters found by Optuna. The `*_finetune_hpo.py` files in the `finetune/` folder are identical to the base fine-tuning scripts but with the Optuna-discovered hyperparameters plugged in. This is the **only** experiment that uses non-default hyperparameters. |
 | **Image Preprocessing** | A secondary study on top of base fine-tuning (using base hyperparams). Applies four image preprocessing steps (brightness, contrast, sharpness, rotation) during training to determine whether augmentation benefits VLMs. |
 | **Multi-Stage Training** | A secondary study on top of base fine-tuning (using base hyperparams). Two-stage training: Stage 1 (warm-up) uses teacher forcing only with higher LR; Stage 2 uses evaluation-based best-model selection with generation CER. |
 | **Multi-Dataset Training** | A secondary study on top of base fine-tuning (using base hyperparams). A single model and LoRA adapter is trained on the combined training data of all three datasets, then evaluated per-dataset. |
@@ -174,7 +174,7 @@ Uddipan-Thesis/
 │   │   ├── schmuck_finetune_hpo.py     <- Schmuck (Optuna-optimized HPs)
 │   │   ├── stair_finetune.py           <- Staircase (base hyperparams)
 │   │   └── stair_finetune_hpo.py       <- Staircase (Optuna-optimized HPs)
-│   ├── hpo/                            <- Optuna hyperparameter optimization
+│   ├── hpo/                            <- Optuna HPO (outputs best HPs only, no final model)
 │   │   ├── inventory_hpo.py            <- HPO for inventory dataset
 │   │   ├── schmuck_hpo.py              <- HPO for schmuck dataset
 │   │   └── stair_hpo.py                <- HPO for staircase dataset
@@ -216,7 +216,7 @@ Uddipan-Thesis/
 │   │   ├── schmuck_finetune_hpo.py     <- Schmuck (Optuna-optimized HPs)
 │   │   ├── stair_finetune.py           <- Staircase (base hyperparams)
 │   │   └── stair_finetune_hpo.py       <- Staircase (Optuna-optimized HPs)
-│   ├── hpo/                            <- Optuna hyperparameter optimization
+│   ├── hpo/                            <- Optuna HPO (outputs best HPs only, no final model)
 │   │   ├── inventory_hpo.py            <- HPO for inventory dataset
 │   │   ├── schmuck_hpo.py              <- HPO for schmuck dataset
 │   │   └── stair_with_hpo.py           <- HPO for staircase dataset
@@ -245,7 +245,7 @@ Uddipan-Thesis/
 │   │   ├── schmuck_finetune_hpo.py     <- Schmuck (Optuna-optimized HPs)
 │   │   ├── staircase_finetune.py       <- Staircase (base hyperparams)
 │   │   └── stair_finetune_hpo.py       <- Staircase (Optuna-optimized HPs)
-│   ├── hpo/                            <- Optuna hyperparameter optimization
+│   ├── hpo/                            <- Optuna HPO (outputs best HPs only, no final model)
 │   │   ├── inventory_hpo.py            <- HPO for inventory dataset
 │   │   ├── schmuck_hpo.py              <- HPO for schmuck dataset
 │   │   └── stair_hpo.py                <- HPO for staircase dataset
@@ -433,7 +433,7 @@ Best hyperparameters are exported to a JSON file in the run output directory.
 python gemma3/image_preprocess/inventory_preprocess.py
 ```
 
-Applies four preprocessing augmentations during training:
+Applies four preprocessing during training to check if VLM benefits:
 - Illumination flattening (grayscale)
 - Gentle denoising
 - CLAHE on luminance
