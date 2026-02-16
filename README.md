@@ -319,7 +319,7 @@ Uddipan-Thesis/
 ### Prerequisites
 
 - Python 3.11+
-- CUDA-enabled GPU (NVIDIA A100 / A40 recommended)
+- CUDA-enabled GPU (NVIDIA A100 / V100 recommended)
 - Conda (Miniconda or Anaconda)
 
 ### Environment Installation
@@ -421,9 +421,9 @@ python gemma3/hpo/inventory_hpo.py
 
 The HPO script uses Optuna with an SQLite backend (`vlmmodels.db`) to tune:
 - Learning rate, weight decay, max gradient norm
-- LoRA rank (`r`), alpha, dropout, RSLoRA toggle
-- Gradient accumulation steps, number of epochs
-- Warmup ratio, LR scheduler type
+- LoRA rank (`r`), alpha
+- Gradient accumulation steps
+- Warmup ratio
 
 Best hyperparameters are exported to a JSON file in the run output directory.
 
@@ -434,10 +434,10 @@ python gemma3/image_preprocess/inventory_preprocess.py
 ```
 
 Applies four preprocessing augmentations during training:
-- Random brightness adjustment (±15%)
-- Random contrast adjustment (±15%)
-- Random sharpness adjustment (±10%)
-- Small random rotation (±2°)
+- Illumination flattening (grayscale)
+- Gentle denoising
+- CLAHE on luminance
+- Letterbox resize to 1024×1024
 
 ### Multi-Stage Training
 
