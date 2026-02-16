@@ -133,10 +133,10 @@ Uddipan-Thesis/
 ├── DONUT/                              <- Donut (naver-clova-ix/donut-base)
 │   ├── finetune/                       <- Full fine-tuning scripts
 │   │   ├── inven_new_base.py           <- Inventory dataset fine-tuning
-│   │   ├── inven_new_cord.py           <- Inventory dataset (CORD-style)
+│   │   ├── inven_new_cord.py           <- Inventory dataset finetune (using donut cord)
 │   │   ├── schmuck_base.py             <- Schmuck dataset fine-tuning
-│   │   ├── schmuck_cord.py             <- Schmuck dataset (CORD-style)
-│   │   └── stair_base_cord.py          <- Staircase dataset (CORD-style)
+│   │   ├── schmuck_cord.py             <- Schmuck dataset finetune(using donut cord)
+│   │   └── stair_base_cord.py          <- Staircase dataset (donut Base +  donut cord)
 │   └── zero_shot/                      <- Zero-shot inference scripts
 │       ├── zero_inven_new.py           <- Inventory zero-shot
 │       ├── zero_inven_cord.py          <- Inventory (CORD) zero-shot
