@@ -31,6 +31,7 @@
 - [Interactive UI](#-interactive-ui)
 - [HPC Job Scheduling](#-hpc-job-scheduling)
 - [Built With](#-built-with)
+ - [Non-VLM Baselines](#-non-vlm-baselines)
 
 ---
 
@@ -266,6 +267,13 @@ Uddipan-Thesis/
 │       ├── fewshots_schmuck.py         <- Schmuck few-shot
 │       └── staircase_few_shot.py       <- Staircase few-shot
 │
+├── non_vlm/                           <- Non-VLM OCR baselines
+│   ├── easyocr/                       <- EasyOCR pipelines for Inventory & Schmuck
+│   ├── paddleocr/                     <- PaddleOCR pipelines for Inventory & Schmuck
+│   ├── tesseract/                     <- Tesseract pipelines for Inventory & Schmuck
+│   ├── non_vlm_anls_results.json      <- ANLS* scores for non-VLM baselines
+│   └── non_vlm_map_f1_results.json    <- mAP-F1 scores for non-VLM baselines
+│
 ├── map_f1_and_anls/                    <- Evaluation metric scripts
 │   ├── anls_all.py                     <- ANLS* metric computation (anls_star library)
 │   └── map_f1_all.py                   <- mAP-style Precision/Recall/F1 via per-field CER
@@ -384,6 +392,20 @@ Ground-truth labels were generated semi-automatically using two LLM-based pipeli
 | `inventory.py` | **Gemini-3-Flash** (Google GenAI API) | Direct image-to-JSON extraction with structured prompt |
 
 All labels were manually reviewed and corrected after automatic generation.
+
+---
+
+## 🧪 Non-VLM Baselines
+
+In addition to the eight Vision Language Models, we also evaluated **three classic OCR systems** as non-VLM baselines:
+
+- **EasyOCR**
+- **PaddleOCR** (text-only OCR, distinct from PaddleOCR-VL)
+- **Tesseract**
+
+Each of these was run on the **Inventory** and **Schmuck** datasets using custom post-processing code in the non_vlm/easyocr, non_vlm/paddleocr, and non_vlm/tesseract folders, with their **ANLS*** and **mAP-F1** scores stored in JSON files under non_vlm/.
+
+Across all settings, the **VLM-based approaches consistently outperform these non-VLM baselines**, especially on fields requiring structured JSON reasoning (nested objects, combined handwritten/printed information, and long descriptive text).
 
 ---
 
