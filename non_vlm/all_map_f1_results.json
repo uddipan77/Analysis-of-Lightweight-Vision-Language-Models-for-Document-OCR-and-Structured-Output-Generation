@@ -1,0 +1,167 @@
+{
+  "description": "mAP-style F1 metrics for OCR models on Inventory and Schmuck datasets",
+  "overlap_thresholds": [
+    0.8,
+    0.7,
+    0.5,
+    0.3
+  ],
+  "results": {
+    "tesseract_inventory": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\new_inventory_tesseract\\run_20260205_231406\\predictions.jsonl",
+      "num_samples": 47,
+      "map_metrics": {
+        "0.8": {
+          "mAP_precision": 0.08439716312056737,
+          "mAP_recall": 0.0960960960960961,
+          "mAP_f1": 0.08986748793467615
+        },
+        "0.7": {
+          "mAP_precision": 0.09787234042553192,
+          "mAP_recall": 0.1021021021021021,
+          "mAP_f1": 0.09994248833791296
+        },
+        "0.5": {
+          "mAP_precision": 0.2234830575256107,
+          "mAP_recall": 0.16387816387816387,
+          "mAP_f1": 0.18909478337791236
+        },
+        "0.3": {
+          "mAP_precision": 0.3179834645260177,
+          "mAP_recall": 0.23575718575718577,
+          "mAP_f1": 0.2707653363560468
+        }
+      }
+    },
+    "easyocr_inventory": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\new_inventory_easyocr\\predictions_easyocr_inventory.jsonl",
+      "num_samples": 47,
+      "map_metrics": {
+        "0.8": {
+          "mAP_precision": 0.061111111111111116,
+          "mAP_recall": 0.06606606606606606,
+          "mAP_f1": 0.06349206349206349
+        },
+        "0.7": {
+          "mAP_precision": 0.11798941798941799,
+          "mAP_recall": 0.07807807807807807,
+          "mAP_f1": 0.09397158810038979
+        },
+        "0.5": {
+          "mAP_precision": 0.12724867724867725,
+          "mAP_recall": 0.08108108108108109,
+          "mAP_f1": 0.09904931873562825
+        },
+        "0.3": {
+          "mAP_precision": 0.15211640211640212,
+          "mAP_recall": 0.09213759213759214,
+          "mAP_f1": 0.11476282349810392
+        }
+      }
+    },
+    "paddleocr_inventory": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\new_inventory_paddleocr\\predictions_paddleocr_inventory.jsonl",
+      "num_samples": 47,
+      "map_metrics": {
+        "0.8": {
+          "mAP_precision": 0.23749559082892416,
+          "mAP_recall": 0.20042900042900044,
+          "mAP_f1": 0.2173936098879662
+        },
+        "0.7": {
+          "mAP_precision": 0.3035551485551486,
+          "mAP_recall": 0.24803634803634805,
+          "mAP_f1": 0.27300170847634087
+        },
+        "0.5": {
+          "mAP_precision": 0.3656897109821087,
+          "mAP_recall": 0.30441090441090446,
+          "mAP_f1": 0.33224842089881373
+        },
+        "0.3": {
+          "mAP_precision": 0.4474198554315514,
+          "mAP_recall": 0.37692952692952697,
+          "mAP_f1": 0.4091608680864455
+        }
+      }
+    },
+    "tesseract_schmuck": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\output_tesseract_schmuck_json_vs_json\\run_20260127_232823\\predictions.jsonl",
+      "num_samples": 89,
+      "map_metrics": {
+        "0.8": {
+          "mAP_precision": 0.16914229470382827,
+          "mAP_recall": 0.18241097364871875,
+          "mAP_f1": 0.1755262342272592
+        },
+        "0.7": {
+          "mAP_precision": 0.18961343130501127,
+          "mAP_recall": 0.20554289687255373,
+          "mAP_f1": 0.19725709131938288
+        },
+        "0.5": {
+          "mAP_precision": 0.23117503308185997,
+          "mAP_recall": 0.250362533481406,
+          "mAP_f1": 0.24038650763260094
+        },
+        "0.3": {
+          "mAP_precision": 0.2562049294591343,
+          "mAP_recall": 0.2762540053900348,
+          "mAP_f1": 0.26585200597227854
+        }
+      }
+    },
+    "easyocr_schmuck": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\output_easyocr_schmuck_json_eval\\predictions_easyocr.jsonl",
+      "num_samples": 89,
+      "map_metrics": {
+        "0.8": {
+          "mAP_precision": 0.5250434304790617,
+          "mAP_recall": 0.5430896816315709,
+          "mAP_f1": 0.5339141091472638
+        },
+        "0.7": {
+          "mAP_precision": 0.5840860791205291,
+          "mAP_recall": 0.6020601116064209,
+          "mAP_f1": 0.5929369123843745
+        },
+        "0.5": {
+          "mAP_precision": 0.7089452500395704,
+          "mAP_recall": 0.7278281000581551,
+          "mAP_f1": 0.7182625907509462
+        },
+        "0.3": {
+          "mAP_precision": 0.8123252129803682,
+          "mAP_recall": 0.8314709617605248,
+          "mAP_f1": 0.8217865894542251
+        }
+      }
+    },
+    "paddleocr_schmuck": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\output_paddleocr_test_schmuck_json\\predictions_paddleocr.jsonl",
+      "num_samples": 89,
+      "map_metrics": {
+        "0.8": {
+          "mAP_precision": 0.2283524242331365,
+          "mAP_recall": 0.20985399631232965,
+          "mAP_f1": 0.21871276433276335
+        },
+        "0.7": {
+          "mAP_precision": 0.2337178215476864,
+          "mAP_recall": 0.2143608706108706,
+          "mAP_f1": 0.2236212369880324
+        },
+        "0.5": {
+          "mAP_precision": 0.23640052020496133,
+          "mAP_recall": 0.2166143077601411,
+          "mAP_f1": 0.22607531531961106
+        },
+        "0.3": {
+          "mAP_precision": 0.2895665838118933,
+          "mAP_recall": 0.2224671276930172,
+          "mAP_f1": 0.2516203317440885
+        }
+      }
+    }
+  }
+}

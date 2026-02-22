@@ -1,0 +1,132 @@
+{
+  "description": "ANLS* metrics using official library (Peer et al., arXiv:2402.03848)",
+  "library": "anls_star",
+  "results": {
+    "tesseract_inventory": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\new_inventory_tesseract\\run_20260205_231406\\predictions.jsonl",
+      "num_samples": 47,
+      "overall_anls_star": 0.28862395531126483,
+      "overall_anls_star_macro": 0.28493886474467733,
+      "per_field_anls": {
+        "Überschrift": 0.6614453850354258,
+        "Inventarnummer": 0.10638297872340426,
+        "Maße": 0.2517730496453901,
+        "Maße.L": 0.30851063829787234,
+        "Maße.B": 0.2127659574468085,
+        "Maße.D": 0.23404255319148937,
+        "Objektbezeichnung": 0.0,
+        "Fundort": 0.2553191489361702,
+        "Fundzeit": 0.7553191489361702,
+        "Beschreibungstext": 0.06382978723404255
+      }
+    },
+    "easyocr_inventory": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\new_inventory_easyocr\\predictions_easyocr_inventory.jsonl",
+      "num_samples": 47,
+      "overall_anls_star": 0.2791554330587827,
+      "overall_anls_star_macro": 0.27570797485928744,
+      "per_field_anls": {
+        "Überschrift": 0.4379308124226618,
+        "Inventarnummer": 0.06382978723404255,
+        "Maße": 0.24468085106382978,
+        "Maße.L": 0.2127659574468085,
+        "Maße.B": 0.26063829787234044,
+        "Maße.D": 0.26063829787234044,
+        "Objektbezeichnung": 0.1702127659574468,
+        "Fundort": 0.2553191489361702,
+        "Fundzeit": 0.7872340425531915,
+        "Beschreibungstext": 0.06382978723404255
+      }
+    },
+    "paddleocr_inventory": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\new_inventory_paddleocr\\predictions_paddleocr_inventory.jsonl",
+      "num_samples": 47,
+      "overall_anls_star": 0.41584662886657475,
+      "overall_anls_star_macro": 0.4281744955307447,
+      "per_field_anls": {
+        "Überschrift": 0.458439202935433,
+        "Inventarnummer": 0.23860182370820668,
+        "Maße": 0.5391252955082743,
+        "Maße.L": 0.5180851063829788,
+        "Maße.B": 0.5301418439716312,
+        "Maße.D": 0.5691489361702128,
+        "Objektbezeichnung": 0.14893617021276595,
+        "Fundort": 0.4514312267102165,
+        "Fundzeit": 0.5638297872340425,
+        "Beschreibungstext": 0.26400556247368545
+      }
+    },
+    "tesseract_schmuck": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\output_tesseract_schmuck_json_vs_json\\run_20260127_232823\\predictions.jsonl",
+      "num_samples": 89,
+      "overall_anls_star": 0.40732378542745257,
+      "overall_anls_star_macro": 0.40732378542745257,
+      "per_field_anls": {
+        "Gegenstand": 0.9286396322243567,
+        "Inv.Nr": 0.0,
+        "Herkunft": 0.23595505617977527,
+        "Foto Notes": 0.0,
+        "Standort": 0.24267433565186378,
+        "Material": 0.35997910833565944,
+        "Datierung": 0.651685393258427,
+        "Maße": 0.5151184687203767,
+        "Gewicht": 0.3815210694424177,
+        "erworben von": 0.673517615385915,
+        "am": 0.0449438202247191,
+        "Preis": 0.033707865168539325,
+        "Vers.-Wert": 0.5056179775280899,
+        "Beschreibung": 0.0,
+        "Literatur": 0.9550561797752809,
+        "Ausstellungen": 0.9887640449438202
+      }
+    },
+    "easyocr_schmuck": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\output_easyocr_schmuck_json_eval\\predictions_easyocr.jsonl",
+      "num_samples": 89,
+      "overall_anls_star": 0.779991799526436,
+      "overall_anls_star_macro": 0.779991799526436,
+      "per_field_anls": {
+        "Gegenstand": 0.9812801763363562,
+        "Inv.Nr": 0.8153104716389582,
+        "Herkunft": 0.9620785691506115,
+        "Foto Notes": 0.1548221436682086,
+        "Standort": 0.6617977528089888,
+        "Material": 0.670540059781841,
+        "Datierung": 0.6,
+        "Maße": 0.8569662028437169,
+        "Gewicht": 0.7710458393042664,
+        "erworben von": 0.8824807293935002,
+        "am": 0.9875156054931336,
+        "Preis": 0.24157303370786518,
+        "Vers.-Wert": 0.9298555377207062,
+        "Beschreibung": 0.9887640449438202,
+        "Literatur": 0.9763067904250122,
+        "Ausstellungen": 0.9995318352059924
+      }
+    },
+    "paddleocr_schmuck": {
+      "jsonl_path": "C:\\FAU\\sem6\\Thesis\\schmuck-benchmark\\dataset\\output_paddleocr_test_schmuck_json\\predictions_paddleocr.jsonl",
+      "num_samples": 89,
+      "overall_anls_star": 0.42047133316675267,
+      "overall_anls_star_macro": 0.42047133316675267,
+      "per_field_anls": {
+        "Gegenstand": 0.5991300817587039,
+        "Inv.Nr": 0.0,
+        "Herkunft": 0.24719101123595505,
+        "Foto Notes": 0.0,
+        "Standort": 0.8769395398608882,
+        "Material": 0.029861115414887486,
+        "Datierung": 0.651685393258427,
+        "Maße": 0.0449438202247191,
+        "Gewicht": 0.9624398073836277,
+        "erworben von": 0.045687640182519605,
+        "am": 0.0449438202247191,
+        "Preis": 0.7640449438202247,
+        "Vers.-Wert": 0.5056179775280899,
+        "Beschreibung": 0.0,
+        "Literatur": 0.9550561797752809,
+        "Ausstellungen": 1.0
+      }
+    }
+  }
+}
