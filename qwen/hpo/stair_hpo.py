@@ -1,22 +1,18 @@
 #!/usr/bin/env python3
-# staircase_qwen_hpo_enhanced.py
+# staircase_qwen_hpo_better_fullval_aug.py
 #
-# ENHANCED Hyperparameter optimization for Qwen2.5-VL-7B Staircase OCR with Unsloth.
+# ✅ Better Optuna HPO for Qwen2.5-VL-7B on Staircase, aligned to your real pipeline:
+#   - Train 5 epochs per trial (fast)
+#   - Augmentation ENABLED during HPO (same spirit as your finetune script)
+#   - Evaluate on the ENTIRE validation set (no random subset)
+#   - Autoregressive generation CER (greedy, deterministic)
+#   - max_new_tokens increased to 1024 (match your main scripts)
+#   - Deterministic seeds fixed per trial
+#   - No checkpoints / no TB during trials
 #
-# Key enhancements:
-#   - Added more hyperparameters: LoRA rank, LoRA alpha, LoRA dropout, warmup ratio, max_seq_length
-#   - Study name: "qwen_stair_enhanced_v2"
-#   - Expanded search spaces for better optimization
-#   - Fixed num_epochs = 5 for all trials (for speed)
-#   - Single CER evaluation per trial on validation subset
-#   - NO data augmentation during HPO
-#   - NO checkpoints, NO TensorBoard logging during trials
-#
-# FIXES (to avoid the crash you saw):
-#   1) Removed max_seq_length=512 from the search space (it can truncate image tokens and cause
-#      "Image features and image tokens do not match")
-#   2) Prune trials that hit the image-token mismatch instead of crashing the entire study
-#   3) Prune CUDA OOM trials (sometimes thrown as torch.cuda.OutOfMemoryError, sometimes as RuntimeError)
+# Note:
+# - This will be slower than your old HPO because it uses full val + augmentation.
+# - If it becomes too slow, reduce augmentation factor (0 or 1) or reduce #trials.
 
 import os
 
@@ -31,11 +27,17 @@ import re
 import glob
 import random
 import tempfile
-from typing import List, Dict, Any
+import gc
+from typing import List, Dict, Any, Optional
 
+import numpy as np
 import torch
 import jiwer
 from PIL import Image
+import torchvision.transforms as transforms
+
+import optuna
+from optuna.trial import TrialState
 
 from unsloth import FastVisionModel
 from trl import SFTTrainer, SFTConfig
@@ -43,12 +45,9 @@ from unsloth.trainer import UnslothVisionDataCollator
 
 from qwen_vl_utils import process_vision_info
 
-import optuna
-from optuna.trial import TrialState
-
 
 # ======================================================================
-# Global HPO config
+# CONFIG
 # ======================================================================
 
 CONFIG = {
@@ -57,29 +56,34 @@ CONFIG = {
     "val_jsonl_path": "/home/woody/iwi5/iwi5298h/json_staircase/val.jsonl",
     "images_dir": "/home/woody/iwi5/iwi5298h/staircase_images",
 
-    # Fixed training setup for HPO
-    "num_epochs": 5,          # fixed across trials for speed
+    # HPO behavior
+    "num_epochs": 5,
     "batch_size": 1,
 
-    # CER eval settings (post-training, once per trial)
-    "cer_max_val_samples": 10,    # controls how many val images you use
-    "cer_max_new_tokens": 512,
+    # Full-val autoreg evaluation
+    "eval_max_new_tokens": 1024,   # ✅ match your main scripts
+    "eval_use_cache": True,
+
+    # Augmentation inside HPO
+    "use_augmentation": True,
+    "augment_factor": 1,           # 0 disables; 1 matches your training
 
     # Optuna
-    "optuna_n_trials": 30,  # total COMPLETE trials target
+    "optuna_n_trials": 30,
     "optuna_db_path": "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db",
-    "optuna_study_name": "qwen_stair_enhanced_v2",
+    "optuna_study_name": "qwen_stair_fullval_aug_v1",   # ✅ NEW STUDY NAME
 
-    # Where to store HPO outputs (best hyperparams etc.)
-    "hpo_output_dir": "/home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced",
+    # Output
+    "hpo_output_dir": "/home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_fullval_aug_v1",
+    "trial_output_root": "/home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_fullval_aug_v1/trials",
 
-    # Base directory for per-trial logs (no checkpoints)
-    "trial_output_root": "/home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/stair_enhanced/trials",
+    # Determinism
+    "seed": 3407,
 }
 
 
 # ======================================================================
-# Compact JSON-schema prompt (same as your finetune script)
+# PROMPT (same as your finetune scripts)
 # ======================================================================
 
 STAIRCASE_SCHEMA_PROMPT = """You are an OCR model for historical German staircase survey forms.
@@ -96,7 +100,6 @@ Rules:
 - Do NOT invent new fields.
 """
 
-
 KEY_NORMALIZATION = {
     "Gesamt Ø cm": "Gesamt Durchmesser cm",
     "Gesamt Durchmesser cm": "Gesamt Durchmesser cm",
@@ -106,24 +109,42 @@ KEY_NORMALIZATION = {
 
 
 # ======================================================================
-# Helper class (enhanced for HPO with dynamic LoRA params)
+# SEEDING
+# ======================================================================
+
+def set_all_seeds(seed: int):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
+
+# ======================================================================
+# FINETUNER (HPO) - includes augmentation + full-val autoreg CER
 # ======================================================================
 
 class StaircaseOCRFinetuneHPO:
     def __init__(
         self,
         model_path: str,
-        lora_r: int = 16,
-        lora_alpha: int = 32,
-        lora_dropout: float = 0.0,
-        max_seq_length: int = 1024,
+        lora_r: int,
+        lora_alpha: int,
+        lora_dropout: float,
+        max_seq_length: int,
+        seed: int,
+        augment_factor: int = 0,
+        use_augmentation: bool = False,
     ):
-        print(f"[HPO] Loading Qwen2.5-VL model from {model_path} with Unsloth...")
-        print(f"[HPO]   LoRA config: r={lora_r}, alpha={lora_alpha}, dropout={lora_dropout}")
-        print(f"[HPO]   max_seq_length={max_seq_length}")
-
         self.instruction = STAIRCASE_SCHEMA_PROMPT
+        self.seed = seed
+        self.augment_factor = int(augment_factor)
+        self.use_augmentation = bool(use_augmentation)
 
+        # Temp dir for augmented images per trial
+        self.temp_dir = tempfile.mkdtemp(prefix="qwen_hpo_aug_")
+
+        # Load model
         self.model, self.tokenizer = FastVisionModel.from_pretrained(
             model_path,
             max_seq_length=max_seq_length,
@@ -132,7 +153,6 @@ class StaircaseOCRFinetuneHPO:
             trust_remote_code=True,
         )
 
-        # LoRA params configurable from HPO trial
         self.model = FastVisionModel.get_peft_model(
             self.model,
             r=lora_r,
@@ -144,29 +164,25 @@ class StaircaseOCRFinetuneHPO:
             lora_dropout=lora_dropout,
             bias="none",
             use_gradient_checkpointing=False,
-            random_state=3407,
+            random_state=seed,
             use_rslora=False,
         )
 
-        # No augmentation in HPO, but keep temp dir for compatibility/cleanup
-        self.temp_dir = tempfile.mkdtemp(prefix="qwen_hpo_tmp_")
-        print(f"[HPO] Created temporary dir: {self.temp_dir}")
-        print("[HPO] Model loaded with LoRA for HPO.")
+    # --------------------- IO --------------------- #
 
-    # ------------- IO & JSON helpers ------------- #
-
-    def load_jsonl(self, file_path: str) -> List[Dict]:
+    def load_jsonl(self, file_path: str) -> List[Dict[str, Any]]:
         data = []
         with open(file_path, "r", encoding="utf-8") as f:
             for line in f:
-                if line.strip():
-                    data.append(json.loads(line.strip()))
+                line = line.strip()
+                if line:
+                    data.append(json.loads(line))
         return data
 
-    def dict_without_image_meta(self, obj: Dict) -> Dict:
+    def dict_without_image_meta(self, obj: Dict[str, Any]) -> Dict[str, Any]:
         return {k: v for k, v in obj.items() if k not in ("image_name", "image_path")}
 
-    def json_to_string_no_sort(self, obj: Dict) -> str:
+    def json_to_string_no_sort(self, obj: Dict[str, Any]) -> str:
         return json.dumps(
             self.dict_without_image_meta(obj),
             ensure_ascii=False,
@@ -182,26 +198,23 @@ class StaircaseOCRFinetuneHPO:
             return out
         elif isinstance(d, list):
             return [self.normalize_keys(x) for x in d]
-        else:
-            return d
+        return d
 
-    # ------------- JSON extraction ------------- #
-
-    def extract_json_from_response(self, response: str) -> Dict:
+    def extract_json_from_response(self, response: str) -> Dict[str, Any]:
         response = response.strip()
         matches = re.findall(r"\{.*\}", response, re.DOTALL)
         if matches:
             for match in matches:
                 try:
                     return json.loads(match)
-                except json.JSONDecodeError:
+                except Exception:
                     continue
         try:
             return json.loads(response)
-        except json.JSONDecodeError:
+        except Exception:
             return {}
 
-    # ------------- Image helper ------------- #
+    # --------------------- Image path --------------------- #
 
     def find_image_path(self, image_name: str, images_dir: str) -> str:
         exact_path = os.path.join(images_dir, image_name)
@@ -224,365 +237,367 @@ class StaircaseOCRFinetuneHPO:
 
         return exact_path
 
-    # ------------- Conversation conversion ------------- #
+    # --------------------- Augmentation --------------------- #
 
-    def convert_to_conversation(self, sample: Dict) -> Dict:
+    def create_augmentation_transforms(self):
+        # Same “spirit” as your main script
+        return [
+            transforms.RandomRotation(degrees=(-2, 2), fill=255),
+            transforms.ColorJitter(brightness=(0.9, 1.1)),
+            transforms.ColorJitter(contrast=(0.9, 1.1)),
+            transforms.GaussianBlur(kernel_size=3, sigma=(0.1, 0.4)),
+            transforms.RandomPerspective(distortion_scale=0.1, p=0.5, fill=255),
+            transforms.RandomResizedCrop(
+                size=(512, 512),
+                scale=(0.95, 1.0),
+                ratio=(0.9, 1.1),
+            ),
+        ]
+
+    def augment_image(self, image_path: str, aug_id: int) -> Optional[str]:
+        try:
+            image = Image.open(image_path).convert("RGB")
+
+            # Deterministic-ish: since we seed before trial, random calls will be repeatable
+            transforms_list = self.create_augmentation_transforms()
+            num_transforms = random.randint(2, min(3, len(transforms_list)))
+            selected_transforms = random.sample(transforms_list, num_transforms)
+
+            augmented_image = image
+            for t in selected_transforms:
+                augmented_image = t(augmented_image)
+
+            original_name = os.path.basename(image_path)
+            name_without_ext, ext = os.path.splitext(original_name)
+            augmented_name = f"{name_without_ext}_aug{aug_id}{ext}"
+            augmented_path = os.path.join(self.temp_dir, augmented_name)
+            augmented_image.save(augmented_path, quality=95)
+            return augmented_path
+        except Exception:
+            return None
+
+    # --------------------- Conversation conversion --------------------- #
+
+    def convert_to_conversation(self, sample: Dict[str, Any]) -> Dict[str, Any]:
         label_obj = self.dict_without_image_meta(sample)
         gt_json_string = self.json_to_string_no_sort(label_obj)
 
-        image_path = sample.get("image_path", None)
         contents = [{"type": "text", "text": self.instruction}]
+        contents.append({"type": "image", "image": sample["image_path"]})
 
-        if isinstance(image_path, str) and image_path and os.path.exists(image_path):
-            contents.append({"type": "image", "image": image_path})
-        else:
-            print("[HPO] [WARN] Missing/invalid image_path, using text-only.")
+        return {
+            "messages": [
+                {"role": "user", "content": contents},
+                {"role": "assistant", "content": [{"type": "text", "text": gt_json_string}]},
+            ]
+        }
 
-        conversation = [
-            {"role": "user", "content": contents},
-            {"role": "assistant", "content": [{"type": "text", "text": gt_json_string}]},
-        ]
-        return {"messages": conversation}
+    # --------------------- Dataset prep --------------------- #
 
-    # ------------- Dataset prep (NO augmentation) ------------- #
-
-    def prepare_training_data(self, jsonl_path: str, images_dir: str) -> List[Dict]:
+    def prepare_training_data(self, jsonl_path: str, images_dir: str) -> List[Dict[str, Any]]:
         data = self.load_jsonl(jsonl_path)
-        converted_dataset = []
+        out = []
 
-        print("[HPO] Preparing training data (no augmentation for HPO)")
-        for i, item in enumerate(data):
+        for item in data:
             image_path = self.find_image_path(item["image_name"], images_dir)
-            if os.path.exists(image_path):
-                sample = item.copy()
-                sample["image_path"] = image_path
-                converted_dataset.append(self.convert_to_conversation(sample))
-            else:
-                print(f"[HPO] Warning: Image not found for {item['image_name']}, skipping...")
+            if not os.path.exists(image_path):
+                continue
 
-        print(
-            f"[HPO] Total training samples: {len(converted_dataset)} "
-            f"(original: {len(data)}, augmented: 0)"
-        )
-        return converted_dataset
+            base = dict(item)
+            base["image_path"] = image_path
+            out.append(self.convert_to_conversation(base))
 
-    # ------------- CER helpers ------------- #
+            if self.use_augmentation and self.augment_factor > 0:
+                for aug_id in range(1, self.augment_factor + 1):
+                    aug_path = self.augment_image(image_path, aug_id)
+                    if aug_path and os.path.exists(aug_path):
+                        aug_item = dict(item)
+                        aug_item["image_path"] = aug_path
+                        # Keep image_name unique; labels remain same (same JSON)
+                        aug_item["image_name"] = f"{item['image_name']}_aug{aug_id}"
+                        out.append(self.convert_to_conversation(aug_item))
 
-    def calculate_cer(self, predictions, targets):
-        if not predictions or not targets or len(predictions) != len(targets):
+        return out
+
+    # --------------------- CER --------------------- #
+
+    def calculate_cer(self, preds: List[str], tgts: List[str]) -> float:
+        if not preds or not tgts or len(preds) != len(tgts):
             return 1.0
 
-        total_cer = 0.0
-        valid_pairs = 0
-
-        for pred, target in zip(predictions, targets):
-            pred_str, target_str = str(pred), str(target)
-            if len(target_str) == 0:
+        total, n = 0.0, 0
+        for p, t in zip(preds, tgts):
+            if not t:
                 continue
             try:
-                cer_val = jiwer.cer(target_str, pred_str)
-            except Exception as e:
-                print(f"[HPO] [WARN] CER computation failed for one sample: {e}")
+                total += jiwer.cer(t, p)
+                n += 1
+            except Exception:
                 continue
-            total_cer += cer_val
-            valid_pairs += 1
+        return (total / n) if n > 0 else 1.0
 
-        return (total_cer / valid_pairs) if valid_pairs > 0 else 1.0
+    # ✅ FULL validation evaluation (entire val.jsonl), autoregressive generate, greedy
+    def evaluate_full_validation_cer(
+        self,
+        val_jsonl_path: str,
+        images_dir: str,
+        max_new_tokens: int = 1024,
+    ) -> float:
+        FastVisionModel.for_inference(self.model)
+        self.model.eval()
 
-    def cleanup_temp_files(self):
+        val_data = self.load_jsonl(val_jsonl_path)
+
+        preds, tgts = [], []
+        device = "cuda"
+
+        for item in val_data:
+            image_path = self.find_image_path(item["image_name"], images_dir)
+            if not os.path.exists(image_path):
+                # count as failure for that sample
+                gt_obj = self.normalize_keys(self.dict_without_image_meta(item))
+                tgts.append(self.json_to_string_no_sort(gt_obj))
+                preds.append("")
+                continue
+
+            try:
+                messages = [{
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": self.instruction},
+                        {"type": "image", "image": image_path},
+                    ],
+                }]
+
+                input_text = self.tokenizer.apply_chat_template(
+                    messages,
+                    tokenize=False,
+                    add_generation_prompt=True,
+                )
+
+                image_inputs, video_inputs = process_vision_info(messages)
+
+                inputs = self.tokenizer(
+                    text=[input_text],
+                    images=image_inputs,
+                    videos=video_inputs,
+                    padding=True,
+                    return_tensors="pt",
+                ).to(device)
+
+                with torch.no_grad():
+                    outputs = self.model.generate(
+                        **inputs,
+                        max_new_tokens=max_new_tokens,
+                        use_cache=CONFIG["eval_use_cache"],
+                        temperature=0.0,
+                        do_sample=False,
+                        repetition_penalty=1.0,
+                        pad_token_id=self.tokenizer.pad_token_id,
+                        eos_token_id=self.tokenizer.eos_token_id,
+                    )
+
+                generated_ids_trimmed = [
+                    out_ids[len(in_ids):]
+                    for in_ids, out_ids in zip(inputs.input_ids, outputs)
+                ]
+
+                generated_text = self.tokenizer.batch_decode(
+                    generated_ids_trimmed,
+                    skip_special_tokens=True,
+                    clean_up_tokenization_spaces=False,
+                )[0]
+
+                pred_json_raw = self.extract_json_from_response(generated_text)
+                pred_json = self.normalize_keys(self.dict_without_image_meta(pred_json_raw or {}))
+                gt_obj = self.normalize_keys(self.dict_without_image_meta(item))
+
+                preds.append(self.json_to_string_no_sort(pred_json))
+                tgts.append(self.json_to_string_no_sort(gt_obj))
+
+                del inputs, outputs, generated_ids_trimmed
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+
+            except Exception:
+                gt_obj = self.normalize_keys(self.dict_without_image_meta(item))
+                tgts.append(self.json_to_string_no_sort(gt_obj))
+                preds.append("")
+                continue
+
+        val_cer = self.calculate_cer(preds, tgts)
+
+        FastVisionModel.for_training(self.model)
+        return float(val_cer)
+
+    def cleanup(self):
         try:
             import shutil
             if os.path.exists(self.temp_dir):
                 shutil.rmtree(self.temp_dir)
-                print(f"[HPO] Cleaned temp dir: {self.temp_dir}")
-        except Exception as e:
-            print(f"[HPO] Warning: could not clean temp dir {self.temp_dir}: {e}")
+        except Exception:
+            pass
 
 
 # ======================================================================
-# Single CER evaluation (post-training, once per trial)
+# ONE TRIAL: train 5 epochs, then full-val CER
 # ======================================================================
 
-def evaluate_cer_on_validation(
-    finetuner: StaircaseOCRFinetuneHPO,
-    model,
-    tokenizer,
-    val_data: List[Dict],
-    images_dir: str,
-    max_samples: int,
-    max_new_tokens: int,
-) -> float:
-    """
-    Run generation on a small random subset of validation data and
-    compute average CER. This is the HPO objective.
+def run_one_trial(trial: optuna.trial.Trial) -> float:
+    # Deterministic per-trial seed (stable but different across trials)
+    base_seed = int(CONFIG["seed"])
+    trial_seed = base_seed + int(trial.number)
+    set_all_seeds(trial_seed)
 
-    Called ONCE per trial, after training.
-    """
-    print("\n" + "=" * 80)
-    print("[HPO] RUNNING CER EVALUATION ON VALIDATION SET (HPO OBJECTIVE)")
-    print("=" * 80)
+    # Suggest hyperparams
+    learning_rate = trial.suggest_float("learning_rate", 5e-6, 2e-4, log=True)
+    weight_decay = trial.suggest_float("weight_decay", 0.0, 0.15)
+    grad_accum = trial.suggest_categorical("gradient_accumulation_steps", [4, 8, 16])
 
-    device = next(model.parameters()).device
-    model.eval()
+    lora_r = trial.suggest_categorical("lora_r", [8, 16, 32, 64])
+    lora_alpha = trial.suggest_categorical("lora_alpha", [16, 32, 64, 128])
+    lora_dropout = trial.suggest_float("lora_dropout", 0.0, 0.2)
 
-    # Subsample val data
-    if len(val_data) > max_samples:
-        val_subset = random.sample(val_data, max_samples)
-    else:
-        val_subset = list(val_data)
+    warmup_ratio = trial.suggest_float("warmup_ratio", 0.0, 0.2)
+    max_seq_length = trial.suggest_categorical("max_seq_length", [1024, 2048])
 
-    print(f"[HPO]   Using {len(val_subset)} validation samples for CER")
-
-    predictions: List[str] = []
-    targets: List[str] = []
-
-    for i, item in enumerate(val_subset):
-        image_name = item["image_name"]
-        image_path = finetuner.find_image_path(image_name, images_dir)
-
-        print(
-            f"[HPO]   Evaluating {i+1}/{len(val_subset)}: {image_name}",
-            end="\r",
-        )
-
-        if not os.path.exists(image_path):
-            continue
-
-        try:
-            messages = [
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": finetuner.instruction},
-                        {"type": "image", "image": image_path},
-                    ],
-                }
-            ]
-
-            input_text = tokenizer.apply_chat_template(
-                messages,
-                tokenize=False,
-                add_generation_prompt=True,
-            )
-
-            image_inputs, video_inputs = process_vision_info(messages)
-
-            inputs = tokenizer(
-                text=[input_text],
-                images=image_inputs,
-                videos=video_inputs,
-                padding=True,
-                return_tensors="pt",
-            ).to(device)
-
-            with torch.no_grad():
-                outputs = model.generate(
-                    **inputs,
-                    max_new_tokens=max_new_tokens,
-                    use_cache=True,
-                    temperature=0.0,
-                    do_sample=False,
-                    repetition_penalty=1.0,
-                    pad_token_id=tokenizer.pad_token_id,
-                    eos_token_id=tokenizer.eos_token_id,
-                )
-
-            generated_ids_trimmed = [
-                out_ids[len(in_ids):]
-                for in_ids, out_ids in zip(inputs.input_ids, outputs)
-            ]
-
-            generated_text = tokenizer.batch_decode(
-                generated_ids_trimmed,
-                skip_special_tokens=True,
-                clean_up_tokenization_spaces=False,
-            )[0]
-
-            predicted_json_raw = finetuner.extract_json_from_response(generated_text)
-            predicted_json = finetuner.normalize_keys(
-                finetuner.dict_without_image_meta(predicted_json_raw or {})
-            )
-            gt_obj = finetuner.normalize_keys(
-                finetuner.dict_without_image_meta(item)
-            )
-
-            gt_str = finetuner.json_to_string_no_sort(gt_obj)
-            pred_str = finetuner.json_to_string_no_sort(predicted_json)
-
-            predictions.append(pred_str)
-            targets.append(gt_str)
-
-            del inputs, outputs, generated_ids_trimmed
-            if torch.cuda.is_available():
-                torch.cuda.empty_cache()
-
-        except Exception as e:
-            print(f"\n[HPO]   ⚠️  CER eval error on {image_name}: {e}")
-            gt_obj = finetuner.normalize_keys(
-                finetuner.dict_without_image_meta(item)
-            )
-            gt_str = finetuner.json_to_string_no_sort(gt_obj)
-            predictions.append("")
-            targets.append(gt_str)
-            continue
-
-    val_cer = finetuner.calculate_cer(predictions, targets)
-
-    print(
-        f"\n[HPO]   ✅ Validation CER (HPO objective): "
-        f"{val_cer:.4f} ({val_cer*100:.2f}%)"
-    )
-    print("=" * 80 + "\n")
-
-    return val_cer
-
-
-# ======================================================================
-# Single training run for one hyperparameter config
-# ======================================================================
-
-def train_one_config(
-    config: Dict[str, Any],
-    train_raw_jsonl_path: str,
-    val_raw_jsonl_path: str,
-    images_dir: str,
-    trial_output_dir: str,
-):
-    """
-    Train once with given config and return:
-      best_cer, cer_history_dict
-
-    NO model checkpoints are saved. Only logs + metrics.
-    """
-    print("\n" + "=" * 80)
-    print("[HPO] Qwen Staircase OCR HPO TRIAL (ENHANCED MODE)")
-    print("=" * 80)
-
+    # Per-trial output dir (logs only)
+    trial_output_dir = os.path.join(CONFIG["trial_output_root"], f"trial_{trial.number}")
     os.makedirs(trial_output_dir, exist_ok=True)
 
-    config_file = os.path.join(trial_output_dir, "training_config.json")
-    with open(config_file, "w", encoding="utf-8") as f:
-        json.dump(config, f, indent=2, ensure_ascii=False)
-
-    print(f"[HPO] Trial output directory: {trial_output_dir}")
-    print(f"[HPO]   • num_epochs: {config['num_epochs']}")
-    print(f"[HPO]   • batch_size: {config['batch_size']}")
-    print(f"[HPO]   • grad_accum: {config['gradient_accumulation_steps']}")
-    print(f"[HPO]   • learning_rate: {config['learning_rate']}")
-    print(f"[HPO]   • weight_decay: {config['weight_decay']}")
-    print(f"[HPO]   • lora_r: {config['lora_r']}")
-    print(f"[HPO]   • lora_alpha: {config['lora_alpha']}")
-    print(f"[HPO]   • lora_dropout: {config['lora_dropout']}")
-    print(f"[HPO]   • warmup_ratio: {config['warmup_ratio']}")
-    print(f"[HPO]   • max_seq_length: {config['max_seq_length']}")
+    # Save trial config
+    trial_cfg = {
+        "seed": trial_seed,
+        "num_epochs": CONFIG["num_epochs"],
+        "batch_size": CONFIG["batch_size"],
+        "learning_rate": learning_rate,
+        "weight_decay": weight_decay,
+        "gradient_accumulation_steps": grad_accum,
+        "lora_r": lora_r,
+        "lora_alpha": lora_alpha,
+        "lora_dropout": lora_dropout,
+        "warmup_ratio": warmup_ratio,
+        "max_seq_length": max_seq_length,
+        "use_augmentation": CONFIG["use_augmentation"],
+        "augment_factor": CONFIG["augment_factor"],
+        "eval_max_new_tokens": CONFIG["eval_max_new_tokens"],
+    }
+    with open(os.path.join(trial_output_dir, "trial_config.json"), "w", encoding="utf-8") as f:
+        json.dump(trial_cfg, f, indent=2, ensure_ascii=False)
 
     finetuner = StaircaseOCRFinetuneHPO(
-        model_path=config["model_path"],
-        lora_r=config["lora_r"],
-        lora_alpha=config["lora_alpha"],
-        lora_dropout=config["lora_dropout"],
-        max_seq_length=config["max_seq_length"],
+        model_path=CONFIG["model_path"],
+        lora_r=lora_r,
+        lora_alpha=lora_alpha,
+        lora_dropout=lora_dropout,
+        max_seq_length=max_seq_length,
+        seed=trial_seed,
+        augment_factor=CONFIG["augment_factor"],
+        use_augmentation=CONFIG["use_augmentation"],
     )
 
-    train_dataset = finetuner.prepare_training_data(train_raw_jsonl_path, images_dir)
-    val_raw_data = finetuner.load_jsonl(val_raw_jsonl_path)
+    try:
+        # Data
+        train_dataset = finetuner.prepare_training_data(CONFIG["train_jsonl_path"], CONFIG["images_dir"])
+        # (We don't need an eval_dataset during training for HPO)
+        FastVisionModel.for_training(finetuner.model)
 
-    print(
-        f"[HPO] Training samples: {len(train_dataset)}, "
-        f"Validation raw records: {len(val_raw_data)}"
-    )
+        trainer = SFTTrainer(
+            model=finetuner.model,
+            tokenizer=finetuner.tokenizer,
+            data_collator=UnslothVisionDataCollator(finetuner.model, finetuner.tokenizer),
+            train_dataset=train_dataset,
+            eval_dataset=None,
+            args=SFTConfig(
+                per_device_train_batch_size=CONFIG["batch_size"],
+                per_device_eval_batch_size=CONFIG["batch_size"],
+                gradient_accumulation_steps=grad_accum,
 
-    FastVisionModel.for_training(finetuner.model)
+                num_train_epochs=CONFIG["num_epochs"],
+                learning_rate=learning_rate,
+                weight_decay=weight_decay,
 
-    trainer = SFTTrainer(
-        model=finetuner.model,
-        tokenizer=finetuner.tokenizer,
-        data_collator=UnslothVisionDataCollator(finetuner.model, finetuner.tokenizer),
-        train_dataset=train_dataset,
-        eval_dataset=None,  # <- NO eval during training
-        args=SFTConfig(
-            per_device_train_batch_size=config["batch_size"],
-            per_device_eval_batch_size=config["batch_size"],
-            gradient_accumulation_steps=config["gradient_accumulation_steps"],
-            num_train_epochs=config["num_epochs"],
-            learning_rate=config["learning_rate"],
-            weight_decay=config["weight_decay"],
+                lr_scheduler_type="cosine",
+                warmup_ratio=warmup_ratio,
+                warmup_steps=50,  # keep consistent with your main script style
 
-            logging_steps=20,
-            eval_strategy="no",    # <- IMPORTANT: no per-epoch eval
-            save_strategy="no",    # <- IMPORTANT: no checkpoints
-            load_best_model_at_end=False,
-            metric_for_best_model=None,
-            greater_is_better=None,
+                logging_steps=20,
+                eval_strategy="no",
+                save_strategy="no",
+                load_best_model_at_end=False,
 
-            dataloader_num_workers=0,
-            dataloader_pin_memory=False,
+                dataloader_num_workers=0,
+                dataloader_pin_memory=False,
 
-            lr_scheduler_type="cosine",
-            warmup_ratio=config["warmup_ratio"],
-            optim="adamw_8bit",
-            gradient_checkpointing=False,
+                optim="adamw_8bit",
+                gradient_checkpointing=False,
 
-            remove_unused_columns=False,
-            dataset_text_field=None,
-            dataset_kwargs={"skip_prepare_dataset": True},
-            max_seq_length=config["max_seq_length"],
+                remove_unused_columns=False,
+                dataset_text_field=None,
+                dataset_kwargs={"skip_prepare_dataset": True},
+                max_seq_length=max_seq_length,
 
-            report_to="none",  # <- no TensorBoard during HPO
-            logging_dir=os.path.join(trial_output_dir, "logs"),
-            seed=3407,
-            output_dir=trial_output_dir,
-        ),
-    )
+                report_to="none",
+                logging_dir=os.path.join(trial_output_dir, "logs"),
+                seed=trial_seed,
+                output_dir=trial_output_dir,
+            ),
+        )
 
-    print("[HPO] Starting training for this trial (NO eval during training)...\n")
-    trainer.train()
-    print("[HPO] Training finished for this trial.")
+        trainer.train()
 
-    # Single CER eval on small validation subset (HPO objective)
-    best_cer = evaluate_cer_on_validation(
-        finetuner=finetuner,
-        model=finetuner.model,
-        tokenizer=finetuner.tokenizer,
-        val_data=val_raw_data,
-        images_dir=images_dir,
-        max_samples=CONFIG["cer_max_val_samples"],
-        max_new_tokens=CONFIG["cer_max_new_tokens"],
-    )
+        # ✅ Full validation CER, autoregressive generate
+        val_cer = finetuner.evaluate_full_validation_cer(
+            val_jsonl_path=CONFIG["val_jsonl_path"],
+            images_dir=CONFIG["images_dir"],
+            max_new_tokens=CONFIG["eval_max_new_tokens"],
+        )
 
-    cer_history = [{"epoch": float(config["num_epochs"]), "cer": float(best_cer)}]
+        return float(val_cer)
 
-    print(
-        f"[HPO]   Best Validation CER in this trial: {best_cer:.4f} "
-        f"({best_cer*100:.2f}%)"
-    )
+    except torch.cuda.OutOfMemoryError as e:
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        raise optuna.TrialPruned(f"CUDA OOM: {e}")
 
-    finetuner.cleanup_temp_files()
-    del trainer
-    del finetuner
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+    except RuntimeError as e:
+        if "CUDA out of memory" in str(e):
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            raise optuna.TrialPruned(f"CUDA OOM(RuntimeError): {e}")
+        raise
 
-    return best_cer, cer_history
+    finally:
+        try:
+            del trainer
+        except Exception:
+            pass
+        finetuner.cleanup()
+        del finetuner
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        gc.collect()
 
 
 # ======================================================================
-# Optuna HPO driver (ENHANCED with more hyperparameters)
+# OPTUNA DRIVER
 # ======================================================================
 
-def run_optuna_hpo():
-    db_path = os.path.abspath(CONFIG["optuna_db_path"])
-    storage_url = f"sqlite:///{db_path}"
+def run_optuna():
+    os.makedirs(CONFIG["hpo_output_dir"], exist_ok=True)
+    os.makedirs(CONFIG["trial_output_root"], exist_ok=True)
 
-    print("\n" + "=" * 80)
-    print("[HPO] Starting / Resuming Optuna HPO for Qwen Staircase OCR (ENHANCED MODE)")
-    print("=" * 80)
-    print(f"[HPO]   Storage: {storage_url}")
-    print(f"[HPO]   Study name: {CONFIG['optuna_study_name']}")
-    print(f"[HPO]   Target total trials (COMPLETE): {CONFIG['optuna_n_trials']}")
+    # Save master config
+    with open(os.path.join(CONFIG["hpo_output_dir"], "hpo_master_config.json"), "w", encoding="utf-8") as f:
+        json.dump(CONFIG, f, indent=2, ensure_ascii=False)
 
+    storage_url = f"sqlite:///{os.path.abspath(CONFIG['optuna_db_path'])}"
     storage = optuna.storages.RDBStorage(url=storage_url)
-    sampler = optuna.samplers.TPESampler(seed=42, multivariate=True, group=True)
+    sampler = optuna.samplers.TPESampler(
+        seed=42,
+        multivariate=True,
+        group=True,
+    )
 
     study = optuna.create_study(
         study_name=CONFIG["optuna_study_name"],
@@ -593,188 +608,53 @@ def run_optuna_hpo():
     )
 
     all_trials = study.get_trials(deepcopy=False)
-    completed_trials = [t for t in all_trials if t.state == TrialState.COMPLETE]
-    n_completed = len(completed_trials)
-    target = CONFIG["optuna_n_trials"]
-    remaining = max(target - n_completed, 0)
+    completed = [t for t in all_trials if t.state == TrialState.COMPLETE]
+    remaining = max(CONFIG["optuna_n_trials"] - len(completed), 0)
 
-    print(f"[HPO]   Completed trials so far: {n_completed}")
-    print(f"[HPO]   Remaining trials to run: {remaining}")
-
-    train_path = CONFIG["train_jsonl_path"]
-    val_path = CONFIG["val_jsonl_path"]
-    images_dir = CONFIG["images_dir"]
+    print("\n" + "=" * 80)
+    print("[HPO] Qwen Staircase HPO (FULL VAL + AUG) starting / resuming")
+    print("=" * 80)
+    print(f"[HPO] Storage: {storage_url}")
+    print(f"[HPO] Study:   {CONFIG['optuna_study_name']}")
+    print(f"[HPO] Done:    {len(completed)} / {CONFIG['optuna_n_trials']}")
+    print(f"[HPO] Remain:  {remaining}")
+    print("=" * 80 + "\n")
 
     if remaining > 0:
+        study.optimize(run_one_trial, n_trials=remaining, gc_after_trial=True)
 
-        def objective(trial: optuna.trial.Trial):
-            config = CONFIG.copy()
+    best = study.best_trial
 
-            # Fixed epochs & batch size for speed
-            config["num_epochs"] = CONFIG["num_epochs"]
-            config["batch_size"] = CONFIG["batch_size"]
-
-            # Core training hyperparameters
-            config["learning_rate"] = trial.suggest_float(
-                "learning_rate", 5e-6, 2e-4, log=True
-            )
-            config["weight_decay"] = trial.suggest_float(
-                "weight_decay", 0.0, 0.15
-            )
-            config["gradient_accumulation_steps"] = trial.suggest_categorical(
-                "gradient_accumulation_steps", [4, 8, 16]
-            )
-
-            # LoRA architecture hyperparameters
-            config["lora_r"] = trial.suggest_categorical(
-                "lora_r", [8, 16, 32, 64]
-            )
-            config["lora_alpha"] = trial.suggest_categorical(
-                "lora_alpha", [16, 32, 64, 128]
-            )
-            config["lora_dropout"] = trial.suggest_float(
-                "lora_dropout", 0.0, 0.2
-            )
-
-            # Training schedule hyperparameters
-            config["warmup_ratio"] = trial.suggest_float(
-                "warmup_ratio", 0.0, 0.2
-            )
-
-            # ------------------------------------------------------------------
-            # FIX 1: Remove 512 from max_seq_length search space
-            # ------------------------------------------------------------------
-            config["max_seq_length"] = trial.suggest_categorical(
-                "max_seq_length", [1024, 2048]
-            )
-
-            trial_output_dir = os.path.join(
-                CONFIG["trial_output_root"],
-                f"trial_{trial.number}",
-            )
-
-            try:
-                best_cer, cer_history = train_one_config(
-                    config=config,
-                    train_raw_jsonl_path=train_path,
-                    val_raw_jsonl_path=val_path,
-                    images_dir=images_dir,
-                    trial_output_dir=trial_output_dir,
-                )
-
-            except ValueError as e:
-                # ------------------------------------------------------------------
-                # FIX 2: Prune image-token mismatch failures
-                # ------------------------------------------------------------------
-                msg = str(e)
-                if "Image features and image tokens do not match" in msg:
-                    raise optuna.TrialPruned(msg)
-                raise
-
-            except torch.cuda.OutOfMemoryError as e:
-                # ------------------------------------------------------------------
-                # FIX 3a: Prune CUDA OOM trials (explicit OOM exception)
-                # ------------------------------------------------------------------
-                if torch.cuda.is_available():
-                    torch.cuda.empty_cache()
-                raise optuna.TrialPruned(f"CUDA OOM: {e}")
-
-            except RuntimeError as e:
-                # ------------------------------------------------------------------
-                # FIX 3b: Prune CUDA OOM trials (OOM sometimes appears as RuntimeError)
-                # ------------------------------------------------------------------
-                if "CUDA out of memory" in str(e):
-                    if torch.cuda.is_available():
-                        torch.cuda.empty_cache()
-                    raise optuna.TrialPruned(f"CUDA OOM(RuntimeError): {e}")
-                raise
-
-            finally:
-                if torch.cuda.is_available():
-                    torch.cuda.empty_cache()
-
-            trial.set_user_attr("cer_history", cer_history)
-            return best_cer
-
-        study.optimize(
-            objective,
-            n_trials=remaining,
-            gc_after_trial=True,
-        )
-
-    best_trial = study.best_trial
     print("\n" + "=" * 80)
-    print("[HPO] Qwen Staircase HPO finished / resumed (ENHANCED MODE)")
+    print("[HPO] DONE - Best trial")
     print("=" * 80)
-    print(f"[HPO]   Best trial number: {best_trial.number}")
-    print(f"[HPO]   Best Validation CER: {best_trial.value:.4f} "
-          f"({best_trial.value*100:.2f}%)")
-    print("[HPO]   Best params:")
-    for k, v in best_trial.params.items():
-        print(f"[HPO]      {k}: {v}")
+    print(f"Best trial #: {best.number}")
+    print(f"Best val CER: {best.value:.6f} ({best.value*100:.2f}%)")
+    print("Best params:")
+    for k, v in best.params.items():
+        print(f"  {k}: {v}")
 
-    hpo_out_dir = CONFIG["hpo_output_dir"]
-    os.makedirs(hpo_out_dir, exist_ok=True)
-
+    # Save best params/config
     best_hparams = {
-        "best_trial_number": best_trial.number,
-        "best_validation_cer": best_trial.value,
-        "best_params": best_trial.params,
+        "best_trial_number": best.number,
+        "best_validation_cer": best.value,
+        "best_params": best.params,
     }
-    best_hparams_path = os.path.join(hpo_out_dir, "best_hyperparameters.json")
-    with open(best_hparams_path, "w", encoding="utf-8") as f:
+    with open(os.path.join(CONFIG["hpo_output_dir"], "best_hyperparameters.json"), "w", encoding="utf-8") as f:
         json.dump(best_hparams, f, indent=2, ensure_ascii=False)
 
-    best_config = CONFIG.copy()
-    for k, v in best_trial.params.items():
+    best_config = dict(CONFIG)
+    for k, v in best.params.items():
         best_config[k] = v
-    best_config_path = os.path.join(hpo_out_dir, "best_config.json")
-    with open(best_config_path, "w", encoding="utf-8") as f:
+    with open(os.path.join(CONFIG["hpo_output_dir"], "best_config.json"), "w", encoding="utf-8") as f:
         json.dump(best_config, f, indent=2, ensure_ascii=False)
 
-    summary_path = os.path.join(hpo_out_dir, "hpo_summary.txt")
-    with open(summary_path, "w", encoding="utf-8") as f:
-        f.write("Optuna HPO Summary - Qwen2.5-VL-7B Staircase OCR (ENHANCED MODE)\n")
-        f.write("=" * 80 + "\n\n")
-        f.write(f"Study name: {CONFIG['optuna_study_name']}\n")
-        f.write(f"Storage: sqlite:///{os.path.abspath(CONFIG['optuna_db_path'])}\n")
-        f.write(f"Total requested COMPLETE trials: {CONFIG['optuna_n_trials']}\n")
-        f.write(f"Best trial number: {best_trial.number}\n")
-        f.write(
-            f"Best Validation CER: {best_trial.value:.4f} "
-            f"({best_trial.value*100:.2f}%)\n\n"
-        )
-        f.write("Best Hyperparameters:\n")
-        for k, v in best_trial.params.items():
-            f.write(f"  {k}: {v}\n")
-        f.write("\n" + "=" * 80 + "\n")
-        f.write("ENHANCED HYPERPARAMETERS SEARCHED:\n")
-        f.write("=" * 80 + "\n")
-        f.write("Core Training:\n")
-        f.write("  - learning_rate: [5e-6, 2e-4] (log scale)\n")
-        f.write("  - weight_decay: [0.0, 0.15]\n")
-        f.write("  - gradient_accumulation_steps: [4, 8, 16]\n")
-        f.write("\nLoRA Architecture:\n")
-        f.write("  - lora_r: [8, 16, 32, 64]\n")
-        f.write("  - lora_alpha: [16, 32, 64, 128]\n")
-        f.write("  - lora_dropout: [0.0, 0.2]\n")
-        f.write("\nTraining Schedule:\n")
-        f.write("  - warmup_ratio: [0.0, 0.2]\n")
-        f.write("\nModel Architecture:\n")
-        f.write("  - max_seq_length: [1024, 2048]  (512 removed to prevent image-token mismatch)\n")
+    print(f"\n[HPO] Saved best_hyperparameters.json and best_config.json to:")
+    print(f"      {CONFIG['hpo_output_dir']}\n")
 
-    print(f"\n[HPO] ✅ Best hyperparameters saved to: {best_hparams_path}")
-    print(f"[HPO] ✅ Best config saved to:          {best_config_path}")
-    print(f"[HPO] ✅ HPO summary saved to:         {summary_path}")
-    print("\n[HPO] 🎉 HPO done. You can now copy these values into your main Qwen finetune .py file.\n")
-
-
-# ======================================================================
-# main()
-# ======================================================================
 
 def main():
-    run_optuna_hpo()
+    run_optuna()
 
 
 if __name__ == "__main__":

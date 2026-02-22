@@ -1,31 +1,46 @@
 #!/usr/bin/env python3
-# qwen_inventory_finetune_unsloth_optuna.py
-# Qwen2.5-VL inventory fine-tune + Optuna HPO
-# Shared DB: /home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db
-# Study name: qwen_inventory
-# Objective: minimize validation CER (generation-based CER on a FIXED val subset)
+# qwen_inventory_finetune_unsloth_optuna_code2_aligned.py
+#
+# ✅ Optuna HPO aligned to Code2 evaluation logic:
+#   - Validation CER computed on RAW JSON strings (NO sort_keys canonicalization)
+#   - Deterministic greedy decoding (temperature=0.0, do_sample=False)
+#   - Same JSON serialization style as Code2: json_to_string_no_sort()
+#
+# ✅ Still fast:
+#   - Train only 5 epochs per trial
+#   - Evaluate once at end on validation (your val has 44 anyway)
+#
+# Notes:
+# - Keep training "similar" to Code2 (as much as possible while still allowing HPO).
+# - Removed stochastic test decoding; and test eval uses greedy too (optional).
+# - Uses robust image path finding like Code2 (optional but safer).
+
+import os
+os.environ["UNSLOTH_OFFLOAD_GRADIENTS"] = "0"
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
+import json
+import re
+import gc
+from typing import List, Dict, Any, Optional
 
 import torch
-import json
-import os
-from typing import List, Dict, Any
-from unsloth import FastVisionModel
-from trl import SFTTrainer, SFTConfig
-from unsloth.trainer import UnslothVisionDataCollator
-import re
-import jiwer
-from transformers import EarlyStoppingCallback
 import numpy as np
-import random
-import gc
+import jiwer
 import optuna
 import glob
 
+from unsloth import FastVisionModel
+from trl import SFTTrainer, SFTConfig
+from unsloth.trainer import UnslothVisionDataCollator
+
+from transformers import EarlyStoppingCallback, TrainerCallback
+from qwen_vl_utils import process_vision_info
+
 
 # ============================================================
-# INVENTORY JSON-schema-style prompt (from qwen_finetune.py)
+# INVENTORY PROMPT (same as Code2)
 # ============================================================
-
 INVENTORY_SCHEMA_PROMPT = """You are an OCR model for German museum inventory books and catalog cards.
 
 Task:
@@ -59,246 +74,222 @@ CONFIG = {
     # model
     "model_path": "/home/vault/iwi5/iwi5298h/models/qwen7b",
 
-    # data (updated JSON path with new structure)
+    # data
     "train_jsonl_path": "/home/woody/iwi5/iwi5298h/updated_json_inven/train.jsonl",
     "val_jsonl_path": "/home/woody/iwi5/iwi5298h/updated_json_inven/val.jsonl",
     "test_jsonl_path": "/home/woody/iwi5/iwi5298h/updated_json_inven/test.jsonl",
     "images_dir": "/home/woody/iwi5/iwi5298h/inventory_images",
 
     # output
-    "output_dir": "/home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/new_inven",
+    "output_dir": "/home/vault/iwi5/iwi5298h/models_image_text/qwen/hpo/new_inven_code2_aligned",
 
     # optuna
     "optuna_db_path": "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/vlmmodels.db",
-    "optuna_study_name": "qwen_new_inventory_dataset",
+    "optuna_study_name": "qwen_new_inventory_dataset_code2_aligned",
     "n_trials": 20,
 
-    # ✅ fixed (NOT optimized)
+    # fixed to keep trials fast
+    "num_epochs": 5,
     "batch_size": 1,
 
-    # ✅ fixed validation subset for HPO objective
-    # Always use the SAME 50 samples every trial (deterministic selection)
+    # validation objective: use ALL val if smaller than this
     "val_eval_max_samples": 50,
-
-    # ✅ fixed epochs per trial (NOT optimized)
-    "num_epochs": 5,
 
     # ---------------------------
     # Search spaces (Optuna)
     # ---------------------------
     "learning_rate_range": (1e-5, 5e-4),
     "weight_decay_range": (0.0, 0.1),
-
     "grad_accum_choices": [4, 8, 16],
-    "lora_r_choices": [8, 16, 32, 64],
+    "lora_r_choices": [16, 32, 64],
     "lora_alpha_choices": [16, 32, 64, 128],
     "lora_dropout_range": (0.0, 0.2),
     "warmup_ratio_range": (0.0, 0.2),
-
-    # IMPORTANT: avoid 512 to prevent image-token mismatch
-    "max_seq_length_choices": [1024, 2048],
+    "max_seq_length_choices": [1024, 2048],  # avoid 512
 }
 
 
+# ============================================================
+# Finetuner (aligned to Code2)
+# ============================================================
 class InventoryOCRFinetune:
     def __init__(
         self,
-        model_name: str,
-        lora_r: int = 32,
-        lora_alpha: int = 32,
-        lora_dropout: float = 0.0,
-        max_seq_length: int = 2048,
+        model_path: str,
+        lora_r: int,
+        lora_alpha: int,
+        lora_dropout: float,
+        max_seq_length: int,
     ):
-        """Initialize with configurable LoRA + max_seq_length (for Optuna)."""
-        print("Loading Qwen2.5-VL model with Unsloth...")
-        print(f"  • max_seq_length: {max_seq_length}")
-        print(f"  • LoRA: r={lora_r}, alpha={lora_alpha}, dropout={lora_dropout}")
+        self.instruction = INVENTORY_SCHEMA_PROMPT
 
         self.model, self.tokenizer = FastVisionModel.from_pretrained(
-            model_name,
+            model_path,
             max_seq_length=max_seq_length,
             dtype=None,
             load_in_4bit=True,
             trust_remote_code=True,
         )
 
+        # NOTE: Code2 used use_gradient_checkpointing=False & use_rslora=False.
+        # Here we keep it consistent with Code2 to reduce mismatch.
         self.model = FastVisionModel.get_peft_model(
             self.model,
             r=lora_r,
             target_modules=[
-                "q_proj",
-                "k_proj",
-                "v_proj",
-                "o_proj",
-                "gate_proj",
-                "up_proj",
-                "down_proj",
+                "q_proj", "k_proj", "v_proj", "o_proj",
+                "gate_proj", "up_proj", "down_proj",
             ],
             lora_alpha=lora_alpha,
             lora_dropout=lora_dropout,
             bias="none",
-            use_gradient_checkpointing="unsloth",
+            use_gradient_checkpointing=False,
             random_state=3407,
-            use_rslora=True,
+            use_rslora=False,
         )
 
-        print("Model loaded successfully with LoRA adapters!")
-
-    # ---------- basic utils ----------
-    def load_jsonl(self, file_path: str) -> List[Dict]:
+    # ---------- IO ----------
+    def load_jsonl(self, file_path: str) -> List[Dict[str, Any]]:
         data = []
         with open(file_path, "r", encoding="utf-8") as f:
             for line in f:
-                if line.strip():
-                    data.append(json.loads(line.strip()))
+                line = line.strip()
+                if line:
+                    data.append(json.loads(line))
         return data
 
-    def save_jsonl(self, data: List[Dict], file_path: str):
+    def save_jsonl(self, data: List[Dict[str, Any]], file_path: str):
         with open(file_path, "w", encoding="utf-8") as f:
             for item in data:
                 f.write(json.dumps(item, ensure_ascii=False) + "\n")
 
-    def dict_without_image_name(self, obj):
-        return {k: v for k, v in obj.items() if k not in ["image_name", "image_path"]}
+    # ---------- JSON helpers (Code2 style: NO sort keys) ----------
+    def dict_without_image_meta(self, obj: Dict[str, Any]) -> Dict[str, Any]:
+        return {k: v for k, v in obj.items() if k not in ("image_name", "image_path")}
 
-    def json_to_string_no_sort(self, obj):
-        return json.dumps(self.dict_without_image_name(obj), ensure_ascii=False, separators=(",", ":"))
+    def json_to_string_no_sort(self, obj: Dict[str, Any]) -> str:
+        return json.dumps(
+            self.dict_without_image_meta(obj),
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
 
-    def safe_json_loads(self, s):
-        try:
-            return json.loads(s)
-        except Exception:
-            return None
-
-    def canonical_json_string(self, obj):
-        return json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-
-    def extract_json_from_response(self, response: str) -> Dict:
+    def extract_json_from_response(self, response: str) -> Dict[str, Any]:
         response = response.strip()
-        json_pattern = r"\{.*\}"
-        matches = re.findall(json_pattern, response, re.DOTALL)
+        matches = re.findall(r"\{.*\}", response, re.DOTALL)
         if matches:
             for match in matches:
                 try:
                     return json.loads(match)
-                except json.JSONDecodeError:
+                except Exception:
                     continue
         try:
             return json.loads(response)
-        except json.JSONDecodeError:
-            pass
-        return {}
+        except Exception:
+            return {}
 
-    def convert_to_conversation(self, sample):
+    # ---------- image path (robust, Code2-ish) ----------
+    def find_image_path(self, image_name: str, images_dir: str) -> str:
+        exact_path = os.path.join(images_dir, image_name)
+        if os.path.exists(exact_path):
+            return exact_path
+
+        base_name = os.path.splitext(image_name)[0]
+        matches = glob.glob(os.path.join(images_dir, f"*{base_name}*"))
+        if matches:
+            return matches[0]
+        return exact_path
+
+    # ---------- dataset prep ----------
+    def convert_to_conversation(self, sample: Dict[str, Any]) -> Dict[str, Any]:
         gt_json_string = self.json_to_string_no_sort(sample)
         conversation = [
             {
                 "role": "user",
                 "content": [
-                    {"type": "text", "text": INVENTORY_SCHEMA_PROMPT},
+                    {"type": "text", "text": self.instruction},
                     {"type": "image", "image": sample["image_path"]},
                 ],
             },
             {
                 "role": "assistant",
-                "content": [
-                    {"type": "text", "text": gt_json_string},
-                ],
+                "content": [{"type": "text", "text": gt_json_string}],
             },
         ]
         return {"messages": conversation}
 
-    def prepare_training_data(self, jsonl_path: str, images_dir: str) -> List[Dict]:
+    def prepare_data(self, jsonl_path: str, images_dir: str) -> List[Dict[str, Any]]:
         data = self.load_jsonl(jsonl_path)
+        converted = []
         for item in data:
-            item["image_path"] = os.path.join(images_dir, item["image_name"])
-        converted_dataset = [self.convert_to_conversation(sample) for sample in data]
-        return converted_dataset
-
-    # ---------- CER helpers ----------
-    def calculate_cer(self, predictions, targets):
-        """Compute average CER using jiwer.cer over string pairs (same as qwen_finetune.py)."""
-        if not predictions or not targets or len(predictions) != len(targets):
-            return 1.0
-
-        total_cer = 0.0
-        valid_pairs = 0
-
-        for pred, target in zip(predictions, targets):
-            pred_str = str(pred)
-            target_str = str(target)
-
-            if len(target_str) == 0:
+            img_path = self.find_image_path(item["image_name"], images_dir)
+            if not os.path.exists(img_path):
                 continue
+            item = dict(item)
+            item["image_path"] = img_path
+            converted.append(self.convert_to_conversation(item))
+        return converted
 
+    # ---------- CER (raw-string CER like Code2) ----------
+    def calculate_cer(self, preds: List[str], tgts: List[str]) -> float:
+        if not preds or not tgts or len(preds) != len(tgts):
+            return 1.0
+        total = 0.0
+        n = 0
+        for p, t in zip(preds, tgts):
+            if not t:
+                continue
             try:
-                cer_val = jiwer.cer(target_str, pred_str)
+                total += jiwer.cer(t, p)
+                n += 1
             except Exception:
                 continue
+        return (total / n) if n > 0 else 1.0
 
-            total_cer += cer_val
-            valid_pairs += 1
-
-        return (total_cer / valid_pairs) if valid_pairs > 0 else 1.0
-
-    def calculate_cer_json(self, predictions, targets):
-        preds_json = [self.safe_json_loads(p) for p in predictions]
-        targets_json = [self.safe_json_loads(t) for t in targets]
-        pred_strings = [self.canonical_json_string(j) if j is not None else "" for j in preds_json]
-        target_strings = [self.canonical_json_string(j) if j is not None else "" for j in targets_json]
-        return self.calculate_cer(pred_strings, target_strings)
-
-    # ✅ FIXED SUBSET (deterministic) validation CER for HPO
-    def evaluate_on_validation_fixed_subset(
+    # ✅ Objective evaluation aligned to Code2:
+    # - greedy decode
+    # - extract JSON
+    # - CER over json_to_string_no_sort(pred_json) vs json_to_string_no_sort(gt_obj)
+    def evaluate_on_validation_code2_aligned(
         self,
         val_jsonl_path: str,
         images_dir: str,
-        output_dir: str,
-        epoch: int,
         max_samples: int = 50,
     ) -> float:
-        """
-        Deterministic CER eval:
-        - sort validation records by image_name
-        - take first max_samples
-        => SAME subset every trial
-        """
-        print(f"Evaluating on validation FIXED subset at epoch {epoch}...")
-
         FastVisionModel.for_inference(self.model)
+        self.model.eval()
 
         val_data = self.load_jsonl(val_jsonl_path)
 
-        # deterministic subset selection
+        # deterministic selection (same as before)
         val_data_sorted = sorted(val_data, key=lambda x: x.get("image_name", ""))
         val_subset = val_data_sorted[: min(max_samples, len(val_data_sorted))]
 
-        print(f"  Using fixed validation subset size = {len(val_subset)}")
+        preds, tgts = [], []
 
-        predictions = []
-        targets = []
+        device = "cuda"
+        for item in val_subset:
+            image_path = self.find_image_path(item["image_name"], images_dir)
+            if not os.path.exists(image_path):
+                continue
 
-        for test_item in val_subset:
             try:
-                image_path = os.path.join(images_dir, test_item["image_name"])
-                if not os.path.exists(image_path):
-                    continue
-
                 messages = [
                     {
                         "role": "user",
                         "content": [
-                            {"type": "text", "text": INVENTORY_SCHEMA_PROMPT},
+                            {"type": "text", "text": self.instruction},
                             {"type": "image", "image": image_path},
                         ],
                     }
                 ]
 
                 input_text = self.tokenizer.apply_chat_template(
-                    messages, tokenize=False, add_generation_prompt=True
+                    messages,
+                    tokenize=False,
+                    add_generation_prompt=True,
                 )
 
-                from qwen_vl_utils import process_vision_info
                 image_inputs, video_inputs = process_vision_info(messages)
 
                 inputs = self.tokenizer(
@@ -307,7 +298,7 @@ class InventoryOCRFinetune:
                     videos=video_inputs,
                     padding=True,
                     return_tensors="pt",
-                ).to("cuda")
+                ).to(device)
 
                 with torch.no_grad():
                     outputs = self.model.generate(
@@ -315,11 +306,15 @@ class InventoryOCRFinetune:
                         max_new_tokens=1024,
                         use_cache=True,
                         temperature=0.0,
-                        do_sample=False,
+                        do_sample=False,          # ✅ deterministic (Code2)
+                        repetition_penalty=1.0,
+                        pad_token_id=self.tokenizer.pad_token_id,
+                        eos_token_id=self.tokenizer.eos_token_id,
                     )
 
                 generated_ids_trimmed = [
-                    out_ids[len(in_ids):] for in_ids, out_ids in zip(inputs.input_ids, outputs)
+                    out_ids[len(in_ids):]
+                    for in_ids, out_ids in zip(inputs.input_ids, outputs)
                 ]
 
                 generated_text = self.tokenizer.batch_decode(
@@ -328,51 +323,50 @@ class InventoryOCRFinetune:
                     clean_up_tokenization_spaces=False,
                 )[0]
 
-                predicted_json = self.extract_json_from_response(generated_text)
-                pred_json_string = self.json_to_string_no_sort(predicted_json) if predicted_json else ""
-                gt_json_string = self.json_to_string_no_sort(test_item)
+                pred_json_raw = self.extract_json_from_response(generated_text)
+                pred_json = self.dict_without_image_meta(pred_json_raw or {})
 
-                predictions.append(pred_json_string)
-                targets.append(gt_json_string)
+                gt_obj = self.dict_without_image_meta(item)
+
+                pred_str = self.json_to_string_no_sort(pred_json) if pred_json else ""
+                gt_str = self.json_to_string_no_sort(gt_obj)
+
+                preds.append(pred_str)
+                tgts.append(gt_str)
+
+                del inputs, outputs, generated_ids_trimmed
+                torch.cuda.empty_cache()
 
             except Exception:
-                predictions.append("")
-                targets.append(self.json_to_string_no_sort(test_item))
+                gt_obj = self.dict_without_image_meta(item)
+                tgts.append(self.json_to_string_no_sort(gt_obj))
+                preds.append("")
                 continue
 
-        val_cer = self.calculate_cer_json(predictions, targets)
-
-        log_file = os.path.join(output_dir, "validation_log.txt")
-        with open(log_file, "a", encoding="utf-8") as f:
-            f.write(f"Epoch {epoch}: Validation CER (fixed subset) = {val_cer:.4f}\n")
-
-        print(f"Validation CER (fixed subset) at epoch {epoch}: {val_cer:.4f}")
+        val_cer = self.calculate_cer(preds, tgts)
 
         FastVisionModel.for_training(self.model)
-        return val_cer
+        return float(val_cer)
 
-    # ---------- TRAIN ----------
+    # ---------- train (keep similar to Code2; still supports HPO knobs) ----------
     def train_model(
         self,
         train_jsonl_path: str,
         val_jsonl_path: str,
         images_dir: str,
         output_dir: str,
-        num_epochs: int = 15,
-        batch_size: int = 1,
-        learning_rate: float = 5e-5,
-        weight_decay: float = 0.05,
-        gradient_accumulation_steps: int = 4,
-        warmup_ratio: float = 0.1,
-        max_seq_length: int = 2048,
-        save_strategy: str = "epoch",
-        report_to: str = "tensorboard",
-        load_best_model_at_end: bool = True,
+        num_epochs: int,
+        batch_size: int,
+        learning_rate: float,
+        weight_decay: float,
+        gradient_accumulation_steps: int,
+        warmup_ratio: float,
+        max_seq_length: int,
+        save_strategy: str,
+        report_to: str,
     ):
-        print("Preparing training and validation datasets...")
-        train_dataset = self.prepare_training_data(train_jsonl_path, images_dir)
-        val_dataset = self.prepare_training_data(val_jsonl_path, images_dir)
-        print(f"Training: {len(train_dataset)} samples, Validation: {len(val_dataset)} samples")
+        train_dataset = self.prepare_data(train_jsonl_path, images_dir)
+        val_dataset = self.prepare_data(val_jsonl_path, images_dir)
 
         FastVisionModel.for_training(self.model)
 
@@ -387,8 +381,7 @@ class InventoryOCRFinetune:
                 per_device_eval_batch_size=batch_size,
                 gradient_accumulation_steps=gradient_accumulation_steps,
 
-                # NOTE: keeping your original warmup_steps=50
-                # warmup_ratio is still set (some versions prioritize steps)
+                # keep your style; warmup_ratio is meaningful; warmup_steps fixed
                 warmup_steps=50,
                 warmup_ratio=warmup_ratio,
 
@@ -397,7 +390,7 @@ class InventoryOCRFinetune:
                 logging_steps=10,
 
                 eval_strategy="epoch",
-                save_strategy=save_strategy,  # "no" in HPO trials
+                save_strategy=save_strategy,
                 save_total_limit=1,
 
                 dataloader_num_workers=0,
@@ -406,15 +399,16 @@ class InventoryOCRFinetune:
                 weight_decay=weight_decay,
                 lr_scheduler_type="cosine",
 
-                load_best_model_at_end=load_best_model_at_end,
+                # Code2: you manage best-by-CER externally; in HPO we do end-of-trial eval
+                load_best_model_at_end=False,
                 metric_for_best_model="eval_loss",
                 greater_is_better=False,
 
                 optim="adamw_8bit",
-                gradient_checkpointing=True,
-
+                gradient_checkpointing=False,   # ✅ match Code2
                 remove_unused_columns=False,
-                dataset_text_field="",
+
+                dataset_text_field=None,
                 dataset_kwargs={"skip_prepare_dataset": True},
 
                 max_seq_length=max_seq_length,
@@ -432,204 +426,55 @@ class InventoryOCRFinetune:
             ],
         )
 
-        print("Starting training with early stopping...")
         trainer.train()
         return trainer
 
-    # ---------- TEST ----------
-    def evaluate_on_test_set(self, test_jsonl_path: str, images_dir: str, output_dir: str) -> Dict:
-        print("Starting evaluation on test.jsonl...")
-
-        FastVisionModel.for_inference(self.model)
-
-        test_data = self.load_jsonl(test_jsonl_path)
-        print(f"Loaded {len(test_data)} test samples")
-
-        predictions = []
-        all_cer_scores = []
-
-        for i, test_item in enumerate(test_data):
-            print(f"Processing test image {i+1}/{len(test_data)}: {test_item['image_name']}")
-            image_path = os.path.join(images_dir, test_item["image_name"])
-            if not os.path.exists(image_path):
-                print(f"Warning: Image not found: {image_path}")
-                continue
-
-            try:
-                messages = [
-                    {
-                        "role": "user",
-                        "content": [
-                            {"type": "text", "text": INVENTORY_SCHEMA_PROMPT},
-                            {"type": "image", "image": image_path},
-                        ],
-                    }
-                ]
-
-                input_text = self.tokenizer.apply_chat_template(
-                    messages, tokenize=False, add_generation_prompt=True
-                )
-
-                from qwen_vl_utils import process_vision_info
-                image_inputs, video_inputs = process_vision_info(messages)
-
-                inputs = self.tokenizer(
-                    text=[input_text],
-                    images=image_inputs,
-                    videos=video_inputs,
-                    padding=True,
-                    return_tensors="pt",
-                ).to("cuda")
-
-                with torch.no_grad():
-                    outputs = self.model.generate(
-                        **inputs,
-                        max_new_tokens=1024,
-                        use_cache=True,
-                        temperature=0.1,
-                        do_sample=True,
-                        repetition_penalty=1.1,
-                        pad_token_id=self.tokenizer.pad_token_id,
-                        eos_token_id=self.tokenizer.eos_token_id,
-                    )
-
-                generated_ids_trimmed = [
-                    out_ids[len(in_ids):] for in_ids, out_ids in zip(inputs.input_ids, outputs)
-                ]
-
-                generated_text = self.tokenizer.batch_decode(
-                    generated_ids_trimmed,
-                    skip_special_tokens=True,
-                    clean_up_tokenization_spaces=False,
-                )[0]
-
-                predicted_json = self.extract_json_from_response(generated_text)
-                gt_json_string = self.json_to_string_no_sort(test_item)
-                pred_json_string = self.json_to_string_no_sort(predicted_json) if predicted_json else ""
-
-                cer_score = jiwer.cer(gt_json_string, pred_json_string)
-
-                prediction_entry = {
-                    "image_name": test_item["image_name"],
-                    "predicted_json": predicted_json,
-                    "predicted_text": pred_json_string,
-                    "target_json": self.dict_without_image_name(test_item),
-                    "target_text": gt_json_string,
-                    "raw_response": generated_text,
-                    "cer_score": cer_score,
-                }
-                predictions.append(prediction_entry)
-                all_cer_scores.append(cer_score)
-                print(f"  Processed successfully. CER: {cer_score:.3f}")
-
-            except Exception as e:
-                print(f"Error processing {test_item['image_name']}: {str(e)}")
-                prediction_entry = {
-                    "image_name": test_item["image_name"],
-                    "predicted_json": {},
-                    "predicted_text": "",
-                    "target_json": self.dict_without_image_name(test_item),
-                    "target_text": self.json_to_string_no_sort(test_item),
-                    "raw_response": f"Error: {str(e)}",
-                    "cer_score": 1.0,
-                }
-                predictions.append(prediction_entry)
-                all_cer_scores.append(1.0)
-                continue
-
-        predictions_file = os.path.join(output_dir, "test_predictions.jsonl")
-        self.save_jsonl(predictions, predictions_file)
-
-        cer_stats = self.calculate_cer_statistics(all_cer_scores)
-
-        cer_file = os.path.join(output_dir, "cer_evaluation_results.txt")
-        self.save_cer_results(cer_stats, cer_file, len(predictions))
-
-        return {
-            "predictions": predictions,
-            "cer_stats": cer_stats,
-            "predictions_file": predictions_file,
-            "cer_file": cer_file,
-        }
-
-    def calculate_cer_statistics(self, all_cer_scores: List[float]) -> Dict:
-        if not all_cer_scores:
-            return {}
-
-        avg_cer = sum(all_cer_scores) / len(all_cer_scores)
-        min_cer = min(all_cer_scores)
-        max_cer = max(all_cer_scores)
-        median_cer = np.median(all_cer_scores)
-        std_cer = np.std(all_cer_scores)
-
-        perfect_matches = sum(1 for cer in all_cer_scores if cer == 0.0)
-
-        return {
-            "total_images": len(all_cer_scores),
-            "average_cer": avg_cer,
-            "median_cer": median_cer,
-            "minimum_cer": min_cer,
-            "maximum_cer": max_cer,
-            "std_cer": std_cer,
-            "perfect_matches": perfect_matches,
-        }
-
-    def save_cer_results(self, cer_stats: Dict, cer_file: str, num_predictions: int):
-        with open(cer_file, "w", encoding="utf-8") as f:
-            f.write("=" * 60 + "\n")
-            f.write("CER EVALUATION RESULTS ON TEST.JSONL\n")
-            f.write("=" * 60 + "\n\n")
-            f.write(f"CER Statistics across {cer_stats['total_images']} images:\n")
-            f.write("-" * 50 + "\n")
-            f.write(f"Average CER: {cer_stats['average_cer']:.4f} ({cer_stats['average_cer']*100:.2f}%)\n")
-            f.write(f"Median CER: {cer_stats['median_cer']:.4f}\n")
-            f.write(f"Minimum CER: {cer_stats['minimum_cer']:.4f}\n")
-            f.write(f"Maximum CER: {cer_stats['maximum_cer']:.4f}\n")
-            f.write(f"Standard Deviation: {cer_stats['std_cer']:.4f}\n\n")
-            f.write(
-                f"Perfect matches: {cer_stats['perfect_matches']}/{cer_stats['total_images']} "
-                f"({cer_stats['perfect_matches']/cer_stats['total_images']*100:.2f}%)\n"
-            )
-            f.write(f"Total images processed: {num_predictions}\n")
-
-        print(f"CER evaluation results saved to: {cer_file}")
-
-    def save_model(self, trainer, output_dir: str):
-        print(f"Saving model to {output_dir}...")
-        trainer.model.save_pretrained(output_dir)
-        trainer.tokenizer.save_pretrained(output_dir)
-        print("Model saved successfully!")
-
 
 # ============================================================
-# OPTUNA OBJECTIVE
+# OPTUNA OBJECTIVE (Code2-aligned val CER)
 # ============================================================
 def optuna_objective(trial: optuna.trial.Trial):
     print("\n" + "=" * 80)
     print(f"OPTUNA TRIAL {trial.number} ({CONFIG['optuna_study_name']})")
     print("=" * 80)
 
-    # Fixed epochs per trial
     num_epochs = CONFIG["num_epochs"]
-    
+    batch_size = CONFIG["batch_size"]
+
     learning_rate = trial.suggest_float(
         "learning_rate",
         CONFIG["learning_rate_range"][0],
         CONFIG["learning_rate_range"][1],
         log=True,
     )
-    weight_decay = trial.suggest_float("weight_decay", CONFIG["weight_decay_range"][0], CONFIG["weight_decay_range"][1])
-
-    gradient_accumulation_steps = trial.suggest_categorical("gradient_accumulation_steps", CONFIG["grad_accum_choices"])
+    weight_decay = trial.suggest_float(
+        "weight_decay",
+        CONFIG["weight_decay_range"][0],
+        CONFIG["weight_decay_range"][1],
+    )
+    gradient_accumulation_steps = trial.suggest_categorical(
+        "gradient_accumulation_steps",
+        CONFIG["grad_accum_choices"],
+    )
     lora_r = trial.suggest_categorical("lora_r", CONFIG["lora_r_choices"])
     lora_alpha = trial.suggest_categorical("lora_alpha", CONFIG["lora_alpha_choices"])
-    lora_dropout = trial.suggest_float("lora_dropout", CONFIG["lora_dropout_range"][0], CONFIG["lora_dropout_range"][1])
-    warmup_ratio = trial.suggest_float("warmup_ratio", CONFIG["warmup_ratio_range"][0], CONFIG["warmup_ratio_range"][1])
-    max_seq_length = trial.suggest_categorical("max_seq_length", CONFIG["max_seq_length_choices"])
-
-    batch_size = CONFIG["batch_size"]  # fixed
+    lora_dropout = trial.suggest_float(
+        "lora_dropout",
+        CONFIG["lora_dropout_range"][0],
+        CONFIG["lora_dropout_range"][1],
+    )
+    warmup_ratio = trial.suggest_float(
+        "warmup_ratio",
+        CONFIG["warmup_ratio_range"][0],
+        CONFIG["warmup_ratio_range"][1],
+    )
+    max_seq_length = trial.suggest_categorical(
+        "max_seq_length",
+        CONFIG["max_seq_length_choices"],
+    )
 
     print(f"  • num_epochs:     {num_epochs} (fixed)")
+    print(f"  • batch_size:     {batch_size} (fixed)")
     print(f"  • learning_rate:  {learning_rate:.2e}")
     print(f"  • weight_decay:   {weight_decay:.4f}")
     print(f"  • grad_accum:     {gradient_accumulation_steps}")
@@ -638,14 +483,13 @@ def optuna_objective(trial: optuna.trial.Trial):
     print(f"  • lora_dropout:   {lora_dropout:.4f}")
     print(f"  • warmup_ratio:   {warmup_ratio:.4f}")
     print(f"  • max_seq_length: {max_seq_length}")
-    print(f"  • batch_size:     {batch_size} (fixed)")
 
-    # per-trial temp dir (no checkpoints)
+    # per-trial dir
     trial_tmp_dir = os.path.join(CONFIG["output_dir"], "optuna_tmp")
     os.makedirs(trial_tmp_dir, exist_ok=True)
 
     finetuner = InventoryOCRFinetune(
-        model_name=CONFIG["model_path"],
+        model_path=CONFIG["model_path"],
         lora_r=lora_r,
         lora_alpha=lora_alpha,
         lora_dropout=lora_dropout,
@@ -666,20 +510,18 @@ def optuna_objective(trial: optuna.trial.Trial):
         max_seq_length=max_seq_length,
         save_strategy="no",
         report_to="none",
-        load_best_model_at_end=False,
     )
 
-    # objective CER on fixed subset (same 50 samples every trial)
-    val_cer = finetuner.evaluate_on_validation_fixed_subset(
+    # ✅ objective: Code2-aligned validation CER (raw strings, no sort, greedy)
+    val_cer = finetuner.evaluate_on_validation_code2_aligned(
         val_jsonl_path=CONFIG["val_jsonl_path"],
         images_dir=CONFIG["images_dir"],
-        output_dir=trial_tmp_dir,
-        epoch=num_epochs,
         max_samples=CONFIG["val_eval_max_samples"],
     )
 
-    print(f"  ✅ Trial {trial.number} validation CER (fixed subset) = {val_cer:.4f}")
+    print(f"  ✅ Trial {trial.number} validation CER (Code2-aligned) = {val_cer:.4f}")
 
+    # cleanup
     del trainer
     del finetuner
     torch.cuda.empty_cache()
@@ -689,82 +531,20 @@ def optuna_objective(trial: optuna.trial.Trial):
 
 
 # ============================================================
-# FINAL TRAIN + TEST
-# ============================================================
-def train_final_with_best_params(best_params: Dict):
-    print("\n" + "=" * 80)
-    print("TRAINING FINAL QWEN MODEL WITH BEST HYPERPARAMETERS")
-    print("=" * 80)
-    for k, v in best_params.items():
-        print(f"  {k}: {v}")
-    print("=" * 80)
-
-    batch_size = CONFIG["batch_size"]  # fixed
-
-    finetuner = InventoryOCRFinetune(
-        model_name=CONFIG["model_path"],
-        lora_r=best_params["lora_r"],
-        lora_alpha=best_params["lora_alpha"],
-        lora_dropout=best_params["lora_dropout"],
-        max_seq_length=best_params["max_seq_length"],
-    )
-
-    # combine train + val
-    train_data = finetuner.load_jsonl(CONFIG["train_jsonl_path"])
-    val_data = finetuner.load_jsonl(CONFIG["val_jsonl_path"])
-    combined = train_data + val_data
-
-    combined_jsonl = os.path.join(CONFIG["output_dir"], "combined_train_val.jsonl")
-    finetuner.save_jsonl(combined, combined_jsonl)
-    print(f"📄 Combined dataset saved to {combined_jsonl} ({len(combined)} samples)")
-
-    final_model_dir = os.path.join(CONFIG["output_dir"], "final_model")
-    os.makedirs(final_model_dir, exist_ok=True)
-
-    trainer = finetuner.train_model(
-        train_jsonl_path=combined_jsonl,
-        val_jsonl_path=CONFIG["val_jsonl_path"],
-        images_dir=CONFIG["images_dir"],
-        output_dir=final_model_dir,
-        num_epochs=CONFIG["num_epochs"],  # use fixed epochs from config
-        batch_size=batch_size,
-        learning_rate=best_params["learning_rate"],
-        weight_decay=best_params["weight_decay"],
-        gradient_accumulation_steps=best_params["gradient_accumulation_steps"],
-        warmup_ratio=best_params["warmup_ratio"],
-        max_seq_length=best_params["max_seq_length"],
-        save_strategy="epoch",
-        report_to="tensorboard",
-        load_best_model_at_end=True,
-    )
-
-    finetuner.save_model(trainer, final_model_dir)
-    return finetuner, final_model_dir
-
-
-# ============================================================
-# MAIN
+# FINAL TRAIN (still 5 epochs, because you said you'll paste HPs into Code2 anyway)
 # ============================================================
 def main():
     print("\n" + "=" * 60)
-    print("QWEN2.5-VL INVENTORY FINE-TUNING + OPTUNA HPO")
+    print("QWEN2.5-VL INVENTORY OPTUNA HPO (CODE2-ALIGNED VAL CER)")
     print("=" * 60)
 
     os.makedirs(CONFIG["output_dir"], exist_ok=True)
     os.makedirs(os.path.dirname(CONFIG["optuna_db_path"]), exist_ok=True)
 
-    # save config
     cfg_path = os.path.join(CONFIG["output_dir"], "training_config.json")
     with open(cfg_path, "w", encoding="utf-8") as f:
         json.dump(CONFIG, f, indent=2, ensure_ascii=False)
     print(f"Config saved to {cfg_path}")
-
-    # --------------------------
-    # PHASE 1: OPTUNA
-    # --------------------------
-    print("\n" + "=" * 60)
-    print("PHASE 1: OPTUNA HPO (minimize validation CER)")
-    print("=" * 60)
 
     storage = f"sqlite:///{CONFIG['optuna_db_path']}"
     study = optuna.create_study(
@@ -785,14 +565,13 @@ def main():
         print("All trials already done, skipping HPO.")
 
     print("\n" + "=" * 60)
-    print("OPTUNA DONE")
+    print("OPTUNA DONE (CODE2-ALIGNED)")
     print("=" * 60)
     print(f"Best trial #: {study.best_trial.number}")
     print(f"Best validation CER: {study.best_value:.4f}")
     for k, v in study.best_params.items():
         print(f"  {k}: {v}")
 
-    # save best params
     best_params_path = os.path.join(CONFIG["output_dir"], "best_hyperparameters.json")
     with open(best_params_path, "w", encoding="utf-8") as f:
         json.dump(
@@ -807,48 +586,7 @@ def main():
         )
     print(f"Best params saved to {best_params_path}")
 
-    # --------------------------
-    # PHASE 2: FINAL TRAIN
-    # --------------------------
-    finetuner, final_model_dir = train_final_with_best_params(study.best_params)
-
-    # --------------------------
-    # PHASE 3: TEST
-    # --------------------------
-    print("\n" + "=" * 60)
-    print("PHASE 3: TEST EVALUATION")
-    print("=" * 60)
-
-    test_results = finetuner.evaluate_on_test_set(
-        test_jsonl_path=CONFIG["test_jsonl_path"],
-        images_dir=CONFIG["images_dir"],
-        output_dir=CONFIG["output_dir"],
-    )
-
-    cer_stats = test_results["cer_stats"]
-
-    summary_file = os.path.join(CONFIG["output_dir"], "final_summary.txt")
-    with open(summary_file, "w", encoding="utf-8") as f:
-        f.write("=" * 60 + "\n")
-        f.write("QWEN2.5-VL INVENTORY - OPTUNA HPO RESULTS\n")
-        f.write("=" * 60 + "\n\n")
-        f.write(f"Best trial: {study.best_trial.number}\n")
-        f.write(f"Best validation CER (objective): {study.best_value:.4f}\n")
-        f.write("Best hyperparameters:\n")
-        for k, v in study.best_params.items():
-            f.write(f"  {k}: {v}\n")
-        f.write("\n")
-        f.write("Test CER:\n")
-        f.write(f"  Average CER: {cer_stats['average_cer']:.4f} ({cer_stats['average_cer']*100:.2f}%)\n")
-        f.write(f"  Median CER: {cer_stats['median_cer']:.4f}\n")
-        f.write(f"  Min CER: {cer_stats['minimum_cer']:.4f}\n")
-        f.write(f"  Max CER: {cer_stats['maximum_cer']:.4f}\n")
-        f.write(f"  Perfect matches: {cer_stats['perfect_matches']}/{cer_stats['total_images']}\n")
-        f.write("\n")
-        f.write(f"Final model dir: {final_model_dir}\n")
-
-    print(f"\n✅ Final summary saved to: {summary_file}")
-    print("\n🎉 Qwen HPO pipeline finished.\n")
+    print("\nDone. Paste best_params into Code2 and run full training/eval there.")
 
 
 if __name__ == "__main__":

@@ -8,8 +8,6 @@
 # ✅ Dedicated output folders + TensorBoard logging
 # ✅ use_cache=False everywhere (model.config + generate kwargs)
 # ✅ Do NOT flip train/eval inside low-level generate helper (mode controlled at higher level)
-# ✅ FIX: EarlyStoppingCallback requires metric_for_best_model
-# ✅ Params aligned to your screenshot
 
 import sys
 import os
@@ -59,31 +57,26 @@ def load_jsonl(file_path: str) -> List[Dict]:
                 data.append(json.loads(line.strip()))
     return data
 
-
 def save_jsonl(data: List[Dict], file_path: str):
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     with open(file_path, "w", encoding="utf-8") as f:
         for item in data:
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
 
-
 def append_jsonl(item: Dict, file_path: str):
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     with open(file_path, "a", encoding="utf-8") as f:
         f.write(json.dumps(item, ensure_ascii=False) + "\n")
-
 
 def create_label_string(json_data: Dict) -> str:
     """Create label string excluding image_name."""
     label_data = {k: v for k, v in json_data.items() if k != "image_name"}
     return json.dumps(label_data, ensure_ascii=False)
 
-
 def json_to_string(json_obj: Dict) -> str:
     """Convert JSON object to compact string (without image_name)."""
     clean_obj = {k: v for k, v in json_obj.items() if k != "image_name"}
     return json.dumps(clean_obj, ensure_ascii=False, separators=(",", ":"))
-
 
 # -----------------------
 # Data Collator & Dataset
@@ -91,11 +84,7 @@ def json_to_string(json_obj: Dict) -> str:
 class Florence2DataCollator:
     def __init__(self, processor, pad_token_id=None):
         self.processor = processor
-        self.pad_token_id = (
-            pad_token_id
-            if pad_token_id is not None
-            else processor.tokenizer.pad_token_id
-        )
+        self.pad_token_id = pad_token_id if pad_token_id is not None else processor.tokenizer.pad_token_id
 
     def __call__(self, features):
         pixel_values = [f["pixel_values"] for f in features]
@@ -114,24 +103,10 @@ class Florence2DataCollator:
             pad_len = max_input_length - cur_len
             if pad_len > 0:
                 padded_input_ids.append(
-                    torch.cat(
-                        [
-                            input_ids[i],
-                            torch.full(
-                                (pad_len,),
-                                self.pad_token_id,
-                                dtype=input_ids[i].dtype,
-                            ),
-                        ]
-                    )
+                    torch.cat([input_ids[i], torch.full((pad_len,), self.pad_token_id, dtype=input_ids[i].dtype)])
                 )
                 padded_attention_mask.append(
-                    torch.cat(
-                        [
-                            attention_mask[i],
-                            torch.zeros(pad_len, dtype=attention_mask[i].dtype),
-                        ]
-                    )
+                    torch.cat([attention_mask[i], torch.zeros(pad_len, dtype=attention_mask[i].dtype)])
                 )
             else:
                 padded_input_ids.append(input_ids[i])
@@ -142,14 +117,7 @@ class Florence2DataCollator:
             cur_len = len(labels[i])
             pad_len = max_label_length - cur_len
             if pad_len > 0:
-                padded_labels.append(
-                    torch.cat(
-                        [
-                            labels[i],
-                            torch.full((pad_len,), -100, dtype=labels[i].dtype),
-                        ]
-                    )
-                )
+                padded_labels.append(torch.cat([labels[i], torch.full((pad_len,), -100, dtype=labels[i].dtype)]))
             else:
                 padded_labels.append(labels[i])
 
@@ -159,7 +127,6 @@ class Florence2DataCollator:
             "attention_mask": torch.stack(padded_attention_mask),
             "labels": torch.stack(padded_labels),
         }
-
 
 class StaircaseOCRDataset(Dataset):
     def __init__(self, jsonl_data: List[Dict], images_dir: str, processor):
@@ -172,7 +139,6 @@ class StaircaseOCRDataset(Dataset):
 
     def __getitem__(self, idx):
         item = self.data[idx]
-
         image_path = os.path.join(self.images_dir, item["image_name"])
         image = Image.open(image_path).convert("RGB")
 
@@ -200,7 +166,6 @@ class StaircaseOCRDataset(Dataset):
             "attention_mask": inputs["attention_mask"].squeeze(0),
             "labels": target_inputs["input_ids"].squeeze(0),
         }
-
 
 # -----------------------
 # Trainer wrapper
@@ -230,7 +195,7 @@ class Florence2StaircaseTrainer:
         self.test_metrics_path = os.path.join(self.metrics_dir, "test_cer_metrics_full_ft.json")
 
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.dtype = torch.float32  # use dtype consistently
+        self.torch_dtype = torch.float32
 
         print("=" * 60)
         print("Florence-2 Staircase FULL-PARAMETER Fine-tuning")
@@ -246,12 +211,12 @@ class Florence2StaircaseTrainer:
         self.best_eval_cer = float("inf")
         self.best_model_path: Optional[str] = None
 
-        # Generation settings (aligned)
+        # generation settings identical for val & test
         self.gen_kwargs = dict(
             max_new_tokens=512,
             num_beams=3,
             do_sample=False,
-            use_cache=False,
+            use_cache=False,  # generation side
             pad_token_id=self.processor.tokenizer.pad_token_id,
             early_stopping=False,
         )
@@ -266,10 +231,9 @@ class Florence2StaircaseTrainer:
         model_name = self._resolve_model_name()
         print("⏳ Loading Florence-2-large base model (full fine-tuning)...")
 
-        # torch_dtype deprecated in your setup -> use dtype
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
-            dtype=self.dtype,
+            torch_dtype=torch.float32,
             trust_remote_code=True,
             attn_implementation="eager",
         ).to(self.device)
@@ -278,7 +242,7 @@ class Florence2StaircaseTrainer:
         for p in self.model.parameters():
             p.requires_grad_(True)
 
-        # Keep cache off (consistent with generate kwargs)
+        # ✅ Make cache behavior consistent with gradient checkpointing
         if hasattr(self.model, "config"):
             self.model.config.use_cache = False
 
@@ -288,10 +252,8 @@ class Florence2StaircaseTrainer:
 
         trainable_params = sum(p.numel() for p in self.model.parameters() if p.requires_grad)
         total_params = sum(p.numel() for p in self.model.parameters())
-        print(
-            f"✅ Model loaded (FULL fine-tuning). Trainable params: {trainable_params:,} / {total_params:,} "
-            f"({trainable_params/total_params*100:.2f}%)\n"
-        )
+        print(f"✅ Model loaded (FULL fine-tuning). Trainable params: {trainable_params:,} / {total_params:,} "
+              f"({trainable_params/total_params*100:.2f}%)\n")
 
         self.model.train()
 
@@ -308,7 +270,7 @@ class Florence2StaircaseTrainer:
 
         self.model = AutoModelForCausalLM.from_pretrained(
             load_path,
-            dtype=self.dtype,
+            torch_dtype=torch.float32,
             trust_remote_code=True,
             attn_implementation="eager",
         ).to(self.device)
@@ -353,7 +315,7 @@ class Florence2StaircaseTrainer:
                 batch_items = [eval_dataset[i] for i in range(start, end)]
 
                 input_ids = torch.stack([x["input_ids"] for x in batch_items]).to(self.device)
-                pixel_values = torch.stack([x["pixel_values"] for x in batch_items]).to(self.device, self.dtype)
+                pixel_values = torch.stack([x["pixel_values"] for x in batch_items]).to(self.device, self.torch_dtype)
 
                 pred_texts = self._generate_text_batch(input_ids=input_ids, pixel_values=pixel_values)
 
@@ -385,7 +347,7 @@ class Florence2StaircaseTrainer:
 
         data_collator = Florence2DataCollator(self.processor)
 
-        # ✅ Params aligned to your screenshot + EarlyStopping fix
+        # ✅ Params: stable full-FT defaults
         training_args = TrainingArguments(
             output_dir=self.output_dir,
             num_train_epochs=10,
@@ -394,8 +356,10 @@ class Florence2StaircaseTrainer:
             gradient_accumulation_steps=4,
 
             learning_rate=5e-5,
-            weight_decay=0.1,
-            warmup_steps=50,
+            weight_decay=0.01,
+
+            # Prefer ratio so it scales with dataset size
+            warmup_ratio=0.05,
 
             logging_dir=self.logs_dir,
             logging_steps=10,
@@ -404,14 +368,14 @@ class Florence2StaircaseTrainer:
             save_strategy="no",
             load_best_model_at_end=False,
 
-            # REQUIRED for EarlyStoppingCallback
-            metric_for_best_model="eval_cer",
-            greater_is_better=False,
-
             report_to="tensorboard",
             dataloader_pin_memory=False,
+
+            # If you want faster: set fp16=True on V100, bf16=True on A100
             fp16=False,
-            gradient_checkpointing=False,
+            bf16=False,
+
+            gradient_checkpointing=True,
             dataloader_num_workers=0,
             remove_unused_columns=False,
             optim="adamw_torch",
@@ -423,7 +387,6 @@ class Florence2StaircaseTrainer:
                 self.parent = parent_instance
 
             def evaluate(self, eval_dataset=None, ignore_keys=None, metric_key_prefix="eval"):
-                # default eval for loss logging
                 _ = super().evaluate(eval_dataset, ignore_keys, metric_key_prefix)
 
                 eval_ds = eval_dataset if eval_dataset is not None else self.eval_dataset
@@ -433,7 +396,6 @@ class Florence2StaircaseTrainer:
                     current_cer = self.parent.evaluate_autoregressive_cer(eval_ds, batch_size=bs)
                     current_epoch = float(self.state.epoch) if hasattr(self.state, "epoch") else float(self.state.global_step)
 
-                    # log metric expected by EarlyStopping
                     self.log({"eval_cer": current_cer})
 
                     print(
@@ -464,7 +426,6 @@ class Florence2StaircaseTrainer:
                         print(f"   Best CER so far: {self.parent.best_eval_cer:.4f}\n")
 
                     return {"eval_cer": current_cer}
-
                 except Exception as e:
                     print(f"❌ Error during generation-based evaluation: {e}")
                     return {"eval_cer": 1.0}
@@ -485,7 +446,6 @@ class Florence2StaircaseTrainer:
 
         trainer.train()
 
-        # Save final model too
         self.model.save_pretrained(self.final_model_dir)
         self.processor.save_pretrained(self.final_model_dir)
 
@@ -515,7 +475,7 @@ class Florence2StaircaseTrainer:
 
                 inputs = self.processor(text=TASK_PROMPT, images=image, return_tensors="pt")
                 input_ids = inputs["input_ids"].to(self.device)
-                pixel_values = inputs["pixel_values"].to(self.device, self.dtype)
+                pixel_values = inputs["pixel_values"].to(self.device, self.torch_dtype)
 
                 generated_ids = self.model.generate(
                     input_ids=input_ids,
@@ -536,34 +496,29 @@ class Florence2StaircaseTrainer:
                 gt_json_string = json_to_string(test_item)
                 cer_score = self._cer_from_strings(gt_json_string, prediction_string)
 
-                predictions.append(
-                    {
-                        "image_name": test_item["image_name"],
-                        "prediction_string": prediction_string,
-                        "prediction_json": predicted_json,
-                        "json_parse_success": json_parse_success,
-                        "ground_truth_json_string": gt_json_string,
-                        "cer_score": cer_score,
-                    }
-                )
+                predictions.append({
+                    "image_name": test_item["image_name"],
+                    "prediction_string": prediction_string,
+                    "prediction_json": predicted_json,
+                    "json_parse_success": json_parse_success,
+                    "ground_truth_json_string": gt_json_string,
+                    "cer_score": cer_score,
+                })
                 print(f"  ✅ CER: {cer_score:.4f}")
 
             except Exception as e:
                 print(f"  ❌ Error: {str(e)}")
                 import traceback
                 traceback.print_exc()
-
                 gt_json_string = json_to_string(test_item)
-                predictions.append(
-                    {
-                        "image_name": test_item["image_name"],
-                        "prediction_string": f"Error: {str(e)}",
-                        "prediction_json": None,
-                        "json_parse_success": False,
-                        "ground_truth_json_string": gt_json_string,
-                        "cer_score": 1.0,
-                    }
-                )
+                predictions.append({
+                    "image_name": test_item["image_name"],
+                    "prediction_string": f"Error: {str(e)}",
+                    "prediction_json": None,
+                    "json_parse_success": False,
+                    "ground_truth_json_string": gt_json_string,
+                    "cer_score": 1.0,
+                })
 
         pred_path = os.path.join(self.pred_dir, "test_predictions_full_ft.jsonl")
         save_jsonl(predictions, pred_path)
@@ -571,11 +526,7 @@ class Florence2StaircaseTrainer:
         cer_scores = [p["cer_score"] for p in predictions]
         avg_cer = float(np.mean(cer_scores)) if cer_scores else 1.0
         perfect_matches = sum(1 for c in cer_scores if c == 0.0)
-        json_success_rate = (
-            ((len(predictions) - json_parse_failures) / len(predictions) * 100)
-            if predictions
-            else 0.0
-        )
+        json_success_rate = ((len(predictions) - json_parse_failures) / len(predictions) * 100) if predictions else 0.0
 
         metrics = {
             "average_cer": avg_cer,
@@ -603,7 +554,6 @@ class Florence2StaircaseTrainer:
 
         return predictions
 
-
 def main():
     print(f"Dataset: {DATASET_NAME}")
     print("Loading datasets...")
@@ -617,12 +567,9 @@ def main():
     print(f"Loaded {len(test_data)} test samples\n")
 
     trainer_obj = Florence2StaircaseTrainer(MODEL_PATH, OUTPUT_BASE_DIR)
-
     trainer_obj.train(train_data, val_data, STAIR_IMAGES_DIR)
 
-    # ✅ Guarantee best checkpoint is used for test
     trainer_obj.load_best_model_for_inference()
-
     trainer_obj.predict(test_data, STAIR_IMAGES_DIR)
 
     print("Pipeline completed successfully!")
@@ -630,7 +577,6 @@ def main():
     print(f"TensorBoard logs: {trainer_obj.logs_dir}")
     print("To launch TensorBoard:")
     print(f"  tensorboard --logdir {OUTPUT_BASE_DIR}")
-
 
 if __name__ == "__main__":
     main()

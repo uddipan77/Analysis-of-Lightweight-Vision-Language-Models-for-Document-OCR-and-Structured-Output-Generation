@@ -9,9 +9,13 @@
 # ✅ One shared model + one shared LoRA adapter trained on combined TRAIN of all datasets.
 # ✅ Best model selected by LOWEST GLOBAL validation CER (autoregressive generation each epoch).
 # ✅ Saves ONLY ONE best adapter: <run_dir>/best_model
-# ✅ ONE rolling checkpoint (save_total_limit=1) for resume safety.
 # ✅ Resume via: python gemma_multidataset.py --run_dir <existing_run_dir>
 # ✅ TensorBoard logging: <run_dir>/tb_logs
+#
+# IMPORTANT FIXES:
+# - PyTorch 2.6+ changed torch.load default to weights_only=True -> resume may fail on RNG state (numpy)
+#   => allowlist numpy globals (+ concrete dtype classes) for safe unpickling.
+# - Also add a safe Trainer override so resume never crashes even if RNG restore still fails.
 #
 # First run:
 #   python gemma_multidataset.py
@@ -44,7 +48,34 @@ from typing import List, Dict, Callable, Optional, Any
 
 import jiwer
 import numpy as np
+import numpy  # keep (we reference numpy._core...)
+import numpy._core.multiarray  # ✅ keep (some installs need this path)
 from PIL import Image
+
+# =============================================================================
+# ✅ PyTorch 2.6+ / 2.8 resume fix (safe-unpickling allowlist for RNG state)
+# =============================================================================
+# SFTTrainer/Trainer resume loads rng_state.pth via torch.load(...).
+# With PyTorch>=2.6 default weights_only=True, numpy objects are rejected unless allowlisted.
+try:
+    # Concrete dtype classes (NumPy 2.x uses e.g. numpy.dtypes.UInt32DType)
+    _DTYPE_CLASSES = {
+        np.dtype(t).__class__ for t in [
+            np.bool_,
+            np.uint8, np.uint16, np.uint32, np.uint64,
+            np.int8, np.int16, np.int32, np.int64,
+            np.float16, np.float32, np.float64,
+        ]
+    }
+    torch.serialization.add_safe_globals([
+        np.ndarray,
+        np.dtype,
+        *_DTYPE_CLASSES,  # ✅ covers numpy.dtypes.UInt32DType etc.
+        numpy._core.multiarray._reconstruct,
+        numpy._core.multiarray.scalar,
+    ])
+except Exception as e:
+    print(f"[WARN] add_safe_globals failed (continuing): {e}")
 
 from unsloth import FastVisionModel
 from trl import SFTTrainer, SFTConfig
@@ -52,6 +83,19 @@ from unsloth.trainer import UnslothVisionDataCollator
 from transformers import TrainerCallback
 from transformers.trainer_utils import get_last_checkpoint
 
+# =============================================================================
+# ✅ Bulletproof fallback: don’t crash if RNG state still can’t be loaded
+# =============================================================================
+class SafeRNGResumeSFTTrainer(SFTTrainer):
+    def _load_rng_state(self, resume_from_checkpoint):
+        try:
+            return super()._load_rng_state(resume_from_checkpoint)
+        except Exception as e:
+            print(
+                f"[WARN] Could not load RNG state from checkpoint ({resume_from_checkpoint}). "
+                f"Continuing without RNG restore. Error: {e}"
+            )
+            return
 
 # =============================================================================
 # CONFIGURATION
@@ -106,12 +150,11 @@ CONFIG = {
     # Test-time chunk flush interval
     "test_chunk_flush_interval": 5,
 
-    # Resume-friendly rolling checkpoint
-    "save_strategy": "steps",
-    "save_steps": 500,
+    # ✅ Resume-friendly rolling checkpoint
+    "save_strategy": "epoch",
+    "save_steps": 500,          # ignored when save_strategy="epoch"; kept for compatibility
     "save_total_limit": 1,
 }
-
 
 # =============================================================================
 # INSTRUCTIONS PER DATASET
@@ -179,7 +222,6 @@ DATASET_INSTRUCTIONS = {
     "staircase": INSTRUCTION_STAIRCASE,
 }
 
-
 # =============================================================================
 # UTILS
 # =============================================================================
@@ -193,12 +235,10 @@ def load_jsonl(file_path: str) -> List[Dict]:
                 data.append(json.loads(line))
     return data
 
-
 def save_jsonl(data: List[Dict], file_path: str):
     with open(file_path, "w", encoding="utf-8") as f:
         for item in data:
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
-
 
 def extract_json_from_response(response: str) -> Dict:
     """
@@ -218,7 +258,6 @@ def extract_json_from_response(response: str) -> Dict:
     if not text:
         return {}
 
-    # Strip Markdown fences
     if text.startswith("```"):
         parts = text.split("```")
         if len(parts) >= 3:
@@ -234,7 +273,6 @@ def extract_json_from_response(response: str) -> Dict:
         except json.JSONDecodeError:
             return None
 
-    # Find outermost braces
     if "{" in text and "}" in text:
         start = text.find("{")
         end = text.rfind("}")
@@ -242,12 +280,10 @@ def extract_json_from_response(response: str) -> Dict:
     else:
         core = text
 
-    # 1) Full core
     parsed = try_parse(core)
     if parsed is not None:
         return parsed
 
-    # 2) Walk backwards to find longest valid prefix
     import re as _re
     brace_positions = [m.start() for m in _re.finditer(r"\}", core)]
     for pos in reversed(brace_positions):
@@ -256,7 +292,6 @@ def extract_json_from_response(response: str) -> Dict:
         if parsed is not None:
             return parsed
 
-    # 3) Regex nested-brace heuristic
     json_pattern = r"\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}"
     matches = re.findall(json_pattern, core, re.DOTALL)
     if matches:
@@ -265,22 +300,16 @@ def extract_json_from_response(response: str) -> Dict:
             if parsed is not None:
                 return parsed
 
-    # 4) Whole text
     parsed = try_parse(text)
     if parsed is not None:
         return parsed
 
     return {}
 
-
 def json_to_readable_string(obj: Dict, exclude_keys: Optional[List[str]] = None) -> str:
-    """Convert dict to readable JSON string, excluding specified keys."""
     if exclude_keys:
         obj = {k: v for k, v in obj.items() if k not in exclude_keys}
     return json.dumps(obj, ensure_ascii=False, indent=2)
-
-
-# --- Per-dataset label creators & exclude keys ---
 
 DATASET_EXCLUDE_KEYS = {
     "inventory": ["image_name", "image_path"],
@@ -294,14 +323,31 @@ DATASET_IMAGE_KEYS = {
     "staircase": "image_name",
 }
 
-
 def create_label_string(item: Dict, dataset_name: str) -> str:
     exclude = DATASET_EXCLUDE_KEYS[dataset_name]
     return json_to_readable_string(item, exclude_keys=exclude)
 
+def recover_existing_best_model(run_dir: str, cer_callback=None) -> bool:
+    best_dir = os.path.join(run_dir, "best_model")
+    meta_path = os.path.join(best_dir, "best_meta.json")
+    if not os.path.isdir(best_dir):
+        return False
+
+    if cer_callback is not None:
+        cer_callback.best_checkpoint_path = best_dir
+        if os.path.isfile(meta_path):
+            try:
+                with open(meta_path, "r", encoding="utf-8") as f:
+                    meta = json.load(f)
+                cer_callback.best_cer = float(meta.get("best_global_cer", cer_callback.best_cer))
+            except Exception:
+                pass
+
+    print(f"✅ Using existing best_model from previous run: {best_dir}")
+    return True
 
 # =============================================================================
-# DATA PREPARATION  (Unsloth conversation format)
+# DATA PREPARATION (Unsloth conversation format)
 # =============================================================================
 
 def prepare_conversation_data(
@@ -310,7 +356,6 @@ def prepare_conversation_data(
     dataset_name: str,
     instruction: str,
 ) -> List[Dict]:
-    """Load JSONL, attach image paths, convert to Unsloth conversation format."""
     data = load_jsonl(jsonl_path)
     image_key = DATASET_IMAGE_KEYS[dataset_name]
 
@@ -350,18 +395,11 @@ def prepare_conversation_data(
     print(f"   [{dataset_name}] {valid} valid / {len(data)} total")
     return converted
 
-
 # =============================================================================
 # MULTI-DATASET CER CALLBACK
 # =============================================================================
 
 class MultiDatasetCERCallback(TrainerCallback):
-    """
-    At each epoch end, runs autoregressive greedy generation on val samples
-    from each dataset. Computes per-dataset CER and global (combined) CER.
-    Saves best adapter to <run_dir>/best_model whenever global CER improves.
-    """
-
     def __init__(
         self,
         model,
@@ -421,7 +459,6 @@ class MultiDatasetCERCallback(TrainerCallback):
         print(f"🔍 MULTI-DATASET CER VALIDATION (Epoch {epoch_num})")
         print("=" * 80)
 
-        # Switch to inference mode (Unsloth)
         FastVisionModel.for_inference(self.model)
         self.model.eval()
         device = next(self.model.parameters()).device
@@ -504,19 +541,9 @@ class MultiDatasetCERCallback(TrainerCallback):
                     if image is not None:
                         image.close()
                         del image
-                    try:
-                        del inputs
-                    except NameError:
-                        pass
-                    try:
-                        del outputs
-                    except NameError:
-                        pass
-                    try:
-                        del gen_ids
-                    except NameError:
-                        pass
-
+                    for _v in ["inputs", "outputs", "gen_ids"]:
+                        if _v in locals():
+                            del locals()[_v]
                     if (i + 1) % self.flush_interval == 0:
                         torch.cuda.empty_cache()
                         gc.collect()
@@ -548,7 +575,6 @@ class MultiDatasetCERCallback(TrainerCallback):
             print(f"   • {ds_name}: {cer_val:.4f} ({cer_val*100:.2f}%)")
         print("-" * 80)
 
-        # Save best model
         if global_cer < self.best_cer:
             improvement = self.best_cer - global_cer
             self.best_cer = float(global_cer)
@@ -566,7 +592,6 @@ class MultiDatasetCERCallback(TrainerCallback):
             except Exception as e:
                 print(f"   ⚠️  Tokenizer save warning: {e}")
 
-            # Save metadata
             meta = {
                 "best_global_cer": float(self.best_cer),
                 "best_epoch": epoch_num,
@@ -581,11 +606,9 @@ class MultiDatasetCERCallback(TrainerCallback):
 
         print("=" * 80 + "\n")
 
-        # Switch back to training mode
         FastVisionModel.for_training(self.model)
         self.model.train()
         return control
-
 
 # =============================================================================
 # TEST-TIME EVALUATION
@@ -604,7 +627,6 @@ def evaluate_on_dataset(
     max_new_tokens: int = 1024,
     flush_interval: int = 5,
 ) -> Dict:
-    """Evaluate model on a single dataset's test set with chunked memory management."""
     print("\n" + "=" * 80)
     print(f"TEST INFERENCE - {dataset_name.upper()}")
     print("=" * 80)
@@ -721,23 +743,18 @@ def evaluate_on_dataset(
                 if image is not None:
                     image.close()
                     del image
-                if "inputs" in locals():
-                    del inputs
-                if "outputs" in locals():
-                    del outputs
-                if "gen_ids" in locals():
-                    del gen_ids
+                for _v in ["inputs", "outputs", "gen_ids"]:
+                    if _v in locals():
+                        del locals()[_v]
                 torch.cuda.empty_cache()
                 gc.collect()
 
-        # Intermediate save every 3 chunks or last
         if (chunk_idx + 1) % 3 == 0 or chunk_idx == num_chunks - 1:
             intermediate_file = os.path.join(
                 output_dir, f"test_predictions_{dataset_name}_chunk_{chunk_idx+1}.jsonl"
             )
             save_jsonl(results, intermediate_file)
 
-    # Final save
     results_file = os.path.join(output_dir, f"test_predictions_{dataset_name}.jsonl")
     save_jsonl(results, results_file)
 
@@ -760,7 +777,6 @@ def evaluate_on_dataset(
     print(f"   Results: {results_file}")
     print(f"{'='*80}")
 
-    # Per-dataset summary
     summary_file = os.path.join(output_dir, f"summary_{dataset_name}.txt")
     with open(summary_file, "w", encoding="utf-8") as f:
         f.write("=" * 80 + "\n")
@@ -781,7 +797,6 @@ def evaluate_on_dataset(
         "total": n,
     }
 
-
 # =============================================================================
 # ARGPARSE
 # =============================================================================
@@ -798,7 +813,6 @@ def parse_args():
     )
     return p.parse_args()
 
-
 # =============================================================================
 # MAIN
 # =============================================================================
@@ -814,7 +828,6 @@ def main():
 
     base_dir = CONFIG["output_base_dir"]
 
-    # Decide run_dir: new or resume
     if args.run_dir is None:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         run_dir = os.path.join(base_dir, f"run_{timestamp}_multidataset_bestCER")
@@ -830,7 +843,6 @@ def main():
 
     CONFIG["output_dir"] = run_dir
 
-    # Save config (only on new run)
     cfg_path = os.path.join(run_dir, "training_config.json")
     if is_new_run:
         with open(cfg_path, "w", encoding="utf-8") as f:
@@ -841,13 +853,10 @@ def main():
     print(f"   • grad_accum: {CONFIG['gradient_accumulation_steps']}")
     print(f"   • lr: {CONFIG['learning_rate']}")
     print(f"   • LoRA: r={CONFIG['lora_r']} alpha={CONFIG['lora_alpha']} dropout={CONFIG['lora_dropout']}")
-    print(f"   • save_strategy: {CONFIG['save_strategy']} (every {CONFIG['save_steps']} steps, keep {CONFIG['save_total_limit']})")
+    print(f"   • save_strategy: {CONFIG['save_strategy']} (keep {CONFIG['save_total_limit']})")
     print(f"   • best adapter saved to: best_model/")
     print(f"   • tensorboard: {os.path.join(run_dir, 'tb_logs')}")
 
-    # -------------------------------------------------------------------------
-    # Clear Unsloth cache + load model
-    # -------------------------------------------------------------------------
     cache_dir = "/home/hpc/iwi5/iwi5298h/Uddipan-Thesis/gemma3/unsloth_compiled_cache"
     if os.path.exists(cache_dir):
         print(f"\n🧹 Clearing Unsloth compiled cache: {cache_dir}")
@@ -864,7 +873,6 @@ def main():
     )
     print("   ✅ Model loaded")
 
-    # LoRA
     model = FastVisionModel.get_peft_model(
         model,
         r=CONFIG["lora_r"],
@@ -881,9 +889,6 @@ def main():
     )
     print("   ✅ LoRA applied (Unsloth)")
 
-    # -------------------------------------------------------------------------
-    # Prepare datasets
-    # -------------------------------------------------------------------------
     ds_cfg = CONFIG["datasets"]
 
     print("\n📊 Preparing combined training data...")
@@ -909,13 +914,10 @@ def main():
     print(f"\n   📊 TOTAL combined train samples: {len(train_datasets)}")
     print(f"   📊 TOTAL combined val samples: {len(val_datasets)}")
 
-    # Tiny dummy eval subset — real CER evaluation happens in the callback.
-    # Only used by SFTTrainer to compute eval_loss (which we don't use).
     dummy_n = 3
     dummy_eval = val_datasets[:min(dummy_n * 3, len(val_datasets))]
     print(f"   📊 Dummy eval samples (for Trainer eval_loss): {len(dummy_eval)}")
 
-    # CER callback val subsets (raw JSONL items for autoregressive generation)
     max_val = CONFIG["max_val_samples_per_dataset"]
     val_sets = {
         ds_name: load_jsonl(ds_cfg[ds_name]["val_jsonl"])[:max_val]
@@ -937,21 +939,21 @@ def main():
         flush_interval=CONFIG["test_chunk_flush_interval"],
     )
 
-    # -------------------------------------------------------------------------
-    # Training
-    # -------------------------------------------------------------------------
+    if not is_new_run:
+        recover_existing_best_model(run_dir, cer_callback)
+
     FastVisionModel.for_training(model)
 
     train_output_dir = os.path.join(run_dir, "train_state")
     os.makedirs(train_output_dir, exist_ok=True)
 
-    trainer = SFTTrainer(
+    trainer = SafeRNGResumeSFTTrainer(
         model=model,
         tokenizer=tokenizer,
         data_collator=UnslothVisionDataCollator(model, tokenizer),
         train_dataset=train_datasets,
         eval_dataset=dummy_eval,
-        compute_metrics=None,  # Real CER computed in callback
+        compute_metrics=None,
         args=SFTConfig(
             per_device_train_batch_size=CONFIG["batch_size"],
             per_device_eval_batch_size=1,
@@ -977,7 +979,7 @@ def main():
             lr_scheduler_type="cosine",
             warmup_ratio=0.1,
             optim="adamw_torch_fused",
-            load_best_model_at_end=False,  # Callback handles best model saving
+            load_best_model_at_end=False,
             remove_unused_columns=False,
             dataset_text_field="",
             dataset_kwargs={"skip_prepare_dataset": True},
@@ -988,7 +990,7 @@ def main():
             seed=3407,
             output_dir=train_output_dir,
             save_safetensors=True,
-            prediction_loss_only=True,  # Skip expensive logit eval; real CER in callback
+            prediction_loss_only=True,
             disable_tqdm=False,
             label_smoothing_factor=CONFIG["label_smoothing_factor"],
         ),
@@ -1007,7 +1009,6 @@ def main():
         print(f"   Reserved: {start_gpu_memory} GB")
         print(f"{'='*80}\n")
 
-    # Resume logic
     last_ckpt = None
     if os.path.isdir(train_output_dir):
         last_ckpt = get_last_checkpoint(train_output_dir)
@@ -1021,11 +1022,13 @@ def main():
         trainer.train()
     print("=" * 80)
 
-    # Optional cleanup
     if args.cleanup_checkpoints:
         for ckpt_dir in glob.glob(os.path.join(train_output_dir, "checkpoint-*")):
             shutil.rmtree(ckpt_dir, ignore_errors=True)
         print("🧹 Deleted train_state/checkpoint-* folders (kept best_model + logs).")
+
+    if not cer_callback.best_checkpoint_path:
+        recover_existing_best_model(run_dir, cer_callback)
 
     print("\n" + "=" * 80)
     print("✅ TRAINING COMPLETED - MULTI-DATASET MODEL")
@@ -1035,20 +1038,14 @@ def main():
     print("=" * 80)
 
     if not cer_callback.best_checkpoint_path:
-        raise RuntimeError("No best model was saved. Check validation callback and val set paths.")
+        raise RuntimeError("No best model was saved and no existing best_model/ found.")
 
-    # -------------------------------------------------------------------------
-    # PHASE 2: Load best adapter + test evaluation
-    # -------------------------------------------------------------------------
     print("\n" + "=" * 80)
     print("PHASE 2: PER-DATASET EVALUATION ON TEST SETS")
     print("=" * 80)
 
     print(f"\n⏳ Loading best adapter weights from: {cer_callback.best_checkpoint_path}")
 
-    # Load best adapter weights back into the EXISTING Unsloth-managed model.
-    # Do NOT reload base model — a raw PeftModel.from_pretrained wrapper
-    # would lose Unsloth's internal patches and break FastVisionModel.for_inference().
     import safetensors.torch
     adapter_file = os.path.join(cer_callback.best_checkpoint_path, "adapter_model.safetensors")
     if not os.path.exists(adapter_file):
@@ -1056,6 +1053,7 @@ def main():
         adapter_state = torch.load(adapter_file, map_location="cpu")
     else:
         adapter_state = safetensors.torch.load_file(adapter_file)
+
     from peft import set_peft_model_state_dict
     set_peft_model_state_dict(model, adapter_state)
     del adapter_state
@@ -1083,9 +1081,6 @@ def main():
         )
         test_results[ds_name] = result
 
-    # -------------------------------------------------------------------------
-    # Save global summary + CER history
-    # -------------------------------------------------------------------------
     summary_file = os.path.join(run_dir, "training_summary_global.txt")
     with open(summary_file, "w", encoding="utf-8") as f:
         f.write("=" * 80 + "\n")
@@ -1132,7 +1127,6 @@ def main():
     print(f"✅ CER history JSON saved to: {cer_hist_file}")
     print(f"\nAll outputs saved under:\n  {run_dir}")
     print("\n🎉 Gemma-3 multi-dataset fine-tuning + per-dataset test evaluation complete!\n")
-
 
 if __name__ == "__main__":
     main()

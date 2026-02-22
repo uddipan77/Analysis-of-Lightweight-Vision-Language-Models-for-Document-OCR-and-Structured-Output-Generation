@@ -13,21 +13,16 @@
 # ✅ Uses tiny dummy eval set only to trigger epoch-end evaluation callback cheaply.
 #
 # ✅ Resume logic:
-#    - Keeps ONE rolling checkpoint (save_total_limit=1) for resume safety.
+#    - Uses ONE rolling HuggingFace Trainer checkpoint (save_total_limit=1) for resume safety.
+#    - save_strategy="epoch" (guaranteed checkpoint each epoch)
 #    - Resume via: python <script> --run_dir <existing_run_dir>
 #    - Automatically resumes from last checkpoint if present.
-#    - Optional: --cleanup_checkpoints to delete checkpoint folder after training completes.
+#    - If no HF checkpoint exists but best_model exists, warm-start from best adapter.
 #
-# IMPORTANT: Best model is a PEFT adapter; at test time we load base model + attach adapter (PeftModel.from_pretrained).
-#
-# First run:
-#   python phi_multidataset2.py
-#
-# Resume after timeout:
-#   python phi_multidataset2.py --run_dir /path/to/existing/run_dir
-#
-# TensorBoard:
-#   tensorboard --logdir <run_dir>/tb_logs
+# ✅ PyTorch 2.6+ resume fix:
+#    - torch.load defaults weights_only=True, RNG state may include numpy globals
+#    - We allowlist numpy ndarray + dtype + concrete dtype classes + reconstruct/scalar
+#    - Additionally we use a SafeRNGResumeTrainer that will NOT crash if RNG restore still fails.
 
 import os
 import json
@@ -42,7 +37,35 @@ from typing import List, Dict, Callable, Optional
 import torch
 import unicodedata
 import jiwer
+
 import numpy as np
+import numpy  # keep (we reference numpy._core...)
+import numpy._core.multiarray  # keep
+
+# =============================================================================
+# ✅ PyTorch 2.6+ torch.load(weights_only=True) safety allowlist for RNG state resume
+# =============================================================================
+try:
+    # Collect concrete dtype classes (NumPy 2.x uses e.g. numpy.dtypes.UInt32DType)
+    _DTYPE_CLASSES = {
+        np.dtype(t).__class__ for t in [
+            np.bool_,
+            np.uint8, np.uint16, np.uint32, np.uint64,
+            np.int8, np.int16, np.int32, np.int64,
+            np.float16, np.float32, np.float64,
+        ]
+    }
+
+    torch.serialization.add_safe_globals([
+        np.ndarray,
+        np.dtype,
+        *_DTYPE_CLASSES,  # ✅ covers numpy.dtypes.UInt32DType etc.
+        numpy._core.multiarray._reconstruct,
+        numpy._core.multiarray.scalar,
+    ])
+except Exception as e:
+    print(f"[WARN] add_safe_globals failed (continuing): {e}")
+
 from PIL import Image, ImageEnhance
 from torch.utils.data import Dataset, ConcatDataset, Subset
 
@@ -62,6 +85,20 @@ from peft import (
     prepare_model_for_kbit_training,
     PeftModel,
 )
+
+# =============================================================================
+# ✅ Bulletproof fallback: don’t crash if RNG state still can’t be loaded
+# =============================================================================
+class SafeRNGResumeTrainer(Trainer):
+    def _load_rng_state(self, resume_from_checkpoint):
+        try:
+            return super()._load_rng_state(resume_from_checkpoint)
+        except Exception as e:
+            print(
+                f"[WARN] Could not load RNG state from checkpoint ({resume_from_checkpoint}). "
+                f"Continuing without RNG restore. Error: {e}"
+            )
+            return
 
 # =============================================================================
 # CONFIGURATION
@@ -95,7 +132,7 @@ CONFIG = {
     "output_base_dir": "/home/vault/iwi5/iwi5298h/models_image_text/phi/general",
 
     # Training hyperparams
-    "num_epochs": 15,
+    "num_epochs": 11,
     "batch_size": 1,
     "gradient_accumulation_steps": 16,
     "learning_rate": 2e-4,
@@ -113,7 +150,7 @@ CONFIG = {
 
     # CER validation
     "max_val_samples_per_dataset": 30,
-    "val_cache_flush_interval": 4,   # flush CUDA cache every N val samples (stability)
+    "val_cache_flush_interval": 4,
 
     # Test-time CUDA cache flush interval
     "test_chunk_flush_interval": 3,
@@ -121,10 +158,9 @@ CONFIG = {
     # Dummy eval size to trigger Trainer eval cheaply (epoch-end)
     "dummy_eval_size_per_dataset": 3,
 
-    # Resume-friendly rolling checkpoint (keeps only ONE for resume safety)
-    "save_strategy": "steps",
-    "save_steps": 500,           # save every ~500 steps; tune to ~15-30 min intervals
-    "save_total_limit": 1,       # keep only latest checkpoint on disk
+    # Resume-friendly rolling checkpoint
+    "save_strategy": "epoch",
+    "save_total_limit": 1,
 }
 
 # =============================================================================
@@ -211,7 +247,6 @@ DATASET_INSTRUCTIONS = {
 def normalize_unicode(text: str) -> str:
     return unicodedata.normalize("NFC", text)
 
-
 def load_jsonl(file_path: str) -> List[Dict]:
     data: List[Dict] = []
     with open(file_path, "r", encoding="utf-8") as f:
@@ -221,22 +256,18 @@ def load_jsonl(file_path: str) -> List[Dict]:
                 data.append(json.loads(line))
     return data
 
-
 def save_jsonl(data: List[Dict], file_path: str):
     with open(file_path, "w", encoding="utf-8") as f:
         for item in data:
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
 
-
 def extract_json_from_response(response: str) -> str:
-    """Extract FIRST complete JSON object from response; fallback to raw substring/text."""
     response = response.strip()
     if "{" in response and "}" in response:
         start = response.find("{")
         end = response.rfind("}") + 1
         json_str = response[start:end]
 
-        # Try isolate first complete JSON object
         try:
             brace_count = 0
             first_end = -1
@@ -255,7 +286,6 @@ def extract_json_from_response(response: str) -> str:
         except Exception:
             pass
 
-        # Fallback parse full substring
         try:
             parsed = json.loads(json_str)
             return json.dumps(parsed, ensure_ascii=False, separators=(",", ":"), sort_keys=False)
@@ -264,23 +294,17 @@ def extract_json_from_response(response: str) -> str:
 
     return response
 
-
-# ---- label string creators per dataset --------------------------------------
-
 def create_label_string_inventory(json_data: Dict) -> str:
     label_data = {k: v for k, v in json_data.items() if k != "image_name"}
     return json.dumps(label_data, ensure_ascii=False, separators=(",", ":"), sort_keys=False)
-
 
 def create_label_string_schmuck(json_data: Dict) -> str:
     label_data = {k: v for k, v in json_data.items() if k != "file_name"}
     return json.dumps(label_data, ensure_ascii=False, separators=(",", ":"), sort_keys=False)
 
-
 def create_label_string_staircase(json_data: Dict) -> str:
     label_data = {k: v for k, v in json_data.items() if k != "image_name"}
     return json.dumps(label_data, ensure_ascii=False, separators=(",", ":"), sort_keys=False)
-
 
 LABEL_FNS: Dict[str, Callable[[Dict], str]] = {
     "inventory": create_label_string_inventory,
@@ -293,7 +317,6 @@ LABEL_FNS: Dict[str, Callable[[Dict], str]] = {
 # =============================================================================
 
 class DocumentImageAugmenter:
-    """Light augmentation for document images."""
     def __init__(self, enabled: bool = True):
         self.enabled = enabled
 
@@ -331,8 +354,7 @@ class InventoryDataset(Dataset):
             if os.path.exists(image_path):
                 self.valid_samples.append(item)
 
-        print(f"   [inventory] Loaded {len(self.valid_samples)} valid samples "
-              f"(out of {len(self.data)} total)")
+        print(f"   [inventory] Loaded {len(self.valid_samples)} valid samples (out of {len(self.data)} total)")
         if augment:
             print("   [inventory] Data augmentation ENABLED")
 
@@ -352,9 +374,7 @@ class InventoryDataset(Dataset):
             {"role": "assistant", "content": gt_json_str},
         ]
 
-        prompt = self.processor.tokenizer.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=False
-        )
+        prompt = self.processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=False)
         inputs = self.processor(prompt, [image], return_tensors="pt")
 
         labels = inputs["input_ids"].clone()
@@ -377,7 +397,6 @@ class InventoryDataset(Dataset):
             "labels": labels.squeeze(0),
         }
 
-
 class SchmuckDataset(Dataset):
     def __init__(self, jsonl_path, images_dir, processor, instruction, augment=False):
         self.data = load_jsonl(jsonl_path)
@@ -392,8 +411,7 @@ class SchmuckDataset(Dataset):
             if os.path.exists(image_path):
                 self.valid_samples.append(item)
 
-        print(f"   [schmuck] Loaded {len(self.valid_samples)} valid samples "
-              f"(out of {len(self.data)} total)")
+        print(f"   [schmuck] Loaded {len(self.valid_samples)} valid samples (out of {len(self.data)} total)")
         if augment:
             print("   [schmuck] Data augmentation ENABLED")
 
@@ -413,9 +431,7 @@ class SchmuckDataset(Dataset):
             {"role": "assistant", "content": gt_json_str},
         ]
 
-        prompt = self.processor.tokenizer.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=False
-        )
+        prompt = self.processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=False)
         inputs = self.processor(prompt, [image], return_tensors="pt")
 
         labels = inputs["input_ids"].clone()
@@ -438,7 +454,6 @@ class SchmuckDataset(Dataset):
             "labels": labels.squeeze(0),
         }
 
-
 class StaircaseDataset(Dataset):
     def __init__(self, jsonl_path, images_dir, processor, instruction, augment=False):
         self.data = load_jsonl(jsonl_path)
@@ -453,8 +468,7 @@ class StaircaseDataset(Dataset):
             if os.path.exists(image_path):
                 self.valid_samples.append(item)
 
-        print(f"   [staircase] Loaded {len(self.valid_samples)} valid samples "
-              f"(out of {len(self.data)} total)")
+        print(f"   [staircase] Loaded {len(self.valid_samples)} valid samples (out of {len(self.data)} total)")
         if augment:
             print("   [staircase] Data augmentation ENABLED")
 
@@ -474,9 +488,7 @@ class StaircaseDataset(Dataset):
             {"role": "assistant", "content": gt_json_str},
         ]
 
-        prompt = self.processor.tokenizer.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=False
-        )
+        prompt = self.processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=False)
         inputs = self.processor(prompt, [image], return_tensors="pt")
 
         labels = inputs["input_ids"].clone()
@@ -524,11 +536,6 @@ class DataCollatorForPhi3Vision:
 # =============================================================================
 
 class MultiDatasetCERCallback(TrainerCallback):
-    """
-    Runs autoregressive greedy generation CER evaluation on subsets of val data
-    for each dataset at the end of each epoch (triggered by Trainer eval).
-    Saves ONLY the best adapter to <run_dir>/best_model.
-    """
     def __init__(
         self,
         processor,
@@ -622,7 +629,6 @@ class MultiDatasetCERCallback(TrainerCallback):
                             eos_token_id=self.processor.tokenizer.eos_token_id,
                         )
 
-                    # Strip the prompt portion
                     generate_ids = generate_ids[:, inputs["input_ids"].shape[1]:]
 
                     raw_output = self.processor.batch_decode(
@@ -638,7 +644,6 @@ class MultiDatasetCERCallback(TrainerCallback):
                     predictions.append(prediction)
                     targets.append(ground_truth)
 
-                    # clean
                     del inputs, generate_ids, image
                     if (i + 1) % self.flush_interval == 0:
                         torch.cuda.empty_cache()
@@ -686,17 +691,14 @@ class MultiDatasetCERCallback(TrainerCallback):
             os.makedirs(best_model_path, exist_ok=True)
 
             print(f"   💾 Saving best adapter to: {best_model_path}")
-            # This saves the PEFT adapter (because model is a PeftModel)
             model.save_pretrained(best_model_path)
 
-            # Save tokenizer as well (optional but handy)
             try:
                 self.processor.tokenizer.save_pretrained(best_model_path)
                 print("   ✅ Adapter + tokenizer saved")
             except Exception as e:
                 print(f"   ⚠️  Tokenizer save warning: {e}")
 
-            # Save metadata about best epoch/score
             meta = {
                 "best_global_cer": float(self.best_cer),
                 "best_epoch": int(epoch_num),
@@ -877,6 +879,16 @@ def parse_args():
     )
     return p.parse_args()
 
+def maybe_warmstart_from_best_model(run_dir: str, model):
+    best_path = os.path.join(run_dir, "best_model")
+    if os.path.isdir(best_path) and os.path.isfile(os.path.join(best_path, "adapter_model.safetensors")):
+        try:
+            model = PeftModel.from_pretrained(model, best_path, is_trainable=True)
+            print(f"✅ Warm-started LoRA weights from: {best_path}")
+            return model
+        except Exception as e:
+            print(f"⚠️  Warm-start from best_model failed ({best_path}): {e}")
+    return model
 
 def main():
     args = parse_args()
@@ -889,7 +901,6 @@ def main():
 
     base_dir = CONFIG["output_base_dir"]
 
-    # Decide run_dir: new or resume
     if args.run_dir is None:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         run_dir = os.path.join(base_dir, f"run_{timestamp}_multidataset_bestCER")
@@ -905,7 +916,6 @@ def main():
 
     CONFIG["output_dir"] = run_dir
 
-    # Save config (only on new run; don't overwrite on resume)
     cfg_path = os.path.join(run_dir, "training_config.json")
     if is_new_run:
         with open(cfg_path, "w", encoding="utf-8") as f:
@@ -916,11 +926,10 @@ def main():
     print(f"   • grad_accum: {CONFIG['gradient_accumulation_steps']}")
     print(f"   • lr: {CONFIG['learning_rate']}")
     print(f"   • LoRA: r={CONFIG['lora_r']} alpha={CONFIG['lora_alpha']} dropout={CONFIG['lora_dropout']}")
-    print(f"   • save_strategy: {CONFIG['save_strategy']} (every {CONFIG['save_steps']} steps, keep {CONFIG['save_total_limit']})")
+    print(f"   • save_strategy: {CONFIG['save_strategy']} (keep {CONFIG['save_total_limit']})")
     print(f"   • best adapter saved to: best_model/")
     print(f"   • tensorboard: {os.path.join(run_dir, 'tb_logs')}")
 
-    # Quantization config
     bnb_config = BitsAndBytesConfig(
         load_in_4bit=CONFIG["use_4bit"],
         bnb_4bit_quant_type="nf4",
@@ -929,9 +938,7 @@ def main():
     )
 
     print(f"\n⏳ Loading processor from: {CONFIG['model_path']}")
-    processor = AutoProcessor.from_pretrained(
-        CONFIG["model_path"], trust_remote_code=True, num_crops=16
-    )
+    processor = AutoProcessor.from_pretrained(CONFIG["model_path"], trust_remote_code=True, num_crops=16)
     print("   ✅ Processor loaded")
 
     print(f"\n⏳ Loading Phi-3.5-Vision base model with 4-bit quantization...")
@@ -950,7 +957,6 @@ def main():
         reserved = torch.cuda.memory_reserved(0) / 1024**3
         print(f"   📊 GPU Memory - Allocated: {allocated:.2f} GB, Reserved: {reserved:.2f} GB")
 
-    # Prepare for LoRA training
     print("\n📝 Preparing model for QLoRA training...")
     model.gradient_checkpointing_enable()
     model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
@@ -965,11 +971,12 @@ def main():
     )
 
     model = get_peft_model(model, lora_config)
+    model = maybe_warmstart_from_best_model(run_dir, model)
+
     trainable_params, all_params = model.get_nb_trainable_parameters()
     print("   ✅ LoRA applied")
     print(f"   📊 Trainable params: {trainable_params:,} / {all_params:,} ({100*trainable_params/all_params:.2f}%)")
 
-    # Load datasets
     ds_cfg = CONFIG["datasets"]
 
     print("\n📊 Loading datasets...")
@@ -1008,7 +1015,6 @@ def main():
 
     train_dataset = ConcatDataset([inv_train, schmuck_train, stair_train])
 
-    # Dummy eval dataset: tiny subset to trigger epoch end eval; real CER in callback
     dummy_n = int(CONFIG["dummy_eval_size_per_dataset"])
     dummy_eval_size = min(dummy_n, len(inv_val), len(schmuck_val), len(stair_val))
     dummy_eval_dataset = ConcatDataset([
@@ -1023,7 +1029,6 @@ def main():
 
     data_collator = DataCollatorForPhi3Vision(processor=processor)
 
-    # Callback validation subsets
     max_val = int(CONFIG["max_val_samples_per_dataset"])
     val_sets = {
         "inventory": load_jsonl(ds_cfg["inventory"]["val_jsonl"])[:max_val],
@@ -1052,7 +1057,6 @@ def main():
         flush_interval=int(CONFIG["val_cache_flush_interval"]),
     )
 
-    # Training arguments
     train_output_dir = os.path.join(run_dir, "train_state")
     os.makedirs(train_output_dir, exist_ok=True)
 
@@ -1068,10 +1072,9 @@ def main():
         warmup_ratio=0.1,
         lr_scheduler_type="cosine",
         logging_steps=10,
-        save_strategy=CONFIG["save_strategy"],   # ✅ rolling checkpoint for resume
-        save_steps=CONFIG["save_steps"],
-        save_total_limit=CONFIG["save_total_limit"],  # keep only latest checkpoint
-        eval_strategy="epoch",   # ✅ triggers callback each epoch
+        save_strategy=CONFIG["save_strategy"],
+        save_total_limit=CONFIG["save_total_limit"],
+        eval_strategy="epoch",
         load_best_model_at_end=False,
         fp16=False,
         bf16=True,
@@ -1082,9 +1085,11 @@ def main():
         report_to="tensorboard",
         logging_dir=os.path.join(run_dir, "tb_logs"),
         optim="paged_adamw_8bit",
+        save_safetensors=True,
     )
 
-    trainer = Trainer(
+    # ✅ Use SafeRNGResumeTrainer to avoid resume crash on RNG state
+    trainer = SafeRNGResumeTrainer(
         model=model,
         args=training_args,
         train_dataset=train_dataset,
@@ -1102,22 +1107,19 @@ def main():
         print(f"   Max memory: {round(gpu_stats.total_memory / 1024**3, 3)} GB")
         print(f"{'='*80}\n")
 
-    # Resume logic: detect last checkpoint in train_output_dir
     last_ckpt = None
     if os.path.isdir(train_output_dir):
         last_ckpt = get_last_checkpoint(train_output_dir)
 
-    # Train
     print("\n" + "=" * 80)
     if last_ckpt is not None:
         print(f"🔁 Resuming training from: {last_ckpt}")
         trainer.train(resume_from_checkpoint=last_ckpt)
     else:
-        print("🚀 Starting multi-dataset QLoRA training from scratch...")
+        print("🚀 Starting multi-dataset QLoRA training from scratch (or warm-start adapter if present)...")
         trainer.train()
     print("=" * 80)
 
-    # Optional: clean up rolling checkpoint to save disk
     if args.cleanup_checkpoints:
         for ckpt_dir in glob.glob(os.path.join(train_output_dir, "checkpoint-*")):
             shutil.rmtree(ckpt_dir, ignore_errors=True)
@@ -1133,9 +1135,6 @@ def main():
     if not cer_callback.best_checkpoint_path:
         raise RuntimeError("No best model was saved. Check validation callback and val sets paths.")
 
-    # -----------------------------
-    # PHASE 2: Load best adapter correctly and evaluate on test sets
-    # -----------------------------
     print("\n" + "=" * 80)
     print("PHASE 2: PER-DATASET EVALUATION ON TEST SETS")
     print("=" * 80)
@@ -1153,9 +1152,7 @@ def main():
     best_model = PeftModel.from_pretrained(base_for_test, cer_callback.best_checkpoint_path)
     best_model.eval()
 
-    best_processor = AutoProcessor.from_pretrained(
-        CONFIG["model_path"], trust_remote_code=True, num_crops=16
-    )
+    best_processor = AutoProcessor.from_pretrained(CONFIG["model_path"], trust_remote_code=True, num_crops=16)
     print("   ✅ Best adapter attached to base model")
 
     flush_interval = int(CONFIG["test_chunk_flush_interval"])
@@ -1177,7 +1174,6 @@ def main():
         )
         test_results[ds_name] = result
 
-    # Save global summary and CER history
     summary_file = os.path.join(run_dir, "training_summary_global.txt")
     with open(summary_file, "w", encoding="utf-8") as f:
         f.write("=" * 80 + "\n")
@@ -1223,7 +1219,6 @@ def main():
     print(f"✅ CER history JSON saved to: {cer_hist_file}")
     print(f"\nAll outputs saved under:\n  {run_dir}")
     print("\n🎉 Multi-dataset fine-tuning + per-dataset test evaluation complete!\n")
-
 
 if __name__ == "__main__":
     main()
