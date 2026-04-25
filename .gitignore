@@ -1,0 +1,3 @@
+# Local model and checkpoint artifacts
+gemma_model/
+UI_main/gemma checkpoints used for ui/
