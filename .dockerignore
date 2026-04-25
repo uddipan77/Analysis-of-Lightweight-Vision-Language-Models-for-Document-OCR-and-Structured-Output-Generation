@@ -1,0 +1,14 @@
+# Exclude everything by default, then whitelist what we need
+*
+
+# ── Include requirements ──
+!requirements.docker.txt
+
+# ── Include application code ──
+!UI_main/gemma_ui_docker.py
+
+# ── Include base model ──
+!gemma_model/models--unsloth--gemma-3-4b-it-unsloth-bnb-4bit/snapshots/316726ca0bd24aa323bfaf86e8a379ee1176d1fe/
+
+# ── Include LoRA adapter ──
+!UI_main/gemma checkpoints used for ui/run_20251216_010403_gemma3_multidataset/best_model/

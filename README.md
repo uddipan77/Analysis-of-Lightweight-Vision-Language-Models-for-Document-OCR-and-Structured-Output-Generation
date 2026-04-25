@@ -151,7 +151,8 @@ Uddipan-Thesis/
 │   │   ├── inventory_finetune.py       <- Inventory dataset
 │   │   ├── schmuck_finetune.py         <- Schmuck dataset
 │   │   ├── stair_finetune.py           <- Staircase dataset
-│   │   └── stair_finetune2.py          <- Staircase (variant)
+│   │   ├── stair_finetune2.py          <- Staircase (variant)
+│   │   └── stair_full_finetune.py      <- Staircase full fine-tuning variant
 │   └── zero_shots/                     <- Zero-shot inference scripts
 │       ├── zero_shot_inventory.py      <- Inventory zero-shot
 │       ├── zero_schmuck.py             <- Schmuck zero-shot
@@ -269,26 +270,37 @@ Uddipan-Thesis/
 │
 ├── non_vlm/                           <- Non-VLM OCR baselines
 │   ├── easyocr/                       <- EasyOCR pipelines for Inventory & Schmuck
+│   │   ├── easyocr_inventory_dataset.py <- EasyOCR baseline for inventory forms
+│   │   └── easyocr_SCHMUCK_dataset.py <- EasyOCR baseline for schmuck forms
 │   ├── paddleocr/                     <- PaddleOCR pipelines for Inventory & Schmuck
+│   │   ├── paddleocr_inventory_dataset.py <- PaddleOCR baseline for inventory forms
+│   │   └── paddleocr_SCHMUCK_dataset.py <- PaddleOCR baseline for schmuck forms
 │   ├── tesseract/                     <- Tesseract pipelines for Inventory & Schmuck
-│   ├── non_vlm_anls_results.json      <- ANLS* scores for non-VLM baselines
-│   └── non_vlm_map_f1_results.json    <- mAP-F1 scores for non-VLM baselines
+│   │   ├── tesseract_inventory_dataset.py <- Tesseract baseline for inventory forms
+│   │   └── tesseract_schmuck_dataset.py <- Tesseract baseline for schmuck forms
+│   ├── all_anls_results.json          <- ANLS* scores for non-VLM baselines
+│   └── all_map_f1_results.json        <- mAP-F1 scores for non-VLM baselines
 │
 ├── map_f1_and_anls/                    <- Evaluation metric scripts
 │   ├── anls_all.py                     <- ANLS* metric computation (anls_star library)
 │   └── map_f1_all.py                   <- mAP-style Precision/Recall/F1 via per-field CER
 │
 ├── UI_codes/                           <- Interactive Gradio + FastAPI demo application
-│   ├── phi_ui.py                       <- OCR inference UI (model selection, JSON + Markdown output)
-│   ├── image1.png                      <- UI screenshot 1
-│   └── image2.png                      <- UI screenshot 2
+│   └── phi_ui.py                       <- OCR inference UI (model selection, JSON + Markdown output)
+│
+├── UI_main/                            <- Gemma-based OCR UI and deployment assets
+│   ├── gemma_ui.py                     <- Local Gemma UI entrypoint
+│   ├── gemma_ui.sh                     <- UI launch helper script
+│   ├── gemma_ui_docker.py              <- Docker-ready UI entrypoint
+│   └── gemma checkpoints used for ui/  <- LoRA adapter checkpoints used by the UI
 │
 ├── jobfiles/                           <- SLURM job scripts for FAU HPC cluster
 │   ├── job_gemma.sh, job_phi.sh, ...   <- Training/inference job submissions
 │   ├── GOT/                            <- GOT-OCR related job files
 │   ├── no_post_process/                <- Jobs without post-processing
 │   ├── post_process/                   <- Jobs with post-processing
-│   └── utils/                          <- Utility job scripts (JSON conversion, UI, saliency)
+│   ├── utils/                          <- Utility job scripts (JSON conversion, UI, saliency)
+│   └── vlmmodels.db                    <- SQLite DB copy used by some job workflows
 │
 ├── logs/                               <- SLURM output logs (stdout/stderr per job ID)
 │   ├── DONUT/                          <- Donut experiment logs
@@ -305,18 +317,26 @@ Uddipan-Thesis/
 ├── optuna db/                          <- Optuna study database
 │   └── vlmmodels.db                    <- SQLite DB for all HPO trials
 │
+├── gemma_model/                        <- Local cache of Gemma-3 4-bit model weights
+│   └── models--unsloth--gemma-3-4b-it-unsloth-bnb-4bit/
+│
 ├── yml_env_files/                      <- Conda environment files
 │   ├── gemma_vision.yml                <- Gemma-3 environment
 │   ├── phi_ocr.yml                     <- Phi-3.5-Vision environment
 │   ├── qwen_vision.yml                 <- Qwen2.5-VL environment
 │   ├── florence2_env.yml               <- Florence-2 environment
 │   ├── donut118.yml                    <- Donut environment
+│   ├── gemma_qwen_ui.yml               <- UI/Docker environment for Gemma + Qwen workflows
 │   ├── paddleocr.yml                   <- PaddleOCR-VL environment
 │   ├── nanonets.yml                    <- Nanonets environment
 │   ├── got_ocr.yml                     <- GOT-OCR environment
 │   ├── uddipan_thesis.yml              <- General thesis environment
 │   └── ...                             <- Additional environment files
 │
+├── .dockerignore                       <- Docker build ignore rules
+├── Dockerfile                          <- Container build for the Gemma OCR UI
+├── requirements.docker.txt             <- Python dependencies for the Docker image
+├── LICENSE                             <- Project license
 └── README.md                           <- This file
 ```
 
